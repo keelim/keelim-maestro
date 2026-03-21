@@ -1,6 +1,27 @@
 # keelim-maestro
 
-This root repository is a **workspace superproject bootstrap** for the child repositories in this folder.
+This root repository is a **workspace superproject / coordination layer** for the child repositories in this folder.
+
+## Workspace structure
+
+```mermaid
+flowchart TB
+    root["keelim-maestro"]
+
+    root --> rootFiles["root files<br/>AGENTS.md / README.md / .gitignore / .gitmodules"]
+    root --> omx[".omx<br/>state / logs / metrics"]
+    root --> submodules["registered submodules"]
+    root --> localRepos["autonomous local repos"]
+
+    submodules --> all["all"]
+    submodules --> android["android-support"]
+    submodules --> vault["Keelim-Knowledge-Vault"]
+    submodules --> skill["keelim-skill"]
+    submodules --> vercel["keelim-vercel"]
+
+    localRepos --> quant["quant"]
+    localRepos --> rich["rich"]
+```
 
 ## Current safe scope
 
@@ -9,22 +30,22 @@ This repository currently owns only root-level coordination files:
 - `AGENTS.md`
 - `README.md`
 - `.gitignore`
-- future `.gitmodules`
+- `.gitmodules`
 - future root-only helper scripts/docs
 
-The child repositories remain autonomous for now. This root is **not** yet a submodule-backed superproject snapshot because some child repos are still dirty or ahead of their remotes.
+The child repositories remain autonomous at the codebase level. Remote-backed repos can be tracked from the root via `.gitmodules`, while `quant` and `rich` remain outside the current submodule scope.
 
 ## Child repositories in this workspace
 
 | Path | Remote? | Current status | Notes |
 | --- | --- | --- | --- |
-| `all` | yes | clean vs `origin/develop` | candidate for later pinning |
-| `android-support` | yes | ahead of `origin/main` by 3 | push/reconcile before pinning |
-| `Keelim-Knowledge-Vault` | yes | ahead of `origin/main` by 1 | push/reconcile before pinning |
-| `keelim-skill` | yes | clean vs `origin/main` | candidate for later pinning |
-| `keelim-vercel` | yes | dirty, ahead of `origin/develop` by 5 | do not convert yet |
+| `all` | yes | clean vs `origin/develop` | registered submodule |
+| `android-support` | yes | clean vs `origin/main` | registered submodule |
+| `Keelim-Knowledge-Vault` | yes | clean vs `origin/main` | registered submodule |
+| `keelim-skill` | yes | clean vs `origin/main` | registered submodule |
+| `keelim-vercel` | yes | clean vs `origin/develop` | registered submodule |
 | `quant` | no | dirty local repo | intentionally excluded for now |
-| `rich` | yes | dirty, ahead of `origin/master` by 29 | do not convert yet |
+| `rich` | yes | ahead of `origin/master` by 30 | autonomous local repo; reconcile before future pinning |
 
 ## Why `/quant` is excluded
 
@@ -37,14 +58,14 @@ Do **not**:
 
 Keeping `/quant` autonomous preserves safety and avoids a non-reproducible clone workflow.
 
-## Why submodule conversion is deferred
+## Why broader submodule conversion is deferred
 
 Safe submodule conversion requires child repos to be pin-ready first. Right now that is blocked by:
 
-- dirty working trees in `keelim-vercel`, `quant`, and `rich`
-- local commits ahead of remote in `android-support`, `Keelim-Knowledge-Vault`, `keelim-vercel`, and `rich`
+- `quant` being a dirty local-only repo with no remote
+- `rich` having local commits ahead of `origin/master`
 
-Until those repos are normalized, do not convert them from the root.
+Until those repos are normalized, do not expand root-level submodule coverage to them.
 
 ## Bootstrap / inspection commands
 
@@ -56,14 +77,14 @@ git submodule foreach git status --short --branch
 git submodule update --init --recursive
 ```
 
-Note: the submodule commands above are for the later conversion stage; they are expected to be no-ops or fail until `.gitmodules` exists.
+Note: the submodule commands above are valid for the registered submodules in `.gitmodules`. `quant` remains intentionally excluded, and `rich` is still treated as an autonomous child repo from the root.
 
-## Next safe steps before submodule conversion
+## Next safe steps before expanding submodule coverage
 
-1. Decide which ahead-of-remote child commits should be pushed.
-2. Clean or explicitly preserve dirty child-repo work without discarding changes.
-3. Create `.gitmodules` only after the remote-backed child repos are safe to pin.
-4. Add submodules from remote URLs only.
+1. Reconcile or push the local commits currently ahead in `rich`.
+2. Clean or explicitly preserve dirty local work in `quant` without discarding changes.
+3. Expand `.gitmodules` only after any newly targeted remote-backed child repos are safe to pin.
+4. Add new submodules from remote URLs only.
 5. Verify with:
    - `git submodule status`
    - `git ls-files --stage | grep 160000`
@@ -71,7 +92,7 @@ Note: the submodule commands above are for the later conversion stage; they are 
 
 ## Clone / future bootstrap flow
 
-After this root repo eventually has `.gitmodules`, the reproducible bootstrap flow will be:
+For the currently registered submodules, the reproducible bootstrap flow is:
 
 ```bash
 git clone <root-repo>
