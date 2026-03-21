@@ -94,6 +94,8 @@ Helper script:
 ```bash
 ./scripts/update-subrepos.sh status
 ./scripts/update-subrepos.sh update
+./scripts/update-subrepos.sh update --dry-run
+./scripts/update-subrepos.sh dry-run
 ```
 
 Behavior:
@@ -101,6 +103,7 @@ Behavior:
 - reads tracked submodule paths from `.gitmodules`
 - includes autonomous local repos `rich` and `quant` in status output
 - updates only clean repos on `main` / `master` / `develop`
+- supports dry-run preview before any fetch / pull
 - skips repos with local commits ahead of upstream
 - uses `git pull --ff-only` for safer updates
 
