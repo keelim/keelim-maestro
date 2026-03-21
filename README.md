@@ -79,6 +79,31 @@ git submodule update --init --recursive
 
 Note: the submodule commands above are valid for the registered submodules in `.gitmodules`. `quant` remains intentionally excluded, and `rich` is still treated as an autonomous child repo from the root.
 
+## Subrepo update helper
+
+Tracked submodule default branches are declared in `.gitmodules`:
+
+- `all` -> `develop`
+- `android-support` -> `main`
+- `Keelim-Knowledge-Vault` -> `main`
+- `keelim-skill` -> `main`
+- `keelim-vercel` -> `develop`
+
+Helper script:
+
+```bash
+./scripts/update-subrepos.sh status
+./scripts/update-subrepos.sh update
+```
+
+Behavior:
+
+- reads tracked submodule paths from `.gitmodules`
+- includes autonomous local repos `rich` and `quant` in status output
+- updates only clean repos on `main` / `master` / `develop`
+- skips repos with local commits ahead of upstream
+- uses `git pull --ff-only` for safer updates
+
 ## Next safe steps before expanding submodule coverage
 
 1. Reconcile or push the local commits currently ahead in `rich`.
