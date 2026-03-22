@@ -15,6 +15,7 @@ flowchart TB
 
     submodules --> all["all"]
     submodules --> android["android-support"]
+    submodules --> c2gProxy["c2g-proxy"]
     submodules --> vault["Keelim-Knowledge-Vault"]
     submodules --> skill["keelim-skill"]
     submodules --> vercel["keelim-vercel"]
@@ -34,7 +35,22 @@ This repository currently owns only root-level coordination files:
 - `.gitmodules`
 - future root-only helper scripts/docs
 
-The child repositories remain autonomous at the codebase level. Remote-backed repos can be tracked from the root via `.gitmodules`, while `quant` and `rich` remain outside the current submodule scope.
+## LiteLLM / Claude bridge location
+
+The Claude Code + LiteLLM + Gemini bridge artifacts now live under `c2g-proxy/`, which is now a GitHub-backed root submodule and uv-managed bridge project with project-scoped `.env` onboarding.
+
+Use:
+
+- `c2g-proxy/README.md`
+- `c2g-proxy/.env.example`
+- `c2g-proxy/docs/claude-code-via-litellm-gemini.md`
+- `c2g-proxy/docs/claude-code-via-litellm-gemini-verification.md`
+- `c2g-proxy/scripts/litellm/`
+
+Bridge onboarding now lives inside `c2g-proxy/`: copy `.env.example` to `.env`,
+run `uv sync`, then use the bundled start/verify helpers.
+
+The child repositories remain autonomous at the codebase level. Remote-backed repos can be tracked from the root via `.gitmodules`; `c2g-proxy` is now pinned there as the bridge repo, while `quant` and `rich` remain outside the current submodule scope.
 `all-web-ui` now has a public remote repository, but it is still managed as an autonomous child repo from the root until the remaining workspace blockers are resolved.
 
 ## Child repositories in this workspace
@@ -44,6 +60,7 @@ The child repositories remain autonomous at the codebase level. Remote-backed re
 | `all` | yes | clean vs `origin/develop` | registered submodule |
 | `all-web-ui` | yes | clean vs `origin/main` | autonomous shared UI repo with public remote; included in root subrepo helper + integration verification |
 | `android-support` | yes | clean vs `origin/main` | registered submodule |
+| `c2g-proxy` | yes | clean vs `origin/main` | registered submodule for the Claude Code + LiteLLM + Gemini bridge |
 | `Keelim-Knowledge-Vault` | yes | clean vs `origin/main` | registered submodule |
 | `keelim-skill` | yes | clean vs `origin/main` | registered submodule |
 | `keelim-vercel` | yes | clean vs `origin/develop` | registered submodule |
@@ -63,7 +80,7 @@ Keeping `/quant` autonomous preserves safety and avoids a non-reproducible clone
 
 ## Why broader submodule conversion is deferred
 
-Safe submodule conversion requires child repos to be pin-ready first. Right now that is blocked by:
+Broader child-repo submodule conversion still requires pin-ready repos first. The explicit exception is `c2g-proxy`, which was added directly from its GitHub remote because it is already remote-backed and pin-ready. Further expansion is still blocked by:
 
 - `quant` being a dirty local-only repo with no remote
 - any other child repos that are dirty or temporarily diverged from the pinned root state
@@ -89,6 +106,7 @@ Tracked submodule default branches are declared in `.gitmodules`:
 
 - `all` -> `develop`
 - `android-support` -> `main`
+- `c2g-proxy` -> `main`
 - `Keelim-Knowledge-Vault` -> `main`
 - `keelim-skill` -> `main`
 - `keelim-vercel` -> `develop`
