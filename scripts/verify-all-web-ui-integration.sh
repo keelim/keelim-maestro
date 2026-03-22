@@ -114,17 +114,19 @@ file_contains() {
   rg -q --fixed-strings "$pattern" "$file_path"
 }
 
-directory_has_all_files() {
-  directory="$1"
-  shift
-
-  for name in "$@"; do
-    if [ ! -f "$directory/$name" ]; then
-      return 1
-    fi
-  done
-
-  return 0
+all_web_ui_has_style_entrypoints() {
+  (
+    cd "$ALL_WEB_UI_DIR" &&
+      {
+        [ -f "src/styles/styles.css" ] || [ -f "src/styles/tokens.css" ];
+      } &&
+      {
+        [ -f "src/styles/themes/finance.css" ] || [ -f "src/styles/theme-finance.css" ];
+      } &&
+      {
+        [ -f "src/styles/themes/admin-bw.css" ] || [ -f "src/styles/theme-admin-bw.css" ];
+      }
+  )
 }
 
 directory_has_minimum_files() {
@@ -194,9 +196,7 @@ run_static_checks() {
       "button.tsx" "input.tsx" "panel.tsx" "card.tsx" "badge.tsx" "loading-status.tsx" "empty-state.tsx"
     run_check \
       "all-web-ui defines shared style entrypoints" \
-      directory_has_all_files \
-      "$ALL_WEB_UI_DIR/src/styles" \
-      "tokens.css" "theme-finance.css" "theme-admin-bw.css"
+      all_web_ui_has_style_entrypoints
   fi
 
   if [ -f "$RICH_WEB_DIR/package.json" ]; then
@@ -239,6 +239,33 @@ run_command_check() {
   fi
 }
 
+run_with_lock_retry() {
+  retry_pattern="$1"
+  shift
+
+  output_file="$(mktemp)"
+  if "$@" >"$output_file" 2>&1; then
+    cat "$output_file"
+    rm -f "$output_file"
+    return 0
+  fi
+
+  cat "$output_file"
+  if rg -q --fixed-strings "$retry_pattern" "$output_file"; then
+    printf '[retry] matched lock pattern, retrying once...\n'
+    sleep 1
+    if "$@" >"$output_file" 2>&1; then
+      cat "$output_file"
+      rm -f "$output_file"
+      return 0
+    fi
+    cat "$output_file"
+  fi
+
+  rm -f "$output_file"
+  return 1
+}
+
 run_full_checks() {
   run_command_check "all-web-ui typecheck" sh -c "cd \"$ALL_WEB_UI_DIR\" && bun run typecheck"
   run_command_check "all-web-ui test" sh -c "cd \"$ALL_WEB_UI_DIR\" && bun test"
@@ -247,7 +274,11 @@ run_full_checks() {
   run_command_check "rich/web build" sh -c "cd \"$RICH_WEB_DIR\" && bun run build"
   run_command_check "keelim-vercel typecheck" sh -c "cd \"$KEELIM_VERCEL_DIR\" && bun run typecheck"
   run_command_check "keelim-vercel lint" sh -c "cd \"$KEELIM_VERCEL_DIR\" && bun run lint"
-  run_command_check "keelim-vercel build" sh -c "cd \"$KEELIM_VERCEL_DIR\" && bun run build"
+  run_command_check \
+    "keelim-vercel build" \
+    run_with_lock_retry \
+    "Unable to acquire lock" \
+    sh -c "cd \"$KEELIM_VERCEL_DIR\" && bun run build"
 }
 
 print_header
