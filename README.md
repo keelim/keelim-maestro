@@ -35,21 +35,6 @@ This repository currently owns only root-level coordination files:
 
 The child repositories remain autonomous at the codebase level. Remote-backed repos can be tracked from the root via `.gitmodules`, while `quant` and `rich` remain outside the current submodule scope.
 
-## Approved next autonomous child repo: `all-web-ui`
-
-The approved shared UI rollout adds a new **autonomous child repository** at `all-web-ui/`.
-
-- status: planned workspace addition, not yet part of the current `.gitmodules` set
-- default branch: `main`
-- integration order: `rich/web` first, `keelim-vercel` second
-- scope: shared CSS tokens/themes + reusable UI primitives only
-- guardrails:
-  - preserve `rich` admin black/white theme and Agentation toolbar behavior
-  - keep `keelim-vercel/components/ui/*` under shadcn management; use wrappers/adapters instead
-  - do not turn the root coordination layer into a monorepo
-
-Review and documentation checklist: [`docs/all-web-ui-review-checklist.md`](docs/all-web-ui-review-checklist.md)
-
 ## Child repositories in this workspace
 
 | Path | Remote? | Current status | Notes |
