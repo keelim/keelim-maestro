@@ -16,10 +16,17 @@
 - Do not discard, rewrite, or normalize child-repo changes from the root without an explicit request.
 
 ## Child repository autonomy
-- Every top-level child directory (`all`, `android-support`, `Keelim-Knowledge-Vault`, `keelim-skill`, `keelim-vercel`, `quant`, `rich`) remains its own Git repository and working context.
+- Every top-level child directory (`all`, `all-web-ui`, `android-support`, `Keelim-Knowledge-Vault`, `keelim-skill`, `keelim-vercel`, `quant`, `rich`) remains its own Git repository and working context.
 - When modifying code inside a child repo, enter that repo, use its own Git history, and follow any deeper `AGENTS.md` that applies there.
 - Root-level changes should prefer updating documentation, submodule metadata, or pinned pointers rather than editing child-repo source files.
 - A deeper `AGENTS.md` inside a child repo overrides this file for files under that child repo.
+
+## `/all-web-ui` policy
+- `/all-web-ui` is currently treated as an autonomous local child repository from the root.
+- It now has a remote-backed public repository, but root submodule expansion is still deferred until the remaining child-repo blockers are resolved.
+- Include `/all-web-ui` in root-level subrepo status / verification helpers.
+- Do not add `/all-web-ui` as a local-path submodule from the root.
+- If it is later converted to a root submodule, use the remote-backed URL only after the broader workspace is safe to pin.
 
 ## `/quant` policy
 - `/quant` is intentionally excluded from the initial root superproject/submodule scope.

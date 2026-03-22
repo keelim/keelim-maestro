@@ -19,6 +19,7 @@ flowchart TB
     submodules --> skill["keelim-skill"]
     submodules --> vercel["keelim-vercel"]
 
+    localRepos --> allWebUi["all-web-ui"]
     localRepos --> quant["quant"]
     localRepos --> rich["rich"]
 ```
@@ -34,12 +35,14 @@ This repository currently owns only root-level coordination files:
 - future root-only helper scripts/docs
 
 The child repositories remain autonomous at the codebase level. Remote-backed repos can be tracked from the root via `.gitmodules`, while `quant` and `rich` remain outside the current submodule scope.
+`all-web-ui` now has a public remote repository, but it is still managed as an autonomous child repo from the root until the remaining workspace blockers are resolved.
 
 ## Child repositories in this workspace
 
 | Path | Remote? | Current status | Notes |
 | --- | --- | --- | --- |
 | `all` | yes | clean vs `origin/develop` | registered submodule |
+| `all-web-ui` | yes | clean vs `origin/main` | autonomous shared UI repo with public remote; included in root subrepo helper + integration verification |
 | `android-support` | yes | clean vs `origin/main` | registered submodule |
 | `Keelim-Knowledge-Vault` | yes | clean vs `origin/main` | registered submodule |
 | `keelim-skill` | yes | clean vs `origin/main` | registered submodule |
@@ -63,7 +66,7 @@ Keeping `/quant` autonomous preserves safety and avoids a non-reproducible clone
 Safe submodule conversion requires child repos to be pin-ready first. Right now that is blocked by:
 
 - `quant` being a dirty local-only repo with no remote
-- `rich` having local commits ahead of `origin/master`
+- any other child repos that are dirty or temporarily diverged from the pinned root state
 
 Until those repos are normalized, do not expand root-level submodule coverage to them.
 
@@ -78,6 +81,7 @@ git submodule update --init --recursive
 ```
 
 Note: the submodule commands above are valid for the registered submodules in `.gitmodules`. `quant` remains intentionally excluded, and `rich` is still treated as an autonomous child repo from the root.
+`all-web-ui` is also surfaced through the root helper scripts as an autonomous child repo, but it is not yet a registered submodule.
 
 ## Subrepo update helper
 
@@ -101,7 +105,7 @@ Helper script:
 Behavior:
 
 - reads tracked submodule paths from `.gitmodules`
-- includes autonomous local repos `rich` and `quant` in status output
+- includes autonomous local repos `all-web-ui`, `rich`, and `quant` in status output
 - updates only clean repos on `main` / `master` / `develop`
 - supports dry-run preview before any fetch / pull
 - skips repos with local commits ahead of upstream
@@ -111,9 +115,10 @@ Behavior:
 
 1. Reconcile or push the local commits currently ahead in `rich`.
 2. Clean or explicitly preserve dirty local work in `quant` without discarding changes.
-3. Expand `.gitmodules` only after any newly targeted remote-backed child repos are safe to pin.
-4. Add new submodules from remote URLs only.
-5. Verify with:
+3. Reconcile any child repos that are temporarily dirty or diverged from the root-pinned state.
+4. Expand `.gitmodules` only after any newly targeted remote-backed child repos are safe to pin.
+5. Add new submodules from remote URLs only.
+6. Verify with:
    - `git submodule status`
    - `git ls-files --stage | grep 160000`
    - `git status --ignore-submodules=none`

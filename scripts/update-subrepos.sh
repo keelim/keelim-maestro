@@ -50,7 +50,7 @@ cd "$ROOT_DIR"
 list_repo_paths() {
   {
     git config -f .gitmodules --get-regexp '^submodule\..*\.path$' 2>/dev/null | awk '{print $2}' || true
-    for extra in rich quant; do
+    for extra in all-web-ui rich quant; do
       if [ -d "$extra/.git" ]; then
         printf '%s\n' "$extra"
       fi
