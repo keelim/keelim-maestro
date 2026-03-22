@@ -101,6 +101,13 @@ package_script_exists() {
   jq -e --arg script_name "$script_name" '(.scripts // {})[$script_name]' "$package_json" >/dev/null
 }
 
+git_has_remote() {
+  repo_dir="$1"
+  remote_name="$2"
+
+  git -C "$repo_dir" remote get-url "$remote_name" >/dev/null 2>&1
+}
+
 branch_is_main() {
   repo_dir="$1"
   current_branch="$(git -C "$repo_dir" symbolic-ref --quiet --short HEAD 2>/dev/null || true)"
@@ -112,6 +119,12 @@ file_contains() {
   pattern="$2"
 
   rg -q --fixed-strings "$pattern" "$file_path"
+}
+
+update_subrepos_status_lists_repo() {
+  repo_path="$1"
+
+  "$WORKSPACE_ROOT/scripts/update-subrepos.sh" status | rg -q "^${repo_path}[[:space:]]+branch="
 }
 
 all_web_ui_has_style_entrypoints() {
@@ -146,7 +159,7 @@ directory_has_minimum_files() {
 
 imports_all_web_ui_anywhere() {
   target_dir="$1"
-  rg -q "from ['\"]all-web-ui" "$target_dir"
+  rg -q "(from|import) ['\"][^'\"]*all-web-ui" "$target_dir"
 }
 
 keelim_boundary_imports_valid() {
@@ -182,6 +195,9 @@ run_static_checks() {
   run_check "all-web-ui repo exists" path_is_git_repo "$ALL_WEB_UI_DIR"
   run_check "rich/web repo exists" path_is_git_repo "$WORKSPACE_ROOT/rich"
   run_check "keelim-vercel repo exists" path_is_git_repo "$KEELIM_VERCEL_DIR"
+  run_check "all-web-ui has origin remote" git_has_remote "$ALL_WEB_UI_DIR" "origin"
+  run_check "root .gitignore excludes all-web-ui" file_contains "$WORKSPACE_ROOT/.gitignore" "/all-web-ui/"
+  run_check "update-subrepos status lists all-web-ui" update_subrepos_status_lists_repo "all-web-ui"
 
   if path_is_git_repo "$ALL_WEB_UI_DIR"; then
     run_check "all-web-ui default branch is main" branch_is_main "$ALL_WEB_UI_DIR"
