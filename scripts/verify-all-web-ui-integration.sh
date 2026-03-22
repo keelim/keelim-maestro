@@ -114,17 +114,32 @@ file_contains() {
   rg -q --fixed-strings "$pattern" "$file_path"
 }
 
-directory_has_any_file() {
+directory_has_all_files() {
   directory="$1"
   shift
 
   for name in "$@"; do
-    if [ -f "$directory/$name" ]; then
-      return 0
+    if [ ! -f "$directory/$name" ]; then
+      return 1
     fi
   done
 
-  return 1
+  return 0
+}
+
+directory_has_minimum_files() {
+  directory="$1"
+  minimum="$2"
+  shift 2
+
+  count=0
+  for name in "$@"; do
+    if [ -f "$directory/$name" ]; then
+      count=$((count + 1))
+    fi
+  done
+
+  [ "$count" -ge "$minimum" ]
 }
 
 imports_all_web_ui_anywhere() {
@@ -173,12 +188,13 @@ run_static_checks() {
     run_check "all-web-ui has test script" package_script_exists "$ALL_WEB_UI_DIR/package.json" "test"
     run_check \
       "all-web-ui exports core primitive source files" \
-      directory_has_any_file \
+      directory_has_minimum_files \
       "$ALL_WEB_UI_DIR/src/components" \
-      "button.tsx" "input.tsx" "panel.tsx" "card.tsx" "badge.tsx" "loading-status.tsx"
+      5 \
+      "button.tsx" "input.tsx" "panel.tsx" "card.tsx" "badge.tsx" "loading-status.tsx" "empty-state.tsx"
     run_check \
       "all-web-ui defines shared style entrypoints" \
-      directory_has_any_file \
+      directory_has_all_files \
       "$ALL_WEB_UI_DIR/src/styles" \
       "tokens.css" "theme-finance.css" "theme-admin-bw.css"
   fi
