@@ -10,9 +10,9 @@
 	path = Keelim-Knowledge-Vault
 	url = https://github.com/keelim/Keelim-Knowledge-Vault.git
 	branch = main
-[submodule "keelim-skill"]
-	path = keelim-skill
-	url = https://github.com/keelim/keelim-skill.git
+[submodule "keelim-plugin"]
+	path = keelim-plugin
+	url = https://github.com/keelim/keelim-plugin.git
 	branch = main
 [submodule "keelim-vercel"]
 	path = keelim-vercel

@@ -17,7 +17,7 @@ flowchart TB
     submodules --> android["android-support"]
     submodules --> c2gProxy["c2g-proxy"]
     submodules --> vault["Keelim-Knowledge-Vault"]
-    submodules --> skill["keelim-skill"]
+    submodules --> skill["keelim-plugin"]
     submodules --> vercel["keelim-vercel"]
 
     localRepos --> allWebUi["all-web-ui"]
@@ -62,7 +62,7 @@ The child repositories remain autonomous at the codebase level. Remote-backed re
 | `android-support` | yes | clean vs `origin/main` | registered submodule |
 | `c2g-proxy` | yes | clean vs `origin/main` | registered submodule for the Claude Code + LiteLLM + Gemini bridge |
 | `Keelim-Knowledge-Vault` | yes | clean vs `origin/main` | registered submodule |
-| `keelim-skill` | yes | clean vs `origin/main` | registered submodule |
+| `keelim-plugin` | yes | clean vs `origin/main` | registered submodule |
 | `keelim-vercel` | yes | clean vs `origin/develop` | registered submodule |
 | `quant` | no | dirty local repo | intentionally excluded for now |
 | `rich` | yes | ahead of `origin/master` by 30 | autonomous local repo; reconcile before future pinning |
@@ -108,7 +108,7 @@ Tracked submodule default branches are declared in `.gitmodules`:
 - `android-support` -> `main`
 - `c2g-proxy` -> `main`
 - `Keelim-Knowledge-Vault` -> `main`
-- `keelim-skill` -> `main`
+- `keelim-plugin` -> `main`
 - `keelim-vercel` -> `develop`
 
 Helper script:
