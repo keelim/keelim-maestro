@@ -16,7 +16,7 @@
 - Do not discard, rewrite, or normalize child-repo changes from the root without an explicit request.
 
 ## Child repository autonomy
-- Every top-level child directory (`all`, `all-web-ui`, `android-support`, `c2g-proxy`, `Keelim-Knowledge-Vault`, `keelim-skill`, `keelim-vercel`, `quant`, `rich`) remains its own Git repository and working context.
+- Every top-level child directory (`all`, `all-web-ui`, `android-support`, `c2g-proxy`, `Keelim-Knowledge-Vault`, `keelim-plugin`, `keelim-vercel`, `quant`, `rich`) remains its own Git repository and working context.
 - When modifying code inside a child repo, enter that repo, use its own Git history, and follow any deeper `AGENTS.md` that applies there.
 - Root-level changes should prefer updating documentation, submodule metadata, or pinned pointers rather than editing child-repo source files.
 - A deeper `AGENTS.md` inside a child repo overrides this file for files under that child repo.
