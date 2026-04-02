@@ -1,0 +1,33 @@
+node_types:
+  - Service
+  - APIEndpoint
+  - DomainEntity
+  - BoundedContext
+  - BusinessRule
+  - DomainWorkflow
+  - DatabaseTable
+  - TableColumn
+  - EventQueue
+  - Workspace
+  - Subproject
+  - Module
+  - UIScreen
+  - Repository
+
+relation_types:
+  - PROVIDES
+  - IMPLEMENTS
+  - ACCESSES
+  - READS
+  - WRITES
+  - DELETES
+  - CALLS_API
+  - STORED_IN
+  - GOVERNED_BY
+  - BELONGS_TO
+  - PUBLISHES_TO
+  - CONSUMES_FROM
+  - TRIGGERS
+  - CONTAINS
+  - RENDERS
+  - USES

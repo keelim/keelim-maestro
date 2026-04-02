@@ -1,0 +1,6 @@
+id: workflow:product-catalog-sync
+node_type: DomainWorkflow
+name: Product catalog sync
+path: keelim-vercel/app/api/products/import/route.ts
+metadata:
+  description: Import, validate, persist, and re-export product catalog data.

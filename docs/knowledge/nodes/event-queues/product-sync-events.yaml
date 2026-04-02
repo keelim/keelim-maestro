@@ -1,0 +1,6 @@
+id: queue:product-sync-events
+node_type: EventQueue
+name: Product sync events
+path: docs/knowledge/relationships/product-domain.yaml
+metadata:
+  description: Logical queue for downstream product sync notifications.

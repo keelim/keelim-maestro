@@ -1,0 +1,1555 @@
+{
+  "subproject": "rich",
+  "nodes": [
+    {
+      "id": "rich:service:gh_actions.GHActionsError",
+      "node_type": "Service",
+      "name": "gh_actions.GHActionsError",
+      "path": "rich/app/services/gh_actions.py"
+    },
+    {
+      "id": "rich:service:gh_actions.get_identity",
+      "node_type": "Service",
+      "name": "gh_actions.get_identity",
+      "path": "rich/app/services/gh_actions.py"
+    },
+    {
+      "id": "rich:service:gh_actions.list_workflow_cards",
+      "node_type": "Service",
+      "name": "gh_actions.list_workflow_cards",
+      "path": "rich/app/services/gh_actions.py"
+    },
+    {
+      "id": "rich:service:gh_actions.resolve_default_ref",
+      "node_type": "Service",
+      "name": "gh_actions.resolve_default_ref",
+      "path": "rich/app/services/gh_actions.py"
+    },
+    {
+      "id": "rich:service:gh_actions.run_workflow_by_id",
+      "node_type": "Service",
+      "name": "gh_actions.run_workflow_by_id",
+      "path": "rich/app/services/gh_actions.py"
+    },
+    {
+      "id": "rich:service:gh_actions.from app.services.pykrx_foreign_flow import",
+      "node_type": "Service",
+      "name": "gh_actions.from app.services.pykrx_foreign_flow import",
+      "path": "rich/app/services/gh_actions.py"
+    },
+    {
+      "id": "rich:service:gh_actions.PykrxIngestionError",
+      "node_type": "Service",
+      "name": "gh_actions.PykrxIngestionError",
+      "path": "rich/app/services/gh_actions.py"
+    },
+    {
+      "id": "rich:service:gh_actions.list_common_flow_streaks",
+      "node_type": "Service",
+      "name": "gh_actions.list_common_flow_streaks",
+      "path": "rich/app/services/gh_actions.py"
+    },
+    {
+      "id": "rich:service:gh_actions.list_foreign_flow_streaks",
+      "node_type": "Service",
+      "name": "gh_actions.list_foreign_flow_streaks",
+      "path": "rich/app/services/gh_actions.py"
+    },
+    {
+      "id": "rich:service:gh_actions.list_institution_flow_streaks",
+      "node_type": "Service",
+      "name": "gh_actions.list_institution_flow_streaks",
+      "path": "rich/app/services/gh_actions.py"
+    },
+    {
+      "id": "rich:service:gh_actions.lookup_market_fundamentals",
+      "node_type": "Service",
+      "name": "gh_actions.lookup_market_fundamentals",
+      "path": "rich/app/services/gh_actions.py"
+    },
+    {
+      "id": "rich:service:gh_actions.run_foreign_flow_ingestion",
+      "node_type": "Service",
+      "name": "gh_actions.run_foreign_flow_ingestion",
+      "path": "rich/app/services/gh_actions.py"
+    },
+    {
+      "id": "rich:service:gh_actions.run_institution_flow_ingestion",
+      "node_type": "Service",
+      "name": "gh_actions.run_institution_flow_ingestion",
+      "path": "rich/app/services/gh_actions.py"
+    },
+    {
+      "id": "rich:service:gh_actions.from app.services.weekly_review import",
+      "node_type": "Service",
+      "name": "gh_actions.from app.services.weekly_review import",
+      "path": "rich/app/services/gh_actions.py"
+    },
+    {
+      "id": "rich:service:gh_actions.WeeklyReviewError",
+      "node_type": "Service",
+      "name": "gh_actions.WeeklyReviewError",
+      "path": "rich/app/services/gh_actions.py"
+    },
+    {
+      "id": "rich:service:gh_actions.generate_ai_summary",
+      "node_type": "Service",
+      "name": "gh_actions.generate_ai_summary",
+      "path": "rich/app/services/gh_actions.py"
+    },
+    {
+      "id": "rich:service:gh_actions.get_week_summary",
+      "node_type": "Service",
+      "name": "gh_actions.get_week_summary",
+      "path": "rich/app/services/gh_actions.py"
+    },
+    {
+      "id": "rich:service:gh_actions.save_weekly_review",
+      "node_type": "Service",
+      "name": "gh_actions.save_weekly_review",
+      "path": "rich/app/services/gh_actions.py"
+    },
+    {
+      "id": "rich:endpoint:get:/api/admin/me",
+      "node_type": "APIEndpoint",
+      "name": "GET /api/admin/me",
+      "path": "app/api/admin.py"
+    },
+    {
+      "id": "rich:endpoint:get:/api/admin/workflows",
+      "node_type": "APIEndpoint",
+      "name": "GET /api/admin/workflows",
+      "path": "app/api/admin.py"
+    },
+    {
+      "id": "rich:endpoint:post:/api/admin/workflows/{workflow_id}/run",
+      "node_type": "APIEndpoint",
+      "name": "POST /api/admin/workflows/{workflow_id}/run",
+      "path": "app/api/admin.py"
+    },
+    {
+      "id": "rich:endpoint:post:/api/admin/pykrx/foreign-flow/run",
+      "node_type": "APIEndpoint",
+      "name": "POST /api/admin/pykrx/foreign-flow/run",
+      "path": "app/api/admin.py"
+    },
+    {
+      "id": "rich:endpoint:get:/api/admin/pykrx/foreign-flow/streaks",
+      "node_type": "APIEndpoint",
+      "name": "GET /api/admin/pykrx/foreign-flow/streaks",
+      "path": "app/api/admin.py"
+    },
+    {
+      "id": "rich:endpoint:post:/api/admin/pykrx/institution-flow/run",
+      "node_type": "APIEndpoint",
+      "name": "POST /api/admin/pykrx/institution-flow/run",
+      "path": "app/api/admin.py"
+    },
+    {
+      "id": "rich:endpoint:get:/api/admin/pykrx/institution-flow/streaks",
+      "node_type": "APIEndpoint",
+      "name": "GET /api/admin/pykrx/institution-flow/streaks",
+      "path": "app/api/admin.py"
+    },
+    {
+      "id": "rich:endpoint:get:/api/admin/pykrx/common-flow/streaks",
+      "node_type": "APIEndpoint",
+      "name": "GET /api/admin/pykrx/common-flow/streaks",
+      "path": "app/api/admin.py"
+    },
+    {
+      "id": "rich:endpoint:post:/api/admin/pykrx/market-fundamental/lookup",
+      "node_type": "APIEndpoint",
+      "name": "POST /api/admin/pykrx/market-fundamental/lookup",
+      "path": "app/api/admin.py"
+    },
+    {
+      "id": "rich:endpoint:get:/api/admin/weekly-review/summary",
+      "node_type": "APIEndpoint",
+      "name": "GET /api/admin/weekly-review/summary",
+      "path": "app/api/admin.py"
+    },
+    {
+      "id": "rich:endpoint:post:/api/admin/weekly-review/generate-ai",
+      "node_type": "APIEndpoint",
+      "name": "POST /api/admin/weekly-review/generate-ai",
+      "path": "app/api/admin.py"
+    },
+    {
+      "id": "rich:endpoint:post:/api/admin/weekly-review/save",
+      "node_type": "APIEndpoint",
+      "name": "POST /api/admin/weekly-review/save",
+      "path": "app/api/admin.py"
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge:rich:endpoint:get:/api/admin/me:module",
+      "relation_type": "PROVIDES",
+      "from": "subproject:rich",
+      "to": "rich:endpoint:get:/api/admin/me"
+    },
+    {
+      "id": "edge:rich:endpoint:get:/api/admin/me:uses:rich:service:gh_actions.GHActionsError",
+      "relation_type": "USES",
+      "from": "rich:endpoint:get:/api/admin/me",
+      "to": "rich:service:gh_actions.GHActionsError"
+    },
+    {
+      "id": "edge:rich:endpoint:get:/api/admin/me:uses:rich:service:gh_actions.get_identity",
+      "relation_type": "USES",
+      "from": "rich:endpoint:get:/api/admin/me",
+      "to": "rich:service:gh_actions.get_identity"
+    },
+    {
+      "id": "edge:rich:endpoint:get:/api/admin/me:uses:rich:service:gh_actions.list_workflow_cards",
+      "relation_type": "USES",
+      "from": "rich:endpoint:get:/api/admin/me",
+      "to": "rich:service:gh_actions.list_workflow_cards"
+    },
+    {
+      "id": "edge:rich:endpoint:get:/api/admin/me:uses:rich:service:gh_actions.resolve_default_ref",
+      "relation_type": "USES",
+      "from": "rich:endpoint:get:/api/admin/me",
+      "to": "rich:service:gh_actions.resolve_default_ref"
+    },
+    {
+      "id": "edge:rich:endpoint:get:/api/admin/me:uses:rich:service:gh_actions.run_workflow_by_id",
+      "relation_type": "USES",
+      "from": "rich:endpoint:get:/api/admin/me",
+      "to": "rich:service:gh_actions.run_workflow_by_id"
+    },
+    {
+      "id": "edge:rich:endpoint:get:/api/admin/me:uses:rich:service:gh_actions.from app.services.pykrx_foreign_flow import",
+      "relation_type": "USES",
+      "from": "rich:endpoint:get:/api/admin/me",
+      "to": "rich:service:gh_actions.from app.services.pykrx_foreign_flow import"
+    },
+    {
+      "id": "edge:rich:endpoint:get:/api/admin/me:uses:rich:service:gh_actions.PykrxIngestionError",
+      "relation_type": "USES",
+      "from": "rich:endpoint:get:/api/admin/me",
+      "to": "rich:service:gh_actions.PykrxIngestionError"
+    },
+    {
+      "id": "edge:rich:endpoint:get:/api/admin/me:uses:rich:service:gh_actions.list_common_flow_streaks",
+      "relation_type": "USES",
+      "from": "rich:endpoint:get:/api/admin/me",
+      "to": "rich:service:gh_actions.list_common_flow_streaks"
+    },
+    {
+      "id": "edge:rich:endpoint:get:/api/admin/me:uses:rich:service:gh_actions.list_foreign_flow_streaks",
+      "relation_type": "USES",
+      "from": "rich:endpoint:get:/api/admin/me",
+      "to": "rich:service:gh_actions.list_foreign_flow_streaks"
+    },
+    {
+      "id": "edge:rich:endpoint:get:/api/admin/me:uses:rich:service:gh_actions.list_institution_flow_streaks",
+      "relation_type": "USES",
+      "from": "rich:endpoint:get:/api/admin/me",
+      "to": "rich:service:gh_actions.list_institution_flow_streaks"
+    },
+    {
+      "id": "edge:rich:endpoint:get:/api/admin/me:uses:rich:service:gh_actions.lookup_market_fundamentals",
+      "relation_type": "USES",
+      "from": "rich:endpoint:get:/api/admin/me",
+      "to": "rich:service:gh_actions.lookup_market_fundamentals"
+    },
+    {
+      "id": "edge:rich:endpoint:get:/api/admin/me:uses:rich:service:gh_actions.run_foreign_flow_ingestion",
+      "relation_type": "USES",
+      "from": "rich:endpoint:get:/api/admin/me",
+      "to": "rich:service:gh_actions.run_foreign_flow_ingestion"
+    },
+    {
+      "id": "edge:rich:endpoint:get:/api/admin/me:uses:rich:service:gh_actions.run_institution_flow_ingestion",
+      "relation_type": "USES",
+      "from": "rich:endpoint:get:/api/admin/me",
+      "to": "rich:service:gh_actions.run_institution_flow_ingestion"
+    },
+    {
+      "id": "edge:rich:endpoint:get:/api/admin/me:uses:rich:service:gh_actions.from app.services.weekly_review import",
+      "relation_type": "USES",
+      "from": "rich:endpoint:get:/api/admin/me",
+      "to": "rich:service:gh_actions.from app.services.weekly_review import"
+    },
+    {
+      "id": "edge:rich:endpoint:get:/api/admin/me:uses:rich:service:gh_actions.WeeklyReviewError",
+      "relation_type": "USES",
+      "from": "rich:endpoint:get:/api/admin/me",
+      "to": "rich:service:gh_actions.WeeklyReviewError"
+    },
+    {
+      "id": "edge:rich:endpoint:get:/api/admin/me:uses:rich:service:gh_actions.generate_ai_summary",
+      "relation_type": "USES",
+      "from": "rich:endpoint:get:/api/admin/me",
+      "to": "rich:service:gh_actions.generate_ai_summary"
+    },
+    {
+      "id": "edge:rich:endpoint:get:/api/admin/me:uses:rich:service:gh_actions.get_week_summary",
+      "relation_type": "USES",
+      "from": "rich:endpoint:get:/api/admin/me",
+      "to": "rich:service:gh_actions.get_week_summary"
+    },
+    {
+      "id": "edge:rich:endpoint:get:/api/admin/me:uses:rich:service:gh_actions.save_weekly_review",
+      "relation_type": "USES",
+      "from": "rich:endpoint:get:/api/admin/me",
+      "to": "rich:service:gh_actions.save_weekly_review"
+    },
+    {
+      "id": "edge:rich:endpoint:get:/api/admin/workflows:module",
+      "relation_type": "PROVIDES",
+      "from": "subproject:rich",
+      "to": "rich:endpoint:get:/api/admin/workflows"
+    },
+    {
+      "id": "edge:rich:endpoint:get:/api/admin/workflows:uses:rich:service:gh_actions.GHActionsError",
+      "relation_type": "USES",
+      "from": "rich:endpoint:get:/api/admin/workflows",
+      "to": "rich:service:gh_actions.GHActionsError"
+    },
+    {
+      "id": "edge:rich:endpoint:get:/api/admin/workflows:uses:rich:service:gh_actions.get_identity",
+      "relation_type": "USES",
+      "from": "rich:endpoint:get:/api/admin/workflows",
+      "to": "rich:service:gh_actions.get_identity"
+    },
+    {
+      "id": "edge:rich:endpoint:get:/api/admin/workflows:uses:rich:service:gh_actions.list_workflow_cards",
+      "relation_type": "USES",
+      "from": "rich:endpoint:get:/api/admin/workflows",
+      "to": "rich:service:gh_actions.list_workflow_cards"
+    },
+    {
+      "id": "edge:rich:endpoint:get:/api/admin/workflows:uses:rich:service:gh_actions.resolve_default_ref",
+      "relation_type": "USES",
+      "from": "rich:endpoint:get:/api/admin/workflows",
+      "to": "rich:service:gh_actions.resolve_default_ref"
+    },
+    {
+      "id": "edge:rich:endpoint:get:/api/admin/workflows:uses:rich:service:gh_actions.run_workflow_by_id",
+      "relation_type": "USES",
+      "from": "rich:endpoint:get:/api/admin/workflows",
+      "to": "rich:service:gh_actions.run_workflow_by_id"
+    },
+    {
+      "id": "edge:rich:endpoint:get:/api/admin/workflows:uses:rich:service:gh_actions.from app.services.pykrx_foreign_flow import",
+      "relation_type": "USES",
+      "from": "rich:endpoint:get:/api/admin/workflows",
+      "to": "rich:service:gh_actions.from app.services.pykrx_foreign_flow import"
+    },
+    {
+      "id": "edge:rich:endpoint:get:/api/admin/workflows:uses:rich:service:gh_actions.PykrxIngestionError",
+      "relation_type": "USES",
+      "from": "rich:endpoint:get:/api/admin/workflows",
+      "to": "rich:service:gh_actions.PykrxIngestionError"
+    },
+    {
+      "id": "edge:rich:endpoint:get:/api/admin/workflows:uses:rich:service:gh_actions.list_common_flow_streaks",
+      "relation_type": "USES",
+      "from": "rich:endpoint:get:/api/admin/workflows",
+      "to": "rich:service:gh_actions.list_common_flow_streaks"
+    },
+    {
+      "id": "edge:rich:endpoint:get:/api/admin/workflows:uses:rich:service:gh_actions.list_foreign_flow_streaks",
+      "relation_type": "USES",
+      "from": "rich:endpoint:get:/api/admin/workflows",
+      "to": "rich:service:gh_actions.list_foreign_flow_streaks"
+    },
+    {
+      "id": "edge:rich:endpoint:get:/api/admin/workflows:uses:rich:service:gh_actions.list_institution_flow_streaks",
+      "relation_type": "USES",
+      "from": "rich:endpoint:get:/api/admin/workflows",
+      "to": "rich:service:gh_actions.list_institution_flow_streaks"
+    },
+    {
+      "id": "edge:rich:endpoint:get:/api/admin/workflows:uses:rich:service:gh_actions.lookup_market_fundamentals",
+      "relation_type": "USES",
+      "from": "rich:endpoint:get:/api/admin/workflows",
+      "to": "rich:service:gh_actions.lookup_market_fundamentals"
+    },
+    {
+      "id": "edge:rich:endpoint:get:/api/admin/workflows:uses:rich:service:gh_actions.run_foreign_flow_ingestion",
+      "relation_type": "USES",
+      "from": "rich:endpoint:get:/api/admin/workflows",
+      "to": "rich:service:gh_actions.run_foreign_flow_ingestion"
+    },
+    {
+      "id": "edge:rich:endpoint:get:/api/admin/workflows:uses:rich:service:gh_actions.run_institution_flow_ingestion",
+      "relation_type": "USES",
+      "from": "rich:endpoint:get:/api/admin/workflows",
+      "to": "rich:service:gh_actions.run_institution_flow_ingestion"
+    },
+    {
+      "id": "edge:rich:endpoint:get:/api/admin/workflows:uses:rich:service:gh_actions.from app.services.weekly_review import",
+      "relation_type": "USES",
+      "from": "rich:endpoint:get:/api/admin/workflows",
+      "to": "rich:service:gh_actions.from app.services.weekly_review import"
+    },
+    {
+      "id": "edge:rich:endpoint:get:/api/admin/workflows:uses:rich:service:gh_actions.WeeklyReviewError",
+      "relation_type": "USES",
+      "from": "rich:endpoint:get:/api/admin/workflows",
+      "to": "rich:service:gh_actions.WeeklyReviewError"
+    },
+    {
+      "id": "edge:rich:endpoint:get:/api/admin/workflows:uses:rich:service:gh_actions.generate_ai_summary",
+      "relation_type": "USES",
+      "from": "rich:endpoint:get:/api/admin/workflows",
+      "to": "rich:service:gh_actions.generate_ai_summary"
+    },
+    {
+      "id": "edge:rich:endpoint:get:/api/admin/workflows:uses:rich:service:gh_actions.get_week_summary",
+      "relation_type": "USES",
+      "from": "rich:endpoint:get:/api/admin/workflows",
+      "to": "rich:service:gh_actions.get_week_summary"
+    },
+    {
+      "id": "edge:rich:endpoint:get:/api/admin/workflows:uses:rich:service:gh_actions.save_weekly_review",
+      "relation_type": "USES",
+      "from": "rich:endpoint:get:/api/admin/workflows",
+      "to": "rich:service:gh_actions.save_weekly_review"
+    },
+    {
+      "id": "edge:rich:endpoint:post:/api/admin/workflows/{workflow_id}/run:module",
+      "relation_type": "PROVIDES",
+      "from": "subproject:rich",
+      "to": "rich:endpoint:post:/api/admin/workflows/{workflow_id}/run"
+    },
+    {
+      "id": "edge:rich:endpoint:post:/api/admin/workflows/{workflow_id}/run:uses:rich:service:gh_actions.GHActionsError",
+      "relation_type": "USES",
+      "from": "rich:endpoint:post:/api/admin/workflows/{workflow_id}/run",
+      "to": "rich:service:gh_actions.GHActionsError"
+    },
+    {
+      "id": "edge:rich:endpoint:post:/api/admin/workflows/{workflow_id}/run:uses:rich:service:gh_actions.get_identity",
+      "relation_type": "USES",
+      "from": "rich:endpoint:post:/api/admin/workflows/{workflow_id}/run",
+      "to": "rich:service:gh_actions.get_identity"
+    },
+    {
+      "id": "edge:rich:endpoint:post:/api/admin/workflows/{workflow_id}/run:uses:rich:service:gh_actions.list_workflow_cards",
+      "relation_type": "USES",
+      "from": "rich:endpoint:post:/api/admin/workflows/{workflow_id}/run",
+      "to": "rich:service:gh_actions.list_workflow_cards"
+    },
+    {
+      "id": "edge:rich:endpoint:post:/api/admin/workflows/{workflow_id}/run:uses:rich:service:gh_actions.resolve_default_ref",
+      "relation_type": "USES",
+      "from": "rich:endpoint:post:/api/admin/workflows/{workflow_id}/run",
+      "to": "rich:service:gh_actions.resolve_default_ref"
+    },
+    {
+      "id": "edge:rich:endpoint:post:/api/admin/workflows/{workflow_id}/run:uses:rich:service:gh_actions.run_workflow_by_id",
+      "relation_type": "USES",
+      "from": "rich:endpoint:post:/api/admin/workflows/{workflow_id}/run",
+      "to": "rich:service:gh_actions.run_workflow_by_id"
+    },
+    {
+      "id": "edge:rich:endpoint:post:/api/admin/workflows/{workflow_id}/run:uses:rich:service:gh_actions.from app.services.pykrx_foreign_flow import",
+      "relation_type": "USES",
+      "from": "rich:endpoint:post:/api/admin/workflows/{workflow_id}/run",
+      "to": "rich:service:gh_actions.from app.services.pykrx_foreign_flow import"
+    },
+    {
+      "id": "edge:rich:endpoint:post:/api/admin/workflows/{workflow_id}/run:uses:rich:service:gh_actions.PykrxIngestionError",
+      "relation_type": "USES",
+      "from": "rich:endpoint:post:/api/admin/workflows/{workflow_id}/run",
+      "to": "rich:service:gh_actions.PykrxIngestionError"
+    },
+    {
+      "id": "edge:rich:endpoint:post:/api/admin/workflows/{workflow_id}/run:uses:rich:service:gh_actions.list_common_flow_streaks",
+      "relation_type": "USES",
+      "from": "rich:endpoint:post:/api/admin/workflows/{workflow_id}/run",
+      "to": "rich:service:gh_actions.list_common_flow_streaks"
+    },
+    {
+      "id": "edge:rich:endpoint:post:/api/admin/workflows/{workflow_id}/run:uses:rich:service:gh_actions.list_foreign_flow_streaks",
+      "relation_type": "USES",
+      "from": "rich:endpoint:post:/api/admin/workflows/{workflow_id}/run",
+      "to": "rich:service:gh_actions.list_foreign_flow_streaks"
+    },
+    {
+      "id": "edge:rich:endpoint:post:/api/admin/workflows/{workflow_id}/run:uses:rich:service:gh_actions.list_institution_flow_streaks",
+      "relation_type": "USES",
+      "from": "rich:endpoint:post:/api/admin/workflows/{workflow_id}/run",
+      "to": "rich:service:gh_actions.list_institution_flow_streaks"
+    },
+    {
+      "id": "edge:rich:endpoint:post:/api/admin/workflows/{workflow_id}/run:uses:rich:service:gh_actions.lookup_market_fundamentals",
+      "relation_type": "USES",
+      "from": "rich:endpoint:post:/api/admin/workflows/{workflow_id}/run",
+      "to": "rich:service:gh_actions.lookup_market_fundamentals"
+    },
+    {
+      "id": "edge:rich:endpoint:post:/api/admin/workflows/{workflow_id}/run:uses:rich:service:gh_actions.run_foreign_flow_ingestion",
+      "relation_type": "USES",
+      "from": "rich:endpoint:post:/api/admin/workflows/{workflow_id}/run",
+      "to": "rich:service:gh_actions.run_foreign_flow_ingestion"
+    },
+    {
+      "id": "edge:rich:endpoint:post:/api/admin/workflows/{workflow_id}/run:uses:rich:service:gh_actions.run_institution_flow_ingestion",
+      "relation_type": "USES",
+      "from": "rich:endpoint:post:/api/admin/workflows/{workflow_id}/run",
+      "to": "rich:service:gh_actions.run_institution_flow_ingestion"
+    },
+    {
+      "id": "edge:rich:endpoint:post:/api/admin/workflows/{workflow_id}/run:uses:rich:service:gh_actions.from app.services.weekly_review import",
+      "relation_type": "USES",
+      "from": "rich:endpoint:post:/api/admin/workflows/{workflow_id}/run",
+      "to": "rich:service:gh_actions.from app.services.weekly_review import"
+    },
+    {
+      "id": "edge:rich:endpoint:post:/api/admin/workflows/{workflow_id}/run:uses:rich:service:gh_actions.WeeklyReviewError",
+      "relation_type": "USES",
+      "from": "rich:endpoint:post:/api/admin/workflows/{workflow_id}/run",
+      "to": "rich:service:gh_actions.WeeklyReviewError"
+    },
+    {
+      "id": "edge:rich:endpoint:post:/api/admin/workflows/{workflow_id}/run:uses:rich:service:gh_actions.generate_ai_summary",
+      "relation_type": "USES",
+      "from": "rich:endpoint:post:/api/admin/workflows/{workflow_id}/run",
+      "to": "rich:service:gh_actions.generate_ai_summary"
+    },
+    {
+      "id": "edge:rich:endpoint:post:/api/admin/workflows/{workflow_id}/run:uses:rich:service:gh_actions.get_week_summary",
+      "relation_type": "USES",
+      "from": "rich:endpoint:post:/api/admin/workflows/{workflow_id}/run",
+      "to": "rich:service:gh_actions.get_week_summary"
+    },
+    {
+      "id": "edge:rich:endpoint:post:/api/admin/workflows/{workflow_id}/run:uses:rich:service:gh_actions.save_weekly_review",
+      "relation_type": "USES",
+      "from": "rich:endpoint:post:/api/admin/workflows/{workflow_id}/run",
+      "to": "rich:service:gh_actions.save_weekly_review"
+    },
+    {
+      "id": "edge:rich:endpoint:post:/api/admin/pykrx/foreign-flow/run:module",
+      "relation_type": "PROVIDES",
+      "from": "subproject:rich",
+      "to": "rich:endpoint:post:/api/admin/pykrx/foreign-flow/run"
+    },
+    {
+      "id": "edge:rich:endpoint:post:/api/admin/pykrx/foreign-flow/run:uses:rich:service:gh_actions.GHActionsError",
+      "relation_type": "USES",
+      "from": "rich:endpoint:post:/api/admin/pykrx/foreign-flow/run",
+      "to": "rich:service:gh_actions.GHActionsError"
+    },
+    {
+      "id": "edge:rich:endpoint:post:/api/admin/pykrx/foreign-flow/run:uses:rich:service:gh_actions.get_identity",
+      "relation_type": "USES",
+      "from": "rich:endpoint:post:/api/admin/pykrx/foreign-flow/run",
+      "to": "rich:service:gh_actions.get_identity"
+    },
+    {
+      "id": "edge:rich:endpoint:post:/api/admin/pykrx/foreign-flow/run:uses:rich:service:gh_actions.list_workflow_cards",
+      "relation_type": "USES",
+      "from": "rich:endpoint:post:/api/admin/pykrx/foreign-flow/run",
+      "to": "rich:service:gh_actions.list_workflow_cards"
+    },
+    {
+      "id": "edge:rich:endpoint:post:/api/admin/pykrx/foreign-flow/run:uses:rich:service:gh_actions.resolve_default_ref",
+      "relation_type": "USES",
+      "from": "rich:endpoint:post:/api/admin/pykrx/foreign-flow/run",
+      "to": "rich:service:gh_actions.resolve_default_ref"
+    },
+    {
+      "id": "edge:rich:endpoint:post:/api/admin/pykrx/foreign-flow/run:uses:rich:service:gh_actions.run_workflow_by_id",
+      "relation_type": "USES",
+      "from": "rich:endpoint:post:/api/admin/pykrx/foreign-flow/run",
+      "to": "rich:service:gh_actions.run_workflow_by_id"
+    },
+    {
+      "id": "edge:rich:endpoint:post:/api/admin/pykrx/foreign-flow/run:uses:rich:service:gh_actions.from app.services.pykrx_foreign_flow import",
+      "relation_type": "USES",
+      "from": "rich:endpoint:post:/api/admin/pykrx/foreign-flow/run",
+      "to": "rich:service:gh_actions.from app.services.pykrx_foreign_flow import"
+    },
+    {
+      "id": "edge:rich:endpoint:post:/api/admin/pykrx/foreign-flow/run:uses:rich:service:gh_actions.PykrxIngestionError",
+      "relation_type": "USES",
+      "from": "rich:endpoint:post:/api/admin/pykrx/foreign-flow/run",
+      "to": "rich:service:gh_actions.PykrxIngestionError"
+    },
+    {
+      "id": "edge:rich:endpoint:post:/api/admin/pykrx/foreign-flow/run:uses:rich:service:gh_actions.list_common_flow_streaks",
+      "relation_type": "USES",
+      "from": "rich:endpoint:post:/api/admin/pykrx/foreign-flow/run",
+      "to": "rich:service:gh_actions.list_common_flow_streaks"
+    },
+    {
+      "id": "edge:rich:endpoint:post:/api/admin/pykrx/foreign-flow/run:uses:rich:service:gh_actions.list_foreign_flow_streaks",
+      "relation_type": "USES",
+      "from": "rich:endpoint:post:/api/admin/pykrx/foreign-flow/run",
+      "to": "rich:service:gh_actions.list_foreign_flow_streaks"
+    },
+    {
+      "id": "edge:rich:endpoint:post:/api/admin/pykrx/foreign-flow/run:uses:rich:service:gh_actions.list_institution_flow_streaks",
+      "relation_type": "USES",
+      "from": "rich:endpoint:post:/api/admin/pykrx/foreign-flow/run",
+      "to": "rich:service:gh_actions.list_institution_flow_streaks"
+    },
+    {
+      "id": "edge:rich:endpoint:post:/api/admin/pykrx/foreign-flow/run:uses:rich:service:gh_actions.lookup_market_fundamentals",
+      "relation_type": "USES",
+      "from": "rich:endpoint:post:/api/admin/pykrx/foreign-flow/run",
+      "to": "rich:service:gh_actions.lookup_market_fundamentals"
+    },
+    {
+      "id": "edge:rich:endpoint:post:/api/admin/pykrx/foreign-flow/run:uses:rich:service:gh_actions.run_foreign_flow_ingestion",
+      "relation_type": "USES",
+      "from": "rich:endpoint:post:/api/admin/pykrx/foreign-flow/run",
+      "to": "rich:service:gh_actions.run_foreign_flow_ingestion"
+    },
+    {
+      "id": "edge:rich:endpoint:post:/api/admin/pykrx/foreign-flow/run:uses:rich:service:gh_actions.run_institution_flow_ingestion",
+      "relation_type": "USES",
+      "from": "rich:endpoint:post:/api/admin/pykrx/foreign-flow/run",
+      "to": "rich:service:gh_actions.run_institution_flow_ingestion"
+    },
+    {
+      "id": "edge:rich:endpoint:post:/api/admin/pykrx/foreign-flow/run:uses:rich:service:gh_actions.from app.services.weekly_review import",
+      "relation_type": "USES",
+      "from": "rich:endpoint:post:/api/admin/pykrx/foreign-flow/run",
+      "to": "rich:service:gh_actions.from app.services.weekly_review import"
+    },
+    {
+      "id": "edge:rich:endpoint:post:/api/admin/pykrx/foreign-flow/run:uses:rich:service:gh_actions.WeeklyReviewError",
+      "relation_type": "USES",
+      "from": "rich:endpoint:post:/api/admin/pykrx/foreign-flow/run",
+      "to": "rich:service:gh_actions.WeeklyReviewError"
+    },
+    {
+      "id": "edge:rich:endpoint:post:/api/admin/pykrx/foreign-flow/run:uses:rich:service:gh_actions.generate_ai_summary",
+      "relation_type": "USES",
+      "from": "rich:endpoint:post:/api/admin/pykrx/foreign-flow/run",
+      "to": "rich:service:gh_actions.generate_ai_summary"
+    },
+    {
+      "id": "edge:rich:endpoint:post:/api/admin/pykrx/foreign-flow/run:uses:rich:service:gh_actions.get_week_summary",
+      "relation_type": "USES",
+      "from": "rich:endpoint:post:/api/admin/pykrx/foreign-flow/run",
+      "to": "rich:service:gh_actions.get_week_summary"
+    },
+    {
+      "id": "edge:rich:endpoint:post:/api/admin/pykrx/foreign-flow/run:uses:rich:service:gh_actions.save_weekly_review",
+      "relation_type": "USES",
+      "from": "rich:endpoint:post:/api/admin/pykrx/foreign-flow/run",
+      "to": "rich:service:gh_actions.save_weekly_review"
+    },
+    {
+      "id": "edge:rich:endpoint:get:/api/admin/pykrx/foreign-flow/streaks:module",
+      "relation_type": "PROVIDES",
+      "from": "subproject:rich",
+      "to": "rich:endpoint:get:/api/admin/pykrx/foreign-flow/streaks"
+    },
+    {
+      "id": "edge:rich:endpoint:get:/api/admin/pykrx/foreign-flow/streaks:uses:rich:service:gh_actions.GHActionsError",
+      "relation_type": "USES",
+      "from": "rich:endpoint:get:/api/admin/pykrx/foreign-flow/streaks",
+      "to": "rich:service:gh_actions.GHActionsError"
+    },
+    {
+      "id": "edge:rich:endpoint:get:/api/admin/pykrx/foreign-flow/streaks:uses:rich:service:gh_actions.get_identity",
+      "relation_type": "USES",
+      "from": "rich:endpoint:get:/api/admin/pykrx/foreign-flow/streaks",
+      "to": "rich:service:gh_actions.get_identity"
+    },
+    {
+      "id": "edge:rich:endpoint:get:/api/admin/pykrx/foreign-flow/streaks:uses:rich:service:gh_actions.list_workflow_cards",
+      "relation_type": "USES",
+      "from": "rich:endpoint:get:/api/admin/pykrx/foreign-flow/streaks",
+      "to": "rich:service:gh_actions.list_workflow_cards"
+    },
+    {
+      "id": "edge:rich:endpoint:get:/api/admin/pykrx/foreign-flow/streaks:uses:rich:service:gh_actions.resolve_default_ref",
+      "relation_type": "USES",
+      "from": "rich:endpoint:get:/api/admin/pykrx/foreign-flow/streaks",
+      "to": "rich:service:gh_actions.resolve_default_ref"
+    },
+    {
+      "id": "edge:rich:endpoint:get:/api/admin/pykrx/foreign-flow/streaks:uses:rich:service:gh_actions.run_workflow_by_id",
+      "relation_type": "USES",
+      "from": "rich:endpoint:get:/api/admin/pykrx/foreign-flow/streaks",
+      "to": "rich:service:gh_actions.run_workflow_by_id"
+    },
+    {
+      "id": "edge:rich:endpoint:get:/api/admin/pykrx/foreign-flow/streaks:uses:rich:service:gh_actions.from app.services.pykrx_foreign_flow import",
+      "relation_type": "USES",
+      "from": "rich:endpoint:get:/api/admin/pykrx/foreign-flow/streaks",
+      "to": "rich:service:gh_actions.from app.services.pykrx_foreign_flow import"
+    },
+    {
+      "id": "edge:rich:endpoint:get:/api/admin/pykrx/foreign-flow/streaks:uses:rich:service:gh_actions.PykrxIngestionError",
+      "relation_type": "USES",
+      "from": "rich:endpoint:get:/api/admin/pykrx/foreign-flow/streaks",
+      "to": "rich:service:gh_actions.PykrxIngestionError"
+    },
+    {
+      "id": "edge:rich:endpoint:get:/api/admin/pykrx/foreign-flow/streaks:uses:rich:service:gh_actions.list_common_flow_streaks",
+      "relation_type": "USES",
+      "from": "rich:endpoint:get:/api/admin/pykrx/foreign-flow/streaks",
+      "to": "rich:service:gh_actions.list_common_flow_streaks"
+    },
+    {
+      "id": "edge:rich:endpoint:get:/api/admin/pykrx/foreign-flow/streaks:uses:rich:service:gh_actions.list_foreign_flow_streaks",
+      "relation_type": "USES",
+      "from": "rich:endpoint:get:/api/admin/pykrx/foreign-flow/streaks",
+      "to": "rich:service:gh_actions.list_foreign_flow_streaks"
+    },
+    {
+      "id": "edge:rich:endpoint:get:/api/admin/pykrx/foreign-flow/streaks:uses:rich:service:gh_actions.list_institution_flow_streaks",
+      "relation_type": "USES",
+      "from": "rich:endpoint:get:/api/admin/pykrx/foreign-flow/streaks",
+      "to": "rich:service:gh_actions.list_institution_flow_streaks"
+    },
+    {
+      "id": "edge:rich:endpoint:get:/api/admin/pykrx/foreign-flow/streaks:uses:rich:service:gh_actions.lookup_market_fundamentals",
+      "relation_type": "USES",
+      "from": "rich:endpoint:get:/api/admin/pykrx/foreign-flow/streaks",
+      "to": "rich:service:gh_actions.lookup_market_fundamentals"
+    },
+    {
+      "id": "edge:rich:endpoint:get:/api/admin/pykrx/foreign-flow/streaks:uses:rich:service:gh_actions.run_foreign_flow_ingestion",
+      "relation_type": "USES",
+      "from": "rich:endpoint:get:/api/admin/pykrx/foreign-flow/streaks",
+      "to": "rich:service:gh_actions.run_foreign_flow_ingestion"
+    },
+    {
+      "id": "edge:rich:endpoint:get:/api/admin/pykrx/foreign-flow/streaks:uses:rich:service:gh_actions.run_institution_flow_ingestion",
+      "relation_type": "USES",
+      "from": "rich:endpoint:get:/api/admin/pykrx/foreign-flow/streaks",
+      "to": "rich:service:gh_actions.run_institution_flow_ingestion"
+    },
+    {
+      "id": "edge:rich:endpoint:get:/api/admin/pykrx/foreign-flow/streaks:uses:rich:service:gh_actions.from app.services.weekly_review import",
+      "relation_type": "USES",
+      "from": "rich:endpoint:get:/api/admin/pykrx/foreign-flow/streaks",
+      "to": "rich:service:gh_actions.from app.services.weekly_review import"
+    },
+    {
+      "id": "edge:rich:endpoint:get:/api/admin/pykrx/foreign-flow/streaks:uses:rich:service:gh_actions.WeeklyReviewError",
+      "relation_type": "USES",
+      "from": "rich:endpoint:get:/api/admin/pykrx/foreign-flow/streaks",
+      "to": "rich:service:gh_actions.WeeklyReviewError"
+    },
+    {
+      "id": "edge:rich:endpoint:get:/api/admin/pykrx/foreign-flow/streaks:uses:rich:service:gh_actions.generate_ai_summary",
+      "relation_type": "USES",
+      "from": "rich:endpoint:get:/api/admin/pykrx/foreign-flow/streaks",
+      "to": "rich:service:gh_actions.generate_ai_summary"
+    },
+    {
+      "id": "edge:rich:endpoint:get:/api/admin/pykrx/foreign-flow/streaks:uses:rich:service:gh_actions.get_week_summary",
+      "relation_type": "USES",
+      "from": "rich:endpoint:get:/api/admin/pykrx/foreign-flow/streaks",
+      "to": "rich:service:gh_actions.get_week_summary"
+    },
+    {
+      "id": "edge:rich:endpoint:get:/api/admin/pykrx/foreign-flow/streaks:uses:rich:service:gh_actions.save_weekly_review",
+      "relation_type": "USES",
+      "from": "rich:endpoint:get:/api/admin/pykrx/foreign-flow/streaks",
+      "to": "rich:service:gh_actions.save_weekly_review"
+    },
+    {
+      "id": "edge:rich:endpoint:post:/api/admin/pykrx/institution-flow/run:module",
+      "relation_type": "PROVIDES",
+      "from": "subproject:rich",
+      "to": "rich:endpoint:post:/api/admin/pykrx/institution-flow/run"
+    },
+    {
+      "id": "edge:rich:endpoint:post:/api/admin/pykrx/institution-flow/run:uses:rich:service:gh_actions.GHActionsError",
+      "relation_type": "USES",
+      "from": "rich:endpoint:post:/api/admin/pykrx/institution-flow/run",
+      "to": "rich:service:gh_actions.GHActionsError"
+    },
+    {
+      "id": "edge:rich:endpoint:post:/api/admin/pykrx/institution-flow/run:uses:rich:service:gh_actions.get_identity",
+      "relation_type": "USES",
+      "from": "rich:endpoint:post:/api/admin/pykrx/institution-flow/run",
+      "to": "rich:service:gh_actions.get_identity"
+    },
+    {
+      "id": "edge:rich:endpoint:post:/api/admin/pykrx/institution-flow/run:uses:rich:service:gh_actions.list_workflow_cards",
+      "relation_type": "USES",
+      "from": "rich:endpoint:post:/api/admin/pykrx/institution-flow/run",
+      "to": "rich:service:gh_actions.list_workflow_cards"
+    },
+    {
+      "id": "edge:rich:endpoint:post:/api/admin/pykrx/institution-flow/run:uses:rich:service:gh_actions.resolve_default_ref",
+      "relation_type": "USES",
+      "from": "rich:endpoint:post:/api/admin/pykrx/institution-flow/run",
+      "to": "rich:service:gh_actions.resolve_default_ref"
+    },
+    {
+      "id": "edge:rich:endpoint:post:/api/admin/pykrx/institution-flow/run:uses:rich:service:gh_actions.run_workflow_by_id",
+      "relation_type": "USES",
+      "from": "rich:endpoint:post:/api/admin/pykrx/institution-flow/run",
+      "to": "rich:service:gh_actions.run_workflow_by_id"
+    },
+    {
+      "id": "edge:rich:endpoint:post:/api/admin/pykrx/institution-flow/run:uses:rich:service:gh_actions.from app.services.pykrx_foreign_flow import",
+      "relation_type": "USES",
+      "from": "rich:endpoint:post:/api/admin/pykrx/institution-flow/run",
+      "to": "rich:service:gh_actions.from app.services.pykrx_foreign_flow import"
+    },
+    {
+      "id": "edge:rich:endpoint:post:/api/admin/pykrx/institution-flow/run:uses:rich:service:gh_actions.PykrxIngestionError",
+      "relation_type": "USES",
+      "from": "rich:endpoint:post:/api/admin/pykrx/institution-flow/run",
+      "to": "rich:service:gh_actions.PykrxIngestionError"
+    },
+    {
+      "id": "edge:rich:endpoint:post:/api/admin/pykrx/institution-flow/run:uses:rich:service:gh_actions.list_common_flow_streaks",
+      "relation_type": "USES",
+      "from": "rich:endpoint:post:/api/admin/pykrx/institution-flow/run",
+      "to": "rich:service:gh_actions.list_common_flow_streaks"
+    },
+    {
+      "id": "edge:rich:endpoint:post:/api/admin/pykrx/institution-flow/run:uses:rich:service:gh_actions.list_foreign_flow_streaks",
+      "relation_type": "USES",
+      "from": "rich:endpoint:post:/api/admin/pykrx/institution-flow/run",
+      "to": "rich:service:gh_actions.list_foreign_flow_streaks"
+    },
+    {
+      "id": "edge:rich:endpoint:post:/api/admin/pykrx/institution-flow/run:uses:rich:service:gh_actions.list_institution_flow_streaks",
+      "relation_type": "USES",
+      "from": "rich:endpoint:post:/api/admin/pykrx/institution-flow/run",
+      "to": "rich:service:gh_actions.list_institution_flow_streaks"
+    },
+    {
+      "id": "edge:rich:endpoint:post:/api/admin/pykrx/institution-flow/run:uses:rich:service:gh_actions.lookup_market_fundamentals",
+      "relation_type": "USES",
+      "from": "rich:endpoint:post:/api/admin/pykrx/institution-flow/run",
+      "to": "rich:service:gh_actions.lookup_market_fundamentals"
+    },
+    {
+      "id": "edge:rich:endpoint:post:/api/admin/pykrx/institution-flow/run:uses:rich:service:gh_actions.run_foreign_flow_ingestion",
+      "relation_type": "USES",
+      "from": "rich:endpoint:post:/api/admin/pykrx/institution-flow/run",
+      "to": "rich:service:gh_actions.run_foreign_flow_ingestion"
+    },
+    {
+      "id": "edge:rich:endpoint:post:/api/admin/pykrx/institution-flow/run:uses:rich:service:gh_actions.run_institution_flow_ingestion",
+      "relation_type": "USES",
+      "from": "rich:endpoint:post:/api/admin/pykrx/institution-flow/run",
+      "to": "rich:service:gh_actions.run_institution_flow_ingestion"
+    },
+    {
+      "id": "edge:rich:endpoint:post:/api/admin/pykrx/institution-flow/run:uses:rich:service:gh_actions.from app.services.weekly_review import",
+      "relation_type": "USES",
+      "from": "rich:endpoint:post:/api/admin/pykrx/institution-flow/run",
+      "to": "rich:service:gh_actions.from app.services.weekly_review import"
+    },
+    {
+      "id": "edge:rich:endpoint:post:/api/admin/pykrx/institution-flow/run:uses:rich:service:gh_actions.WeeklyReviewError",
+      "relation_type": "USES",
+      "from": "rich:endpoint:post:/api/admin/pykrx/institution-flow/run",
+      "to": "rich:service:gh_actions.WeeklyReviewError"
+    },
+    {
+      "id": "edge:rich:endpoint:post:/api/admin/pykrx/institution-flow/run:uses:rich:service:gh_actions.generate_ai_summary",
+      "relation_type": "USES",
+      "from": "rich:endpoint:post:/api/admin/pykrx/institution-flow/run",
+      "to": "rich:service:gh_actions.generate_ai_summary"
+    },
+    {
+      "id": "edge:rich:endpoint:post:/api/admin/pykrx/institution-flow/run:uses:rich:service:gh_actions.get_week_summary",
+      "relation_type": "USES",
+      "from": "rich:endpoint:post:/api/admin/pykrx/institution-flow/run",
+      "to": "rich:service:gh_actions.get_week_summary"
+    },
+    {
+      "id": "edge:rich:endpoint:post:/api/admin/pykrx/institution-flow/run:uses:rich:service:gh_actions.save_weekly_review",
+      "relation_type": "USES",
+      "from": "rich:endpoint:post:/api/admin/pykrx/institution-flow/run",
+      "to": "rich:service:gh_actions.save_weekly_review"
+    },
+    {
+      "id": "edge:rich:endpoint:get:/api/admin/pykrx/institution-flow/streaks:module",
+      "relation_type": "PROVIDES",
+      "from": "subproject:rich",
+      "to": "rich:endpoint:get:/api/admin/pykrx/institution-flow/streaks"
+    },
+    {
+      "id": "edge:rich:endpoint:get:/api/admin/pykrx/institution-flow/streaks:uses:rich:service:gh_actions.GHActionsError",
+      "relation_type": "USES",
+      "from": "rich:endpoint:get:/api/admin/pykrx/institution-flow/streaks",
+      "to": "rich:service:gh_actions.GHActionsError"
+    },
+    {
+      "id": "edge:rich:endpoint:get:/api/admin/pykrx/institution-flow/streaks:uses:rich:service:gh_actions.get_identity",
+      "relation_type": "USES",
+      "from": "rich:endpoint:get:/api/admin/pykrx/institution-flow/streaks",
+      "to": "rich:service:gh_actions.get_identity"
+    },
+    {
+      "id": "edge:rich:endpoint:get:/api/admin/pykrx/institution-flow/streaks:uses:rich:service:gh_actions.list_workflow_cards",
+      "relation_type": "USES",
+      "from": "rich:endpoint:get:/api/admin/pykrx/institution-flow/streaks",
+      "to": "rich:service:gh_actions.list_workflow_cards"
+    },
+    {
+      "id": "edge:rich:endpoint:get:/api/admin/pykrx/institution-flow/streaks:uses:rich:service:gh_actions.resolve_default_ref",
+      "relation_type": "USES",
+      "from": "rich:endpoint:get:/api/admin/pykrx/institution-flow/streaks",
+      "to": "rich:service:gh_actions.resolve_default_ref"
+    },
+    {
+      "id": "edge:rich:endpoint:get:/api/admin/pykrx/institution-flow/streaks:uses:rich:service:gh_actions.run_workflow_by_id",
+      "relation_type": "USES",
+      "from": "rich:endpoint:get:/api/admin/pykrx/institution-flow/streaks",
+      "to": "rich:service:gh_actions.run_workflow_by_id"
+    },
+    {
+      "id": "edge:rich:endpoint:get:/api/admin/pykrx/institution-flow/streaks:uses:rich:service:gh_actions.from app.services.pykrx_foreign_flow import",
+      "relation_type": "USES",
+      "from": "rich:endpoint:get:/api/admin/pykrx/institution-flow/streaks",
+      "to": "rich:service:gh_actions.from app.services.pykrx_foreign_flow import"
+    },
+    {
+      "id": "edge:rich:endpoint:get:/api/admin/pykrx/institution-flow/streaks:uses:rich:service:gh_actions.PykrxIngestionError",
+      "relation_type": "USES",
+      "from": "rich:endpoint:get:/api/admin/pykrx/institution-flow/streaks",
+      "to": "rich:service:gh_actions.PykrxIngestionError"
+    },
+    {
+      "id": "edge:rich:endpoint:get:/api/admin/pykrx/institution-flow/streaks:uses:rich:service:gh_actions.list_common_flow_streaks",
+      "relation_type": "USES",
+      "from": "rich:endpoint:get:/api/admin/pykrx/institution-flow/streaks",
+      "to": "rich:service:gh_actions.list_common_flow_streaks"
+    },
+    {
+      "id": "edge:rich:endpoint:get:/api/admin/pykrx/institution-flow/streaks:uses:rich:service:gh_actions.list_foreign_flow_streaks",
+      "relation_type": "USES",
+      "from": "rich:endpoint:get:/api/admin/pykrx/institution-flow/streaks",
+      "to": "rich:service:gh_actions.list_foreign_flow_streaks"
+    },
+    {
+      "id": "edge:rich:endpoint:get:/api/admin/pykrx/institution-flow/streaks:uses:rich:service:gh_actions.list_institution_flow_streaks",
+      "relation_type": "USES",
+      "from": "rich:endpoint:get:/api/admin/pykrx/institution-flow/streaks",
+      "to": "rich:service:gh_actions.list_institution_flow_streaks"
+    },
+    {
+      "id": "edge:rich:endpoint:get:/api/admin/pykrx/institution-flow/streaks:uses:rich:service:gh_actions.lookup_market_fundamentals",
+      "relation_type": "USES",
+      "from": "rich:endpoint:get:/api/admin/pykrx/institution-flow/streaks",
+      "to": "rich:service:gh_actions.lookup_market_fundamentals"
+    },
+    {
+      "id": "edge:rich:endpoint:get:/api/admin/pykrx/institution-flow/streaks:uses:rich:service:gh_actions.run_foreign_flow_ingestion",
+      "relation_type": "USES",
+      "from": "rich:endpoint:get:/api/admin/pykrx/institution-flow/streaks",
+      "to": "rich:service:gh_actions.run_foreign_flow_ingestion"
+    },
+    {
+      "id": "edge:rich:endpoint:get:/api/admin/pykrx/institution-flow/streaks:uses:rich:service:gh_actions.run_institution_flow_ingestion",
+      "relation_type": "USES",
+      "from": "rich:endpoint:get:/api/admin/pykrx/institution-flow/streaks",
+      "to": "rich:service:gh_actions.run_institution_flow_ingestion"
+    },
+    {
+      "id": "edge:rich:endpoint:get:/api/admin/pykrx/institution-flow/streaks:uses:rich:service:gh_actions.from app.services.weekly_review import",
+      "relation_type": "USES",
+      "from": "rich:endpoint:get:/api/admin/pykrx/institution-flow/streaks",
+      "to": "rich:service:gh_actions.from app.services.weekly_review import"
+    },
+    {
+      "id": "edge:rich:endpoint:get:/api/admin/pykrx/institution-flow/streaks:uses:rich:service:gh_actions.WeeklyReviewError",
+      "relation_type": "USES",
+      "from": "rich:endpoint:get:/api/admin/pykrx/institution-flow/streaks",
+      "to": "rich:service:gh_actions.WeeklyReviewError"
+    },
+    {
+      "id": "edge:rich:endpoint:get:/api/admin/pykrx/institution-flow/streaks:uses:rich:service:gh_actions.generate_ai_summary",
+      "relation_type": "USES",
+      "from": "rich:endpoint:get:/api/admin/pykrx/institution-flow/streaks",
+      "to": "rich:service:gh_actions.generate_ai_summary"
+    },
+    {
+      "id": "edge:rich:endpoint:get:/api/admin/pykrx/institution-flow/streaks:uses:rich:service:gh_actions.get_week_summary",
+      "relation_type": "USES",
+      "from": "rich:endpoint:get:/api/admin/pykrx/institution-flow/streaks",
+      "to": "rich:service:gh_actions.get_week_summary"
+    },
+    {
+      "id": "edge:rich:endpoint:get:/api/admin/pykrx/institution-flow/streaks:uses:rich:service:gh_actions.save_weekly_review",
+      "relation_type": "USES",
+      "from": "rich:endpoint:get:/api/admin/pykrx/institution-flow/streaks",
+      "to": "rich:service:gh_actions.save_weekly_review"
+    },
+    {
+      "id": "edge:rich:endpoint:get:/api/admin/pykrx/common-flow/streaks:module",
+      "relation_type": "PROVIDES",
+      "from": "subproject:rich",
+      "to": "rich:endpoint:get:/api/admin/pykrx/common-flow/streaks"
+    },
+    {
+      "id": "edge:rich:endpoint:get:/api/admin/pykrx/common-flow/streaks:uses:rich:service:gh_actions.GHActionsError",
+      "relation_type": "USES",
+      "from": "rich:endpoint:get:/api/admin/pykrx/common-flow/streaks",
+      "to": "rich:service:gh_actions.GHActionsError"
+    },
+    {
+      "id": "edge:rich:endpoint:get:/api/admin/pykrx/common-flow/streaks:uses:rich:service:gh_actions.get_identity",
+      "relation_type": "USES",
+      "from": "rich:endpoint:get:/api/admin/pykrx/common-flow/streaks",
+      "to": "rich:service:gh_actions.get_identity"
+    },
+    {
+      "id": "edge:rich:endpoint:get:/api/admin/pykrx/common-flow/streaks:uses:rich:service:gh_actions.list_workflow_cards",
+      "relation_type": "USES",
+      "from": "rich:endpoint:get:/api/admin/pykrx/common-flow/streaks",
+      "to": "rich:service:gh_actions.list_workflow_cards"
+    },
+    {
+      "id": "edge:rich:endpoint:get:/api/admin/pykrx/common-flow/streaks:uses:rich:service:gh_actions.resolve_default_ref",
+      "relation_type": "USES",
+      "from": "rich:endpoint:get:/api/admin/pykrx/common-flow/streaks",
+      "to": "rich:service:gh_actions.resolve_default_ref"
+    },
+    {
+      "id": "edge:rich:endpoint:get:/api/admin/pykrx/common-flow/streaks:uses:rich:service:gh_actions.run_workflow_by_id",
+      "relation_type": "USES",
+      "from": "rich:endpoint:get:/api/admin/pykrx/common-flow/streaks",
+      "to": "rich:service:gh_actions.run_workflow_by_id"
+    },
+    {
+      "id": "edge:rich:endpoint:get:/api/admin/pykrx/common-flow/streaks:uses:rich:service:gh_actions.from app.services.pykrx_foreign_flow import",
+      "relation_type": "USES",
+      "from": "rich:endpoint:get:/api/admin/pykrx/common-flow/streaks",
+      "to": "rich:service:gh_actions.from app.services.pykrx_foreign_flow import"
+    },
+    {
+      "id": "edge:rich:endpoint:get:/api/admin/pykrx/common-flow/streaks:uses:rich:service:gh_actions.PykrxIngestionError",
+      "relation_type": "USES",
+      "from": "rich:endpoint:get:/api/admin/pykrx/common-flow/streaks",
+      "to": "rich:service:gh_actions.PykrxIngestionError"
+    },
+    {
+      "id": "edge:rich:endpoint:get:/api/admin/pykrx/common-flow/streaks:uses:rich:service:gh_actions.list_common_flow_streaks",
+      "relation_type": "USES",
+      "from": "rich:endpoint:get:/api/admin/pykrx/common-flow/streaks",
+      "to": "rich:service:gh_actions.list_common_flow_streaks"
+    },
+    {
+      "id": "edge:rich:endpoint:get:/api/admin/pykrx/common-flow/streaks:uses:rich:service:gh_actions.list_foreign_flow_streaks",
+      "relation_type": "USES",
+      "from": "rich:endpoint:get:/api/admin/pykrx/common-flow/streaks",
+      "to": "rich:service:gh_actions.list_foreign_flow_streaks"
+    },
+    {
+      "id": "edge:rich:endpoint:get:/api/admin/pykrx/common-flow/streaks:uses:rich:service:gh_actions.list_institution_flow_streaks",
+      "relation_type": "USES",
+      "from": "rich:endpoint:get:/api/admin/pykrx/common-flow/streaks",
+      "to": "rich:service:gh_actions.list_institution_flow_streaks"
+    },
+    {
+      "id": "edge:rich:endpoint:get:/api/admin/pykrx/common-flow/streaks:uses:rich:service:gh_actions.lookup_market_fundamentals",
+      "relation_type": "USES",
+      "from": "rich:endpoint:get:/api/admin/pykrx/common-flow/streaks",
+      "to": "rich:service:gh_actions.lookup_market_fundamentals"
+    },
+    {
+      "id": "edge:rich:endpoint:get:/api/admin/pykrx/common-flow/streaks:uses:rich:service:gh_actions.run_foreign_flow_ingestion",
+      "relation_type": "USES",
+      "from": "rich:endpoint:get:/api/admin/pykrx/common-flow/streaks",
+      "to": "rich:service:gh_actions.run_foreign_flow_ingestion"
+    },
+    {
+      "id": "edge:rich:endpoint:get:/api/admin/pykrx/common-flow/streaks:uses:rich:service:gh_actions.run_institution_flow_ingestion",
+      "relation_type": "USES",
+      "from": "rich:endpoint:get:/api/admin/pykrx/common-flow/streaks",
+      "to": "rich:service:gh_actions.run_institution_flow_ingestion"
+    },
+    {
+      "id": "edge:rich:endpoint:get:/api/admin/pykrx/common-flow/streaks:uses:rich:service:gh_actions.from app.services.weekly_review import",
+      "relation_type": "USES",
+      "from": "rich:endpoint:get:/api/admin/pykrx/common-flow/streaks",
+      "to": "rich:service:gh_actions.from app.services.weekly_review import"
+    },
+    {
+      "id": "edge:rich:endpoint:get:/api/admin/pykrx/common-flow/streaks:uses:rich:service:gh_actions.WeeklyReviewError",
+      "relation_type": "USES",
+      "from": "rich:endpoint:get:/api/admin/pykrx/common-flow/streaks",
+      "to": "rich:service:gh_actions.WeeklyReviewError"
+    },
+    {
+      "id": "edge:rich:endpoint:get:/api/admin/pykrx/common-flow/streaks:uses:rich:service:gh_actions.generate_ai_summary",
+      "relation_type": "USES",
+      "from": "rich:endpoint:get:/api/admin/pykrx/common-flow/streaks",
+      "to": "rich:service:gh_actions.generate_ai_summary"
+    },
+    {
+      "id": "edge:rich:endpoint:get:/api/admin/pykrx/common-flow/streaks:uses:rich:service:gh_actions.get_week_summary",
+      "relation_type": "USES",
+      "from": "rich:endpoint:get:/api/admin/pykrx/common-flow/streaks",
+      "to": "rich:service:gh_actions.get_week_summary"
+    },
+    {
+      "id": "edge:rich:endpoint:get:/api/admin/pykrx/common-flow/streaks:uses:rich:service:gh_actions.save_weekly_review",
+      "relation_type": "USES",
+      "from": "rich:endpoint:get:/api/admin/pykrx/common-flow/streaks",
+      "to": "rich:service:gh_actions.save_weekly_review"
+    },
+    {
+      "id": "edge:rich:endpoint:post:/api/admin/pykrx/market-fundamental/lookup:module",
+      "relation_type": "PROVIDES",
+      "from": "subproject:rich",
+      "to": "rich:endpoint:post:/api/admin/pykrx/market-fundamental/lookup"
+    },
+    {
+      "id": "edge:rich:endpoint:post:/api/admin/pykrx/market-fundamental/lookup:uses:rich:service:gh_actions.GHActionsError",
+      "relation_type": "USES",
+      "from": "rich:endpoint:post:/api/admin/pykrx/market-fundamental/lookup",
+      "to": "rich:service:gh_actions.GHActionsError"
+    },
+    {
+      "id": "edge:rich:endpoint:post:/api/admin/pykrx/market-fundamental/lookup:uses:rich:service:gh_actions.get_identity",
+      "relation_type": "USES",
+      "from": "rich:endpoint:post:/api/admin/pykrx/market-fundamental/lookup",
+      "to": "rich:service:gh_actions.get_identity"
+    },
+    {
+      "id": "edge:rich:endpoint:post:/api/admin/pykrx/market-fundamental/lookup:uses:rich:service:gh_actions.list_workflow_cards",
+      "relation_type": "USES",
+      "from": "rich:endpoint:post:/api/admin/pykrx/market-fundamental/lookup",
+      "to": "rich:service:gh_actions.list_workflow_cards"
+    },
+    {
+      "id": "edge:rich:endpoint:post:/api/admin/pykrx/market-fundamental/lookup:uses:rich:service:gh_actions.resolve_default_ref",
+      "relation_type": "USES",
+      "from": "rich:endpoint:post:/api/admin/pykrx/market-fundamental/lookup",
+      "to": "rich:service:gh_actions.resolve_default_ref"
+    },
+    {
+      "id": "edge:rich:endpoint:post:/api/admin/pykrx/market-fundamental/lookup:uses:rich:service:gh_actions.run_workflow_by_id",
+      "relation_type": "USES",
+      "from": "rich:endpoint:post:/api/admin/pykrx/market-fundamental/lookup",
+      "to": "rich:service:gh_actions.run_workflow_by_id"
+    },
+    {
+      "id": "edge:rich:endpoint:post:/api/admin/pykrx/market-fundamental/lookup:uses:rich:service:gh_actions.from app.services.pykrx_foreign_flow import",
+      "relation_type": "USES",
+      "from": "rich:endpoint:post:/api/admin/pykrx/market-fundamental/lookup",
+      "to": "rich:service:gh_actions.from app.services.pykrx_foreign_flow import"
+    },
+    {
+      "id": "edge:rich:endpoint:post:/api/admin/pykrx/market-fundamental/lookup:uses:rich:service:gh_actions.PykrxIngestionError",
+      "relation_type": "USES",
+      "from": "rich:endpoint:post:/api/admin/pykrx/market-fundamental/lookup",
+      "to": "rich:service:gh_actions.PykrxIngestionError"
+    },
+    {
+      "id": "edge:rich:endpoint:post:/api/admin/pykrx/market-fundamental/lookup:uses:rich:service:gh_actions.list_common_flow_streaks",
+      "relation_type": "USES",
+      "from": "rich:endpoint:post:/api/admin/pykrx/market-fundamental/lookup",
+      "to": "rich:service:gh_actions.list_common_flow_streaks"
+    },
+    {
+      "id": "edge:rich:endpoint:post:/api/admin/pykrx/market-fundamental/lookup:uses:rich:service:gh_actions.list_foreign_flow_streaks",
+      "relation_type": "USES",
+      "from": "rich:endpoint:post:/api/admin/pykrx/market-fundamental/lookup",
+      "to": "rich:service:gh_actions.list_foreign_flow_streaks"
+    },
+    {
+      "id": "edge:rich:endpoint:post:/api/admin/pykrx/market-fundamental/lookup:uses:rich:service:gh_actions.list_institution_flow_streaks",
+      "relation_type": "USES",
+      "from": "rich:endpoint:post:/api/admin/pykrx/market-fundamental/lookup",
+      "to": "rich:service:gh_actions.list_institution_flow_streaks"
+    },
+    {
+      "id": "edge:rich:endpoint:post:/api/admin/pykrx/market-fundamental/lookup:uses:rich:service:gh_actions.lookup_market_fundamentals",
+      "relation_type": "USES",
+      "from": "rich:endpoint:post:/api/admin/pykrx/market-fundamental/lookup",
+      "to": "rich:service:gh_actions.lookup_market_fundamentals"
+    },
+    {
+      "id": "edge:rich:endpoint:post:/api/admin/pykrx/market-fundamental/lookup:uses:rich:service:gh_actions.run_foreign_flow_ingestion",
+      "relation_type": "USES",
+      "from": "rich:endpoint:post:/api/admin/pykrx/market-fundamental/lookup",
+      "to": "rich:service:gh_actions.run_foreign_flow_ingestion"
+    },
+    {
+      "id": "edge:rich:endpoint:post:/api/admin/pykrx/market-fundamental/lookup:uses:rich:service:gh_actions.run_institution_flow_ingestion",
+      "relation_type": "USES",
+      "from": "rich:endpoint:post:/api/admin/pykrx/market-fundamental/lookup",
+      "to": "rich:service:gh_actions.run_institution_flow_ingestion"
+    },
+    {
+      "id": "edge:rich:endpoint:post:/api/admin/pykrx/market-fundamental/lookup:uses:rich:service:gh_actions.from app.services.weekly_review import",
+      "relation_type": "USES",
+      "from": "rich:endpoint:post:/api/admin/pykrx/market-fundamental/lookup",
+      "to": "rich:service:gh_actions.from app.services.weekly_review import"
+    },
+    {
+      "id": "edge:rich:endpoint:post:/api/admin/pykrx/market-fundamental/lookup:uses:rich:service:gh_actions.WeeklyReviewError",
+      "relation_type": "USES",
+      "from": "rich:endpoint:post:/api/admin/pykrx/market-fundamental/lookup",
+      "to": "rich:service:gh_actions.WeeklyReviewError"
+    },
+    {
+      "id": "edge:rich:endpoint:post:/api/admin/pykrx/market-fundamental/lookup:uses:rich:service:gh_actions.generate_ai_summary",
+      "relation_type": "USES",
+      "from": "rich:endpoint:post:/api/admin/pykrx/market-fundamental/lookup",
+      "to": "rich:service:gh_actions.generate_ai_summary"
+    },
+    {
+      "id": "edge:rich:endpoint:post:/api/admin/pykrx/market-fundamental/lookup:uses:rich:service:gh_actions.get_week_summary",
+      "relation_type": "USES",
+      "from": "rich:endpoint:post:/api/admin/pykrx/market-fundamental/lookup",
+      "to": "rich:service:gh_actions.get_week_summary"
+    },
+    {
+      "id": "edge:rich:endpoint:post:/api/admin/pykrx/market-fundamental/lookup:uses:rich:service:gh_actions.save_weekly_review",
+      "relation_type": "USES",
+      "from": "rich:endpoint:post:/api/admin/pykrx/market-fundamental/lookup",
+      "to": "rich:service:gh_actions.save_weekly_review"
+    },
+    {
+      "id": "edge:rich:endpoint:get:/api/admin/weekly-review/summary:module",
+      "relation_type": "PROVIDES",
+      "from": "subproject:rich",
+      "to": "rich:endpoint:get:/api/admin/weekly-review/summary"
+    },
+    {
+      "id": "edge:rich:endpoint:get:/api/admin/weekly-review/summary:uses:rich:service:gh_actions.GHActionsError",
+      "relation_type": "USES",
+      "from": "rich:endpoint:get:/api/admin/weekly-review/summary",
+      "to": "rich:service:gh_actions.GHActionsError"
+    },
+    {
+      "id": "edge:rich:endpoint:get:/api/admin/weekly-review/summary:uses:rich:service:gh_actions.get_identity",
+      "relation_type": "USES",
+      "from": "rich:endpoint:get:/api/admin/weekly-review/summary",
+      "to": "rich:service:gh_actions.get_identity"
+    },
+    {
+      "id": "edge:rich:endpoint:get:/api/admin/weekly-review/summary:uses:rich:service:gh_actions.list_workflow_cards",
+      "relation_type": "USES",
+      "from": "rich:endpoint:get:/api/admin/weekly-review/summary",
+      "to": "rich:service:gh_actions.list_workflow_cards"
+    },
+    {
+      "id": "edge:rich:endpoint:get:/api/admin/weekly-review/summary:uses:rich:service:gh_actions.resolve_default_ref",
+      "relation_type": "USES",
+      "from": "rich:endpoint:get:/api/admin/weekly-review/summary",
+      "to": "rich:service:gh_actions.resolve_default_ref"
+    },
+    {
+      "id": "edge:rich:endpoint:get:/api/admin/weekly-review/summary:uses:rich:service:gh_actions.run_workflow_by_id",
+      "relation_type": "USES",
+      "from": "rich:endpoint:get:/api/admin/weekly-review/summary",
+      "to": "rich:service:gh_actions.run_workflow_by_id"
+    },
+    {
+      "id": "edge:rich:endpoint:get:/api/admin/weekly-review/summary:uses:rich:service:gh_actions.from app.services.pykrx_foreign_flow import",
+      "relation_type": "USES",
+      "from": "rich:endpoint:get:/api/admin/weekly-review/summary",
+      "to": "rich:service:gh_actions.from app.services.pykrx_foreign_flow import"
+    },
+    {
+      "id": "edge:rich:endpoint:get:/api/admin/weekly-review/summary:uses:rich:service:gh_actions.PykrxIngestionError",
+      "relation_type": "USES",
+      "from": "rich:endpoint:get:/api/admin/weekly-review/summary",
+      "to": "rich:service:gh_actions.PykrxIngestionError"
+    },
+    {
+      "id": "edge:rich:endpoint:get:/api/admin/weekly-review/summary:uses:rich:service:gh_actions.list_common_flow_streaks",
+      "relation_type": "USES",
+      "from": "rich:endpoint:get:/api/admin/weekly-review/summary",
+      "to": "rich:service:gh_actions.list_common_flow_streaks"
+    },
+    {
+      "id": "edge:rich:endpoint:get:/api/admin/weekly-review/summary:uses:rich:service:gh_actions.list_foreign_flow_streaks",
+      "relation_type": "USES",
+      "from": "rich:endpoint:get:/api/admin/weekly-review/summary",
+      "to": "rich:service:gh_actions.list_foreign_flow_streaks"
+    },
+    {
+      "id": "edge:rich:endpoint:get:/api/admin/weekly-review/summary:uses:rich:service:gh_actions.list_institution_flow_streaks",
+      "relation_type": "USES",
+      "from": "rich:endpoint:get:/api/admin/weekly-review/summary",
+      "to": "rich:service:gh_actions.list_institution_flow_streaks"
+    },
+    {
+      "id": "edge:rich:endpoint:get:/api/admin/weekly-review/summary:uses:rich:service:gh_actions.lookup_market_fundamentals",
+      "relation_type": "USES",
+      "from": "rich:endpoint:get:/api/admin/weekly-review/summary",
+      "to": "rich:service:gh_actions.lookup_market_fundamentals"
+    },
+    {
+      "id": "edge:rich:endpoint:get:/api/admin/weekly-review/summary:uses:rich:service:gh_actions.run_foreign_flow_ingestion",
+      "relation_type": "USES",
+      "from": "rich:endpoint:get:/api/admin/weekly-review/summary",
+      "to": "rich:service:gh_actions.run_foreign_flow_ingestion"
+    },
+    {
+      "id": "edge:rich:endpoint:get:/api/admin/weekly-review/summary:uses:rich:service:gh_actions.run_institution_flow_ingestion",
+      "relation_type": "USES",
+      "from": "rich:endpoint:get:/api/admin/weekly-review/summary",
+      "to": "rich:service:gh_actions.run_institution_flow_ingestion"
+    },
+    {
+      "id": "edge:rich:endpoint:get:/api/admin/weekly-review/summary:uses:rich:service:gh_actions.from app.services.weekly_review import",
+      "relation_type": "USES",
+      "from": "rich:endpoint:get:/api/admin/weekly-review/summary",
+      "to": "rich:service:gh_actions.from app.services.weekly_review import"
+    },
+    {
+      "id": "edge:rich:endpoint:get:/api/admin/weekly-review/summary:uses:rich:service:gh_actions.WeeklyReviewError",
+      "relation_type": "USES",
+      "from": "rich:endpoint:get:/api/admin/weekly-review/summary",
+      "to": "rich:service:gh_actions.WeeklyReviewError"
+    },
+    {
+      "id": "edge:rich:endpoint:get:/api/admin/weekly-review/summary:uses:rich:service:gh_actions.generate_ai_summary",
+      "relation_type": "USES",
+      "from": "rich:endpoint:get:/api/admin/weekly-review/summary",
+      "to": "rich:service:gh_actions.generate_ai_summary"
+    },
+    {
+      "id": "edge:rich:endpoint:get:/api/admin/weekly-review/summary:uses:rich:service:gh_actions.get_week_summary",
+      "relation_type": "USES",
+      "from": "rich:endpoint:get:/api/admin/weekly-review/summary",
+      "to": "rich:service:gh_actions.get_week_summary"
+    },
+    {
+      "id": "edge:rich:endpoint:get:/api/admin/weekly-review/summary:uses:rich:service:gh_actions.save_weekly_review",
+      "relation_type": "USES",
+      "from": "rich:endpoint:get:/api/admin/weekly-review/summary",
+      "to": "rich:service:gh_actions.save_weekly_review"
+    },
+    {
+      "id": "edge:rich:endpoint:post:/api/admin/weekly-review/generate-ai:module",
+      "relation_type": "PROVIDES",
+      "from": "subproject:rich",
+      "to": "rich:endpoint:post:/api/admin/weekly-review/generate-ai"
+    },
+    {
+      "id": "edge:rich:endpoint:post:/api/admin/weekly-review/generate-ai:uses:rich:service:gh_actions.GHActionsError",
+      "relation_type": "USES",
+      "from": "rich:endpoint:post:/api/admin/weekly-review/generate-ai",
+      "to": "rich:service:gh_actions.GHActionsError"
+    },
+    {
+      "id": "edge:rich:endpoint:post:/api/admin/weekly-review/generate-ai:uses:rich:service:gh_actions.get_identity",
+      "relation_type": "USES",
+      "from": "rich:endpoint:post:/api/admin/weekly-review/generate-ai",
+      "to": "rich:service:gh_actions.get_identity"
+    },
+    {
+      "id": "edge:rich:endpoint:post:/api/admin/weekly-review/generate-ai:uses:rich:service:gh_actions.list_workflow_cards",
+      "relation_type": "USES",
+      "from": "rich:endpoint:post:/api/admin/weekly-review/generate-ai",
+      "to": "rich:service:gh_actions.list_workflow_cards"
+    },
+    {
+      "id": "edge:rich:endpoint:post:/api/admin/weekly-review/generate-ai:uses:rich:service:gh_actions.resolve_default_ref",
+      "relation_type": "USES",
+      "from": "rich:endpoint:post:/api/admin/weekly-review/generate-ai",
+      "to": "rich:service:gh_actions.resolve_default_ref"
+    },
+    {
+      "id": "edge:rich:endpoint:post:/api/admin/weekly-review/generate-ai:uses:rich:service:gh_actions.run_workflow_by_id",
+      "relation_type": "USES",
+      "from": "rich:endpoint:post:/api/admin/weekly-review/generate-ai",
+      "to": "rich:service:gh_actions.run_workflow_by_id"
+    },
+    {
+      "id": "edge:rich:endpoint:post:/api/admin/weekly-review/generate-ai:uses:rich:service:gh_actions.from app.services.pykrx_foreign_flow import",
+      "relation_type": "USES",
+      "from": "rich:endpoint:post:/api/admin/weekly-review/generate-ai",
+      "to": "rich:service:gh_actions.from app.services.pykrx_foreign_flow import"
+    },
+    {
+      "id": "edge:rich:endpoint:post:/api/admin/weekly-review/generate-ai:uses:rich:service:gh_actions.PykrxIngestionError",
+      "relation_type": "USES",
+      "from": "rich:endpoint:post:/api/admin/weekly-review/generate-ai",
+      "to": "rich:service:gh_actions.PykrxIngestionError"
+    },
+    {
+      "id": "edge:rich:endpoint:post:/api/admin/weekly-review/generate-ai:uses:rich:service:gh_actions.list_common_flow_streaks",
+      "relation_type": "USES",
+      "from": "rich:endpoint:post:/api/admin/weekly-review/generate-ai",
+      "to": "rich:service:gh_actions.list_common_flow_streaks"
+    },
+    {
+      "id": "edge:rich:endpoint:post:/api/admin/weekly-review/generate-ai:uses:rich:service:gh_actions.list_foreign_flow_streaks",
+      "relation_type": "USES",
+      "from": "rich:endpoint:post:/api/admin/weekly-review/generate-ai",
+      "to": "rich:service:gh_actions.list_foreign_flow_streaks"
+    },
+    {
+      "id": "edge:rich:endpoint:post:/api/admin/weekly-review/generate-ai:uses:rich:service:gh_actions.list_institution_flow_streaks",
+      "relation_type": "USES",
+      "from": "rich:endpoint:post:/api/admin/weekly-review/generate-ai",
+      "to": "rich:service:gh_actions.list_institution_flow_streaks"
+    },
+    {
+      "id": "edge:rich:endpoint:post:/api/admin/weekly-review/generate-ai:uses:rich:service:gh_actions.lookup_market_fundamentals",
+      "relation_type": "USES",
+      "from": "rich:endpoint:post:/api/admin/weekly-review/generate-ai",
+      "to": "rich:service:gh_actions.lookup_market_fundamentals"
+    },
+    {
+      "id": "edge:rich:endpoint:post:/api/admin/weekly-review/generate-ai:uses:rich:service:gh_actions.run_foreign_flow_ingestion",
+      "relation_type": "USES",
+      "from": "rich:endpoint:post:/api/admin/weekly-review/generate-ai",
+      "to": "rich:service:gh_actions.run_foreign_flow_ingestion"
+    },
+    {
+      "id": "edge:rich:endpoint:post:/api/admin/weekly-review/generate-ai:uses:rich:service:gh_actions.run_institution_flow_ingestion",
+      "relation_type": "USES",
+      "from": "rich:endpoint:post:/api/admin/weekly-review/generate-ai",
+      "to": "rich:service:gh_actions.run_institution_flow_ingestion"
+    },
+    {
+      "id": "edge:rich:endpoint:post:/api/admin/weekly-review/generate-ai:uses:rich:service:gh_actions.from app.services.weekly_review import",
+      "relation_type": "USES",
+      "from": "rich:endpoint:post:/api/admin/weekly-review/generate-ai",
+      "to": "rich:service:gh_actions.from app.services.weekly_review import"
+    },
+    {
+      "id": "edge:rich:endpoint:post:/api/admin/weekly-review/generate-ai:uses:rich:service:gh_actions.WeeklyReviewError",
+      "relation_type": "USES",
+      "from": "rich:endpoint:post:/api/admin/weekly-review/generate-ai",
+      "to": "rich:service:gh_actions.WeeklyReviewError"
+    },
+    {
+      "id": "edge:rich:endpoint:post:/api/admin/weekly-review/generate-ai:uses:rich:service:gh_actions.generate_ai_summary",
+      "relation_type": "USES",
+      "from": "rich:endpoint:post:/api/admin/weekly-review/generate-ai",
+      "to": "rich:service:gh_actions.generate_ai_summary"
+    },
+    {
+      "id": "edge:rich:endpoint:post:/api/admin/weekly-review/generate-ai:uses:rich:service:gh_actions.get_week_summary",
+      "relation_type": "USES",
+      "from": "rich:endpoint:post:/api/admin/weekly-review/generate-ai",
+      "to": "rich:service:gh_actions.get_week_summary"
+    },
+    {
+      "id": "edge:rich:endpoint:post:/api/admin/weekly-review/generate-ai:uses:rich:service:gh_actions.save_weekly_review",
+      "relation_type": "USES",
+      "from": "rich:endpoint:post:/api/admin/weekly-review/generate-ai",
+      "to": "rich:service:gh_actions.save_weekly_review"
+    },
+    {
+      "id": "edge:rich:endpoint:post:/api/admin/weekly-review/save:module",
+      "relation_type": "PROVIDES",
+      "from": "subproject:rich",
+      "to": "rich:endpoint:post:/api/admin/weekly-review/save"
+    },
+    {
+      "id": "edge:rich:endpoint:post:/api/admin/weekly-review/save:uses:rich:service:gh_actions.GHActionsError",
+      "relation_type": "USES",
+      "from": "rich:endpoint:post:/api/admin/weekly-review/save",
+      "to": "rich:service:gh_actions.GHActionsError"
+    },
+    {
+      "id": "edge:rich:endpoint:post:/api/admin/weekly-review/save:uses:rich:service:gh_actions.get_identity",
+      "relation_type": "USES",
+      "from": "rich:endpoint:post:/api/admin/weekly-review/save",
+      "to": "rich:service:gh_actions.get_identity"
+    },
+    {
+      "id": "edge:rich:endpoint:post:/api/admin/weekly-review/save:uses:rich:service:gh_actions.list_workflow_cards",
+      "relation_type": "USES",
+      "from": "rich:endpoint:post:/api/admin/weekly-review/save",
+      "to": "rich:service:gh_actions.list_workflow_cards"
+    },
+    {
+      "id": "edge:rich:endpoint:post:/api/admin/weekly-review/save:uses:rich:service:gh_actions.resolve_default_ref",
+      "relation_type": "USES",
+      "from": "rich:endpoint:post:/api/admin/weekly-review/save",
+      "to": "rich:service:gh_actions.resolve_default_ref"
+    },
+    {
+      "id": "edge:rich:endpoint:post:/api/admin/weekly-review/save:uses:rich:service:gh_actions.run_workflow_by_id",
+      "relation_type": "USES",
+      "from": "rich:endpoint:post:/api/admin/weekly-review/save",
+      "to": "rich:service:gh_actions.run_workflow_by_id"
+    },
+    {
+      "id": "edge:rich:endpoint:post:/api/admin/weekly-review/save:uses:rich:service:gh_actions.from app.services.pykrx_foreign_flow import",
+      "relation_type": "USES",
+      "from": "rich:endpoint:post:/api/admin/weekly-review/save",
+      "to": "rich:service:gh_actions.from app.services.pykrx_foreign_flow import"
+    },
+    {
+      "id": "edge:rich:endpoint:post:/api/admin/weekly-review/save:uses:rich:service:gh_actions.PykrxIngestionError",
+      "relation_type": "USES",
+      "from": "rich:endpoint:post:/api/admin/weekly-review/save",
+      "to": "rich:service:gh_actions.PykrxIngestionError"
+    },
+    {
+      "id": "edge:rich:endpoint:post:/api/admin/weekly-review/save:uses:rich:service:gh_actions.list_common_flow_streaks",
+      "relation_type": "USES",
+      "from": "rich:endpoint:post:/api/admin/weekly-review/save",
+      "to": "rich:service:gh_actions.list_common_flow_streaks"
+    },
+    {
+      "id": "edge:rich:endpoint:post:/api/admin/weekly-review/save:uses:rich:service:gh_actions.list_foreign_flow_streaks",
+      "relation_type": "USES",
+      "from": "rich:endpoint:post:/api/admin/weekly-review/save",
+      "to": "rich:service:gh_actions.list_foreign_flow_streaks"
+    },
+    {
+      "id": "edge:rich:endpoint:post:/api/admin/weekly-review/save:uses:rich:service:gh_actions.list_institution_flow_streaks",
+      "relation_type": "USES",
+      "from": "rich:endpoint:post:/api/admin/weekly-review/save",
+      "to": "rich:service:gh_actions.list_institution_flow_streaks"
+    },
+    {
+      "id": "edge:rich:endpoint:post:/api/admin/weekly-review/save:uses:rich:service:gh_actions.lookup_market_fundamentals",
+      "relation_type": "USES",
+      "from": "rich:endpoint:post:/api/admin/weekly-review/save",
+      "to": "rich:service:gh_actions.lookup_market_fundamentals"
+    },
+    {
+      "id": "edge:rich:endpoint:post:/api/admin/weekly-review/save:uses:rich:service:gh_actions.run_foreign_flow_ingestion",
+      "relation_type": "USES",
+      "from": "rich:endpoint:post:/api/admin/weekly-review/save",
+      "to": "rich:service:gh_actions.run_foreign_flow_ingestion"
+    },
+    {
+      "id": "edge:rich:endpoint:post:/api/admin/weekly-review/save:uses:rich:service:gh_actions.run_institution_flow_ingestion",
+      "relation_type": "USES",
+      "from": "rich:endpoint:post:/api/admin/weekly-review/save",
+      "to": "rich:service:gh_actions.run_institution_flow_ingestion"
+    },
+    {
+      "id": "edge:rich:endpoint:post:/api/admin/weekly-review/save:uses:rich:service:gh_actions.from app.services.weekly_review import",
+      "relation_type": "USES",
+      "from": "rich:endpoint:post:/api/admin/weekly-review/save",
+      "to": "rich:service:gh_actions.from app.services.weekly_review import"
+    },
+    {
+      "id": "edge:rich:endpoint:post:/api/admin/weekly-review/save:uses:rich:service:gh_actions.WeeklyReviewError",
+      "relation_type": "USES",
+      "from": "rich:endpoint:post:/api/admin/weekly-review/save",
+      "to": "rich:service:gh_actions.WeeklyReviewError"
+    },
+    {
+      "id": "edge:rich:endpoint:post:/api/admin/weekly-review/save:uses:rich:service:gh_actions.generate_ai_summary",
+      "relation_type": "USES",
+      "from": "rich:endpoint:post:/api/admin/weekly-review/save",
+      "to": "rich:service:gh_actions.generate_ai_summary"
+    },
+    {
+      "id": "edge:rich:endpoint:post:/api/admin/weekly-review/save:uses:rich:service:gh_actions.get_week_summary",
+      "relation_type": "USES",
+      "from": "rich:endpoint:post:/api/admin/weekly-review/save",
+      "to": "rich:service:gh_actions.get_week_summary"
+    },
+    {
+      "id": "edge:rich:endpoint:post:/api/admin/weekly-review/save:uses:rich:service:gh_actions.save_weekly_review",
+      "relation_type": "USES",
+      "from": "rich:endpoint:post:/api/admin/weekly-review/save",
+      "to": "rich:service:gh_actions.save_weekly_review"
+    }
+  ]
+}

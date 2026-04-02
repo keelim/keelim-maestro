@@ -1,0 +1,6 @@
+id: service:rich:product-admin
+node_type: Service
+name: Product admin service
+path: rich/app/api/admin.py
+metadata:
+  source_subproject: rich

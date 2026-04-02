@@ -1,0 +1,85 @@
+relationships:
+  - id: edge:entity:product:context
+    relation_type: BELONGS_TO
+    from: entity:product
+    to: context:commerce
+  - id: edge:workflow:product-catalog-sync:context
+    relation_type: BELONGS_TO
+    from: workflow:product-catalog-sync
+    to: context:commerce
+  - id: edge:entity:product:rule
+    relation_type: GOVERNED_BY
+    from: entity:product
+    to: rule:product-status-lifecycle
+  - id: edge:workflow:product-catalog-sync:rule
+    relation_type: GOVERNED_BY
+    from: workflow:product-catalog-sync
+    to: rule:product-status-lifecycle
+  - id: edge:service:product-catalog:implements:product
+    relation_type: IMPLEMENTS
+    from: service:keelim-vercel:product-catalog
+    to: entity:product
+  - id: edge:service:product-admin:implements:workflow
+    relation_type: IMPLEMENTS
+    from: service:rich:product-admin
+    to: workflow:product-catalog-sync
+  - id: edge:entity:product:stored-in:products
+    relation_type: STORED_IN
+    from: entity:product
+    to: keelim-vercel:table:products
+  - id: edge:column:products:id:table
+    relation_type: STORED_IN
+    from: column:products:id
+    to: keelim-vercel:table:products
+  - id: edge:column:products:name:table
+    relation_type: STORED_IN
+    from: column:products:name
+    to: keelim-vercel:table:products
+  - id: edge:column:products:status:table
+    relation_type: STORED_IN
+    from: column:products:status
+    to: keelim-vercel:table:products
+  - id: edge:column:products:price:table
+    relation_type: STORED_IN
+    from: column:products:price
+    to: keelim-vercel:table:products
+  - id: edge:api:products-export:reads:product
+    relation_type: READS
+    from: keelim-vercel:endpoint:route:/api/products/export
+    to: entity:product
+  - id: edge:api:products-import:writes:product
+    relation_type: WRITES
+    from: keelim-vercel:endpoint:route:/api/products/import
+    to: entity:product
+  - id: edge:api:products-import:accesses:products
+    relation_type: ACCESSES
+    from: keelim-vercel:endpoint:route:/api/products/import
+    to: keelim-vercel:table:products
+  - id: edge:api:products-export:accesses:products
+    relation_type: ACCESSES
+    from: keelim-vercel:endpoint:route:/api/products/export
+    to: keelim-vercel:table:products
+  - id: edge:api:products-sync:writes:product
+    relation_type: WRITES
+    from: keelim-vercel:endpoint:manual:/api/products/sync
+    to: entity:product
+  - id: edge:api:products-sync:calls:import
+    relation_type: CALLS_API
+    from: keelim-vercel:endpoint:manual:/api/products/sync
+    to: keelim-vercel:endpoint:route:/api/products/import
+  - id: edge:api:products-rebuild:calls:sync
+    relation_type: CALLS_API
+    from: rich:endpoint:manual:/api/admin/products/rebuild
+    to: keelim-vercel:endpoint:manual:/api/products/sync
+  - id: edge:workflow:product-catalog-sync:triggers:queue
+    relation_type: TRIGGERS
+    from: workflow:product-catalog-sync
+    to: queue:product-sync-events
+  - id: edge:service:product-catalog:publishes:queue
+    relation_type: PUBLISHES_TO
+    from: service:keelim-vercel:product-catalog
+    to: queue:product-sync-events
+  - id: edge:service:product-admin:consumes:queue
+    relation_type: CONSUMES_FROM
+    from: service:rich:product-admin
+    to: queue:product-sync-events

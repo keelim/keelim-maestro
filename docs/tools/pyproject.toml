@@ -1,0 +1,32 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "keelim-knowledge"
+version = "0.1.0"
+description = "Root-owned knowledge graph tooling for the keelim-maestro workspace"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+  "neo4j>=5.28.3",
+  "PyYAML>=6.0",
+]
+
+[project.scripts]
+keelim-knowledge = "keelim_knowledge.cli:main"
+
+[dependency-groups]
+dev = [
+  "pytest>=8.0",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/keelim_knowledge"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+
+[tool.uv]
+package = true

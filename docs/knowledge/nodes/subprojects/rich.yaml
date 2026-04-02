@@ -1,0 +1,4 @@
+id: subproject:rich
+node_type: Subproject
+name: rich
+path: rich

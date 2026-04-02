@@ -1,0 +1,6 @@
+id: service:keelim-vercel:product-catalog
+node_type: Service
+name: Product catalog service
+path: keelim-vercel/lib/db.ts
+metadata:
+  source_subproject: keelim-vercel

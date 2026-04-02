@@ -1,0 +1,14 @@
+workspace:
+  id: workspace:keelim-maestro
+  knowledge_root: docs/knowledge
+
+subprojects:
+  all:
+    path: ../../all
+    analyzer: kotlin
+  rich:
+    path: ../../rich
+    analyzer: python
+  keelim-vercel:
+    path: ../../keelim-vercel
+    analyzer: typescript
