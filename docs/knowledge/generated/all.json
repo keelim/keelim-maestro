@@ -1,0 +1,619 @@
+{
+  "subproject": "all",
+  "nodes": [
+    {
+      "id": "all:module:app-arducon",
+      "node_type": "Module",
+      "name": ":app-arducon",
+      "path": "all/app-arducon"
+    },
+    {
+      "id": "all:screen:app-arducon",
+      "node_type": "UIScreen",
+      "name": ":app-arducon",
+      "path": "all/app-arducon"
+    },
+    {
+      "id": "all:module:app-cnubus",
+      "node_type": "Module",
+      "name": ":app-cnubus",
+      "path": "all/app-cnubus"
+    },
+    {
+      "id": "all:screen:app-cnubus",
+      "node_type": "UIScreen",
+      "name": ":app-cnubus",
+      "path": "all/app-cnubus"
+    },
+    {
+      "id": "all:module:app-my-grade",
+      "node_type": "Module",
+      "name": ":app-my-grade",
+      "path": "all/app-my-grade"
+    },
+    {
+      "id": "all:screen:app-my-grade",
+      "node_type": "UIScreen",
+      "name": ":app-my-grade",
+      "path": "all/app-my-grade"
+    },
+    {
+      "id": "all:module:app-nanda",
+      "node_type": "Module",
+      "name": ":app-nanda",
+      "path": "all/app-nanda"
+    },
+    {
+      "id": "all:screen:app-nanda",
+      "node_type": "UIScreen",
+      "name": ":app-nanda",
+      "path": "all/app-nanda"
+    },
+    {
+      "id": "all:module:app-comssa",
+      "node_type": "Module",
+      "name": ":app-comssa",
+      "path": "all/app-comssa"
+    },
+    {
+      "id": "all:screen:app-comssa",
+      "node_type": "UIScreen",
+      "name": ":app-comssa",
+      "path": "all/app-comssa"
+    },
+    {
+      "id": "all:module:benchmarks",
+      "node_type": "Module",
+      "name": ":benchmarks",
+      "path": "all/benchmarks"
+    },
+    {
+      "id": "all:module:catalog",
+      "node_type": "Module",
+      "name": ":catalog",
+      "path": "all/catalog"
+    },
+    {
+      "id": "all:module:composeApp",
+      "node_type": "Module",
+      "name": ":composeApp",
+      "path": "all/composeApp"
+    },
+    {
+      "id": "all:module:core-common",
+      "node_type": "Module",
+      "name": ":core:common",
+      "path": "all/core/common"
+    },
+    {
+      "id": "all:module:core-common-android",
+      "node_type": "Module",
+      "name": ":core:common-android",
+      "path": "all/core/common-android"
+    },
+    {
+      "id": "all:module:core-component",
+      "node_type": "Module",
+      "name": ":core:component",
+      "path": "all/core/component"
+    },
+    {
+      "id": "all:module:core-designsystem",
+      "node_type": "Module",
+      "name": ":core:designsystem",
+      "path": "all/core/designsystem"
+    },
+    {
+      "id": "all:module:core-data",
+      "node_type": "Module",
+      "name": ":core:data",
+      "path": "all/core/data"
+    },
+    {
+      "id": "all:module:core-data-api",
+      "node_type": "Module",
+      "name": ":core:data-api",
+      "path": "all/core/data-api"
+    },
+    {
+      "id": "all:module:core-database",
+      "node_type": "Module",
+      "name": ":core:database",
+      "path": "all/core/database"
+    },
+    {
+      "id": "all:module:core-datastore-proto",
+      "node_type": "Module",
+      "name": ":core:datastore-proto",
+      "path": "all/core/datastore-proto"
+    },
+    {
+      "id": "all:module:core-domain",
+      "node_type": "Module",
+      "name": ":core:domain",
+      "path": "all/core/domain"
+    },
+    {
+      "id": "all:module:core-model",
+      "node_type": "Module",
+      "name": ":core:model",
+      "path": "all/core/model"
+    },
+    {
+      "id": "all:module:core-network",
+      "node_type": "Module",
+      "name": ":core:network",
+      "path": "all/core/network"
+    },
+    {
+      "id": "all:module:core-resource",
+      "node_type": "Module",
+      "name": ":core:resource",
+      "path": "all/core/resource"
+    },
+    {
+      "id": "all:module:core-testing",
+      "node_type": "Module",
+      "name": ":core:testing",
+      "path": "all/core/testing"
+    },
+    {
+      "id": "all:module:core-navigation",
+      "node_type": "Module",
+      "name": ":core:navigation",
+      "path": "all/core/navigation"
+    },
+    {
+      "id": "all:module:feature-app-function",
+      "node_type": "Module",
+      "name": ":feature:app-function",
+      "path": "all/feature/app-function"
+    },
+    {
+      "id": "all:screen:feature-app-function",
+      "node_type": "UIScreen",
+      "name": ":feature:app-function",
+      "path": "all/feature/app-function"
+    },
+    {
+      "id": "all:module:feature-settings-core",
+      "node_type": "Module",
+      "name": ":feature:settings-core",
+      "path": "all/feature/settings-core"
+    },
+    {
+      "id": "all:screen:feature-settings-core",
+      "node_type": "UIScreen",
+      "name": ":feature:settings-core",
+      "path": "all/feature/settings-core"
+    },
+    {
+      "id": "all:module:feature-settings-theme",
+      "node_type": "Module",
+      "name": ":feature:settings-theme",
+      "path": "all/feature/settings-theme"
+    },
+    {
+      "id": "all:screen:feature-settings-theme",
+      "node_type": "UIScreen",
+      "name": ":feature:settings-theme",
+      "path": "all/feature/settings-theme"
+    },
+    {
+      "id": "all:module:feature-settings-notification",
+      "node_type": "Module",
+      "name": ":feature:settings-notification",
+      "path": "all/feature/settings-notification"
+    },
+    {
+      "id": "all:screen:feature-settings-notification",
+      "node_type": "UIScreen",
+      "name": ":feature:settings-notification",
+      "path": "all/feature/settings-notification"
+    },
+    {
+      "id": "all:module:feature-settings-alarm",
+      "node_type": "Module",
+      "name": ":feature:settings-alarm",
+      "path": "all/feature/settings-alarm"
+    },
+    {
+      "id": "all:screen:feature-settings-alarm",
+      "node_type": "UIScreen",
+      "name": ":feature:settings-alarm",
+      "path": "all/feature/settings-alarm"
+    },
+    {
+      "id": "all:module:feature-settings-device",
+      "node_type": "Module",
+      "name": ":feature:settings-device",
+      "path": "all/feature/settings-device"
+    },
+    {
+      "id": "all:screen:feature-settings-device",
+      "node_type": "UIScreen",
+      "name": ":feature:settings-device",
+      "path": "all/feature/settings-device"
+    },
+    {
+      "id": "all:module:feature-settings-admin",
+      "node_type": "Module",
+      "name": ":feature:settings-admin",
+      "path": "all/feature/settings-admin"
+    },
+    {
+      "id": "all:screen:feature-settings-admin",
+      "node_type": "UIScreen",
+      "name": ":feature:settings-admin",
+      "path": "all/feature/settings-admin"
+    },
+    {
+      "id": "all:module:feature-settings-lab",
+      "node_type": "Module",
+      "name": ":feature:settings-lab",
+      "path": "all/feature/settings-lab"
+    },
+    {
+      "id": "all:screen:feature-settings-lab",
+      "node_type": "UIScreen",
+      "name": ":feature:settings-lab",
+      "path": "all/feature/settings-lab"
+    },
+    {
+      "id": "all:module:feature-ui-scheme",
+      "node_type": "Module",
+      "name": ":feature:ui-scheme",
+      "path": "all/feature/ui-scheme"
+    },
+    {
+      "id": "all:screen:feature-ui-scheme",
+      "node_type": "UIScreen",
+      "name": ":feature:ui-scheme",
+      "path": "all/feature/ui-scheme"
+    },
+    {
+      "id": "all:module:feature-ui-setting",
+      "node_type": "Module",
+      "name": ":feature:ui-setting",
+      "path": "all/feature/ui-setting"
+    },
+    {
+      "id": "all:screen:feature-ui-setting",
+      "node_type": "UIScreen",
+      "name": ":feature:ui-setting",
+      "path": "all/feature/ui-setting"
+    },
+    {
+      "id": "all:module:feature-ui-web",
+      "node_type": "Module",
+      "name": ":feature:ui-web",
+      "path": "all/feature/ui-web"
+    },
+    {
+      "id": "all:screen:feature-ui-web",
+      "node_type": "UIScreen",
+      "name": ":feature:ui-web",
+      "path": "all/feature/ui-web"
+    },
+    {
+      "id": "all:module:shared",
+      "node_type": "Module",
+      "name": ":shared",
+      "path": "all/shared"
+    },
+    {
+      "id": "all:module:widget",
+      "node_type": "Module",
+      "name": ":widget",
+      "path": "all/widget"
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge:subproject:all:app-arducon",
+      "relation_type": "CONTAINS",
+      "from": "subproject:all",
+      "to": "all:module:app-arducon"
+    },
+    {
+      "id": "edge:all:module:app-arducon:renders:all:screen:app-arducon",
+      "relation_type": "CONTAINS",
+      "from": "all:module:app-arducon",
+      "to": "all:screen:app-arducon"
+    },
+    {
+      "id": "edge:subproject:all:app-cnubus",
+      "relation_type": "CONTAINS",
+      "from": "subproject:all",
+      "to": "all:module:app-cnubus"
+    },
+    {
+      "id": "edge:all:module:app-cnubus:renders:all:screen:app-cnubus",
+      "relation_type": "CONTAINS",
+      "from": "all:module:app-cnubus",
+      "to": "all:screen:app-cnubus"
+    },
+    {
+      "id": "edge:subproject:all:app-my-grade",
+      "relation_type": "CONTAINS",
+      "from": "subproject:all",
+      "to": "all:module:app-my-grade"
+    },
+    {
+      "id": "edge:all:module:app-my-grade:renders:all:screen:app-my-grade",
+      "relation_type": "CONTAINS",
+      "from": "all:module:app-my-grade",
+      "to": "all:screen:app-my-grade"
+    },
+    {
+      "id": "edge:subproject:all:app-nanda",
+      "relation_type": "CONTAINS",
+      "from": "subproject:all",
+      "to": "all:module:app-nanda"
+    },
+    {
+      "id": "edge:all:module:app-nanda:renders:all:screen:app-nanda",
+      "relation_type": "CONTAINS",
+      "from": "all:module:app-nanda",
+      "to": "all:screen:app-nanda"
+    },
+    {
+      "id": "edge:subproject:all:app-comssa",
+      "relation_type": "CONTAINS",
+      "from": "subproject:all",
+      "to": "all:module:app-comssa"
+    },
+    {
+      "id": "edge:all:module:app-comssa:renders:all:screen:app-comssa",
+      "relation_type": "CONTAINS",
+      "from": "all:module:app-comssa",
+      "to": "all:screen:app-comssa"
+    },
+    {
+      "id": "edge:subproject:all:benchmarks",
+      "relation_type": "CONTAINS",
+      "from": "subproject:all",
+      "to": "all:module:benchmarks"
+    },
+    {
+      "id": "edge:subproject:all:catalog",
+      "relation_type": "CONTAINS",
+      "from": "subproject:all",
+      "to": "all:module:catalog"
+    },
+    {
+      "id": "edge:subproject:all:composeApp",
+      "relation_type": "CONTAINS",
+      "from": "subproject:all",
+      "to": "all:module:composeApp"
+    },
+    {
+      "id": "edge:subproject:all:core-common",
+      "relation_type": "CONTAINS",
+      "from": "subproject:all",
+      "to": "all:module:core-common"
+    },
+    {
+      "id": "edge:subproject:all:core-common-android",
+      "relation_type": "CONTAINS",
+      "from": "subproject:all",
+      "to": "all:module:core-common-android"
+    },
+    {
+      "id": "edge:subproject:all:core-component",
+      "relation_type": "CONTAINS",
+      "from": "subproject:all",
+      "to": "all:module:core-component"
+    },
+    {
+      "id": "edge:subproject:all:core-designsystem",
+      "relation_type": "CONTAINS",
+      "from": "subproject:all",
+      "to": "all:module:core-designsystem"
+    },
+    {
+      "id": "edge:subproject:all:core-data",
+      "relation_type": "CONTAINS",
+      "from": "subproject:all",
+      "to": "all:module:core-data"
+    },
+    {
+      "id": "edge:subproject:all:core-data-api",
+      "relation_type": "CONTAINS",
+      "from": "subproject:all",
+      "to": "all:module:core-data-api"
+    },
+    {
+      "id": "edge:subproject:all:core-database",
+      "relation_type": "CONTAINS",
+      "from": "subproject:all",
+      "to": "all:module:core-database"
+    },
+    {
+      "id": "edge:subproject:all:core-datastore-proto",
+      "relation_type": "CONTAINS",
+      "from": "subproject:all",
+      "to": "all:module:core-datastore-proto"
+    },
+    {
+      "id": "edge:subproject:all:core-domain",
+      "relation_type": "CONTAINS",
+      "from": "subproject:all",
+      "to": "all:module:core-domain"
+    },
+    {
+      "id": "edge:subproject:all:core-model",
+      "relation_type": "CONTAINS",
+      "from": "subproject:all",
+      "to": "all:module:core-model"
+    },
+    {
+      "id": "edge:subproject:all:core-network",
+      "relation_type": "CONTAINS",
+      "from": "subproject:all",
+      "to": "all:module:core-network"
+    },
+    {
+      "id": "edge:subproject:all:core-resource",
+      "relation_type": "CONTAINS",
+      "from": "subproject:all",
+      "to": "all:module:core-resource"
+    },
+    {
+      "id": "edge:subproject:all:core-testing",
+      "relation_type": "CONTAINS",
+      "from": "subproject:all",
+      "to": "all:module:core-testing"
+    },
+    {
+      "id": "edge:subproject:all:core-navigation",
+      "relation_type": "CONTAINS",
+      "from": "subproject:all",
+      "to": "all:module:core-navigation"
+    },
+    {
+      "id": "edge:subproject:all:feature-app-function",
+      "relation_type": "CONTAINS",
+      "from": "subproject:all",
+      "to": "all:module:feature-app-function"
+    },
+    {
+      "id": "edge:all:module:feature-app-function:renders:all:screen:feature-app-function",
+      "relation_type": "CONTAINS",
+      "from": "all:module:feature-app-function",
+      "to": "all:screen:feature-app-function"
+    },
+    {
+      "id": "edge:subproject:all:feature-settings-core",
+      "relation_type": "CONTAINS",
+      "from": "subproject:all",
+      "to": "all:module:feature-settings-core"
+    },
+    {
+      "id": "edge:all:module:feature-settings-core:renders:all:screen:feature-settings-core",
+      "relation_type": "CONTAINS",
+      "from": "all:module:feature-settings-core",
+      "to": "all:screen:feature-settings-core"
+    },
+    {
+      "id": "edge:subproject:all:feature-settings-theme",
+      "relation_type": "CONTAINS",
+      "from": "subproject:all",
+      "to": "all:module:feature-settings-theme"
+    },
+    {
+      "id": "edge:all:module:feature-settings-theme:renders:all:screen:feature-settings-theme",
+      "relation_type": "CONTAINS",
+      "from": "all:module:feature-settings-theme",
+      "to": "all:screen:feature-settings-theme"
+    },
+    {
+      "id": "edge:subproject:all:feature-settings-notification",
+      "relation_type": "CONTAINS",
+      "from": "subproject:all",
+      "to": "all:module:feature-settings-notification"
+    },
+    {
+      "id": "edge:all:module:feature-settings-notification:renders:all:screen:feature-settings-notification",
+      "relation_type": "CONTAINS",
+      "from": "all:module:feature-settings-notification",
+      "to": "all:screen:feature-settings-notification"
+    },
+    {
+      "id": "edge:subproject:all:feature-settings-alarm",
+      "relation_type": "CONTAINS",
+      "from": "subproject:all",
+      "to": "all:module:feature-settings-alarm"
+    },
+    {
+      "id": "edge:all:module:feature-settings-alarm:renders:all:screen:feature-settings-alarm",
+      "relation_type": "CONTAINS",
+      "from": "all:module:feature-settings-alarm",
+      "to": "all:screen:feature-settings-alarm"
+    },
+    {
+      "id": "edge:subproject:all:feature-settings-device",
+      "relation_type": "CONTAINS",
+      "from": "subproject:all",
+      "to": "all:module:feature-settings-device"
+    },
+    {
+      "id": "edge:all:module:feature-settings-device:renders:all:screen:feature-settings-device",
+      "relation_type": "CONTAINS",
+      "from": "all:module:feature-settings-device",
+      "to": "all:screen:feature-settings-device"
+    },
+    {
+      "id": "edge:subproject:all:feature-settings-admin",
+      "relation_type": "CONTAINS",
+      "from": "subproject:all",
+      "to": "all:module:feature-settings-admin"
+    },
+    {
+      "id": "edge:all:module:feature-settings-admin:renders:all:screen:feature-settings-admin",
+      "relation_type": "CONTAINS",
+      "from": "all:module:feature-settings-admin",
+      "to": "all:screen:feature-settings-admin"
+    },
+    {
+      "id": "edge:subproject:all:feature-settings-lab",
+      "relation_type": "CONTAINS",
+      "from": "subproject:all",
+      "to": "all:module:feature-settings-lab"
+    },
+    {
+      "id": "edge:all:module:feature-settings-lab:renders:all:screen:feature-settings-lab",
+      "relation_type": "CONTAINS",
+      "from": "all:module:feature-settings-lab",
+      "to": "all:screen:feature-settings-lab"
+    },
+    {
+      "id": "edge:subproject:all:feature-ui-scheme",
+      "relation_type": "CONTAINS",
+      "from": "subproject:all",
+      "to": "all:module:feature-ui-scheme"
+    },
+    {
+      "id": "edge:all:module:feature-ui-scheme:renders:all:screen:feature-ui-scheme",
+      "relation_type": "CONTAINS",
+      "from": "all:module:feature-ui-scheme",
+      "to": "all:screen:feature-ui-scheme"
+    },
+    {
+      "id": "edge:subproject:all:feature-ui-setting",
+      "relation_type": "CONTAINS",
+      "from": "subproject:all",
+      "to": "all:module:feature-ui-setting"
+    },
+    {
+      "id": "edge:all:module:feature-ui-setting:renders:all:screen:feature-ui-setting",
+      "relation_type": "CONTAINS",
+      "from": "all:module:feature-ui-setting",
+      "to": "all:screen:feature-ui-setting"
+    },
+    {
+      "id": "edge:subproject:all:feature-ui-web",
+      "relation_type": "CONTAINS",
+      "from": "subproject:all",
+      "to": "all:module:feature-ui-web"
+    },
+    {
+      "id": "edge:all:module:feature-ui-web:renders:all:screen:feature-ui-web",
+      "relation_type": "CONTAINS",
+      "from": "all:module:feature-ui-web",
+      "to": "all:screen:feature-ui-web"
+    },
+    {
+      "id": "edge:subproject:all:shared",
+      "relation_type": "CONTAINS",
+      "from": "subproject:all",
+      "to": "all:module:shared"
+    },
+    {
+      "id": "edge:subproject:all:widget",
+      "relation_type": "CONTAINS",
+      "from": "subproject:all",
+      "to": "all:module:widget"
+    }
+  ]
+}

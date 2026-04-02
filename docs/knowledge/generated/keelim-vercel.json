@@ -1,0 +1,921 @@
+{
+  "subproject": "keelim-vercel",
+  "nodes": [
+    {
+      "id": "keelim-vercel:table:products",
+      "node_type": "DatabaseTable",
+      "name": "products",
+      "path": "lib/db.ts"
+    },
+    {
+      "id": "column:products:id",
+      "node_type": "TableColumn",
+      "name": "products.id",
+      "path": "lib/db.ts",
+      "metadata": {
+        "table": "products",
+        "column_name": "id"
+      }
+    },
+    {
+      "id": "column:products:image_url",
+      "node_type": "TableColumn",
+      "name": "products.image_url",
+      "path": "lib/db.ts",
+      "metadata": {
+        "table": "products",
+        "column_name": "image_url"
+      }
+    },
+    {
+      "id": "column:products:name",
+      "node_type": "TableColumn",
+      "name": "products.name",
+      "path": "lib/db.ts",
+      "metadata": {
+        "table": "products",
+        "column_name": "name"
+      }
+    },
+    {
+      "id": "column:products:status",
+      "node_type": "TableColumn",
+      "name": "products.status",
+      "path": "lib/db.ts",
+      "metadata": {
+        "table": "products",
+        "column_name": "status"
+      }
+    },
+    {
+      "id": "column:products:price",
+      "node_type": "TableColumn",
+      "name": "products.price",
+      "path": "lib/db.ts",
+      "metadata": {
+        "table": "products",
+        "column_name": "price"
+      }
+    },
+    {
+      "id": "keelim-vercel:screen:/contact",
+      "node_type": "UIScreen",
+      "name": "/contact",
+      "path": "app/contact/page.tsx"
+    },
+    {
+      "id": "keelim-vercel:screen:/changelog",
+      "node_type": "UIScreen",
+      "name": "/changelog",
+      "path": "app/changelog/page.tsx"
+    },
+    {
+      "id": "keelim-vercel:screen:/faq",
+      "node_type": "UIScreen",
+      "name": "/faq",
+      "path": "app/faq/page.tsx"
+    },
+    {
+      "id": "keelim-vercel:screen:/about",
+      "node_type": "UIScreen",
+      "name": "/about",
+      "path": "app/about/page.tsx"
+    },
+    {
+      "id": "keelim-vercel:screen:/",
+      "node_type": "UIScreen",
+      "name": "/",
+      "path": "app/(dashboard)/page.tsx"
+    },
+    {
+      "id": "keelim-vercel:screen:/login",
+      "node_type": "UIScreen",
+      "name": "/login",
+      "path": "app/login/page.tsx"
+    },
+    {
+      "id": "keelim-vercel:screen:/ev-ice-comparison",
+      "node_type": "UIScreen",
+      "name": "/ev-ice-comparison",
+      "path": "app/(dashboard)/ev-ice-comparison/page.tsx"
+    },
+    {
+      "id": "keelim-vercel:screen:/news-letter",
+      "node_type": "UIScreen",
+      "name": "/news-letter",
+      "path": "app/(dashboard)/news-letter/page.tsx"
+    },
+    {
+      "id": "keelim-vercel:screen:/comprehensive-tax",
+      "node_type": "UIScreen",
+      "name": "/comprehensive-tax",
+      "path": "app/(dashboard)/comprehensive-tax/page.tsx"
+    },
+    {
+      "id": "keelim-vercel:screen:/debt-analyzer",
+      "node_type": "UIScreen",
+      "name": "/debt-analyzer",
+      "path": "app/(dashboard)/debt-analyzer/page.tsx"
+    },
+    {
+      "id": "keelim-vercel:screen:/budget-advisor",
+      "node_type": "UIScreen",
+      "name": "/budget-advisor",
+      "path": "app/(dashboard)/budget-advisor/page.tsx"
+    },
+    {
+      "id": "keelim-vercel:screen:/snowball-effect",
+      "node_type": "UIScreen",
+      "name": "/snowball-effect",
+      "path": "app/(dashboard)/snowball-effect/page.tsx"
+    },
+    {
+      "id": "keelim-vercel:screen:/move-in-cost",
+      "node_type": "UIScreen",
+      "name": "/move-in-cost",
+      "path": "app/(dashboard)/move-in-cost/page.tsx"
+    },
+    {
+      "id": "keelim-vercel:screen:/settings",
+      "node_type": "UIScreen",
+      "name": "/settings",
+      "path": "app/(dashboard)/settings/page.tsx"
+    },
+    {
+      "id": "keelim-vercel:screen:/financial-quotes",
+      "node_type": "UIScreen",
+      "name": "/financial-quotes",
+      "path": "app/(dashboard)/financial-quotes/page.tsx"
+    },
+    {
+      "id": "keelim-vercel:screen:/life-milestone-hub",
+      "node_type": "UIScreen",
+      "name": "/life-milestone-hub",
+      "path": "app/(dashboard)/life-milestone-hub/page.tsx"
+    },
+    {
+      "id": "keelim-vercel:screen:/forex-calc",
+      "node_type": "UIScreen",
+      "name": "/forex-calc",
+      "path": "app/(dashboard)/forex-calc/page.tsx"
+    },
+    {
+      "id": "keelim-vercel:screen:/rental-income-tax-calculator",
+      "node_type": "UIScreen",
+      "name": "/rental-income-tax-calculator",
+      "path": "app/(dashboard)/rental-income-tax-calculator/page.tsx"
+    },
+    {
+      "id": "keelim-vercel:screen:/rebalancing",
+      "node_type": "UIScreen",
+      "name": "/rebalancing",
+      "path": "app/(dashboard)/rebalancing/page.tsx"
+    },
+    {
+      "id": "keelim-vercel:screen:/freelance-pay",
+      "node_type": "UIScreen",
+      "name": "/freelance-pay",
+      "path": "app/(dashboard)/freelance-pay/page.tsx"
+    },
+    {
+      "id": "keelim-vercel:screen:/gift-tax-calculator",
+      "node_type": "UIScreen",
+      "name": "/gift-tax-calculator",
+      "path": "app/(dashboard)/gift-tax-calculator/page.tsx"
+    },
+    {
+      "id": "keelim-vercel:screen:/overseas-stock-tax-calculator",
+      "node_type": "UIScreen",
+      "name": "/overseas-stock-tax-calculator",
+      "path": "app/(dashboard)/overseas-stock-tax-calculator/page.tsx"
+    },
+    {
+      "id": "keelim-vercel:screen:/beta-calculator",
+      "node_type": "UIScreen",
+      "name": "/beta-calculator",
+      "path": "app/(dashboard)/beta-calculator/page.tsx"
+    },
+    {
+      "id": "keelim-vercel:screen:/loan",
+      "node_type": "UIScreen",
+      "name": "/loan",
+      "path": "app/(dashboard)/loan/page.tsx"
+    },
+    {
+      "id": "keelim-vercel:screen:/financial-challenge",
+      "node_type": "UIScreen",
+      "name": "/financial-challenge",
+      "path": "app/(dashboard)/financial-challenge/page.tsx"
+    },
+    {
+      "id": "keelim-vercel:screen:/financial-personality-test",
+      "node_type": "UIScreen",
+      "name": "/financial-personality-test",
+      "path": "app/(dashboard)/financial-personality-test/page.tsx"
+    },
+    {
+      "id": "keelim-vercel:screen:/split-settlement",
+      "node_type": "UIScreen",
+      "name": "/split-settlement",
+      "path": "app/(dashboard)/split-settlement/page.tsx"
+    },
+    {
+      "id": "keelim-vercel:screen:/jeonse-safety",
+      "node_type": "UIScreen",
+      "name": "/jeonse-safety",
+      "path": "app/(dashboard)/jeonse-safety/page.tsx"
+    },
+    {
+      "id": "keelim-vercel:screen:/emergency-fund",
+      "node_type": "UIScreen",
+      "name": "/emergency-fund",
+      "path": "app/(dashboard)/emergency-fund/page.tsx"
+    },
+    {
+      "id": "keelim-vercel:screen:/financial-pipeline",
+      "node_type": "UIScreen",
+      "name": "/financial-pipeline",
+      "path": "app/(dashboard)/financial-pipeline/page.tsx"
+    },
+    {
+      "id": "keelim-vercel:screen:/family-hub",
+      "node_type": "UIScreen",
+      "name": "/family-hub",
+      "path": "app/(dashboard)/family-hub/page.tsx"
+    },
+    {
+      "id": "keelim-vercel:screen:/loan-limit-calculator",
+      "node_type": "UIScreen",
+      "name": "/loan-limit-calculator",
+      "path": "app/(dashboard)/loan-limit-calculator/page.tsx"
+    },
+    {
+      "id": "keelim-vercel:screen:/tqqq-checklist",
+      "node_type": "UIScreen",
+      "name": "/tqqq-checklist",
+      "path": "app/(dashboard)/tqqq-checklist/page.tsx"
+    },
+    {
+      "id": "keelim-vercel:screen:/self-employed-settlement",
+      "node_type": "UIScreen",
+      "name": "/self-employed-settlement",
+      "path": "app/(dashboard)/self-employed-settlement/page.tsx"
+    },
+    {
+      "id": "keelim-vercel:screen:/achievements",
+      "node_type": "UIScreen",
+      "name": "/achievements",
+      "path": "app/(dashboard)/achievements/page.tsx"
+    },
+    {
+      "id": "keelim-vercel:screen:/news-letter-editor",
+      "node_type": "UIScreen",
+      "name": "/news-letter-editor",
+      "path": "app/(dashboard)/news-letter-editor/page.tsx"
+    },
+    {
+      "id": "keelim-vercel:screen:/asset-path",
+      "node_type": "UIScreen",
+      "name": "/asset-path",
+      "path": "app/(dashboard)/asset-path/page.tsx"
+    },
+    {
+      "id": "keelim-vercel:screen:/digital-legacy",
+      "node_type": "UIScreen",
+      "name": "/digital-legacy",
+      "path": "app/(dashboard)/digital-legacy/page.tsx"
+    },
+    {
+      "id": "keelim-vercel:screen:/finance-learning-hub",
+      "node_type": "UIScreen",
+      "name": "/finance-learning-hub",
+      "path": "app/(dashboard)/finance-learning-hub/page.tsx"
+    },
+    {
+      "id": "keelim-vercel:screen:/couple-merger",
+      "node_type": "UIScreen",
+      "name": "/couple-merger",
+      "path": "app/(dashboard)/couple-merger/page.tsx"
+    },
+    {
+      "id": "keelim-vercel:screen:/financial-goal-hub",
+      "node_type": "UIScreen",
+      "name": "/financial-goal-hub",
+      "path": "app/(dashboard)/financial-goal-hub/page.tsx"
+    },
+    {
+      "id": "keelim-vercel:screen:/budget-splitter",
+      "node_type": "UIScreen",
+      "name": "/budget-splitter",
+      "path": "app/(dashboard)/budget-splitter/page.tsx"
+    },
+    {
+      "id": "keelim-vercel:screen:/market-radar",
+      "node_type": "UIScreen",
+      "name": "/market-radar",
+      "path": "app/(dashboard)/market-radar/page.tsx"
+    },
+    {
+      "id": "keelim-vercel:screen:/swing-simulator",
+      "node_type": "UIScreen",
+      "name": "/swing-simulator",
+      "path": "app/(dashboard)/swing-simulator/page.tsx"
+    },
+    {
+      "id": "keelim-vercel:screen:/recovery-rate",
+      "node_type": "UIScreen",
+      "name": "/recovery-rate",
+      "path": "app/(dashboard)/recovery-rate/page.tsx"
+    },
+    {
+      "id": "keelim-vercel:screen:/trading-journal",
+      "node_type": "UIScreen",
+      "name": "/trading-journal",
+      "path": "app/(dashboard)/trading-journal/page.tsx"
+    },
+    {
+      "id": "keelim-vercel:screen:/year-end-settlement",
+      "node_type": "UIScreen",
+      "name": "/year-end-settlement",
+      "path": "app/(dashboard)/year-end-settlement/page.tsx"
+    },
+    {
+      "id": "keelim-vercel:screen:/lab",
+      "node_type": "UIScreen",
+      "name": "/lab",
+      "path": "app/(dashboard)/lab/page.tsx"
+    },
+    {
+      "id": "keelim-vercel:screen:/real-estate-brokerage-fee",
+      "node_type": "UIScreen",
+      "name": "/real-estate-brokerage-fee",
+      "path": "app/(dashboard)/real-estate-brokerage-fee/page.tsx"
+    },
+    {
+      "id": "keelim-vercel:screen:/smart-budget",
+      "node_type": "UIScreen",
+      "name": "/smart-budget",
+      "path": "app/(dashboard)/smart-budget/page.tsx"
+    },
+    {
+      "id": "keelim-vercel:screen:/interior-budget",
+      "node_type": "UIScreen",
+      "name": "/interior-budget",
+      "path": "app/(dashboard)/interior-budget/page.tsx"
+    },
+    {
+      "id": "keelim-vercel:screen:/compound-interest",
+      "node_type": "UIScreen",
+      "name": "/compound-interest",
+      "path": "app/(dashboard)/compound-interest/page.tsx"
+    },
+    {
+      "id": "keelim-vercel:screen:/bond-yield",
+      "node_type": "UIScreen",
+      "name": "/bond-yield",
+      "path": "app/(dashboard)/bond-yield/page.tsx"
+    },
+    {
+      "id": "keelim-vercel:screen:/salary-calculator",
+      "node_type": "UIScreen",
+      "name": "/salary-calculator",
+      "path": "app/(dashboard)/salary-calculator/page.tsx"
+    },
+    {
+      "id": "keelim-vercel:screen:/work-hour-manager",
+      "node_type": "UIScreen",
+      "name": "/work-hour-manager",
+      "path": "app/(dashboard)/work-hour-manager/page.tsx"
+    },
+    {
+      "id": "keelim-vercel:screen:/notice",
+      "node_type": "UIScreen",
+      "name": "/notice",
+      "path": "app/(dashboard)/notice/page.tsx"
+    },
+    {
+      "id": "keelim-vercel:screen:/isa-simulator",
+      "node_type": "UIScreen",
+      "name": "/isa-simulator",
+      "path": "app/(dashboard)/isa-simulator/page.tsx"
+    },
+    {
+      "id": "keelim-vercel:screen:/investment-routine",
+      "node_type": "UIScreen",
+      "name": "/investment-routine",
+      "path": "app/(dashboard)/investment-routine/page.tsx"
+    },
+    {
+      "id": "keelim-vercel:screen:/percent-calc",
+      "node_type": "UIScreen",
+      "name": "/percent-calc",
+      "path": "app/(dashboard)/percent-calc/page.tsx"
+    },
+    {
+      "id": "keelim-vercel:screen:/financial-mbti",
+      "node_type": "UIScreen",
+      "name": "/financial-mbti",
+      "path": "app/(dashboard)/financial-mbti/page.tsx"
+    },
+    {
+      "id": "keelim-vercel:screen:/brokerage-fee",
+      "node_type": "UIScreen",
+      "name": "/brokerage-fee",
+      "path": "app/(dashboard)/brokerage-fee/page.tsx"
+    },
+    {
+      "id": "keelim-vercel:screen:/lunch-flation",
+      "node_type": "UIScreen",
+      "name": "/lunch-flation",
+      "path": "app/(dashboard)/lunch-flation/page.tsx"
+    },
+    {
+      "id": "keelim-vercel:screen:/insight-clipper",
+      "node_type": "UIScreen",
+      "name": "/insight-clipper",
+      "path": "app/(dashboard)/insight-clipper/page.tsx"
+    },
+    {
+      "id": "keelim-vercel:screen:/bookmarks",
+      "node_type": "UIScreen",
+      "name": "/bookmarks",
+      "path": "app/(dashboard)/bookmarks/page.tsx"
+    },
+    {
+      "id": "keelim-vercel:screen:/part-time-pay",
+      "node_type": "UIScreen",
+      "name": "/part-time-pay",
+      "path": "app/(dashboard)/part-time-pay/page.tsx"
+    },
+    {
+      "id": "keelim-vercel:screen:/sector-rotation",
+      "node_type": "UIScreen",
+      "name": "/sector-rotation",
+      "path": "app/(dashboard)/sector-rotation/page.tsx"
+    },
+    {
+      "id": "keelim-vercel:screen:/fire-calculator",
+      "node_type": "UIScreen",
+      "name": "/fire-calculator",
+      "path": "app/(dashboard)/fire-calculator/page.tsx"
+    },
+    {
+      "id": "keelim-vercel:screen:/pension-gap-bridge",
+      "node_type": "UIScreen",
+      "name": "/pension-gap-bridge",
+      "path": "app/(dashboard)/pension-gap-bridge/page.tsx"
+    },
+    {
+      "id": "keelim-vercel:screen:/couple-wedding-finance",
+      "node_type": "UIScreen",
+      "name": "/couple-wedding-finance",
+      "path": "app/(dashboard)/couple-wedding-finance/page.tsx"
+    },
+    {
+      "id": "keelim-vercel:screen:/subscription-point-calculator",
+      "node_type": "UIScreen",
+      "name": "/subscription-point-calculator",
+      "path": "app/(dashboard)/subscription-point-calculator/page.tsx"
+    },
+    {
+      "id": "keelim-vercel:screen:/sector-cycle-diagnosis",
+      "node_type": "UIScreen",
+      "name": "/sector-cycle-diagnosis",
+      "path": "app/(dashboard)/sector-cycle-diagnosis/page.tsx"
+    },
+    {
+      "id": "keelim-vercel:screen:/cash-flow",
+      "node_type": "UIScreen",
+      "name": "/cash-flow",
+      "path": "app/(dashboard)/cash-flow/page.tsx"
+    },
+    {
+      "id": "keelim-vercel:screen:/youth-leap-comparison",
+      "node_type": "UIScreen",
+      "name": "/youth-leap-comparison",
+      "path": "app/(dashboard)/youth-leap-comparison/page.tsx"
+    },
+    {
+      "id": "keelim-vercel:screen:/spending-analysis",
+      "node_type": "UIScreen",
+      "name": "/spending-analysis",
+      "path": "app/(dashboard)/spending-analysis/page.tsx"
+    },
+    {
+      "id": "keelim-vercel:screen:/student-loan",
+      "node_type": "UIScreen",
+      "name": "/student-loan",
+      "path": "app/(dashboard)/student-loan/page.tsx"
+    },
+    {
+      "id": "keelim-vercel:screen:/unit-price",
+      "node_type": "UIScreen",
+      "name": "/unit-price",
+      "path": "app/(dashboard)/unit-price/page.tsx"
+    },
+    {
+      "id": "keelim-vercel:screen:/child-education-goal",
+      "node_type": "UIScreen",
+      "name": "/child-education-goal",
+      "path": "app/(dashboard)/child-education-goal/page.tsx"
+    },
+    {
+      "id": "keelim-vercel:screen:/financial-health-radar",
+      "node_type": "UIScreen",
+      "name": "/financial-health-radar",
+      "path": "app/(dashboard)/financial-health-radar/page.tsx"
+    },
+    {
+      "id": "keelim-vercel:screen:/history",
+      "node_type": "UIScreen",
+      "name": "/history",
+      "path": "app/(dashboard)/history/page.tsx"
+    },
+    {
+      "id": "keelim-vercel:screen:/rent-compare",
+      "node_type": "UIScreen",
+      "name": "/rent-compare",
+      "path": "app/(dashboard)/rent-compare/page.tsx"
+    },
+    {
+      "id": "keelim-vercel:screen:/wedding-budget",
+      "node_type": "UIScreen",
+      "name": "/wedding-budget",
+      "path": "app/(dashboard)/wedding-budget/page.tsx"
+    },
+    {
+      "id": "keelim-vercel:screen:/dividend",
+      "node_type": "UIScreen",
+      "name": "/dividend",
+      "path": "app/(dashboard)/dividend/page.tsx"
+    },
+    {
+      "id": "keelim-vercel:screen:/gold-silver",
+      "node_type": "UIScreen",
+      "name": "/gold-silver",
+      "path": "app/(dashboard)/gold-silver/page.tsx"
+    },
+    {
+      "id": "keelim-vercel:screen:/luxury-opportunity-cost",
+      "node_type": "UIScreen",
+      "name": "/luxury-opportunity-cost",
+      "path": "app/(dashboard)/luxury-opportunity-cost/page.tsx"
+    },
+    {
+      "id": "keelim-vercel:screen:/financial-lorem",
+      "node_type": "UIScreen",
+      "name": "/financial-lorem",
+      "path": "app/(dashboard)/financial-lorem/page.tsx"
+    },
+    {
+      "id": "keelim-vercel:screen:/subscription-auditor",
+      "node_type": "UIScreen",
+      "name": "/subscription-auditor",
+      "path": "app/(dashboard)/subscription-auditor/page.tsx"
+    },
+    {
+      "id": "keelim-vercel:screen:/ipo-simulator",
+      "node_type": "UIScreen",
+      "name": "/ipo-simulator",
+      "path": "app/(dashboard)/ipo-simulator/page.tsx"
+    },
+    {
+      "id": "keelim-vercel:screen:/smoking-cost",
+      "node_type": "UIScreen",
+      "name": "/smoking-cost",
+      "path": "app/(dashboard)/smoking-cost/page.tsx"
+    },
+    {
+      "id": "keelim-vercel:screen:/wedding-splitter",
+      "node_type": "UIScreen",
+      "name": "/wedding-splitter",
+      "path": "app/(dashboard)/wedding-splitter/page.tsx"
+    },
+    {
+      "id": "keelim-vercel:screen:/no-spend",
+      "node_type": "UIScreen",
+      "name": "/no-spend",
+      "path": "app/(dashboard)/no-spend/page.tsx"
+    },
+    {
+      "id": "keelim-vercel:screen:/financial-wiki",
+      "node_type": "UIScreen",
+      "name": "/financial-wiki",
+      "path": "app/(dashboard)/financial-wiki/page.tsx"
+    },
+    {
+      "id": "keelim-vercel:screen:/fear-greed",
+      "node_type": "UIScreen",
+      "name": "/fear-greed",
+      "path": "app/(dashboard)/fear-greed/page.tsx"
+    },
+    {
+      "id": "keelim-vercel:screen:/gift-tax-relay-tracker",
+      "node_type": "UIScreen",
+      "name": "/gift-tax-relay-tracker",
+      "path": "app/(dashboard)/gift-tax-relay-tracker/page.tsx"
+    },
+    {
+      "id": "keelim-vercel:screen:/severance-pay-calculator",
+      "node_type": "UIScreen",
+      "name": "/severance-pay-calculator",
+      "path": "app/(dashboard)/severance-pay-calculator/page.tsx"
+    },
+    {
+      "id": "keelim-vercel:screen:/social-freshman-guide",
+      "node_type": "UIScreen",
+      "name": "/social-freshman-guide",
+      "path": "app/(dashboard)/social-freshman-guide/page.tsx"
+    },
+    {
+      "id": "keelim-vercel:screen:/picking-rate",
+      "node_type": "UIScreen",
+      "name": "/picking-rate",
+      "path": "app/(dashboard)/picking-rate/page.tsx"
+    },
+    {
+      "id": "keelim-vercel:screen:/finance-challenge-hub",
+      "node_type": "UIScreen",
+      "name": "/finance-challenge-hub",
+      "path": "app/(dashboard)/finance-challenge-hub/page.tsx"
+    },
+    {
+      "id": "keelim-vercel:screen:/real-estate-acquisition-tax-calculator",
+      "node_type": "UIScreen",
+      "name": "/real-estate-acquisition-tax-calculator",
+      "path": "app/(dashboard)/real-estate-acquisition-tax-calculator/page.tsx"
+    },
+    {
+      "id": "keelim-vercel:screen:/subscription-manager",
+      "node_type": "UIScreen",
+      "name": "/subscription-manager",
+      "path": "app/(dashboard)/subscription-manager/page.tsx"
+    },
+    {
+      "id": "keelim-vercel:screen:/custom",
+      "node_type": "UIScreen",
+      "name": "/custom",
+      "path": "app/(dashboard)/custom/page.tsx"
+    },
+    {
+      "id": "keelim-vercel:screen:/pet-lifecycle-cost",
+      "node_type": "UIScreen",
+      "name": "/pet-lifecycle-cost",
+      "path": "app/(dashboard)/pet-lifecycle-cost/page.tsx"
+    },
+    {
+      "id": "keelim-vercel:screen:/vehicle-total-cost-calculator",
+      "node_type": "UIScreen",
+      "name": "/vehicle-total-cost-calculator",
+      "path": "app/(dashboard)/vehicle-total-cost-calculator/page.tsx"
+    },
+    {
+      "id": "keelim-vercel:screen:/meeting-cost-calculator",
+      "node_type": "UIScreen",
+      "name": "/meeting-cost-calculator",
+      "path": "app/(dashboard)/meeting-cost-calculator/page.tsx"
+    },
+    {
+      "id": "keelim-vercel:screen:/crypto-tax",
+      "node_type": "UIScreen",
+      "name": "/crypto-tax",
+      "path": "app/(dashboard)/crypto-tax/page.tsx"
+    },
+    {
+      "id": "keelim-vercel:screen:/market-timetable",
+      "node_type": "UIScreen",
+      "name": "/market-timetable",
+      "path": "app/(dashboard)/market-timetable/page.tsx"
+    },
+    {
+      "id": "keelim-vercel:screen:/notifications",
+      "node_type": "UIScreen",
+      "name": "/notifications",
+      "path": "app/(dashboard)/notifications/page.tsx"
+    },
+    {
+      "id": "keelim-vercel:screen:/dca-simulator",
+      "node_type": "UIScreen",
+      "name": "/dca-simulator",
+      "path": "app/(dashboard)/dca-simulator/page.tsx"
+    },
+    {
+      "id": "keelim-vercel:screen:/date-diff",
+      "node_type": "UIScreen",
+      "name": "/date-diff",
+      "path": "app/(dashboard)/date-diff/page.tsx"
+    },
+    {
+      "id": "keelim-vercel:screen:/inheritance-tax",
+      "node_type": "UIScreen",
+      "name": "/inheritance-tax",
+      "path": "app/(dashboard)/inheritance-tax/page.tsx"
+    },
+    {
+      "id": "keelim-vercel:screen:/financial-level",
+      "node_type": "UIScreen",
+      "name": "/financial-level",
+      "path": "app/(dashboard)/financial-level/page.tsx"
+    },
+    {
+      "id": "keelim-vercel:screen:/lottery-tax",
+      "node_type": "UIScreen",
+      "name": "/lottery-tax",
+      "path": "app/(dashboard)/lottery-tax/page.tsx"
+    },
+    {
+      "id": "keelim-vercel:screen:/inflation-calc",
+      "node_type": "UIScreen",
+      "name": "/inflation-calc",
+      "path": "app/(dashboard)/inflation-calc/page.tsx"
+    },
+    {
+      "id": "keelim-vercel:screen:/financial-wiki/admin",
+      "node_type": "UIScreen",
+      "name": "/financial-wiki/admin",
+      "path": "app/(dashboard)/financial-wiki/admin/page.tsx"
+    },
+    {
+      "id": "keelim-vercel:screen:/financial-wiki/new",
+      "node_type": "UIScreen",
+      "name": "/financial-wiki/new",
+      "path": "app/(dashboard)/financial-wiki/new/page.tsx"
+    },
+    {
+      "id": "keelim-vercel:screen:/financial-wiki/[id]",
+      "node_type": "UIScreen",
+      "name": "/financial-wiki/[id]",
+      "path": "app/(dashboard)/financial-wiki/[id]/page.tsx"
+    },
+    {
+      "id": "keelim-vercel:screen:/financial-wiki/[id]/edit",
+      "node_type": "UIScreen",
+      "name": "/financial-wiki/[id]/edit",
+      "path": "app/(dashboard)/financial-wiki/[id]/edit/page.tsx"
+    },
+    {
+      "id": "keelim-vercel:screen:/notice/[id]",
+      "node_type": "UIScreen",
+      "name": "/notice/[id]",
+      "path": "app/(dashboard)/notice/[id]/page.tsx"
+    },
+    {
+      "id": "keelim-vercel:screen:/admin/notice/new",
+      "node_type": "UIScreen",
+      "name": "/admin/notice/new",
+      "path": "app/(dev-only)/admin/notice/new/page.tsx"
+    },
+    {
+      "id": "keelim-vercel:screen:/unsubscribe/[token]",
+      "node_type": "UIScreen",
+      "name": "/unsubscribe/[token]",
+      "path": "app/unsubscribe/[token]/page.tsx"
+    },
+    {
+      "id": "keelim-vercel:endpoint:route:/api/indices",
+      "node_type": "APIEndpoint",
+      "name": "/api/indices",
+      "path": "app/api/indices/route.ts"
+    },
+    {
+      "id": "keelim-vercel:endpoint:route:/api/faq",
+      "node_type": "APIEndpoint",
+      "name": "/api/faq",
+      "path": "app/api/faq/route.ts"
+    },
+    {
+      "id": "keelim-vercel:endpoint:route:/api/forex",
+      "node_type": "APIEndpoint",
+      "name": "/api/forex",
+      "path": "app/api/forex/route.ts"
+    },
+    {
+      "id": "keelim-vercel:endpoint:route:/api/all",
+      "node_type": "APIEndpoint",
+      "name": "/api/all",
+      "path": "app/api/all/route.ts"
+    },
+    {
+      "id": "keelim-vercel:endpoint:route:/api/notice",
+      "node_type": "APIEndpoint",
+      "name": "/api/notice",
+      "path": "app/api/notice/route.ts"
+    },
+    {
+      "id": "keelim-vercel:endpoint:route:/api/fear-greed",
+      "node_type": "APIEndpoint",
+      "name": "/api/fear-greed",
+      "path": "app/api/fear-greed/route.ts"
+    },
+    {
+      "id": "keelim-vercel:endpoint:route:/api/timestamp",
+      "node_type": "APIEndpoint",
+      "name": "/api/timestamp",
+      "path": "app/api/timestamp/route.ts"
+    },
+    {
+      "id": "keelim-vercel:endpoint:route:/api/og-parser",
+      "node_type": "APIEndpoint",
+      "name": "/api/og-parser",
+      "path": "app/api/og-parser/route.ts"
+    },
+    {
+      "id": "keelim-vercel:endpoint:route:/api/newsletter/drafts",
+      "node_type": "APIEndpoint",
+      "name": "/api/newsletter/drafts",
+      "path": "app/api/newsletter/drafts/route.ts"
+    },
+    {
+      "id": "keelim-vercel:endpoint:route:/api/newsletter/unsubscribe",
+      "node_type": "APIEndpoint",
+      "name": "/api/newsletter/unsubscribe",
+      "path": "app/api/newsletter/unsubscribe/route.ts"
+    },
+    {
+      "id": "keelim-vercel:endpoint:route:/api/newsletter/subscribe",
+      "node_type": "APIEndpoint",
+      "name": "/api/newsletter/subscribe",
+      "path": "app/api/newsletter/subscribe/route.ts"
+    },
+    {
+      "id": "keelim-vercel:endpoint:route:/api/notice/[id]",
+      "node_type": "APIEndpoint",
+      "name": "/api/notice/[id]",
+      "path": "app/api/notice/[id]/route.ts"
+    },
+    {
+      "id": "keelim-vercel:endpoint:route:/api/products/export",
+      "node_type": "APIEndpoint",
+      "name": "/api/products/export",
+      "path": "app/api/products/export/route.ts"
+    },
+    {
+      "id": "keelim-vercel:endpoint:route:/api/products/import",
+      "node_type": "APIEndpoint",
+      "name": "/api/products/import",
+      "path": "app/api/products/import/route.ts"
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge:subproject:keelim-vercel:products",
+      "relation_type": "CONTAINS",
+      "from": "subproject:keelim-vercel",
+      "to": "keelim-vercel:table:products"
+    },
+    {
+      "id": "edge:column:products:id:stored-in:keelim-vercel:table:products",
+      "relation_type": "STORED_IN",
+      "from": "column:products:id",
+      "to": "keelim-vercel:table:products"
+    },
+    {
+      "id": "edge:column:products:image_url:stored-in:keelim-vercel:table:products",
+      "relation_type": "STORED_IN",
+      "from": "column:products:image_url",
+      "to": "keelim-vercel:table:products"
+    },
+    {
+      "id": "edge:column:products:name:stored-in:keelim-vercel:table:products",
+      "relation_type": "STORED_IN",
+      "from": "column:products:name",
+      "to": "keelim-vercel:table:products"
+    },
+    {
+      "id": "edge:column:products:status:stored-in:keelim-vercel:table:products",
+      "relation_type": "STORED_IN",
+      "from": "column:products:status",
+      "to": "keelim-vercel:table:products"
+    },
+    {
+      "id": "edge:column:products:price:stored-in:keelim-vercel:table:products",
+      "relation_type": "STORED_IN",
+      "from": "column:products:price",
+      "to": "keelim-vercel:table:products"
+    },
+    {
+      "id": "edge:keelim-vercel:endpoint:route:/api/products/export:reads:entity:product",
+      "relation_type": "READS",
+      "from": "keelim-vercel:endpoint:route:/api/products/export",
+      "to": "entity:product"
+    },
+    {
+      "id": "edge:keelim-vercel:endpoint:route:/api/products/export:accesses:keelim-vercel:table:products",
+      "relation_type": "ACCESSES",
+      "from": "keelim-vercel:endpoint:route:/api/products/export",
+      "to": "keelim-vercel:table:products"
+    },
+    {
+      "id": "edge:keelim-vercel:endpoint:route:/api/products/import:writes:entity:product",
+      "relation_type": "WRITES",
+      "from": "keelim-vercel:endpoint:route:/api/products/import",
+      "to": "entity:product"
+    },
+    {
+      "id": "edge:keelim-vercel:endpoint:route:/api/products/import:accesses:keelim-vercel:table:products",
+      "relation_type": "ACCESSES",
+      "from": "keelim-vercel:endpoint:route:/api/products/import",
+      "to": "keelim-vercel:table:products"
+    }
+  ]
+}

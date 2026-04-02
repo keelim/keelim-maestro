@@ -1,0 +1,40 @@
+Codemap Diff Report
+Generated: 2026-04-02
+Scope: /Users/keelim/Desktop/keelim-maestro
+
+Baseline status
+- No prior codemap set detected in docs/CODEMAPS/ or .reports/codemaps/
+- Diff threshold rule (>30% vs <=30%) not applicable on first generation
+
+Files added
+- docs/CODEMAPS/architecture.md
+- docs/CODEMAPS/backend.md
+- docs/CODEMAPS/frontend.md
+- docs/CODEMAPS/data.md
+- docs/CODEMAPS/dependencies.md
+- .reports/codemap-diff.txt
+
+Files removed
+- none
+
+Files modified
+- none (new baseline)
+
+New dependencies detected (high-level)
+- Supabase (JS + Python SDK usage)
+- Neon Postgres + Drizzle ORM
+- Yahoo Finance API client
+- Alternative.me Fear & Greed API
+- Google Calendar/Sheets integration surface
+- GitHub CLI workflow integration
+- PyKRX/KRX ingestion surface
+- LiteLLM proxy dependency
+- Android Publisher API dependency
+
+Architecture changes
+- Initial codemap baseline established for a multi-repo superproject architecture
+- Documented three principal web/backend runtime clusters:
+  1) keelim-vercel (Next.js full-stack)
+  2) rich (FastAPI + Next.js admin web)
+  3) quant (FastAPI/Django/python services)
+- Captured shared UI package coupling via all-web-ui
