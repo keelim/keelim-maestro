@@ -53,6 +53,17 @@ run `uv sync`, then use the bundled start/verify helpers.
 The child repositories remain autonomous at the codebase level. Remote-backed repos can be tracked from the root via `.gitmodules`; `c2g-proxy` is now pinned there as the bridge repo, while `quant` and `rich` remain outside the current submodule scope.
 `all-web-ui` now has a public remote repository, but it is still managed as an autonomous child repo from the root until the remaining workspace blockers are resolved.
 
+## Knowledge system docs
+
+The first-pass knowledge-system documentation lives under `docs/knowledge/`:
+
+- `docs/knowledge/README.md` — workspace contract and scope
+- `docs/knowledge/operator-runbook.md` — bootstrap, validation, Neo4j, and MCP flow
+- `docs/knowledge/source-targets.md` — grounded analyzer targets for `all`, `rich`, and `keelim-vercel`
+- `docs/knowledge/review-checklist.md` — review and handoff checklist
+- `docs/knowledge/merge-guidance.md` — cross-lane integration and conflict-resolution guidance
+- `docs/knowledge/verification-contract.md` — expected verification evidence and PASS/FAIL conventions
+
 ## Child repositories in this workspace
 
 | Path | Remote? | Current status | Notes |
