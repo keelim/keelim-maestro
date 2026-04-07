@@ -64,11 +64,44 @@ non-zero exit.
 
 Verification helper for the `keelim-skill` → `keelim-plugin` directory rename.
 
-Checks that:
-- The old path `keelim-skill/` no longer exists
-- The new path `keelim-plugin/` is present
-- `.gitmodules` references `keelim-plugin` (not `keelim-skill`)
-- The submodule metadata is consistent
+### Checks performed
+
+**`.gitmodules` file**
+- Section header is `[submodule "keelim-plugin"]`
+- `path = keelim-plugin`
+- `url = https://github.com/keelim/keelim-plugin.git`
+- `branch = main`
+- No remaining `keelim-skill` references
+
+**Root `README.md`**
+- Mentions `keelim-plugin`
+- No remaining `keelim-skill` references
+
+**Git index (gitlinks)**
+- `git ls-files --stage` pins a `keelim-plugin` gitlink (mode `160000`)
+- No `keelim-skill` gitlink present
+
+**`git submodule status`**
+- Lists `keelim-plugin`
+- Does not list `keelim-skill`
+
+**Root git config (`.git/config`)**
+- `submodule.keelim-plugin.url` points at `https://github.com/keelim/keelim-plugin.git`
+- No `submodule.keelim-skill` entries
+
+**Submodule wiring**
+- `keelim-plugin/.git` file contains `gitdir: ../.git/modules/keelim-plugin`
+- `.git/modules/keelim-plugin/config` sets correct `worktree` and `url`
+
+**Child `README.md`**
+- Title uses `# keelim-plugin`
+- Install command references `keelim/keelim-plugin`
+- GitHub URL uses `keelim-plugin`
+- Path examples use `/keelim-plugin/`
+- No remaining `keelim-skill` references
+
+**`update-subrepos.sh` integration**
+- `./scripts/update-subrepos.sh status` reports `keelim-plugin` with `target=main`
 
 Run after any operation that touches the plugin submodule path.
 
@@ -76,11 +109,62 @@ Run after any operation that touches the plugin submodule path.
 
 ## `scripts/verify-all-web-ui-integration.sh`
 
-Verification helper for `all-web-ui` autonomous-repo integration.
+Verification helper for the `all-web-ui` autonomous-repo integration contract.
 
-Checks that `all-web-ui` is correctly surfaced through the root helper scripts
-and that it has a reachable `origin` remote, without requiring it to be a
-registered submodule.
+### Modes
+
+| Invocation | Mode | Effect |
+|------------|------|--------|
+| `./scripts/verify-all-web-ui-integration.sh` | `static` | Static contract checks only |
+| `./scripts/verify-all-web-ui-integration.sh --full` | `full` | Static checks + runtime typecheck / test / build commands |
+
+### Static checks
+
+The default mode runs the following checks:
+
+- `all-web-ui`, `rich`, and `keelim-vercel` repos exist as Git worktrees
+- `all-web-ui` has a reachable `origin` remote
+- Root `.gitignore` excludes `/all-web-ui/` from root index
+- `update-subrepos.sh status` lists `all-web-ui`
+- `all-web-ui` default branch is `main`
+- `all-web-ui/package.json` exists and declares `typecheck` + `test` scripts
+- `all-web-ui/src/components/` exports at least 5 core primitives (`button.tsx`, `input.tsx`, `panel.tsx`, `card.tsx`, `badge.tsx`, …)
+- `all-web-ui` defines shared CSS entrypoints (styles and theme files)
+- `rich/web/package.json` depends on `all-web-ui`
+- `rich/web` imports `all-web-ui` somewhere under `src/`
+- `rich/web` admin layout still applies `admin-bw-theme`
+- `rich/web` root layout still renders `AgentationToolbar`
+- `keelim-vercel/package.json` depends on `all-web-ui`
+- `keelim-vercel` keeps `components/ui/` free of direct `all-web-ui` imports
+- `keelim-vercel` `all-web-ui` imports stay in adapter-safe locations (`components/shared/`, `lib/ui-adapters/`)
+
+### Full runtime checks (`--full`)
+
+Only executed when all static checks pass:
+
+```bash
+cd all-web-ui  && bun run typecheck
+cd all-web-ui  && bun test
+cd rich/web    && bun run typecheck
+cd rich/web    && bun run test
+cd rich/web    && bun run build
+cd keelim-vercel && bun run typecheck
+cd keelim-vercel && bun run lint
+cd keelim-vercel && bun run build   # retried once on lock-file errors
+```
+
+### Workspace root resolution
+
+The script resolves the workspace root via:
+1. `$OMX_TEAM_STATE_ROOT` environment variable (CI / team-state override), or
+2. Presence of both `rich/.git` and `keelim-vercel/.git` under the current
+   `git rev-parse --show-toplevel`, or
+3. `git rev-parse --show-toplevel` as fallback.
+
+### Exit behaviour
+
+Exits with the number of failures (0 = all checks passed). Prints
+`PASS  <description>` / `FAIL  <description>` per check.
 
 ---
 
