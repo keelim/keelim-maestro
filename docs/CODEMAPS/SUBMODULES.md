@@ -22,27 +22,60 @@ commit when the root superproject is cloned with `git submodule update --init --
 - Retrofit (HTTP)
 - Kotlin Coroutines / Flow
 
-### Expected module layout
+### Module layout
 ```
 all/
-├── app/                  # Application module
-├── core/                 # Shared core utilities
-├── data/                 # Data layer (repositories, DAOs, API services)
-├── domain/               # Domain layer (use-cases, models, interfaces)
-└── feature/              # Feature modules (one per screen/flow)
+├── app-arducon/          # DeepLink tester, QR scanner, JSON formatter, device info
+├── app-cnubus/           # CNU bus real-time info, Google Maps integration
+├── app-comssa/           # Financial calculators, economic calendar, flashcards
+├── app-my-grade/         # Grade calculator, timer, study analytics, vocabulary
+├── app-nanda/            # NANDA diagnosis, food/exercise tracker, water intake
+├── app-mysenior/         # Minimal app for seniors
+├── core/                 # Shared modules: common, data, database, network, UI, etc.
+├── feature/              # Feature modules: settings, UI screens, web
+├── shared/               # Kotlin Multiplatform (KMP) shared code
+├── build-logic/          # Custom Gradle convention plugins
+├── benchmarks/           # Performance benchmarking
+├── widget/               # Android widgets
+├── allIos/               # iOS Xcode project
+└── all-rust-lib/         # Rust library (Cargo project)
 ```
+
+### Architecture pattern
+Clean Architecture + MVVM + Unidirectional Data Flow (UDF):
+- **Presentation**: Jetpack Compose screens in `app-*/` and `feature/ui-*/`
+- **Domain**: Use cases in `core:domain`
+- **Data**: Repository implementations in `core:data`, interfaces in `core:data-api`
+- **Storage**: Room DB in `core:database`, Retrofit in `core:network`
 
 ---
 
-## `android-support` — Android Support Libraries
+## `android-support` — GitHub Action for Android Workflows
 
 | Field | Value |
 |-------|-------|
 | Path | `android-support/` |
 | Remote | https://github.com/keelim/android-support |
 | Tracked branch | `main` |
-| Language / toolchain | Kotlin / Android Gradle |
-| Purpose | Shared Android utilities consumed by `all` and other Android projects |
+| Language / toolchain | TypeScript / Node.js |
+| Purpose | GitHub Action providing Android build workflow support (signing, release uploads, Play Store "What's New") |
+
+### Key files inside the submodule
+```
+android-support/
+├── action.yml            # GitHub Action interface definition
+├── package.json          # NPM dependencies
+├── tsconfig.json         # TypeScript configuration
+├── src/
+│   ├── index.ts          # Entry point
+│   ├── main.ts           # Action main logic
+│   ├── edits.ts          # Edit/release operations
+│   ├── signing.ts        # APK/AAB signing support
+│   ├── whatsnew.ts       # Play Store "What's New" text handling
+│   ├── input-validation.ts
+│   └── utils/            # Logger, IO utilities
+└── __tests__/            # Jest test suite
+```
 
 ---
 
@@ -84,8 +117,13 @@ uv sync
 | Path | `Keelim-Knowledge-Vault/` |
 | Remote | https://github.com/keelim/Keelim-Knowledge-Vault.git |
 | Tracked branch | `main` |
-| Language / toolchain | Markdown / documentation |
+| Language / toolchain | Markdown / Obsidian |
 | Purpose | Shared knowledge base and documentation for the workspace |
+
+### Content categories
+- `AI/`, `Android/`, `Books/`, `Code/`, `Computer Science/`
+- `KMP/`, `Language/`, `System Design/`, `HTTP/`
+- `convention/`, `service/`, `test/`
 
 ---
 
@@ -97,7 +135,17 @@ uv sync
 | Remote | https://github.com/keelim/keelim-plugin.git |
 | Tracked branch | `main` |
 | Previous name | `keelim-skill` (renamed; continuity preserved via `.gitmodules` and submodule metadata) |
-| Purpose | Plugin / IDE integration or extensibility framework |
+| Purpose | Plugin / skill definitions for AI-assisted workflows |
+
+### Skills
+```
+keelim-plugin/skills/
+├── release-automation/   # Date-based Android release workflow
+├── tech-post-maker/      # Technical post writing skill
+└── ralplan-team/         # Team planning skill
+```
+
+Each skill has a `SKILL.md` definition and optional `agents/openai.yaml` metadata.
 
 ### Rename history
 The submodule directory was renamed from `keelim-skill` to `keelim-plugin`.
