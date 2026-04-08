@@ -20,7 +20,7 @@ flowchart TB
     root --> autonomous["Autonomous child repos\n(tracked in scripts only)"]
 
     submodules --> all["all\nAndroid · develop"]
-    submodules --> android["android-support\nAndroid library · main"]
+    submodules --> android["android-support\nGitHub Action · main"]
     submodules --> c2g["c2g-proxy\nPython bridge · main"]
     submodules --> vault["Keelim-Knowledge-Vault\nDocumentation · main"]
     submodules --> plugin["keelim-plugin\nPlugin · main"]
@@ -37,7 +37,7 @@ flowchart TB
 |------|--------|----------------|------|--------------|
 | `all` | https://github.com/keelim/all | `develop` | Android (Gradle multi-module) | Registered submodule |
 | `all-web-ui` | https://github.com/keelim/all-web-ui | `main` | Shared web UI | Autonomous (pending submodule) |
-| `android-support` | https://github.com/keelim/android-support | `main` | Android support library | Registered submodule |
+| `android-support` | https://github.com/keelim/android-support | `main` | TypeScript / Node.js GitHub Action | Registered submodule |
 | `c2g-proxy` | https://github.com/keelim/c2g-proxy | `main` | Python / LiteLLM bridge | Registered submodule |
 | `Keelim-Knowledge-Vault` | https://github.com/keelim/Keelim-Knowledge-Vault | `main` | Documentation | Registered submodule |
 | `keelim-plugin` | https://github.com/keelim/keelim-plugin | `main` | Plugin project | Registered submodule |

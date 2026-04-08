@@ -33,7 +33,7 @@ keelim-maestro/
 Registered submodules (pinned via `.gitmodules`):
 
 - `all` — main Android Gradle project (`develop`)
-- `android-support` — shared Android support libraries (`main`)
+- `android-support` — GitHub Action for Android build workflows (`main`)
 - `c2g-proxy` — Claude Code ↔ LiteLLM ↔ Gemini bridge (`main`)
 - `Keelim-Knowledge-Vault` — documentation knowledge base (`main`)
 - `keelim-plugin` — plugin project (`main`)
