@@ -27,8 +27,8 @@ flowchart TB
     submodules --> vercel["keelim-vercel\nWeb/Vercel · develop"]
 
     autonomous --> webui["all-web-ui\nWeb UI · main (remote-backed)"]
-    autonomous --> rich["rich\nmaster (30 ahead of origin)"]
-    autonomous --> quant["quant\n(no remote — intentionally excluded)"]
+    autonomous --> rich["rich\nWeb/Node.js · master (ahead of origin)"]
+    autonomous --> quant["quant\n(local-only, no remote)"]
 ```
 
 ## Child Repository Catalogue
@@ -42,8 +42,8 @@ flowchart TB
 | `Keelim-Knowledge-Vault` | https://github.com/keelim/Keelim-Knowledge-Vault | `main` | Documentation | Registered submodule |
 | `keelim-plugin` | https://github.com/keelim/keelim-plugin | `main` | Plugin project | Registered submodule |
 | `keelim-vercel` | https://github.com/keelim/keelim-vercel | `develop` | Web / Vercel deployment | Registered submodule |
-| `quant` | none | n/a | Unknown | Intentionally excluded |
-| `rich` | https://github.com/keelim/rich | `master` | Unknown | Autonomous (pending reconciliation) |
+| `quant` | none | n/a | local-only (no remote) | Intentionally excluded |
+| `rich` | https://github.com/keelim/rich | `master` | Web / Node.js | Autonomous (pending reconciliation) |
 
 ## Architectural Principles
 

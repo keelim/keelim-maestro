@@ -21,6 +21,7 @@ scripts.
 keelim-maestro/
 ├── .gitmodules          ← submodule declarations
 ├── AGENTS.md            ← AI-agent operating guidance
+├── CLAUDE.md            ← Claude Code operating guidance (currently empty)
 ├── README.md            ← human-facing workspace overview
 ├── docs/
 │   └── CODEMAPS/        ← this directory
