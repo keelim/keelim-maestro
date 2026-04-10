@@ -43,5 +43,5 @@ Registered submodules (pinned via `.gitmodules`):
 Autonomous child repos (not registered submodules):
 
 - `all-web-ui` — shared web UI (remote-backed, pending submodule conversion)
-- `rich` — autonomous; 30 commits ahead of origin, pending reconciliation
+- `rich` — autonomous; local commits ahead of origin, pending reconciliation
 - `quant` — intentionally excluded; no remote

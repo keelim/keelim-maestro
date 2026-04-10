@@ -103,6 +103,13 @@ Verification helper for the `keelim-skill` → `keelim-plugin` directory rename.
 **`update-subrepos.sh` integration**
 - `./scripts/update-subrepos.sh status` reports `keelim-plugin` with `target=main`
 
+### Exit behaviour
+
+Exits with code `0` if all checks pass or `1` if any check fails (binary exit,
+not a failure count). Prints `PASS: <description>` / `FAIL: <description>` per
+check. Prints `Verification passed.` on success or
+`Verification failed with N issue(s).` on failure.
+
 Run after any operation that touches the plugin submodule path.
 
 ---
