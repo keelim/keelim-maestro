@@ -108,3 +108,19 @@ Files that are safe to modify at the root level:
 
 Files and directories that must **not** be edited from the root:
 - Any source file inside a child-repo directory (`all/`, `android-support/`, etc.)
+
+## Current Submodule Snapshot
+
+> Last updated: 2026-04-11
+
+| Path | Pinned commit | Branch | Status |
+|------|---------------|--------|--------|
+| `all` | `778491a6c` | `develop` | Clean |
+| `android-support` | `485a2e40` (v0.0.8-4) | `main` | Clean |
+| `c2g-proxy` | `ff5bd170` | `main` | Clean |
+| `Keelim-Knowledge-Vault` | `d062459f` | `main` | Clean |
+| `keelim-plugin` | `156059ac` | `main` | Clean |
+| `keelim-vercel` | `90c0370c` | `develop` | Shallow / detached |
+| `all-web-ui` | — | `main` | Autonomous (not in .gitmodules) |
+| `rich` | — | `master` | Autonomous, commits ahead of origin |
+| `quant` | — | — | Local-only (no remote) |
