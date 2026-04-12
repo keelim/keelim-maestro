@@ -1,4 +1,4 @@
-<!-- Generated: 2026-04-02 | Files scanned: 148 | Token estimate: ~620 -->
+<!-- Generated: 2026-04-12 | Files scanned: 151 | Token estimate: ~620 -->
 
 # Architecture Codemap (Workspace)
 
@@ -8,7 +8,7 @@
 ## System Topology (ASCII)
 ```text
 [keelim-maestro root]
-  |-- docs/knowledge + docs/tools (knowledge graph + analyzers)
+  |-- docs/CODEMAPS/ (architecture documentation)
   |-- all (Kotlin Multiplatform apps/modules)
   |-- keelim-vercel (Next.js app + API routes + Drizzle/Supabase)
   |-- rich
@@ -17,7 +17,7 @@
   |-- quant (Python multi-service: FastAPI + Django + dashboards)
   |-- all-web-ui (shared React UI package)
   |-- android-support (GitHub Action for Play Console upload)
-  \-- c2g-proxy (LiteLLM proxy helpers)
+  \-- Keelim-Knowledge-Vault (documentation)
 ```
 
 ## Service Boundaries
@@ -48,4 +48,4 @@ Client Browser
 ## Notable Couplings
 - `all-web-ui` linked via local file dependency into `keelim-vercel` and `rich/web`.
 - `rich/web` depends on `rich/app` admin API contract (`/api/admin/**`) via `src/lib/api.ts`.
-- Knowledge docs (`docs/knowledge/generated/*.json`) model `keelim-vercel` and `rich` entities/endpoints.
+- `keelim-vercel` / `rich` depend on Supabase auth and external data APIs (Yahoo Finance, Alternative.me, KRX/PyKRX, Google Workspace).
