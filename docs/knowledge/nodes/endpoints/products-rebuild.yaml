@@ -1,6 +1,0 @@
-id: rich:endpoint:manual:/api/admin/products/rebuild
-node_type: APIEndpoint
-name: POST /api/admin/products/rebuild
-path: docs/knowledge/nodes/endpoints/products-rebuild.yaml
-metadata:
-  source_subproject: rich

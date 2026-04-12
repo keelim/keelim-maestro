@@ -1,6 +1,0 @@
-id: rule:product-status-lifecycle
-node_type: BusinessRule
-name: Product status lifecycle
-path: keelim-vercel/app/api/products/import/route.ts
-metadata:
-  description: Imported products must have a valid status and complete required fields.

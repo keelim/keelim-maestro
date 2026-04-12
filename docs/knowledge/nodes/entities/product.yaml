@@ -1,7 +1,0 @@
-id: entity:product
-node_type: DomainEntity
-name: Product
-path: keelim-vercel/lib/db.ts
-metadata:
-  description: Product catalog record stored in the products table.
-  source_subproject: keelim-vercel
