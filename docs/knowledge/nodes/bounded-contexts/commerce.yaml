@@ -1,6 +1,0 @@
-id: context:commerce
-node_type: BoundedContext
-name: Commerce
-path: keelim-vercel
-metadata:
-  description: Product catalog and import/export flows for the workspace finance app.

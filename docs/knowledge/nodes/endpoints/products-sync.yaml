@@ -1,6 +1,0 @@
-id: keelim-vercel:endpoint:manual:/api/products/sync
-node_type: APIEndpoint
-name: POST /api/products/sync
-path: docs/knowledge/nodes/endpoints/products-sync.yaml
-metadata:
-  source_subproject: keelim-vercel
