@@ -1,40 +1,84 @@
 Codemap Diff Report
-Generated: 2026-04-02
-Scope: /Users/keelim/Desktop/keelim-maestro
+===================
+Generated: 2026-04-12
+Previous generation: 2026-04-02
 
-Baseline status
-- No prior codemap set detected in docs/CODEMAPS/ or .reports/codemaps/
-- Diff threshold rule (>30% vs <=30%) not applicable on first generation
+SUMMARY OF CHANGES
+==================
+- Change scope: ~10-15% (minimal)
+- Action: in-place update with date/reference corrections
 
-Files added
-- docs/CODEMAPS/architecture.md
-- docs/CODEMAPS/backend.md
-- docs/CODEMAPS/frontend.md
-- docs/CODEMAPS/data.md
-- docs/CODEMAPS/dependencies.md
-- .reports/codemap-diff.txt
+FILES MODIFIED
+===============
+✓ docs/CODEMAPS/architecture.md
+  - Removed: `docs/knowledge + docs/tools` from System Topology
+  - Updated: Generated timestamp 2026-04-02 → 2026-04-12
+  - Updated: Notable Couplings - removed docs/knowledge reference, added clarification about Supabase/API couplings
 
-Files removed
-- none
+✓ docs/CODEMAPS/backend.md
+  - Updated: Generated timestamp 2026-04-02 → 2026-04-12
+  - Content: no changes (still accurate)
 
-Files modified
-- none (new baseline)
+✓ docs/CODEMAPS/dependencies.md
+  - Updated: Generated timestamp 2026-04-02 → 2026-04-12
+  - Content: no changes (still accurate)
 
-New dependencies detected (high-level)
-- Supabase (JS + Python SDK usage)
-- Neon Postgres + Drizzle ORM
-- Yahoo Finance API client
-- Alternative.me Fear & Greed API
-- Google Calendar/Sheets integration surface
-- GitHub CLI workflow integration
-- PyKRX/KRX ingestion surface
-- LiteLLM proxy dependency
-- Android Publisher API dependency
+✓ docs/CODEMAPS/frontend.md
+  - Updated: Generated timestamp 2026-04-02 → 2026-04-12
+  - Content: no changes (still accurate)
 
-Architecture changes
-- Initial codemap baseline established for a multi-repo superproject architecture
-- Documented three principal web/backend runtime clusters:
-  1) keelim-vercel (Next.js full-stack)
-  2) rich (FastAPI + Next.js admin web)
-  3) quant (FastAPI/Django/python services)
-- Captured shared UI package coupling via all-web-ui
+✓ docs/CODEMAPS/data.md
+  - Updated: Generated timestamp 2026-04-02 → 2026-04-12
+  - Content: no changes (still accurate)
+
+FILES REMOVED / DELETED
+========================
+- docs/knowledge/              (entire subdirectory, commit 95cb867)
+- c2g-proxy/                   (submodule removed, commit 95cb867)
+
+ARCHITECTURE CHANGES
+====================
+System topology simplified:
+  BEFORE: keelim-maestro → docs/knowledge + docs/tools → other repos
+  AFTER:  keelim-maestro → docs/CODEMAPS/ → other repos
+
+This simplification reflects the actual removal of:
+- docs/knowledge (knowledge base; now managed separately in Keelim-Knowledge-Vault submodule)
+- c2g-proxy (LiteLLM bridge; temporarily removed, may be re-registered later)
+
+SUBMODULE CHANGES
+=================
+Registered submodules (in .gitmodules):
+✓ all                    (develop, clean)
+✓ android-support        (main, clean)
+✓ Keelim-Knowledge-Vault (main, clean) ← replaces docs/knowledge role
+✓ keelim-plugin          (main, clean)
+✓ keelim-vercel          (develop, clean)
+
+Removed:
+✗ c2g-proxy              (was main, pinned ff5bd170)
+✗ docs/knowledge         (was main, pinned d062459f)
+
+Autonomous repos (not in .gitmodules):
+- all-web-ui             (main, remote-backed)
+- rich                   (master, commits ahead)
+- quant                  (local-only, no remote)
+
+STALENESS CHECK
+================
+None detected. All codemaps updated to 2026-04-12.
+
+NEXT ACTIONS
+=============
+1. Verify that `c2g-proxy` removal was intentional and permanent
+2. If `c2g-proxy` is reinstated, update architecture.md with new pinned commit
+3. Monitor `rich` and `all-web-ui` for future submodule registration
+
+CHECKLIST
+==========
+✓ architecture.md updated
+✓ backend.md updated
+✓ dependencies.md updated
+✓ frontend.md updated
+✓ data.md updated
+✓ This report generated
