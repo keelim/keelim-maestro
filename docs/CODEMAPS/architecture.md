@@ -1,4 +1,4 @@
-<!-- Generated: 2026-04-12 | Files scanned: 151 | Token estimate: ~620 -->
+<!-- Generated: 2026-04-13 | Files scanned: 151 | Token estimate: ~620 -->
 
 # Architecture Codemap (Workspace)
 
@@ -43,7 +43,7 @@ Client Browser
 ## Runtime Surfaces
 - Frontend-heavy: `keelim-vercel`, `rich/web`
 - Backend-heavy: `rich/app`, `quant/myapi`
-- Infra/tooling: `docs/tools`, `android-support`, `c2g-proxy`
+- Infra/tooling: `android-support`, `Keelim-Knowledge-Vault`
 
 ## Notable Couplings
 - `all-web-ui` linked via local file dependency into `keelim-vercel` and `rich/web`.
