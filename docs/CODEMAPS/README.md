@@ -1,6 +1,6 @@
 # keelim-maestro — Codemaps
 
-> Last updated: 2026-04-12
+> Last updated: 2026-04-13
 
 This directory documents the architecture and structure of the **keelim-maestro** workspace superproject.
 
@@ -37,7 +37,6 @@ Registered submodules (pinned via `.gitmodules`):
 
 - `all` — main Android Gradle project (`develop`)
 - `android-support` — GitHub Action for Android build workflows (`main`)
-- `c2g-proxy` — Claude Code ↔ LiteLLM ↔ Gemini bridge (`main`)
 - `Keelim-Knowledge-Vault` — documentation knowledge base (`main`)
 - `keelim-plugin` — plugin project (`main`)
 - `keelim-vercel` — web / Vercel deployment project (`develop`)

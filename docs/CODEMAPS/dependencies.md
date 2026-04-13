@@ -1,4 +1,4 @@
-<!-- Generated: 2026-04-12 | Files scanned: 151 | Token estimate: ~670 -->
+<!-- Generated: 2026-04-13 | Files scanned: 151 | Token estimate: ~670 -->
 
 # Dependencies Codemap
 
@@ -12,7 +12,6 @@
 - Google Workspace APIs (Calendar + Sheets in `rich/web` BFF)
 - KRX/PyKRX data sources (`pykrx`, KRX web endpoints in `pykrx_foreign_flow.py`)
 - Google Play Android Publisher API (`@googleapis/androidpublisher` in `android-support`)
-- LiteLLM proxy (`litellm[proxy]` in `c2g-proxy`)
 
 ## Core Frameworks
 - Next.js 16 + React 19 (`keelim-vercel`, `rich/web`)

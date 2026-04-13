@@ -1,63 +1,73 @@
 Codemap Diff Report
 ===================
-Generated: 2026-04-12
-Previous generation: 2026-04-02
+Generated: 2026-04-13
+Previous generation: 2026-04-12
 
 SUMMARY OF CHANGES
 ==================
-- Change scope: ~10-15% (minimal)
-- Action: in-place update with date/reference corrections
+- Change scope: ~5% (targeted corrections from incomplete 2026-04-12 update)
+- Action: remove stale c2g-proxy references, fix Keelim-Knowledge-Vault commit hash, update all timestamps
 
 FILES MODIFIED
 ===============
-✓ docs/CODEMAPS/architecture.md
-  - Removed: `docs/knowledge + docs/tools` from System Topology
-  - Updated: Generated timestamp 2026-04-02 → 2026-04-12
-  - Updated: Notable Couplings - removed docs/knowledge reference, added clarification about Supabase/API couplings
+✓ docs/CODEMAPS/README.md
+  - Removed: `c2g-proxy` from registered submodules list
+  - Updated: Last updated 2026-04-12 → 2026-04-13
 
-✓ docs/CODEMAPS/backend.md
-  - Updated: Generated timestamp 2026-04-02 → 2026-04-12
-  - Content: no changes (still accurate)
+✓ docs/CODEMAPS/WORKSPACE.md
+  - Removed: `c2g-proxy` node from mermaid topology diagram
+  - Removed: `c2g-proxy` row from Child Repository Catalogue
+  - Removed: `c2g-proxy` row from Current Submodule Snapshot
+  - Updated: Keelim-Knowledge-Vault pinned commit d062459f → ca4f68f
+  - Updated: Last updated 2026-04-12 → 2026-04-13
+
+✓ docs/CODEMAPS/SUBMODULES.md
+  - Removed: entire `c2g-proxy` section (gitlink removed in commit 95cb867)
+  - Updated: Keelim-Knowledge-Vault pinned commit d062459f → ca4f68f
+
+✓ docs/CODEMAPS/architecture.md
+  - Fixed: Runtime Surfaces — removed `docs/tools` and `c2g-proxy` (both removed)
+  - Updated: Generated timestamp 2026-04-12 → 2026-04-13
 
 ✓ docs/CODEMAPS/dependencies.md
-  - Updated: Generated timestamp 2026-04-02 → 2026-04-12
+  - Removed: LiteLLM proxy entry (c2g-proxy removed)
+  - Updated: Generated timestamp 2026-04-12 → 2026-04-13
+
+✓ docs/CODEMAPS/backend.md
+  - Updated: Generated timestamp 2026-04-12 → 2026-04-13
   - Content: no changes (still accurate)
 
 ✓ docs/CODEMAPS/frontend.md
-  - Updated: Generated timestamp 2026-04-02 → 2026-04-12
+  - Updated: Generated timestamp 2026-04-12 → 2026-04-13
   - Content: no changes (still accurate)
 
 ✓ docs/CODEMAPS/data.md
-  - Updated: Generated timestamp 2026-04-02 → 2026-04-12
+  - Updated: Generated timestamp 2026-04-12 → 2026-04-13
   - Content: no changes (still accurate)
 
-FILES REMOVED / DELETED
-========================
-- docs/knowledge/              (entire subdirectory, commit 95cb867)
-- c2g-proxy/                   (submodule removed, commit 95cb867)
+ROOT CAUSE (INCOMPLETE 2026-04-12 UPDATE)
+==========================================
+The 2026-04-12 update (commit a870b77) corrected architecture.md topology
+but missed the following files that still referenced c2g-proxy as active:
+- README.md (listed c2g-proxy as registered submodule)
+- WORKSPACE.md (mermaid diagram + table + snapshot still had c2g-proxy)
+- SUBMODULES.md (full c2g-proxy section still present)
+- architecture.md Runtime Surfaces (still mentioned docs/tools + c2g-proxy)
+- dependencies.md (still listed LiteLLM proxy)
+Also missed: Keelim-Knowledge-Vault pinned commit updated to ca4f68f in
+commit 95cb867 but WORKSPACE.md and SUBMODULES.md still showed d062459f.
 
-ARCHITECTURE CHANGES
-====================
-System topology simplified:
-  BEFORE: keelim-maestro → docs/knowledge + docs/tools → other repos
-  AFTER:  keelim-maestro → docs/CODEMAPS/ → other repos
+SUBMODULE SNAPSHOT (2026-04-13)
+================================
+Registered gitlinks (git ls-files --stage | grep 160000):
+✓ all                    778491a6c  develop
+✓ android-support        485a2e40   main (v0.0.8-4)
+✓ Keelim-Knowledge-Vault ca4f68f    main
+✓ keelim-plugin          156059ac   main
+✓ keelim-vercel          90c0370c   develop (shallow)
 
-This simplification reflects the actual removal of:
-- docs/knowledge (knowledge base; now managed separately in Keelim-Knowledge-Vault submodule)
-- c2g-proxy (LiteLLM bridge; temporarily removed, may be re-registered later)
-
-SUBMODULE CHANGES
-=================
-Registered submodules (in .gitmodules):
-✓ all                    (develop, clean)
-✓ android-support        (main, clean)
-✓ Keelim-Knowledge-Vault (main, clean) ← replaces docs/knowledge role
-✓ keelim-plugin          (main, clean)
-✓ keelim-vercel          (develop, clean)
-
-Removed:
-✗ c2g-proxy              (was main, pinned ff5bd170)
-✗ docs/knowledge         (was main, pinned d062459f)
+Removed (gitlink absent; .gitmodules entry is stale):
+✗ c2g-proxy              was ff5bd170 main (removed commit 95cb867)
 
 Autonomous repos (not in .gitmodules):
 - all-web-ui             (main, remote-backed)
@@ -66,16 +76,18 @@ Autonomous repos (not in .gitmodules):
 
 STALENESS CHECK
 ================
-None detected. All codemaps updated to 2026-04-12.
+None detected. All codemaps updated to 2026-04-13.
 
 NEXT ACTIONS
 =============
-1. Verify that `c2g-proxy` removal was intentional and permanent
-2. If `c2g-proxy` is reinstated, update architecture.md with new pinned commit
-3. Monitor `rich` and `all-web-ui` for future submodule registration
+1. Clean up stale c2g-proxy entry from .gitmodules if removal is permanent
+2. Monitor `rich` and `all-web-ui` for future submodule registration
 
 CHECKLIST
 ==========
+✓ README.md updated
+✓ WORKSPACE.md updated
+✓ SUBMODULES.md updated
 ✓ architecture.md updated
 ✓ backend.md updated
 ✓ dependencies.md updated
