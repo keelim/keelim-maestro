@@ -1,4 +1,4 @@
-<!-- Generated: 2026-04-13 | Files scanned: 151 | Token estimate: ~700 -->
+<!-- Generated: 2026-04-14 | Files scanned: 151+ | Token estimate: ~700 -->
 
 # Data Codemap
 
@@ -43,6 +43,15 @@ Relationships:
 - `answer.question_id -> question.id`
 - `answer.user_id -> user.id`
 
+### all (Android)
+Room database (`core:database`):
+- Entities and DAOs for app-specific data (grades, schedules, bookmarks, etc.)
+- DataStore Proto for user preferences and settings
+
+### c2g-proxy
+- No persistent data store; stateless proxy
+- Configuration via `.env` (API keys, endpoint URLs)
+
 ## Migration History
 
 ### quant/myapi Alembic chain
@@ -62,4 +71,5 @@ UI -> API Route/Router -> Service/CRUD -> DB Client
   keelim-vercel: Next route -> Supabase/Drizzle -> Postgres
   rich/app: FastAPI -> services -> Supabase + external datasets
   quant/myapi: FastAPI router -> CRUD -> SQLAlchemy -> DB
+  all (Android): ViewModel -> Repository -> Room DB / Retrofit
 ```
