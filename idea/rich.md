@@ -1,6 +1,6 @@
 # rich
 
-Last reviewed: 2026-04-13
+Last reviewed: 2026-04-15 22:46 KST
 
 ## Signals
 
@@ -63,3 +63,15 @@ failed runs.
 
 First slice: Add a compact health panel that shows last-success time, reconnect
 state, and repair action for each upstream integration.
+
+### 2026-04-13 - 공공데이터 카탈로그 변경 피드
+
+Status: proposed
+
+Why now: `rich` already exports the data.go.kr API catalog, so the next leverage
+point is to turn that static inventory into a watchable change feed instead of a
+one-off dump.
+
+First slice: Track a small watchlist of high-value dataset pages, diff title /
+field / link changes on each export, and push meaningful updates into the
+weekly review or recovery queue.

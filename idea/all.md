@@ -1,6 +1,6 @@
 # all
 
-Last reviewed: 2026-04-13
+Last reviewed: 2026-04-15 22:46 KST
 
 ## Signals
 
@@ -39,3 +39,19 @@ around versioning, QA coverage, changelog completeness, and regression risk.
 
 First slice: Generate a single report that gathers per-app version, pending
 release notes, test/build status, and any known rollout blockers.
+
+### 2026-04-13 - 컨벤션 드리프트 대시보드
+
+Status: proposed
+
+Why now: `AGENTS.md`에 적힌 날짜·금액·타이머 포맷 규칙과 실제 마이그레이션 대상이 많아서, 규칙 위반을 릴리스 전에 한 번에 보이는 표가 있으면 회귀 비용이 낮아진다.
+
+First slice: 알려진 마이그레이션 대상 파일을 스캔해 날짜/금액/제로패딩 위반과 영향 모듈을 보여주는 리포트를 만들고, 우선순위가 높은 항목부터 정리한다.
+
+### 2026-04-15 - 빌드 병목 열지도와 CI 분할 계획기
+
+Status: proposed
+
+Why now: 앱이 6개이고 공유 모듈도 많아서, Gradle 빌드·테스트 병목을 보지 않으면 무엇을 먼저 쪼개고 병렬화할지 계속 감으로만 판단하게 된다.
+
+First slice: CI에서 앱·모듈별 Gradle task 시간을 수집해 병목 열지도를 만들고, 오래 걸리는 구간을 기준으로 분할·병렬화 후보를 제안한다.
