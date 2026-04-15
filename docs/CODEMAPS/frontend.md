@@ -1,4 +1,4 @@
-<!-- Generated: 2026-04-12 | Files scanned: 151 | Token estimate: ~760 -->
+<!-- Generated: 2026-04-15 | Files scanned: 151+ | Token estimate: ~760 -->
 
 # Frontend Codemap
 
@@ -6,6 +6,7 @@
 - `keelim-vercel` (Next.js App Router)
 - `rich/web` (Next.js App Router)
 - `all-web-ui` (shared UI component package)
+- `all` (Android — Jetpack Compose)
 
 ## Page Tree (high-level)
 
@@ -39,14 +40,27 @@ API+BFF colocated under `src/app/api/*`.
 
 ### all-web-ui
 Exports reusable primitives:
-- `button`, `input`, `panel`, `badge`, `loading-status`, `empty-state`
+- `button`, `input`, `panel`, `badge`, `card`, `loading-status`, `empty-state`
 - shared styles and theme files (`finance.css`, `admin-bw.css`)
+
+### all (Android — Jetpack Compose)
+App modules (`app-*/`):
+- `app-my-grade`: grade calculator, study timer, analytics, vocabulary
+- `app-arducon`: DeepLink tester, QR scanner, JSON formatter
+- `app-nanda`: NANDA diagnosis, food/exercise tracker
+- `app-comssa`: financial calculators, flashcards
+- `app-cnubus`: real-time bus info + Google Maps
+- `app-mysenior`: accessibility-focused minimal app
+
+Feature modules (`feature/ui-*/`): settings, scheme, WebView screens
 
 ## Component Hierarchy (representative)
 - `keelim-vercel`:
   - `RootLayout` -> `Providers` -> `DashboardClient` -> page components
 - `rich/web`:
   - `RootLayout` -> `Providers` -> route page -> feature components (`src/features/**`)
+- Android:
+  - `Activity` -> `NavHost` -> Compose screens -> ViewModels -> `StateFlow`
 
 ## State Management Flow
 - `keelim-vercel`
@@ -59,7 +73,13 @@ Exports reusable primitives:
   - Client cache: TanStack Query (`src/app/providers.tsx`, `src/features/**/queries.ts`)
   - Local UI state: Zustand (`src/features/admin/store.ts`)
 
+- Android (`all`)
+  - ViewModel exposes `StateFlow` / `SharedFlow`
+  - Repositories consume `Flow` from Room DAOs and Retrofit
+  - Hilt provides dependencies at ViewModel scope
+
 ## Navigation / Data Coupling
 - `rich/web` admin pages are tightly coupled to `rich/app` endpoints (`/api/admin/**`).
 - `keelim-vercel` pages consume both internal Next API routes and local storage-backed modules.
 - `all-web-ui` ensures visual/system consistency across multiple repos.
+- Android: `core:navigation` defines route destinations; each app builds its own `NavHost`.
