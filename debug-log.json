@@ -1,13 +1,15 @@
 {
-  "session_id": "627fdab1-e23f-4a0c-8f62-3eb6edc0e5ee",
-  "transcript_path": "/Users/keelim/.claude/projects/-Users-keelim-Desktop-keelim-maestro/627fdab1-e23f-4a0c-8f62-3eb6edc0e5ee.jsonl",
+  "session_id": "64569e4f-f98c-454e-b7d7-f15a0097ecf0",
+  "transcript_path": "/Users/keelim/.claude/projects/-Users-keelim-Desktop-keelim-maestro/64569e4f-f98c-454e-b7d7-f15a0097ecf0.jsonl",
   "cwd": "/Users/keelim/Desktop/keelim-maestro",
-  "permission_mode": "acceptEdits",
+  "permission_mode": "default",
   "hook_event_name": "PreToolUse",
   "tool_name": "Bash",
   "tool_input": {
-    "command": "test -f /Users/keelim/Desktop/keelim-maestro/.reports/codemap-diff.txt && echo \"✓ Report created\" || echo \"✗ Report missing\"",
-    "description": "Verify report was created"
+    "command": "until ! tmux capture-pane -t 0:0.1 -p | grep -q 'Working\\|Searching\\|esc to interrupt'; do sleep 3; done; tmux capture-pane -t 0:0.1 -p -S -150 | tail -80",
+    "timeout": 180000,
+    "description": "Poll until OMX finishes, then capture",
+    "dangerouslyDisableSandbox": true
   },
-  "tool_use_id": "toolu_01N5dHsvHtKxJ6QF1geK8HoJ"
+  "tool_use_id": "toolu_01N4dnGPyJJ1T4HHkMCW6hYG"
 }
