@@ -1,6 +1,6 @@
 # all-web-ui
 
-Last reviewed: 2026-04-13
+Last reviewed: 2026-04-15 22:46 KST
 
 ## Signals
 
@@ -41,3 +41,19 @@ when the consumer graph and upgrade surface are visible in one place.
 
 First slice: Generate a matrix of exported primitives vs downstream import
 sites, then attach a short upgrade checklist for each consumer repo.
+
+### 2026-04-13 - 내보내기 계약 스냅샷
+
+Status: proposed
+
+Why now: 공유 UI는 `keelim-vercel`과 `rich/web` 둘 다에 붙어 있어서, 공개 export와 theme 파일이 깨지면 소비자 쪽 회귀가 바로 생긴다.
+
+First slice: 배포 전 `all-web-ui`의 공개 export 목록과 실제 downstream import 지점을 비교하는 manifest를 만들고, 시각/접근성 검사와 함께 계약 변경을 표시한다.
+
+### 2026-04-14 - 토큰 폐기 예고판
+
+Status: proposed
+
+Why now: `all-web-ui`의 토큰과 프리미티브는 `keelim-vercel`과 `rich/web` 둘 다에 붙어 있어서, 이름을 바꾸거나 내릴 때 소비자 경로를 먼저 보여주지 않으면 회귀가 늦게 드러난다.
+
+First slice: 카탈로그에서 deprecated export를 표시하고, downstream import 지점을 수집해 교체 경로와 함께 보여주는 얇은 마이그레이션 표를 만든다.
