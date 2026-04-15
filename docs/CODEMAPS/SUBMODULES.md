@@ -162,7 +162,7 @@ bun run jest    # run tests
 | Path | `Keelim-Knowledge-Vault/` |
 | Remote | https://github.com/keelim/Keelim-Knowledge-Vault.git |
 | Tracked branch | `main` |
-| Pinned commit | `ca4f68f` |
+| Pinned commit | `ca4f68f5` |
 | Language / toolchain | Markdown / Obsidian |
 | Purpose | Shared knowledge base and documentation for the workspace |
 

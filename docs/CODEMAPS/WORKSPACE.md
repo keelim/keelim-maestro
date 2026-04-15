@@ -21,10 +21,13 @@ flowchart TB
 
     submodules --> all["all\nAndroid · develop"]
     submodules --> android["android-support\nGitHub Action · main"]
-    submodules --> c2g["c2g-proxy\nPython bridge · main"]
     submodules --> vault["Keelim-Knowledge-Vault\nDocumentation · main"]
     submodules --> plugin["keelim-plugin\nPlugin · main"]
     submodules --> vercel["keelim-vercel\nWeb/Vercel · develop"]
+
+    orphaned["Orphaned .gitmodules entry\n(gitlink removed from index)"]
+    root --> orphaned
+    orphaned --> c2g["c2g-proxy\nPython bridge · main\n(declared but not registered)"]
 
     autonomous --> webui["all-web-ui\nWeb UI · main (remote-backed)"]
     autonomous --> rich["rich\nWeb/Node.js · master (ahead of origin)"]
@@ -38,7 +41,7 @@ flowchart TB
 | `all` | https://github.com/keelim/all | `develop` | Android (Gradle multi-module) | Registered submodule |
 | `all-web-ui` | https://github.com/keelim/all-web-ui | `main` | Shared web UI | Autonomous (pending submodule) |
 | `android-support` | https://github.com/keelim/android-support | `main` | TypeScript / Node.js GitHub Action | Registered submodule |
-| `c2g-proxy` | https://github.com/keelim/c2g-proxy | `main` | Python / LiteLLM bridge | Registered submodule |
+| `c2g-proxy` | https://github.com/keelim/c2g-proxy | `main` | Python / LiteLLM bridge | **Orphaned** — in `.gitmodules` but gitlink removed from index; no directory |
 | `Keelim-Knowledge-Vault` | https://github.com/keelim/Keelim-Knowledge-Vault | `main` | Documentation | Registered submodule |
 | `keelim-plugin` | https://github.com/keelim/keelim-plugin | `main` | Plugin project | Registered submodule |
 | `keelim-vercel` | https://github.com/keelim/keelim-vercel | `develop` | Web / Vercel deployment | Registered submodule |
@@ -111,16 +114,16 @@ Files and directories that must **not** be edited from the root:
 
 ## Current Submodule Snapshot
 
-> Last updated: 2026-04-14
+> Last updated: 2026-04-15
 
 | Path | Pinned commit | Branch | Status |
 |------|---------------|--------|--------|
 | `all` | `778491a6c` | `develop` | Not initialized (empty dir) |
 | `android-support` | `485a2e40` | `main` | Not initialized (empty dir) |
-| `c2g-proxy` | `ff5bd170` | `main` | Not initialized (empty dir) |
-| `Keelim-Knowledge-Vault` | `d062459f` | `main` | Not initialized (empty dir) |
+| `Keelim-Knowledge-Vault` | `ca4f68f5` | `main` | Not initialized (empty dir) |
 | `keelim-plugin` | `156059ac` | `main` | Not initialized (empty dir) |
 | `keelim-vercel` | `90c0370c` | `develop` | Not initialized (empty dir) |
+| `c2g-proxy` | — | `main` | **Orphaned**: declared in `.gitmodules`; gitlink removed from index; directory absent |
 | `all-web-ui` | — | `main` | Autonomous (not in .gitmodules) |
 | `rich` | — | `master` | Autonomous, commits ahead of origin |
 | `quant` | — | — | Local-only (no remote) |
