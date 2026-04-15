@@ -1,4 +1,4 @@
-<!-- Generated: 2026-04-14 | Files scanned: 151+ | Token estimate: ~620 -->
+<!-- Generated: 2026-04-15 | Files scanned: 151+ | Token estimate: ~620 -->
 
 # Architecture Codemap (Workspace)
 
@@ -27,7 +27,7 @@
 - `rich/web`: Next.js frontend + BFF routes (`/api/agenda`, `/api/google-sheets`) bridging Supabase auth and Google APIs.
 - `quant/myapi`: standalone FastAPI domain API (`question/answer/user/etc`) with SQLAlchemy + Alembic.
 - `all-web-ui`: shared UI components consumed by both `keelim-vercel` and `rich/web`.
-- `c2g-proxy`: Python bridge enabling Claude Code CLI to use LiteLLM / Gemini as the backend provider.
+- `c2g-proxy`: Python bridge enabling Claude Code CLI to use LiteLLM / Gemini as the backend provider. _(Declared in `.gitmodules` but gitlink removed from index; source available at github.com/keelim/c2g-proxy.)_
 
 ## High-Level Data Flow
 ```text
