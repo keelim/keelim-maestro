@@ -155,38 +155,6 @@ bun run jest    # run tests
 
 ---
 
-## `c2g-proxy` — Claude Code ↔ LiteLLM ↔ Gemini Bridge
-
-| Field | Value |
-|-------|-------|
-| Path | `c2g-proxy/` |
-| Remote | https://github.com/keelim/c2g-proxy.git |
-| Tracked branch | `main` |
-| Pinned commit | `ff5bd170` |
-| Language / toolchain | Python, managed with `uv` |
-| Purpose | Translation layer enabling Claude Code CLI to use LiteLLM / Gemini as the backend provider |
-
-### Key files inside the submodule
-```
-c2g-proxy/
-├── .env.example                                  # Config template — copy to .env before running
-├── README.md
-├── docs/
-│   ├── claude-code-via-litellm-gemini.md         # Setup guide
-│   └── claude-code-via-litellm-gemini-verification.md
-└── scripts/litellm/                              # Bridge start / verify helpers
-```
-
-### Bootstrap
-```bash
-cd c2g-proxy
-cp .env.example .env          # fill in API keys
-uv sync
-# then run the start script in scripts/litellm/
-```
-
----
-
 ## `Keelim-Knowledge-Vault` — Documentation Knowledge Base
 
 | Field | Value |
@@ -194,7 +162,7 @@ uv sync
 | Path | `Keelim-Knowledge-Vault/` |
 | Remote | https://github.com/keelim/Keelim-Knowledge-Vault.git |
 | Tracked branch | `main` |
-| Pinned commit | `d062459f` |
+| Pinned commit | `ca4f68f5` |
 | Language / toolchain | Markdown / Obsidian |
 | Purpose | Shared knowledge base and documentation for the workspace |
 
