@@ -1,60 +1,61 @@
 Codemap Diff Report
 ===================
-Generated: 2026-04-16
-Previous generation: 2026-04-15
+Generated: 2026-04-17
+Previous generation: 2026-04-16
 
 SUMMARY OF CHANGES
 ==================
-- Change scope: ~5% (timestamp refresh + idea/ directory documentation)
-- Action: update all timestamps; document idea/ directory in WORKSPACE.md and README.md
+- Change scope: ~1% (timestamp refresh only)
+- Action: update all timestamps; no structural changes detected
 
 FILES MODIFIED
 ===============
 ✓ docs/CODEMAPS/README.md
-  - Added: idea/ directory to quick-orientation structure diagram
-  - Updated: Last updated 2026-04-15 → 2026-04-16
+  - Updated: Last updated 2026-04-16 → 2026-04-17
 
 ✓ docs/CODEMAPS/WORKSPACE.md
-  - Added: idea/ node to mermaid topology diagram
-  - Added: idea/ to safe-scope file list
-  - Updated: Last updated 2026-04-15 → 2026-04-16
+  - Updated: Last updated 2026-04-16 → 2026-04-17
+  - Content: no structural changes
 
 ✓ docs/CODEMAPS/architecture.md
-  - Updated: Generated timestamp 2026-04-15 → 2026-04-16
+  - Updated: Generated timestamp 2026-04-16 → 2026-04-17
   - Content: no structural changes
 
 ✓ docs/CODEMAPS/backend.md
-  - Updated: Generated timestamp 2026-04-15 → 2026-04-16
+  - Updated: Generated timestamp 2026-04-16 → 2026-04-17
   - Content: no changes (still accurate)
 
 ✓ docs/CODEMAPS/frontend.md
-  - Updated: Generated timestamp 2026-04-15 → 2026-04-16
+  - Updated: Generated timestamp 2026-04-16 → 2026-04-17
   - Content: no changes (still accurate)
 
 ✓ docs/CODEMAPS/data.md
-  - Updated: Generated timestamp 2026-04-15 → 2026-04-16
+  - Updated: Generated timestamp 2026-04-16 → 2026-04-17
   - Content: no changes (still accurate)
 
 ✓ docs/CODEMAPS/dependencies.md
-  - Updated: Generated timestamp 2026-04-15 → 2026-04-16
+  - Updated: Generated timestamp 2026-04-16 → 2026-04-17
   - Content: no changes (still accurate)
 
 FILES CHECKED — NO CHANGES NEEDED
 ===================================
-✓ docs/CODEMAPS/SUBMODULES.md  — submodule pointers unchanged
+✓ docs/CODEMAPS/SUBMODULES.md  — submodule pointers unchanged (same pinned commits)
 ✓ docs/CODEMAPS/SCRIPTS.md     — no new scripts added
 
-CONTEXT: CHANGES SINCE 2026-04-15
+CONTEXT: CHANGES SINCE 2026-04-16
 ====================================
-- idea/ folder expanded: 7 per-project markdowns (all, all-web-ui, android-support,
-  Keelim-Knowledge-Vault, keelim-plugin, keelim-vercel, rich) + index.md with
-  open ideas, priorities, and backlog items. No architectural changes — these are
-  product/engineering backlog entries only.
-- Commit 91d801c: refreshed idea docs + debug-log.json rotation.
-- Commit 5214753: merge from origin (upstream had identical codemap update from
-  parallel session).
+- No new submodules registered
+- No new scripts added under scripts/
+- Submodule pinned commits unchanged:
+    all                    778491a6c  develop
+    android-support        485a2e40   main (v0.0.8-4)
+    Keelim-Knowledge-Vault ca4f68f5   main
+    keelim-plugin          156059ac   main
+    keelim-vercel          90c0370c   develop (shallow)
+- Autonomous repos (all-web-ui, rich, quant) status unchanged
+- c2g-proxy remains orphaned (in .gitmodules, gitlink removed from index)
 
-SUBMODULE SNAPSHOT (2026-04-16)
+SUBMODULE SNAPSHOT (2026-04-17)
 ================================
 Registered gitlinks (git ls-files --stage | grep 160000):
 ✓ all                    778491a6c  develop
@@ -73,7 +74,7 @@ Autonomous repos (not in .gitmodules):
 
 STALENESS CHECK
 ================
-None detected. All codemaps updated to 2026-04-16.
+None detected. All codemaps updated to 2026-04-17.
 
 NEXT ACTIONS
 =============
