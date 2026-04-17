@@ -116,7 +116,7 @@ Files and directories that must **not** be edited from the root:
 
 ## Current Submodule Snapshot
 
-> Last updated: 2026-04-16
+> Last updated: 2026-04-17
 
 | Path | Pinned commit | Branch | Status |
 |------|---------------|--------|--------|
