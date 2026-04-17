@@ -1,4 +1,4 @@
-<!-- Generated: 2026-04-16 | Files scanned: 151+ | Token estimate: ~700 -->
+<!-- Generated: 2026-04-17 | Files scanned: 151+ | Token estimate: ~700 -->
 
 # Data Codemap
 
