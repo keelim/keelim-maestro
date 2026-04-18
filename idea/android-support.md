@@ -1,6 +1,6 @@
 # android-support
 
-Last reviewed: 2026-04-15 22:46 KST
+Last reviewed: 2026-04-18 10:47 KST
 
 ## Signals
 

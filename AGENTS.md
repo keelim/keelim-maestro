@@ -10,6 +10,8 @@
   - `AGENTS.md`
   - `README.md`
   - `.gitignore`
+  - `package.json`
+  - `bun.lock`
   - future `.gitmodules`
   - future root-only helper scripts/docs
 - Do not convert child repositories to submodules yet while dirty or ahead-of-remote child repos remain unresolved.
@@ -20,6 +22,8 @@
 - When modifying code inside a child repo, enter that repo, use its own Git history, and follow any deeper `AGENTS.md` that applies there.
 - Root-level changes should prefer updating documentation, submodule metadata, or pinned pointers rather than editing child-repo source files.
 - A deeper `AGENTS.md` inside a child repo overrides this file for files under that child repo.
+- Root `package.json` / `bun.lock` may act as a Bun workspace bootstrap for selected web repos, but this does **not** convert the root into a single Git monorepo or remove child-repo standalone responsibilities.
+- A committed root Bun workspace may assume that autonomous child repos are already hydrated at their expected local paths; document that prerequisite in `README.md` whenever the workspace membership changes.
 
 ## `/c2g-proxy` policy
 - `/c2g-proxy` is a GitHub-backed registered root submodule.
@@ -32,6 +36,7 @@
 - Include `/all-web-ui` in root-level subrepo status / verification helpers.
 - Do not add `/all-web-ui` as a local-path submodule from the root.
 - If it is later converted to a root submodule, use the remote-backed URL only after the broader workspace is safe to pin.
+- It may participate in the root Bun workspace as a shared package, but it must remain independently cloneable/versionable for standalone consumer repos and Vercel builds.
 
 ## `/quant` policy
 - `/quant` is intentionally excluded from the initial root superproject/submodule scope.
@@ -54,3 +59,4 @@
 - Prefer the smallest reversible root diff.
 - Prefer documentation over automation until the child-repo state is clean enough for safe submodule conversion.
 - If a requested root change requires editing a child repo, call out the boundary explicitly and switch to that child repo's rules before changing it.
+- For Bun workspace changes, prefer root bootstrap and metadata alignment before deeper package-boundary rewrites.

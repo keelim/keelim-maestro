@@ -1,6 +1,6 @@
 # Workspace Idea Index
 
-Last updated: 2026-04-15 22:46 KST
+Last updated: 2026-04-18 10:47 KST
 
 This folder tracks feature, product, and workflow ideas for the top-level
 projects inside `/Users/keelim/Desktop/keelim-maestro`.
@@ -19,10 +19,10 @@ projects inside `/Users/keelim/Desktop/keelim-maestro`.
 
 | Project | File | Last reviewed | Open ideas | Current focus |
 | --- | --- | --- | --- | --- |
-| `all` | [all.md](./all.md) | 2026-04-15 22:46 KST | 5 | 공통 모듈 재사용, 빌드 병목, 릴리스 리스크를 함께 다루는 안드로이드/KMP 운영 허브 |
-| `all-web-ui` | [all-web-ui.md](./all-web-ui.md) | 2026-04-15 22:46 KST | 5 | 공용 토큰 폐기와 downstream 호환성을 관리하는 웹 UI 계약 허브 |
-| `android-support` | [android-support.md](./android-support.md) | 2026-04-15 22:46 KST | 5 | Play Console 릴리스를 사전 검증과 재생 가능한 증적으로 안전하게 만드는 자동화 |
-| `Keelim-Knowledge-Vault` | [Keelim-Knowledge-Vault.md](./Keelim-Knowledge-Vault.md) | 2026-04-15 22:46 KST | 5 | 워크스페이스 지시문, 코드맵, 변화 기록을 다시 찾게 만드는 지식 허브 |
-| `keelim-plugin` | [keelim-plugin.md](./keelim-plugin.md) | 2026-04-15 22:46 KST | 6 | 스킬 설치 정합성과 재사용 그래프를 함께 검증하는 개인 플러그인 저장소 |
-| `keelim-vercel` | [keelim-vercel.md](./keelim-vercel.md) | 2026-04-15 22:46 KST | 6 | 연결된 재무 도구와 후속 행동 루프를 함께 다루는 제품 허브 |
-| `rich` | [rich.md](./rich.md) | 2026-04-15 22:46 KST | 6 | 운영 복구 루프와 외부 연동 상태를 한곳에서 다루는 관리자 허브 |
+| `all` | [all.md](./all.md) | 2026-04-18 10:47 KST | 5 | 공통 모듈 채택과 릴리스 리스크를 함께 낮추는 안드로이드/KMP 허브 |
+| `all-web-ui` | [all-web-ui.md](./all-web-ui.md) | 2026-04-18 10:47 KST | 6 | 공용 토큰·프리미티브 계약과 다운스트림 영향 가시화 허브 |
+| `android-support` | [android-support.md](./android-support.md) | 2026-04-18 10:47 KST | 5 | Play Console 입력 검증과 릴리스 증적을 묶는 자동화 |
+| `Keelim-Knowledge-Vault` | [Keelim-Knowledge-Vault.md](./Keelim-Knowledge-Vault.md) | 2026-04-18 10:47 KST | 6 | 워크스페이스 기준선과 문서 스냅샷을 다시 찾게 만드는 허브 |
+| `keelim-plugin` | [keelim-plugin.md](./keelim-plugin.md) | 2026-04-18 10:47 KST | 6 | 스킬 카탈로그와 설치·회귀 검증을 함께 다루는 개인 플러그인 저장소 |
+| `keelim-vercel` | [keelim-vercel.md](./keelim-vercel.md) | 2026-04-18 10:47 KST | 6 | 후속 행동 루프와 저장소 계약을 함께 다루는 금융 허브 |
+| `rich` | [rich.md](./rich.md) | 2026-04-18 10:47 KST | 6 | 운영 복구와 외부 연동 상태를 한곳에서 다루는 관리자 허브 |
