@@ -1,0 +1,17 @@
+{
+  "name": "keelim-maestro",
+  "private": true,
+  "packageManager": "bun@1.3.12",
+  "workspaces": [
+    "all-web-ui",
+    "keelim-vercel",
+    "rich/web"
+  ],
+  "scripts": {
+    "typecheck:web": "bun run --filter all-web-ui typecheck && bun run --filter keelim-vercel typecheck && bun run --filter rich-admin-web typecheck",
+    "build:web": "bun run --filter keelim-vercel build && bun run --filter rich-admin-web build",
+    "test:web": "bun run --filter rich-admin-web test -- --no-file-parallelism --maxWorkers=1",
+    "dev:keelim-vercel": "bun run --filter keelim-vercel dev",
+    "dev:rich-web": "bun run --filter rich-admin-web dev"
+  }
+}

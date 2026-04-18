@@ -1,13 +1,14 @@
 # all-web-ui
 
-Last reviewed: 2026-04-15 22:46 KST
+Last reviewed: 2026-04-18 10:47 KST
 
 ## Signals
 
 - Shared React UI package consumed by multiple web repos.
 - Already ships theme tokens and reusable primitives such as `button`, `panel`,
   `badge`, and loading/empty states.
-- Shared UI releases create coupling, so confidence and discoverability matter.
+- Shared UI releases create coupling, so downstream impact and discoverability
+  matter together.
 
 ## Open ideas
 
@@ -57,3 +58,11 @@ Status: proposed
 Why now: `all-web-ui`의 토큰과 프리미티브는 `keelim-vercel`과 `rich/web` 둘 다에 붙어 있어서, 이름을 바꾸거나 내릴 때 소비자 경로를 먼저 보여주지 않으면 회귀가 늦게 드러난다.
 
 First slice: 카탈로그에서 deprecated export를 표시하고, downstream import 지점을 수집해 교체 경로와 함께 보여주는 얇은 마이그레이션 표를 만든다.
+
+### 2026-04-18 - 다운스트림 빌드 카나리
+
+Status: proposed
+
+Why now: `all-web-ui`는 실제로 두 개의 다운스트림 앱에 붙어 있으니, export나 theme 파일 변경이 배포 전에 빌드 단위에서 먼저 깨지는지 확인해야 회귀 비용이 낮아진다.
+
+First slice: `keelim-vercel`과 `rich/web`이 쓰는 import 경로를 그대로 재현하는 작은 fixture 또는 매트릭스 빌드를 만들고, 타입체크/빌드 실패를 소비자 영향 경고로 보여준다.
