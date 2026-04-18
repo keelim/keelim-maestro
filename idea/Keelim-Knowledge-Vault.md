@@ -1,6 +1,6 @@
 # Keelim-Knowledge-Vault
 
-Last reviewed: 2026-04-15 22:46 KST
+Last reviewed: 2026-04-18 10:47 KST
 
 ## Signals
 
@@ -12,6 +12,8 @@ Last reviewed: 2026-04-15 22:46 KST
   memory worth linking back into the vault.
 - Generated code maps and workspace guidance should be preserved as linkable
   snapshots, not only as one-off references.
+- Root docs already define a trusted set, excluded set, and pinning blockers,
+  so the vault can mirror that baseline instead of re-deriving it every run.
 
 ## Open ideas
 
@@ -60,3 +62,11 @@ Status: proposed
 Why now: AGENTS, CODEMAPS, idea 인덱스, automation memory가 따로 움직여서, 오늘 바뀐 운영 기준을 한 번에 복원할 수 있는 요약 노트가 있으면 재진입 비용이 줄어든다.
 
 First slice: 루트에서 갱신된 운영 문서와 메모리 조각을 모아 일일 다이제스트 노트를 만들고, 관련 프로젝트 노트로 바로 왕복 링크를 건다.
+
+### 2026-04-16 - 워크스페이스 신뢰 기준선 보드
+
+Status: proposed
+
+Why now: 루트 AGENTS/CODEMAPS가 이미 신뢰 가능한 repo 집합, 제외 대상, pinning blocker를 정의하고 있어서, 이를 vault에 복원 가능한 한 장의 기준선 보드로 남기면 다음 작업에서 다시 해석하지 않아도 된다.
+
+First slice: 현재 trusted set, excluded set, pinning blocker, 마지막 검증 시각을 묶은 노트를 만들고 루트 workspace 문서와 상호 링크한다.

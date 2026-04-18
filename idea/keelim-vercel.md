@@ -1,6 +1,6 @@
 # keelim-vercel
 
-Last reviewed: 2026-04-15 22:46 KST
+Last reviewed: 2026-04-18 10:47 KST
 
 ## Signals
 
@@ -21,16 +21,6 @@ Status: proposed
 Why now: The app already tracks `tool_clicks` and exposes a wide route inventory, so usage data can drive pruning and promotion instead of manual guesswork.
 
 First slice: Produce a weekly report that ranks tools by real usage, flags long-unused surfaces, and suggests consolidation candidates.
-
-### 2026-04-12 - Shared financial profile and scenario workspace
-
-Status: proposed
-
-Why now: Many tools likely ask for overlapping assumptions such as income,
- family state, savings pace, debt, tax context, and risk preference.
-
-First slice: Introduce a reusable user profile plus named scenarios so several
- calculators can prefill from the same assumptions instead of starting cold.
 
 ### 2026-04-12 - Next-best-action feed across finance tools
 
@@ -71,3 +61,11 @@ Status: proposed
 Why now: `all-web-ui`를 로컬 sibling repo로 쓰는 동안 adapter export와 실제 import 경로가 조금만 어긋나도 `keelim-vercel` 쪽에서 런타임보다 늦게 회귀가 드러난다.
 
 First slice: `components/shared/all-web-ui-adapters.tsx`와 downstream import 지점을 스캔해, 사용 중인 primitive와 경로를 한 장의 manifest로 묶고 변경 diff를 보여준다.
+
+### 2026-04-18 - 스토리지 키 레지스트리 드리프트 게이트
+
+Status: proposed
+
+Why now: `lib/*storage.ts`와 `storage-version-registry.ts`가 실제로 같은 저장 키 계약을 지켜야 하므로, 레지스트리 누락이나 stale sidecar가 생기면 사용자 설정이 조용히 깨질 수 있다.
+
+First slice: 저장소 키 상수와 registry 등록 목록을 비교하는 보고서를 만들고, 누락/불일치/정체된 마이그레이션 후보를 주간 점검에 띄운다.
