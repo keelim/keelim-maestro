@@ -32,8 +32,12 @@ This repository currently owns only root-level coordination files:
 - `AGENTS.md`
 - `README.md`
 - `.gitignore`
+- `package.json`
+- `bun.lock`
 - `.gitmodules`
 - future root-only helper scripts/docs
+
+The root may also carry a **Bun workspace bootstrap** for selected web repos. This is an orchestration layer for installs/scripts only; it does **not** collapse the child repositories into one Git monorepo.
 
 ## LiteLLM / Claude bridge location
 
@@ -52,6 +56,52 @@ run `uv sync`, then use the bundled start/verify helpers.
 
 The child repositories remain autonomous at the codebase level. Remote-backed repos can be tracked from the root via `.gitmodules`; `c2g-proxy` is now pinned there as the bridge repo, while `quant` and `rich` remain outside the current submodule scope.
 `all-web-ui` now has a public remote repository, but it is still managed as an autonomous child repo from the root until the remaining workspace blockers are resolved.
+
+## Bun workspace bootstrap
+
+The current web workspace bootstrap is intentionally narrow:
+
+- `all-web-ui`
+- `keelim-vercel`
+- `rich/web`
+
+Goals:
+
+- allow root-level `bun install` and filtered web verification commands
+- keep each child repo independently cloneable and deployable
+- keep Vercel pointed at app-specific root directories instead of treating the root as one merged app
+
+Non-goals:
+
+- merging Git history
+- replacing child-repo ownership with root ownership
+- forcing `workspace:*` references where standalone repos still need independent installs
+
+### Bun workspace prerequisites
+
+The root workspace assumes these directories already exist locally:
+
+- `all-web-ui/`
+- `keelim-vercel/`
+- `rich/web/`
+
+`keelim-vercel` is available from the root submodule bootstrap, but `all-web-ui` and `rich` are still autonomous child repos, **not** root submodules. That means a fresh root clone must hydrate them separately **before** running root `bun install`.
+
+Example hydration flow:
+
+```bash
+git clone <root-repo>
+cd keelim-maestro
+git submodule update --init --recursive
+
+# hydrate autonomous web repos expected by the Bun workspace
+git clone https://github.com/keelim/all-web-ui.git all-web-ui
+git clone https://github.com/keelim/rich.git rich
+
+bun install
+```
+
+If those autonomous repos are absent, Bun workspace installation will fail because the workspace paths are intentionally fixed to the local workspace layout.
 
 ## Knowledge system docs
 
@@ -74,7 +124,7 @@ The first-pass knowledge-system documentation lives under `docs/knowledge/`:
 | `c2g-proxy` | yes | clean vs `origin/main` | registered submodule for the Claude Code + LiteLLM + Gemini bridge |
 | `Keelim-Knowledge-Vault` | yes | clean vs `origin/main` | registered submodule |
 | `keelim-plugin` | yes | clean vs `origin/main` | registered submodule |
-| `keelim-vercel` | yes | clean vs `origin/develop` | registered submodule |
+| `keelim-vercel` | yes | clean vs `origin/main` | registered submodule |
 | `quant` | no | dirty local repo | intentionally excluded for now |
 | `rich` | yes | ahead of `origin/master` by 30 | autonomous local repo; reconcile before future pinning |
 
@@ -120,7 +170,7 @@ Tracked submodule default branches are declared in `.gitmodules`:
 - `c2g-proxy` -> `main`
 - `Keelim-Knowledge-Vault` -> `main`
 - `keelim-plugin` -> `main`
-- `keelim-vercel` -> `develop`
+- `keelim-vercel` -> `main`
 
 Helper script:
 
@@ -161,3 +211,5 @@ git clone <root-repo>
 cd keelim-maestro
 git submodule update --init --recursive
 ```
+
+If you also want the root Bun workspace bootstrap, hydrate the autonomous repos expected by that workspace (`all-web-ui`, `rich`) before running root `bun install`; see **Bun workspace prerequisites** above.
