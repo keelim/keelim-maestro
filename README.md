@@ -64,6 +64,7 @@ The current web workspace bootstrap is intentionally narrow:
 - `all-web-ui`
 - `keelim-vercel`
 - `rich/web`
+- `toto`
 
 Goals:
 
@@ -84,8 +85,10 @@ The root workspace assumes these directories already exist locally:
 - `all-web-ui/`
 - `keelim-vercel/`
 - `rich/web/`
+- `toto/`
 
 `keelim-vercel` is available from the root submodule bootstrap, but `all-web-ui` and `rich` are still autonomous child repos, **not** root submodules. That means a fresh root clone must hydrate them separately **before** running root `bun install`.
+`toto` is also treated as an autonomous child repo. If it is absent locally, root-level Bun workspace commands that target `toto` will fail until it is hydrated.
 
 Example hydration flow:
 
