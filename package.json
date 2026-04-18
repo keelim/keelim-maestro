@@ -5,13 +5,17 @@
   "workspaces": [
     "all-web-ui",
     "keelim-vercel",
-    "rich/web"
+    "rich/web",
+    "toto"
   ],
   "scripts": {
     "typecheck:web": "bun run --filter all-web-ui typecheck && bun run --filter keelim-vercel typecheck && bun run --filter rich-admin-web typecheck",
     "build:web": "bun run --filter keelim-vercel build && bun run --filter rich-admin-web build",
     "test:web": "bun run --filter rich-admin-web test -- --no-file-parallelism --maxWorkers=1",
     "dev:keelim-vercel": "bun run --filter keelim-vercel dev",
-    "dev:rich-web": "bun run --filter rich-admin-web dev"
+    "dev:rich-web": "bun run --filter rich-admin-web dev",
+    "dev:toto": "bun run --filter toto-kbo-streamlit-dashboard dev",
+    "test:toto": "bun run --filter toto-kbo-streamlit-dashboard test",
+    "verify:toto": "bun run --filter toto-kbo-streamlit-dashboard verify"
   }
 }
