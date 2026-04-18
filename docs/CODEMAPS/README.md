@@ -47,7 +47,7 @@ Registered submodules (pinned via `.gitmodules`):
 - `android-support` — GitHub Action for Android build workflows (`main`)
 - `Keelim-Knowledge-Vault` — documentation knowledge base (`main`)
 - `keelim-plugin` — plugin project (`main`)
-- `keelim-vercel` — web / Vercel deployment project (`develop`)
+- `keelim-vercel` — web / Vercel deployment project (`main`)
 
 > **Note:** `c2g-proxy` is declared in `.gitmodules` but its gitlink has been removed from
 > the git index and the directory does not exist. It is not an active registered submodule.

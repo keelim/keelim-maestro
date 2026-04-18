@@ -206,7 +206,7 @@ The rename is verified by `scripts/verify-keelim-plugin-rename.sh`.
 |-------|-------|
 | Path | `keelim-vercel/` |
 | Remote | https://github.com/keelim/keelim-vercel.git |
-| Tracked branch | `develop` |
+| Tracked branch | `main` |
 | Pinned commit | `90c0370c` (shallow) |
 | Language / toolchain | Node.js / JavaScript (Vercel deployment) |
 | Purpose | Web frontend deployed on Vercel; integrates `all-web-ui` component library |

@@ -24,7 +24,7 @@ flowchart TB
     submodules --> android["android-support\nGitHub Action · main"]
     submodules --> vault["Keelim-Knowledge-Vault\nDocumentation · main"]
     submodules --> plugin["keelim-plugin\nPlugin · main"]
-    submodules --> vercel["keelim-vercel\nWeb/Vercel · develop"]
+    submodules --> vercel["keelim-vercel\nWeb/Vercel · main"]
 
     orphaned["Orphaned .gitmodules entry\n(gitlink removed from index)"]
     root --> orphaned
@@ -45,7 +45,7 @@ flowchart TB
 | `c2g-proxy` | https://github.com/keelim/c2g-proxy | `main` | Python / LiteLLM bridge | **Orphaned** — in `.gitmodules` but gitlink removed from index; no directory |
 | `Keelim-Knowledge-Vault` | https://github.com/keelim/Keelim-Knowledge-Vault | `main` | Documentation | Registered submodule |
 | `keelim-plugin` | https://github.com/keelim/keelim-plugin | `main` | Plugin project | Registered submodule |
-| `keelim-vercel` | https://github.com/keelim/keelim-vercel | `develop` | Web / Vercel deployment | Registered submodule |
+| `keelim-vercel` | https://github.com/keelim/keelim-vercel | `main` | Web / Vercel deployment | Registered submodule |
 | `quant` | none | n/a | local-only (no remote) | Intentionally excluded |
 | `rich` | https://github.com/keelim/rich | `master` | Web / Node.js | Autonomous (pending reconciliation) |
 
@@ -124,7 +124,7 @@ Files and directories that must **not** be edited from the root:
 | `android-support` | `485a2e40` | `main` | Not initialized (empty dir) |
 | `Keelim-Knowledge-Vault` | `ca4f68f5` | `main` | Not initialized (empty dir) |
 | `keelim-plugin` | `156059ac` | `main` | Not initialized (empty dir) |
-| `keelim-vercel` | `90c0370c` | `develop` | Not initialized (empty dir) |
+| `keelim-vercel` | `90c0370c` | `main` | Not initialized (empty dir) |
 | `c2g-proxy` | — | `main` | **Orphaned**: declared in `.gitmodules`; gitlink removed from index; directory absent |
 | `all-web-ui` | — | `main` | Autonomous (not in .gitmodules) |
 | `rich` | — | `master` | Autonomous, commits ahead of origin |
