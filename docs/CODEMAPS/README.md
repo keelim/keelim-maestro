@@ -17,6 +17,12 @@ This directory documents the architecture and structure of the **keelim-maestro*
 | [frontend.md](frontend.md) | UI surfaces and component hierarchy |
 | [dependencies.md](dependencies.md) | External services and libraries |
 
+## Design
+
+| File | Contents |
+|------|----------|
+| [../design/design-system.md](../design/design-system.md) | Keelim Design System — tokens, themes, components, and maintenance rules |
+
 ## Quick orientation
 
 `keelim-maestro` is a **Git superproject / workspace coordination layer**.

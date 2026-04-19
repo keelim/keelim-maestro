@@ -1,6 +1,6 @@
 # all-web-ui
 
-Last reviewed: 2026-04-18 16:40 KST
+Last reviewed: 2026-04-19 13:56 KST
 
 ## Signals
 
@@ -17,7 +17,7 @@ Last reviewed: 2026-04-18 16:40 KST
 Status: proposed
 
 Why now: Shared theme tokens are more valuable when consumers can preview what a
- token change will do before publishing it into downstream apps.
+token change will do before publishing it into downstream apps.
 
 First slice: Build a tiny docs/demo page that renders each primitive under the
  existing themes and highlights token deltas side by side.

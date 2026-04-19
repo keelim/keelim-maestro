@@ -1,6 +1,6 @@
 # rich
 
-Last reviewed: 2026-04-18 16:40 KST
+Last reviewed: 2026-04-19 13:56 KST
 
 ## Signals
 
@@ -9,6 +9,8 @@ Last reviewed: 2026-04-18 16:40 KST
 - Already has strong operational surfaces around PyKRX, weekly review, agenda,
   and personal inbox/loop items.
 - Reliability and operator leverage are at least as important as new UI pages.
+- `docs/words/AGENTS.md` defines a raw-source/wiki/schema split for an investing
+  LLM wiki, so durable review insights can be routed back into knowledge pages.
 
 ## Open ideas
 
@@ -28,7 +30,8 @@ Why now: `rich` already contains the ingredients for a strong operator ritual,
  but they appear to live across separate endpoints and pages.
 
 First slice: Create one dashboard view that combines agenda, inbox priorities,
- PyKRX flow highlights, weekly review carry-over items, and journal prompts.
+ PyKRX flow highlights, weekly review carry-over items, journal prompts, and
+ links for filing durable insights into `docs/words`.
 
 ### 2026-04-12 - Data freshness and anomaly watchdog
 
