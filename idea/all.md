@@ -8,6 +8,8 @@ Last reviewed: 2026-04-25 KST
 - Strong platform surface already exists in `core:*`, `feature:*`, widgets, and
   custom Gradle build logic.
 - Release and quality risk scale quickly when several apps move in parallel.
+- Module-level `AGENTS.md` files define concrete contracts for navigation,
+  repositories, KMP entities, Compose components, and Gradle convention plugins.
 
 ## Open ideas
 
@@ -44,9 +46,9 @@ release notes, test/build status, and any known rollout blockers.
 
 Status: proposed
 
-Why now: `AGENTS.md`에 적힌 날짜·금액·타이머 포맷 규칙과 실제 마이그레이션 대상이 많아서, 규칙 위반을 릴리스 전에 한 번에 보이는 표가 있으면 회귀 비용이 낮아진다.
+Why now: 루트와 모듈별 `AGENTS.md`에 날짜·금액·타이머 포맷, typed navigation, repository 경계, KMP entity, convention plugin 규칙이 흩어져 있어서 릴리스 전에 drift를 한 번에 봐야 한다.
 
-First slice: 알려진 마이그레이션 대상 파일을 스캔해 날짜/금액/제로패딩 위반과 영향 모듈을 보여주는 리포트를 만들고, 우선순위가 높은 항목부터 정리한다.
+First slice: 실제 소스 트리의 모듈별 `AGENTS.md` 규칙과 알려진 마이그레이션 대상 파일을 함께 인덱싱해 위반 후보와 영향 모듈을 보여주는 리포트를 만든다.
 
 ### 2026-04-15 - 빌드 병목 열지도와 CI 분할 계획기
 
