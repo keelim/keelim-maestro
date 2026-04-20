@@ -26,9 +26,10 @@ flowchart TB
     submodules --> plugin["keelim-plugin\nPlugin · main"]
     submodules --> vercel["keelim-vercel\nWeb/Vercel · main"]
 
-    orphaned["Orphaned .gitmodules entry\n(gitlink removed from index)"]
+    orphaned["Orphaned .gitmodules entries\n(gitlink removed/not yet added)"]
     root --> orphaned
-    orphaned --> c2g["c2g-proxy\nPython bridge · main\n(declared but not registered)"]
+    orphaned --> c2g["c2g-proxy\nPython bridge · main\n(declared, gitlink removed)"]
+    orphaned --> toto["toto\nKBO Streamlit · main\n(declared, no gitlink yet)"]
 
     autonomous --> webui["all-web-ui\nWeb UI · main (remote-backed)"]
     autonomous --> rich["rich\nWeb/Node.js · master (ahead of origin)"]
@@ -48,6 +49,7 @@ flowchart TB
 | `keelim-vercel` | https://github.com/keelim/keelim-vercel | `main` | Web / Vercel deployment | Registered submodule |
 | `quant` | none | n/a | local-only (no remote) | Intentionally excluded |
 | `rich` | https://github.com/keelim/rich | `master` | Web / Node.js | Autonomous (pending reconciliation) |
+| `toto` | https://github.com/keelim/toto | `main` | Streamlit / Python (KBO dashboard) | **Declared in `.gitmodules`; no gitlink yet; directory absent** |
 
 ## Architectural Principles
 
@@ -116,16 +118,17 @@ Files and directories that must **not** be edited from the root:
 
 ## Current Submodule Snapshot
 
-> Last updated: 2026-04-17
+> Last updated: 2026-04-20
 
 | Path | Pinned commit | Branch | Status |
 |------|---------------|--------|--------|
 | `all` | `778491a6c` | `develop` | Not initialized (empty dir) |
 | `android-support` | `485a2e40` | `main` | Not initialized (empty dir) |
-| `Keelim-Knowledge-Vault` | `ca4f68f5` | `main` | Not initialized (empty dir) |
+| `Keelim-Knowledge-Vault` | `d82b20d3` | `main` | Not initialized (empty dir) |
 | `keelim-plugin` | `156059ac` | `main` | Not initialized (empty dir) |
-| `keelim-vercel` | `90c0370c` | `main` | Not initialized (empty dir) |
+| `keelim-vercel` | `e91f0eec` | `main` | Not initialized (empty dir) |
 | `c2g-proxy` | — | `main` | **Orphaned**: declared in `.gitmodules`; gitlink removed from index; directory absent |
+| `toto` | — | `main` | **Pending**: declared in `.gitmodules`; no gitlink committed; directory absent |
 | `all-web-ui` | — | `main` | Autonomous (not in .gitmodules) |
 | `rich` | — | `master` | Autonomous, commits ahead of origin |
 | `quant` | — | — | Local-only (no remote) |

@@ -1,4 +1,4 @@
-<!-- Generated: 2026-04-17 | Files scanned: 151+ | Token estimate: ~620 -->
+<!-- Generated: 2026-04-20 | Files scanned: 151+ | Token estimate: ~620 -->
 
 # Architecture Codemap (Workspace)
 
@@ -18,6 +18,7 @@
   |-- all-web-ui (shared React UI package)
   |-- c2g-proxy (Claude Code ↔ LiteLLM ↔ Gemini bridge)
   |-- android-support (GitHub Action for Play Console upload)
+  |-- toto (KBO baseball Streamlit dashboard — declared in .gitmodules; no gitlink yet)
   \-- Keelim-Knowledge-Vault (documentation)
 ```
 
@@ -27,7 +28,8 @@
 - `rich/web`: Next.js frontend + BFF routes (`/api/agenda`, `/api/google-sheets`) bridging Supabase auth and Google APIs.
 - `quant/myapi`: standalone FastAPI domain API (`question/answer/user/etc`) with SQLAlchemy + Alembic.
 - `all-web-ui`: shared UI components consumed by both `keelim-vercel` and `rich/web`.
-- `c2g-proxy`: Python bridge enabling Claude Code CLI to use LiteLLM / Gemini as the backend provider. _(Declared in `.gitmodules` but gitlink removed from index; source available at github.com/keelim/c2g-proxy.)_
+- `c2g-proxy`: Python bridge enabling Claude Code CLI to use LiteLLM / Gemini as the backend provider. _(Declared in `.gitmodules` but gitlink removed from index; source at github.com/keelim/c2g-proxy.)_
+- `toto`: KBO baseball win/loss Streamlit dashboard. _(Declared in `.gitmodules`; no gitlink committed; directory absent; hydrate via `git clone https://github.com/keelim/toto.git toto`.)_
 
 ## High-Level Data Flow
 ```text
@@ -50,6 +52,7 @@ Claude Code CLI
 - Frontend-heavy: `keelim-vercel`, `rich/web`
 - Backend-heavy: `rich/app`, `quant/myapi`
 - Infra/tooling: `android-support`, `c2g-proxy`, `Keelim-Knowledge-Vault`
+- Dashboard: `toto` (Streamlit)
 
 ## Notable Couplings
 - `all-web-ui` linked via local file dependency into `keelim-vercel` and `rich/web`.
