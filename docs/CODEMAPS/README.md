@@ -1,6 +1,6 @@
 # keelim-maestro — Codemaps
 
-> Last updated: 2026-04-17
+> Last updated: 2026-04-20
 
 This directory documents the architecture and structure of the **keelim-maestro** workspace superproject.
 
@@ -48,6 +48,7 @@ Registered submodules (pinned via `.gitmodules`):
 - `Keelim-Knowledge-Vault` — documentation knowledge base (`main`)
 - `keelim-plugin` — plugin project (`main`)
 - `keelim-vercel` — web / Vercel deployment project (`main`)
+- `toto` — KBO baseball Streamlit dashboard (`main`) — declared in `.gitmodules`; no gitlink yet
 
 > **Note:** `c2g-proxy` is declared in `.gitmodules` but its gitlink has been removed from
 > the git index and the directory does not exist. It is not an active registered submodule.

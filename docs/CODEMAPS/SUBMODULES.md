@@ -162,7 +162,7 @@ bun run jest    # run tests
 | Path | `Keelim-Knowledge-Vault/` |
 | Remote | https://github.com/keelim/Keelim-Knowledge-Vault.git |
 | Tracked branch | `main` |
-| Pinned commit | `ca4f68f5` |
+| Pinned commit | `d82b20d3` |
 | Language / toolchain | Markdown / Obsidian |
 | Purpose | Shared knowledge base and documentation for the workspace |
 
@@ -207,9 +207,53 @@ The rename is verified by `scripts/verify-keelim-plugin-rename.sh`.
 | Path | `keelim-vercel/` |
 | Remote | https://github.com/keelim/keelim-vercel.git |
 | Tracked branch | `main` |
-| Pinned commit | `90c0370c` (shallow) |
+| Pinned commit | `e91f0eec` |
 | Language / toolchain | Node.js / JavaScript (Vercel deployment) |
 | Purpose | Web frontend deployed on Vercel; integrates `all-web-ui` component library |
+
+---
+
+---
+
+## `toto` — KBO Baseball Dashboard
+
+| Field | Value |
+|-------|-------|
+| Path | `toto/` |
+| Remote | https://github.com/keelim/toto.git |
+| Tracked branch | `main` |
+| Pinned commit | — (no gitlink committed to index yet) |
+| Language / toolchain | Python / Streamlit |
+| Purpose | Read-only KBO win/loss dashboard; reproducible season-data pipeline |
+
+### Status
+
+Declared in `.gitmodules` but the gitlink has **not** been committed to the git index.
+The directory is absent on a fresh clone. This is identical in effect to `c2g-proxy`.
+
+To hydrate for local development, clone manually:
+
+```bash
+git clone https://github.com/keelim/toto.git toto
+```
+
+### Bun workspace integration
+
+`toto` is included in the root Bun workspace (`package.json`) as workspace path `toto`.
+The package name reported is `toto-kbo-streamlit-dashboard`. Root-level scripts:
+
+| Script | Command |
+|--------|---------|
+| `bun run dev:toto` | Start Streamlit dev server |
+| `bun run test:toto` | Run test suite |
+| `bun run verify:toto` | Run reproducibility verification |
+
+### Architecture notes
+
+- **Frontend**: Streamlit app (`streamlit_app/Home.py`); read-only, no write paths
+- **Data pipeline**: `bun run bootstrap` → `bun run seed` → populate local fixtures
+- **Provider pattern**: thin `provider` interface separating game-result / standings data from the UI (CSV, fixture, or API backed)
+- **Smoke gate**: `bun run verify` validates boot, home import, and read-only contract
 
 ---
 

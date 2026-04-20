@@ -1,4 +1,4 @@
-<!-- Generated: 2026-04-17 | Files scanned: 151+ | Token estimate: ~670 -->
+<!-- Generated: 2026-04-20 | Files scanned: 151+ | Token estimate: ~670 -->
 
 # Dependencies Codemap
 
@@ -21,6 +21,7 @@
 - Kotlin Multiplatform/Gradle (`all`)
 - Jetpack Compose + Material 3 (`all` Android UI)
 - Hilt (`all` DI)
+- Streamlit (`toto` — KBO dashboard)
 
 ## Shared Libraries / Internal Coupling
 - `all-web-ui` local package consumed by:

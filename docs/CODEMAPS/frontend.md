@@ -1,4 +1,4 @@
-<!-- Generated: 2026-04-17 | Files scanned: 151+ | Token estimate: ~760 -->
+<!-- Generated: 2026-04-20 | Files scanned: 151+ | Token estimate: ~760 -->
 
 # Frontend Codemap
 
@@ -7,6 +7,7 @@
 - `rich/web` (Next.js App Router)
 - `all-web-ui` (shared UI component package)
 - `all` (Android — Jetpack Compose)
+- `toto` (Streamlit — KBO dashboard; hydrate required)
 
 ## Page Tree (high-level)
 
@@ -53,6 +54,13 @@ App modules (`app-*/`):
 - `app-mysenior`: accessibility-focused minimal app
 
 Feature modules (`feature/ui-*/`): settings, scheme, WebView screens
+
+### toto (Streamlit — KBO dashboard)
+Entry: `streamlit_app/Home.py`
+- Read-only win/loss standings and game-result views
+- Data pipeline: `bootstrap` → `seed` → Streamlit app
+- Provider interface separates data source (CSV/fixture/API) from UI
+- `bun run verify` smoke-tests boot + read-only contract
 
 ## Component Hierarchy (representative)
 - `keelim-vercel`:

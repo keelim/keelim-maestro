@@ -1,4 +1,4 @@
-<!-- Generated: 2026-04-17 | Files scanned: 151+ | Token estimate: ~700 -->
+<!-- Generated: 2026-04-20 | Files scanned: 151+ | Token estimate: ~700 -->
 
 # Data Codemap
 
@@ -51,6 +51,11 @@ Room database (`core:database`):
 ### c2g-proxy
 - No persistent data store; stateless proxy
 - Configuration via `.env` (API keys, endpoint URLs)
+
+### toto (KBO dashboard)
+- Local fixtures / CSV files (seeded via `bun run seed`)
+- No remote database; read-only access pattern
+- Provider interface abstracts data source for portability
 
 ## Migration History
 
