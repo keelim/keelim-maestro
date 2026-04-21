@@ -1,7 +1,7 @@
 Codemap Diff Report
 ===================
-Generated: 2026-04-17
-Previous generation: 2026-04-16
+Generated: 2026-04-21
+Previous generation: 2026-04-20
 
 SUMMARY OF CHANGES
 ==================
@@ -11,30 +11,30 @@ SUMMARY OF CHANGES
 FILES MODIFIED
 ===============
 ✓ docs/CODEMAPS/README.md
-  - Updated: Last updated 2026-04-16 → 2026-04-17
+  - Updated: Last updated 2026-04-20 → 2026-04-21
 
 ✓ docs/CODEMAPS/WORKSPACE.md
-  - Updated: Last updated 2026-04-16 → 2026-04-17
+  - Updated: Last updated 2026-04-20 → 2026-04-21
   - Content: no structural changes
 
 ✓ docs/CODEMAPS/architecture.md
-  - Updated: Generated timestamp 2026-04-16 → 2026-04-17
+  - Updated: Generated timestamp 2026-04-20 → 2026-04-21
   - Content: no structural changes
 
 ✓ docs/CODEMAPS/backend.md
-  - Updated: Generated timestamp 2026-04-16 → 2026-04-17
+  - Updated: Generated timestamp 2026-04-20 → 2026-04-21
   - Content: no changes (still accurate)
 
 ✓ docs/CODEMAPS/frontend.md
-  - Updated: Generated timestamp 2026-04-16 → 2026-04-17
+  - Updated: Generated timestamp 2026-04-20 → 2026-04-21
   - Content: no changes (still accurate)
 
 ✓ docs/CODEMAPS/data.md
-  - Updated: Generated timestamp 2026-04-16 → 2026-04-17
+  - Updated: Generated timestamp 2026-04-20 → 2026-04-21
   - Content: no changes (still accurate)
 
 ✓ docs/CODEMAPS/dependencies.md
-  - Updated: Generated timestamp 2026-04-16 → 2026-04-17
+  - Updated: Generated timestamp 2026-04-20 → 2026-04-21
   - Content: no changes (still accurate)
 
 FILES CHECKED — NO CHANGES NEEDED
@@ -42,30 +42,34 @@ FILES CHECKED — NO CHANGES NEEDED
 ✓ docs/CODEMAPS/SUBMODULES.md  — submodule pointers unchanged (same pinned commits)
 ✓ docs/CODEMAPS/SCRIPTS.md     — no new scripts added
 
-CONTEXT: CHANGES SINCE 2026-04-16
+CONTEXT: CHANGES SINCE 2026-04-20
 ====================================
 - No new submodules registered
 - No new scripts added under scripts/
 - Submodule pinned commits unchanged:
     all                    778491a6c  develop
     android-support        485a2e40   main (v0.0.8-4)
-    Keelim-Knowledge-Vault ca4f68f5   main
+    Keelim-Knowledge-Vault d82b20d3   main
     keelim-plugin          156059ac   main
-    keelim-vercel          90c0370c   develop (shallow)
+    keelim-vercel          e91f0eec   main
 - Autonomous repos (all-web-ui, rich, quant) status unchanged
 - c2g-proxy remains orphaned (in .gitmodules, gitlink removed from index)
+- toto declared in .gitmodules; no gitlink committed; directory absent
 
-SUBMODULE SNAPSHOT (2026-04-17)
+SUBMODULE SNAPSHOT (2026-04-21)
 ================================
 Registered gitlinks (git ls-files --stage | grep 160000):
 ✓ all                    778491a6c  develop
 ✓ android-support        485a2e40   main (v0.0.8-4)
-✓ Keelim-Knowledge-Vault ca4f68f5   main
+✓ Keelim-Knowledge-Vault d82b20d3   main
 ✓ keelim-plugin          156059ac   main
-✓ keelim-vercel          90c0370c   develop (shallow)
+✓ keelim-vercel          e91f0eec   main
 
 Removed (gitlink absent; .gitmodules entry is stale):
-✗ c2g-proxy              (removed in commit 95cb867; stale .gitmodules entry remains)
+✗ c2g-proxy              (removed; stale .gitmodules entry remains)
+
+Declared (in .gitmodules; no gitlink committed; directory absent):
+✗ toto                   (declared; pending gitlink commit)
 
 Autonomous repos (not in .gitmodules):
 - all-web-ui             (main, remote-backed, pending submodule conversion)
@@ -74,13 +78,14 @@ Autonomous repos (not in .gitmodules):
 
 STALENESS CHECK
 ================
-None detected. All codemaps updated to 2026-04-17.
+None detected. All codemaps updated to 2026-04-21.
 
 NEXT ACTIONS
 =============
 1. Clean up stale c2g-proxy entry from .gitmodules if removal is permanent
-2. Monitor rich and all-web-ui for future submodule registration
-3. Consider adding idea/ backlog items to a tracking system as they mature from "proposed"
+2. Commit toto gitlink once toto directory is hydrated and verified
+3. Monitor rich and all-web-ui for future submodule registration
+4. Consider adding idea/ backlog items to a tracking system as they mature from "proposed"
 
 CHECKLIST
 ==========
