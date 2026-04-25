@@ -1,12 +1,13 @@
 # android-support
 
-Last reviewed: 2026-04-19 13:56 KST
+Last reviewed: 2026-04-25 KST
 
 ## Signals
 
 - Play Console 업로드와 서명 흐름을 담당하는 TypeScript GitHub Action이다.
 - 실패 비용이 큰 릴리스 작업을 다루며, 문제를 늦게 발견할수록 영향이 커진다.
 - track, staged rollout, release notes, artifact 입력이 이미 노출되어 있다.
+- `action.yml`, README, `src/*`, `lib/index.js`가 함께 맞아야 하는 번들형 Action이다.
 
 ## Open ideas
 
@@ -15,7 +16,7 @@ Last reviewed: 2026-04-19 13:56 KST
 Status: proposed
 
 Why now: Most release automation pain comes from bad inputs, missing files, or
- mismatched package and track configuration before the real upload even starts.
+mismatched package and track configuration before the real upload even starts.
 
 First slice: Add a dry-run validation mode that checks artifact paths, package
  metadata, auth material, track/status combinations, and a release diff against

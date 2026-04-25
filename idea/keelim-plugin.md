@@ -1,6 +1,6 @@
 # keelim-plugin
 
-Last reviewed: 2026-04-19 13:56 KST
+Last reviewed: 2026-04-25 KST
 
 ## Signals
 
@@ -8,6 +8,8 @@ Last reviewed: 2026-04-19 13:56 KST
 - Current value depends on discoverability, installation clarity, and confidence
   that a skill still works as documented.
 - The repository already has a clear `skills/<name>/SKILL.md` contract.
+- README가 Vercel skills CLI와 수동 symlink 설치 경로를 함께 설명하므로,
+  카탈로그와 smoke-test가 설치 방식별 차이를 계속 드러내야 한다.
 
 ## Open ideas
 
@@ -31,7 +33,7 @@ Why now: Cross-tool skills are valuable only if install paths, metadata, and
 
 First slice: Add a lightweight verifier that checks required files, install
  commands, and any declared agent metadata for each skill folder, then surface
- Codex/Claude install parity gaps before publishing.
+Codex/Claude install parity gaps before publishing.
 
 ### 2026-04-13 - 스킬 변경 영향 노트
 
