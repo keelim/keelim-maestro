@@ -18,6 +18,7 @@ flowchart TB
     submodules --> vault["Keelim-Knowledge-Vault"]
     submodules --> skill["keelim-plugin"]
     submodules --> vercel["keelim-vercel"]
+    submodules --> toto["toto"]
 
     localRepos --> allWebUi["all-web-ui"]
     localRepos --> quant["quant"]
@@ -108,7 +109,11 @@ The root workspace assumes these directories already exist locally:
 - `rich/open-trading-api/backtester/frontend/`
 - `toto/`
 
-`keelim-vercel` is available from the root submodule bootstrap, but `all-web-ui` and `rich` are still autonomous child repos, **not** root submodules. The nested Open Trading frontend workspaces are expected under the hydrated `rich/` checkout. `toto` is also a root workspace member; if it is absent locally, root-level Bun workspace commands that target `toto` will fail until it is hydrated. That means a fresh root clone must hydrate the autonomous repos separately **before** running root `bun install`.
+`keelim-vercel` and `toto` are available from the root submodule bootstrap, but
+`all-web-ui` and `rich` are still autonomous child repos, **not** root
+submodules. The nested Open Trading frontend workspaces are expected under the
+hydrated `rich/` checkout. That means a fresh root clone must hydrate the
+autonomous repos separately **before** running root `bun install`.
 
 Example hydration flow:
 
@@ -143,11 +148,11 @@ The first-pass knowledge-system documentation lives under `docs/knowledge/`:
 | --- | --- | --- | --- |
 | `all` | yes | clean vs `origin/develop` | registered submodule |
 | `all-web-ui` | yes | clean vs `origin/main` | autonomous shared UI repo with public remote; included in root subrepo helper + integration verification |
-| `android-support` | yes | detached HEAD, clean | registered submodule |
-| `Keelim-Knowledge-Vault` | yes | ahead of `origin/main` by 7 | registered submodule; do not pin until owner reconciles |
-| `keelim-plugin` | yes | detached HEAD, clean | registered submodule |
-| `keelim-vercel` | yes | clean vs `origin/develop` | registered submodule and Vercel-linked app |
-| `toto` | yes | ahead of `origin/main` by 3 | registered submodule and local KBO dashboard workspace member; do not pin until owner reconciles |
+| `android-support` | yes | clean vs `origin/main` | registered submodule |
+| `Keelim-Knowledge-Vault` | yes | clean vs `origin/main` | registered submodule |
+| `keelim-plugin` | yes | clean vs `origin/main` | registered submodule |
+| `keelim-vercel` | yes | clean vs `origin/main` | registered submodule and Vercel-linked app |
+| `toto` | yes | clean vs `origin/main` | registered submodule and local KBO dashboard workspace member |
 | `quant` | no | absent in this checkout | intentionally excluded for now |
 | `rich` | yes | ahead of `origin/master` by 12 with mixed dirty state | autonomous local repo; freeze/split before future pinning or data modernization |
 
