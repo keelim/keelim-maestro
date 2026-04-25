@@ -205,6 +205,24 @@ all-web-ui  ← 공급자 (--kui-* 토큰 계약, React 프리미티브)
 | LoadingInline | stable |
 | LoadingPanel | stable |
 | EmptyState | stable |
+| Table | stable |
+| Tabs | stable |
+| Tooltip | stable |
+| Sheet / Dialog | stable |
+| DropdownMenu | stable |
+| Breadcrumb | stable |
+| Accordion | stable |
+| Alert / AlertDialog | stable |
+| Avatar | stable |
+| Calendar | stable |
+| Checkbox / Radio / Switch | stable |
+| Dialog | stable |
+| HoverCard / Popover | stable |
+| Label | stable |
+| Progress / Skeleton / Slider | stable |
+| ScrollArea | stable |
+| Select / Textarea | stable |
+| Toast | stable |
 
 ### 확장 프리미티브 (`primitives.jsx`)
 
@@ -212,9 +230,9 @@ Checkbox, Radio, Switch, Select, Textarea, Avatar, Tooltip, Alert, Progress, Ske
 
 ### 금융 허브 컴포짓 (`keelim-vercel` 전용)
 
-KPICard, TickerRow, Sidebar, Header, Breadcrumb, DropdownMenu, Tabs
+KPICard, TickerRow, Sidebar, Header, route-specific navigation, product dashboards
 
-> 금융 컴포짓은 `all-web-ui`에 포함되지 않는다. `keelim-vercel/` 내에서만 관리.
+> 금융 컴포짓은 `all-web-ui`에 포함되지 않는다. `keelim-vercel/` 내에서만 관리한다. 단, Breadcrumb, DropdownMenu, Tabs처럼 domain copy/data를 포함하지 않는 generic shadcn primitive는 `all-web-ui`가 소유한다.
 
 ---
 
@@ -303,7 +321,7 @@ KPICard, TickerRow, Sidebar, Header, Breadcrumb, DropdownMenu, Tabs
 | 프로젝트 | 역할 | 의무 |
 |----------|------|------|
 | all-web-ui | 공급자 | lifecycle 선언, export manifest 유지 |
-| keelim-vercel | 소비자 | canary fixture, adapter 계약 유지 |
+| keelim-vercel | 소비자 | canary fixture, `components/ui/*` shim-only 계약 유지 |
 | rich/web | 소비자 | canary fixture, theme import 유지 |
 | all | 소비자(선택) | Compose 토큰 동기화 |
 

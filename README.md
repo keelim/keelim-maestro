@@ -79,7 +79,8 @@ install and verification surface for:
 not part of the shared frontend dependency migration lane. The two nested
 `rich/open-trading-api/*/frontend` workspaces are registered for local sidecar
 bootstrap and verification only; they do not make `rich` safe to pin while its
-child repo is dirty/ahead. The `all-web-ui` consumer protocol is intentionally explicit: consumers may retain sibling
+child repo is dirty/ahead. The `all-web-ui` consumer protocol is intentionally
+explicit: consumers may retain sibling
 `file:` references while standalone app-root installs and Vercel-style builds
 depend on that shape. A future `workspace:*` switch is acceptable only after
 root frozen install, root filtered checks, and each consumer's app-root

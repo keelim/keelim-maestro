@@ -135,28 +135,36 @@ The default mode runs the following checks:
 - `update-subrepos.sh status` lists `all-web-ui`
 - `all-web-ui` default branch is `main`
 - `all-web-ui/package.json` exists and declares `typecheck` + `test` scripts
-- `all-web-ui/src/components/` exports at least 5 core primitives (`button.tsx`, `input.tsx`, `panel.tsx`, `card.tsx`, `badge.tsx`, …)
+- `all-web-ui/src/components/` exports the shared shadcn-compatible primitive set (`button.tsx`, `input.tsx`, `panel.tsx`, `card.tsx`, `calendar.tsx`, `badge.tsx`, `table.tsx`, `tabs.tsx`, `tooltip.tsx`, `sheet.tsx`, `dropdown-menu.tsx`, `breadcrumb.tsx`, `accordion.tsx`, `select.tsx`, `toast.tsx`, …)
 - `all-web-ui` defines shared CSS entrypoints (styles and theme files)
+- `all-web-ui` manifest lists package exports for shared primitives
 - `rich/web/package.json` depends on `all-web-ui`
 - `rich/web` imports `all-web-ui` somewhere under `src/`
 - `rich/web` admin layout still applies `admin-bw-theme`
 - `rich/web` root layout still renders `AgentationToolbar`
 - `keelim-vercel/package.json` depends on `all-web-ui`
-- `keelim-vercel` keeps `components/ui/` free of direct `all-web-ui` imports
+- `all-web-ui` consumer dependency specs match the selected protocol (`file:` or `workspace:*`) and the root `bun.lock` consumer entries, while allowing valid root workspace package registrations
+- `keelim-vercel` keeps generic `components/ui/` files as shim-only re-exports from `all-web-ui`
 - `keelim-vercel` `all-web-ui` imports stay in adapter-safe locations (`components/shared/`, `lib/ui-adapters/`)
+- `rich/web` uses the `--kui-*` token contract instead of legacy `--color-*` tokens
+- `rich/web` generic primitive drift is constrained by `scripts/all-web-ui-rich-allowed-drift.txt`
 
 ### Full runtime checks (`--full`)
 
 Only executed when all static checks pass:
 
 ```bash
+mkdir -p /tmp/keelim-maestro-bun-tmp
+cd .           && TMPDIR=/tmp/keelim-maestro-bun-tmp bun install --frozen-lockfile
 cd all-web-ui  && bun run typecheck
 cd all-web-ui  && bun test
+cd all-web-ui  && bun run build
 cd rich/web    && bun run typecheck
 cd rich/web    && bun run test
-cd rich/web    && bun run build
+cd rich/web    && NEXT_PUBLIC_SUPABASE_URL=https://example.supabase.co NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=sb_publishable_test SUPABASE_SERVICE_ROLE_KEY=service-role-test GOOGLE_OAUTH_CLIENT_ID=client-id GOOGLE_OAUTH_CLIENT_SECRET=client-secret GOOGLE_TOKEN_ENCRYPTION_KEY=0123456789abcdef0123456789abcdef GOOGLE_SHEETS_SPREADSHEET_ID=sheet-id bun run build
 cd keelim-vercel && bun run typecheck
 cd keelim-vercel && bun run lint
+cd keelim-vercel && bun run verify:maintenance
 cd keelim-vercel && bun run build   # retried once on lock-file errors
 ```
 

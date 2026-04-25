@@ -1,0 +1,23 @@
+# Temporary rich/web design-system migration allowlist.
+#
+# Files listed here still contain local primitive constants, Radix-owned app
+# interaction surfaces, or table/panel/button class ownership that should be
+# migrated in follow-up slices. The integration verifier fails if new files
+# match the drift patterns without being listed here.
+rich/web/src/app/admin/money/quant/page.tsx
+rich/web/src/features/admin/components/bucket-list-panel.tsx
+rich/web/src/features/admin/components/google-agenda-auth-panel.tsx
+rich/web/src/features/admin/components/inbox-bucket-list-page-content.tsx
+rich/web/src/features/admin/components/profit-note-panel.tsx
+rich/web/src/features/admin/components/review-flagged-profit-note-panel.tsx
+rich/web/src/features/inbox/components/inbox-capture-form.tsx
+rich/web/src/features/inbox/components/inbox-capture-page-content.tsx
+rich/web/src/features/inbox/components/quick-inbox-panel.tsx
+rich/web/src/features/loop/components/loop-board-panel.tsx
+rich/web/src/features/loop/components/loop-searchable-picker.tsx
+rich/web/src/features/money/components/money-dividend-page-content.tsx
+rich/web/src/features/money/components/money-sentiment-page-content.tsx
+rich/web/src/features/money/components/money-signals-page-content.tsx
+rich/web/src/features/money/components/profit-calendar.tsx
+rich/web/src/features/today/components/today-day-trade-amount-panel.tsx
+rich/web/src/features/weekly-review/weekly-review-page-content.tsx
