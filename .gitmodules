@@ -18,10 +18,6 @@
 	path = keelim-vercel
 	url = https://github.com/keelim/keelim-vercel.git
 	branch = main
-[submodule "c2g-proxy"]
-	path = c2g-proxy
-	url = https://github.com/keelim/c2g-proxy.git
-	branch = main
 [submodule "toto"]
 	path = toto
 	url = https://github.com/keelim/toto.git
