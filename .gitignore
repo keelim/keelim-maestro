@@ -1,4 +1,5 @@
 /.DS_Store
+/debug-log.json
 /.omx/logs/
 /.omx/state/
 /node_modules/
