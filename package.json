@@ -16,10 +16,10 @@
     "test:web": "bun run --filter rich-admin-web test -- --no-file-parallelism --maxWorkers=1",
     "dev:keelim-vercel": "bun run --filter keelim-vercel dev",
     "dev:rich-web": "bun run --filter rich-admin-web dev",
+    "dev:strategy-builder": "bun run --filter kis-strategy-builder-frontend dev",
     "dev:toto": "bun run --filter toto-kbo-streamlit-dashboard dev",
     "test:toto": "bun run --filter toto-kbo-streamlit-dashboard test",
     "verify:toto": "bun run --filter toto-kbo-streamlit-dashboard verify",
-    "dev:strategy-builder": "cd rich && bash open-trading-api/strategy_builder/start.sh",
-    "dev:backtester": "cd rich && bash open-trading-api/backtester/start.sh"
+    "dev:backtester": "bun run --filter p2-backtest-frontend dev"
   }
 }
