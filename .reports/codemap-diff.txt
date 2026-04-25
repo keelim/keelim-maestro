@@ -1,7 +1,7 @@
 Codemap Diff Report
 ===================
-Generated: 2026-04-24
-Previous generation: 2026-04-23
+Generated: 2026-04-25
+Previous generation: 2026-04-24
 
 SUMMARY OF CHANGES
 ==================
@@ -11,30 +11,30 @@ SUMMARY OF CHANGES
 FILES MODIFIED
 ===============
 ✓ docs/CODEMAPS/README.md
-  - Updated: Last updated 2026-04-23 → 2026-04-24
+  - Updated: Last updated 2026-04-24 → 2026-04-25
 
 ✓ docs/CODEMAPS/WORKSPACE.md
-  - Updated: Last updated 2026-04-23 → 2026-04-24
+  - Updated: Last updated 2026-04-24 → 2026-04-25
   - Content: no structural changes
 
 ✓ docs/CODEMAPS/architecture.md
-  - Updated: Generated timestamp 2026-04-23 → 2026-04-24
+  - Updated: Generated timestamp 2026-04-24 → 2026-04-25
   - Content: no structural changes
 
 ✓ docs/CODEMAPS/backend.md
-  - Updated: Generated timestamp 2026-04-23 → 2026-04-24
+  - Updated: Generated timestamp 2026-04-24 → 2026-04-25
   - Content: no changes (still accurate)
 
 ✓ docs/CODEMAPS/frontend.md
-  - Updated: Generated timestamp 2026-04-23 → 2026-04-24
+  - Updated: Generated timestamp 2026-04-24 → 2026-04-25
   - Content: no changes (still accurate)
 
 ✓ docs/CODEMAPS/data.md
-  - Updated: Generated timestamp 2026-04-23 → 2026-04-24
+  - Updated: Generated timestamp 2026-04-24 → 2026-04-25
   - Content: no changes (still accurate)
 
 ✓ docs/CODEMAPS/dependencies.md
-  - Updated: Generated timestamp 2026-04-23 → 2026-04-24
+  - Updated: Generated timestamp 2026-04-24 → 2026-04-25
   - Content: no changes (still accurate)
 
 FILES CHECKED — NO CHANGES NEEDED
@@ -42,7 +42,7 @@ FILES CHECKED — NO CHANGES NEEDED
 ✓ docs/CODEMAPS/SUBMODULES.md  — submodule pointers unchanged (same pinned commits)
 ✓ docs/CODEMAPS/SCRIPTS.md     — no new scripts added
 
-CONTEXT: CHANGES SINCE 2026-04-23
+CONTEXT: CHANGES SINCE 2026-04-24
 ====================================
 - No new submodules registered
 - No new scripts added under scripts/
@@ -56,7 +56,7 @@ CONTEXT: CHANGES SINCE 2026-04-23
 - c2g-proxy remains orphaned (in .gitmodules, gitlink removed from index)
 - toto declared in .gitmodules; no gitlink committed; directory absent
 
-SUBMODULE SNAPSHOT (2026-04-24)
+SUBMODULE SNAPSHOT (2026-04-25)
 ================================
 Registered gitlinks (git ls-files --stage | grep 160000):
 ✓ all                    778491a6c  develop
@@ -78,14 +78,13 @@ Autonomous repos (not in .gitmodules):
 
 STALENESS CHECK
 ================
-None detected. All codemaps updated to 2026-04-24.
+None detected. All codemaps updated to 2026-04-25.
 
 NEXT ACTIONS
 =============
 1. Clean up stale c2g-proxy entry from .gitmodules if removal is permanent
 2. Commit toto gitlink once toto directory is hydrated and verified
 3. Monitor rich and all-web-ui for future submodule registration
-4. Consider adding idea/ backlog items to a tracking system as they mature from "proposed"
 
 CHECKLIST
 ==========
