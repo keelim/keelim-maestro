@@ -56,8 +56,9 @@ Registered submodules (pinned via `.gitmodules`):
 - `keelim-vercel` — web / Vercel deployment project (`main`)
 - `toto` — KBO baseball Streamlit dashboard (`main`) — declared in `.gitmodules`; no gitlink yet
 
-> **Note:** `c2g-proxy` is declared in `.gitmodules` but its gitlink has been removed from
-> the git index and the directory does not exist. It is not an active registered submodule.
+> **Note:** `toto` is declared in `.gitmodules`, but current live gitlink
+> evidence does not list it as an active root gitlink. `toto/` exists locally as
+> a dirty Git worktree and is untracked by the root index.
 
 Autonomous child repos (not registered submodules):
 

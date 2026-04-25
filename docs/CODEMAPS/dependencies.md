@@ -12,11 +12,10 @@
 - Google Workspace APIs (Calendar + Sheets in `rich/web` BFF)
 - KRX/PyKRX data sources (`pykrx`, KRX web endpoints in `pykrx_foreign_flow.py`)
 - Google Play Android Publisher API (`@googleapis/androidpublisher` in `android-support`)
-- LiteLLM + Gemini API (`c2g-proxy` — Claude Code CLI proxy)
 
 ## Core Frameworks
 - Next.js 16 + React 19 (`keelim-vercel`, `rich/web`)
-- FastAPI (`rich/app`, `quant/myapi`, `c2g-proxy`)
+- FastAPI (`rich/app`, `quant/myapi`)
 - SQLAlchemy + Alembic (`quant/myapi`)
 - Kotlin Multiplatform/Gradle (`all`)
 - Jetpack Compose + Material 3 (`all` Android UI)
@@ -46,4 +45,3 @@
 - Multi-repo shared UI (`all-web-ui`) creates coordinated-release coupling.
 - `rich/web` depends on stable contract of `rich/app` admin endpoints.
 - Multiple data providers (Supabase, Neon, Yahoo, Alternative.me, KRX, Google) increase integration surface and failure modes.
-- `c2g-proxy` adds a single-point dependency on LiteLLM / Gemini availability for Claude Code workflows.

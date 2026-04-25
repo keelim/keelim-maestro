@@ -15,7 +15,6 @@ flowchart TB
 
     submodules --> all["all"]
     submodules --> android["android-support"]
-    submodules --> c2gProxy["c2g-proxy"]
     submodules --> vault["Keelim-Knowledge-Vault"]
     submodules --> skill["keelim-plugin"]
     submodules --> vercel["keelim-vercel"]
@@ -39,22 +38,7 @@ This repository currently owns only root-level coordination files:
 
 The root may also carry a **Bun workspace bootstrap** for selected web repos. This is an orchestration layer for installs/scripts only; it does **not** collapse the child repositories into one Git monorepo.
 
-## LiteLLM / Claude bridge location
-
-The Claude Code + LiteLLM + Gemini bridge artifacts now live under `c2g-proxy/`, which is now a GitHub-backed root submodule and uv-managed bridge project with project-scoped `.env` onboarding.
-
-Use:
-
-- `c2g-proxy/README.md`
-- `c2g-proxy/.env.example`
-- `c2g-proxy/docs/claude-code-via-litellm-gemini.md`
-- `c2g-proxy/docs/claude-code-via-litellm-gemini-verification.md`
-- `c2g-proxy/scripts/litellm/`
-
-Bridge onboarding now lives inside `c2g-proxy/`: copy `.env.example` to `.env`,
-run `uv sync`, then use the bundled start/verify helpers.
-
-The child repositories remain autonomous at the codebase level. Remote-backed repos can be tracked from the root via `.gitmodules`; `c2g-proxy` is now pinned there as the bridge repo, while `quant` and `rich` remain outside the current submodule scope.
+The child repositories remain autonomous at the codebase level. Remote-backed repos can be tracked from the root via `.gitmodules`; `quant` and `rich` remain outside the current submodule scope.
 `all-web-ui` now has a public remote repository, but it is still managed as an autonomous child repo from the root until the remaining workspace blockers are resolved.
 
 ## Bun workspace bootstrap
@@ -159,14 +143,12 @@ The first-pass knowledge-system documentation lives under `docs/knowledge/`:
 | `all` | yes | clean vs `origin/develop` | registered submodule |
 | `all-web-ui` | yes | clean vs `origin/main` | autonomous shared UI repo with public remote; included in root subrepo helper + integration verification |
 | `android-support` | yes | detached HEAD, clean | registered submodule |
-| `c2g-proxy` | yes | clean vs `origin/main` | registered submodule for the Claude Code + LiteLLM + Gemini bridge |
 | `Keelim-Knowledge-Vault` | yes | ahead of `origin/main` by 7 | registered submodule; do not pin until owner reconciles |
 | `keelim-plugin` | yes | detached HEAD, clean | registered submodule |
 | `keelim-vercel` | yes | clean vs `origin/develop` | registered submodule and Vercel-linked app |
 | `toto` | yes | ahead of `origin/main` by 3 | registered submodule and local KBO dashboard workspace member; do not pin until owner reconciles |
 | `quant` | no | absent in this checkout | intentionally excluded for now |
 | `rich` | yes | ahead of `origin/master` by 12 with mixed dirty state | autonomous local repo; freeze/split before future pinning or data modernization |
-
 
 ## Why `/quant` is excluded
 
@@ -181,7 +163,7 @@ Keeping `/quant` autonomous preserves safety and avoids a non-reproducible clone
 
 ## Why broader submodule conversion is deferred
 
-Broader child-repo submodule conversion still requires pin-ready repos first. The explicit exception is `c2g-proxy`, which was added directly from its GitHub remote because it is already remote-backed and pin-ready. Further expansion is still blocked by:
+Broader child-repo submodule conversion still requires pin-ready repos first. Further expansion is still blocked by:
 
 - `quant` having no remote-backed reproducible path and remaining intentionally excluded
 - any other child repos that are dirty or temporarily diverged from the pinned root state
@@ -207,7 +189,6 @@ Tracked submodule default branches are declared in `.gitmodules`:
 
 - `all` -> `develop`
 - `android-support` -> `main`
-- `c2g-proxy` -> `main`
 - `Keelim-Knowledge-Vault` -> `main`
 - `keelim-plugin` -> `main`
 - `keelim-vercel` -> `main`

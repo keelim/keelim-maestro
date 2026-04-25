@@ -229,7 +229,7 @@ The rename is verified by `scripts/verify-keelim-plugin-rename.sh`.
 ### Status
 
 Declared in `.gitmodules` but the gitlink has **not** been committed to the git index.
-The directory is absent on a fresh clone. This is identical in effect to `c2g-proxy`.
+The directory is absent on a fresh clone until the pending gitlink is committed.
 
 To hydrate for local development, clone manually:
 

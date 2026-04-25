@@ -26,9 +26,8 @@ flowchart TB
     submodules --> plugin["keelim-plugin\nPlugin · main"]
     submodules --> vercel["keelim-vercel\nWeb/Vercel · main"]
 
-    orphaned["Orphaned .gitmodules entries\n(gitlink removed/not yet added)"]
+    orphaned["Pending .gitmodules entries\n(gitlink not yet added)"]
     root --> orphaned
-    orphaned --> c2g["c2g-proxy\nPython bridge · main\n(declared, gitlink removed)"]
     orphaned --> toto["toto\nKBO Streamlit · main\n(declared, no gitlink yet)"]
 
     autonomous --> webui["all-web-ui\nWeb UI · main (remote-backed)"]
@@ -43,7 +42,6 @@ flowchart TB
 | `all` | https://github.com/keelim/all | `develop` | Android (Gradle multi-module) | Registered submodule |
 | `all-web-ui` | https://github.com/keelim/all-web-ui | `main` | Shared web UI | Autonomous (pending submodule) |
 | `android-support` | https://github.com/keelim/android-support | `main` | TypeScript / Node.js GitHub Action | Registered submodule |
-| `c2g-proxy` | https://github.com/keelim/c2g-proxy | `main` | Python / LiteLLM bridge | **Orphaned** — in `.gitmodules` but gitlink removed from index; no directory |
 | `Keelim-Knowledge-Vault` | https://github.com/keelim/Keelim-Knowledge-Vault | `main` | Documentation | Registered submodule |
 | `keelim-plugin` | https://github.com/keelim/keelim-plugin | `main` | Plugin project | Registered submodule |
 | `keelim-vercel` | https://github.com/keelim/keelim-vercel | `main` | Web / Vercel deployment | Registered submodule |
@@ -127,7 +125,6 @@ Files and directories that must **not** be edited from the root:
 | `Keelim-Knowledge-Vault` | `d82b20d3` | `main` | Not initialized (empty dir) |
 | `keelim-plugin` | `156059ac` | `main` | Not initialized (empty dir) |
 | `keelim-vercel` | `e91f0eec` | `main` | Not initialized (empty dir) |
-| `c2g-proxy` | — | `main` | **Orphaned**: declared in `.gitmodules`; gitlink removed from index; directory absent |
 | `toto` | — | `main` | **Pending**: declared in `.gitmodules`; no gitlink committed; directory absent |
 | `all-web-ui` | — | `main` | Autonomous (not in .gitmodules) |
 | `rich` | — | `master` | Autonomous, commits ahead of origin |

@@ -48,10 +48,6 @@ Room database (`core:database`):
 - Entities and DAOs for app-specific data (grades, schedules, bookmarks, etc.)
 - DataStore Proto for user preferences and settings
 
-### c2g-proxy
-- No persistent data store; stateless proxy
-- Configuration via `.env` (API keys, endpoint URLs)
-
 ### toto (KBO dashboard)
 - Local fixtures / CSV files (seeded via `bun run seed`)
 - No remote database; read-only access pattern

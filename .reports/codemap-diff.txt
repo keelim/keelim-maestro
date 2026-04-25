@@ -54,7 +54,6 @@ CONTEXT: CHANGES SINCE 2026-04-26
     keelim-vercel          e91f0eec   main
 - idea/ directory unchanged (last reviewed 2026-04-25)
 - Autonomous repos (all-web-ui, rich, quant) status unchanged
-- c2g-proxy remains orphaned (in .gitmodules, gitlink removed from index)
 - toto declared in .gitmodules; no gitlink committed; directory absent
 
 SUBMODULE SNAPSHOT (2026-05-02)
@@ -65,9 +64,6 @@ Registered gitlinks (git ls-files --stage | grep 160000):
 ✓ Keelim-Knowledge-Vault d82b20d3   main
 ✓ keelim-plugin          156059ac   main
 ✓ keelim-vercel          e91f0eec   main
-
-Removed (gitlink absent; .gitmodules entry is stale):
-✗ c2g-proxy              (removed; stale .gitmodules entry remains)
 
 Declared (in .gitmodules; no gitlink committed; directory absent):
 ✗ toto                   (declared; pending gitlink commit — tracked in idea/toto.md)
@@ -85,9 +81,8 @@ STALENESS CHECK
 
 NEXT ACTIONS
 =============
-1. Clean up stale c2g-proxy entry from .gitmodules if removal is permanent
-2. Commit toto gitlink once toto directory is hydrated and verified (see idea/toto.md)
-3. Monitor rich and all-web-ui for future submodule registration
+1. Commit toto gitlink once toto directory is hydrated and verified (see idea/toto.md)
+2. Monitor rich and all-web-ui for future submodule registration
 
 CHECKLIST
 ==========
