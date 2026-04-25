@@ -11,6 +11,8 @@ This directory documents the architecture and structure of the **keelim-maestro*
 | [WORKSPACE.md](WORKSPACE.md) | Workspace topology, child repositories, policies |
 | [SUBMODULES.md](SUBMODULES.md) | Registered Git submodules — remotes, branches, purpose |
 | [SCRIPTS.md](SCRIPTS.md) | Root-level helper scripts — behaviour, flags, exit codes |
+| [keelim-maestro.md](keelim-maestro.md) | Reviewed root and workspace-management codemap for this coordination repo |
+| [projects/README.md](projects/README.md) | Maestro-managed generated codemaps for available child repositories |
 | [architecture.md](architecture.md) | System topology and service boundaries |
 | [backend.md](backend.md) | API routes and middleware chains |
 | [data.md](data.md) | Data stores and migrations |
@@ -37,7 +39,7 @@ keelim-maestro/
 ├── CLAUDE.md            ← Claude Code operating guidance (currently empty)
 ├── README.md            ← human-facing workspace overview
 ├── docs/
-│   └── CODEMAPS/        ← this directory
+│   └── CODEMAPS/        ← root maps plus managed child-project snapshots
 ├── idea/
 │   ├── index.md         ← workspace idea index (open ideas, priorities)
 │   └── <project>.md     ← per-project idea tracking (all, rich, keelim-vercel, …)
@@ -63,5 +65,9 @@ Registered submodules (pinned via `.gitmodules`):
 Autonomous child repos (not registered submodules):
 
 - `all-web-ui` — shared web UI (remote-backed, pending submodule conversion)
-- `rich` — autonomous; 30 commits ahead of origin, pending reconciliation
-- `quant` — intentionally excluded; no remote
+- `rich` — autonomous; currently ahead of origin, pending reconciliation
+- `quant` — intentionally excluded when present; absent in this checkout
+
+Managed child codemap snapshots live under [`projects/`](projects/). They are
+generated from child sources and stored here so `maestro` can manage the whole
+workspace from the root without flattening child Git ownership.

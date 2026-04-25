@@ -1,0 +1,285 @@
+# Agent Codemap
+
+- Repository: `all`
+- Root: `/Users/keelim/Desktop/keelim-maestro/all`
+- Generated: 2026-04-25 04:16 UTC
+- Files scanned: 1013
+- Detected shape: Java/Kotlin/Gradle
+
+## Read First
+- `AGENTS.md`
+- `all-rust-lib/Cargo.toml`
+- `docs/package.json`
+- `app-arducon/AGENTS.md`
+- `app-my-grade/AGENTS.md`
+- `app-nanda/AGENTS.md`
+- `build-logic/AGENTS.md`
+- `core/component/AGENTS.md`
+- `core/data/AGENTS.md`
+- `core/navigation/AGENTS.md`
+- `feature/ui-setting/AGENTS.md`
+- `shared/AGENTS.md`
+
+## Repository Shape
+- Kotlin: 726 files
+- .xml: 65 files
+- .json: 37 files
+- [no extension]: 35 files
+- .svg: 34 files
+- Markdown: 31 files
+- .pro: 21 files
+- .txt: 12 files
+- YAML: 12 files
+- Shell: 7 files
+- .properties: 5 files
+- .lock: 3 files
+
+## Entrypoints
+- No obvious entrypoint files detected.
+
+## Key Directories
+- `core/`: 386 files; examples: `core/common-android/.gitignore`, `core/common-android/build.gradle.kts`, `core/common-android/core:common-android.svg`
+- `feature/`: 101 files; examples: `feature/app-function/.gitignore`, `feature/app-function/build.gradle.kts`, `feature/app-function/feature:app-function.svg`
+- `shared/`: 76 files; examples: `shared/.gitignore`, `shared/AGENTS.md`, `shared/build.gradle.kts`
+- `app-my-grade/`: 65 files; examples: `app-my-grade/.gitignore`, `app-my-grade/AGENTS.md`, `app-my-grade/app-my-grade.svg`
+- `app-nanda/`: 61 files; examples: `app-nanda/.gitignore`, `app-nanda/AGENTS.md`, `app-nanda/app-nanda.svg`
+- `app-arducon/`: 56 files; examples: `app-arducon/.gitignore`, `app-arducon/AGENTS.md`, `app-arducon/app-arducon.svg`
+- `app-comssa/`: 42 files; examples: `app-comssa/.gitignore`, `app-comssa/app-comssa.svg`, `app-comssa/benchmark-rules.pro`
+- `build-logic/`: 41 files; examples: `build-logic/.gitignore`, `build-logic/AGENTS.md`, `build-logic/convention/.gitignore`
+- `catalog/`: 36 files; examples: `catalog/build.gradle.kts`, `catalog/catalog.svg`, `catalog/dependencies/releaseRuntimeClasspath.txt`
+- `app-cnubus/`: 28 files; examples: `app-cnubus/.gitignore`, `app-cnubus/app-cnubus.svg`, `app-cnubus/benchmark-rules.pro`
+- `.github/`: 20 files; examples: `.github/copilot-instructions.md`, `.github/git-commit-instructions.md`, `.github/instructions/review.instructions.md`
+- `docs/`: 20 files; examples: `docs/.gitignore`, `docs/architecture/module-boundaries.md`, `docs/architecture/network-client-lifecycle.md`
+- `./`: 14 files; examples: `.editorconfig`, `.gitattributes`, `AGENTS.md`
+- `allIos/`: 14 files; examples: `allIos/.gitignore`, `allIos/all.xcodeproj/project.pbxproj`, `allIos/all.xcodeproj/project.xcworkspace/contents.xcworkspacedata`
+- `app-mysenior/`: 13 files; examples: `app-mysenior/.gitignore`, `app-mysenior/benchmark-rules.pro`, `app-mysenior/build.gradle.kts`
+- `composeApp/`: 8 files; examples: `composeApp/.gitignore`, `composeApp/build.gradle.kts`, `composeApp/src/commonMain/kotlin/com/keelim/all/App.kt`
+- `widget/`: 8 files; examples: `widget/build.gradle.kts`, `widget/src/main/AndroidManifest.xml`, `widget/src/main/java/com/keelim/widget/ui/Widget.kt`
+- `script/`: 7 files; examples: `script/compile_check.sh`, `script/dependency_tree_update.sh`, `script/fcm_admin.py`
+- `all-rust-lib/`: 5 files; examples: `all-rust-lib/.gitignore`, `all-rust-lib/Cargo.lock`, `all-rust-lib/Cargo.toml`
+- `benchmarks/`: 4 files; examples: `benchmarks/benchmarks.svg`, `benchmarks/bin/main/com/keelim/benchmarks/ExampleTest.kt`, `benchmarks/build.gradle.kts`
+- `gradle/`: 3 files; examples: `gradle/init.gradle.kts`, `gradle/libs.versions.toml`, `gradle/wrapper/gradle-wrapper.properties`
+- `profile/`: 3 files; examples: `profile/benchmark.csv`, `profile/benchmark.html`, `profile/profile.log`
+- `kotlin-js-store/`: 2 files; examples: `kotlin-js-store/wasm/yarn.lock`, `kotlin-js-store/yarn.lock`
+
+## Dependencies and Tooling
+- `.github/workflows/app_arducon.yml`
+- `.github/workflows/app_cnubus.yml`
+- `.github/workflows/app_comssa.yml`
+- `.github/workflows/app_deploy.yml`
+- `.github/workflows/app_my_grade.yml`
+- `.github/workflows/app_nanda.yml`
+- `.github/workflows/ci.yml`
+- `.github/workflows/gh_page.yml`
+- `.github/workflows/release.yml`
+- `.github/workflows/release_tag.yml`
+- `.github/workflows/slack.yml`
+- `AGENTS.md`
+- `all-rust-lib/Cargo.lock`
+- `all-rust-lib/Cargo.toml`
+- `app-arducon/AGENTS.md`
+- `app-arducon/build.gradle.kts`
+- `app-cnubus/build.gradle.kts`
+- `app-comssa/build.gradle.kts`
+- `app-my-grade/AGENTS.md`
+- `app-my-grade/build.gradle.kts`
+- `app-mysenior/build.gradle.kts`
+- `app-nanda/AGENTS.md`
+- `app-nanda/build.gradle.kts`
+- `benchmarks/build.gradle.kts`
+- `build-logic/AGENTS.md`
+- `build-logic/convention/build.gradle.kts`
+- `build-logic/settings.gradle.kts`
+- `build.gradle.kts`
+- `catalog/build.gradle.kts`
+- `composeApp/build.gradle.kts`
+- `core/common-android/build.gradle.kts`
+- `core/common/build.gradle.kts`
+- `core/component/AGENTS.md`
+- `core/component/build.gradle.kts`
+- `core/data-api/build.gradle.kts`
+- `core/data/AGENTS.md`
+- `core/data/build.gradle.kts`
+- `core/database/build.gradle.kts`
+- `core/datastore-proto/build.gradle.kts`
+- `core/designsystem/build.gradle.kts`
+- `core/domain/build.gradle.kts`
+- `core/model/build.gradle.kts`
+- `core/navigation/AGENTS.md`
+- `core/navigation/build.gradle.kts`
+- `core/network/build.gradle.kts`
+- `core/resource/build.gradle.kts`
+- `core/testing/build.gradle.kts`
+- `docs/package.json`
+- `feature/app-function/build.gradle.kts`
+- `feature/settings-admin/build.gradle.kts`
+- `feature/settings-alarm/build.gradle.kts`
+- `feature/settings-core/build.gradle.kts`
+- `feature/settings-device/build.gradle.kts`
+- `feature/settings-lab/build.gradle.kts`
+- `feature/settings-notification/build.gradle.kts`
+- `feature/settings-theme/build.gradle.kts`
+- `feature/ui-scheme/build.gradle.kts`
+- `feature/ui-setting/AGENTS.md`
+- `feature/ui-setting/build.gradle.kts`
+- `feature/ui-web/build.gradle.kts`
+- `kotlin-js-store/wasm/yarn.lock`
+- `kotlin-js-store/yarn.lock`
+- `settings.gradle.kts`
+- `shared/AGENTS.md`
+- `shared/build.gradle.kts`
+- `widget/build.gradle.kts`
+
+## Useful Commands
+- No package or pyproject scripts detected. Inspect README or project docs for commands.
+
+## Tests and Verification
+- `app-arducon/src/test/java/com/keelim/arducon/ui/screen/base64/Base64ViewModelTest.kt`
+- `app-arducon/src/test/java/com/keelim/arducon/ui/screen/deeplink/CreateDeepLinkViewModelTest.kt`
+- `app-arducon/src/test/java/com/keelim/arducon/ui/screen/json/JsonFormatterViewModelTest.kt`
+- `app-arducon/src/test/java/com/keelim/arducon/ui/screen/main/MainViewModelTest.kt`
+- `app-arducon/src/test/java/com/keelim/arducon/ui/screen/ogtag/OgTagPreviewViewModelTest.kt`
+- `app-arducon/src/test/java/com/keelim/arducon/ui/screen/playground/PlaygroundViewModelTest.kt`
+- `app-arducon/src/test/java/com/keelim/arducon/ui/screen/saastatus/main/SaastatusViewModelTest.kt`
+- `app-arducon/src/test/java/com/keelim/arducon/ui/screen/saastatus/search/SaastatusSearchViewModelTest.kt`
+- `app-arducon/src/test/java/com/keelim/arducon/ui/screen/search/SearchViewModelTest.kt`
+- `app-arducon/src/test/java/com/keelim/arducon/ui/screen/stats/StatsViewModelTest.kt`
+- `app-arducon/src/test/java/com/keelim/arducon/ui/screen/urlshortener/UrlShortenerViewModelTest.kt`
+- `app-cnubus/src/test/java/com/keelim/cnubus/ui/screen/main/MainViewModelTest.kt`
+- `app-cnubus/src/test/java/com/keelim/cnubus/ui/screen/map/screen/map/MapViewModelTest.kt`
+- `app-cnubus/src/test/java/com/keelim/cnubus/ui/screen/root/RootViewModelTest.kt`
+- `app-comssa/src/test/java/com/keelim/comssa/ui/screen/main/calculator/CalculatorViewModelTest.kt`
+- `app-comssa/src/test/java/com/keelim/comssa/ui/screen/main/calendar/CalendarViewModelTest.kt`
+- `app-comssa/src/test/java/com/keelim/comssa/ui/screen/main/ecocal/EcocalViewModelTest.kt`
+- `app-comssa/src/test/java/com/keelim/comssa/ui/screen/main/finance/FinanceViewModelTest.kt`
+- `app-comssa/src/test/java/com/keelim/comssa/ui/screen/main/flash/FlashCardViewModelTest.kt`
+- `app-comssa/src/test/java/com/keelim/comssa/ui/screen/notification/MarketNotificationViewModelTest.kt`
+- `app-my-grade/src/test/java/com/keelim/mygrade/testutil/FakeRepositories.kt`
+- `app-my-grade/src/test/java/com/keelim/mygrade/ui/screen/analytics/StudyAnalyticsViewModelTest.kt`
+- `app-my-grade/src/test/java/com/keelim/mygrade/ui/screen/grade/GradeViewModelTest.kt`
+- `app-my-grade/src/test/java/com/keelim/mygrade/ui/screen/grade/edit/EditViewModelTest.kt`
+- `app-my-grade/src/test/java/com/keelim/mygrade/ui/screen/grade/notes/NotesViewModelTest.kt`
+- `app-my-grade/src/test/java/com/keelim/mygrade/ui/screen/history/HistoryViewModelTest.kt`
+- `app-my-grade/src/test/java/com/keelim/mygrade/ui/screen/main/MainViewModelTest.kt`
+- `app-my-grade/src/test/java/com/keelim/mygrade/ui/screen/task/TaskViewModelTest.kt`
+- `app-my-grade/src/test/java/com/keelim/mygrade/ui/screen/task/chart/TaskChartViewModelTest.kt`
+- `app-my-grade/src/test/java/com/keelim/mygrade/ui/screen/timer/TimerViewModelTest.kt`
+- `app-my-grade/src/test/java/com/keelim/mygrade/ui/screen/timer/history/TimerHistoryViewModelTest.kt`
+- `app-my-grade/src/test/java/com/keelim/mygrade/ui/screen/water/WaterViewModelTest.kt`
+- `app-my-grade/src/test/java/com/keelim/mygrade/ui/screen/word/show/WordShowViewModelTest.kt`
+- `app-my-grade/src/test/java/com/keelim/mygrade/ui/screen/word/write/WordWriteViewModelTest.kt`
+- `app-nanda/src/test/java/com/keelim/nandadiagnosis/ui/screen/category/CategoryViewModelTest.kt`
+- `app-nanda/src/test/java/com/keelim/nandadiagnosis/ui/screen/diagnosis/DiagnosisViewModelTest.kt`
+- `app-nanda/src/test/java/com/keelim/nandadiagnosis/ui/screen/exercise/ExerciseViewModelTest.kt`
+- `app-nanda/src/test/java/com/keelim/nandadiagnosis/ui/screen/food/edit/FoodEditViewModelTest.kt`
+- `app-nanda/src/test/java/com/keelim/nandadiagnosis/ui/screen/food/overview/FoodViewModelTest.kt`
+- `app-nanda/src/test/java/com/keelim/nandadiagnosis/ui/screen/length/LengthViewModelTest.kt`
+- `app-nanda/src/test/java/com/keelim/nandadiagnosis/ui/screen/medication/MedicationViewModelTest.kt`
+- `app-nanda/src/test/java/com/keelim/nandadiagnosis/ui/screen/nutrient/NutrientViewModelTest.kt`
+- `app-nanda/src/test/java/com/keelim/nandadiagnosis/ui/screen/nutrient/timer/NutrientTimerViewModelTest.kt`
+- `app-nanda/src/test/java/com/keelim/nandadiagnosis/ui/screen/water/WaterIntakeViewModelTest.kt`
+- `core/common-android/src/test/java/com/keelim/commonAndroid/TurbineTest.kt`
+- `core/common-android/src/test/java/com/keelim/commonAndroid/extensions/UiFormatExtensionsTest.kt`
+- `core/data/src/test/java/com/keelim/core/data/source/finance/FinanceRssRepositoryImplTest.kt`
+- `core/data/src/test/java/com/keelim/core/data/source/local/DataStoreMigrationIntegrationTest.kt`
+- `core/domain/bin/test/com/keelim/domain/FlowTest.kt`
+- `core/domain/bin/test/com/keelim/domain/Generics.kt`
+- `core/domain/src/test/java/com/keelim/domain/FlowTest.kt`
+- `core/domain/src/test/java/com/keelim/domain/Generics.kt`
+- `feature/app-function/src/test/java/com/keelim/appfunction/health/HealthAppFunctionsTest.kt`
+- `feature/settings-admin/src/test/java/com/keelim/setting/screen/admin/AdminViewModelTest.kt`
+- `feature/settings-alarm/src/test/java/com/keelim/setting/screen/alarm/AlarmViewModelTest.kt`
+- `feature/settings-core/src/test/java/com/keelim/setting/screen/settings/SettingsViewModelTest.kt`
+- `feature/settings-device/src/test/java/com/keelim/setting/screen/device/DeviceInfoViewModelTest.kt`
+- `feature/settings-lab/src/test/java/com/keelim/setting/screen/lab/LabViewModelTest.kt`
+- `feature/settings-notification/src/test/java/com/keelim/setting/screen/notification/NotificationViewModelTest.kt`
+- `feature/settings-theme/src/test/java/com/keelim/setting/screen/theme/ThemeViewModelTest.kt`
+- `feature/ui-setting/src/test/java/com/keelim/setting/architecture/SettingsModuleSplitTest.kt`
+- `feature/ui-setting/src/test/java/com/keelim/setting/screen/event/EventViewModelTest.kt`
+- `feature/ui-setting/src/test/java/com/keelim/setting/screen/maintenance/MaintenanceViewModelTest.kt`
+
+## Symbol Landmarks
+- `allIos/all/ContentView.swift`: ComposeView (L13), makeUIViewController (L14), updateUIViewController (L18), ContentView (L21)
+- `allIos/all/allApp.swift`: allApp (L11)
+- `app-arducon/src/main/java/com/keelim/arducon/MainActivity.kt`: MainActivity (L20)
+- `app-arducon/src/main/java/com/keelim/arducon/MyApplication.kt`: MyApplication (L7)
+- `app-arducon/src/main/java/com/keelim/arducon/ui/ArduConApp.kt`: ArduconApp (L21)
+- `app-arducon/src/main/java/com/keelim/arducon/ui/ArduconHost.kt`: ArduConHost (L40)
+- `app-arducon/src/main/java/com/keelim/arducon/ui/component/AdView.kt`: AdBannerView (L12)
+- `app-arducon/src/main/java/com/keelim/arducon/ui/screen/base64/Base64Screen.kt`: Base64Screen (L56)
+- `app-arducon/src/main/java/com/keelim/arducon/ui/screen/base64/Base64ViewModel.kt`: Base64ViewModel (L19), updateInputText (L28), updateSelectedIndex (L32), processBase64 (L36), deleteHistory (L58), clear (L64)
+- `app-arducon/src/main/java/com/keelim/arducon/ui/screen/deeplink/CreateDeepLinkScreen.kt`: CreateDeepLinkRoute (L57), CreateDeepLinkScreen (L103)
+- `app-arducon/src/main/java/com/keelim/arducon/ui/screen/deeplink/CreateDeepLinkViewModel.kt`: CreateDeepLinkViewModel (L22), setScheme (L49), updateUrl (L57), updateTitle (L61), updateCategory (L65), createDeepLink (L69), resetSuccess (L99), getFullUrl (L103)
+- `app-arducon/src/main/java/com/keelim/arducon/ui/screen/json/JsonFormatterScreen.kt`: JsonFormatterScreen (L53)
+- `app-arducon/src/main/java/com/keelim/arducon/ui/screen/json/JsonFormatterViewModel.kt`: JsonFormatterViewModel (L13), updateInputJson (L19), formatJson (L23), clear (L33)
+- `app-arducon/src/main/java/com/keelim/arducon/ui/screen/main/MainScreen.kt`: MainRoute (L108), MainScreen (L211), QrDialog (L755)
+- `app-arducon/src/main/java/com/keelim/arducon/ui/screen/main/MainSection.kt`: MainTopSection (L75), RegisterSchemeSection (L161), DeepLinkSection (L331)
+- `app-arducon/src/main/java/com/keelim/arducon/ui/screen/main/MainViewModel.kt`: MainViewModel (L37), onClickSearch (L89), updateDeepLinkUrl (L113), deleteDeepLinkUrl (L123), clear (L133), onRegister (L137), deleteScheme (L147), onItemLongClick (L157)
+- `app-arducon/src/main/java/com/keelim/arducon/ui/screen/ogtag/OgTagPreviewScreen.kt`: OgTagPreviewRoute (L54), OgTagPreviewScreen (L65)
+- `app-arducon/src/main/java/com/keelim/arducon/ui/screen/ogtag/OgTagPreviewViewModel.kt`: OgTagPreviewViewModel (L16), parseOgTags (L21)
+- `app-arducon/src/main/java/com/keelim/arducon/ui/screen/playground/PlaygroundScreen.kt`: PlaygroundRoute (L59), PlaygroundScreen (L92)
+- `app-arducon/src/main/java/com/keelim/arducon/ui/screen/playground/PlaygroundViewModel.kt`: PlaygroundViewModel (L33), updateUrl (L40), updateParamKey (L44), updateParamValue (L48), validate (L59), buildShareText (L97), generateQrCode (L116), hideQrDialog (L130)
+- `app-arducon/src/main/java/com/keelim/arducon/ui/screen/qr/QrScreen.kt`: QrRoute (L17), QrScreen (L26)
+- `app-arducon/src/main/java/com/keelim/arducon/ui/screen/saastatus/main/SaastatusScreen.kt`: SaastatusRoute (L19), SaastatusScreen (L31)
+- `app-arducon/src/main/java/com/keelim/arducon/ui/screen/saastatus/main/SaastatusSection.kt`: SaastatusEmpty (L21), PreviewSaastatusEmpty (L53)
+- `app-arducon/src/main/java/com/keelim/arducon/ui/screen/saastatus/main/SaastatusViewModel.kt`: SaastatusViewModel (L21)
+- `app-arducon/src/main/java/com/keelim/arducon/ui/screen/saastatus/search/SaastatusSearchScreen.kt`: SaastatusSearchRoute (L9), SaastatusSearchScreen (L16)
+- `app-arducon/src/main/java/com/keelim/arducon/ui/screen/saastatus/search/SaastatusSearchViewModel.kt`: SaastatusSearchViewModel (L11), updateSearchQuery (L16), clearSearch (L20)
+- `app-arducon/src/main/java/com/keelim/arducon/ui/screen/search/SearchScreen.kt`: SearchRoute (L35), SearchScreen (L59)
+- `app-arducon/src/main/java/com/keelim/arducon/ui/screen/search/SearchSection.kt`: SchemeSearchSection (L32)
+- `app-arducon/src/main/java/com/keelim/arducon/ui/screen/search/SearchViewModel.kt`: SearchViewModel (L20), updateSearchQuery (L47), clearSearch (L51)
+- `app-arducon/src/main/java/com/keelim/arducon/ui/screen/stats/StatsScreen.kt`: StatsScreen (L51), StatsBarChart (L246)
+- `app-arducon/src/main/java/com/keelim/arducon/ui/screen/stats/StatsViewModel.kt`: StatsViewModel (L15)
+- `app-arducon/src/main/java/com/keelim/arducon/ui/screen/urlshortener/UrlShortenerScreen.kt`: UrlShortenerScreen (L71)
+- `app-arducon/src/main/java/com/keelim/arducon/ui/screen/urlshortener/UrlShortenerViewModel.kt`: UrlShortenerViewModel (L27), updateInputUrl (L43), updateInputTitle (L47), updateExpirationDays (L51), generateShortUrl (L55), recordClick (L107), deleteItem (L113), clearGeneratedCode (L119)
+- `app-arducon/src/test/java/com/keelim/arducon/ui/screen/base64/Base64ViewModelTest.kt`: Base64ViewModelTest (L21)
+- `app-arducon/src/test/java/com/keelim/arducon/ui/screen/deeplink/CreateDeepLinkViewModelTest.kt`: CreateDeepLinkViewModelTest (L21)
+- `app-arducon/src/test/java/com/keelim/arducon/ui/screen/json/JsonFormatterViewModelTest.kt`: JsonFormatterViewModelTest (L14)
+- `app-arducon/src/test/java/com/keelim/arducon/ui/screen/main/MainViewModelTest.kt`: MainViewModelTest (L25)
+- `app-arducon/src/test/java/com/keelim/arducon/ui/screen/ogtag/OgTagPreviewViewModelTest.kt`: OgTagPreviewViewModelTest (L16)
+- `app-arducon/src/test/java/com/keelim/arducon/ui/screen/playground/PlaygroundViewModelTest.kt`: PlaygroundViewModelTest (L20)
+- `app-arducon/src/test/java/com/keelim/arducon/ui/screen/saastatus/main/SaastatusViewModelTest.kt`: SaastatusViewModelTest (L6)
+- `app-arducon/src/test/java/com/keelim/arducon/ui/screen/saastatus/search/SaastatusSearchViewModelTest.kt`: SaastatusSearchViewModelTest (L6)
+- `app-arducon/src/test/java/com/keelim/arducon/ui/screen/search/SearchViewModelTest.kt`: SearchViewModelTest (L17)
+- `app-arducon/src/test/java/com/keelim/arducon/ui/screen/stats/StatsViewModelTest.kt`: StatsViewModelTest (L20)
+- `app-arducon/src/test/java/com/keelim/arducon/ui/screen/urlshortener/UrlShortenerViewModelTest.kt`: UrlShortenerViewModelTest (L21), createViewModel (L31)
+- `app-cnubus/src/main/java/com/keelim/cnubus/MyApplication.kt`: MyApplication (L22)
+- `app-cnubus/src/main/java/com/keelim/cnubus/ui/CnubusApp.kt`: CnubusApp (L18)
+- `app-cnubus/src/main/java/com/keelim/cnubus/ui/CnubusHost.kt`: CnubusHost (L23)
+- `app-cnubus/src/main/java/com/keelim/cnubus/ui/screen/main/MainActivity.kt`: MainActivity (L52)
+- `app-cnubus/src/main/java/com/keelim/cnubus/ui/screen/main/MainScreen.kt`: MainRoute (L57), MainScreen (L85), TabBarLayout (L116), PagerContent (L153)
+- `app-cnubus/src/main/java/com/keelim/cnubus/ui/screen/main/MainViewModel.kt`: MainViewModel (L9)
+- `app-cnubus/src/main/java/com/keelim/cnubus/ui/screen/map/screen/map/MapScreen.kt`: MapRoute (L40), MapScreen (L50)
+- `app-cnubus/src/main/java/com/keelim/cnubus/ui/screen/map/screen/map/MapViewModel.kt`: MapViewModel (L42)
+- `app-cnubus/src/main/java/com/keelim/cnubus/ui/screen/root/RootScreen.kt`: RootRoute (L74), RootScreen (L107), RootDetailBottomSheet (L187)
+- `app-cnubus/src/main/java/com/keelim/cnubus/ui/screen/root/RootViewModel.kt`: RootViewModel (L40), setMode (L74), updateQuery (L78), toggleFavorite (L82)
+- `app-cnubus/src/main/java/com/keelim/cnubus/ui/screen/setting/SettingScreen.kt`: SettingItem (L116)
+- `app-cnubus/src/test/java/com/keelim/cnubus/ui/screen/main/MainViewModelTest.kt`: MainViewModelTest (L6)
+- `app-cnubus/src/test/java/com/keelim/cnubus/ui/screen/map/screen/map/MapViewModelTest.kt`: MapViewModelTest (L17)
+- `app-cnubus/src/test/java/com/keelim/cnubus/ui/screen/root/RootViewModelTest.kt`: RootViewModelTest (L19), expectedRouteA (L31), expectedRouteB (L33), expectedRouteC (L35), expectedNightRoute (L37)
+- `app-comssa/src/main/java/com/keelim/comssa/MyApplication.kt`: MyApplication (L22)
+- `app-comssa/src/main/java/com/keelim/comssa/notification/MarketAlarmReceiver.kt`: MarketAlarmReceiver (L13)
+- `app-comssa/src/main/java/com/keelim/comssa/notification/MarketNotificationManager.kt`: MarketNotificationManager (L39), scheduleNotification (L63), cancelNotification (L134)
+- `app-comssa/src/main/java/com/keelim/comssa/ui/screen/ComssaHost.kt`: ComssaHost (L22)
+- `app-comssa/src/main/java/com/keelim/comssa/ui/screen/main/ComssaApp.kt`: ComssaApp (L20)
+- `app-comssa/src/main/java/com/keelim/comssa/ui/screen/main/MainActivity.kt`: MainActivity (L26)
+- `app-comssa/src/main/java/com/keelim/comssa/ui/screen/main/calculator/CalculatorScreen.kt`: CalculatorRoute (L44), CalculatorScreen (L58)
+- `app-comssa/src/main/java/com/keelim/comssa/ui/screen/main/calculator/CalculatorSubScreens.kt`: CompoundInterestCalculator (L27), LoanRepaymentCalculator (L98), InvestmentReturnCalculator (L106), CurrencyConverter (L113), TaxCalculator (L120), RetirementCalculator (L127)
+- `app-comssa/src/main/java/com/keelim/comssa/ui/screen/main/calculator/CalculatorViewModel.kt`: CalculatorViewModel (L15), addHistory (L29), clearHistory (L43)
+- `app-comssa/src/main/java/com/keelim/comssa/ui/screen/main/calendar/CalendarScreen.kt`: CalendarRoute (L12), CalendarScreen (L19), PreviewCalendarScreen (L28)
+- `app-comssa/src/main/java/com/keelim/comssa/ui/screen/main/calendar/CalendarViewModel.kt`: CalendarViewModel (L9)
+- `app-comssa/src/main/java/com/keelim/comssa/ui/screen/main/ecocal/EcocalModel.kt`: EcoCalEntry (L22), find (L34)
+- `app-comssa/src/main/java/com/keelim/comssa/ui/screen/main/ecocal/EcocalScreen.kt`: EcocalRoute (L32), EcocalScreen (L52)
+- `app-comssa/src/main/java/com/keelim/comssa/ui/screen/main/ecocal/EcocalSection.kt`: EcocalMainSection (L91), HeaderItem (L177), ListItem (L309), EcocalFloatingButton (L446), EcocalNavigationBar (L523)
+- `app-comssa/src/main/java/com/keelim/comssa/ui/screen/main/ecocal/EcocalViewModel.kt`: EcocalViewModel (L28), updateFilter (L74), updateCountry (L82)
+- `app-comssa/src/main/java/com/keelim/comssa/ui/screen/main/finance/FinanceScreen.kt`: FinanceRoute (L40), FinanceScreen (L53)
+- `app-comssa/src/main/java/com/keelim/comssa/ui/screen/main/finance/FinanceSection.kt`: FinanceMainSection (L70), FinanceHeaderItem (L122), FinanceListItem (L162), FinanceFloatingButton (L249), FinanceNavigationBar (L326)
+- `app-comssa/src/main/java/com/keelim/comssa/ui/screen/main/finance/FinanceViewModel.kt`: FinanceViewModel (L29), updateFilter (L97), updateSource (L105), refresh (L110), clearCache (L116), invalidateCacheForSource (L121), getCacheInfo (L126)
+- `app-comssa/src/main/java/com/keelim/comssa/ui/screen/main/flash/FlashCardScreen.kt`: FlashCardRoute (L23), FlashCardScreen (L34), FlashCard (L51), PreviewFlashCardScreen (L99)
+- `app-comssa/src/main/java/com/keelim/comssa/ui/screen/main/flash/FlashCardSection.kt`: FrontCardSection (L16), BackCardSection (L32), PreviewFrontCardSection (L49), PreviewBackCardSection (L55)
+- `app-comssa/src/main/java/com/keelim/comssa/ui/screen/main/flash/FlashCardViewModel.kt`: FlashCardViewModel (L13), updateState (L17)
+- `app-comssa/src/main/java/com/keelim/comssa/ui/screen/notification/MarketNotificationScreen.kt`: MarketNotificationScreen (L70)
+
+## Open Questions
+- No existing `docs/CODEMAPS/*` files were found.
+- Entrypoints were not obvious from file names; inspect manifests and top-level directories.

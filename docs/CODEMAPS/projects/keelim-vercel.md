@@ -1,0 +1,251 @@
+# Agent Codemap
+
+- Repository: `keelim-vercel`
+- Root: `/Users/keelim/Desktop/keelim-maestro/keelim-vercel`
+- Generated: 2026-04-25 04:16 UTC
+- Files scanned: 587
+- Detected shape: Node/JavaScript
+
+## Read First
+- `AGENTS.md`
+- `README.md`
+- `package.json`
+- `app/(dashboard)/achievements/page.tsx`
+- `app/(dashboard)/asset-path/page.tsx`
+- `app/(dashboard)/beta-calculator/page.tsx`
+- `app/(dashboard)/bond-yield/page.tsx`
+- `app/(dashboard)/bookmarks/page.tsx`
+- `app/(dashboard)/brokerage-fee/page.tsx`
+- `app/(dashboard)/budget-advisor/page.tsx`
+- `app/(dashboard)/budget-splitter/page.tsx`
+- `app/(dashboard)/cash-flow/page.tsx`
+- `app/(dashboard)/child-education-goal/page.tsx`
+- `app/(dashboard)/compound-interest/page.tsx`
+- `app/(dashboard)/comprehensive-tax/page.tsx`
+- `app/(dashboard)/couple-merger/page.tsx`
+
+## Repository Shape
+- TypeScript: 533 files
+- Markdown: 17 files
+- SQL: 15 files
+- .json: 4 files
+- JavaScript: 4 files
+- [no extension]: 3 files
+- .local: 2 files
+- YAML: 2 files
+- .svg: 2 files
+- .lock: 1 files
+- .tsbuildinfo: 1 files
+- CSS: 1 files
+
+## Entrypoints
+- `app/(dashboard)/achievements/page.tsx`
+- `app/(dashboard)/asset-path/page.tsx`
+- `app/(dashboard)/beta-calculator/page.tsx`
+- `app/(dashboard)/bond-yield/page.tsx`
+- `app/(dashboard)/bookmarks/page.tsx`
+- `app/(dashboard)/brokerage-fee/page.tsx`
+- `app/(dashboard)/budget-advisor/page.tsx`
+- `app/(dashboard)/budget-splitter/page.tsx`
+- `app/(dashboard)/cash-flow/page.tsx`
+- `app/(dashboard)/child-education-goal/page.tsx`
+- `app/(dashboard)/compound-interest/page.tsx`
+- `app/(dashboard)/comprehensive-tax/page.tsx`
+- `app/(dashboard)/couple-merger/page.tsx`
+- `app/(dashboard)/couple-wedding-finance/page.tsx`
+- `app/(dashboard)/crypto-tax/page.tsx`
+- `app/(dashboard)/custom/page.tsx`
+- `app/(dashboard)/date-diff/page.tsx`
+- `app/(dashboard)/dca-simulator/page.tsx`
+- `app/(dashboard)/debt-analyzer/page.tsx`
+- `app/(dashboard)/digital-legacy/page.tsx`
+- `app/(dashboard)/dividend/page.tsx`
+- `app/(dashboard)/emergency-fund/page.tsx`
+- `app/(dashboard)/error.tsx`
+- `app/(dashboard)/ev-ice-comparison/page.tsx`
+- `app/(dashboard)/family-hub/page.tsx`
+- `app/(dashboard)/fear-greed/page.tsx`
+- `app/(dashboard)/finance-challenge-hub/page.tsx`
+- `app/(dashboard)/finance-learning-hub/page.tsx`
+- `app/(dashboard)/financial-challenge/page.tsx`
+- `app/(dashboard)/financial-goal-hub/page.tsx`
+- `app/(dashboard)/financial-health-radar/page.tsx`
+- `app/(dashboard)/financial-level/page.tsx`
+- `app/(dashboard)/financial-lorem/page.tsx`
+- `app/(dashboard)/financial-mbti/page.tsx`
+- `app/(dashboard)/financial-personality-test/page.tsx`
+- `app/(dashboard)/financial-pipeline/page.tsx`
+- `app/(dashboard)/financial-quotes/page.tsx`
+- `app/(dashboard)/financial-wiki/[id]/edit/page.tsx`
+- `app/(dashboard)/financial-wiki/[id]/page.tsx`
+- `app/(dashboard)/financial-wiki/admin/page.tsx`
+- `app/(dashboard)/financial-wiki/new/page.tsx`
+- `app/(dashboard)/financial-wiki/page.tsx`
+- `app/(dashboard)/fire-calculator/page.tsx`
+- `app/(dashboard)/forex-calc/page.tsx`
+- `app/(dashboard)/freelance-pay/page.tsx`
+- `app/(dashboard)/gift-tax-calculator/page.tsx`
+- `app/(dashboard)/gift-tax-relay-tracker/page.tsx`
+- `app/(dashboard)/gold-silver/page.tsx`
+- `app/(dashboard)/history/page.tsx`
+- `app/(dashboard)/household-goal-checkin/page.tsx`
+- `app/(dashboard)/inflation-calc/page.tsx`
+- `app/(dashboard)/inheritance-tax/page.tsx`
+- `app/(dashboard)/insight-clipper/page.tsx`
+- `app/(dashboard)/interior-budget/page.tsx`
+- `app/(dashboard)/investment-routine/page.tsx`
+- `app/(dashboard)/ipo-simulator/page.tsx`
+- `app/(dashboard)/isa-simulator/page.tsx`
+- `app/(dashboard)/jeonse-safety/page.tsx`
+- `app/(dashboard)/lab/page.tsx`
+- `app/(dashboard)/layout.tsx`
+- `app/(dashboard)/life-milestone-hub/page.tsx`
+- `app/(dashboard)/loan-limit-calculator/page.tsx`
+- `app/(dashboard)/loan/page.tsx`
+- `app/(dashboard)/lottery-tax/page.tsx`
+- `app/(dashboard)/lunch-flation/page.tsx`
+- `app/(dashboard)/luxury-opportunity-cost/page.tsx`
+- `app/(dashboard)/market-radar/page.tsx`
+- `app/(dashboard)/market-timetable/page.tsx`
+- `app/(dashboard)/meeting-cost-calculator/page.tsx`
+- `app/(dashboard)/move-in-cost/page.tsx`
+- `app/(dashboard)/news-letter-editor/page.tsx`
+- `app/(dashboard)/news-letter/page.tsx`
+- `app/(dashboard)/no-spend/page.tsx`
+- `app/(dashboard)/notice/[id]/page.tsx`
+- `app/(dashboard)/notice/page.tsx`
+- `app/(dashboard)/notifications/page.tsx`
+- `app/(dashboard)/overseas-stock-tax-calculator/page.tsx`
+- `app/(dashboard)/page.tsx`
+- `app/(dashboard)/part-time-pay/page.tsx`
+- `app/(dashboard)/pension-gap-bridge/page.tsx`
+- ... 68 more
+
+## Key Directories
+- `components/`: 243 files; examples: `components/AGENTS.md`, `components/achievement-card.tsx`, `components/achievement-listener.tsx`
+- `app/`: 146 files; examples: `app/(dashboard)/AGENTS.md`, `app/(dashboard)/achievements/page.tsx`, `app/(dashboard)/asset-path/page.tsx`
+- `lib/`: 124 files; examples: `lib/AGENTS.md`, `lib/achievement-storage.ts`, `lib/achievements.ts`
+- `./`: 24 files; examples: `.gitignore`, `AGENTS.md`, `README.md`
+- `supabase/`: 17 files; examples: `supabase/AGENTS.md`, `supabase/functions/crawl-sectors/index.ts`, `supabase/functions/send-newsletter/README.md`
+- `scripts/`: 16 files; examples: `scripts/check-history.ts`, `scripts/check-sectors.ts`, `scripts/check-top-stocks.ts`
+- `data/`: 4 files; examples: `data/NoticeFirstQuery.ts`, `data/btc-monthly.json`, `data/landing-static.ts`
+- `docs/`: 4 files; examples: `docs/maintenance/regression-checklist.md`, `docs/plans/2026-01-15-emergency-fund-calculator.md`, `docs/plans/2026-01-24-sector-etf-mapping.md`
+- `.github/`: 3 files; examples: `.github/dependabot.yml`, `.github/pull_request_template.md`, `.github/workflows/maintenance-guards.yml`
+- `evidence/`: 2 files; examples: `evidence/COMPLETION_SUMMARY.txt`, `evidence/QA_REPORT.md`
+- `public/`: 2 files; examples: `public/icon.svg`, `public/placeholder.svg`
+- `constants/`: 1 files; examples: `constants/ui-text.ts`
+- `hooks/`: 1 files; examples: `hooks/use-toast.ts`
+
+## Dependencies and Tooling
+- `.github/workflows/maintenance-guards.yml`
+- `AGENTS.md`
+- `README.md`
+- `app/(dashboard)/AGENTS.md`
+- `bun.lock`
+- `components/AGENTS.md`
+- `lib/AGENTS.md`
+- `package.json`
+- `supabase/AGENTS.md`
+- `supabase/functions/send-newsletter/README.md`
+
+## Useful Commands
+- npm script `build`: next build
+- npm script `dev`: next dev
+- npm script `hooks:install`: git config core.hooksPath .githooks
+- npm script `lint`: eslint .
+- npm script `start`: next start
+- npm script `typecheck`: tsc --noEmit
+- npm script `vc:promote`: bunx vercel promote $(bunx vercel ls 2>&1 | grep -m1 'Preview' | awk '{print $2}') --yes
+- npm script `verify:agents-update`: bun scripts/verify-agents-update.ts
+- npm script `verify:maintenance`: bun run verify:storage-registry && bun run verify:project-rules && bun run verify:regression-hotspots && bun run verify:agents-update
+- npm script `verify:project-rules`: bun scripts/verify-project-rules.ts
+- npm script `verify:regression-hotspots`: bun scripts/verify-regression-hotspots.ts
+- npm script `verify:storage-registry`: bun scripts/verify-storage-version-registry.ts
+
+## Tests and Verification
+- `lib/subscription-audit-logic.test.ts`
+
+## Symbol Landmarks
+- `next.config.js`: path (L1), workspaceRoot (L3), nextConfig (L6)
+- `proxy.ts`: proxy (L4), config (L7)
+- `app/robots.ts`: baseUrl (L4)
+- `app/sitemap.ts`: baseUrl (L5), routes (L7)
+- `app/(dashboard)/product.tsx`: Product (L13)
+- `app/(dashboard)/products-table.tsx`: ProductsTable (L22), router (L29), productsPerPage (L30), prevPage (L32), nextPage (L36)
+- `app/(dashboard)/achievements/page.tsx`: unlocked (L23), totalCount (L32), unlockedCount (L33), progressPercentage (L34), explorerAchievements (L36), analysisAchievements (L39), masterAchievements (L42)
+- `app/(dashboard)/cash-flow/page.tsx`: CashFlowSankey (L7)
+- `app/(dashboard)/child-education-goal/page.tsx`: metadata (L3)
+- `app/(dashboard)/compound-interest/page.tsx`: schemaData (L27)
+- `app/(dashboard)/financial-wiki/page.tsx`: CATEGORIES (L20), TermGrid (L26), terms (L27), TermGridSkeleton (L60), isDev (L72), currentTab (L73), questions (L76)
+- `app/(dashboard)/financial-wiki/[id]/page.tsx`: term (L16)
+- `app/(dashboard)/financial-wiki/[id]/edit/page.tsx`: term (L19)
+- `app/(dashboard)/financial-wiki/admin/page.tsx`: isDev (L14), proposals (L20)
+- `app/(dashboard)/fire-calculator/page.tsx`: jsonLdData (L27)
+- `app/(dashboard)/forex-calc/page.tsx`: jsonLdData (L26)
+- `app/(dashboard)/loan/page.tsx`: jsonLd (L25)
+- `app/(dashboard)/news-letter-editor/page.tsx`: isDevelopment (L12)
+- `app/(dashboard)/notifications/page.tsx`: FeaturePreview (L64)
+- `app/(dashboard)/pet-lifecycle-cost/page.tsx`: metadata (L3)
+- `app/(dashboard)/recovery-rate/page.tsx`: schemaData (L26)
+- `app/(dashboard)/salary-calculator/page.tsx`: jsonLdData (L27)
+- `app/(dashboard)/sector-cycle-diagnosis/page.tsx`: jsonLdData (L27)
+- `app/(dashboard)/settings/page.tsx`: isDark (L17)
+- `app/(dashboard)/swing-simulator/page.tsx`: jsonLdData (L25)
+- `app/api/all/route.ts`: GET (L1), data (L2), posts (L3)
+- `app/api/faq/route.ts`: GET (L12)
+- `app/api/fear-greed/route.ts`: API_URL (L3), GET (L20), res (L22), latest (L33)
+- `app/api/forex/route.ts`: runtime (L4), revalidate (L6), GET (L68), transformedData (L123), currentRate (L125)
+- `app/api/indices/route.ts`: yahooFinance (L4), revalidate (L29), runtime (L30), SYMBOLS (L67), GET (L69), results (L71), quote (L74), validResults (L92)
+- `app/api/newsletter/drafts/route.ts`: supabaseUrl (L4), supabaseKey (L5), supabase (L6), GET (L30), includeUnpublished (L33), query (L35), POST (L59), PUT (L91)
+- `app/api/newsletter/subscribe/route.ts`: POST (L4), body (L6), emailRegex (L17), unsubscribeToken (L26)
+- `app/api/newsletter/unsubscribe/route.ts`: GET (L4), token (L7)
+- `app/api/notice/route.ts`: GET (L13), POST (L39), body (L45)
+- `app/api/notice/[id]/route.ts`: GET (L4)
+- `app/api/og/route.tsx`: runtime (L4), GET (L6), hasTitle (L11), title (L12), hasDescription (L17), description (L18), errorMessage (L96)
+- `app/api/og-parser/route.ts`: runtime (L4), POST (L6), body (L8), response (L24), html (L40), $ (L41), ogTitle (L43), ogDescription (L44)
+- `app/api/products/export/route.ts`: normalize (L4), safe (L5), GET (L12), rows (L13), lines (L15), availableAt (L22), values (L27), csv (L39)
+- `app/api/products/import/route.ts`: REQUIRED_HEADERS (L3), VALID_STATUSES (L11), normalizeHeader (L25), parseCsvRows (L33), currentField (L36), inQuotes (L37), char (L40), next (L41)
+- `app/api/timestamp/route.ts`: GET (L3), timestamp (L4), date (L5)
+- `app/faq/faq-content.tsx`: FaqContent (L26), filteredFaqs (L30), query (L32), groupedFaqs (L42), category (L44), categories (L54)
+- `app/faq/page.tsx`: getFaqs (L16), faqs (L37), faqSchema (L39)
+- `app/unsubscribe/[token]/page.tsx`: params (L16), router (L17), token (L18), handleUnsubscribe (L21), errorMessage (L25)
+- `components/achievement-card.tsx`: AchievementCard (L16), isUnlocked (L20), Icon (L21)
+- `components/achievement-listener.tsx`: AchievementListener (L12), pathname (L13), matchedAchievement (L19), unlockedAchievement (L24), handleCloseModal (L32)
+- `components/achievement-modal.tsx`: AchievementModal (L23), duration (L30), animationEnd (L31), defaults (L32), randomInRange (L39), timeLeft (L43), particleCount (L49), Icon (L74)
+- `components/add-insight-dialog.tsx`: AddInsightDialog (L38), fetchOgData (L66), response (L71), data (L78), handleAddTag (L90), handleRemoveTag (L97), handleSave (L101)
+- `components/admin-notice-form.tsx`: AdminNoticeForm (L18), router (L19), handleSubmit (L25), response (L31), result (L38)
+- `components/analytics-loader.tsx`: AnalyticsLoader (L14)
+- `components/asset-manager.tsx`: COLORS (L31), AssetManager (L42), hydrated (L43), handleAddAsset (L53), value (L55), contribution (L56), totalValue (L67), chartData (L72)
+- `components/asset-path-tracker.tsx`: getMilestoneLabel (L73), eok (L75), MilestoneCard (L82), color (L83), displayLabel (L84), AssetPathTracker (L123), loaded (L128), hasData (L129)
+- `components/beta-calculator.tsx`: ResponsiveContainer (L45), RadialBarChart (L46), RadialBar (L47), PolarAngleAxis (L48), Tooltip (L49), copyTextToClipboard (L52), BetaCalculator (L60), data (L74)
+- `components/bond-calculator.tsx`: BondCalculator (L31), calculate (L42), res (L43), handleInputChange (L51), numValue (L52), handleFrequencyChange (L59)
+- `components/brokerage-fee-calculator.tsx`: formatCurrency (L34), BrokerageFeeCalculator (L39), saved (L44), result (L55), handleMoneyChange (L57), digits (L58), trimmed (L59), formatted (L60)
+- `components/budget-splitter.tsx`: BudgetSplitter (L69), loadData (L95), list (L96), updated (L99), list (L106), urlParams (L111), shareData (L112), decoded (L114)
+- `components/budget-tracker.tsx`: STORAGE_KEY_BUDGET (L25), STORAGE_KEY_EXPENSES (L26), BudgetTracker (L28), savedBudget (L42), savedExpenses (L43), addExpense (L67), amount (L69), deleteExpense (L86)
+- `components/cash-flow-sankey.tsx`: transformData (L32), totalIncome (L33), totalInvestment (L36), savings (L42), totalOutflowTarget (L43), ratio (L47), taxes (L49), living (L50)
+- `components/child-education-planner.tsx`: Area (L35), XAxis (L36), YAxis (L37), CartesianGrid (L38), Tooltip (L39), Legend (L40), ResponsiveContainer (L41), ComposedChart (L42)
+- `components/compound-interest-calculator.tsx`: formatNumber (L19), formatCurrency (L24), CompoundInterestCalculator (L33), STORAGE_KEY (L43), savedData (L47), data (L49), initialNum (L76), raw (L77)
+- `components/comprehensive-tax-component.tsx`: ComprehensiveTaxComponent (L32), calcResult (L43), handleNumberInput (L61), value (L64)
+- `components/couple-money-merger.tsx`: CoupleMoneyMerger (L29), saveData (L37), updatePersonName (L42), addItem (L49), updateItem (L70), newItems (L77), deleteItem (L91), newItems (L96)
+- `components/couple-wedding-hub.tsx`: CoupleWeddingHub (L8)
+- `components/crypto-tax-simulator.tsx`: BASIC_DEDUCTION (L24), TAX_RATE (L25), getTaxStatusColor (L27), getTaxStatusLabel (L37), CryptoTaxSimulator (L44), saved (L57), handlePurchaseChange (L67), raw (L68)
+- `components/dashboard-client.tsx`: SIDEBAR_STORAGE_KEY (L34), loadSidebarState (L36), saved (L38), saveSidebarState (L42), isUserTyping (L47), DashboardClient (L55), pathname (L58), isInMenuConfig (L59)
+- `components/dashboard-grid.tsx`: FEATURES (L24), DashboardGrid (L39), saved (L49), toggleFeature (L60), newFeatures (L61), feature (L114), Component (L116)
+- `components/date-diff.tsx`: DateDiffComponent (L24), handleChange (L31), newData (L33), handleModeChange (L38), newData (L40), handleReset (L45)
+- `components/dca-simulator.tsx`: EXCHANGE_RATE (L36), STORAGE_KEY (L40), DCASimulator (L42), savedData (L56), data (L58), handleCopyData (L99), headers (L100), fullData (L114)
+- `components/debt-payoff-analyzer.tsx`: DebtPayoffAnalyzer (L44), STORAGE_KEY (L45), savedData (L78), data (L80), addDebt (L101), newId (L102), removeDebt (L120), updateDebt (L124)
+- `components/deployment-notification.tsx`: DeploymentNotification (L9), STORAGE_KEY (L16), latestEntry (L17), lastSeenDate (L18)
+- `components/digital-legacy-checklist.tsx`: DigitalLegacyChecklist (L52), stats (L68), filteredItems (L70), handleAddItem (L84), handleToggleDone (L98), handleDeleteItem (L103), toggleNoteVisibility (L110), newShowNoteIds (L111)
+- `components/dividend-calendar.tsx`: DividendCalendar (L14), handleStorageChange (L23), currentYear (L39), dividendDates (L40), modifiers (L51), modifiersStyles (L61), getDividendsForDate (L69), dividends (L94)
+- `components/dividend-chart.tsx`: BarChart (L6), Bar (L7), XAxis (L8), YAxis (L9), CartesianGrid (L10), Tooltip (L11), ResponsiveContainer (L12), DividendChart (L21)
+- `components/dividend-list.tsx`: DividendList (L41), loadData (L59), handleAdd (L63), handleDelete (L84), resetForm (L91), getDefaultMonths (L100), toggleMonth (L115)
+- `components/dividend-planner.tsx`: DividendPlanner (L10), handleStorageChange (L18), krwTotal (L34), annualMultiplier (L37), usdTotal (L48), annualMultiplier (L51)
+- `components/emergency-fund.tsx`: EmergencyFundComponent (L34), saved (L42), calculate (L52), expenses (L53), current (L54), saving (L55), reset (L69), expensesVal (L78)
+- `components/ev-ice-comparison.tsx`: LineChart (L33), Line (L34), XAxis (L35), YAxis (L36), CartesianGrid (L37), Tooltip (L38), Legend (L39), ResponsiveContainer (L40)
+- `components/family-hub-component.tsx`: FamilyHubComponent (L26), saved (L35), handleCreate (L41), hashedPassword (L50), handleUnlock (L72), isValid (L74), handleExport (L86), jsonStr (L88)
+- `components/favorite-toggle-button.tsx`: FavoriteToggleButton (L14), handleToggle (L24)
+- `components/favorites-dropdown.tsx`: FavoritesDropdown (L19), router (L22), handleStorageChange (L28), interval (L37), favoriteItems (L47), handleItemClick (L53)
+- `components/fear-greed-widget.tsx`: PieChart (L15), Pie (L18), ResponsiveContainer (L21), COLORS (L33), FearGreedWidget (L35), controller (L42), rotation (L89), gaugeData (L92)
+
+## Open Questions
+- No existing `docs/CODEMAPS/*` files were found.
