@@ -12,7 +12,7 @@ commit when the root superproject is cloned with `git submodule update --init --
 | Path | `all/` |
 | Remote | https://github.com/keelim/all.git |
 | Tracked branch | `develop` |
-| Pinned commit | `778491a6c` |
+| Pinned commit | `edac30d2` |
 | Language / toolchain | Kotlin / Android Gradle (Kotlin DSL) |
 | Architecture | Clean Architecture + MVVM + Unidirectional Data Flow (UDF) |
 
@@ -162,7 +162,7 @@ bun run jest    # run tests
 | Path | `Keelim-Knowledge-Vault/` |
 | Remote | https://github.com/keelim/Keelim-Knowledge-Vault.git |
 | Tracked branch | `main` |
-| Pinned commit | `d82b20d3` |
+| Pinned commit | `718fdb6a` |
 | Language / toolchain | Markdown / Obsidian |
 | Purpose | Shared knowledge base and documentation for the workspace |
 
@@ -180,7 +180,7 @@ bun run jest    # run tests
 | Path | `keelim-plugin/` |
 | Remote | https://github.com/keelim/keelim-plugin.git |
 | Tracked branch | `main` |
-| Pinned commit | `156059ac` |
+| Pinned commit | `3e41d105` |
 | Previous name | `keelim-skill` (renamed; continuity preserved via `.gitmodules` and submodule metadata) |
 | Purpose | Plugin / skill definitions for AI-assisted workflows |
 
@@ -188,6 +188,7 @@ bun run jest    # run tests
 ```
 keelim-plugin/skills/
 ├── release-automation/   # Date-based Android release workflow
+├── codebase-codemap/     # Source-led repository mapping workflow
 ├── tech-post-maker/      # Technical post writing skill
 └── ralplan-team/         # Team planning skill
 ```
@@ -207,53 +208,29 @@ The rename is verified by `scripts/verify-keelim-plugin-rename.sh`.
 | Path | `keelim-vercel/` |
 | Remote | https://github.com/keelim/keelim-vercel.git |
 | Tracked branch | `main` |
-| Pinned commit | `e91f0eec` |
+| Pinned commit | `5aa9c8bb` (checked out on `develop`) |
 | Language / toolchain | Node.js / JavaScript (Vercel deployment) |
 | Purpose | Web frontend deployed on Vercel; integrates `all-web-ui` component library |
 
 ---
 
----
-
-## `toto` — KBO Baseball Dashboard
+## `toto` — Local KBO Dashboard
 
 | Field | Value |
 |-------|-------|
 | Path | `toto/` |
 | Remote | https://github.com/keelim/toto.git |
 | Tracked branch | `main` |
-| Pinned commit | — (no gitlink committed to index yet) |
-| Language / toolchain | Python / Streamlit |
-| Purpose | Read-only KBO win/loss dashboard; reproducible season-data pipeline |
+| Pinned commit | `a942e6b` |
+| Language / toolchain | Python / Streamlit with Bun wrapper scripts |
+| Purpose | Read-only local KBO dashboard skeleton and verification surface |
 
-### Status
-
-Declared in `.gitmodules` but the gitlink has **not** been committed to the git index.
-The directory is absent on a fresh clone until the pending gitlink is committed.
-
-To hydrate for local development, clone manually:
-
+### Root scripts
 ```bash
-git clone https://github.com/keelim/toto.git toto
+bun run dev:toto
+bun run test:toto
+bun run verify:toto
 ```
-
-### Bun workspace integration
-
-`toto` is included in the root Bun workspace (`package.json`) as workspace path `toto`.
-The package name reported is `toto-kbo-streamlit-dashboard`. Root-level scripts:
-
-| Script | Command |
-|--------|---------|
-| `bun run dev:toto` | Start Streamlit dev server |
-| `bun run test:toto` | Run test suite |
-| `bun run verify:toto` | Run reproducibility verification |
-
-### Architecture notes
-
-- **Frontend**: Streamlit app (`streamlit_app/Home.py`); read-only, no write paths
-- **Data pipeline**: `bun run bootstrap` → `bun run seed` → populate local fixtures
-- **Provider pattern**: thin `provider` interface separating game-result / standings data from the UI (CSV, fixture, or API backed)
-- **Smoke gate**: `bun run verify` validates boot, home import, and read-only contract
 
 ---
 

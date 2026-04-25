@@ -56,11 +56,7 @@ Registered submodules (pinned via `.gitmodules`):
 - `Keelim-Knowledge-Vault` — documentation knowledge base (`main`)
 - `keelim-plugin` — plugin project (`main`)
 - `keelim-vercel` — web / Vercel deployment project (`main`)
-- `toto` — KBO baseball Streamlit dashboard (`main`) — declared in `.gitmodules`; no gitlink yet
-
-> **Note:** `toto` is declared in `.gitmodules`, but current live gitlink
-> evidence does not list it as an active root gitlink. `toto/` exists locally as
-> a dirty Git worktree and is untracked by the root index.
+- `toto` — local KBO Streamlit dashboard (`main`)
 
 Autonomous child repos (not registered submodules):
 

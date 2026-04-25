@@ -40,19 +40,12 @@ Current declared `.gitmodules` paths:
 Current live gitlink evidence from `git ls-files --stage | rg 160000` and
 `git submodule status` shows active root gitlinks for:
 
-- `all` - index pins `778491a`; live status shows `+edac30d`
+- `all` - index pins `edac30d`
 - `android-support` - index/live status align at `485a2e4`
-- `Keelim-Knowledge-Vault` - index pins `d82b20d`; live status shows `+8e14b15`
-- `keelim-plugin` - index/live status align at `156059a`
-- `keelim-vercel` - index pins `e91f0ee`; live status shows `+5aa9c8b`
-
-The `+` prefix in `git submodule status` means the checked-out child worktree
-does not match the root-pinned index commit.
-
-`toto` is declared in `.gitmodules`, but was not listed as a root gitlink by
-the verification commands above. `toto/` exists locally as a dirty Git worktree
-and is currently untracked at the root. Treat it as a root metadata question
-before claiming the path is fully registered.
+- `Keelim-Knowledge-Vault` - index pins `718fdb6`
+- `keelim-plugin` - index pins `307101b`
+- `keelim-vercel` - index pins `5aa9c8b`
+- `toto` - index pins `a942e6b`
 
 Root `.gitignore` excludes `.omx`, `node_modules`, `all-web-ui`, `quant`, and
 `rich`, so those local paths are intentionally not normal root source files.
@@ -87,9 +80,8 @@ maintenance and verification surfaces:
 - `idea/` - per-project idea backlog and workspace idea index.
 - `scripts/` - root shell helpers for child repo status, integration verification, and rename verification.
 - `.omx/` - local OMX runtime state, logs, plans, and team worktrees; ignored root state, not source.
-- `all/`, `android-support/`, `Keelim-Knowledge-Vault/`, `keelim-plugin/`, `keelim-vercel/` - current active root gitlink paths.
+- `all/`, `android-support/`, `Keelim-Knowledge-Vault/`, `keelim-plugin/`, `keelim-vercel/`, `toto/` - current active root gitlink paths.
 - `all-web-ui/`, `rich/`, `quant/` - autonomous local repos surfaced by helper scripts when present, not root-owned source.
-- `toto/` - local repo/workspace member currently untracked by the root index and dirty in its own worktree.
 
 ## Tests and Verification
 
@@ -160,9 +152,6 @@ repos plus test environment variables documented in `docs/CODEMAPS/SCRIPTS.md`.
 
 ## Open Questions
 
-- `.gitmodules` declares `toto`, but current live gitlink status does not list
-  it. `toto/` exists as a dirty local worktree. Reconcile the metadata before
-  documenting it as an active registered submodule.
 - Existing codemap files were last indexed as updated on 2026-04-17 and may
   lag current README/script changes; verify against live source before relying
   on older child status claims.

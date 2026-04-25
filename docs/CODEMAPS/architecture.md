@@ -17,7 +17,7 @@
   |-- quant (Python multi-service: FastAPI + Django + dashboards)
   |-- all-web-ui (shared React UI package)
   |-- android-support (GitHub Action for Play Console upload)
-  |-- toto (KBO baseball Streamlit dashboard — declared in .gitmodules; no gitlink yet)
+  |-- toto (KBO baseball Streamlit dashboard — registered submodule)
   \-- Keelim-Knowledge-Vault (documentation)
 ```
 
@@ -27,7 +27,7 @@
 - `rich/web`: Next.js frontend + BFF routes (`/api/agenda`, `/api/google-sheets`) bridging Supabase auth and Google APIs.
 - `quant/myapi`: standalone FastAPI domain API (`question/answer/user/etc`) with SQLAlchemy + Alembic.
 - `all-web-ui`: shared UI components consumed by both `keelim-vercel` and `rich/web`.
-- `toto`: KBO baseball win/loss Streamlit dashboard. _(Declared in `.gitmodules`; no gitlink committed; directory absent; hydrate via `git clone https://github.com/keelim/toto.git toto`.)_
+- `toto`: KBO baseball win/loss Streamlit dashboard registered as a root submodule.
 
 ## High-Level Data Flow
 ```text

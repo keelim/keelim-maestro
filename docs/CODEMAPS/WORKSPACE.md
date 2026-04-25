@@ -25,10 +25,7 @@ flowchart TB
     submodules --> vault["Keelim-Knowledge-Vault\nDocumentation · main"]
     submodules --> plugin["keelim-plugin\nPlugin · main"]
     submodules --> vercel["keelim-vercel\nWeb/Vercel · main"]
-
-    orphaned["Pending .gitmodules entries\n(gitlink not yet added)"]
-    root --> orphaned
-    orphaned --> toto["toto\nKBO Streamlit · main\n(declared, no gitlink yet)"]
+    submodules --> toto["toto\nKBO dashboard · main"]
 
     autonomous --> webui["all-web-ui\nWeb UI · main (remote-backed)"]
     autonomous --> rich["rich\nWeb/Node.js · master (ahead of origin)"]
@@ -45,9 +42,9 @@ flowchart TB
 | `Keelim-Knowledge-Vault` | https://github.com/keelim/Keelim-Knowledge-Vault | `main` | Documentation | Registered submodule |
 | `keelim-plugin` | https://github.com/keelim/keelim-plugin | `main` | Plugin project | Registered submodule |
 | `keelim-vercel` | https://github.com/keelim/keelim-vercel | `main` | Web / Vercel deployment | Registered submodule |
+| `toto` | https://github.com/keelim/toto | `main` | Local KBO Streamlit dashboard | Registered submodule |
 | `quant` | none | n/a | local-only (no remote) | Intentionally excluded |
 | `rich` | https://github.com/keelim/rich | `master` | Web / Node.js | Autonomous (pending reconciliation) |
-| `toto` | https://github.com/keelim/toto | `main` | Streamlit / Python (KBO dashboard) | **Declared in `.gitmodules`; no gitlink yet; directory absent** |
 
 ## Architectural Principles
 
@@ -120,12 +117,12 @@ Files and directories that must **not** be edited from the root:
 
 | Path | Pinned commit | Branch | Status |
 |------|---------------|--------|--------|
-| `all` | `778491a6c` | `develop` | Not initialized (empty dir) |
-| `android-support` | `485a2e40` | `main` | Not initialized (empty dir) |
-| `Keelim-Knowledge-Vault` | `d82b20d3` | `main` | Not initialized (empty dir) |
-| `keelim-plugin` | `156059ac` | `main` | Not initialized (empty dir) |
-| `keelim-vercel` | `e91f0eec` | `main` | Not initialized (empty dir) |
-| `toto` | — | `main` | **Pending**: declared in `.gitmodules`; no gitlink committed; directory absent |
+| `all` | `edac30d2` | `develop` | Checked out |
+| `android-support` | `485a2e40` | `main` | Checked out |
+| `Keelim-Knowledge-Vault` | `718fdb6a` | `main` | Checked out |
+| `keelim-plugin` | `3e41d105` | `main` | Checked out |
+| `keelim-vercel` | `5aa9c8bb` | `develop` | Checked out |
+| `toto` | `a942e6b` | `main` | Checked out |
 | `all-web-ui` | — | `main` | Autonomous (not in .gitmodules) |
 | `rich` | — | `master` | Autonomous, commits ahead of origin |
 | `quant` | — | — | Local-only (no remote) |

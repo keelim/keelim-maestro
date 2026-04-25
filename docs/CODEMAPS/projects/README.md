@@ -14,7 +14,7 @@ cross-repo orientation without pretending child source is root-owned.
 | `all` | [all.md](all.md) | 1,013 | Java/Kotlin/Gradle |
 | `all-web-ui` | [all-web-ui.md](all-web-ui.md) | 46 | Node/JavaScript |
 | `android-support` | [android-support.md](android-support.md) | 36 | Node/JavaScript |
-| `Keelim-Knowledge-Vault` | [Keelim-Knowledge-Vault.md](Keelim-Knowledge-Vault.md) | 218 | Markdown / source repository |
+| `Keelim-Knowledge-Vault` | [Keelim-Knowledge-Vault.md](Keelim-Knowledge-Vault.md) | 219 | Markdown / source repository |
 | `keelim-plugin` | [keelim-plugin.md](keelim-plugin.md) | 11 | Skill/plugin source repository |
 | `keelim-vercel` | [keelim-vercel.md](keelim-vercel.md) | 587 | Node/JavaScript |
 | `rich` | [rich.md](rich.md) | 1,621 | Node/JavaScript, Python, Docker |
