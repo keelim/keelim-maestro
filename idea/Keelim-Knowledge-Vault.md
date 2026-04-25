@@ -1,6 +1,6 @@
 # Keelim-Knowledge-Vault
 
-Last reviewed: 2026-04-19 13:56 KST
+Last reviewed: 2026-04-25 KST
 
 ## Signals
 
@@ -37,7 +37,7 @@ Why now: A knowledge vault compounds when strong notes re-enter active work, not
  when they remain buried in old folders.
 
 First slice: Add a weekly review note or script that surfaces recently untouched
- high-value notes, open questions, and notes linked to active repos.
+high-value notes, open questions, and notes linked to active repos.
 
 ### 2026-04-13 - 코드맵 스냅샷 보관소
 
