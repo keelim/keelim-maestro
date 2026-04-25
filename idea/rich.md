@@ -1,14 +1,16 @@
 # rich
 
-Last reviewed: 2026-04-19 13:56 KST
+Last reviewed: 2026-04-25 KST
 
 ## Signals
 
 - Bridges FastAPI admin services, a Next.js web surface, Supabase, GitHub
   workflow control, Google integrations, and market data ingestion.
-- Already has strong operational surfaces around PyKRX, weekly review, agenda,
+- Already has strong operational surfaces around PyKRX, weekly review, Google-connected agenda,
   and personal inbox/loop items.
 - Reliability and operator leverage are at least as important as new UI pages.
+- Shared UI consumption and admin route inventory now add frontend contract drift
+  to the existing backend/workflow reliability surface.
 - `docs/words/AGENTS.md` defines a raw-source/wiki/schema split for an investing
   LLM wiki, so durable review insights can be routed back into knowledge pages.
 
@@ -27,7 +29,7 @@ First slice: Collect failed or partial runs into a single queue with the exact r
 Status: proposed
 
 Why now: `rich` already contains the ingredients for a strong operator ritual,
- but they appear to live across separate endpoints and pages.
+but they appear to live across separate endpoints and pages.
 
 First slice: Create one dashboard view that combines agenda, inbox priorities,
  PyKRX flow highlights, weekly review carry-over items, journal prompts, and

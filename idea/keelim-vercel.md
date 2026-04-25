@@ -1,6 +1,6 @@
 # keelim-vercel
 
-Last reviewed: 2026-04-19 13:56 KST
+Last reviewed: 2026-04-25 KST
 
 ## Signals
 
@@ -27,24 +27,24 @@ First slice: Produce a weekly report that ranks tools by real usage, flags long-
 Status: proposed
 
 Why now: The product has enough calculators, market widgets, and saved surfaces
-  that users would benefit from guidance on what to do next instead of choosing
-  from a long catalog every time, especially after a tool run or goal check-in.
+that users would benefit from guidance on what to do next instead of choosing
+from a long catalog every time, especially after a tool run or goal check-in.
 
 First slice: Build a small recommendation panel that uses recent tool history,
-  bookmarks, and a few profile signals to suggest the next relevant workflow or
-  goal-check-in card.
+bookmarks, and a few profile signals to suggest the next relevant workflow or
+goal-check-in card.
 
 ### 2026-04-13 - 라우트 계약 드리프트 감시
 
 Status: proposed
 
-Why now: `/admin`, `/login`, `/agenda`, `/tqqq-checklist`, `/review` 같은
-별칭과 `sitemap.xml`, admin route inventory가 분리돼 있어서 실제 라우트와
-문서/색인 사이에 drift가 생기기 쉽다.
+Why now: dashboard route, public page, API route, sidebar navigation, discovery
+output이 따로 움직이면 실제로 열리는 표면과 사용자가 찾을 수 있는 표면이 쉽게 어긋난다.
 
-First slice: `web/src/features/admin/admin-route-inventory.ts`,
-`web/src/app/sitemap.xml`, legacy redirect 라우트, 실제 app directory를
-비교해 stale alias와 누락/중복 경로를 주간 리포트로 표시한다.
+First slice: `app/`, `app/api/`, `app/(dashboard)/layout.tsx`,
+`app/(dashboard)/nav-item.tsx`, 그리고 sitemap/robots 출력이 생긴 경우까지
+비교해 stale route, 누락된 navigation entry, 문서화되지 않은 API 후보를 주간
+리포트로 표시한다.
 
 ### 2026-04-14 - 신규 기능 배지 예산 감시
 
