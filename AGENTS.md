@@ -18,17 +18,12 @@
 - Do not discard, rewrite, or normalize child-repo changes from the root without an explicit request.
 
 ## Child repository autonomy
-- Every top-level child directory (`all`, `all-web-ui`, `android-support`, `c2g-proxy`, `Keelim-Knowledge-Vault`, `keelim-plugin`, `keelim-vercel`, `quant`, `rich`) remains its own Git repository and working context.
+- Every top-level child directory (`all`, `all-web-ui`, `android-support`, `Keelim-Knowledge-Vault`, `keelim-plugin`, `keelim-vercel`, `quant`, `rich`, `toto`) remains its own Git repository and working context.
 - When modifying code inside a child repo, enter that repo, use its own Git history, and follow any deeper `AGENTS.md` that applies there.
 - Root-level changes should prefer updating documentation, submodule metadata, or pinned pointers rather than editing child-repo source files.
 - A deeper `AGENTS.md` inside a child repo overrides this file for files under that child repo.
 - Root `package.json` / `bun.lock` may act as a Bun workspace bootstrap for selected web repos, but this does **not** convert the root into a single Git monorepo or remove child-repo standalone responsibilities.
 - A committed root Bun workspace may assume that autonomous child repos are already hydrated at their expected local paths; document that prerequisite in `README.md` whenever the workspace membership changes.
-
-## `/c2g-proxy` policy
-- `/c2g-proxy` is a GitHub-backed registered root submodule.
-- It is the workspace home for the Claude Code + LiteLLM + Gemini bridge artifacts.
-- When updating it from the root, pin it via the remote-backed submodule entry and verify with `git submodule status`.
 
 ## `/all-web-ui` policy
 - `/all-web-ui` is currently treated as an autonomous local child repository from the root.
