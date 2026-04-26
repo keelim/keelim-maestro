@@ -1,6 +1,6 @@
 # android-support
 
-Last reviewed: 2026-04-18 16:40 KST
+Last reviewed: 2026-04-26 KST
 
 ## Signals
 
@@ -55,3 +55,11 @@ Status: proposed
 Why now: 이 action은 릴리스 핵심 경로를 직접 건드리는데, 현재 테스트는 입력 검증에 비해 실제 Play API 편집 생명주기 검증이 약해서 사소한 변경도 실배포까지 밀려갈 수 있다.
 
 First slice: sign/upload/internal sharing/staged rollout 응답을 대표 fixture로 기록하고, 이를 CI에서 재생해 Play Console에 닿지 않고도 전체 edit lifecycle을 검증한다.
+
+### 2026-04-26 - 앱별 Play 롤아웃 정책 레지스트리
+
+Status: proposed
+
+Why now: `android-support`는 `track`, `status`, `userFraction`, `whatsNewDirectory` 같은 typed input을 이미 받고, `all`은 앱 6개(app-my-grade, app-arducon, app-nanda, app-comssa, app-cnubus, app-mysenior)가 각각 별도 CI 워크플로우로 동작하므로, 앱별 예상 롤아웃 정책이 action input과 어긋나도 배포 직전까지 발견하기 어렵다.
+
+First slice: 앱별 기대 `track`·`status`·`userFraction`·locale 커버리지를 작은 JSON 레지스트리로 정의하고, preflight 검증 단계에서 실제 action input을 레지스트리와 대조해 불일치를 업로드 전에 표시한다.

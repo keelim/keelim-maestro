@@ -1,6 +1,6 @@
 # rich
 
-Last reviewed: 2026-04-18 16:40 KST
+Last reviewed: 2026-04-26 KST
 
 ## Signals
 
