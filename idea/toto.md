@@ -1,6 +1,6 @@
 # toto
 
-Last reviewed: 2026-04-25 KST
+Last reviewed: 2026-04-27 KST
 
 ## Signals
 
@@ -41,3 +41,11 @@ Status: proposed
 Why now: `toto`가 `.gitmodules`에 선언돼 있지만 gitlink가 루트 인덱스에 커밋되지 않아서, 신규 클론 시 디렉터리가 없고 `bun run dev:toto`·`bun run verify:toto`를 실행할 수 없다. 재현성을 핵심 가치로 내세운 프로젝트에서 이 비대칭은 가장 먼저 해소해야 할 운영 위험이다.
 
 First slice: 안정 커밋을 골라 gitlink를 루트 인덱스에 커밋하고, `git submodule update --init toto` → `bun run bootstrap` → `bun run verify:toto` 순서가 CI에서 그린으로 돌아오면 pinning 완료로 간주한다.
+
+### 2026-04-27 - 루트 Bun 워크스페이스 통합 게이트
+
+Status: proposed
+
+Why now: 루트 `package.json`에 `toto` 워크스페이스 경로와 `bun run dev:toto`, `bun run test:toto`, `bun run verify:toto` 스크립트가 이미 정의돼 있지만, gitlink가 없어 디렉터리가 비어 있어 루트에서 실행할 수 없다. gitlink가 커밋된 뒤에도 루트 Bun 워크스페이스 전체를 검증하는 CI 게이트가 없으면 서브모듈 초기화 후 회귀를 놓치기 쉽다.
+
+First slice: gitlink 커밋 이후, 루트에서 `bun run verify:toto`와 `bun run test:toto`를 실행해 성공하는지 확인하고, 이를 서브모듈 초기화 단계 뒤에 자동으로 실행되는 CI job으로 추가한다.

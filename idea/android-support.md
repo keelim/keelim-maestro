@@ -1,6 +1,6 @@
 # android-support
 
-Last reviewed: 2026-04-18 16:40 KST
+Last reviewed: 2026-04-27 KST
 
 ## Signals
 
@@ -55,3 +55,11 @@ Status: proposed
 Why now: 이 action은 릴리스 핵심 경로를 직접 건드리는데, 현재 테스트는 입력 검증에 비해 실제 Play API 편집 생명주기 검증이 약해서 사소한 변경도 실배포까지 밀려갈 수 있다.
 
 First slice: sign/upload/internal sharing/staged rollout 응답을 대표 fixture로 기록하고, 이를 CI에서 재생해 Play Console에 닿지 않고도 전체 edit lifecycle을 검증한다.
+
+### 2026-04-27 - 업로드 전 버전코드 비교 검사
+
+Status: proposed
+
+Why now: Play Console은 동일 트랙에 이미 게시된 버전코드를 재업로드하면 즉시 오류로 거부하므로, 서명·빌드 시간이 낭비되고 내부 공유 APK가 취소된다. `action.yml`의 `releaseFiles`·`track`·`status` 입력이 이미 노출되어 있어 dry-run 단계에서 사전 비교가 가능하다.
+
+First slice: dry-run 검증 중 Play API를 통해 타깃 트랙의 현재 최신 버전코드를 조회하고, 업로드 대상 APK/AAB의 versionCode가 그보다 클 때만 실제 업로드로 진행한다.
