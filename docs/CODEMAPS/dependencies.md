@@ -1,4 +1,4 @@
-<!-- Generated: 2026-04-26 | Files scanned: 151+ | Token estimate: ~670 -->
+<!-- Generated: 2026-04-28 | Files scanned: 151+ | Token estimate: ~670 -->
 
 # Dependencies Codemap
 
