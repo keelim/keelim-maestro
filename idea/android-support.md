@@ -1,6 +1,6 @@
 # android-support
 
-Last reviewed: 2026-04-18 16:40 KST
+Last reviewed: 2026-04-29 KST
 
 ## Signals
 
@@ -55,3 +55,11 @@ Status: proposed
 Why now: 이 action은 릴리스 핵심 경로를 직접 건드리는데, 현재 테스트는 입력 검증에 비해 실제 Play API 편집 생명주기 검증이 약해서 사소한 변경도 실배포까지 밀려갈 수 있다.
 
 First slice: sign/upload/internal sharing/staged rollout 응답을 대표 fixture로 기록하고, 이를 CI에서 재생해 Play Console에 닿지 않고도 전체 edit lifecycle을 검증한다.
+
+### 2026-04-29 - 빌드 번들 동기화 게이트
+
+Status: proposed
+
+Why now: TypeScript 소스를 `bun run build`로 컴파일해 `lib/index.js` 번들을 생성하는 구조에서, PR에서 소스만 수정하고 번들을 재생성하지 않으면 소스와 실제 실행 파일이 어긋난 채로 action이 배포된다. 이 차이는 런타임까지 드러나지 않아 릴리스 핵심 경로에서 조용한 회귀를 만든다.
+
+First slice: PR CI에서 `bun run build && git diff --exit-code lib/index.js`를 실행해 번들이 소스와 일치하는지 확인하고, 어긋나면 번들 재생성 요청 메시지와 함께 실패시킨다.
