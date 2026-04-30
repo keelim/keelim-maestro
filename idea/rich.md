@@ -1,6 +1,6 @@
 # rich
 
-Last reviewed: 2026-04-18 16:40 KST
+Last reviewed: 2026-04-30 KST
 
 ## Signals
 
@@ -12,13 +12,13 @@ Last reviewed: 2026-04-18 16:40 KST
 
 ## Open ideas
 
-### 2026-04-12 - Recovery cockpit for failed runs
+### 2026-04-12 - 실행 이력과 복구 큐를 하나로 묶는 운영 허브
 
 Status: proposed
 
-Why now: `rich` now mixes cron jobs, manual runs, Slack reminders, Google reconnects, and pykrx ingestion, so recovery work needs one place to live instead of scattered logs.
+Why now: `rich`는 cron 실행, 수동 실행, PyKRX 수집, 리뷰 플로우가 함께 돌아가는데, 실행 이력과 복구 행동이 서로 다른 엔드포인트에 흩어져 있어서 실패 원인 파악과 재시도가 늦어진다.
 
-First slice: Collect failed or partial runs into a single queue with the exact retry or repair action, then link each item back to the affected workflow.
+First slice: 실행마다 입력·결과·재시도 힌트를 정규화된 로그로 저장하고, 실패·부분 실행을 단일 복구 큐에 모아 영향을 받은 워크플로우와 연결한 타임라인을 렌더링한다.
 
 ### 2026-04-12 - Daily review cockpit
 
@@ -40,18 +40,6 @@ Why now: The system depends on scheduled ingestion, external data, Supabase
 First slice: Add a reliability panel that flags stale datasets, failed jobs,
  missing snapshots, and suspicious metric jumps before they affect downstream
  review flows.
-
-### 2026-04-12 - Execution ledger and replay timeline
-
-Status: proposed
-
-Why now: The admin surface already runs manual workflows, cron-triggered
-ingestion, and review flows, but the history of what happened is still
-scattered across endpoints and logs.
-
-First slice: Persist every run/retry/failure into a normalized log and render a
-timeline that links each event back to the affected workflow and recovery
-action.
 
 ### 2026-04-12 - Integration health console
 
@@ -75,3 +63,11 @@ one-off dump.
 First slice: Track a small watchlist of high-value dataset pages, diff title /
 field / link changes on each export, and push meaningful updates into the
 weekly review or recovery queue.
+
+### 2026-04-30 - 로컬 커밋 정리와 워크스페이스 서브모듈 확장 게이트 해소
+
+Status: proposed
+
+Why now: `docs/CODEMAPS/WORKSPACE.md`가 `rich`에 origin 대비 앞선 로컬 커밋이 있어서 워크스페이스 서브모듈 확장 게이트가 잠겨 있다고 명시한다. 이 상태가 지속되면 `all-web-ui` 서브모듈 전환, `quant` 정리, 다른 자율 저장소 정상화가 모두 블록된다.
+
+First slice: 로컬 커밋을 `origin/master`에 push해 확인하고, `git submodule status`로 워크스페이스 전체 상태를 점검한 뒤 확장 게이트 해소 가능 여부를 `docs/CODEMAPS/WORKSPACE.md`에 기록한다.
