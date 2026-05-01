@@ -1,6 +1,6 @@
 # android-support
 
-Last reviewed: 2026-04-18 16:40 KST
+Last reviewed: 2026-05-01 KST
 
 ## Signals
 
@@ -55,3 +55,11 @@ Status: proposed
 Why now: 이 action은 릴리스 핵심 경로를 직접 건드리는데, 현재 테스트는 입력 검증에 비해 실제 Play API 편집 생명주기 검증이 약해서 사소한 변경도 실배포까지 밀려갈 수 있다.
 
 First slice: sign/upload/internal sharing/staged rollout 응답을 대표 fixture로 기록하고, 이를 CI에서 재생해 Play Console에 닿지 않고도 전체 edit lifecycle을 검증한다.
+
+### 2026-05-01 - 릴리스 핵심 의존성 버전 고정 정책
+
+Status: proposed
+
+Why now: `@googleapis/androidpublisher` 같은 Play Console 클라이언트 라이브러리는 메이저 버전 업데이트 시 edit lifecycle API가 조용히 바뀔 수 있고, Bun lockfile이 없거나 CI에서 `--frozen-lockfile`을 강제하지 않으면 실배포 경로가 예상치 못한 버전으로 실행될 위험이 있다.
+
+First slice: `package.json`의 릴리스 핵심 의존성(`@googleapis/androidpublisher` 포함)에 정확한 버전 범위를 고정하고, CI 빌드를 `--frozen-lockfile` 모드로 전환해 의존성 드리프트를 탐지한다.

@@ -1,6 +1,6 @@
 # toto
 
-Last reviewed: 2026-04-25 KST
+Last reviewed: 2026-05-01 KST
 
 ## Signals
 
@@ -41,3 +41,11 @@ Status: proposed
 Why now: `toto`가 `.gitmodules`에 선언돼 있지만 gitlink가 루트 인덱스에 커밋되지 않아서, 신규 클론 시 디렉터리가 없고 `bun run dev:toto`·`bun run verify:toto`를 실행할 수 없다. 재현성을 핵심 가치로 내세운 프로젝트에서 이 비대칭은 가장 먼저 해소해야 할 운영 위험이다.
 
 First slice: 안정 커밋을 골라 gitlink를 루트 인덱스에 커밋하고, `git submodule update --init toto` → `bun run bootstrap` → `bun run verify:toto` 순서가 CI에서 그린으로 돌아오면 pinning 완료로 간주한다.
+
+### 2026-05-01 - KBO 시즌 전환 파이프라인 게이트
+
+Status: proposed
+
+Why now: `bun run bootstrap → bun run seed → bun run verify` 체인은 같은 시즌 내 재현성은 검증하지만, 새 시즌 시작 시 fixture 파일의 컬럼 구성·팀 코드·경기 수 범위가 바뀌어도 기존 스모크 게이트는 이를 사전에 감지하지 못한다.
+
+First slice: 시즌 전환 시 provider 인터페이스의 예상 컬럼, 팀 코드, 행 범위를 선언적으로 지정하는 시즌 메타 파일을 추가하고, `bun run bootstrap` 단계에서 실제 fixture와 비교해 스키마 불일치가 있으면 시드 이전에 명확한 오류로 실패하게 만든다.
