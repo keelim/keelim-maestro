@@ -1,6 +1,6 @@
 # android-support
 
-Last reviewed: 2026-04-18 16:40 KST
+Last reviewed: 2026-05-02 KST
 
 ## Signals
 
@@ -55,3 +55,11 @@ Status: proposed
 Why now: 이 action은 릴리스 핵심 경로를 직접 건드리는데, 현재 테스트는 입력 검증에 비해 실제 Play API 편집 생명주기 검증이 약해서 사소한 변경도 실배포까지 밀려갈 수 있다.
 
 First slice: sign/upload/internal sharing/staged rollout 응답을 대표 fixture로 기록하고, 이를 CI에서 재생해 Play Console에 닿지 않고도 전체 edit lifecycle을 검증한다.
+
+### 2026-05-02 - lib/index.js 번들 동기화 검증
+
+Status: proposed
+
+Why now: `bun run build`가 `@vercel/ncc`로 `lib/index.js`를 생성하지만, 소스를 수정하고 빌드 없이 커밋하면 액션이 낡은 번들 코드로 실행된다. 이는 기존 "액션 계약 드리프트 검사"가 다루는 인터페이스 계약 문제와 별개로, 배포된 번들이 현재 소스 상태를 반영하는지 확인하는 문제다. SUBMODULES.md가 `lib/index.js`를 커밋 대상 compiled output으로 명시하고 있어 이 비대칭이 조용히 커질 수 있다.
+
+First slice: `bun run build`로 번들을 재생성한 뒤 `git diff --name-only lib/index.js`로 변경 여부를 확인하는 CI 단계를 추가하고, 번들이 소스 대비 낡은 경우 PR 병합 전에 실패하게 만든다.

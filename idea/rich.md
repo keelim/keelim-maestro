@@ -1,6 +1,6 @@
 # rich
 
-Last reviewed: 2026-04-18 16:40 KST
+Last reviewed: 2026-05-02 KST
 
 ## Signals
 
@@ -9,6 +9,7 @@ Last reviewed: 2026-04-18 16:40 KST
 - Already has strong operational surfaces around PyKRX, weekly review, agenda,
   and personal inbox/loop items.
 - Reliability and operator leverage are at least as important as new UI pages.
+- 로컬 브랜치가 `origin/master`보다 30+ 커밋 앞서 있어서, 원격 동기화 해소가 submodule pinning의 전제 조건이다.
 
 ## Open ideas
 

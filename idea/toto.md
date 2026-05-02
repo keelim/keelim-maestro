@@ -1,6 +1,6 @@
 # toto
 
-Last reviewed: 2026-04-25 KST
+Last reviewed: 2026-05-02 KST
 
 ## Signals
 
@@ -41,3 +41,19 @@ Status: proposed
 Why now: `toto`가 `.gitmodules`에 선언돼 있지만 gitlink가 루트 인덱스에 커밋되지 않아서, 신규 클론 시 디렉터리가 없고 `bun run dev:toto`·`bun run verify:toto`를 실행할 수 없다. 재현성을 핵심 가치로 내세운 프로젝트에서 이 비대칭은 가장 먼저 해소해야 할 운영 위험이다.
 
 First slice: 안정 커밋을 골라 gitlink를 루트 인덱스에 커밋하고, `git submodule update --init toto` → `bun run bootstrap` → `bun run verify:toto` 순서가 CI에서 그린으로 돌아오면 pinning 완료로 간주한다.
+
+### 2026-05-02 - 시즌 전환 파라미터 갱신 게이트
+
+Status: proposed
+
+Why now: KBO 시즌은 매년 바뀌어서 연도 파라미터, 팀 목록, 경기 일정 포맷이 달라질 수 있다. 현재 "시즌 스냅샷 매니페스트" 아이디어는 현재 시즌 데이터의 재현성을 검증하지만, 새 시즌 시작 시 파이프라인이 올바르게 시드되는지는 별도로 확인해야 한다. 재현 가능한 파이프라인(`bun run bootstrap → seed`)을 핵심 가치로 내세운 프로젝트에서 연간 전환 게이트가 없으면 시즌 초 데이터 불일치가 조용히 쌓인다.
+
+First slice: 시즌 연도·팀 수·경기 수를 선언하는 파라미터 파일을 만들고, `bun run seed` 이후 예상값과 실제 시드 결과를 비교하는 assertion을 `bun run verify`에 포함시킨다.
+
+### 2026-05-02 - 루트 Bun 워크스페이스 스크립트 경로 검증
+
+Status: proposed
+
+Why now: 루트 `package.json`은 `bun run dev:toto`, `bun run test:toto`, `bun run verify:toto`를 workspace 스크립트로 선언하고 있다. gitlink가 커밋되기 전에는 이 스크립트가 존재하지 않는 경로를 가리키며, 커밋 이후에도 루트 스크립트가 toto 패키지를 올바르게 타겟하는지·예상 exit code를 반환하는지 검증하는 단계가 없다. SUBMODULES.md가 이 세 가지를 공식 루트 스크립트로 문서화하고 있어 통합 검증의 기준이 이미 정해져 있다.
+
+First slice: gitlink 등록 이후 루트 `bun run verify:toto`가 성공하는지 확인하는 통합 검증 단계를 CI에 추가하고, 스크립트 경로 오류나 의존성 누락으로 실패하는 경우 명확한 오류 메시지를 남기게 만든다.
