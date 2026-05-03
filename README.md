@@ -59,10 +59,12 @@ The child repositories remain autonomous at the codebase level. Remote-backed re
 
 ## Bun workspace bootstrap
 
-The current web workspace bootstrap is intentionally narrow:
+The current web workspace bootstrap is intentionally narrow and matches the root `package.json` workspaces:
 
 - `all-web-ui`
 - `keelim-vercel`
+- `rich/open-trading-api/strategy_builder/frontend`
+- `rich/open-trading-api/backtester/frontend`
 - `rich/web`
 - `toto`
 
@@ -78,6 +80,38 @@ Non-goals:
 - replacing child-repo ownership with root ownership
 - forcing `workspace:*` references where standalone repos still need independent installs
 
+### Frontend dependency contract
+
+For local multi-repo frontend work, the root Bun workspace is the authoritative
+install and verification surface for:
+
+- `all-web-ui`
+- `keelim-vercel`
+- `rich/web`
+- `rich/open-trading-api/strategy_builder/frontend`
+- `rich/open-trading-api/backtester/frontend`
+
+`toto` remains a root workspace member for the current root scripts, but it is
+not part of the shared frontend dependency migration lane. The two nested
+`rich/open-trading-api/*/frontend` workspaces are registered for local sidecar
+bootstrap and verification only; they do not make `rich` safe to pin while its
+child repo is dirty/ahead. The `all-web-ui` consumer protocol is intentionally explicit: consumers may retain sibling
+`file:` references while standalone app-root installs and Vercel-style builds
+depend on that shape. A future `workspace:*` switch is acceptable only after
+root frozen install, root filtered checks, and each consumer's app-root
+install/build path pass under the same deployment shape used by Vercel.
+
+When consumers retain `file:`, root `bun.lock` may still contain legitimate
+workspace package registrations such as `all-web-ui@workspace:all-web-ui`.
+The invalid state is drift inside consumer dependency specs or consumer
+dependency entries, not the existence of root workspace registrations.
+
+Package-local `bun.lock` files remain the standalone child-repo fallback unless
+a later documented change explicitly retires child-local installs. In the
+current topology, deleting package-local `node_modules` is not the meaningful
+storage win: `rich/web/node_modules` is symlink-sized and the real shared store
+lives at root `node_modules`.
+
 ### Bun workspace prerequisites
 
 The root workspace assumes these directories already exist locally:
@@ -85,10 +119,11 @@ The root workspace assumes these directories already exist locally:
 - `all-web-ui/`
 - `keelim-vercel/`
 - `rich/web/`
+- `rich/open-trading-api/strategy_builder/frontend/`
+- `rich/open-trading-api/backtester/frontend/`
 - `toto/`
 
-`keelim-vercel` is available from the root submodule bootstrap, but `all-web-ui` and `rich` are still autonomous child repos, **not** root submodules. That means a fresh root clone must hydrate them separately **before** running root `bun install`.
-`toto` is also treated as an autonomous child repo. If it is absent locally, root-level Bun workspace commands that target `toto` will fail until it is hydrated.
+`keelim-vercel` is available from the root submodule bootstrap, but `all-web-ui` and `rich` are still autonomous child repos, **not** root submodules. The nested Open Trading frontend workspaces are expected under the hydrated `rich/` checkout. `toto` is also a root workspace member; if it is absent locally, root-level Bun workspace commands that target `toto` will fail until it is hydrated. That means a fresh root clone must hydrate the autonomous repos separately **before** running root `bun install`.
 
 Example hydration flow:
 
@@ -123,13 +158,15 @@ The first-pass knowledge-system documentation lives under `docs/knowledge/`:
 | --- | --- | --- | --- |
 | `all` | yes | clean vs `origin/develop` | registered submodule |
 | `all-web-ui` | yes | clean vs `origin/main` | autonomous shared UI repo with public remote; included in root subrepo helper + integration verification |
-| `android-support` | yes | clean vs `origin/main` | registered submodule |
+| `android-support` | yes | detached HEAD, clean | registered submodule |
 | `c2g-proxy` | yes | clean vs `origin/main` | registered submodule for the Claude Code + LiteLLM + Gemini bridge |
-| `Keelim-Knowledge-Vault` | yes | clean vs `origin/main` | registered submodule |
-| `keelim-plugin` | yes | clean vs `origin/main` | registered submodule |
-| `keelim-vercel` | yes | clean vs `origin/main` | registered submodule |
-| `quant` | no | dirty local repo | intentionally excluded for now |
-| `rich` | yes | ahead of `origin/master` by 30 | autonomous local repo; reconcile before future pinning |
+| `Keelim-Knowledge-Vault` | yes | ahead of `origin/main` by 7 | registered submodule; do not pin until owner reconciles |
+| `keelim-plugin` | yes | detached HEAD, clean | registered submodule |
+| `keelim-vercel` | yes | clean vs `origin/develop` | registered submodule and Vercel-linked app |
+| `toto` | yes | ahead of `origin/main` by 3 | registered submodule and local KBO dashboard workspace member; do not pin until owner reconciles |
+| `quant` | no | absent in this checkout | intentionally excluded for now |
+| `rich` | yes | ahead of `origin/master` by 12 with mixed dirty state | autonomous local repo; freeze/split before future pinning or data modernization |
+
 
 ## Why `/quant` is excluded
 
@@ -146,7 +183,7 @@ Keeping `/quant` autonomous preserves safety and avoids a non-reproducible clone
 
 Broader child-repo submodule conversion still requires pin-ready repos first. The explicit exception is `c2g-proxy`, which was added directly from its GitHub remote because it is already remote-backed and pin-ready. Further expansion is still blocked by:
 
-- `quant` being a dirty local-only repo with no remote
+- `quant` having no remote-backed reproducible path and remaining intentionally excluded
 - any other child repos that are dirty or temporarily diverged from the pinned root state
 
 Until those repos are normalized, do not expand root-level submodule coverage to them.
@@ -174,6 +211,7 @@ Tracked submodule default branches are declared in `.gitmodules`:
 - `Keelim-Knowledge-Vault` -> `main`
 - `keelim-plugin` -> `main`
 - `keelim-vercel` -> `main`
+- `toto` -> `main`
 
 Helper script:
 
@@ -195,9 +233,9 @@ Behavior:
 
 ## Next safe steps before expanding submodule coverage
 
-1. Reconcile or push the local commits currently ahead in `rich`.
-2. Clean or explicitly preserve dirty local work in `quant` without discarding changes.
-3. Reconcile any child repos that are temporarily dirty or diverged from the root-pinned state.
+1. Freeze/split the mixed dirty state in `rich` before any future pinning or data modernization.
+2. Reconcile child repos that are ahead of their upstreams, currently including `Keelim-Knowledge-Vault` and `toto`.
+3. Keep `quant` excluded unless a future explicit request provides a reproducible remote-backed path.
 4. Expand `.gitmodules` only after any newly targeted remote-backed child repos are safe to pin.
 5. Add new submodules from remote URLs only.
 6. Verify with:
@@ -215,4 +253,4 @@ cd keelim-maestro
 git submodule update --init --recursive
 ```
 
-If you also want the root Bun workspace bootstrap, hydrate the autonomous repos expected by that workspace (`all-web-ui`, `rich`) before running root `bun install`; see **Bun workspace prerequisites** above.
+If you also want the root Bun workspace bootstrap, hydrate the autonomous repos expected by that workspace (`all-web-ui`, `rich`, including nested `rich/open-trading-api/*/frontend` paths) before running root `bun install`; see **Bun workspace prerequisites** above.
