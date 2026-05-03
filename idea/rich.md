@@ -1,6 +1,6 @@
 # rich
 
-Last reviewed: 2026-04-18 16:40 KST
+Last reviewed: 2026-05-03 KST
 
 ## Signals
 
@@ -9,6 +9,7 @@ Last reviewed: 2026-04-18 16:40 KST
 - Already has strong operational surfaces around PyKRX, weekly review, agenda,
   and personal inbox/loop items.
 - Reliability and operator leverage are at least as important as new UI pages.
+- `origin/master`보다 30개 이상 로컬 커밋이 앞서 있어, 루트 워크스페이스의 서브모듈 확장 게이트(all-web-ui pinning 포함)를 막고 있다.
 
 ## Open ideas
 
