@@ -1,0 +1,708 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>keelim-maestro Subproject Intros</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      :root {
+        --ink: #161616;
+        --paper: #f4f1e8;
+        --panel: #fffaf0;
+        --line: rgba(22, 22, 22, 0.16);
+        --muted: #555047;
+        --blue: #0b63ff;
+        --amber: #f2a900;
+        --green: #0a7f5a;
+        --red: #c74332;
+      }
+
+      html,
+      body {
+        width: 1920px;
+        height: 1080px;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background: var(--paper);
+        color: var(--ink);
+        font-family:
+          "Apple SD Gothic Neo",
+          "Noto Sans KR",
+          "Helvetica Neue",
+          Arial,
+          sans-serif;
+      }
+
+      [data-composition-id="workspace-intros"] {
+        position: relative;
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        background:
+          linear-gradient(90deg, var(--line) 1px, transparent 1px) 0 0 / 160px 160px,
+          linear-gradient(0deg, var(--line) 1px, transparent 1px) 0 0 / 160px 160px,
+          linear-gradient(135deg, rgba(242, 169, 0, 0.14), transparent 42%),
+          var(--paper);
+      }
+
+      .atlas-frame {
+        position: absolute;
+        inset: 56px;
+        border: 2px solid rgba(22, 22, 22, 0.84);
+        pointer-events: none;
+      }
+
+      .atlas-frame::before,
+      .atlas-frame::after {
+        content: "";
+        position: absolute;
+        background: var(--ink);
+      }
+
+      .atlas-frame::before {
+        top: 126px;
+        left: 0;
+        width: 100%;
+        height: 2px;
+      }
+
+      .atlas-frame::after {
+        top: 0;
+        left: 424px;
+        width: 2px;
+        height: 100%;
+      }
+
+      .hud-label {
+        position: absolute;
+        top: 88px;
+        left: 96px;
+        z-index: 30;
+        display: flex;
+        gap: 18px;
+        align-items: center;
+        font-size: 26px;
+        font-weight: 800;
+      }
+
+      .hud-label span {
+        display: inline-block;
+      }
+
+      .hud-dot {
+        width: 20px;
+        height: 20px;
+        background: var(--blue);
+      }
+
+      .timeline {
+        position: absolute;
+        top: 92px;
+        right: 96px;
+        z-index: 30;
+        display: grid;
+        grid-template-columns: repeat(8, 52px);
+        gap: 10px;
+      }
+
+      .timeline span {
+        height: 16px;
+        background: rgba(22, 22, 22, 0.18);
+      }
+
+      .timeline span:nth-child(1),
+      .timeline span:nth-child(4),
+      .timeline span:nth-child(7) {
+        background: var(--amber);
+      }
+
+      .scene {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        width: 100%;
+        height: 100%;
+        padding: 208px 96px 92px;
+        box-sizing: border-box;
+        opacity: 0;
+      }
+
+      .opening,
+      .closing {
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 48px;
+      }
+
+      .project {
+        display: grid;
+        grid-template-columns: 424px minmax(0, 1fr) 360px;
+        gap: 56px;
+        align-items: stretch;
+      }
+
+      .scene-kicker {
+        font-size: 28px;
+        font-weight: 800;
+        color: var(--blue);
+      }
+
+      .title-lockup {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        max-width: 1480px;
+      }
+
+      .eyebrow {
+        font-size: 34px;
+        font-weight: 800;
+        color: var(--muted);
+      }
+
+      h1,
+      h2,
+      p {
+        margin: 0;
+      }
+
+      h1 {
+        font-size: 142px;
+        line-height: 0.96;
+        font-weight: 900;
+      }
+
+      h2 {
+        font-size: 116px;
+        line-height: 1;
+        font-weight: 900;
+      }
+
+      .subtitle {
+        max-width: 1280px;
+        font-size: 46px;
+        line-height: 1.35;
+        font-weight: 700;
+        color: var(--muted);
+      }
+
+      .project-code {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        border-right: 2px solid rgba(22, 22, 22, 0.72);
+        padding: 24px 36px 32px 0;
+        box-sizing: border-box;
+      }
+
+      .index-number {
+        font-size: 118px;
+        line-height: 0.9;
+        font-weight: 900;
+        color: var(--blue);
+      }
+
+      .repo-label {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        font-size: 28px;
+        line-height: 1.15;
+        font-weight: 800;
+        color: var(--muted);
+      }
+
+      .repo-label strong {
+        color: var(--ink);
+        font-size: 42px;
+        line-height: 1.1;
+        word-break: keep-all;
+      }
+
+      .project-main {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 36px;
+      }
+
+      .project-title {
+        display: flex;
+        flex-direction: column;
+        gap: 26px;
+      }
+
+      .project-title h2 {
+        word-break: keep-all;
+      }
+
+      .project-title p {
+        max-width: 980px;
+        font-size: 43px;
+        line-height: 1.35;
+        font-weight: 700;
+        color: var(--muted);
+        word-break: keep-all;
+      }
+
+      .signals {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 18px;
+      }
+
+      .signal {
+        min-height: 138px;
+        border: 2px solid rgba(22, 22, 22, 0.72);
+        background: rgba(255, 250, 240, 0.72);
+        padding: 22px;
+        box-sizing: border-box;
+      }
+
+      .signal span {
+        display: block;
+        margin-bottom: 14px;
+        font-size: 20px;
+        font-weight: 900;
+        color: var(--blue);
+      }
+
+      .signal strong {
+        display: block;
+        font-size: 30px;
+        line-height: 1.22;
+        font-weight: 900;
+        word-break: keep-all;
+      }
+
+      .project-stack {
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+        justify-content: flex-end;
+      }
+
+      .stack-label {
+        font-size: 22px;
+        font-weight: 900;
+        color: var(--muted);
+      }
+
+      .stack-pill {
+        border: 2px solid var(--ink);
+        background: var(--panel);
+        padding: 18px 20px;
+        font-size: 27px;
+        line-height: 1.1;
+        font-weight: 900;
+      }
+
+      .stack-pill.accent-blue {
+        background: var(--blue);
+        color: var(--panel);
+      }
+
+      .stack-pill.accent-amber {
+        background: var(--amber);
+      }
+
+      .stack-pill.accent-green {
+        background: var(--green);
+        color: var(--panel);
+      }
+
+      .stack-pill.accent-red {
+        background: var(--red);
+        color: var(--panel);
+      }
+
+      .bar-map {
+        display: grid;
+        grid-template-columns: repeat(8, minmax(0, 1fr));
+        gap: 14px;
+        max-width: 1120px;
+      }
+
+      .bar-map span {
+        height: 96px;
+        border: 2px solid var(--ink);
+        background: var(--panel);
+      }
+
+      .bar-map span:nth-child(1),
+      .bar-map span:nth-child(5) {
+        background: var(--blue);
+      }
+
+      .bar-map span:nth-child(2),
+      .bar-map span:nth-child(6) {
+        background: var(--amber);
+      }
+
+      .bar-map span:nth-child(3),
+      .bar-map span:nth-child(7) {
+        background: var(--green);
+      }
+
+      .bar-map span:nth-child(4),
+      .bar-map span:nth-child(8) {
+        background: var(--red);
+      }
+
+      .closing-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 18px;
+      }
+
+      .closing-tile {
+        min-height: 112px;
+        border: 2px solid var(--ink);
+        background: var(--panel);
+        padding: 24px;
+        box-sizing: border-box;
+        font-size: 30px;
+        line-height: 1.1;
+        font-weight: 900;
+      }
+
+      .closing-tile:nth-child(2n) {
+        background: var(--amber);
+      }
+
+      .closing-tile:nth-child(3n) {
+        background: var(--blue);
+        color: var(--panel);
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      id="workspace-intros"
+      data-composition-id="workspace-intros"
+      data-width="1920"
+      data-height="1080"
+      data-start="0"
+      data-duration="62"
+    >
+      <div class="atlas-frame" data-layout-ignore></div>
+      <div class="hud-label">
+        <span class="hud-dot"></span>
+        <span>keelim-maestro / subproject atlas</span>
+      </div>
+      <div class="timeline" data-layout-ignore>
+        <span></span><span></span><span></span><span></span><span></span><span></span><span></span
+        ><span></span>
+      </div>
+
+      <section id="scene-open" class="clip scene opening" data-start="0" data-duration="6" data-track-index="1">
+        <div class="title-lockup">
+          <p class="scene-kicker">WORKSPACE SUPERPROJECT</p>
+          <h1>각 서브프로젝트를<br />하나의 지도처럼</h1>
+          <p class="subtitle">
+            루트는 조율하고, 각 레포는 독립적으로 움직입니다. 이 영상은 지금 워크스페이스의 역할을
+            빠르게 보여주는 62초 소개 쇼릴입니다.
+          </p>
+        </div>
+        <div class="bar-map" data-layout-ignore>
+          <span></span><span></span><span></span><span></span><span></span><span></span><span></span
+          ><span></span>
+        </div>
+      </section>
+
+      <section id="scene-all" class="clip scene project" data-start="6" data-duration="7" data-track-index="1">
+        <div class="project-code">
+          <div class="index-number">01</div>
+          <div class="repo-label"><span>ANDROID / KMP</span><strong>all</strong></div>
+        </div>
+        <div class="project-main">
+          <div class="project-title">
+            <h2>앱 실험실과<br />공통 아키텍처</h2>
+            <p>
+              Kotlin, Gradle, Compose, KMP를 중심으로 여러 앱과 공통 모듈을 함께 키우는 모바일
+              제품군입니다.
+            </p>
+          </div>
+          <div class="signals">
+            <div class="signal"><span>SHAPE</span><strong>1,013개 파일 규모</strong></div>
+            <div class="signal"><span>CORE</span><strong>앱·공통·기능 모듈</strong></div>
+            <div class="signal"><span>FLOW</span><strong>검증 가능한 Android 루틴</strong></div>
+          </div>
+        </div>
+        <div class="project-stack">
+          <div class="stack-label">STACK SIGNALS</div>
+          <div class="stack-pill accent-blue">Kotlin</div>
+          <div class="stack-pill">Gradle</div>
+          <div class="stack-pill accent-amber">Compose</div>
+          <div class="stack-pill">KMP</div>
+        </div>
+      </section>
+
+      <section id="scene-ui" class="clip scene project" data-start="13" data-duration="7" data-track-index="1">
+        <div class="project-code">
+          <div class="index-number">02</div>
+          <div class="repo-label"><span>SHARED WEB UI</span><strong>all-web-ui</strong></div>
+        </div>
+        <div class="project-main">
+          <div class="project-title">
+            <h2>웹 앱들이 공유하는<br />UI 부품 창고</h2>
+            <p>
+              버튼, 패널, 탭, 토스트, 캘린더 같은 React 컴포넌트를 패키지화해서 소비 앱의 중복을
+              줄입니다.
+            </p>
+          </div>
+          <div class="signals">
+            <div class="signal"><span>API</span><strong>src/index.ts 단일 진입점</strong></div>
+            <div class="signal"><span>ROLE</span><strong>소비 앱의 시각 언어</strong></div>
+            <div class="signal"><span>VERIFY</span><strong>test + typecheck</strong></div>
+          </div>
+        </div>
+        <div class="project-stack">
+          <div class="stack-label">STACK SIGNALS</div>
+          <div class="stack-pill accent-blue">React</div>
+          <div class="stack-pill">TypeScript</div>
+          <div class="stack-pill accent-green">Components</div>
+          <div class="stack-pill">Bun</div>
+        </div>
+      </section>
+
+      <section id="scene-android-support" class="clip scene project" data-start="20" data-duration="7" data-track-index="1">
+        <div class="project-code">
+          <div class="index-number">03</div>
+          <div class="repo-label"><span>RELEASE OPS</span><strong>android-support</strong></div>
+        </div>
+        <div class="project-main">
+          <div class="project-title">
+            <h2>Play Store 배포를<br />자동화하는 액션</h2>
+            <p>
+              Android Publisher API, 릴리즈 노트, AAB 서명과 업로드 흐름을 GitHub Action으로
+              묶는 배포 보조 레포입니다.
+            </p>
+          </div>
+          <div class="signals">
+            <div class="signal"><span>INPUT</span><strong>릴리즈 파일과 메타데이터</strong></div>
+            <div class="signal"><span>OUTPUT</span><strong>Play edit 업로드</strong></div>
+            <div class="signal"><span>GUARD</span><strong>입력 검증 테스트</strong></div>
+          </div>
+        </div>
+        <div class="project-stack">
+          <div class="stack-label">STACK SIGNALS</div>
+          <div class="stack-pill accent-amber">GitHub Action</div>
+          <div class="stack-pill">Node</div>
+          <div class="stack-pill accent-blue">Google APIs</div>
+          <div class="stack-pill">Jest</div>
+        </div>
+      </section>
+
+      <section id="scene-vault" class="clip scene project" data-start="27" data-duration="7" data-track-index="1">
+        <div class="project-code">
+          <div class="index-number">04</div>
+          <div class="repo-label"><span>KNOWLEDGE BASE</span><strong>Vault</strong></div>
+        </div>
+        <div class="project-main">
+          <div class="project-title">
+            <h2>기술 지식을<br />오래 쓰는 노트로</h2>
+            <p>
+              Android, Kotlin, 시스템 설계, AI 하네스까지 흩어진 학습 자산을 Markdown 기반 지식
+              vault로 연결합니다.
+            </p>
+          </div>
+          <div class="signals">
+            <div class="signal"><span>CONTENT</span><strong>216개 Markdown 노트</strong></div>
+            <div class="signal"><span>MAP</span><strong>언어·설계·AI 허브</strong></div>
+            <div class="signal"><span>USE</span><strong>다음 작업의 기억 저장소</strong></div>
+          </div>
+        </div>
+        <div class="project-stack">
+          <div class="stack-label">STACK SIGNALS</div>
+          <div class="stack-pill accent-green">Markdown</div>
+          <div class="stack-pill">Obsidian-style</div>
+          <div class="stack-pill accent-blue">Kotlin</div>
+          <div class="stack-pill">Architecture</div>
+        </div>
+      </section>
+
+      <section id="scene-plugin" class="clip scene project" data-start="34" data-duration="7" data-track-index="1">
+        <div class="project-code">
+          <div class="index-number">05</div>
+          <div class="repo-label"><span>AGENT TOOLING</span><strong>keelim-plugin</strong></div>
+        </div>
+        <div class="project-main">
+          <div class="project-title">
+            <h2>에이전트가 먼저<br />코드 지도를 읽게 하기</h2>
+            <p>
+              codebase-codemap 스킬과 생성 스크립트로 멀티레포 작업 전에 구조, 진입점, 검증 표면을
+              빠르게 세웁니다.
+            </p>
+          </div>
+          <div class="signals">
+            <div class="signal"><span>SKILL</span><strong>codemap 생성 워크플로</strong></div>
+            <div class="signal"><span>OUTPUT</span><strong>프로젝트명 기반 문서</strong></div>
+            <div class="signal"><span>ROLE</span><strong>미래 에이전트 온보딩</strong></div>
+          </div>
+        </div>
+        <div class="project-stack">
+          <div class="stack-label">STACK SIGNALS</div>
+          <div class="stack-pill accent-blue">Codex Skill</div>
+          <div class="stack-pill">Python</div>
+          <div class="stack-pill accent-amber">Codemap</div>
+          <div class="stack-pill">YAML</div>
+        </div>
+      </section>
+
+      <section id="scene-vercel" class="clip scene project" data-start="41" data-duration="7" data-track-index="1">
+        <div class="project-code">
+          <div class="index-number">06</div>
+          <div class="repo-label"><span>FINANCE WEB</span><strong>keelim-vercel</strong></div>
+        </div>
+        <div class="project-main">
+          <div class="project-title">
+            <h2>개인 금융 도구를<br />웹 대시보드로</h2>
+            <p>
+              계산기, 루틴, 위키, 뉴스레터, 시장 도구를 Next.js 앱 안에서 빠르게 실험하고 운영하는
+              개인 금융 표면입니다.
+            </p>
+          </div>
+          <div class="signals">
+            <div class="signal"><span>SURFACE</span><strong>대시보드 라우트 다수</strong></div>
+            <div class="signal"><span>DATA</span><strong>Supabase + 로컬 스토리지</strong></div>
+            <div class="signal"><span>CARE</span><strong>공유 UI 소비 앱</strong></div>
+          </div>
+        </div>
+        <div class="project-stack">
+          <div class="stack-label">STACK SIGNALS</div>
+          <div class="stack-pill accent-blue">Next.js</div>
+          <div class="stack-pill">TypeScript</div>
+          <div class="stack-pill accent-green">Supabase</div>
+          <div class="stack-pill">Finance Tools</div>
+        </div>
+      </section>
+
+      <section id="scene-rich" class="clip scene project" data-start="48" data-duration="7" data-track-index="1">
+        <div class="project-code">
+          <div class="index-number">07</div>
+          <div class="repo-label"><span>OPERATING SYSTEM</span><strong>rich</strong></div>
+        </div>
+        <div class="project-main">
+          <div class="project-title">
+            <h2>일상 운영과<br />트레이딩 리서치의 허브</h2>
+            <p>
+              Today, Loop, Review, Money admin, Supabase, open-trading 실험을 묶어 매일의 선택을
+              구조화합니다.
+            </p>
+          </div>
+          <div class="signals">
+            <div class="signal"><span>SCALE</span><strong>Python + Web + SQL</strong></div>
+            <div class="signal"><span>FLOW</span><strong>캡처 → 오늘 → 복기</strong></div>
+            <div class="signal"><span>MARKET</span><strong>지표와 전략 실험</strong></div>
+          </div>
+        </div>
+        <div class="project-stack">
+          <div class="stack-label">STACK SIGNALS</div>
+          <div class="stack-pill accent-blue">Next.js</div>
+          <div class="stack-pill">Python</div>
+          <div class="stack-pill accent-amber">Supabase</div>
+          <div class="stack-pill">Open Trading</div>
+        </div>
+      </section>
+
+      <section id="scene-toto" class="clip scene project" data-start="55" data-duration="5" data-track-index="1">
+        <div class="project-code">
+          <div class="index-number">08</div>
+          <div class="repo-label"><span>READ-ONLY SPORTS</span><strong>toto</strong></div>
+        </div>
+        <div class="project-main">
+          <div class="project-title">
+            <h2>KBO 분석을<br />읽기 전용으로 차분하게</h2>
+            <p>
+              Streamlit과 SQLite 기반 대시보드로 경기 카드, 모델 요약, 필터 상태를 보여주는 KBO
+              보조 분석 도구입니다.
+            </p>
+          </div>
+          <div class="signals">
+            <div class="signal"><span>MODE</span><strong>추천 자동화 없이 분석 중심</strong></div>
+            <div class="signal"><span>DATA</span><strong>SQLite seed / refresh</strong></div>
+            <div class="signal"><span>CHECK</span><strong>pytest + compile 검증</strong></div>
+          </div>
+        </div>
+        <div class="project-stack">
+          <div class="stack-label">STACK SIGNALS</div>
+          <div class="stack-pill accent-green">Streamlit</div>
+          <div class="stack-pill">Python</div>
+          <div class="stack-pill accent-blue">SQLite</div>
+          <div class="stack-pill">KBO</div>
+        </div>
+      </section>
+
+      <section id="scene-close" class="clip scene closing" data-start="60" data-duration="2" data-track-index="1">
+        <div class="title-lockup">
+          <p class="scene-kicker">ONE ROOT, MANY AUTONOMOUS REPOS</p>
+          <h1>루트는 방향을 맞추고<br />각 프로젝트는 자기 속도로 전진</h1>
+        </div>
+        <div class="closing-grid">
+          <div class="closing-tile">all</div>
+          <div class="closing-tile">all-web-ui</div>
+          <div class="closing-tile">android-support</div>
+          <div class="closing-tile">Knowledge Vault</div>
+          <div class="closing-tile">keelim-plugin</div>
+          <div class="closing-tile">keelim-vercel</div>
+          <div class="closing-tile">rich</div>
+          <div class="closing-tile">toto</div>
+        </div>
+      </section>
+
+      <script>
+        window.__timelines = window.__timelines || {};
+
+        const tl = gsap.timeline({ paused: true });
+        const scenes = [
+          ["#scene-open", 0, 6],
+          ["#scene-all", 6, 7],
+          ["#scene-ui", 13, 7],
+          ["#scene-android-support", 20, 7],
+          ["#scene-vault", 27, 7],
+          ["#scene-plugin", 34, 7],
+          ["#scene-vercel", 41, 7],
+          ["#scene-rich", 48, 7],
+          ["#scene-toto", 55, 5],
+          ["#scene-close", 60, 2],
+        ];
+
+        function fromIfPresent(selector, vars, position) {
+          if (document.querySelectorAll(selector).length > 0) {
+            tl.from(selector, vars, position);
+          }
+        }
+
+        tl.to(".timeline span", { scaleX: 1.12, duration: 0.42, stagger: 0.08, ease: "power2.out" }, 0);
+        tl.to(".hud-dot", { rotation: 180, duration: 1.4, ease: "sine.inOut" }, 0);
+        tl.to(".atlas-frame", { opacity: 0.72, duration: 1.2, ease: "sine.inOut" }, 0);
+
+        scenes.forEach(([selector, start, duration]) => {
+          tl.set(selector, { opacity: 1 }, start);
+          fromIfPresent(`${selector} .scene-kicker, ${selector} .eyebrow`, { y: 28, opacity: 0, duration: 0.42, ease: "power3.out" }, start + 0.08);
+          fromIfPresent(`${selector} h1, ${selector} h2`, { y: 58, opacity: 0, duration: 0.54, ease: "power4.out" }, start + 0.18);
+          fromIfPresent(`${selector} .subtitle, ${selector} .project-title p`, { y: 36, opacity: 0, duration: 0.48, ease: "power3.out" }, start + 0.32);
+          fromIfPresent(`${selector} .index-number`, { x: -42, opacity: 0, duration: 0.42, ease: "power4.out" }, start + 0.16);
+          fromIfPresent(`${selector} .repo-label`, { y: 34, opacity: 0, duration: 0.42, ease: "power3.out" }, start + 0.36);
+          fromIfPresent(`${selector} .signal`, { y: 42, opacity: 0, duration: 0.42, stagger: 0.08, ease: "power3.out" }, start + 0.64);
+          fromIfPresent(`${selector} .stack-pill`, { x: 44, opacity: 0, duration: 0.38, stagger: 0.07, ease: "power3.out" }, start + 0.72);
+          fromIfPresent(`${selector} .bar-map span, ${selector} .closing-tile`, { scaleY: 0, transformOrigin: "bottom", duration: 0.5, stagger: 0.045, ease: "power3.out" }, start + 0.72);
+
+          if (duration > 2.2) {
+            tl.to(selector, { x: 12, duration: duration - 1.4, ease: "none" }, start + 0.8);
+          }
+
+          tl.to(selector, { opacity: 0, duration: 0.28, ease: "power2.in" }, start + duration - 0.3);
+        });
+
+        tl.to(".hud-dot", { rotation: 360, duration: 1.4, ease: "sine.inOut" }, 31);
+        tl.to(".timeline span", { backgroundColor: "#161616", duration: 0.32, stagger: 0.04, ease: "power2.out" }, 60.8);
+
+        window.__timelines["workspace-intros"] = tl;
+      </script>
+    </div>
+  </body>
+</html>
