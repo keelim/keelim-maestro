@@ -162,6 +162,7 @@ The first-pass knowledge-system documentation lives under `docs/knowledge/`:
 | --- | --- | --- | --- |
 | `all` | yes | clean vs `origin/develop` | registered submodule |
 | `all-web-ui` | yes | clean vs `origin/main` | autonomous shared UI repo with public remote; included in root subrepo helper + integration verification |
+| `agent-skill-console` | no | local-only independent child repo | autonomous Tauri desktop app for skill/agent inventory; intentionally not a submodule, root workspace member, or remote-backed repo in v1 |
 | `android-support` | yes | clean vs `origin/main` | registered submodule |
 | `Keelim-Knowledge-Vault` | yes | clean vs `origin/main` | registered submodule |
 | `keelim-plugin` | yes | clean vs `origin/main` | registered submodule |
