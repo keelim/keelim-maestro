@@ -7,3 +7,8 @@
 /rich/
 /.omx
 .omx/
+
+# Generated video documentation outputs: keep source/project files in docs/videos,
+# but do not commit heavyweight renders or local preview thumbnails by default.
+/docs/videos/**/renders/
+/docs/videos/**/.thumbnails/
