@@ -203,6 +203,24 @@ git submodule update --init --recursive
 Note: the submodule commands above are valid for the registered submodules in `.gitmodules`. `quant` remains intentionally excluded, and `rich` is still treated as an autonomous child repo from the root.
 `all-web-ui` is also surfaced through the root helper scripts as an autonomous child repo, but it is not yet a registered submodule.
 
+## Root test command
+
+The root `test` script is intentionally lightweight and should remain safe to run at any time:
+
+```bash
+bun run test
+```
+
+It verifies the root superproject contract: package metadata, required helper scripts, and autonomous-repo boundaries. It does not run heavy child-repo builds or dirty working-tree-sensitive app suites. Use the narrower scripts below when you intentionally want those surfaces:
+
+```bash
+bun run typecheck:web
+bun run build:web
+bun run test:web
+bun run verify:toto
+./scripts/verify-all-web-ui-integration.sh --full
+```
+
 ## Subrepo update helper
 
 Tracked submodule default branches are declared in `.gitmodules`:

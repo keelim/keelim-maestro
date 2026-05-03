@@ -11,6 +11,8 @@
     "toto"
   ],
   "scripts": {
+    "test": "sh scripts/test-workspace.sh",
+    "test:workspace": "sh scripts/test-workspace.sh",
     "typecheck:web": "bun run --filter all-web-ui typecheck && bun run --filter keelim-vercel typecheck && bun run --filter rich-admin-web typecheck",
     "build:web": "bun run --filter keelim-vercel build && bun run --filter rich-admin-web build",
     "test:web": "bun run --filter rich-admin-web test -- --no-file-parallelism --maxWorkers=1",
