@@ -5,6 +5,8 @@
   "workspaces": [
     "all-web-ui",
     "keelim-vercel",
+    "rich/open-trading-api/strategy_builder/frontend",
+    "rich/open-trading-api/backtester/frontend",
     "rich/web",
     "toto"
   ],
@@ -17,7 +19,7 @@
     "dev:toto": "bun run --filter toto-kbo-streamlit-dashboard dev",
     "test:toto": "bun run --filter toto-kbo-streamlit-dashboard test",
     "verify:toto": "bun run --filter toto-kbo-streamlit-dashboard verify",
-    "dev:rich-strategy-builder-sidecar": "cd rich && sh open-trading-api/strategy_builder/start.sh",
-    "dev:rich-backtester-sidecar": "cd rich && sh open-trading-api/backtester/start.sh"
+    "dev:strategy-builder": "cd rich && bash open-trading-api/strategy_builder/start.sh",
+    "dev:backtester": "cd rich && bash open-trading-api/backtester/start.sh"
   }
 }
