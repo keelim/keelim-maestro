@@ -1,4 +1,4 @@
-<!-- Generated: 2026-05-02 | Files scanned: 151+ | Token estimate: ~620 -->
+<!-- Generated: 2026-05-03 | Files scanned: 151+ | Token estimate: ~620 -->
 
 # Architecture Codemap (Workspace)
 
