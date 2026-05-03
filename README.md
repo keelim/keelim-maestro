@@ -9,7 +9,6 @@ flowchart TB
     root["keelim-maestro"]
 
     root --> rootFiles["root files<br/>AGENTS.md / README.md / .gitignore / .gitmodules"]
-    root --> omx[".omx<br/>state / logs / metrics"]
     root --> submodules["registered submodules"]
     root --> localRepos["autonomous local repos"]
 
@@ -24,6 +23,21 @@ flowchart TB
     localRepos --> quant["quant"]
     localRepos --> rich["rich"]
 ```
+
+## MCP routing model
+
+All MCP calls are modeled as passing through `agentgateway` regardless of the
+agent type. Agent type changes the execution role, not the MCP ingress path.
+
+```mermaid
+flowchart LR
+    agent["Agent<br/>leader / subagent / worker / plugin"] --> gateway["agentgateway MCP"]
+    gateway --> mcp["MCP servers / tools"]
+```
+
+When adding or describing an MCP integration, document it behind
+`agentgateway` unless a lower-level implementation detail explicitly needs to
+be called out.
 
 ## Current safe scope
 
