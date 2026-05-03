@@ -4,6 +4,7 @@
 /.omx/state/
 /node_modules/
 /all-web-ui/
+/agent-skill-console/
 /quant/
 /rich/
 /tools/
