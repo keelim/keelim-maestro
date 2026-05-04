@@ -1,6 +1,6 @@
 # android-support
 
-Last reviewed: 2026-04-25 KST
+Last reviewed: 2026-05-04 KST
 
 ## Signals
 
@@ -56,3 +56,17 @@ Status: proposed
 Why now: 이 action은 릴리스 핵심 경로를 직접 건드리는데, 현재 테스트는 입력 검증에 비해 실제 Play API 편집 생명주기 검증이 약해서 사소한 변경도 실배포까지 밀려갈 수 있다.
 
 First slice: sign/upload/internal sharing/staged rollout 응답을 대표 fixture로 기록하고, 이를 CI에서 재생해 Play Console에 닿지 않고도 전체 edit lifecycle을 검증한다.
+
+### 2026-05-04 - 앱별 릴리스 트랙 조율 레지스트리
+
+Status: proposed
+
+Why now: `all` 저장소에는 6개 앱(`app-my-grade`, `app-arducon`, `app-nanda`,
+`app-comssa`, `app-cnubus`, `app-mysenior`)이 각자 CI 워크플로우를 갖고 있고,
+`android-support` 액션이 공통 Play Console 업로드 경로를 담당한다. 어떤 앱이 어떤
+track·status·userFraction 설정으로 배포 중인지 한눈에 보이지 않으면 릴리스 간 충돌이나
+누락이 늦게 드러난다.
+
+First slice: 앱별 마지막 배포 track, status, userFraction 스냅샷을 `android-support`
+액션 로그에서 수집해 하나의 릴리스 레지스트리로 구성하고, 현재 활성 배포와 대기 배포를
+한 표에서 보여준다.

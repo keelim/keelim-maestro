@@ -1,6 +1,6 @@
 # toto
 
-Last reviewed: 2026-04-25 KST
+Last reviewed: 2026-05-04 KST
 
 ## Signals
 
@@ -41,4 +41,18 @@ Status: proposed
 
 Why now: `toto`가 `.gitmodules`에 선언돼 있지만 gitlink가 루트 인덱스에 커밋되지 않아서, 신규 클론 시 디렉터리가 없고 `bun run dev:toto`·`bun run verify:toto`를 실행할 수 없다. 재현성을 핵심 가치로 내세운 프로젝트에서 이 비대칭은 가장 먼저 해소해야 할 운영 위험이다.
 
-First slice: 안정 커밋을 골라 gitlink를 루트 인덱스에 커밋하고, `git submodule update --init toto` → `bun run bootstrap` → `bun run verify:toto` 순서가 CI에서 그린으로 돌아오면 pinning 완료로 간주한다.
+First slice: 안정 커밋을 골라 gitlink를 루트 인덱스에 커밋하고, `git submodule update --init toto` → `bun run bootstrap` → `bun run verify:toto` 순서가 CI에서 그린으로 돌아오면 pinning 완료로 간주한다. (루트 WORKSPACE.md 기준 `a942e6b`로 pinned 확인됨 — CI 그린 여부 별도 검증 필요)
+
+### 2026-05-04 - 진입점 이중화 정리 및 워크스페이스 문서 동기화
+
+Status: proposed
+
+Why now: 자식 저장소 코드맵과 `bun run dev` 명령은 `streamlit_app/app.py`를 실제
+진입점으로 사용하지만, 워크스페이스 루트 `docs/CODEMAPS/frontend.md`는
+`streamlit_app/Home.py`를 진입점으로 참조한다. 두 파일이 디렉터리에 함께 존재하는
+상황에서 어느 쪽이 기준인지 불명확한 채로 두면 스모크 테스트나 경로 드리프트 감지에서
+혼선이 생길 수 있다.
+
+First slice: `streamlit_app/app.py`와 `Home.py`의 역할을 명확히 구분하고(런처 vs
+페이지), 루트 코드맵과 `bun run dev:toto` 스크립트가 같은 파일을 가리키도록 워크스페이스
+문서를 동기화한다.
