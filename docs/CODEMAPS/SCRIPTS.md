@@ -183,6 +183,40 @@ Exits with the number of failures (0 = all checks passed). Prints
 
 ---
 
+## `scripts/test-workspace.sh`
+
+Lightweight root superproject contract test suite. Verifies that the root
+`package.json`, required helper scripts, and autonomous-repo boundaries all
+meet the documented workspace contract. Run via `bun run test` or
+`bun run test:workspace` from the workspace root.
+
+### Checks performed
+
+**Package contract (`check_package_contract`)**
+- `package.json` is private
+- `packageManager` starts with `bun@`
+- `workspaces` is an array
+- `scripts` is an object
+- Required script keys exist: `test`, `test:workspace`, `typecheck:web`, `build:web`, `test:web`, `verify:toto`
+
+**Root files (`check_root_files`)**
+- `README.md`, `.gitignore`, `.gitmodules` exist
+- `scripts/update-subrepos.sh`, `scripts/verify-all-web-ui-integration.sh`, `scripts/verify-keelim-plugin-rename.sh` exist
+
+**Autonomous repo contract (`check_autonomous_repo_contract`)**
+- `.gitignore` excludes `all-web-ui`, `agent-skill-console`, `quant`, and `rich`
+- `workspaces` array does **not** include `agent-skill-console`, `quant`, or `rich`
+- If `agent-skill-console` is present locally: it must be git-ignored, not tracked by root, and be its own git repo
+
+### Exit behaviour
+
+Exits `0` if all checks pass or `1` with failure count printed. Prints
+`PASS  <description>` / `FAIL  <description>` per check.
+
+Safe to run at any time; does not invoke child-repo builds or dirty-state-sensitive suites.
+
+---
+
 ## Adding New Scripts
 
 Follow the existing conventions:

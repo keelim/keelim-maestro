@@ -113,13 +113,13 @@ Files and directories that must **not** be edited from the root:
 
 ## Current Submodule Snapshot
 
-> Last updated: 2026-05-03
+> Last updated: 2026-05-04
 
 | Path | Pinned commit | Branch | Status |
 |------|---------------|--------|--------|
 | `all` | `edac30d2` | `develop` | Checked out |
 | `android-support` | `485a2e40` | `main` | Checked out |
-| `Keelim-Knowledge-Vault` | `718fdb6a` | `main` | Checked out |
+| `Keelim-Knowledge-Vault` | `e7409730` | `main` | Checked out |
 | `keelim-plugin` | `3e41d105` | `main` | Checked out |
 | `keelim-vercel` | `5aa9c8bb` | `develop` | Checked out |
 | `toto` | `a942e6b` | `main` | Checked out |

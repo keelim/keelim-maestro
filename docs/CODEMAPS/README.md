@@ -1,6 +1,6 @@
 # keelim-maestro — Codemaps
 
-> Last updated: 2026-05-03
+> Last updated: 2026-05-04
 
 This directory documents the architecture and structure of the **keelim-maestro** workspace superproject.
 
@@ -44,6 +44,7 @@ keelim-maestro/
 │   ├── index.md         ← workspace idea index (open ideas, priorities)
 │   └── <project>.md     ← per-project idea tracking (all, rich, keelim-vercel, …)
 └── scripts/
+    ├── test-workspace.sh
     ├── update-subrepos.sh
     ├── verify-all-web-ui-integration.sh
     └── verify-keelim-plugin-rename.sh
