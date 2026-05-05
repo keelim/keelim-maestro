@@ -30,6 +30,7 @@ flowchart TB
     autonomous --> webui["all-web-ui\nWeb UI · main (remote-backed)"]
     autonomous --> rich["rich\nWeb/Node.js · master (ahead of origin)"]
     autonomous --> quant["quant\n(local-only, no remote)"]
+    autonomous --> console["agent-skill-console\nTauri desktop · local-only"]
 ```
 
 ## Child Repository Catalogue
@@ -43,6 +44,7 @@ flowchart TB
 | `keelim-plugin` | https://github.com/keelim/keelim-plugin | `main` | Plugin project | Registered submodule |
 | `keelim-vercel` | https://github.com/keelim/keelim-vercel | `main` | Web / Vercel deployment | Registered submodule |
 | `toto` | https://github.com/keelim/toto | `main` | Local KBO Streamlit dashboard | Registered submodule |
+| `agent-skill-console` | none | n/a | Tauri desktop app (skill/agent inventory) | Local-only, intentionally excluded |
 | `quant` | none | n/a | local-only (no remote) | Intentionally excluded |
 | `rich` | https://github.com/keelim/rich | `master` | Web / Node.js | Autonomous (pending reconciliation) |
 
@@ -113,7 +115,7 @@ Files and directories that must **not** be edited from the root:
 
 ## Current Submodule Snapshot
 
-> Last updated: 2026-05-04
+> Last updated: 2026-05-05
 
 | Path | Pinned commit | Branch | Status |
 |------|---------------|--------|--------|

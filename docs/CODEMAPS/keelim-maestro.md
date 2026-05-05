@@ -1,4 +1,4 @@
-<!-- Generated: 2026-05-04 | Source-led root codemap reviewed after generator pass -->
+<!-- Generated: 2026-05-05 | Source-led root codemap reviewed after generator pass -->
 
 # keelim-maestro Workspace Codemap
 
@@ -86,6 +86,7 @@ maintenance and verification surfaces:
 - `.omx/` - local OMX runtime state, logs, plans, and team worktrees; ignored root state, not source.
 - `all/`, `android-support/`, `Keelim-Knowledge-Vault/`, `keelim-plugin/`, `keelim-vercel/`, `toto/` - current active root gitlink paths.
 - `all-web-ui/`, `rich/`, `quant/` - autonomous local repos surfaced by helper scripts when present, not root-owned source.
+- `agent-skill-console/` - autonomous local Tauri desktop app (skill/agent inventory); gitignored, no remote, not a root workspace member.
 
 ## Tests and Verification
 

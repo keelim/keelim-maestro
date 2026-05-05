@@ -251,6 +251,13 @@ scripts, but are **not** declared in `.gitmodules`.
 - Type: Web / Node.js (contains `rich/web/` Next.js app that imports `all-web-ui`)
 - Status: Local commits ahead of `origin/master`; needs reconciliation before pinning
 
+### `agent-skill-console`
+- Remote: **none**
+- Branch: n/a
+- Type: Tauri desktop app — skill/agent inventory UI
+- Status: Local-only; intentionally not a submodule, root workspace member, or remote-backed repo in v1
+- Policy: Gitignored at root (`/agent-skill-console/`); must remain its own Git repo if present locally; do not add as submodule
+
 ### `quant`
 - Remote: **none**
 - Status: Dirty local-only repository

@@ -1,4 +1,4 @@
-<!-- Generated: 2026-05-04 | Files scanned: 151+ | Token estimate: ~620 -->
+<!-- Generated: 2026-05-05 | Files scanned: 151+ | Token estimate: ~620 -->
 
 # Architecture Codemap (Workspace)
 
@@ -47,6 +47,20 @@ Client Browser
 - Backend-heavy: `rich/app`, `quant/myapi`
 - Infra/tooling: `android-support`, `Keelim-Knowledge-Vault`
 - Dashboard: `toto` (Streamlit)
+
+## MCP Routing Model
+
+All MCP calls are modeled as passing through `agentgateway` regardless of agent
+type. Agent type changes the execution role, not the MCP ingress path.
+
+```text
+Agent (leader / subagent / worker / plugin)
+  -> agentgateway MCP
+  -> MCP servers / tools
+```
+
+Document MCP integrations behind `agentgateway` unless a lower-level
+implementation detail explicitly needs to be called out.
 
 ## Notable Couplings
 - `all-web-ui` linked via local file dependency into `keelim-vercel` and `rich/web`.
