@@ -1,6 +1,6 @@
 # toto
 
-Last reviewed: 2026-04-25 KST
+Last reviewed: 2026-05-05 KST
 
 ## Signals
 
@@ -42,3 +42,11 @@ Status: proposed
 Why now: `toto`가 `.gitmodules`에 선언돼 있지만 gitlink가 루트 인덱스에 커밋되지 않아서, 신규 클론 시 디렉터리가 없고 `bun run dev:toto`·`bun run verify:toto`를 실행할 수 없다. 재현성을 핵심 가치로 내세운 프로젝트에서 이 비대칭은 가장 먼저 해소해야 할 운영 위험이다.
 
 First slice: 안정 커밋을 골라 gitlink를 루트 인덱스에 커밋하고, `git submodule update --init toto` → `bun run bootstrap` → `bun run verify:toto` 순서가 CI에서 그린으로 돌아오면 pinning 완료로 간주한다.
+
+### 2026-05-05 - 시즌 전환 데이터 교체 절차
+
+Status: proposed
+
+Why now: 대시보드가 CSV/fixture 기반이라서 새 KBO 시즌이 시작되면 어떤 파일을 교체해야 하는지, 교체 후 어떤 검증 기준을 통과해야 하는지 명시된 절차가 없으면, 이전 시즌 데이터가 조용히 섞이거나 `bun run verify`가 잘못된 데이터셋 위에서 통과할 수 있다.
+
+First slice: 시즌 전환 시 교체 대상 CSV/fixture 파일 목록, 예상 행 수 범위, 전환 전후 `bun run verify` 통과 기준을 문서화하고, 시즌 스냅샷 매니페스트에 시즌 메타데이터(연도, 대상 경기 수)를 포함해 전환 검증을 자동화할 수 있도록 확장한다.

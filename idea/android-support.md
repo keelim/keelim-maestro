@@ -1,6 +1,6 @@
 # android-support
 
-Last reviewed: 2026-04-25 KST
+Last reviewed: 2026-05-05 KST
 
 ## Signals
 
@@ -56,3 +56,11 @@ Status: proposed
 Why now: 이 action은 릴리스 핵심 경로를 직접 건드리는데, 현재 테스트는 입력 검증에 비해 실제 Play API 편집 생명주기 검증이 약해서 사소한 변경도 실배포까지 밀려갈 수 있다.
 
 First slice: sign/upload/internal sharing/staged rollout 응답을 대표 fixture로 기록하고, 이를 CI에서 재생해 Play Console에 닿지 않고도 전체 edit lifecycle을 검증한다.
+
+### 2026-05-05 - 앱별 Play 릴리스 정책 레지스트리
+
+Status: proposed
+
+Why now: `all`의 6개 앱(`app-my-grade`, `app-arducon`, `app-nanda`, `app-comssa`, `app-cnubus`, `app-mysenior`)이 각자 별도 CI 워크플로우로 배포되는 동안, `android-support`의 `track`, `status`, `userFraction`, `whatsNewDirectory` 입력이 앱마다 다를 수 있어서, 정책이 action 입력과 어긋나면 실배포까지 감지되지 않는다.
+
+First slice: 각 앱의 Play 트랙·staged rollout 비율·locale 커버리지 정책을 매니페스트로 정의하고, CI에서 `action.yml` 입력 값이 해당 매니페스트와 일치하는지 검사해 앱별 정책 불일치를 사전 차단한다.

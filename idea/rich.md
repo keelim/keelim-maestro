@@ -1,6 +1,6 @@
 # rich
 
-Last reviewed: 2026-04-25 KST
+Last reviewed: 2026-05-05 KST
 
 ## Signals
 
@@ -13,6 +13,7 @@ Last reviewed: 2026-04-25 KST
   to the existing backend/workflow reliability surface.
 - `docs/words/AGENTS.md` defines a raw-source/wiki/schema split for an investing
   LLM wiki, so durable review insights can be routed back into knowledge pages.
+- `rich/open-trading-api/`에 strategy_builder와 backtester 프론트엔드가 루트 Bun 워크스페이스 멤버로 추가됐으며, 루트에서 `dev:strategy-builder`·`dev:backtester` 스크립트로 실행된다. 이 서비스들도 신선도 감시와 헬스 관제 범위에 포함해야 한다.
 
 ## Open ideas
 

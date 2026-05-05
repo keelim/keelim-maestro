@@ -1,6 +1,6 @@
 # keelim-vercel
 
-Last reviewed: 2026-04-25 KST
+Last reviewed: 2026-05-05 KST
 
 ## Signals
 
