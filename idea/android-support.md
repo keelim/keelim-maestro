@@ -1,6 +1,6 @@
 # android-support
 
-Last reviewed: 2026-04-25 KST
+Last reviewed: 2026-05-06 KST
 
 ## Signals
 
@@ -56,3 +56,11 @@ Status: proposed
 Why now: 이 action은 릴리스 핵심 경로를 직접 건드리는데, 현재 테스트는 입력 검증에 비해 실제 Play API 편집 생명주기 검증이 약해서 사소한 변경도 실배포까지 밀려갈 수 있다.
 
 First slice: sign/upload/internal sharing/staged rollout 응답을 대표 fixture로 기록하고, 이를 CI에서 재생해 Play Console에 닿지 않고도 전체 edit lifecycle을 검증한다.
+
+### 2026-05-06 - 릴리스 준비도와 빌드 병목 관제
+
+Status: proposed
+
+Why now: `android-support`는 서명·업로드 게이트를 담당하고, `all`은 6개 앱과 14개 공유 모듈을 위한 앱별 CI 워크플로우(`app_my_grade.yml`, `app_arducon.yml` 등)를 병렬로 돌린다. 릴리스 실패 원인이 빌드 속도 문제인지, 입력 계약 위반인지, Play 트랙 정책 위반인지를 한 표면에서 보지 못하면 우선순위를 매번 감으로 잡아야 한다.
+
+First slice: 앱별 CI 빌드 결과, Play 트랙 상태, 최근 `android-support` 실행 결과(성공/실패/dry-run)를 하나의 요약 표로 묶고, 빌드 병목 구간(`all/benchmarks/`)과 릴리스 블로커를 함께 표시하는 관제 리포트를 만든다.
