@@ -1,6 +1,6 @@
 # keelim-vercel
 
-Last reviewed: 2026-04-25 KST
+Last reviewed: 2026-05-07 KST
 
 ## Signals
 
@@ -69,3 +69,11 @@ Status: proposed
 Why now: `lib/*storage.ts`와 `storage-version-registry.ts`가 실제로 같은 저장 키 계약을 지켜야 하므로, 레지스트리 누락이나 stale sidecar가 생기면 사용자 설정이 조용히 깨질 수 있다.
 
 First slice: 저장소 키 상수와 registry 등록 목록을 비교하는 보고서를 만들고, 누락/불일치/정체된 마이그레이션 후보를 주간 점검에 띄운다.
+
+### 2026-05-07 - 서브모듈 브랜치 추적 드리프트 게이트
+
+Status: proposed
+
+Why now: `.gitmodules`는 `keelim-vercel`의 추적 브랜치를 `main`으로 선언하지만, 루트 인덱스 gitlink는 `develop` 브랜치의 커밋(`5aa9c8bb`)을 가리키고 있다. 이 불일치는 `git submodule update --remote` 실행 시 예상치 못한 체크아웃을 유발하고, 배포 환경에서 `main`과 `develop` 사이 기능 차이가 조용히 숨겨질 수 있다.
+
+First slice: `.gitmodules` 선언 브랜치와 실제 gitlink 커밋이 속한 브랜치를 비교하는 검사를 추가하고, 불일치가 있으면 의도적 체크아웃인지 드리프트인지를 명시적으로 기록한다.

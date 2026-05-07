@@ -1,6 +1,6 @@
 # rich
 
-Last reviewed: 2026-04-25 KST
+Last reviewed: 2026-05-07 KST
 
 ## Signals
 
@@ -13,6 +13,7 @@ Last reviewed: 2026-04-25 KST
   to the existing backend/workflow reliability surface.
 - `docs/words/AGENTS.md` defines a raw-source/wiki/schema split for an investing
   LLM wiki, so durable review insights can be routed back into knowledge pages.
+- `open-trading-api` 하위에 `strategy_builder`와 `backtester` 서비스가 루트 Bun 워크스페이스 멤버로 등록되어 `dev:strategy-builder`·`dev:backtester` 스크립트로 노출되어 있지만, `rich`는 아직 `origin/master`보다 앞선 로컬 커밋 상태라 이 두 서비스의 재현성이 루트에서 검증되지 않았다.
 
 ## Open ideas
 
@@ -80,3 +81,11 @@ one-off dump.
 First slice: Track a small watchlist of high-value dataset pages, diff title /
 field / link changes on each export, and push meaningful updates into the
 weekly review or recovery queue.
+
+### 2026-05-07 - open-trading-api 서비스 경계 정의와 루트 워크스페이스 격리 게이트
+
+Status: proposed
+
+Why now: `rich/open-trading-api/strategy_builder`와 `rich/open-trading-api/backtester`가 루트 Bun 워크스페이스 멤버로 등록되어 `dev:strategy-builder`·`dev:backtester` 스크립트로 이미 노출되어 있다. 그러나 `rich` 레포는 아직 `origin/master`보다 앞선 로컬 커밋 상태라서, 이 두 서비스의 API/프론트엔드 계약이 루트에서 안전하게 재현되는지 검증되지 않았다.
+
+First slice: `rich/open-trading-api` 하위 `strategy_builder`·`backtester`가 각각 어떤 API와 프론트엔드 계약을 갖는지 문서화하고, `rich` reconciliation 전까지 루트 워크스페이스 dev 스크립트가 이 두 서비스에 의존하는 경우의 실패 조건을 명시적으로 기록한다.
