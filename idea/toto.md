@@ -1,6 +1,6 @@
 # toto
 
-Last reviewed: 2026-04-25 KST
+Last reviewed: 2026-05-08 KST
 
 ## Signals
 
@@ -35,10 +35,10 @@ Why now: 이 저장소의 핵심 가치는 수정이 아니라 재현이므로, 
 
 First slice: 앱 부팅, 홈 임포트, `verify` 흐름을 묶은 스모크 테스트를 추가하고, 비정상 쓰기 경로나 경로 드리프트가 있으면 실패하게 만든다.
 
-### 2026-04-25 - gitlink 커밋 및 재현 가능한 클론 게이트
+### 2026-04-25 - 재현 가능한 클론 게이트 CI 검증
 
-Status: proposed
+Status: in progress — gitlink `a942e6b`가 루트 인덱스에 커밋되어 신규 클론 시 디렉터리 부재 문제는 해소됨; 전체 CI 부트 파이프라인 검증 아직 미완료.
 
-Why now: `toto`가 `.gitmodules`에 선언돼 있지만 gitlink가 루트 인덱스에 커밋되지 않아서, 신규 클론 시 디렉터리가 없고 `bun run dev:toto`·`bun run verify:toto`를 실행할 수 없다. 재현성을 핵심 가치로 내세운 프로젝트에서 이 비대칭은 가장 먼저 해소해야 할 운영 위험이다.
+Why now: gitlink가 루트 인덱스에 핀됐으므로 다음 단계는 전체 파이프라인(`git submodule update --init toto` → `bun run bootstrap` → `bun run verify:toto`)이 CI에서 그린으로 도는지 확인하는 것이다.
 
-First slice: 안정 커밋을 골라 gitlink를 루트 인덱스에 커밋하고, `git submodule update --init toto` → `bun run bootstrap` → `bun run verify:toto` 순서가 CI에서 그린으로 돌아오면 pinning 완료로 간주한다.
+First slice: CI에서 위 세 단계를 순서대로 실행해 그린이 나오면 pinning 완료로 닫는다. seed 재현성(행 수·체크섬)과 스모크 게이트도 같은 파이프라인에서 함께 검증한다.
