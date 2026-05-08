@@ -1,6 +1,6 @@
 # keelim-maestro — Codemaps
 
-> Last updated: 2026-05-07
+> Last updated: 2026-05-08
 
 This directory documents the architecture and structure of the **keelim-maestro** workspace superproject.
 
@@ -25,6 +25,13 @@ This directory documents the architecture and structure of the **keelim-maestro*
 |------|----------|
 | [../design/design-system.md](../design/design-system.md) | Keelim Design System — tokens, themes, components, and maintenance rules |
 
+## Video Documentation
+
+| File | Contents |
+|------|----------|
+| [../videos/README.md](../videos/README.md) | Video docs source policy — commit boundary and ignored outputs |
+| `../videos/subproject-intros/` | HyperFrames source project for Korean subproject introduction content |
+
 ## Quick orientation
 
 `keelim-maestro` is a **Git superproject / workspace coordination layer**.
@@ -39,7 +46,9 @@ keelim-maestro/
 ├── CLAUDE.md            ← Claude Code operating guidance (currently empty)
 ├── README.md            ← human-facing workspace overview
 ├── docs/
-│   └── CODEMAPS/        ← root maps plus managed child-project snapshots
+│   ├── CODEMAPS/        ← root maps plus managed child-project snapshots
+│   ├── design/          ← workspace-level design system notes
+│   └── videos/          ← video documentation source projects (HyperFrames)
 ├── idea/
 │   ├── index.md         ← workspace idea index (open ideas, priorities)
 │   └── <project>.md     ← per-project idea tracking (all, rich, keelim-vercel, …)

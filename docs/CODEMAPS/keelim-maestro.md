@@ -1,4 +1,4 @@
-<!-- Generated: 2026-05-07 | Source-led root codemap reviewed after generator pass -->
+<!-- Generated: 2026-05-08 | Source-led root codemap reviewed after generator pass -->
 
 # keelim-maestro Workspace Codemap
 
@@ -81,6 +81,7 @@ maintenance and verification surfaces:
 - `docs/CODEMAPS/` - root architecture, workspace, submodule, script, dependency, frontend, backend, and data maps.
 - `docs/CODEMAPS/projects/` - maestro-managed generated codemaps for available child repositories.
 - `docs/design/` - workspace-level design system notes.
+- `docs/videos/` - video documentation source projects; `subproject-intros/` is a HyperFrames source project for Korean subproject introduction content; renders and thumbnails are gitignored.
 - `idea/` - per-project idea backlog and workspace idea index.
 - `scripts/` - root shell helpers for workspace contract tests, child repo status, integration verification, and rename verification.
 - `.omx/` - local OMX runtime state, logs, plans, and team worktrees; ignored root state, not source.
