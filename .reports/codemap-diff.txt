@@ -1,72 +1,82 @@
 Codemap Diff Report
 ===================
-Generated: 2026-05-02
-Previous generation: 2026-04-26
+Generated: 2026-05-08
+Previous generation: 2026-05-07
 
 SUMMARY OF CHANGES
 ==================
-- Change scope: ~1% (timestamp refresh only)
-- Action: update all timestamps; no structural changes detected
+- Change scope: ~2% (timestamp refresh + docs/videos/ directory documentation added)
+- Action: update all timestamps; add docs/videos/ to README and keelim-maestro.md
 
 FILES MODIFIED
 ===============
 ✓ docs/CODEMAPS/README.md
-  - Updated: Last updated 2026-04-26 → 2026-05-02
+  - Updated: Last updated 2026-05-07 → 2026-05-08
+  - Added: Video Documentation section referencing docs/videos/README.md and subproject-intros/
+  - Updated: docs/ tree now shows design/ and videos/ subdirectories
+
+✓ docs/CODEMAPS/keelim-maestro.md
+  - Updated: Generated timestamp 2026-05-07 → 2026-05-08
+  - Added: docs/videos/ entry under Key Directories
 
 ✓ docs/CODEMAPS/WORKSPACE.md
-  - Updated: Last updated 2026-04-26 → 2026-05-02
+  - Updated: Last updated 2026-05-07 → 2026-05-08
   - Content: no structural changes
 
 ✓ docs/CODEMAPS/architecture.md
-  - Updated: Generated timestamp 2026-04-26 → 2026-05-02
+  - Updated: Generated timestamp 2026-05-07 → 2026-05-08
   - Content: no structural changes
 
 ✓ docs/CODEMAPS/backend.md
-  - Updated: Generated timestamp 2026-04-26 → 2026-05-02
+  - Updated: Generated timestamp 2026-05-07 → 2026-05-08
   - Content: no changes (still accurate)
 
 ✓ docs/CODEMAPS/frontend.md
-  - Updated: Generated timestamp 2026-04-26 → 2026-05-02
+  - Updated: Generated timestamp 2026-05-07 → 2026-05-08
   - Content: no changes (still accurate)
 
 ✓ docs/CODEMAPS/data.md
-  - Updated: Generated timestamp 2026-04-26 → 2026-05-02
+  - Updated: Generated timestamp 2026-05-07 → 2026-05-08
   - Content: no changes (still accurate)
 
 ✓ docs/CODEMAPS/dependencies.md
-  - Updated: Generated timestamp 2026-04-26 → 2026-05-02
+  - Updated: Generated timestamp 2026-05-07 → 2026-05-08
   - Content: no changes (still accurate)
+
+✓ docs/CODEMAPS/projects/README.md
+  - Updated: Last updated 2026-05-07 → 2026-05-08
+  - Content: no changes (project snapshot table accurate)
 
 FILES CHECKED — NO CHANGES NEEDED
 ===================================
-✓ docs/CODEMAPS/SUBMODULES.md  — submodule pointers unchanged (same pinned commits)
+✓ docs/CODEMAPS/SUBMODULES.md  — submodule pointers unchanged (same pinned commits as 2026-05-07)
 ✓ docs/CODEMAPS/SCRIPTS.md     — no new scripts added
 
-CONTEXT: CHANGES SINCE 2026-04-26
+CONTEXT: CHANGES SINCE 2026-05-07
 ====================================
+- docs/videos/ was added 2026-05-03 (commit 9cc2482) but was not reflected in codemaps
+  until this update; now documented in README.md and keelim-maestro.md
 - No new submodules registered
 - No new scripts added under scripts/
 - Submodule pinned commits unchanged:
-    all                    778491a6c  develop
+    all                    edac30d2   develop
     android-support        485a2e40   main (v0.0.8-4)
-    Keelim-Knowledge-Vault d82b20d3   main
-    keelim-plugin          156059ac   main
-    keelim-vercel          e91f0eec   main
+    Keelim-Knowledge-Vault e7409730   main
+    keelim-plugin          3e41d105   main
+    keelim-vercel          5aa9c8bb   main (checked out on develop)
+    toto                   a942e6b1   main
 - idea/ directory unchanged (last reviewed 2026-04-25)
 - Autonomous repos (all-web-ui, rich, quant) status unchanged
-- toto declared in .gitmodules; no gitlink committed; directory absent
 
-SUBMODULE SNAPSHOT (2026-05-02)
+SUBMODULE SNAPSHOT (2026-05-08)
 ================================
 Registered gitlinks (git ls-files --stage | grep 160000):
-✓ all                    778491a6c  develop
+✓ all                    edac30d2   develop
 ✓ android-support        485a2e40   main (v0.0.8-4)
-✓ Keelim-Knowledge-Vault d82b20d3   main
-✓ keelim-plugin          156059ac   main
-✓ keelim-vercel          e91f0eec   main
-
-Declared (in .gitmodules; no gitlink committed; directory absent):
-✗ toto                   (declared; pending gitlink commit — tracked in idea/toto.md)
+✓ Keelim-Knowledge-Vault e7409730   main
+✓ keelim-plugin          3e41d105   main
+✓ keelim-vercel          5aa9c8bb   main (develop branch)
+✓ toto                   a942e6b1   main
 
 Autonomous repos (not in .gitmodules):
 - all-web-ui             (main, remote-backed, pending submodule conversion)
@@ -81,13 +91,15 @@ STALENESS CHECK
 
 NEXT ACTIONS
 =============
-1. Commit toto gitlink once toto directory is hydrated and verified (see idea/toto.md)
-2. Monitor rich and all-web-ui for future submodule registration
+1. Freeze/split rich mixed dirty state before future pinning or data modernization
+2. Monitor all-web-ui for future submodule registration
+3. Keep quant excluded unless a future explicit request provides a reproducible remote-backed path
 
 CHECKLIST
 ==========
-✓ README.md updated
-✓ WORKSPACE.md updated
+✓ README.md updated (timestamp + docs/videos/ section)
+✓ keelim-maestro.md updated (timestamp + docs/videos/ in Key Directories)
+✓ WORKSPACE.md updated (timestamp)
 ✓ SUBMODULES.md checked (no changes needed)
 ✓ SCRIPTS.md checked (no changes needed)
 ✓ architecture.md updated
@@ -95,4 +107,5 @@ CHECKLIST
 ✓ dependencies.md updated
 ✓ frontend.md updated
 ✓ data.md updated
+✓ projects/README.md updated
 ✓ This report generated
