@@ -1,6 +1,6 @@
 # toto
 
-Last reviewed: 2026-04-25 KST
+Last reviewed: 2026-05-09 KST
 
 ## Signals
 
@@ -42,3 +42,11 @@ Status: proposed
 Why now: `toto`가 `.gitmodules`에 선언돼 있지만 gitlink가 루트 인덱스에 커밋되지 않아서, 신규 클론 시 디렉터리가 없고 `bun run dev:toto`·`bun run verify:toto`를 실행할 수 없다. 재현성을 핵심 가치로 내세운 프로젝트에서 이 비대칭은 가장 먼저 해소해야 할 운영 위험이다.
 
 First slice: 안정 커밋을 골라 gitlink를 루트 인덱스에 커밋하고, `git submodule update --init toto` → `bun run bootstrap` → `bun run verify:toto` 순서가 CI에서 그린으로 돌아오면 pinning 완료로 간주한다.
+
+### 2026-05-09 - 파이프라인 단계별 격리 검증
+
+Status: proposed
+
+Why now: SUBMODULES.md(2026-05-08)가 `bootstrap → seed → Streamlit app` 파이프라인 순서를 명시했고, 현재 `bun run verify`는 전체 부팅만 검사해서 bootstrap 실패와 seed 실패를 같은 에러로 묻는다. 재현성이 핵심인 read-only 대시보드에서 어느 단계가 깨졌는지 빠르게 고립시킬 수 있어야 복구 비용이 낮아진다.
+
+First slice: `bun run bootstrap`, `bun run seed`, `bun run verify:toto`를 CI에서 별개 단계로 실행하고, 각 단계의 성공/실패와 산출물(행 수, 체크섬)을 독립적으로 기록해 파이프라인 어느 지점에서 재현성이 깨졌는지 바로 찾을 수 있게 한다.

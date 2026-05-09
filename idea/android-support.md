@@ -1,6 +1,6 @@
 # android-support
 
-Last reviewed: 2026-04-25 KST
+Last reviewed: 2026-05-09 KST
 
 ## Signals
 
@@ -56,3 +56,11 @@ Status: proposed
 Why now: 이 action은 릴리스 핵심 경로를 직접 건드리는데, 현재 테스트는 입력 검증에 비해 실제 Play API 편집 생명주기 검증이 약해서 사소한 변경도 실배포까지 밀려갈 수 있다.
 
 First slice: sign/upload/internal sharing/staged rollout 응답을 대표 fixture로 기록하고, 이를 CI에서 재생해 Play Console에 닿지 않고도 전체 edit lifecycle을 검증한다.
+
+### 2026-05-09 - 번들 재현성 체크섬 게이트
+
+Status: proposed
+
+Why now: `lib/index.js`는 `@vercel/ncc`로 단일 파일 컴파일된 산출물이라서, 소스 코드 변경 없이 빌드 환경이나 의존성 버전만 달라져도 결과물 해시가 달라질 수 있다. SUBMODULES.md(2026-05-08)가 `bun run build`를 핵심 배포 경로로 명시했고 현재 피닝 커밋(v0.0.8-4)이 있어 재현성 기준점을 만들기 적합하다.
+
+First slice: pinned commit에서 `bun install && bun run build`를 실행해 산출물 SHA256을 구하고, 커밋에 포함된 `lib/index.js` 해시와 비교하는 CI 단계를 추가한다. 불일치 시 빌드 재생성 후 커밋을 요구해 배포 전 번들 드리프트를 잡는다.
