@@ -1,6 +1,6 @@
 # rich
 
-Last reviewed: 2026-04-25 KST
+Last reviewed: 2026-05-10 KST
 
 ## Signals
 
@@ -13,6 +13,8 @@ Last reviewed: 2026-04-25 KST
   to the existing backend/workflow reliability surface.
 - `docs/words/AGENTS.md` defines a raw-source/wiki/schema split for an investing
   LLM wiki, so durable review insights can be routed back into knowledge pages.
+- `rich/open-trading-api/`가 신규 추가됨: `strategy_builder`(frontend+backend), `backtester`(frontend+backend+kis_mcp), KIS Code Assistant MCP·Kis Trading MCP 두 서버로 구성된 한국투자증권 자동매매 플랫폼. 루트 워크스페이스에 `dev:strategy-builder`·`dev:backtester` 스크립트로 등록됨.
+- `rich`는 여전히 origin 선행 커밋 상태(autonomous repo)로, open-trading-api 서브시스템의 CI 가시성이 없다.
 
 ## Open ideas
 
@@ -69,14 +71,10 @@ failed runs.
 First slice: Add a compact health panel that shows last-success time, reconnect
 state, and repair action for each upstream integration.
 
-### 2026-04-13 - 공공데이터 카탈로그 변경 피드
+### 2026-05-10 - open-trading-api KIS 서비스 계약 검증 게이트
 
 Status: proposed
 
-Why now: `rich` already exports the data.go.kr API catalog, so the next leverage
-point is to turn that static inventory into a watchable change feed instead of a
-one-off dump.
+Why now: `rich/open-trading-api/`에 strategy_builder·backtester·KIS MCP 서버 두 개가 추가됐고 일부는 루트 워크스페이스 멤버로 등록됐다. KIS API 자격증명 계약, MCP 서버 기동 경로, 프론트엔드↔백엔드 통신 규약을 한 곳에서 검증하는 절차가 없어 로컬 실행과 배포 사이에 조용한 불일치가 생길 수 있다.
 
-First slice: Track a small watchlist of high-value dataset pages, diff title /
-field / link changes on each export, and push meaningful updates into the
-weekly review or recovery queue.
+First slice: `bun run dev:strategy-builder`·`bun run dev:backtester`가 프론트엔드·백엔드를 실제로 기동하는지, KIS MCP 서버 두 개의 `pyproject.toml`이 기동 가능 상태인지 스모크 게이트를 만들고, `rich`의 로컬 origin 선행 커밋을 푸시한 뒤 기동 확인을 포함한다.

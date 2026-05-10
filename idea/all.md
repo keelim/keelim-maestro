@@ -1,6 +1,6 @@
 # all
 
-Last reviewed: 2026-04-25 KST
+Last reviewed: 2026-05-10 KST
 
 ## Signals
 
@@ -54,9 +54,9 @@ First slice: 실제 소스 트리의 모듈별 `AGENTS.md` 규칙과 알려진 �
 
 Status: proposed
 
-Why now: 앱이 6개이고 공유 모듈도 많아서, Gradle 빌드·테스트 병목을 보지 않으면 무엇을 먼저 쪼개고 병렬화할지 계속 감으로만 판단하게 된다.
+Why now: 앱이 6개이고 공유 모듈도 많아서, Gradle 빌드·테스트 병목을 보지 않으면 무엇을 먼저 쪼개고 병렬화할지 계속 감으로만 판단하게 된다. `profile/benchmark.csv`와 `profile/benchmark.html`이 이미 존재해 일부 프로파일 데이터는 수집되고 있다.
 
-First slice: CI에서 앱·모듈별 Gradle task 시간을 수집해 병목 열지도를 만들고, 오래 걸리는 구간을 기준으로 분할·병렬화 후보를 제안한다.
+First slice: 기존 `profile/` 데이터를 기준선으로 삼아 앱·모듈별 Gradle task 시간 열지도를 만들고, 오래 걸리는 구간을 기준으로 분할·병렬화 후보를 제안한다.
 
 ### 2026-04-25 - KMP·iOS·Rust 플랫폼 빌드 게이트
 

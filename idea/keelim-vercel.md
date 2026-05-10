@@ -1,6 +1,6 @@
 # keelim-vercel
 
-Last reviewed: 2026-04-25 KST
+Last reviewed: 2026-05-10 KST
 
 ## Signals
 
@@ -11,6 +11,7 @@ Last reviewed: 2026-04-25 KST
   than adding isolated single-purpose pages forever.
 - 최근 도구 사용 추적과 목표 체크인 표면이 붙고 있어서, 단순 페이지 확장보다 후속 행동 루프를 강화하는 쪽이 더 크다.
 - `all-web-ui`가 로컬 sibling repo로 붙어 있어, 어댑터와 실제 import 경로가 어긋나면 소비자 앱에서 늦게 깨질 수 있다.
+- `.gitmodules`는 `main`을 추적하지만 실제로 `develop` 브랜치로 체크아웃돼 있어 서브모듈 포인터와 실제 작업 브랜치가 어긋난 상태다(운영 위험).
 
 ## Open ideas
 
