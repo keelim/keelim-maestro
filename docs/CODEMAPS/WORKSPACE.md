@@ -115,10 +115,10 @@ Files and directories that must **not** be edited from the root:
 
 ## Current Submodule Snapshot
 
-> Last updated: 2026-05-09
+> Last updated: 2026-05-10
 
 | Path | Pinned commit | Branch | Status |
-|------|---------------|--------|--------|
+|------|---------------|--------|---------|
 | `all` | `edac30d2` | `develop` | Checked out |
 | `android-support` | `485a2e40` | `main` | Checked out |
 | `Keelim-Knowledge-Vault` | `e7409730` | `main` | Checked out |
