@@ -9,8 +9,8 @@ projects inside `/Users/keelim/Desktop/keelim-maestro`.
 
 - Treat the immediate child directories with a `.git` file or directory as the
   project set for this workspace.
-- Update only files inside `idea/` from the root workspace.
-- Keep each `idea/<project>.md` file as the source of truth for that project.
+- Update only files inside `docs/idea/` from the root workspace.
+- Keep each `docs/idea/<project>.md` file as the source of truth for that project.
 - Append new ideas when they are genuinely new; tighten or extend existing
   entries instead of creating near-duplicates.
 - Keep this index in sync with per-project counts and review dates.

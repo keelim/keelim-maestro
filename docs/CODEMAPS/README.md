@@ -48,10 +48,10 @@ keelim-maestro/
 ├── docs/
 │   ├── CODEMAPS/        ← root maps plus managed child-project snapshots
 │   ├── design/          ← workspace-level design system notes
+│   ├── idea/
+│   │   ├── index.md     ← workspace idea index (open ideas, priorities)
+│   │   └── <project>.md ← per-project idea tracking (all, rich, keelim-vercel, …)
 │   └── videos/          ← video documentation source projects (HyperFrames)
-├── idea/
-│   ├── index.md         ← workspace idea index (open ideas, priorities)
-│   └── <project>.md     ← per-project idea tracking (all, rich, keelim-vercel, …)
 └── scripts/
     ├── test-workspace.sh
     ├── update-subrepos.sh

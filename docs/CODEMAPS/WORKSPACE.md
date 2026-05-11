@@ -15,7 +15,7 @@ flowchart TB
 
     root --> coord["Coordination files\nAGENTS.md / README.md\n.gitignore / .gitmodules"]
     root --> docs["docs/CODEMAPS/\narchitecture documentation"]
-    root --> idea["idea/\nproject idea tracking"]
+    root --> idea["docs/idea/\nproject idea tracking"]
     root --> scripts["scripts/\nhelper scripts"]
     root --> submodules["Registered submodules\n(pinned via .gitmodules)"]
     root --> autonomous["Autonomous child repos\n(tracked in scripts only)"]
@@ -106,8 +106,7 @@ Files that are safe to modify at the root level:
 - `README.md`
 - `.gitignore`
 - `.gitmodules`
-- `docs/` (including this directory)
-- `idea/`
+- `docs/` (including this directory and `docs/idea/`)
 - `scripts/`
 
 Files and directories that must **not** be edited from the root:

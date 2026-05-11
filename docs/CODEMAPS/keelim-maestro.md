@@ -25,8 +25,8 @@ available from the maestro root.
 ## Repository Shape
 
 `keelim-maestro` is a workspace superproject, not a source monorepo. Root-owned
-surfaces are coordination files, docs, idea backlog files, root scripts,
-`.gitmodules`, and the narrow Bun workspace bootstrap.
+surfaces are coordination files, docs including `docs/idea/` backlog files,
+root scripts, `.gitmodules`, and the narrow Bun workspace bootstrap.
 
 Current declared `.gitmodules` paths:
 
@@ -82,7 +82,7 @@ maintenance and verification surfaces:
 - `docs/CODEMAPS/projects/` - maestro-managed generated codemaps for available child repositories.
 - `docs/design/` - workspace-level design system notes.
 - `docs/videos/` - video documentation source projects; `subproject-intros/` is a HyperFrames source project for Korean subproject introduction content; renders and thumbnails are gitignored.
-- `idea/` - per-project idea backlog and workspace idea index.
+- `docs/idea/` - per-project idea backlog and workspace idea index.
 - `scripts/` - root shell helpers for workspace contract tests, child repo status, integration verification, and rename verification.
 - `.omx/` - local OMX runtime state, logs, plans, and team worktrees; ignored root state, not source.
 - `all/`, `android-support/`, `Keelim-Knowledge-Vault/`, `keelim-plugin/`, `keelim-vercel/`, `toto/` - current active root gitlink paths.

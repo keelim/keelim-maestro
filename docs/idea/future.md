@@ -4,9 +4,9 @@ Last updated: 2026-04-16 09:56 KST
 
 ## Purpose
 
-이 문서는 `idea/<project>.md`로 바로 라우팅하기 전에 잠깐 모아두는 **임시 공용 inbox**다.
+이 문서는 `docs/idea/<project>.md`로 바로 라우팅하기 전에 잠깐 모아두는 **임시 공용 inbox**다.
 
-- source of truth는 계속 각 `idea/<project>.md`
+- source of truth는 계속 각 `docs/idea/<project>.md`
 - 여기는 cross-project 관점에서 한 번 더 묶어보는 곳
 - 실행 계획/태스크 분해는 하지 않음
 - 비슷한 아이디어는 프로젝트가 여러 개여도 **하나로 통합**해서 적음
@@ -15,13 +15,13 @@ Last updated: 2026-04-16 09:56 KST
 
 - 첫 리뷰 오너: 이번 정리의 lead/synthesizer
 - 첫 리뷰 시점: 생성 후 72시간 이내
-- 각 항목은 이후 `idea/<project>.md`로 라우팅, 분기, 폐기, 혹은 1회 연장 중 하나를 택함
+- 각 항목은 이후 `docs/idea/<project>.md`로 라우팅, 분기, 폐기, 혹은 1회 연장 중 하나를 택함
 
 ## Temporary inbox
 
 ### Exploration note
 
-현재 라운드는 **원본 워크스페이스**(`/Users/keelim/Desktop/keelim-maestro`)를 read-only로 계속 훑으면서 `idea/future.md`를 직접 보강하는 timed exploration이다. 1시간 조건은 `2026-04-16 09:19:45 KST` 시작 / `2026-04-16 10:19:45 KST` 종료 기준으로 강제하고, 그 전에는 완료로 간주하지 않는다.
+현재 라운드는 **원본 워크스페이스**(`/Users/keelim/Desktop/keelim-maestro`)를 read-only로 계속 훑으면서 `docs/idea/future.md`를 직접 보강하는 timed exploration이다. 1시간 조건은 `2026-04-16 09:19:45 KST` 시작 / `2026-04-16 10:19:45 KST` 종료 기준으로 강제하고, 그 전에는 완료로 간주하지 않는다.
 
 ### 2026-04-16 - 계약 드리프트 관제 레이어
 
@@ -265,8 +265,8 @@ Refs: `/Users/keelim/Desktop/keelim-maestro/rich/AGENTS.md`, `/Users/keelim/Desk
 
 Type: mixed
 
-Why now: `Keelim-Knowledge-Vault`는 이미 프로젝트 인덱스와 고가치 노트를 쌓아 두고 있고, 루트는 `idea/index.md`와 `docs/CODEMAPS`로 현재 워크스페이스 진입점을 따로 관리하므로, 활성 repo에서 바로 관련 노트로 왕복하고 오래 묻힌 핵심 노트를 다시 띄우는 resurfacer hub가 있으면 재진입 비용을 더 줄일 수 있다.
+Why now: `Keelim-Knowledge-Vault`는 이미 프로젝트 인덱스와 고가치 노트를 쌓아 두고 있고, 루트는 `docs/idea/index.md`와 `docs/CODEMAPS`로 현재 워크스페이스 진입점을 따로 관리하므로, 활성 repo에서 바로 관련 노트로 왕복하고 오래 묻힌 핵심 노트를 다시 띄우는 resurfacer hub가 있으면 재진입 비용을 더 줄일 수 있다.
 
-Likely homes: `Keelim-Knowledge-Vault`, `docs/CODEMAPS`, `idea`
+Likely homes: `Keelim-Knowledge-Vault`, `docs/CODEMAPS`, `docs/idea`
 
-Refs: `/Users/keelim/Desktop/keelim-maestro/Keelim-Knowledge-Vault/Index.md`, `/Users/keelim/Desktop/keelim-maestro/docs/CODEMAPS/README.md`, `/Users/keelim/Desktop/keelim-maestro/docs/CODEMAPS/WORKSPACE.md`, `/Users/keelim/Desktop/keelim-maestro/idea/index.md`, `/Users/keelim/Desktop/keelim-maestro/idea/Keelim-Knowledge-Vault.md`
+Refs: `/Users/keelim/Desktop/keelim-maestro/Keelim-Knowledge-Vault/Index.md`, `/Users/keelim/Desktop/keelim-maestro/docs/CODEMAPS/README.md`, `/Users/keelim/Desktop/keelim-maestro/docs/CODEMAPS/WORKSPACE.md`, `/Users/keelim/Desktop/keelim-maestro/docs/idea/index.md`, `/Users/keelim/Desktop/keelim-maestro/docs/idea/Keelim-Knowledge-Vault.md`
