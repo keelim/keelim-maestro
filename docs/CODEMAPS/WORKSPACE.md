@@ -36,7 +36,7 @@ flowchart TB
 ## Child Repository Catalogue
 
 | Path | Remote | Default branch | Type | Registration |
-|------|--------|----------------|------|--------------|
+|------|--------|----------------|------|-------------- |
 | `all` | https://github.com/keelim/all | `develop` | Android (Gradle multi-module) | Registered submodule |
 | `all-web-ui` | https://github.com/keelim/all-web-ui | `main` | Shared web UI | Autonomous (pending submodule) |
 | `android-support` | https://github.com/keelim/android-support | `main` | TypeScript / Node.js GitHub Action | Registered submodule |
@@ -115,10 +115,10 @@ Files and directories that must **not** be edited from the root:
 
 ## Current Submodule Snapshot
 
-> Last updated: 2026-05-10
+> Last updated: 2026-05-11
 
 | Path | Pinned commit | Branch | Status |
-|------|---------------|--------|---------|
+|------|---------------|--------|----------|
 | `all` | `edac30d2` | `develop` | Checked out |
 | `android-support` | `485a2e40` | `main` | Checked out |
 | `Keelim-Knowledge-Vault` | `e7409730` | `main` | Checked out |
