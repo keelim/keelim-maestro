@@ -1,6 +1,6 @@
 # toto
 
-Last reviewed: 2026-04-25 KST
+Last reviewed: 2026-05-11 KST
 
 ## Signals
 
@@ -37,8 +37,16 @@ First slice: 앱 부팅, 홈 임포트, `verify` 흐름을 묶은 스모크 테�
 
 ### 2026-04-25 - gitlink 커밋 및 재현 가능한 클론 게이트
 
+Status: gitlink 핀 완료(a942e6b) — CI 게이트 검증 잔여
+
+Why now: gitlink는 루트 인덱스에 `a942e6b`로 커밋된 상태이나, `git submodule update --init toto` → `bun run bootstrap` → `bun run verify:toto` 전 과정이 CI 게이트에서 그린으로 돌아오는지는 아직 확인이 필요하다. 재현성이 핵심 가치인 프로젝트에서 클론-부트스트랩-검증 경로가 CI 단위에서 통과해야 pinning이 완료된다.
+
+First slice: CI에서 `git submodule update --init toto` → `bun run bootstrap` → `bun run verify:toto` 순서를 순차 실행하고, 전 과정이 에러 없이 그린으로 완료되는지 확인한다.
+
+### 2026-05-11 - Python·Bun 이중 의존성 고정 재현성 검사
+
 Status: proposed
 
-Why now: `toto`가 `.gitmodules`에 선언돼 있지만 gitlink가 루트 인덱스에 커밋되지 않아서, 신규 클론 시 디렉터리가 없고 `bun run dev:toto`·`bun run verify:toto`를 실행할 수 없다. 재현성을 핵심 가치로 내세운 프로젝트에서 이 비대칭은 가장 먼저 해소해야 할 운영 위험이다.
+Why now: toto는 Streamlit(Python) 런타임과 Bun 래퍼 스크립트를 함께 쓰는데, Python 패키지 버전 고정은 Bun lockfile과 별개로 관리된다. `requirements.txt` 또는 `pyproject.toml`이 정확하게 고정되지 않으면 같은 시드·같은 커밋에서도 Streamlit 렌더링 결과가 달라질 수 있어서, 재현성 약속이 Python 런타임 레이어에서 조용히 깨질 수 있다.
 
-First slice: 안정 커밋을 골라 gitlink를 루트 인덱스에 커밋하고, `git submodule update --init toto` → `bun run bootstrap` → `bun run verify:toto` 순서가 CI에서 그린으로 돌아오면 pinning 완료로 간주한다.
+First slice: `bun run verify:toto` 흐름에 Python 의존성 고정 파일 존재 여부와 버전 고정 형식(핀 없는 `>=` 범위 등) 확인을 추가해, 고정이 누락된 경우를 부트스트랩 단계에서 잡는다.

@@ -1,6 +1,6 @@
 # android-support
 
-Last reviewed: 2026-04-25 KST
+Last reviewed: 2026-05-11 KST
 
 ## Signals
 
@@ -56,3 +56,11 @@ Status: proposed
 Why now: 이 action은 릴리스 핵심 경로를 직접 건드리는데, 현재 테스트는 입력 검증에 비해 실제 Play API 편집 생명주기 검증이 약해서 사소한 변경도 실배포까지 밀려갈 수 있다.
 
 First slice: sign/upload/internal sharing/staged rollout 응답을 대표 fixture로 기록하고, 이를 CI에서 재생해 Play Console에 닿지 않고도 전체 edit lifecycle을 검증한다.
+
+### 2026-05-11 - 번들 스탈레 감지 게이트
+
+Status: proposed
+
+Why now: `bun run build`로 컴파일하는 `lib/index.js` 번들이 GitHub Action이 실제로 실행하는 산출물이므로, 소스(`src/`) 변경 후 재빌드 없이 커밋하면 Action이 조용히 구버전 코드로 동작한다. Play Console 업로드처럼 릴리스 실패 비용이 큰 경로에서 이 비대칭은 늦게 발견될수록 영향이 커진다.
+
+First slice: CI에서 `bun run build`를 실행한 뒤 `lib/index.js` diff가 없음을 확인하는 게이트를 추가해, 소스 변경 후 재빌드 없이 번들이 커밋되는 경우를 빌드 단계에서 차단한다.
