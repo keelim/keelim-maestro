@@ -49,12 +49,15 @@ This repository currently owns only root-level coordination files:
 - `package.json`
 - `bun.lock`
 - `.gitmodules`
+- `docs/idea/`
 - future root-only helper scripts/docs
 
 The root may also carry a **Bun workspace bootstrap** for selected web repos. This is an orchestration layer for installs/scripts only; it does **not** collapse the child repositories into one Git monorepo.
 
 The child repositories remain autonomous at the codebase level. Remote-backed repos can be tracked from the root via `.gitmodules`; `quant` and `rich` remain outside the current submodule scope.
 `all-web-ui` now has a public remote repository, but it is still managed as an autonomous child repo from the root until the remaining workspace blockers are resolved.
+
+Root idea/backlog maintenance now lives under `docs/idea/`, with `docs/idea/index.md` as the workspace index and `docs/idea/<project>.md` as each project's idea file. A root-level `idea/` directory should not be recreated.
 
 ## Bun workspace bootstrap
 

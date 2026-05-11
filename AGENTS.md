@@ -12,6 +12,7 @@
   - `.gitignore`
   - `package.json`
   - `bun.lock`
+  - `docs/idea/`
   - future `.gitmodules`
   - future root-only helper scripts/docs
 - Do not convert child repositories to submodules yet while dirty or ahead-of-remote child repos remain unresolved.
@@ -24,6 +25,12 @@
 - A deeper `AGENTS.md` inside a child repo overrides this file for files under that child repo.
 - Root `package.json` / `bun.lock` may act as a Bun workspace bootstrap for selected web repos, but this does **not** convert the root into a single Git monorepo or remove child-repo standalone responsibilities.
 - A committed root Bun workspace may assume that autonomous child repos are already hydrated at their expected local paths; document that prerequisite in `README.md` whenever the workspace membership changes.
+
+## Root idea backlog
+- Workspace idea/backlog maintenance lives under `docs/idea/`.
+- Do not recreate or maintain a root-level `idea/` directory; route the workspace index and per-project idea files to `docs/idea/index.md` and `docs/idea/<project>.md`.
+- For idea gardener runs, read root `docs/CODEMAPS/*` first, then each project's `README.md` / `AGENTS.md` as read-only context before updating `docs/idea/`.
+- Keep child repositories read-only during root idea maintenance unless the user explicitly asks to enter a child repo.
 
 ## `/all-web-ui` policy
 - `/all-web-ui` is currently treated as an autonomous local child repository from the root.
