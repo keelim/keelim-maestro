@@ -1,6 +1,6 @@
 # all-web-ui
 
-Last reviewed: 2026-04-25 KST
+Last reviewed: 2026-05-13 KST
 
 ## Signals
 
@@ -34,23 +34,20 @@ Why now: A shared component package becomes much safer to evolve when visual and
 First slice: Add snapshot coverage for the exported primitives plus a minimal
 accessibility check in CI for the demo surface.
 
-### 2026-04-12 - Downstream usage matrix
+### 2026-04-12 - Downstream usage matrix and export contract snapshot
 
 Status: proposed
 
 Why now: The package already powers multiple web apps, so changes are safer
-when the consumer graph and upgrade surface are visible in one place.
+when the consumer graph, upgrade surface, and live export contracts are all
+visible in one place. Breaking a public export or theme file produces
+immediate downstream regression in both `keelim-vercel` and `rich/web`.
 
 First slice: Generate a matrix of exported primitives vs downstream import
 sites, then attach a short upgrade checklist for each consumer repo.
-
-### 2026-04-13 - 내보내기 계약 스냅샷
-
-Status: proposed
-
-Why now: 공유 UI는 `keelim-vercel`과 `rich/web` 둘 다에 붙어 있어서, 공개 export와 theme 파일이 깨지면 소비자 쪽 회귀가 바로 생긴다.
-
-First slice: 배포 전 `all-web-ui`의 공개 export 목록과 실제 downstream import 지점을 비교하는 manifest를 만들고, 시각/접근성 검사와 함께 계약 변경을 표시한다.
+Cross-check the public export list against actual downstream import points at
+each release gate and flag contract changes alongside the visual/accessibility
+gate.
 
 ### 2026-04-14 - 토큰 폐기 예고판
 
