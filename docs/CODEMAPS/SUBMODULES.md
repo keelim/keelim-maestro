@@ -99,7 +99,7 @@ all/
 
 ### CI/CD workflows
 | Workflow | Trigger |
-|----------|---------|
+|----------|--------|
 | `ci.yml` | Main CI — build + test on every PR |
 | `app_my_grade.yml` | Per-app build for `app-my-grade` |
 | `app_arducon.yml` | Per-app build for `app-arducon` |
@@ -162,7 +162,7 @@ bun run jest    # run tests
 | Path | `Keelim-Knowledge-Vault/` |
 | Remote | https://github.com/keelim/Keelim-Knowledge-Vault.git |
 | Tracked branch | `main` |
-| Pinned commit | `e7409730` |
+| Pinned commit | `7a67e715` |
 | Language / toolchain | Markdown / Obsidian |
 | Purpose | Shared knowledge base and documentation for the workspace |
 
@@ -180,7 +180,7 @@ bun run jest    # run tests
 | Path | `keelim-plugin/` |
 | Remote | https://github.com/keelim/keelim-plugin.git |
 | Tracked branch | `main` |
-| Pinned commit | `3e41d105` |
+| Pinned commit | `a3463396` |
 | Previous name | `keelim-skill` (renamed; continuity preserved via `.gitmodules` and submodule metadata) |
 | Purpose | Plugin / skill definitions for AI-assisted workflows |
 
@@ -208,7 +208,7 @@ The rename is verified by `scripts/verify-keelim-plugin-rename.sh`.
 | Path | `keelim-vercel/` |
 | Remote | https://github.com/keelim/keelim-vercel.git |
 | Tracked branch | `main` |
-| Pinned commit | `5aa9c8bb` (checked out on `develop`) |
+| Pinned commit | `85a4501c` |
 | Language / toolchain | Node.js / JavaScript (Vercel deployment) |
 | Purpose | Web frontend deployed on Vercel; integrates `all-web-ui` component library |
 

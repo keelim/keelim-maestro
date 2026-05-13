@@ -1,9 +1,9 @@
-<!-- Generated: 2026-05-11 | Source-led root codemap reviewed after generator pass -->
+<!-- Generated: 2026-05-13 | Source-led root codemap reviewed after generator pass -->
 
 # keelim-maestro Workspace Codemap
 
 This map describes the root workspace coordination repository and the
-maestro-managed child codemap snapshots kept under `docs/CODEMAPS/projects/`.
+aestro-managed child codemap snapshots kept under `docs/CODEMAPS/projects/`.
 The `codebase-codemap` generator was run against the root on 2026-04-25, but its
 raw pass scanned 3,594 files across nested child repositories. The reviewed
 map below keeps the root boundary explicit while making child project maps
@@ -42,9 +42,9 @@ Current live gitlink evidence from `git ls-files --stage | rg 160000` and
 
 - `all` - index pins `edac30d`
 - `android-support` - index/live status align at `485a2e4`
-- `Keelim-Knowledge-Vault` - index pins `e740973`
-- `keelim-plugin` - index pins `3e41d10`
-- `keelim-vercel` - index pins `5aa9c8b`
+- `Keelim-Knowledge-Vault` - index pins `7a67e715`
+- `keelim-plugin` - index pins `a3463396`
+- `keelim-vercel` - index pins `85a4501c`
 - `toto` - index pins `a942e6b`
 
 Root `.gitignore` excludes `.omx`, `node_modules`, `all-web-ui`, `quant`, and
@@ -119,7 +119,7 @@ repos plus test environment variables documented in `docs/CODEMAPS/SCRIPTS.md`.
 ## Dependencies and Tooling
 
 - Root package manager: `bun@1.3.12`.
-- Root workspaces: `all-web-ui`, `keelim-vercel`, `rich/open-trading-api/strategy_builder/frontend`, `rich/open-trading-api/backtester/frontend`, `rich/web`, `toto`.
+- Root workspaces: `all-web-ui`, `keelim-vercel`, `rich/web`, `toto`.
 - Shell helpers rely on `git`, `awk`, `jq`, `rg`, `grep`, and POSIX `sh`.
 - The root docs intentionally summarize child repo relationships; use each
   child repo's own README, AGENTS, tests, and codemaps before editing child
