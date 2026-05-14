@@ -1,6 +1,6 @@
 # android-support
 
-Last reviewed: 2026-04-25 KST
+Last reviewed: 2026-05-14 KST
 
 ## Signals
 
@@ -56,3 +56,11 @@ Status: proposed
 Why now: 이 action은 릴리스 핵심 경로를 직접 건드리는데, 현재 테스트는 입력 검증에 비해 실제 Play API 편집 생명주기 검증이 약해서 사소한 변경도 실배포까지 밀려갈 수 있다.
 
 First slice: sign/upload/internal sharing/staged rollout 응답을 대표 fixture로 기록하고, 이를 CI에서 재생해 Play Console에 닿지 않고도 전체 edit lifecycle을 검증한다.
+
+### 2026-05-14 - 릴리스 준비도와 CI 상태 통합 관제 보드
+
+Status: proposed
+
+Why now: `android-support` Action(현재 v0.0.8-4)과 `all`의 다중 앱 Gradle 빌드가 같은 릴리스 경로를 공유하기 때문에, 앱별 빌드/테스트 CI 상태와 Play Console 업로드 준비도를 따로 보면 우선순위를 잘못 잡기 쉽다. preflight 검증, dry-run, 실제 업로드 결과가 한 화면에 연결된 관제 보드가 없다.
+
+First slice: 앱별 CI 빌드 상태, track 설정, preflight 검증 결과를 한 표로 묶어 "릴리스 대기 / 검증 필요 / 업로드 가능" 상태를 한눈에 보이게 만들고, 릴리스 증적 번들 아이디어의 JSON 출력과 연결한다.

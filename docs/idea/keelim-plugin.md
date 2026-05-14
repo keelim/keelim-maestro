@@ -1,6 +1,6 @@
 # keelim-plugin
 
-Last reviewed: 2026-04-25 KST
+Last reviewed: 2026-05-14 KST
 
 ## Signals
 
@@ -10,6 +10,8 @@ Last reviewed: 2026-04-25 KST
 - The repository already has a clear `skills/<name>/SKILL.md` contract.
 - README가 Vercel skills CLI와 수동 symlink 설치 경로를 함께 설명하므로,
   카탈로그와 smoke-test가 설치 방식별 차이를 계속 드러내야 한다.
+- 워크스페이스 architecture.md(2026-05-14)가 `agentgateway` MCP 라우팅 모델을
+  명시하면서, 스킬 카탈로그에 MCP 도구 연동 패턴을 함께 기록할 필요성이 생겼다.
 
 ## Open ideas
 
