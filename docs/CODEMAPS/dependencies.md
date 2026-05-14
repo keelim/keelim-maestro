@@ -1,4 +1,4 @@
-<!-- Generated: 2026-05-13 | Files scanned: 151+ | Token estimate: ~670 -->
+<!-- Generated: 2026-05-14 | Files scanned: 151+ | Token estimate: ~670 -->
 
 # Dependencies Codemap
 
@@ -28,6 +28,7 @@
   - `rich/web`
 - TanStack Query across web frontends
 - Zustand across web frontends
+- Bun `catalog` in root `package.json` pins shared versions (Radix UI, Tailwind 4, React 19, Next.js 16, TypeScript 5.9, vitest, testing-library, clsx, lucide-react, date-fns, react-day-picker) across all workspace members; consumers reference `"catalog:<pkg>"` instead of explicit semver strings.
 
 ## Persistence Tooling
 - Drizzle ORM + drizzle-zod (`keelim-vercel`)

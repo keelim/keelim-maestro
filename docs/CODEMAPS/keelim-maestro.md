@@ -1,4 +1,4 @@
-<!-- Generated: 2026-05-13 | Source-led root codemap reviewed after generator pass -->
+<!-- Generated: 2026-05-14 | Source-led root codemap reviewed after generator pass -->
 
 # keelim-maestro Workspace Codemap
 
@@ -120,6 +120,7 @@ repos plus test environment variables documented in `docs/CODEMAPS/SCRIPTS.md`.
 
 - Root package manager: `bun@1.3.12`.
 - Root workspaces: `all-web-ui`, `keelim-vercel`, `rich/web`, `toto`.
+- Root `catalog` (Bun workspace catalog): pins shared versions for Radix UI primitives, Tailwind CSS 4, React 19, Next.js 16, testing-library, TypeScript 5.9, vitest, and utility libs across all workspace members. Consumers reference `catalog:` in their `package.json` instead of duplicating version strings.
 - Shell helpers rely on `git`, `awk`, `jq`, `rg`, `grep`, and POSIX `sh`.
 - The root docs intentionally summarize child repo relationships; use each
   child repo's own README, AGENTS, tests, and codemaps before editing child
