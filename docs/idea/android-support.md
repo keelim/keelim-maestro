@@ -1,6 +1,6 @@
 # android-support
 
-Last reviewed: 2026-04-25 KST
+Last reviewed: 2026-05-15 KST
 
 ## Signals
 
@@ -56,3 +56,11 @@ Status: proposed
 Why now: 이 action은 릴리스 핵심 경로를 직접 건드리는데, 현재 테스트는 입력 검증에 비해 실제 Play API 편집 생명주기 검증이 약해서 사소한 변경도 실배포까지 밀려갈 수 있다.
 
 First slice: sign/upload/internal sharing/staged rollout 응답을 대표 fixture로 기록하고, 이를 CI에서 재생해 Play Console에 닿지 않고도 전체 edit lifecycle을 검증한다.
+
+### 2026-05-15 - 릴리스 준비도·빌드 병목 통합 관제
+
+Status: proposed
+
+Why now: `android-support`는 Play Console 배포의 마지막 게이트이고, `all/build-logic`과 `all/benchmarks`는 빌드 시간과 성능 데이터를 이미 생산한다. 릴리스 직전에 빌드 병목과 배포 준비도를 한 번에 볼 수 없으면, 속도 문제와 배포 위험의 우선순위를 잘못 잡기 쉽다.
+
+First slice: `all`의 빌드 타임 리포트와 `android-support`의 dry-run preflight를 연결해, 배포 전 빌드 속도·릴리스 노트 완성도·artifact 유효성을 한 장의 준비도 체크로 통합한다.

@@ -1,6 +1,6 @@
 # rich
 
-Last reviewed: 2026-04-25 KST
+Last reviewed: 2026-05-15 KST
 
 ## Signals
 
@@ -42,9 +42,7 @@ Status: proposed
 Why now: The system depends on scheduled ingestion, external data, Supabase
  state, and edge-function style workflows, so silent staleness is a real risk.
 
-First slice: Add a reliability panel that flags stale datasets, failed jobs,
- missing snapshots, and suspicious metric jumps before they affect downstream
- review flows.
+First slice: Add a reliability panel that flags stale datasets, failed jobs, missing snapshots, suspicious metric jumps, and key external catalog changes (including `data.go.kr` dataset title/field diffs) before they affect downstream review flows.
 
 ### 2026-04-12 - Execution ledger and replay timeline
 
@@ -69,14 +67,10 @@ failed runs.
 First slice: Add a compact health panel that shows last-success time, reconnect
 state, and repair action for each upstream integration.
 
-### 2026-04-13 - 공공데이터 카탈로그 변경 피드
+### 2026-05-15 - 오픈 트레이딩 API 서비스 검증 게이트
 
 Status: proposed
 
-Why now: `rich` already exports the data.go.kr API catalog, so the next leverage
-point is to turn that static inventory into a watchable change feed instead of a
-one-off dump.
+Why now: 루트 `package.json`에 `dev:strategy-builder`와 `dev:backtester` 스크립트가 `rich/open-trading-api/strategy_builder`와 `rich/open-trading-api/backtester`를 가리키고 있어서, 트레이딩 분석 서비스가 실질적인 제품 표면이 됐음에도 `rich/app`·`rich/web` 중심의 기존 검증 범위 밖에 있다.
 
-First slice: Track a small watchlist of high-value dataset pages, diff title /
-field / link changes on each export, and push meaningful updates into the
-weekly review or recovery queue.
+First slice: strategy_builder와 backtester의 시작·응답·헬스 엔드포인트를 스모크 테스트로 묶고, 루트 `dev:strategy-builder`와 `dev:backtester` 스크립트가 CI에서도 통과하는지 확인하는 최소 게이트를 만든다.
