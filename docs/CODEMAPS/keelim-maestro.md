@@ -1,4 +1,4 @@
-<!-- Generated: 2026-05-14 | Source-led root codemap reviewed after generator pass -->
+<!-- Generated: 2026-05-15 | Source-led root codemap reviewed after generator pass -->
 
 # keelim-maestro Workspace Codemap
 
@@ -166,3 +166,4 @@ repos plus test environment variables documented in `docs/CODEMAPS/SCRIPTS.md`.
 - The raw generator scan crosses into child repo source; future root codemap
   refreshes should either use this reviewed root-only file or run the generator
   separately inside each child repo.
+- `docs/knowledge/` is referenced in the root `README.md` (knowledge system docs: operator-runbook, source-targets, review-checklist, merge-guidance, verification-contract) but the directory is absent from the repository tree as of 2026-05-15. Treat these references as aspirational until the directory is created and committed.
