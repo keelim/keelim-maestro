@@ -26,6 +26,13 @@
 - Root `package.json` / `bun.lock` may act as a Bun workspace bootstrap for selected web repos, but this does **not** convert the root into a single Git monorepo or remove child-repo standalone responsibilities.
 - A committed root Bun workspace may assume that autonomous child repos are already hydrated at their expected local paths; document that prerequisite in `README.md` whenever the workspace membership changes.
 
+## Python uv workspace policy
+- Root `pyproject.toml` / `uv.lock` may act as a uv workspace bootstrap for selected Python repos, but this does **not** convert the root into a single Python monorepo or remove child-repo standalone responsibilities.
+- Keep uv workspace membership narrow and explicit. As of the initial uv bootstrap, the in-scope Python members are `toto` and `rich`; do not include sibling repos such as `../easy-release-note` unless explicitly requested.
+- Do not change non-Python projects or existing Bun workspace behavior when doing uv workspace work.
+- Use root `tool.uv.constraint-dependencies` for Python packages that should resolve consistently across workspace members. If a child repo directly declares a shared package, keep its child-local declaration aligned with the root constraint so standalone fallback installs remain honest.
+- After uv dependency changes, run `uv run python scripts/verify-python-dependency-constraints.py`, `uv lock --check`, and package-local pytest commands documented in `README.md`. In sandboxed agent sessions, pass `--cache-dir .omx/uv-cache` if the default uv cache is not writable.
+
 ## Root idea backlog
 - Workspace idea/backlog maintenance lives under `docs/idea/`.
 - Do not recreate or maintain a root-level `idea/` directory; route the workspace index and per-project idea files to `docs/idea/index.md` and `docs/idea/<project>.md`.
