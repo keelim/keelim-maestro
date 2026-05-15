@@ -1,81 +1,92 @@
 Codemap Diff Report
 ===================
-Generated: 2026-05-10
-Previous generation: 2026-05-09
+Generated: 2026-05-15
+Previous generation: 2026-05-14
 
 SUMMARY OF CHANGES
 ==================
-- Change scope: ~1% (timestamp refresh only)
-- Action: update all timestamps to 2026-05-10; no structural changes
+- Change scope: ~1% (timestamp refresh + one structural gap noted)
+- Action: update all timestamps to 2026-05-15; document docs/knowledge/ gap in keelim-maestro.md
 
 FILES MODIFIED
 ===============
 ✓ docs/CODEMAPS/README.md
-  - Updated: Last updated 2026-05-09 → 2026-05-10
+  - Updated: Last updated 2026-05-14 → 2026-05-15
   - Content: no structural changes
 
 ✓ docs/CODEMAPS/keelim-maestro.md
-  - Updated: Generated timestamp 2026-05-09 → 2026-05-10
-  - Content: no structural changes
+  - Updated: Generated timestamp 2026-05-14 → 2026-05-15
+  - Added: Open Questions entry noting that docs/knowledge/ is referenced in
+    root README.md but absent from the repository tree as of 2026-05-15
 
 ✓ docs/CODEMAPS/WORKSPACE.md
-  - Updated: Last updated 2026-05-09 → 2026-05-10
-  - Content: no structural changes
+  - Updated: Last updated 2026-05-14 → 2026-05-15
+  - Content: no structural changes; submodule snapshot already accurate
 
 ✓ docs/CODEMAPS/architecture.md
-  - Updated: Generated timestamp 2026-05-09 → 2026-05-10
+  - Updated: Generated timestamp 2026-05-14 → 2026-05-15
   - Content: no changes (still accurate)
 
 ✓ docs/CODEMAPS/backend.md
-  - Updated: Generated timestamp 2026-05-09 → 2026-05-10
+  - Updated: Generated timestamp 2026-05-14 → 2026-05-15
   - Content: no changes (still accurate)
 
 ✓ docs/CODEMAPS/frontend.md
-  - Updated: Generated timestamp 2026-05-09 → 2026-05-10
+  - Updated: Generated timestamp 2026-05-14 → 2026-05-15
   - Content: no changes (still accurate)
 
 ✓ docs/CODEMAPS/data.md
-  - Updated: Generated timestamp 2026-05-09 → 2026-05-10
+  - Updated: Generated timestamp 2026-05-14 → 2026-05-15
   - Content: no changes (still accurate)
 
 ✓ docs/CODEMAPS/dependencies.md
-  - Updated: Generated timestamp 2026-05-09 → 2026-05-10
+  - Updated: Generated timestamp 2026-05-14 → 2026-05-15
   - Content: no changes (still accurate)
 
 ✓ docs/CODEMAPS/projects/README.md
-  - Updated: Last updated 2026-05-09 → 2026-05-10
-  - Content: no changes (project snapshot table accurate)
+  - Updated: Last updated 2026-05-14 → 2026-05-15
+  - Content: project snapshot table still accurate; no new child repos
 
 FILES CHECKED — NO CHANGES NEEDED
 ===================================
-✓ docs/CODEMAPS/SUBMODULES.md  — submodule pointers unchanged (same pinned commits as 2026-05-09)
-✓ docs/CODEMAPS/SCRIPTS.md     — no new scripts added
+✓ docs/CODEMAPS/SUBMODULES.md  — submodule pointers unchanged (same pinned commits as 2026-05-14)
+✓ docs/CODEMAPS/SCRIPTS.md     — no new scripts added; all four root scripts unchanged
+✓ docs/CODEMAPS/projects/*.md  — child repo snapshots unchanged (child repos not available in this checkout)
 
-CONTEXT: CHANGES SINCE 2026-05-09
+CONTEXT: CHANGES SINCE 2026-05-14
 ====================================
 - No new submodules registered
 - No new scripts added under scripts/
 - Submodule pinned commits unchanged:
     all                    edac30d2   develop
     android-support        485a2e40   main (v0.0.8-4)
-    Keelim-Knowledge-Vault e7409730   main
-    keelim-plugin          3e41d105   main
-    keelim-vercel          5aa9c8bb   main (checked out on develop)
+    Keelim-Knowledge-Vault 7a67e715   main
+    keelim-plugin          a3463396   main
+    keelim-vercel          85a4501c   main
     toto                   a942e6b1   main
-- idea/ directory unchanged
+- Root package.json workspaces unchanged: all-web-ui, keelim-vercel, rich/web, toto
+- Root package.json catalog (bun workspace catalog) unchanged
+- docs/idea/ directory: no changes committed since 2026-05-14
+- docs/videos/: no changes committed since 2026-05-14
+- docs/design/: no changes committed since 2026-05-14
 - Autonomous repos (all-web-ui, rich, quant) status unchanged
-- docs/videos/ directory unchanged
-- No root-level source changes since last codemap update
 
-SUBMODULE SNAPSHOT (2026-05-10)
+STRUCTURAL GAP IDENTIFIED
+==========================
+- README.md references docs/knowledge/ (operator-runbook, source-targets,
+  review-checklist, merge-guidance, verification-contract) but this directory
+  does not exist in the repository tree.
+  Documented in keelim-maestro.md Open Questions section.
+
+SUBMODULE SNAPSHOT (2026-05-15)
 ================================
 Registered gitlinks (git ls-files --stage | grep 160000):
-✓ all                    edac30d2   develop
-✓ android-support        485a2e40   main (v0.0.8-4)
-✓ Keelim-Knowledge-Vault e7409730   main
-✓ keelim-plugin          3e41d105   main
-✓ keelim-vercel          5aa9c8bb   main (develop branch)
-✓ toto                   a942e6b1   main
+✓ all                    edac30d2c4a3c0380d151f16fc7acc11f6150af4   develop
+✓ android-support        485a2e404248182f48b01266c2d2ab8eb67145aa   main
+✓ Keelim-Knowledge-Vault 7a67e715a31808a36a80b510bc1706ea6f3271ab   main
+✓ keelim-plugin          a3463396c95dcd4749727bf1f32495db45bba220   main
+✓ keelim-vercel          85a4501c42cb223061beef2c4102ee86ffa1b449   main
+✓ toto                   a942e6b1841594d81ffa46f524a02bf619e0c26c   main
 
 Autonomous repos (not in .gitmodules):
 - all-web-ui             (main, remote-backed, pending submodule conversion)
@@ -86,19 +97,22 @@ Autonomous repos (not in .gitmodules):
 STALENESS CHECK
 ===============
 ✓ All documented pinned commits match git ls-files --stage output
-✓ No new directories with .git found under workspace root
+✓ No new directories with .git found under workspace root beyond known set
 ✓ No new .gitmodules entries since last generation
+✓ Root package.json workspaces match keelim-maestro.md documentation
 
 NEXT ACTIONS
 =============
-1. Freeze/split rich mixed dirty state before future pinning or data modernization
-2. Monitor all-web-ui for future submodule registration
-3. Keep quant excluded unless a future explicit request provides a reproducible remote-backed path
+1. Create docs/knowledge/ if the README.md knowledge system section represents
+   committed content, or remove the reference from README.md if it is aspirational
+2. Continue monitoring all-web-ui for future submodule registration
+3. Freeze/split rich mixed dirty state before future pinning or data modernization
+4. Keep quant excluded unless a future explicit request provides a reproducible remote-backed path
 
 CHECKLIST
 ==========
 ✓ README.md updated (timestamp)
-✓ keelim-maestro.md updated (timestamp)
+✓ keelim-maestro.md updated (timestamp + structural gap documented)
 ✓ WORKSPACE.md updated (timestamp)
 ✓ SUBMODULES.md checked (no changes needed)
 ✓ SCRIPTS.md checked (no changes needed)
