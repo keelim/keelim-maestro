@@ -23,9 +23,10 @@
 - Streamlit (`toto` — KBO dashboard)
 
 ## Shared Libraries / Internal Coupling
-- `all-web-ui` local package consumed by:
+- `@keelim/all-web-ui` GitHub Packages npm package consumed by:
   - `keelim-vercel`
   - `rich/web`
+  - `agent-skill-console`
 - TanStack Query across web frontends
 - Zustand across web frontends
 - Bun `catalog` in root `package.json` pins shared versions (Radix UI, Tailwind 4, React 19, Next.js 16, TypeScript 5.9, vitest, testing-library, clsx, lucide-react, date-fns, react-day-picker) across all workspace members; consumers reference `"catalog:<pkg>"` instead of explicit semver strings.
@@ -43,6 +44,6 @@
 - `all` has the largest Kotlin dependency graph (Compose, Hilt, Room, Retrofit, KMP, Firebase, Rust).
 
 ## Risk Notes (high-level)
-- Multi-repo shared UI (`all-web-ui`) creates coordinated-release coupling.
+- Multi-repo shared UI (`@keelim/all-web-ui`) creates coordinated-release coupling.
 - `rich/web` depends on stable contract of `rich/app` admin endpoints.
 - Multiple data providers (Supabase, Neon, Yahoo, Alternative.me, KRX, Google) increase integration surface and failure modes.
