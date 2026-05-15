@@ -97,23 +97,32 @@ install and verification surface for:
 not part of the shared frontend dependency migration lane. The two nested
 `rich/open-trading-api/*/frontend` workspaces are registered for local sidecar
 bootstrap and verification only; they do not make `rich` safe to pin while its
-child repo is dirty/ahead. The `all-web-ui` consumer protocol is intentionally
-explicit: consumers may retain sibling
-`file:` references while standalone app-root installs and Vercel-style builds
-depend on that shape. A future `workspace:*` switch is acceptable only after
-root frozen install, root filtered checks, and each consumer's app-root
-install/build path pass under the same deployment shape used by Vercel.
+child repo is dirty/ahead. `rich/web` intentionally uses the root Bun workspace
+as its install/verification surface so its `catalog:` dependencies resolve from
+the root catalog. Standalone consumers outside that root workspace install the
+exact GitHub Packages dependency `@keelim/all-web-ui@0.1.3` through
+`https://npm.pkg.github.com`.
 
-When consumers retain `file:`, root `bun.lock` may still contain legitimate
-workspace package registrations such as `all-web-ui@workspace:all-web-ui`.
-The invalid state is drift inside consumer dependency specs or consumer
-dependency entries, not the existence of root workspace registrations.
+Root `bun.lock` may therefore contain legitimate workspace package registrations
+for `@keelim/all-web-ui` when the local package version matches the exact
+consumer version. The invalid state is drift inside consumer dependency specs,
+unscoped `all-web-ui` imports, or missing GitHub Packages registry mapping.
+The full integration verifier also checks that `@keelim/all-web-ui@0.1.3` is
+visible from `https://npm.pkg.github.com`; a passing build-only run is not enough
+to prove the package was published. That registry check uses `NODE_AUTH_TOKEN`
+or the local GitHub CLI token when GitHub Packages requires authenticated reads.
 
-Package-local `bun.lock` files remain the standalone child-repo fallback unless
-a later documented change explicitly retires child-local installs. In the
-current topology, deleting package-local `node_modules` is not the meaningful
-storage win: `rich/web/node_modules` is symlink-sized and the real shared store
-lives at root `node_modules`.
+Package-local `bun.lock` files remain standalone fallback artifacts for
+standalone consumers such as `keelim-vercel` and `agent-skill-console`.
+`rich/web` is the exception in this shared frontend lane: use root `bun.lock`
+and root workspace commands for its dependency resolution. In the current
+topology, deleting package-local `node_modules` is not the meaningful storage
+win: `rich/web/node_modules` is symlink-sized and the real shared store lives at
+root `node_modules`.
+
+Each standalone consumer that installs `@keelim/all-web-ui` needs an `.npmrc`
+scope mapping for `@keelim` and a `NODE_AUTH_TOKEN`/GitHub token with package
+read access in local, CI, or Vercel build environments.
 
 ### Bun workspace prerequisites
 
@@ -148,6 +157,35 @@ bun install
 
 If those autonomous repos are absent, Bun workspace installation will fail because the workspace paths are intentionally fixed to the local workspace layout.
 
+## Python uv workspace bootstrap
+
+The root also carries a narrow uv workspace for Python dependency coordination across the in-scope Python projects:
+
+- `toto`
+- `rich`
+
+This uv workspace is separate from the Bun workspace bootstrap. It does not change `package.json`, `bun.lock`, frontend install behavior, or child-repo Git ownership.
+
+The root uv project is coordination-only (`tool.uv.package = false`) and uses `requires-python = ">=3.13"` because `rich` requires Python 3.13 or newer. `toto` remains independently cloneable and may keep its child-local packaging workflow, but root uv operations use the shared Python floor and lock resolution.
+
+Shared Python packages should use aligned constraints across uv workspace members. The root uv workspace enforces shared dependency policy with `tool.uv.constraint-dependencies`, including the direct and transitive packages currently shared by `toto` and `rich`.
+
+Child repos keep matching declarations for directly used shared packages as standalone fallback, and the root verification script fails if those mirrors drift.
+
+Useful root-level uv checks:
+
+```bash
+uv run python scripts/verify-python-dependency-constraints.py
+uv workspace metadata
+uv lock --check
+uv run --package kbo-streamlit-dashboard --extra dev pytest toto/tests
+uv run --package keelim-rich --group dev pytest rich/tests
+```
+
+Sandboxed agent sessions can pass `--cache-dir .omx/uv-cache` if the default uv cache is not writable.
+
+Package-local lockfiles remain standalone child-repo fallback artifacts unless a later documented change explicitly retires them.
+
 ## Knowledge system docs
 
 The first-pass knowledge-system documentation lives under `docs/knowledge/`:
@@ -164,7 +202,7 @@ The first-pass knowledge-system documentation lives under `docs/knowledge/`:
 | Path | Remote? | Current status | Notes |
 | --- | --- | --- | --- |
 | `all` | yes | clean vs `origin/develop` | registered submodule |
-| `all-web-ui` | yes | clean vs `origin/main` | autonomous shared UI repo with public remote; included in root subrepo helper + integration verification |
+| `all-web-ui` | yes | clean vs `origin/main` | autonomous shared UI repo with public remote and GitHub Packages npm publishing; included in root subrepo helper + integration verification |
 | `agent-skill-console` | no | local-only independent child repo | autonomous Tauri desktop app for skill/agent inventory; intentionally not a submodule, root workspace member, or remote-backed repo in v1 |
 | `android-support` | yes | clean vs `origin/main` | registered submodule |
 | `Keelim-Knowledge-Vault` | yes | clean vs `origin/main` | registered submodule |
