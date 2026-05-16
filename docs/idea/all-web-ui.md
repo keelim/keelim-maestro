@@ -1,6 +1,6 @@
 # all-web-ui
 
-Last reviewed: 2026-04-25 KST
+Last reviewed: 2026-05-16 KST
 
 ## Signals
 
@@ -10,6 +10,7 @@ Last reviewed: 2026-04-25 KST
   migration between sibling-source imports and package exports.
 - Shared UI releases create coupling, so downstream impact, export contracts,
   and discoverability matter together.
+- 루트 `package.json`의 Bun `catalog`가 Tailwind 4, React 19, Next.js 16 등 공유 버전을 `all-web-ui`·`keelim-vercel`·`rich/web` 전체에 걸쳐 고정하므로, 카탈로그 항목 변경도 다운스트림 빌드 카나리 범위에 포함돼야 한다.
 
 ## Open ideas
 
@@ -64,6 +65,6 @@ First slice: 카탈로그에서 deprecated export를 표시하고, downstream im
 
 Status: proposed
 
-Why now: `all-web-ui`는 실제로 두 개의 다운스트림 앱에 붙어 있으니, export나 theme 파일 변경이 배포 전에 빌드 단위에서 먼저 깨지는지 확인해야 회귀 비용이 낮아진다.
+Why now: `all-web-ui`는 실제로 두 개의 다운스트림 앱에 붙어 있으니, export나 theme 파일 변경이 배포 전에 빌드 단위에서 먼저 깨지는지 확인해야 회귀 비용이 낮아진다. 루트 Bun `catalog` 항목(Tailwind, React, Next.js 등) 변경도 소비자 빌드에 영향을 주므로 카나리 범위에 함께 포함해야 한다.
 
-First slice: `keelim-vercel`과 `rich/web`이 쓰는 import 경로를 그대로 재현하는 작은 fixture 또는 매트릭스 빌드를 만들고, 타입체크/빌드 실패를 소비자 영향 경고로 보여준다.
+First slice: `keelim-vercel`과 `rich/web`이 쓰는 import 경로를 그대로 재현하는 작은 fixture 또는 매트릭스 빌드를 만들고, 타입체크/빌드 실패를 소비자 영향 경고로 보여준다. `catalog:` 참조 항목이 바뀐 경우에도 같은 게이트에서 감지한다.

@@ -1,6 +1,6 @@
 # rich
 
-Last reviewed: 2026-04-25 KST
+Last reviewed: 2026-05-16 KST
 
 ## Signals
 
@@ -62,12 +62,9 @@ action.
 
 Status: proposed
 
-Why now: `rich` depends on Supabase, Google, GitHub CLI, and pykrx/KRX access,
-so auth or connection drift needs to be visible separately from stale data or
-failed runs.
+Why now: `rich`는 Supabase, Google, GitHub CLI, pykrx/KRX뿐 아니라 `open-trading-api/MCP/`에 KIS Code Assistant MCP 서버와 Kis Trading MCP 서버를 추가로 운영하고 있어서, auth·연결 드리프트·MCP 프로세스 가용성을 한 패널에서 볼 수 없으면 침묵 실패가 더 커진다.
 
-First slice: Add a compact health panel that shows last-success time, reconnect
-state, and repair action for each upstream integration.
+First slice: Supabase·Google·GitHub CLI·pykrx·KIS MCP 각각의 마지막 성공 시각, 재연결 상태, 복구 액션을 보여주는 컴팩트 헬스 패널을 만든다. KIS MCP는 프로세스 핑 또는 최근 도구 호출 결과를 기준으로 상태를 판단한다.
 
 ### 2026-04-13 - 공공데이터 카탈로그 변경 피드
 

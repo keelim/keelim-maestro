@@ -1,6 +1,6 @@
 # android-support
 
-Last reviewed: 2026-04-25 KST
+Last reviewed: 2026-05-16 KST
 
 ## Signals
 
@@ -56,3 +56,11 @@ Status: proposed
 Why now: 이 action은 릴리스 핵심 경로를 직접 건드리는데, 현재 테스트는 입력 검증에 비해 실제 Play API 편집 생명주기 검증이 약해서 사소한 변경도 실배포까지 밀려갈 수 있다.
 
 First slice: sign/upload/internal sharing/staged rollout 응답을 대표 fixture로 기록하고, 이를 CI에서 재생해 Play Console에 닿지 않고도 전체 edit lifecycle을 검증한다.
+
+### 2026-05-16 - 액션 버전 범프 결정 게이트
+
+Status: proposed
+
+Why now: `android-support`는 `v0.0.8-4` 형식의 시맨틱 버전을 쓰는 GitHub Action이고, `all`의 릴리스 CI 워크플로우가 이 액션을 특정 버전으로 고정해 쓰고 있다. 현재 어떤 변경이 메이저·마이너·패치 범프에 해당하는지 결정하는 체크리스트가 없어서, 소비자 repo가 예상치 못한 breaking change를 만날 수 있다. `action.yml` 입·출력, 번들 재생성(`ncc build`), 테스트 통과 여부를 단계별 범프 기준과 연결해야 한다.
+
+First slice: `action.yml`의 인터페이스 변경, `src/` 로직 변경, 번들 재생성 필요 여부를 세 기준으로 나눈 버전 범프 결정 체크리스트를 AGENTS.md 또는 CHANGELOG에 추가하고, PR 템플릿에서 해당 항목을 확인하게 만든다.
