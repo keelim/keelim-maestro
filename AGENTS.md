@@ -12,7 +12,9 @@
   - `.gitignore`
   - `package.json`
   - `bun.lock`
+  - `docs/CODEMAPS/`
   - `docs/idea/`
+  - `scripts/`
   - future `.gitmodules`
   - future root-only helper scripts/docs
 - Do not convert child repositories to submodules yet while dirty or ahead-of-remote child repos remain unresolved.
@@ -20,6 +22,7 @@
 
 ## Child repository autonomy
 - Every top-level child directory (`all`, `all-web-ui`, `android-support`, `Keelim-Knowledge-Vault`, `keelim-plugin`, `keelim-vercel`, `quant`, `rich`, `toto`) remains its own Git repository and working context.
+- Local-only child repos such as `agent-skill-console` are also autonomous working contexts; keep them ignored/excluded from root workspace membership and root submodule conversion unless explicitly requested.
 - When modifying code inside a child repo, enter that repo, use its own Git history, and follow any deeper `AGENTS.md` that applies there.
 - Root-level changes should prefer updating documentation, submodule metadata, or pinned pointers rather than editing child-repo source files.
 - A deeper `AGENTS.md` inside a child repo overrides this file for files under that child repo.
@@ -56,10 +59,13 @@
 
 ## Verification expectations for root changes
 - For documentation/bootstrap work, verify the concrete files changed and report exact commands/results.
+- Before root-level pinning, submodule, or workspace-boundary changes, run `bun run report:baseline` to capture the live child-repo registration/divergence state without mutating children.
+- When touching the `all-web-ui` provider contract or its current consumers (`keelim-vercel`, `rich/web`, optional `agent-skill-console`), run `bun run report:shared-ui`; use `scripts/verify-all-web-ui-integration.sh` only when a strict static pass/fail gate is needed.
 - When the root Git repository is initialized, prefer these checks after root-owned changes:
   - `git status --short`
   - `git status --ignore-submodules=none`
   - `git diff -- AGENTS.md README.md .gitignore .gitmodules`
+- When root workspace metadata or helper scripts change, also run `bun run test` to keep the root contract scripts runnable.
 - After submodules exist, also run:
   - `git submodule status`
   - `git ls-files --stage | grep 160000`
