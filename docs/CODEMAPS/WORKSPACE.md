@@ -7,6 +7,10 @@ Each child directory is its own autonomous Git repository with its own history,
 branch model, and build toolchain. The root repository's sole responsibility is
 workspace-level coordination: submodule pointers, documentation, and helper scripts.
 
+The root carries two workspace bootstrap layers that operate independently:
+- **Bun workspace** (`package.json`) — JavaScript/TypeScript projects: `all-web-ui`, `keelim-vercel`, `rich/web`, `toto`.
+- **uv workspace** (`pyproject.toml`) — Python projects: `toto`, `rich`.
+
 ## Topology
 
 ```mermaid
@@ -114,16 +118,16 @@ Files and directories that must **not** be edited from the root:
 
 ## Current Submodule Snapshot
 
-> Last updated: 2026-05-15
+> Last updated: 2026-05-16
 
 | Path | Pinned commit | Branch | Status |
 |------|---------------|--------|----------|
-| `all` | `edac30d2` | `develop` | Checked out |
-| `android-support` | `485a2e40` | `main` | Checked out |
-| `Keelim-Knowledge-Vault` | `7a67e715` | `main` | Checked out |
-| `keelim-plugin` | `a3463396` | `main` | Checked out |
-| `keelim-vercel` | `85a4501c` | `main` | Checked out |
-| `toto` | `a942e6b` | `main` | Checked out |
+| `all` | `edac30d2` | `develop` | Registered submodule |
+| `android-support` | `485a2e40` | `main` | Registered submodule |
+| `Keelim-Knowledge-Vault` | `4dbecbc2` | `main` | Registered submodule |
+| `keelim-plugin` | `a3463396` | `main` | Registered submodule |
+| `keelim-vercel` | `d2ef3594` | `main` | Registered submodule |
+| `toto` | `5897ef44` | `main` | Registered submodule |
 | `all-web-ui` | — | `main` | Autonomous (not in .gitmodules) |
 | `rich` | — | `master` | Autonomous, commits ahead of origin |
 | `quant` | — | — | Local-only (no remote) |

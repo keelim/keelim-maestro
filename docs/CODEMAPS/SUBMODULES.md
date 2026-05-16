@@ -162,7 +162,7 @@ bun run jest    # run tests
 | Path | `Keelim-Knowledge-Vault/` |
 | Remote | https://github.com/keelim/Keelim-Knowledge-Vault.git |
 | Tracked branch | `main` |
-| Pinned commit | `7a67e715` |
+| Pinned commit | `4dbecbc2` |
 | Language / toolchain | Markdown / Obsidian |
 | Purpose | Shared knowledge base and documentation for the workspace |
 
@@ -208,7 +208,7 @@ The rename is verified by `scripts/verify-keelim-plugin-rename.sh`.
 | Path | `keelim-vercel/` |
 | Remote | https://github.com/keelim/keelim-vercel.git |
 | Tracked branch | `main` |
-| Pinned commit | `85a4501c` |
+| Pinned commit | `d2ef3594` |
 | Language / toolchain | Node.js / JavaScript (Vercel deployment) |
 | Purpose | Web frontend deployed on Vercel; integrates `all-web-ui` component library |
 
@@ -221,7 +221,7 @@ The rename is verified by `scripts/verify-keelim-plugin-rename.sh`.
 | Path | `toto/` |
 | Remote | https://github.com/keelim/toto.git |
 | Tracked branch | `main` |
-| Pinned commit | `a942e6b` |
+| Pinned commit | `5897ef44` |
 | Language / toolchain | Python / Streamlit with Bun wrapper scripts |
 | Purpose | Read-only local KBO dashboard skeleton and verification surface |
 

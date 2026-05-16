@@ -1,4 +1,4 @@
-<!-- Generated: 2026-05-15 | Source-led root codemap reviewed after generator pass -->
+<!-- Generated: 2026-05-16 | Source-led root codemap reviewed after generator pass -->
 
 # keelim-maestro Workspace Codemap
 
@@ -11,11 +11,13 @@ available from the maestro root.
 
 ## Read First
 
-- `AGENTS.md` - top-level operating contract, child-repo autonomy rules, and root safe scope.
-- `README.md` - human-facing workspace topology, Bun workspace bootstrap, and child repo status.
+- `AGENTS.md` - top-level operating contract, child-repo autonomy rules, root safe scope, and uv workspace policy.
+- `README.md` - human-facing workspace topology, Bun workspace bootstrap, Python uv workspace bootstrap, and child repo status.
 - `.gitmodules` - declared remote-backed child paths and tracked branches.
 - `.gitignore` - root exclusions for local autonomous repos and runtime state.
 - `package.json` - root Bun workspace membership and filtered web scripts.
+- `pyproject.toml` - root uv workspace membership (`toto`, `rich`) and shared Python constraint-dependencies.
+- `uv.lock` - root uv lock file for Python workspace members.
 - `docs/CODEMAPS/README.md` - index for the existing workspace codemap set.
 - `docs/CODEMAPS/projects/README.md` - central index of generated child repo codemap snapshots.
 - `docs/CODEMAPS/WORKSPACE.md` - federated workspace topology and policy.
@@ -40,12 +42,12 @@ Current declared `.gitmodules` paths:
 Current live gitlink evidence from `git ls-files --stage | rg 160000` and
 `git submodule status` shows active root gitlinks for:
 
-- `all` - index pins `edac30d`
-- `android-support` - index/live status align at `485a2e4`
-- `Keelim-Knowledge-Vault` - index pins `7a67e715`
+- `all` - index pins `edac30d2`
+- `android-support` - index pins `485a2e40`
+- `Keelim-Knowledge-Vault` - index pins `4dbecbc2`
 - `keelim-plugin` - index pins `a3463396`
-- `keelim-vercel` - index pins `85a4501c`
-- `toto` - index pins `a942e6b`
+- `keelim-vercel` - index pins `d2ef3594`
+- `toto` - index pins `5897ef44`
 
 Root `.gitignore` excludes `.omx`, `node_modules`, `all-web-ui`, `quant`, and
 `rich`, so those local paths are intentionally not normal root source files.
@@ -63,6 +65,9 @@ maintenance and verification surfaces:
   `keelim-skill` submodule rename.
 - `scripts/verify-all-web-ui-integration.sh` - verifies the shared UI
   integration contract across `all-web-ui`, `rich/web`, and `keelim-vercel`.
+- `scripts/verify-python-dependency-constraints.py` - verifies shared Python
+  dependency constraints are aligned across uv workspace members (`toto`, `rich`).
+  Run via `uv run python scripts/verify-python-dependency-constraints.py`.
 - `package.json` scripts:
   - `test` / `test:workspace` — root superproject contract tests via `test-workspace.sh`
   - `typecheck:web`
@@ -119,8 +124,11 @@ repos plus test environment variables documented in `docs/CODEMAPS/SCRIPTS.md`.
 ## Dependencies and Tooling
 
 - Root package manager: `bun@1.3.12`.
-- Root workspaces: `all-web-ui`, `keelim-vercel`, `rich/web`, `toto`.
+- Root Bun workspaces: `all-web-ui`, `keelim-vercel`, `rich/web`, `toto`.
 - Root `catalog` (Bun workspace catalog): pins shared versions for Radix UI primitives, Tailwind CSS 4, React 19, Next.js 16, testing-library, TypeScript 5.9, vitest, and utility libs across all workspace members. Consumers reference `catalog:` in their `package.json` instead of duplicating version strings.
+- Root Python package manager: `uv` (via `pyproject.toml` + `uv.lock`).
+- Root uv workspace members: `toto`, `rich`. Requires Python ≥ 3.13.
+- Root `tool.uv.constraint-dependencies` pins shared transitive Python packages (anyio, numpy, pandas, starlette, uvicorn, etc.) so workspace members resolve consistently.
 - Shell helpers rely on `git`, `awk`, `jq`, `rg`, `grep`, and POSIX `sh`.
 - The root docs intentionally summarize child repo relationships; use each
   child repo's own README, AGENTS, tests, and codemaps before editing child
@@ -139,6 +147,10 @@ repos plus test environment variables documented in `docs/CODEMAPS/SCRIPTS.md`.
 - `bun run verify:toto` - run the `toto` verification script through the root workspace.
 - `bun run dev:strategy-builder` - start the open-trading strategy builder frontend/backend.
 - `bun run dev:backtester` - start the open-trading backtester frontend/backend.
+- `uv run python scripts/verify-python-dependency-constraints.py` - verify Python dependency constraint alignment across uv workspace members.
+- `uv lock --check` - verify the uv lock file is up to date.
+- `uv run --package kbo-streamlit-dashboard --extra dev pytest toto/tests` - run `toto` Python tests via root uv.
+- `uv run --package keelim-rich --group dev pytest rich/tests` - run `rich` Python tests via root uv.
 
 ## Symbol Landmarks
 

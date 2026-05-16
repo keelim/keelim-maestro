@@ -223,6 +223,40 @@ Safe to run at any time; does not invoke child-repo builds or dirty-state-sensit
 
 ---
 
+## `scripts/verify-python-dependency-constraints.py`
+
+Verification helper for shared Python dependency constraints across uv workspace members (`toto`, `rich`).
+
+### Purpose
+
+Ensures that any package declared in more than one workspace member uses a consistent version specifier, and that all such shared packages are pinned under `tool.uv.constraint-dependencies` in the root `pyproject.toml`.
+
+### Invocation
+
+```bash
+uv run python scripts/verify-python-dependency-constraints.py
+```
+
+In sandboxed agent sessions, add `--cache-dir .omx/uv-cache` if the default uv cache is not writable.
+
+### Checks performed
+
+1. **Root constraint coverage** — any package declared in ≥ 2 workspace member `pyproject.toml` files must appear in the root `tool.uv.constraint-dependencies` list.
+2. **Specifier alignment** — each workspace member declaration for a shared package must match the root constraint specifier exactly.
+3. **Reverse check** — each package listed in root constraints and present in any member must have a declaration that matches the constraint.
+
+### Output
+
+Prints `OK: Python dependency constraints are aligned.` on success, with a summary of workspace members, shared packages, and root constraints. Prints drift details to `stderr` and exits non-zero on failure.
+
+### Exit behaviour
+
+Exits `0` on success, `1` on constraint drift, `2` if Python < 3.11 is detected.
+
+Run after any change to `pyproject.toml` in the root or in `toto`/`rich`.
+
+---
+
 ## Adding New Scripts
 
 Follow the existing conventions:

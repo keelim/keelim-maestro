@@ -1,4 +1,4 @@
-<!-- Generated: 2026-05-15 | Files scanned: 151+ | Token estimate: ~670 -->
+<!-- Generated: 2026-05-16 | Files scanned: 151+ | Token estimate: ~670 -->
 
 # Dependencies Codemap
 
@@ -30,6 +30,11 @@
 - TanStack Query across web frontends
 - Zustand across web frontends
 - Bun `catalog` in root `package.json` pins shared versions (Radix UI, Tailwind 4, React 19, Next.js 16, TypeScript 5.9, vitest, testing-library, clsx, lucide-react, date-fns, react-day-picker) across all workspace members; consumers reference `"catalog:<pkg>"` instead of explicit semver strings.
+
+## Root Workspace Tooling
+- **Bun** `1.3.12` — root JavaScript workspace package manager.
+- **uv** — root Python workspace package manager; `pyproject.toml` + `uv.lock` pin shared Python packages for `toto` and `rich` (requires Python ≥ 3.13).
+- Root `tool.uv.constraint-dependencies` aligns shared transitive packages (anyio, numpy, pandas, starlette, uvicorn, websockets, etc.) across all uv workspace members.
 
 ## Persistence Tooling
 - Drizzle ORM + drizzle-zod (`keelim-vercel`)
