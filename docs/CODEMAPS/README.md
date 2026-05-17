@@ -71,7 +71,7 @@ Registered submodules (pinned via `.gitmodules`):
 Autonomous child repos (not registered submodules):
 
 - `all-web-ui` — shared web UI (remote-backed, pending submodule conversion)
-- `rich` — autonomous; currently ahead of origin, pending reconciliation
+- `rich` — autonomous; currently dirty, pending reconciliation
 - `quant` — intentionally excluded when present; absent in this checkout
 
 Managed child codemap snapshots live under [`projects/`](projects/). They are
