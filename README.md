@@ -59,16 +59,48 @@ The child repositories remain autonomous at the codebase level. Remote-backed re
 
 Root idea/backlog maintenance now lives under `docs/idea/`, with `docs/idea/index.md` as the workspace index and `docs/idea/<project>.md` as each project's idea file. A root-level `idea/` directory should not be recreated.
 
+## Trusted baseline report
+
+Use the read-only trusted-baseline reporter before root-level pinning,
+submodule, or workspace-boundary work:
+
+```bash
+bun run report:baseline
+```
+
+The report is a live observation assembled from `.gitmodules`, active gitlinks,
+root workspace manifests, root policy, and child Git status. It does not mutate
+child repositories and is not permission to pin or repair child state.
+
+## Shared UI contract report
+
+Use the read-only shared UI contract reporter when touching `all-web-ui` or one
+of its current web consumers:
+
+```bash
+bun run report:shared-ui
+```
+
+The report ties together the provider package identity, package exports,
+style/theme entrypoints, downstream dependency/import signals, the static
+integration verifier, build-canary command inventory, and visual-regression
+readiness. It observes the `all-web-ui` provider plus the `keelim-vercel` and
+`rich/web` consumers without mutating child repositories. Use
+`scripts/verify-all-web-ui-integration.sh` for strict static failure semantics.
+
 ## Bun workspace bootstrap
 
-The current web workspace bootstrap is intentionally narrow and matches the root `package.json` workspaces:
+The current Bun workspace bootstrap is intentionally narrow. Its workspace
+members are the paths declared in the root `package.json`:
 
 - `all-web-ui`
 - `keelim-vercel`
-- `rich/open-trading-api/strategy_builder/frontend`
-- `rich/open-trading-api/backtester/frontend`
 - `rich/web`
 - `toto`
+
+The nested Open Trading frontend paths under `rich/open-trading-api/*/frontend`
+are not root Bun workspace members unless `package.json` later declares them.
+They remain child-repo helper/dev paths reached through root convenience scripts.
 
 Goals:
 
@@ -85,22 +117,21 @@ Non-goals:
 ### Frontend dependency contract
 
 For local multi-repo frontend work, the root Bun workspace is the authoritative
-install and verification surface for:
+install and verification surface for these frontend workspace members:
 
 - `all-web-ui`
 - `keelim-vercel`
 - `rich/web`
-- `rich/open-trading-api/strategy_builder/frontend`
-- `rich/open-trading-api/backtester/frontend`
 
 `toto` remains a root workspace member for the current root scripts, but it is
 not part of the shared frontend dependency migration lane. The two nested
-`rich/open-trading-api/*/frontend` workspaces are registered for local sidecar
-bootstrap and verification only; they do not make `rich` safe to pin while its
-child repo is dirty/ahead. `rich/web` intentionally uses the root Bun workspace
-as its install/verification surface so its `catalog:` dependencies resolve from
-the root catalog. Standalone consumers outside that root workspace install the
-exact GitHub Packages dependency `@keelim/all-web-ui@0.1.3` through
+`rich/open-trading-api/*/frontend` paths are local sidecar helper/dev surfaces
+inside the autonomous `rich` child repo; they do not become root workspace
+members or make `rich` safe to pin while its child repo is dirty/ahead.
+`rich/web` intentionally uses the root Bun workspace as its install/verification
+surface so its `catalog:` dependencies resolve from the root catalog.
+Standalone consumers outside that root workspace install the exact GitHub
+Packages dependency `@keelim/all-web-ui@0.1.3` through
 `https://npm.pkg.github.com`.
 
 Root `bun.lock` may therefore contain legitimate workspace package registrations
@@ -113,7 +144,7 @@ to prove the package was published. That registry check uses `NODE_AUTH_TOKEN`
 or the local GitHub CLI token when GitHub Packages requires authenticated reads.
 
 Package-local `bun.lock` files remain standalone fallback artifacts for
-standalone consumers such as `keelim-vercel` and `agent-skill-console`.
+standalone consumers such as `keelim-vercel`.
 `rich/web` is the exception in this shared frontend lane: use root `bun.lock`
 and root workspace commands for its dependency resolution. In the current
 topology, deleting package-local `node_modules` is not the meaningful storage
@@ -126,20 +157,25 @@ read access in local, CI, or Vercel build environments.
 
 ### Bun workspace prerequisites
 
-The root workspace assumes these directories already exist locally:
+The root Bun workspace assumes these package workspace directories already
+exist locally:
 
 - `all-web-ui/`
 - `keelim-vercel/`
 - `rich/web/`
-- `rich/open-trading-api/strategy_builder/frontend/`
-- `rich/open-trading-api/backtester/frontend/`
 - `toto/`
 
 `keelim-vercel` and `toto` are available from the root submodule bootstrap, but
 `all-web-ui` and `rich` are still autonomous child repos, **not** root
-submodules. The nested Open Trading frontend workspaces are expected under the
-hydrated `rich/` checkout. That means a fresh root clone must hydrate the
-autonomous repos separately **before** running root `bun install`.
+submodules. That means a fresh root clone must hydrate the autonomous repos
+that contain package workspace paths separately **before** running root
+`bun install`.
+
+The root also exposes helper dev scripts for these non-workspace child paths
+inside the hydrated `rich/` checkout:
+
+- `rich/open-trading-api/strategy_builder/`
+- `rich/open-trading-api/backtester/`
 
 Example hydration flow:
 
@@ -148,14 +184,17 @@ git clone <root-repo>
 cd keelim-maestro
 git submodule update --init --recursive
 
-# hydrate autonomous web repos expected by the Bun workspace
+# hydrate autonomous repos expected by the Bun workspace
 git clone https://github.com/keelim/all-web-ui.git all-web-ui
 git clone https://github.com/keelim/rich.git rich
 
 bun install
 ```
 
-If those autonomous repos are absent, Bun workspace installation will fail because the workspace paths are intentionally fixed to the local workspace layout.
+If those autonomous repos are absent, Bun workspace installation will fail
+because the package workspace paths are intentionally fixed to the local
+workspace layout. The nested Open Trading helper paths require the same hydrated
+`rich/` checkout, but they are not root Bun workspace members.
 
 ## Python uv workspace bootstrap
 
@@ -203,7 +242,6 @@ The first-pass knowledge-system documentation lives under `docs/knowledge/`:
 | --- | --- | --- | --- |
 | `all` | yes | clean vs `origin/develop` | registered submodule |
 | `all-web-ui` | yes | clean vs `origin/main` | autonomous shared UI repo with public remote and GitHub Packages npm publishing; included in root subrepo helper + integration verification |
-| `agent-skill-console` | no | local-only independent child repo | autonomous Tauri desktop app for skill/agent inventory; intentionally not a submodule, root workspace member, or remote-backed repo in v1 |
 | `android-support` | yes | clean vs `origin/main` | registered submodule |
 | `Keelim-Knowledge-Vault` | yes | clean vs `origin/main` | registered submodule |
 | `keelim-plugin` | yes | clean vs `origin/main` | registered submodule |
@@ -314,4 +352,8 @@ cd keelim-maestro
 git submodule update --init --recursive
 ```
 
-If you also want the root Bun workspace bootstrap, hydrate the autonomous repos expected by that workspace (`all-web-ui`, `rich`, including nested `rich/open-trading-api/*/frontend` paths) before running root `bun install`; see **Bun workspace prerequisites** above.
+If you also want the root Bun workspace bootstrap, hydrate the autonomous repos
+that contain package workspace paths (`all-web-ui`, `rich`) before running root
+`bun install`; see **Bun workspace prerequisites** above. The nested
+`rich/open-trading-api/*` paths are helper/dev paths inside the hydrated `rich`
+checkout, not root Bun workspace members.

@@ -63,6 +63,6 @@ Document MCP integrations behind `agentgateway` unless a lower-level
 implementation detail explicitly needs to be called out.
 
 ## Notable Couplings
-- `@keelim/all-web-ui` consumed as an exact GitHub Packages dependency by `keelim-vercel`, `rich/web`, and local `agent-skill-console`, with the root workspace retaining the local `all-web-ui/` checkout for authoring verification.
+- `@keelim/all-web-ui` consumed as an exact GitHub Packages dependency by `keelim-vercel` and `rich/web`, with the root workspace retaining the local `all-web-ui/` checkout for authoring verification.
 - `rich/web` depends on `rich/app` admin API contract (`/api/admin/**`) via `src/lib/api.ts`.
 - `keelim-vercel` / `rich` depend on Supabase auth and external data APIs (Yahoo Finance, Alternative.me, KRX/PyKRX, Google Workspace).

@@ -60,6 +60,95 @@ non-zero exit.
 
 ---
 
+## `scripts/report-trusted-baseline.sh`
+
+Read-only workspace evidence reporter for root-level pinning and submodule
+safety decisions. It aggregates the current state from `.gitmodules`, active
+gitlinks, root workspace manifests, root policy, and child Git status.
+
+This script is an observation surface, not a source of truth and not permission
+to pin, repair, or mutate child repositories.
+
+### Invocation
+
+| Invocation | Effect |
+|------------|--------|
+| `sh scripts/report-trusted-baseline.sh` | Print the live trusted-baseline table |
+| `bun run report:baseline` | Same as above via the root package script |
+
+### Output columns
+
+| Column | Meaning |
+|--------|---------|
+| `path` | Child repo path being observed |
+| `registration` | `registered-submodule`, `autonomous`, or `excluded-local` |
+| `branch` | Current child repo branch, or `DETACHED` |
+| `target` | `.gitmodules` branch or observed supported branch |
+| `state` | `clean`, `dirty`, or `missing` |
+| `ahead` / `behind` | Upstream divergence, or `-` when no upstream exists |
+| `remote` | `origin` URL or `none` |
+| `gitlink` | Active root `160000` gitlink evidence |
+| `bun` | Root Bun workspace member path, if any |
+| `uv` | Root uv workspace member path, if any |
+| `eligibility` | `eligible-observed`, `blocked`, or `excluded` |
+| `blocker` | Observed blocker reasons such as dirty state, branch mismatch, no remote, or no upstream |
+
+### Source precedence
+
+1. `.gitmodules` and `git ls-files --stage` for registered submodule/gitlink state
+2. `package.json` for Bun workspace membership
+3. `pyproject.toml` for uv workspace membership
+4. Root policy/docs for known autonomous or excluded repos
+5. Child Git commands for observation only
+
+### Exit behaviour
+
+Exits `0` when it can inspect the workspace and emit a report. Dirty repos,
+branch mismatches, no upstream, no remote, and excluded-by-policy states are
+reported in the table instead of causing a non-zero exit. Future strict/CI modes
+should be added separately if they become necessary.
+
+---
+
+## `scripts/report-shared-ui-contract.sh`
+
+Read-only control-tower report for the `@keelim/all-web-ui` provider and its
+current downstream consumers: `keelim-vercel` and `rich/web`.
+
+This script is an observation surface. It does not install dependencies, build
+apps, publish packages, update lockfiles, or mutate child repositories.
+
+### Invocation
+
+| Invocation | Effect |
+|------------|--------|
+| `sh scripts/report-shared-ui-contract.sh` | Print the live shared UI contract report |
+| `bun run report:shared-ui` | Same as above via the root package script |
+
+### Sections
+
+- **Provider** — checks `all-web-ui` package identity, exact version,
+  GitHub Packages publish config, package exports, manifest export count, CSS
+  entrypoints, and CSS `sideEffects` metadata.
+- **Consumers** — checks exact downstream dependency specs, `.npmrc` GitHub
+  Packages scope mapping, scoped import usage, and expected style/theme imports
+  for `keelim-vercel` and `rich/web`.
+- **Static verifier** — runs `sh scripts/verify-all-web-ui-integration.sh` and
+  reports its PASS/FAIL counts.
+- **Build canary inventory** — lists the package/app commands that should be
+  used for heavier manual or CI canaries.
+- **Visual regression readiness** — inventories whether each surface has an
+  automated visual/e2e gate or still needs manual screenshot verification.
+
+### Exit behaviour
+
+Exits `0` when it can emit observations. `FAIL` rows are work-queue signals,
+not this report's process exit contract. Use
+`scripts/verify-all-web-ui-integration.sh` when a strict static non-zero exit is
+needed.
+
+---
+
 ## `scripts/verify-keelim-plugin-rename.sh`
 
 Verification helper for the `keelim-skill` → `keelim-plugin` directory rename.
@@ -144,7 +233,6 @@ The default mode runs the following checks:
 - `rich/web` admin layout still applies `admin-bw-theme`
 - `rich/web` root layout still renders `AgentationToolbar`
 - `keelim-vercel/package.json` depends on `@keelim/all-web-ui`
-- `agent-skill-console/package.json` depends on `@keelim/all-web-ui` when the optional local repo is present
 - standalone consumer `bun.lock` files use the scoped GitHub Packages package and do not retain unscoped `all-web-ui` entries
 - `@keelim/all-web-ui` consumer dependency specs match the exact GitHub Packages version and the root `bun.lock` consumer entries, while allowing valid root workspace package registrations
 - `keelim-vercel` keeps generic `components/ui/` files as shim-only re-exports from `@keelim/all-web-ui`
@@ -170,8 +258,6 @@ cd keelim-vercel && bun run typecheck
 cd keelim-vercel && bun run lint
 cd keelim-vercel && bun run verify:maintenance
 cd keelim-vercel && bun run build   # retried once on lock-file errors
-cd agent-skill-console && NODE_AUTH_TOKEN=<token> bun install --frozen-lockfile
-cd agent-skill-console && bun run build
 ```
 
 ### Workspace root resolution
@@ -203,16 +289,16 @@ meet the documented workspace contract. Run via `bun run test` or
 - `packageManager` starts with `bun@`
 - `workspaces` is an array
 - `scripts` is an object
-- Required script keys exist: `test`, `test:workspace`, `typecheck:web`, `build:web`, `test:web`, `verify:toto`
+- Required script keys exist: `test`, `test:workspace`, `report:baseline`, `report:shared-ui`, `typecheck:web`, `build:web`, `test:web`, `verify:toto`
 
 **Root files (`check_root_files`)**
 - `README.md`, `.gitignore`, `.gitmodules` exist
-- `scripts/update-subrepos.sh`, `scripts/verify-all-web-ui-integration.sh`, `scripts/verify-keelim-plugin-rename.sh` exist
+- `scripts/update-subrepos.sh`, `scripts/report-trusted-baseline.sh`, `scripts/report-shared-ui-contract.sh`, `scripts/verify-all-web-ui-integration.sh`, `scripts/verify-keelim-plugin-rename.sh` exist
+- The trusted-baseline and shared UI contract reporters run successfully in read-only mode
 
 **Autonomous repo contract (`check_autonomous_repo_contract`)**
-- `.gitignore` excludes `all-web-ui`, `agent-skill-console`, `quant`, and `rich`
-- `workspaces` array does **not** include `agent-skill-console`, `quant`, or `rich`
-- If `agent-skill-console` is present locally: it must be git-ignored, not tracked by root, and be its own git repo
+- `.gitignore` excludes `all-web-ui`, `quant`, and `rich`
+- `workspaces` array does **not** include `quant` or `rich`
 
 ### Exit behaviour
 

@@ -34,7 +34,6 @@ flowchart TB
     autonomous --> webui["all-web-ui\nWeb UI · main (remote-backed)"]
     autonomous --> rich["rich\nWeb/Node.js · master (ahead of origin)"]
     autonomous --> quant["quant\n(local-only, no remote)"]
-    autonomous --> console["agent-skill-console\nTauri desktop · local-only"]
 ```
 
 ## Child Repository Catalogue
@@ -48,7 +47,6 @@ flowchart TB
 | `keelim-plugin` | https://github.com/keelim/keelim-plugin | `main` | Plugin project | Registered submodule |
 | `keelim-vercel` | https://github.com/keelim/keelim-vercel | `main` | Web / Vercel deployment | Registered submodule |
 | `toto` | https://github.com/keelim/toto | `main` | Local KBO Streamlit dashboard | Registered submodule |
-| `agent-skill-console` | none | n/a | Tauri desktop app (skill/agent inventory) | Local-only, intentionally excluded |
 | `quant` | none | n/a | local-only (no remote) | Intentionally excluded |
 | `rich` | https://github.com/keelim/rich | `master` | Web / Node.js | Autonomous (pending reconciliation) |
 
@@ -101,6 +99,53 @@ git submodule foreach git status --short --branch
 # Confirm submodule gitlinks
 git ls-files --stage | grep 160000
 ```
+
+## Trusted Baseline Scoreboard
+
+For live root-maintenance evidence, run:
+
+```bash
+sh scripts/report-trusted-baseline.sh
+```
+
+or:
+
+```bash
+bun run report:baseline
+```
+
+The scoreboard reports child repo registration, branch, dirty state, upstream
+divergence, remote presence, active gitlink evidence, Bun workspace membership,
+uv workspace membership, eligibility, and blocker reasons.
+
+This report is a current observation surface. It does not replace
+`.gitmodules`, active `160000` gitlinks, `package.json`, `pyproject.toml`, or
+the root policy docs, and it is not permission to pin, repair, or mutate child
+repositories.
+
+## Shared UI Contract Control Tower
+
+For live shared-frontend evidence, run:
+
+```bash
+sh scripts/report-shared-ui-contract.sh
+```
+
+or:
+
+```bash
+bun run report:shared-ui
+```
+
+The report observes `@keelim/all-web-ui@0.1.3` and the current downstream
+consumers `keelim-vercel` and `rich/web`. It combines
+provider export/style metadata, exact dependency specs, GitHub Packages
+registry mapping, scoped import signals, the existing static integration
+verifier, build-canary command inventory, and visual-regression readiness.
+
+This control tower is root-owned and read-only. It is not permission to edit
+consumer source, publish a package, update lockfiles, or convert
+`all-web-ui` into a root submodule.
 
 ## Safe Scope for Root Commits
 

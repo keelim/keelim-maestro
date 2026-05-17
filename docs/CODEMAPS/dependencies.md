@@ -26,7 +26,6 @@
 - `@keelim/all-web-ui` GitHub Packages npm package consumed by:
   - `keelim-vercel`
   - `rich/web`
-  - `agent-skill-console`
 - TanStack Query across web frontends
 - Zustand across web frontends
 - Bun `catalog` in root `package.json` pins shared versions (Radix UI, Tailwind 4, React 19, Next.js 16, TypeScript 5.9, vitest, testing-library, clsx, lucide-react, date-fns, react-day-picker) across all workspace members; consumers reference `"catalog:<pkg>"` instead of explicit semver strings.
