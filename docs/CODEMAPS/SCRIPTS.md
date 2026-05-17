@@ -250,7 +250,7 @@ cd .           && TMPDIR=/tmp/keelim-maestro-bun-tmp bun install --frozen-lockfi
 cd all-web-ui  && bun run typecheck
 cd all-web-ui  && bun test
 cd all-web-ui  && bun run build
-npm view @keelim/all-web-ui@0.1.3 version --registry=https://npm.pkg.github.com  # uses NODE_AUTH_TOKEN or gh auth token when needed
+npm view @keelim/all-web-ui@0.1.4 version --registry=https://npm.pkg.github.com  # uses NODE_AUTH_TOKEN or gh auth token when needed
 cd rich/web    && bun run typecheck
 cd rich/web    && bun run test
 cd rich/web    && NEXT_PUBLIC_SUPABASE_URL=https://example.supabase.co NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=sb_publishable_test SUPABASE_SERVICE_ROLE_KEY=service-role-test GOOGLE_OAUTH_CLIENT_ID=client-id GOOGLE_OAUTH_CLIENT_SECRET=client-secret GOOGLE_TOKEN_ENCRYPTION_KEY=0123456789abcdef0123456789abcdef GOOGLE_SHEETS_SPREADSHEET_ID=sheet-id bun run build

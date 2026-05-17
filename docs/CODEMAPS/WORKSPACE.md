@@ -28,7 +28,7 @@ flowchart TB
     submodules --> android["android-support\nGitHub Action · main"]
     submodules --> vault["Keelim-Knowledge-Vault\nDocumentation · main"]
     submodules --> plugin["keelim-plugin\nPlugin · main"]
-    submodules --> vercel["keelim-vercel\nWeb/Vercel · main"]
+    submodules --> vercel["keelim-vercel\nWeb/Vercel · develop"]
     submodules --> toto["toto\nKBO dashboard · main"]
 
     autonomous --> webui["all-web-ui\nWeb UI · main (remote-backed)"]
@@ -45,7 +45,7 @@ flowchart TB
 | `android-support` | https://github.com/keelim/android-support | `main` | TypeScript / Node.js GitHub Action | Registered submodule |
 | `Keelim-Knowledge-Vault` | https://github.com/keelim/Keelim-Knowledge-Vault | `main` | Documentation | Registered submodule |
 | `keelim-plugin` | https://github.com/keelim/keelim-plugin | `main` | Plugin project | Registered submodule |
-| `keelim-vercel` | https://github.com/keelim/keelim-vercel | `main` | Web / Vercel deployment | Registered submodule |
+| `keelim-vercel` | https://github.com/keelim/keelim-vercel | `develop` | Web / Vercel deployment | Registered submodule |
 | `toto` | https://github.com/keelim/toto | `main` | Local KBO Streamlit dashboard | Registered submodule |
 | `quant` | none | n/a | local-only (no remote) | Intentionally excluded |
 | `rich` | https://github.com/keelim/rich | `master` | Web / Node.js | Autonomous (pending reconciliation) |
@@ -137,7 +137,7 @@ or:
 bun run report:shared-ui
 ```
 
-The report observes `@keelim/all-web-ui@0.1.3` and the current downstream
+The report observes `@keelim/all-web-ui@0.1.4` and the current downstream
 consumers `keelim-vercel` and `rich/web`. It combines
 provider export/style metadata, exact dependency specs, GitHub Packages
 registry mapping, scoped import signals, the existing static integration
@@ -167,11 +167,11 @@ Files and directories that must **not** be edited from the root:
 
 | Path | Pinned commit | Branch | Status |
 |------|---------------|--------|----------|
-| `all` | `edac30d2` | `develop` | Registered submodule |
+| `all` | `0643bab4` | `develop` | Registered submodule |
 | `android-support` | `485a2e40` | `main` | Registered submodule |
-| `Keelim-Knowledge-Vault` | `4dbecbc2` | `main` | Registered submodule |
+| `Keelim-Knowledge-Vault` | `15b29c11` | `main` | Registered submodule |
 | `keelim-plugin` | `a3463396` | `main` | Registered submodule |
-| `keelim-vercel` | `d2ef3594` | `main` | Registered submodule |
+| `keelim-vercel` | `1304f121` | `develop` | Registered submodule |
 | `toto` | `5897ef44` | `main` | Registered submodule |
 | `all-web-ui` | — | `main` | Autonomous (not in .gitmodules) |
 | `rich` | — | `master` | Autonomous, commits ahead of origin |

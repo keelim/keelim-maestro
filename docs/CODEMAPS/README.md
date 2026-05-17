@@ -65,7 +65,7 @@ Registered submodules (pinned via `.gitmodules`):
 - `android-support` — GitHub Action for Android build workflows (`main`)
 - `Keelim-Knowledge-Vault` — documentation knowledge base (`main`)
 - `keelim-plugin` — plugin project (`main`)
-- `keelim-vercel` — web / Vercel deployment project (`main`)
+- `keelim-vercel` — web / Vercel deployment project (`develop`)
 - `toto` — local KBO Streamlit dashboard (`main`)
 
 Autonomous child repos (not registered submodules):

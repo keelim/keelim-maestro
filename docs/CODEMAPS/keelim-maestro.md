@@ -36,17 +36,17 @@ Current declared `.gitmodules` paths:
 - `android-support` tracks `main`
 - `Keelim-Knowledge-Vault` tracks `main`
 - `keelim-plugin` tracks `main`
-- `keelim-vercel` tracks `main`
+- `keelim-vercel` tracks `develop`
 - `toto` tracks `main`
 
 Current live gitlink evidence from `git ls-files --stage | rg 160000` and
 `git submodule status` shows active root gitlinks for:
 
-- `all` - index pins `edac30d2`
+- `all` - index pins `0643bab4`
 - `android-support` - index pins `485a2e40`
-- `Keelim-Knowledge-Vault` - index pins `4dbecbc2`
+- `Keelim-Knowledge-Vault` - index pins `15b29c11`
 - `keelim-plugin` - index pins `a3463396`
-- `keelim-vercel` - index pins `d2ef3594`
+- `keelim-vercel` - index pins `1304f121`
 - `toto` - index pins `5897ef44`
 
 Root `.gitignore` excludes `.omx`, `node_modules`, `all-web-ui`, `quant`, and

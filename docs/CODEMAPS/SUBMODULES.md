@@ -12,7 +12,7 @@ commit when the root superproject is cloned with `git submodule update --init --
 | Path | `all/` |
 | Remote | https://github.com/keelim/all.git |
 | Tracked branch | `develop` |
-| Pinned commit | `edac30d2` |
+| Pinned commit | `0643bab4` |
 | Language / toolchain | Kotlin / Android Gradle (Kotlin DSL) |
 | Architecture | Clean Architecture + MVVM + Unidirectional Data Flow (UDF) |
 
@@ -162,7 +162,7 @@ bun run jest    # run tests
 | Path | `Keelim-Knowledge-Vault/` |
 | Remote | https://github.com/keelim/Keelim-Knowledge-Vault.git |
 | Tracked branch | `main` |
-| Pinned commit | `4dbecbc2` |
+| Pinned commit | `15b29c11` |
 | Language / toolchain | Markdown / Obsidian |
 | Purpose | Shared knowledge base and documentation for the workspace |
 
@@ -207,8 +207,8 @@ The rename is verified by `scripts/verify-keelim-plugin-rename.sh`.
 |-------|-------|
 | Path | `keelim-vercel/` |
 | Remote | https://github.com/keelim/keelim-vercel.git |
-| Tracked branch | `main` |
-| Pinned commit | `d2ef3594` |
+| Tracked branch | `develop` |
+| Pinned commit | `1304f121` |
 | Language / toolchain | Node.js / JavaScript (Vercel deployment) |
 | Purpose | Web frontend deployed on Vercel; integrates `all-web-ui` component library |
 
