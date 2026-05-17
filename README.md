@@ -131,14 +131,14 @@ members or make `rich` safe to pin while its child repo is dirty/ahead.
 `rich/web` intentionally uses the root Bun workspace as its install/verification
 surface so its `catalog:` dependencies resolve from the root catalog.
 Standalone consumers outside that root workspace install the exact GitHub
-Packages dependency `@keelim/all-web-ui@0.1.3` through
+Packages dependency `@keelim/all-web-ui@0.1.4` through
 `https://npm.pkg.github.com`.
 
 Root `bun.lock` may therefore contain legitimate workspace package registrations
 for `@keelim/all-web-ui` when the local package version matches the exact
 consumer version. The invalid state is drift inside consumer dependency specs,
 unscoped `all-web-ui` imports, or missing GitHub Packages registry mapping.
-The full integration verifier also checks that `@keelim/all-web-ui@0.1.3` is
+The full integration verifier also checks that `@keelim/all-web-ui@0.1.4` is
 visible from `https://npm.pkg.github.com`; a passing build-only run is not enough
 to prove the package was published. That registry check uses `NODE_AUTH_TOKEN`
 or the local GitHub CLI token when GitHub Packages requires authenticated reads.
@@ -245,7 +245,7 @@ The first-pass knowledge-system documentation lives under `docs/knowledge/`:
 | `android-support` | yes | clean vs `origin/main` | registered submodule |
 | `Keelim-Knowledge-Vault` | yes | clean vs `origin/main` | registered submodule |
 | `keelim-plugin` | yes | clean vs `origin/main` | registered submodule |
-| `keelim-vercel` | yes | clean vs `origin/main` | registered submodule and Vercel-linked app |
+| `keelim-vercel` | yes | clean vs `origin/develop` | registered submodule and Vercel-linked app |
 | `toto` | yes | clean vs `origin/main` | registered submodule and local KBO dashboard workspace member |
 | `quant` | no | absent in this checkout | intentionally excluded for now |
 | `rich` | yes | ahead of `origin/master` by 12 with mixed dirty state | autonomous local repo; freeze/split before future pinning or data modernization |
@@ -309,7 +309,7 @@ Tracked submodule default branches are declared in `.gitmodules`:
 - `android-support` -> `main`
 - `Keelim-Knowledge-Vault` -> `main`
 - `keelim-plugin` -> `main`
-- `keelim-vercel` -> `main`
+- `keelim-vercel` -> `develop`
 - `toto` -> `main`
 
 Helper script:

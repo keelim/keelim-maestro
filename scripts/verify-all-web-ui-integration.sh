@@ -391,7 +391,13 @@ lockfile_uses_scoped_all_web_ui() {
   lockfile="$1"
   [ -f "$lockfile" ] || return 0
 
-  rg -q '"@keelim/all-web-ui"' "$lockfile" &&
+  dependency_spec="\"$ALL_WEB_UI_PACKAGE\": \"$ALL_WEB_UI_VERSION\""
+  package_entry="\"$ALL_WEB_UI_PACKAGE\": [\"$ALL_WEB_UI_PACKAGE@$ALL_WEB_UI_VERSION\""
+  download_entry="/download/@keelim/all-web-ui/$ALL_WEB_UI_VERSION/"
+
+  rg -q --fixed-strings "$dependency_spec" "$lockfile" &&
+    rg -q --fixed-strings "$package_entry" "$lockfile" &&
+    rg -q --fixed-strings "$download_entry" "$lockfile" &&
     ! rg -q '"all-web-ui' "$lockfile"
 }
 
@@ -523,7 +529,7 @@ run_static_checks() {
   if [ -f "$KEELIM_VERCEL_DIR/package.json" ]; then
     run_check "keelim-vercel depends on @keelim/all-web-ui" package_has_dependency "$KEELIM_VERCEL_DIR/package.json" "$ALL_WEB_UI_PACKAGE"
     run_check "keelim-vercel npm scope maps to GitHub Packages" package_registry_mapping_exists "$KEELIM_VERCEL_DIR"
-    run_check "keelim-vercel lockfile uses @keelim/all-web-ui" lockfile_uses_scoped_all_web_ui "$KEELIM_VERCEL_DIR/bun.lock"
+    run_check "keelim-vercel lockfile pins @keelim/all-web-ui version" lockfile_uses_scoped_all_web_ui "$KEELIM_VERCEL_DIR/bun.lock"
   else
     fail "keelim-vercel package.json exists"
   fi
