@@ -33,7 +33,7 @@ flowchart TB
 
     autonomous --> webui["all-web-ui\nWeb UI · main (remote-backed)"]
     autonomous --> rich["rich\nWeb/Node.js · master (dirty working tree)"]
-    autonomous --> quant["quant\n(local-only, no remote)"]
+    autonomous --> quant["quant\n(absent, no remote)"]
 ```
 
 ## Child Repository Catalogue
@@ -47,7 +47,7 @@ flowchart TB
 | `keelim-plugin` | https://github.com/keelim/keelim-plugin | `main` | Plugin project | Registered submodule |
 | `keelim-vercel` | https://github.com/keelim/keelim-vercel | `develop` | Web / Vercel deployment | Registered submodule |
 | `toto` | https://github.com/keelim/toto | `main` | Local KBO Streamlit dashboard | Registered submodule |
-| `quant` | none | n/a | local-only (no remote) | Intentionally excluded |
+| `quant` | none | n/a | absent in this checkout; local-only when present | Intentionally excluded |
 | `rich` | https://github.com/keelim/rich | `master` | Web / Node.js | Autonomous (pending reconciliation) |
 
 ## Architectural Principles
@@ -70,7 +70,7 @@ introduced only after child repos are in a clean, pinnable state.
 Expanding `.gitmodules` to cover additional child repos is blocked until:
 - All existing child repos are clean (no dirty working trees)
 - `rich` dirty working tree is reconciled or explicitly preserved
-- `quant` dirty state is explicitly resolved or preserved
+- `quant` absence/no-remote state is explicitly preserved
 - Any other diverged repos are normalised
 
 ## Bootstrap
@@ -175,4 +175,4 @@ Files and directories that must **not** be edited from the root:
 | `toto` | `5897ef44` | `main` | Registered submodule |
 | `all-web-ui` | — | `main` | Autonomous (not in .gitmodules) |
 | `rich` | — | `master` | Autonomous, dirty working tree |
-| `quant` | — | — | Local-only (no remote) |
+| `quant` | — | — | Absent in this checkout; no remote |

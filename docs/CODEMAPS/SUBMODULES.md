@@ -253,5 +253,5 @@ scripts, but are **not** declared in `.gitmodules`.
 
 ### `quant`
 - Remote: **none**
-- Status: Dirty local-only repository
+- Status: Absent in this checkout; local-only when present
 - Policy: Do **not** create a remote; do **not** add as submodule; keep autonomous
