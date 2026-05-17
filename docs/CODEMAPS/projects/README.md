@@ -1,6 +1,6 @@
 # Managed Project Codemaps
 
-> Last updated: 2026-05-15
+> Last updated: 2026-05-17
 
 `keelim-maestro` centrally keeps these source-led snapshots for child projects.
 The files in this directory are generated from each child repository's live
