@@ -1,6 +1,6 @@
 # android-support
 
-Last reviewed: 2026-04-25 KST
+Last reviewed: 2026-05-17 KST
 
 ## Signals
 
@@ -56,3 +56,11 @@ Status: proposed
 Why now: 이 action은 릴리스 핵심 경로를 직접 건드리는데, 현재 테스트는 입력 검증에 비해 실제 Play API 편집 생명주기 검증이 약해서 사소한 변경도 실배포까지 밀려갈 수 있다.
 
 First slice: sign/upload/internal sharing/staged rollout 응답을 대표 fixture로 기록하고, 이를 CI에서 재생해 Play Console에 닿지 않고도 전체 edit lifecycle을 검증한다.
+
+### 2026-05-17 - 소비 워크플로우 호환성 매트릭스
+
+Status: proposed
+
+Why now: `all` 프로젝트는 앱별 독립 배포 워크플로우(app_my_grade, app_arducon, app_nanda, app_comssa, app_cnubus 등 10개)가 각각 이 action을 호출하고 있어서, input 스키마나 출력 이름이 바뀌면 어떤 워크플로우가 영향받는지 한 번에 파악하기 어렵다.
+
+First slice: `all/.github/workflows/*.yml`에서 action 참조와 입력·출력 바인딩을 수집해 워크플로우별 의존 키를 한 매트릭스로 정리하고, action 버전 업 시 영향 범위를 릴리스 전에 확인할 수 있게 한다.

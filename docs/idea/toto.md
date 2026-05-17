@@ -1,6 +1,6 @@
 # toto
 
-Last reviewed: 2026-04-25 KST
+Last reviewed: 2026-05-17 KST
 
 ## Signals
 
@@ -35,10 +35,18 @@ Why now: 이 저장소의 핵심 가치는 수정이 아니라 재현이므로, 
 
 First slice: 앱 부팅, 홈 임포트, `verify` 흐름을 묶은 스모크 테스트를 추가하고, 비정상 쓰기 경로나 경로 드리프트가 있으면 실패하게 만든다.
 
-### 2026-04-25 - gitlink 커밋 및 재현 가능한 클론 게이트
+### 2026-04-25 - 재현 가능한 클론·CI 부트스트랩 게이트
 
 Status: proposed
 
-Why now: `toto`가 `.gitmodules`에 선언돼 있지만 gitlink가 루트 인덱스에 커밋되지 않아서, 신규 클론 시 디렉터리가 없고 `bun run dev:toto`·`bun run verify:toto`를 실행할 수 없다. 재현성을 핵심 가치로 내세운 프로젝트에서 이 비대칭은 가장 먼저 해소해야 할 운영 위험이다.
+Why now: `toto`의 gitlink가 루트 인덱스에 `5897ef44` 커밋으로 고정되었지만(2026-05-17 확인), 신규 클론 환경에서 `git submodule update --init toto` → `bun run bootstrap` → `bun run verify:toto` 전체 체인이 CI에서 그린인지 아직 자동 검증이 없다. 재현성을 핵심 가치로 내세운 프로젝트에서 체인 검증이 빠지면 운영 위험이 남는다.
 
-First slice: 안정 커밋을 골라 gitlink를 루트 인덱스에 커밋하고, `git submodule update --init toto` → `bun run bootstrap` → `bun run verify:toto` 순서가 CI에서 그린으로 돌아오면 pinning 완료로 간주한다.
+First slice: `git submodule update --init toto` → `bun run bootstrap` → `bun run verify:toto` 순서를 CI 잡으로 만들어 신규 클론 재현성을 자동으로 보장하고, 실패 시 어느 단계에서 깨졌는지 즉시 알 수 있는 에러 요약을 붙인다.
+
+### 2026-05-17 - uv 워크스페이스 Python 의존성 정렬 검증
+
+Status: proposed
+
+Why now: 루트 `pyproject.toml`이 `toto`와 `rich`를 같은 uv 워크스페이스로 묶고 있어서, 두 멤버의 패키지 요구사항이 조용히 어긋나면 `toto` 부팅이나 pytest가 실패해도 uv 워크스페이스 충돌이 원인임을 추적하기 어렵다.
+
+First slice: `uv.lock`에 고정된 실제 버전과 `toto`·`rich` 각 `pyproject.toml` 선언을 비교해 불일치·충돌 후보를 나열하고, `bun run verify:toto`보다 앞선 프리플라이트 단계로 붙인다.
