@@ -91,7 +91,6 @@ Autonomous repos (not in .gitmodules):
 - all-web-ui             (main, remote-backed, pending submodule conversion)
 - rich                   (master, commits ahead of origin, pending reconciliation)
 - quant                  (local-only, no remote, intentionally excluded)
-- agent-skill-console    (local-only, no remote, intentionally gitignored)
 
 STALENESS CHECK
 ===============
