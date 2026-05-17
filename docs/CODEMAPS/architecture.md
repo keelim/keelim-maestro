@@ -14,7 +14,7 @@
   |-- rich
   |    |-- app (FastAPI admin API)
   |    \-- web (Next.js admin/capture web)
-  |-- quant (Python multi-service: FastAPI + Django + dashboards)
+  |-- quant (absent in this checkout; excluded no-remote child repo when present)
   |-- all-web-ui (shared React UI package)
   |-- android-support (GitHub Action for Play Console upload)
   |-- toto (KBO baseball Streamlit dashboard — registered submodule)
@@ -25,9 +25,9 @@
 - `keelim-vercel`: user-facing finance web app; server routes in `app/api/**`; mixed data access via Supabase + Drizzle/Neon.
 - `rich/app`: operational/admin FastAPI API (`/api/admin/**`) for GitHub workflow ops, PyKRX ingestion, weekly review workflows.
 - `rich/web`: Next.js frontend + BFF routes (`/api/agenda`, `/api/google-sheets`) bridging Supabase auth and Google APIs.
-- `quant/myapi`: standalone FastAPI domain API (`question/answer/user/etc`) with SQLAlchemy + Alembic.
 - `all-web-ui`: shared UI components consumed by both `keelim-vercel` and `rich/web`.
 - `toto`: KBO baseball win/loss Streamlit dashboard registered as a root submodule.
+- `quant`: no active runtime boundary in this checkout; keep excluded until a remote-backed reproducible path exists.
 
 ## High-Level Data Flow
 ```text
@@ -44,7 +44,7 @@ Client Browser
 
 ## Runtime Surfaces
 - Frontend-heavy: `keelim-vercel`, `rich/web`
-- Backend-heavy: `rich/app`, `quant/myapi`
+- Backend-heavy: `rich/app`
 - Infra/tooling: `android-support`, `Keelim-Knowledge-Vault`
 - Dashboard: `toto` (Streamlit)
 

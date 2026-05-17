@@ -32,16 +32,10 @@ Supabase tables used in services (`weekly_review.py` + pykrx service):
   - `rich/app` admin API
   - Google Calendar/Sheets via OAuth tokens persisted in Supabase connection data
 
-### quant/myapi
-SQLAlchemy models (`quant/myapi/models.py`):
-- `user` (id, username, password, email)
-- `question` (id, subject, content, create_date, user_id, modify_date)
-- `answer` (id, content, create_date, question_id, user_id, modify_date)
-
-Relationships:
-- `question.user_id -> user.id`
-- `answer.question_id -> question.id`
-- `answer.user_id -> user.id`
+### quant
+`quant/` is absent in this checkout and intentionally excluded from the root
+superproject because it has no remote-backed reproducible path. There is no
+active root-observable data model for it in this checkout.
 
 ### all (Android)
 Room database (`core:database`):
@@ -55,22 +49,16 @@ Room database (`core:database`):
 
 ## Migration History
 
-### quant/myapi Alembic chain
-`7c8fa79f62a0` -> create `question`, `answer`
-`ed055cc1d720` -> create `user`
-`ef8c465f4f72` -> unique constraints on `user.email`, `user.username`
-`f79de755c055` -> add `question.user_id` FK
-`798ce91f5f35` -> add `answer.user_id` FK
-`3a6e8347d80e` -> add `modify_date` to `question`, `answer`
-
-### quant/all_admin (Django)
-- Migration files present: `0001`..`0004` (initial + notice/keyvalue evolution)
+### quant historical notes
+Prior codemaps referenced FastAPI, SQLAlchemy, and Alembic surfaces under the
+missing `quant/` tree. Those files are not present in the current checkout.
+Refresh this section only after `quant/` is restored with a remote-backed
+reproducible path.
 
 ## Data Flow Summary (ASCII)
 ```text
 UI -> API Route/Router -> Service/CRUD -> DB Client
   keelim-vercel: Next route -> Supabase/Drizzle -> Postgres
   rich/app: FastAPI -> services -> Supabase + external datasets
-  quant/myapi: FastAPI router -> CRUD -> SQLAlchemy -> DB
   all (Android): ViewModel -> Repository -> Room DB / Retrofit
 ```

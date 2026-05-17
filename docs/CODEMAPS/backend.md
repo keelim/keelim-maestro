@@ -6,14 +6,11 @@
 - `keelim-vercel/app/api/**` (Next.js route handlers)
 - `rich/app/api/admin.py` (FastAPI router)
 - `rich/web/src/app/api/**` (Next.js BFF routes)
-- `quant/myapi/**` (FastAPI + router/crud split)
+- `quant/` is absent in this checkout and intentionally excluded from active backend surfaces.
 
 ## Middleware Chain
 - `rich/app/main.py`
   - `FastAPI` -> `CORSMiddleware` -> `include_router(admin_router)`
-- `quant/myapi/main.py`
-  - `FastAPI` -> `CORSMiddleware` -> `question/answer/user/etc routers`
-  - Auth dependency via `Depends(get_current_user)` in protected routes
 - Next.js route handlers (`keelim-vercel`, `rich/web`)
   - Request -> route module function (`GET/POST/...`) -> direct service/db calls
 
@@ -33,7 +30,7 @@ POST `/api/products/import` -> `route.ts::POST` -> CSV parse/validate -> `getDb(
 GET `/api/indices` -> `route.ts::GET` -> `yahoo-finance2.quote(...)`
 GET `/api/fear-greed` -> `route.ts::GET` -> `fetch('https://api.alternative.me/fng/')`
 POST `/api/og-parser` -> `route.ts::POST` -> `fetch(url)` + `cheerio` parse
-GET `/api/og` -> `route.tsx::GET` -> `@vercel/og ImageResponse`
+GET `/api/og` -> `route.tsx::GET` -> `next/og ImageResponse`
 
 ### rich/app
 GET `/api/admin/me` -> `admin_me` -> `get_identity` -> `gh auth status` + `gh api user`
@@ -55,18 +52,7 @@ POST `/api/google-sheets` -> `route.ts::POST` -> Supabase user -> token -> Sheet
 GET `/auth/callback` -> callback handler -> OAuth finalize
 GET `/logout` -> Supabase signOut -> redirect
 
-### quant/myapi
-GET `/api/question/list` -> `question_router.question_list` -> `question_crud.get_question_list` -> SQLAlchemy query
-GET `/api/question/detail/{id}` -> `question_router.question_detail` -> `question_crud.get_question`
-POST `/api/question/create` -> `question_router.question_create` -> `question_crud.create_question`
-PUT `/api/question/update` -> `question_router.question_update` -> `question_crud.update_question`
-DELETE `/api/question/delete` -> `question_router.question_delete` -> `question_crud.delete_question`
-POST `/api/answer/create/{question_id}` -> `answer_router.answer_create` -> `answer_crud.create_answer`
-POST `/api/user/create` -> `user_router.user_create` -> `user_crud.create_user`
-POST `/api/user/login` -> `login_for_access_token` -> `user_crud.get_user` -> JWT issue
-GET `/api/etc/d-day` -> `etc_router.get_d_day`
-
 ## Service -> Repository Mapping
 - `keelim-vercel`: route handlers -> Supabase tables / Drizzle `products` table.
 - `rich/app`: API router -> service modules (`gh_actions`, `pykrx_foreign_flow`, `weekly_review`) -> external systems (GitHub CLI, KRX/PyKRX, Supabase).
-- `quant/myapi`: routers -> `*_crud.py` -> SQLAlchemy models (`Question`, `Answer`, `User`) -> SQLite/SQL DB via `SessionLocal`.
+- `quant`: absent from this checkout; no active service mapping.

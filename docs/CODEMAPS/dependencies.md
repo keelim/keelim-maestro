@@ -5,7 +5,7 @@
 ## External Services / APIs
 - Supabase (`@supabase/supabase-js`, `@supabase/ssr`, Python `supabase`)
 - Neon Postgres (`@neondatabase/serverless` + Drizzle)
-- Vercel runtime services (`@vercel/analytics`, `@vercel/speed-insights`, `@vercel/og`)
+- Vercel runtime services (`@vercel/analytics`, `@vercel/speed-insights`); the OG image route uses `next/og`.
 - Yahoo Finance (`yahoo-finance2`)
 - Alternative.me Fear & Greed API (`https://api.alternative.me/fng/`)
 - GitHub CLI (`gh`) for workflow control in `rich/app/services/gh_actions.py`
@@ -15,8 +15,7 @@
 
 ## Core Frameworks
 - Next.js 16 + React 19 (`keelim-vercel`, `rich/web`)
-- FastAPI (`rich/app`, `quant/myapi`)
-- SQLAlchemy + Alembic (`quant/myapi`)
+- FastAPI (`rich/app`)
 - Kotlin Multiplatform/Gradle (`all`)
 - Jetpack Compose + Material 3 (`all` Android UI)
 - Hilt (`all` DI)
@@ -38,12 +37,11 @@
 ## Persistence Tooling
 - Drizzle ORM + drizzle-zod (`keelim-vercel`)
 - Supabase SDKs (JS + Python)
-- SQLAlchemy ORM (`quant`)
 - Room + DataStore Proto (`all` Android)
 
 ## Dependency Hotspots
 - `keelim-vercel` has the broadest JS dependency footprint (UI + finance + infra SDKs).
-- `quant` has the broadest Python footprint (data science + web + auth + migration + Slack/MCP).
+- `quant` is absent in this checkout and remains excluded until it has a remote-backed reproducible path.
 - `rich` bridges both web and Python service dependencies, plus Google and GitHub integrations.
 - `all` has the largest Kotlin dependency graph (Compose, Hilt, Room, Retrofit, KMP, Firebase, Rust).
 
