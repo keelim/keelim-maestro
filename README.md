@@ -324,7 +324,7 @@ Helper script:
 Behavior:
 
 - reads tracked submodule paths from `.gitmodules`
-- includes autonomous local repos `all-web-ui`, `rich`, and `quant` in status output
+- includes autonomous local repos `all-web-ui`, `rich`, and `quant` when present in status output
 - updates only clean repos on `main` / `master` / `develop`
 - supports dry-run preview before any fetch / pull
 - skips repos with local commits ahead of upstream
