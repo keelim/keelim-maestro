@@ -127,7 +127,7 @@ install and verification surface for these frontend workspace members:
 not part of the shared frontend dependency migration lane. The two nested
 `rich/open-trading-api/*/frontend` paths are local sidecar helper/dev surfaces
 inside the autonomous `rich` child repo; they do not become root workspace
-members or make `rich` safe to pin while its child repo is dirty/ahead.
+members or make `rich` safe to pin while its child repo is dirty.
 `rich/web` intentionally uses the root Bun workspace as its install/verification
 surface so its `catalog:` dependencies resolve from the root catalog.
 Standalone consumers outside that root workspace install the exact GitHub
@@ -242,13 +242,13 @@ The first-pass knowledge-system documentation lives under `docs/knowledge/`:
 | --- | --- | --- | --- |
 | `all` | yes | clean vs `origin/develop` | registered submodule |
 | `all-web-ui` | yes | clean vs `origin/main` | autonomous shared UI repo with public remote and GitHub Packages npm publishing; included in root subrepo helper + integration verification |
-| `android-support` | yes | clean vs `origin/main` | registered submodule |
+| `android-support` | yes | detached clean at pinned commit `485a2e40`; no local upstream | registered submodule |
 | `Keelim-Knowledge-Vault` | yes | clean vs `origin/main` | registered submodule |
 | `keelim-plugin` | yes | clean vs `origin/main` | registered submodule |
 | `keelim-vercel` | yes | clean vs `origin/develop` | registered submodule and Vercel-linked app |
 | `toto` | yes | clean vs `origin/main` | registered submodule and local KBO dashboard workspace member |
 | `quant` | no | absent in this checkout | intentionally excluded for now |
-| `rich` | yes | ahead of `origin/master` by 12 with mixed dirty state | autonomous local repo; freeze/split before future pinning or data modernization |
+| `rich` | yes | dirty working tree, no ahead/behind drift vs `origin/master` | autonomous local repo; freeze/split before future pinning or data modernization |
 
 ## Why `/quant` is excluded
 
@@ -333,7 +333,7 @@ Behavior:
 ## Next safe steps before expanding submodule coverage
 
 1. Freeze/split the mixed dirty state in `rich` before any future pinning or data modernization.
-2. Reconcile child repos that are ahead of their upstreams, currently including `Keelim-Knowledge-Vault` and `toto`.
+2. Re-run `bun run report:baseline` before any expansion and reconcile any future ahead/behind child repos it reports.
 3. Keep `quant` excluded unless a future explicit request provides a reproducible remote-backed path.
 4. Expand `.gitmodules` only after any newly targeted remote-backed child repos are safe to pin.
 5. Add new submodules from remote URLs only.

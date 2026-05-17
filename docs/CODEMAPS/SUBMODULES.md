@@ -249,7 +249,7 @@ scripts, but are **not** declared in `.gitmodules`.
 - Remote: https://github.com/keelim/rich.git
 - Branch: `master`
 - Type: Web / Node.js (contains `rich/web/` Next.js app that imports `all-web-ui`)
-- Status: Local commits ahead of `origin/master`; needs reconciliation before pinning
+- Status: Dirty working tree; needs reconciliation before pinning
 
 ### `quant`
 - Remote: **none**

@@ -32,7 +32,7 @@ flowchart TB
     submodules --> toto["toto\nKBO dashboard · main"]
 
     autonomous --> webui["all-web-ui\nWeb UI · main (remote-backed)"]
-    autonomous --> rich["rich\nWeb/Node.js · master (ahead of origin)"]
+    autonomous --> rich["rich\nWeb/Node.js · master (dirty working tree)"]
     autonomous --> quant["quant\n(local-only, no remote)"]
 ```
 
@@ -69,7 +69,7 @@ introduced only after child repos are in a clean, pinnable state.
 ### 4. Submodule expansion gate
 Expanding `.gitmodules` to cover additional child repos is blocked until:
 - All existing child repos are clean (no dirty working trees)
-- `rich` local commits ahead of origin are reconciled / pushed
+- `rich` dirty working tree is reconciled or explicitly preserved
 - `quant` dirty state is explicitly resolved or preserved
 - Any other diverged repos are normalised
 
@@ -174,5 +174,5 @@ Files and directories that must **not** be edited from the root:
 | `keelim-vercel` | `1304f121` | `develop` | Registered submodule |
 | `toto` | `5897ef44` | `main` | Registered submodule |
 | `all-web-ui` | — | `main` | Autonomous (not in .gitmodules) |
-| `rich` | — | `master` | Autonomous, commits ahead of origin |
+| `rich` | — | `master` | Autonomous, dirty working tree |
 | `quant` | — | — | Local-only (no remote) |
