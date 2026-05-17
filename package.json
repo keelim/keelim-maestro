@@ -6,8 +6,7 @@
     "all-web-ui",
     "keelim-vercel",
     "rich/web",
-    "toto",
-    "tools/crawler/web"
+    "toto"
   ],
   "catalog": {
     "@radix-ui/react-accordion": "1.2.12",
@@ -46,7 +45,6 @@
     "tailwind-merge": "3.4.1",
     "tailwindcss": "4.2.2",
     "typescript": "5.9.3",
-    "vite": "5.4.21",
     "vitest": "2.1.1"
   },
   "scripts": {
@@ -62,10 +60,6 @@
     "dev:toto": "bun run --filter toto-kbo-streamlit-dashboard dev",
     "test:toto": "bun run --filter toto-kbo-streamlit-dashboard test",
     "verify:toto": "bun run --filter toto-kbo-streamlit-dashboard verify",
-    "dev:crawler-web": "bun run --filter keelim-crawler-admin dev",
-    "build:crawler-web": "bun run --filter keelim-crawler-admin build",
-    "test:crawler-web": "bun run --filter keelim-crawler-admin test",
-    "typecheck:crawler-web": "bun run --filter keelim-crawler-admin typecheck",
     "dev:strategy-builder": "cd rich && bash open-trading-api/strategy_builder/start.sh",
     "dev:backtester": "cd rich && bash open-trading-api/backtester/start.sh"
   }
