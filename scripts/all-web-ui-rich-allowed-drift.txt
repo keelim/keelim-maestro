@@ -11,5 +11,7 @@ rich/web/src/features/admin/components/review-flagged-profit-note-panel.tsx
 rich/web/src/features/money/components/money-dividend-page-content.tsx
 rich/web/src/features/money/components/money-sentiment-page-content.tsx
 rich/web/src/features/money/components/profit-calendar.tsx
+rich/web/src/features/money/support-funds/components/support-funds-page-content.tsx
 rich/web/src/features/today/components/today-day-trade-amount-panel.tsx
+rich/web/src/features/work-triage/components/work-triage-page-content.tsx
 rich/web/src/features/weekly-review/weekly-review-page-content.tsx

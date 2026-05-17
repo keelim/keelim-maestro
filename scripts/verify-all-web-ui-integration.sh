@@ -56,9 +56,10 @@ WORKSPACE_ROOT="$(resolve_workspace_root)"
 ALL_WEB_UI_DIR="$WORKSPACE_ROOT/all-web-ui"
 RICH_WEB_DIR="$WORKSPACE_ROOT/rich/web"
 KEELIM_VERCEL_DIR="$WORKSPACE_ROOT/keelim-vercel"
-AGENT_SKILL_CONSOLE_DIR="$WORKSPACE_ROOT/agent-skill-console"
 ALL_WEB_UI_PACKAGE="@keelim/all-web-ui"
-ALL_WEB_UI_VERSION="0.1.3"
+ALL_WEB_UI_VERSION="$(
+  jq -r '.version // empty' "$ALL_WEB_UI_DIR/package.json" 2>/dev/null || true
+)"
 GITHUB_PACKAGES_REGISTRY="@keelim:registry=https://npm.pkg.github.com"
 
 FAILURES=0
@@ -432,18 +433,6 @@ all_web_ui_published_version_matches() {
   [ "$published_version" = "$ALL_WEB_UI_VERSION" ]
 }
 
-agent_skill_console_dependency_valid() {
-  [ -f "$AGENT_SKILL_CONSOLE_DIR/package.json" ] || return 0
-  [ "$(package_dependency_spec "$AGENT_SKILL_CONSOLE_DIR/package.json" "$ALL_WEB_UI_PACKAGE")" = "$ALL_WEB_UI_VERSION" ] &&
-    ! package_has_dependency "$AGENT_SKILL_CONSOLE_DIR/package.json" "all-web-ui"
-}
-
-agent_skill_console_imports_scoped_package() {
-  [ -d "$AGENT_SKILL_CONSOLE_DIR/src" ] || return 0
-  rg -q "(from|import) ['\"]@keelim/all-web-ui" "$AGENT_SKILL_CONSOLE_DIR/src" &&
-    ! rg -q "(from|import) ['\"]all-web-ui" "$AGENT_SKILL_CONSOLE_DIR/src"
-}
-
 github_packages_auth_token() {
   if [ -n "${NODE_AUTH_TOKEN:-${GITHUB_TOKEN:-}}" ]; then
     printf '%s\n' "${NODE_AUTH_TOKEN:-${GITHUB_TOKEN:-}}"
@@ -453,32 +442,6 @@ github_packages_auth_token() {
   if command -v gh >/dev/null 2>&1; then
     gh auth token 2>/dev/null || true
   fi
-}
-
-agent_skill_console_frozen_install() {
-  [ -f "$AGENT_SKILL_CONSOLE_DIR/package.json" ] || return 0
-  auth_token="$(github_packages_auth_token)"
-
-  if [ -n "$auth_token" ]; then
-    (
-      cd "$AGENT_SKILL_CONSOLE_DIR" &&
-        NODE_AUTH_TOKEN="$auth_token" bun install --frozen-lockfile
-    )
-    return
-  fi
-
-  (
-    cd "$AGENT_SKILL_CONSOLE_DIR" &&
-      bun install --frozen-lockfile
-  )
-}
-
-agent_skill_console_build() {
-  [ -f "$AGENT_SKILL_CONSOLE_DIR/package.json" ] || return 0
-  (
-    cd "$AGENT_SKILL_CONSOLE_DIR" &&
-      bun run build
-  )
 }
 
 rich_web_has_no_legacy_color_tokens() {
@@ -565,13 +528,6 @@ run_static_checks() {
     fail "keelim-vercel package.json exists"
   fi
 
-  if [ -f "$AGENT_SKILL_CONSOLE_DIR/package.json" ]; then
-    run_check "agent-skill-console depends on @keelim/all-web-ui" agent_skill_console_dependency_valid
-    run_check "agent-skill-console npm scope maps to GitHub Packages" package_registry_mapping_exists "$AGENT_SKILL_CONSOLE_DIR"
-    run_check "agent-skill-console lockfile uses @keelim/all-web-ui" lockfile_uses_scoped_all_web_ui "$AGENT_SKILL_CONSOLE_DIR/bun.lock"
-    run_check "agent-skill-console imports @keelim/all-web-ui" agent_skill_console_imports_scoped_package
-  fi
-
   run_check "all-web-ui dependency protocol is explicit and lockfile-coherent" all_web_ui_dependency_protocol_is_lockfile_coherent
   run_check "keelim-vercel components/ui is shim-only for generic primitives" keelim_components_ui_is_shim_only
   run_check "keelim-vercel all-web-ui imports stay in adapter-safe locations" keelim_boundary_imports_valid
@@ -653,8 +609,6 @@ run_full_checks() {
     run_with_lock_retry \
     "Unable to acquire lock" \
     sh -c "cd \"$KEELIM_VERCEL_DIR\" && bun run build"
-  run_command_check "agent-skill-console frozen install" agent_skill_console_frozen_install
-  run_command_check "agent-skill-console build" agent_skill_console_build
 }
 
 print_header

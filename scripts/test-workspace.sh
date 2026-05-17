@@ -33,12 +33,6 @@ file_contains() {
   grep -F "$needle" "$file_path" >/dev/null 2>&1
 }
 
-path_is_git_repo() {
-  target="$1"
-
-  [ -d "$target/.git" ] || [ -f "$target/.git" ]
-}
-
 package_json_assert() {
   description="$1"
   expression="$2"
@@ -62,16 +56,12 @@ workspace_excludes() {
   bun --eval "const fs = require('fs'); const pkg = JSON.parse(fs.readFileSync('package.json', 'utf8')); if ((pkg.workspaces || []).includes('${workspace_path}')) process.exit(1);" >/dev/null 2>&1
 }
 
-root_does_not_track_path() {
-  target="$1"
-
-  ! git ls-files --error-unmatch "$target" >/dev/null 2>&1
+trusted_baseline_report_runs() {
+  sh scripts/report-trusted-baseline.sh >/dev/null
 }
 
-root_ignores_path() {
-  target="$1"
-
-  git check-ignore -q "$target"
+shared_ui_contract_report_runs() {
+  sh scripts/report-shared-ui-contract.sh >/dev/null
 }
 
 print_header() {
@@ -87,6 +77,8 @@ check_package_contract() {
 
   run_check "default test script exists" package_script_exists "test"
   run_check "workspace test script exists" package_script_exists "test:workspace"
+  run_check "baseline report script exists in package scripts" package_script_exists "report:baseline"
+  run_check "shared UI contract report script exists in package scripts" package_script_exists "report:shared-ui"
   run_check "web typecheck script exists" package_script_exists "typecheck:web"
   run_check "web build script exists" package_script_exists "build:web"
   run_check "web test script exists" package_script_exists "test:web"
@@ -98,26 +90,20 @@ check_root_files() {
   run_check "root .gitignore exists" test -f .gitignore
   run_check "root .gitmodules exists" test -f .gitmodules
   run_check "root update-subrepos helper exists" test -f scripts/update-subrepos.sh
+  run_check "root trusted-baseline reporter exists" test -f scripts/report-trusted-baseline.sh
+  run_check "root trusted-baseline reporter runs" trusted_baseline_report_runs
+  run_check "root shared UI contract reporter exists" test -f scripts/report-shared-ui-contract.sh
+  run_check "root shared UI contract reporter runs" shared_ui_contract_report_runs
   run_check "root all-web-ui verifier exists" test -f scripts/verify-all-web-ui-integration.sh
   run_check "root keelim-plugin verifier exists" test -f scripts/verify-keelim-plugin-rename.sh
 }
 
 check_autonomous_repo_contract() {
   run_check "root ignores all-web-ui" file_contains .gitignore "/all-web-ui/"
-  run_check "root ignores agent-skill-console" file_contains .gitignore "/agent-skill-console/"
   run_check "root ignores quant" file_contains .gitignore "/quant/"
   run_check "root ignores rich" file_contains .gitignore "/rich/"
-  run_check "root workspaces exclude agent-skill-console" workspace_excludes "agent-skill-console"
   run_check "root workspaces exclude quant" workspace_excludes "quant"
   run_check "root workspaces exclude rich" workspace_excludes "rich"
-
-  if [ -e agent-skill-console ]; then
-    run_check "agent-skill-console is ignored by root" root_ignores_path "agent-skill-console/"
-    run_check "agent-skill-console is not tracked by root" root_does_not_track_path "agent-skill-console"
-    run_check "agent-skill-console is its own git repo" path_is_git_repo "agent-skill-console"
-  else
-    pass "agent-skill-console optional child repo is absent"
-  fi
 }
 
 main() {
