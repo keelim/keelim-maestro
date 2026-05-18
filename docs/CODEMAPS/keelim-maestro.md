@@ -1,4 +1,4 @@
-<!-- Generated: 2026-05-17 | Source-led root codemap reviewed after generator pass -->
+<!-- Generated: 2026-05-18 | Source-led root codemap reviewed after generator pass -->
 
 # keelim-maestro Workspace Codemap
 
@@ -61,6 +61,8 @@ maintenance and verification surfaces:
 
 - `scripts/update-subrepos.sh` - status and safe fast-forward update helper.
 - `scripts/test-workspace.sh` - lightweight root superproject contract tests (package metadata, required scripts, autonomous-repo boundaries).
+- `scripts/report-trusted-baseline.sh` - read-only child-repo registration/divergence evidence reporter; use before pinning or submodule changes.
+- `scripts/report-shared-ui-contract.sh` - read-only shared UI integration control tower for `@keelim/all-web-ui` provider and its downstream consumers.
 - `scripts/verify-keelim-plugin-rename.sh` - verifies the former
   `keelim-skill` submodule rename.
 - `scripts/verify-all-web-ui-integration.sh` - verifies the shared UI
@@ -70,6 +72,8 @@ maintenance and verification surfaces:
   Run via `uv run python scripts/verify-python-dependency-constraints.py`.
 - `package.json` scripts:
   - `test` / `test:workspace` — root superproject contract tests via `test-workspace.sh`
+  - `report:baseline` — trusted baseline reporter via `report-trusted-baseline.sh`
+  - `report:shared-ui` — shared UI contract reporter via `report-shared-ui-contract.sh`
   - `typecheck:web`
   - `build:web`
   - `test:web`
@@ -136,6 +140,8 @@ repos plus test environment variables documented in `docs/CODEMAPS/SCRIPTS.md`.
 ## Useful Commands
 
 - `bun run test` / `bun run test:workspace` - root superproject contract tests.
+- `bun run report:baseline` - trusted baseline reporter; read-only child-repo divergence evidence before pinning.
+- `bun run report:shared-ui` - shared UI contract control tower for `@keelim/all-web-ui` and its web consumers.
 - `bun run typecheck:web` - root-filtered typecheck for `all-web-ui`, `keelim-vercel`, and `rich/web`.
 - `bun run build:web` - root-filtered build for `keelim-vercel` and `rich/web`.
 - `bun run test:web` - root-filtered `rich/web` test lane.
