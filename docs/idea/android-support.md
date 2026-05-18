@@ -1,6 +1,6 @@
 # android-support
 
-Last reviewed: 2026-05-16 KST
+Last reviewed: 2026-05-18 KST
 
 ## Signals
 
@@ -56,3 +56,11 @@ Status: proposed
 Why now: 이 action은 릴리스 핵심 경로를 직접 건드리는데, 현재 테스트는 입력 검증에 비해 실제 Play API 편집 생명주기 검증이 약해서 사소한 변경도 실배포까지 밀려갈 수 있다.
 
 First slice: sign/upload/internal sharing/staged rollout 응답을 대표 fixture로 기록하고, 이를 CI에서 재생해 Play Console에 닿지 않고도 전체 edit lifecycle을 검증한다.
+
+### 2026-05-18 - 앱별 Play 롤아웃 정책 레지스트리
+
+Status: proposed
+
+Why now: `all`에는 6개의 앱(`app-my-grade`, `app-arducon`, `app-nanda`, `app-comssa`, `app-cnubus`, `app-mysenior`)이 있고 각각 별도 CI workflow(`app_my_grade.yml` 등)를 통해 이 action을 호출한다. action 입력인 `track`, `status`, `userFraction`이 앱마다 다를 수 있는데, 현재 이를 한 곳에서 비교할 방법이 없어서 앱 간 정책 불일치와 위험 설정이 숨기 쉽다.
+
+First slice: 6개 앱의 CI workflow 파일에서 `android-support` action 호출 입력값을 수집해 앱별 `track`, `status`, `userFraction` 정책을 한 표로 보여주고, 누락된 fraction 또는 의도치 않은 production 배포 설정을 표시한다.
