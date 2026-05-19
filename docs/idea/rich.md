@@ -1,6 +1,6 @@
 # rich
 
-Last reviewed: 2026-05-16 KST
+Last reviewed: 2026-05-19 KST
 
 ## Signals
 
@@ -64,10 +64,14 @@ Status: proposed
 
 Why now: `rich` depends on Supabase, Google, GitHub CLI, and pykrx/KRX access,
 so auth or connection drift needs to be visible separately from stale data or
-failed runs.
+failed runs. The `open-trading-api/` surface now also includes Docker-deployed
+KIS MCP servers (KIS Code Assistant MCP, Kis Trading MCP) with local master-file
+databases, adding another integration layer where silent auth or connectivity
+failures can block trading workflows without touching the admin web surface.
 
 First slice: Add a compact health panel that shows last-success time, reconnect
-state, and repair action for each upstream integration.
+state, and repair action for each upstream integration, including the KIS MCP
+services as a distinct group alongside Supabase, Google, GitHub CLI, and pykrx.
 
 ### 2026-04-13 - 공공데이터 카탈로그 변경 피드
 

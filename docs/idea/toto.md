@@ -1,6 +1,6 @@
 # toto
 
-Last reviewed: 2026-05-16 KST
+Last reviewed: 2026-05-19 KST
 
 ## Signals
 
@@ -42,3 +42,11 @@ Status: proposed
 Why now: `toto`가 `.gitmodules`에 선언돼 있지만 gitlink가 루트 인덱스에 커밋되지 않아서, 신규 클론 시 디렉터리가 없고 `bun run dev:toto`·`bun run verify:toto`를 실행할 수 없다. 재현성을 핵심 가치로 내세운 프로젝트에서 이 비대칭은 가장 먼저 해소해야 할 운영 위험이다.
 
 First slice: 안정 커밋을 골라 gitlink를 루트 인덱스에 커밋하고, `git submodule update --init toto` → `bun run bootstrap` → `bun run verify:toto` 순서가 CI에서 그린으로 돌아오면 pinning 완료로 간주한다.
+
+### 2026-05-19 - 예측 모델 등록·백테스트 계약 동기화 게이트
+
+Status: proposed
+
+Why now: `toto`는 `PredictionCardDTO`·`BacktestSummaryDTO`로 예측 결과와 백테스트 요약을 분리하고 있으며, `view_models.py`가 `selected_model_name`과 `selection_rationale`을 노출하고 `test_no_recommendation_surface.py`가 금지 표현을 감시한다. 예측 모델이 추가되거나 DTO 계약이 바뀔 때 씨드 데이터·모델 요약·선택 근거 세 계층이 동시에 맞는지 확인하는 게이트가 없으면 드리프트가 조용히 쌓인다.
+
+First slice: `BacktestSummaryDTO` 필드와 `repository.get_model_summaries()` 결과, `view_models.selection_rationale` 출력을 교차 비교하는 계약 검사를 `bun run verify`에 포함하고, 모델 추가 시 세 계층이 동시에 업데이트됐는지 확인한다.
