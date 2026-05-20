@@ -1,6 +1,6 @@
 # rich
 
-Last reviewed: 2026-05-16 KST
+Last reviewed: 2026-05-20 KST
 
 ## Signals
 
@@ -69,14 +69,10 @@ failed runs.
 First slice: Add a compact health panel that shows last-success time, reconnect
 state, and repair action for each upstream integration.
 
-### 2026-04-13 - 공공데이터 카탈로그 변경 피드
+### 2026-05-20 - 오픈 트레이딩 API 서비스 경계 문서화
 
 Status: proposed
 
-Why now: `rich` already exports the data.go.kr API catalog, so the next leverage
-point is to turn that static inventory into a watchable change feed instead of a
-one-off dump.
+Why now: 루트 `package.json`에 `dev:strategy-builder`와 `dev:backtester` 스크립트가 등록됐고 `rich/open-trading-api/` 하위에 strategy_builder와 backtester 컴포넌트가 존재하지만, 다른 `rich` 서비스들(admin API, pykrx 수집, weekly review)과 달리 운영 경계·API 계약·테스트 커버리지에 대한 문서가 없어 서비스 상태를 파악하기 어렵다.
 
-First slice: Track a small watchlist of high-value dataset pages, diff title /
-field / link changes on each export, and push meaningful updates into the
-weekly review or recovery queue.
+First slice: `rich/open-trading-api/` 디렉터리를 스캔해 서비스 구조, 진입점, 다른 `rich` 서비스와의 연결 지점을 한 페이지 명세로 정리하고, 누락된 테스트 경계와 admin API 연동 여부를 표시한다.

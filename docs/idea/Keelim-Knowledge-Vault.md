@@ -1,6 +1,6 @@
 # Keelim-Knowledge-Vault
 
-Last reviewed: 2026-05-16 KST
+Last reviewed: 2026-05-20 KST
 
 ## Signals
 
@@ -47,21 +47,21 @@ Why now: 루트에 생성된 CODEMAPS/WORKSPACE 문서가 이미 워크스페이
 
 First slice: 각 코드맵 갱신 시점별로 파일 수, 핵심 결합점, 새로 생긴 운영 규칙을 요약한 노트를 하나씩 만들고 프로젝트 인덱스에서 바로 링크한다.
 
-### 2026-04-14 - 워크스페이스 지시문 미러
+### 2026-04-14 - 워크스페이스 운영 기준 미러 & 변화 다이제스트
 
 Status: proposed
 
-Why now: AGENTS, CODEMAPS, automation memory, 백로그 노트가 흩어져 있어서, 현재 작업 기준을 한 노트에서 다시 찾을 수 있어야 다음 작업의 진입 비용이 줄어든다.
+Why now: AGENTS, CODEMAPS, idea 인덱스, automation memory가 모두 따로 움직여서 오늘 바뀐 운영 기준을 한 번에 복원하기 어렵다. 루트 지시문과 코드맵을 연결한 단일 인덱스 노트와 최근 변화 요약을 vault에 함께 유지하면 재진입 비용이 크게 줄어든다.
 
-First slice: 루트 AGENTS/CODEMAPS/idea 인덱스와 자주 바뀌는 운영 규칙을 연결한 단일 인덱스 노트를 만들고, 관련 프로젝트 노트에서 바로 왕복할 수 있게 한다.
+First slice: 루트 AGENTS/CODEMAPS/idea 인덱스를 연결한 단일 인덱스 노트를 만들고 관련 프로젝트 노트로 왕복 링크를 건 뒤, 갱신된 운영 문서와 메모리 조각을 변화 다이제스트 형태로 함께 기록한다.
 
-### 2026-04-14 - 워크스페이스 일일 변화 다이제스트
+### 2026-05-20 - docs/knowledge 디렉터리 부재 격차 해소
 
 Status: proposed
 
-Why now: AGENTS, CODEMAPS, idea 인덱스, automation memory가 따로 움직여서, 오늘 바뀐 운영 기준을 한 번에 복원할 수 있는 요약 노트가 있으면 재진입 비용이 줄어든다.
+Why now: 루트 `README.md`가 `docs/knowledge/`를 operator-runbook, source-targets, review-checklist, merge-guidance, verification-contract의 저장소로 참조하지만, 2026-05-20 기준 해당 디렉터리가 존재하지 않는다. 이 참조가 깨진 상태로 유지되면 신규 오퍼레이터가 운영 지침을 찾지 못하는 위험이 생기고, vault의 워크스페이스 인덱스 노트도 연결할 대상이 없어진다.
 
-First slice: 루트에서 갱신된 운영 문서와 메모리 조각을 모아 일일 다이제스트 노트를 만들고, 관련 프로젝트 노트로 바로 왕복 링크를 건다.
+First slice: vault에 workspace operator section을 만들어 README.md가 참조하는 5가지 문서(operator-runbook, source-targets, review-checklist, merge-guidance, verification-contract) 최소 스텁을 작성하고, 루트 README.md와 상호 링크하거나 `docs/knowledge/` 디렉터리를 root에 생성해 참조를 복원한다.
 
 ### 2026-04-16 - 워크스페이스 신뢰 기준선 보드
 
