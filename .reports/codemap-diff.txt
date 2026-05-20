@@ -1,73 +1,78 @@
 Codemap Diff Report
 ===================
-Generated: 2026-05-17
-Previous generation: 2026-05-16
+Generated: 2026-05-20
+Previous generation: 2026-05-19
 
 SUMMARY OF CHANGES
 ==================
-- Change scope: ~1% (timestamp refresh only; no structural changes)
-- Action: update all timestamps to 2026-05-17; content verified accurate
+- Change scope: ~1% (timestamp refresh + README scripts tree fix)
+- Action: update all timestamps to 2026-05-20; fix README.md quick-orientation
+  scripts tree to include report-trusted-baseline.sh, report-shared-ui-contract.sh,
+  and verify-python-dependency-constraints.py (previously missing from tree)
 
 FILES MODIFIED
 ===============
 ✓ docs/CODEMAPS/README.md
-  - Updated: Last updated 2026-05-16 → 2026-05-17
-  - Content: no structural changes
+  - Updated: Last updated 2026-05-19 → 2026-05-20
+  - Fixed: quick-orientation scripts tree now lists all 7 root helper scripts
+    (added report-trusted-baseline.sh, report-shared-ui-contract.sh,
+    verify-python-dependency-constraints.py which were missing)
 
 ✓ docs/CODEMAPS/keelim-maestro.md
-  - Updated: Generated timestamp 2026-05-16 → 2026-05-17
-  - Content: no changes (still accurate)
+  - Updated: Generated timestamp 2026-05-19 → 2026-05-20
+  - Content: no structural changes (still accurate)
 
 ✓ docs/CODEMAPS/WORKSPACE.md
-  - Updated: Last updated 2026-05-16 → 2026-05-17
+  - Updated: Last updated 2026-05-19 → 2026-05-20
   - Content: no structural changes; submodule snapshot already accurate
 
-✓ docs/CODEMAPS/dependencies.md
-  - Updated: Generated timestamp 2026-05-16 → 2026-05-17
-  - Content: no changes (still accurate)
-
 ✓ docs/CODEMAPS/architecture.md
-  - Updated: Generated timestamp 2026-05-15 → 2026-05-17
-  - Content: no changes (still accurate)
-
-✓ docs/CODEMAPS/frontend.md
-  - Updated: Generated timestamp 2026-05-15 → 2026-05-17
+  - Updated: Generated timestamp 2026-05-19 → 2026-05-20
   - Content: no changes (still accurate)
 
 ✓ docs/CODEMAPS/backend.md
-  - Updated: Generated timestamp 2026-05-15 → 2026-05-17
+  - Updated: Generated timestamp 2026-05-19 → 2026-05-20
   - Content: no changes (still accurate)
 
 ✓ docs/CODEMAPS/data.md
-  - Updated: Generated timestamp 2026-05-15 → 2026-05-17
+  - Updated: Generated timestamp 2026-05-19 → 2026-05-20
+  - Content: no changes (still accurate)
+
+✓ docs/CODEMAPS/frontend.md
+  - Updated: Generated timestamp 2026-05-19 → 2026-05-20
+  - Content: no changes (still accurate)
+
+✓ docs/CODEMAPS/dependencies.md
+  - Updated: Generated timestamp 2026-05-19 → 2026-05-20
   - Content: no changes (still accurate)
 
 ✓ docs/CODEMAPS/projects/README.md
-  - Updated: Last updated 2026-05-15 → 2026-05-17
+  - Updated: Last updated 2026-05-19 → 2026-05-20
   - Content: project snapshot table still accurate; no new child repos
 
 FILES CHECKED — NO CHANGES NEEDED
 ===================================
-✓ docs/CODEMAPS/SUBMODULES.md  — submodule pointers unchanged (same pinned commits as 2026-05-16)
-✓ docs/CODEMAPS/SCRIPTS.md     — no new scripts added; all five root scripts unchanged
-✓ docs/CODEMAPS/projects/*.md  — child repo snapshots unchanged (child repos not available in this checkout)
+✓ docs/CODEMAPS/SUBMODULES.md  — submodule pointers unchanged (same pinned commits as 2026-05-19)
+✓ docs/CODEMAPS/SCRIPTS.md     — no new scripts; all 7 root scripts already documented
+✓ docs/CODEMAPS/projects/*.md  — child repo snapshots unchanged (child repos not initialized in this checkout)
 
-CONTEXT: CHANGES SINCE 2026-05-16
+CONTEXT: CHANGES SINCE 2026-05-19
 ====================================
 - No new submodules registered
 - No new scripts added under scripts/
 - Submodule pinned commits unchanged:
-    all                    edac30d2   develop
+    all                    0643bab4   develop
     android-support        485a2e40   main (v0.0.8-4)
-    Keelim-Knowledge-Vault 4dbecbc2   main
+    Keelim-Knowledge-Vault 15b29c11   main
     keelim-plugin          a3463396   main
-    keelim-vercel          d2ef3594   main
+    keelim-vercel          1304f121   develop
     toto                   5897ef44   main
 - Root package.json workspaces unchanged: all-web-ui, keelim-vercel, rich/web, toto
 - Root package.json catalog (bun workspace catalog) unchanged
-- docs/idea/ directory: no changes committed since 2026-05-16
-- docs/videos/: no changes committed since 2026-05-16
-- docs/design/: no changes committed since 2026-05-16
+- Root pyproject.toml uv workspace members unchanged: toto, rich
+- docs/idea/ directory: no changes committed since 2026-05-19
+- docs/videos/: no changes committed since 2026-05-19
+- docs/design/: no changes committed since 2026-05-19
 - Autonomous repos (all-web-ui, rich, quant) status unchanged
 
 OPEN ITEMS CARRIED FORWARD
@@ -77,14 +82,14 @@ OPEN ITEMS CARRIED FORWARD
 - all-web-ui pending formal submodule registration (after rich reconciliation).
 - rich local commits ahead of origin pending reconciliation before pinning.
 
-SUBMODULE SNAPSHOT (2026-05-17)
+SUBMODULE SNAPSHOT (2026-05-20)
 ================================
 Registered gitlinks (git ls-files --stage | grep 160000):
-✓ all                    edac30d2c4a3c0380d151f16fc7acc11f6150af4   develop
+✓ all                    0643bab4281700c08c12492af7fe0d0a0663d12e   develop
 ✓ android-support        485a2e404248182f48b01266c2d2ab8eb67145aa   main
-✓ Keelim-Knowledge-Vault 4dbecbc254e32ca51b70b7c8761812be65825762   main
+✓ Keelim-Knowledge-Vault 15b29c11b7199d6f2c97a518781de97bbbea0dfd   main
 ✓ keelim-plugin          a3463396c95dcd4749727bf1f32495db45bba220   main
-✓ keelim-vercel          d2ef35944d4d598cbd75d74a1603b88ae60e446b   main
+✓ keelim-vercel          1304f1216351f268636c09e43a3315071ed6c769   develop
 ✓ toto                   5897ef441cb13c550c83a5392097bc46423b3391   main
 
 Autonomous repos (not in .gitmodules):
@@ -101,7 +106,7 @@ STALENESS CHECK
 
 CHECKLIST
 ==========
-✓ README.md updated (timestamp)
+✓ README.md updated (timestamp + scripts tree fix)
 ✓ keelim-maestro.md updated (timestamp)
 ✓ WORKSPACE.md updated (timestamp)
 ✓ SUBMODULES.md checked (no changes needed)

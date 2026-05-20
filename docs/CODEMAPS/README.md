@@ -1,6 +1,6 @@
 # keelim-maestro — Codemaps
 
-> Last updated: 2026-05-19
+> Last updated: 2026-05-20
 
 This directory documents the architecture and structure of the **keelim-maestro** workspace superproject.
 
@@ -54,9 +54,12 @@ keelim-maestro/
 │   └── videos/          ← video documentation source projects (HyperFrames)
 └── scripts/
     ├── test-workspace.sh
+    ├── report-trusted-baseline.sh
+    ├── report-shared-ui-contract.sh
     ├── update-subrepos.sh
     ├── verify-all-web-ui-integration.sh
-    └── verify-keelim-plugin-rename.sh
+    ├── verify-keelim-plugin-rename.sh
+    └── verify-python-dependency-constraints.py
 ```
 
 Registered submodules (pinned via `.gitmodules`):
