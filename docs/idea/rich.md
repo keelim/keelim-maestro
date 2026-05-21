@@ -1,6 +1,6 @@
 # rich
 
-Last reviewed: 2026-05-16 KST
+Last reviewed: 2026-05-21 KST
 
 ## Signals
 
@@ -13,6 +13,7 @@ Last reviewed: 2026-05-16 KST
   to the existing backend/workflow reliability surface.
 - `docs/words/AGENTS.md` defines a raw-source/wiki/schema split for an investing
   LLM wiki, so durable review insights can be routed back into knowledge pages.
+- `open-trading-api/`(1100+ 파일)에 backtester, strategy_builder, KIS Code Assistant MCP, Kis Trading MCP가 포함되어 있어서 운영·신선도 모니터링과 실행 증적 표면이 크게 넓어졌다.
 
 ## Open ideas
 
@@ -56,7 +57,7 @@ scattered across endpoints and logs.
 
 First slice: Persist every run/retry/failure into a normalized log and render a
 timeline that links each event back to the affected workflow and recovery
-action.
+action. `open-trading-api` backtester·strategy_builder 실행 결과도 같은 ledger에 포함하면 트레이딩 전략 실행 이력까지 한 곳에서 복기할 수 있다.
 
 ### 2026-04-12 - Integration health console
 
