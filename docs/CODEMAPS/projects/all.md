@@ -2,7 +2,7 @@
 
 - Repository: `all`
 - Root: `/Users/keelim/Desktop/keelim-maestro/all`
-- Generated: 2026-04-25 04:16 UTC
+- Generated: 2026-05-22 00:35 UTC
 - Files scanned: 1013
 - Detected shape: Java/Kotlin/Gradle
 
@@ -50,7 +50,7 @@
 - `app-cnubus/`: 28 files; examples: `app-cnubus/.gitignore`, `app-cnubus/app-cnubus.svg`, `app-cnubus/benchmark-rules.pro`
 - `.github/`: 20 files; examples: `.github/copilot-instructions.md`, `.github/git-commit-instructions.md`, `.github/instructions/review.instructions.md`
 - `docs/`: 20 files; examples: `docs/.gitignore`, `docs/architecture/module-boundaries.md`, `docs/architecture/network-client-lifecycle.md`
-- `./`: 14 files; examples: `.editorconfig`, `.gitattributes`, `AGENTS.md`
+- `./`: 14 files; examples: `.editorconfig`, `.env`, `.gitattributes`
 - `allIos/`: 14 files; examples: `allIos/.gitignore`, `allIos/all.xcodeproj/project.pbxproj`, `allIos/all.xcodeproj/project.xcworkspace/contents.xcworkspacedata`
 - `app-mysenior/`: 13 files; examples: `app-mysenior/.gitignore`, `app-mysenior/benchmark-rules.pro`, `app-mysenior/build.gradle.kts`
 - `composeApp/`: 8 files; examples: `composeApp/.gitignore`, `composeApp/build.gradle.kts`, `composeApp/src/commonMain/kotlin/com/keelim/all/App.kt`

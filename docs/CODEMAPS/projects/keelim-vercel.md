@@ -2,8 +2,8 @@
 
 - Repository: `keelim-vercel`
 - Root: `/Users/keelim/Desktop/keelim-maestro/keelim-vercel`
-- Generated: 2026-04-25 04:16 UTC
-- Files scanned: 587
+- Generated: 2026-05-22 00:35 UTC
+- Files scanned: 589
 - Detected shape: Node/JavaScript
 
 ## Read First
@@ -28,15 +28,15 @@
 - TypeScript: 533 files
 - Markdown: 17 files
 - SQL: 15 files
+- [no extension]: 4 files
 - .json: 4 files
 - JavaScript: 4 files
-- [no extension]: 3 files
 - .local: 2 files
 - YAML: 2 files
 - .svg: 2 files
 - .lock: 1 files
+- .toml: 1 files
 - .tsbuildinfo: 1 files
-- CSS: 1 files
 
 ## Entrypoints
 - `app/(dashboard)/achievements/page.tsx`
@@ -125,7 +125,7 @@
 - `components/`: 243 files; examples: `components/AGENTS.md`, `components/achievement-card.tsx`, `components/achievement-listener.tsx`
 - `app/`: 146 files; examples: `app/(dashboard)/AGENTS.md`, `app/(dashboard)/achievements/page.tsx`, `app/(dashboard)/asset-path/page.tsx`
 - `lib/`: 124 files; examples: `lib/AGENTS.md`, `lib/achievement-storage.ts`, `lib/achievements.ts`
-- `./`: 24 files; examples: `.gitignore`, `AGENTS.md`, `README.md`
+- `./`: 26 files; examples: `.env`, `.env.development.local`, `.env.local`
 - `supabase/`: 17 files; examples: `supabase/AGENTS.md`, `supabase/functions/crawl-sectors/index.ts`, `supabase/functions/send-newsletter/README.md`
 - `scripts/`: 16 files; examples: `scripts/check-history.ts`, `scripts/check-sectors.ts`, `scripts/check-top-stocks.ts`
 - `data/`: 4 files; examples: `data/NoticeFirstQuery.ts`, `data/btc-monthly.json`, `data/landing-static.ts`
@@ -149,7 +149,7 @@
 - `supabase/functions/send-newsletter/README.md`
 
 ## Useful Commands
-- npm script `build`: next build
+- npm script `build`: next build --webpack
 - npm script `dev`: next dev
 - npm script `hooks:install`: git config core.hooksPath .githooks
 - npm script `lint`: eslint .
@@ -166,7 +166,7 @@
 - `lib/subscription-audit-logic.test.ts`
 
 ## Symbol Landmarks
-- `next.config.js`: path (L1), workspaceRoot (L3), nextConfig (L6)
+- `next.config.js`: nextConfig (L2), browserOptimizationHeaders (L80), publicAssetCacheHeaders (L99)
 - `proxy.ts`: proxy (L4), config (L7)
 - `app/robots.ts`: baseUrl (L4)
 - `app/sitemap.ts`: baseUrl (L5), routes (L7)
@@ -191,7 +191,7 @@
 - `app/(dashboard)/sector-cycle-diagnosis/page.tsx`: jsonLdData (L27)
 - `app/(dashboard)/settings/page.tsx`: isDark (L17)
 - `app/(dashboard)/swing-simulator/page.tsx`: jsonLdData (L25)
-- `app/api/all/route.ts`: GET (L1), data (L2), posts (L3)
+- `app/api/all/route.ts`: GET (L1), data (L2), posts (L5)
 - `app/api/faq/route.ts`: GET (L12)
 - `app/api/fear-greed/route.ts`: API_URL (L3), GET (L20), res (L22), latest (L33)
 - `app/api/forex/route.ts`: runtime (L4), revalidate (L6), GET (L68), transformedData (L123), currentRate (L125)

@@ -2,8 +2,8 @@
 
 - Repository: `android-support`
 - Root: `/Users/keelim/Desktop/keelim-maestro/android-support`
-- Generated: 2026-04-25 04:16 UTC
-- Files scanned: 36
+- Generated: 2026-05-22 00:35 UTC
+- Files scanned: 35
 - Detected shape: Node/JavaScript
 
 ## Read First
@@ -22,7 +22,6 @@
 - Markdown: 2 files
 - .json: 2 files
 - .cjs: 1 files
-- .xml: 1 files
 - .aab: 1 files
 
 ## Entrypoints
@@ -31,7 +30,7 @@
 - `src/main.ts`
 
 ## Key Directories
-- `./`: 13 files; examples: `.eslintrc.cjs`, `.gitignore`, `.prettierrc`
+- `./`: 12 files; examples: `.eslintrc.cjs`, `.gitignore`, `.prettierrc`
 - `__tests__/`: 11 files; examples: `__tests__/edits.test.ts`, `__tests__/index.test.ts`, `__tests__/input-validation.test.ts`
 - `src/`: 8 files; examples: `src/edits.ts`, `src/index.ts`, `src/input-validation.ts`
 - `.github/`: 3 files; examples: `.github/dependabot.yml`, `.github/workflows/manual-build.yml`, `.github/workflows/test.yml`

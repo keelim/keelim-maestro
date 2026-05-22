@@ -2,40 +2,46 @@
 
 - Repository: `all-web-ui`
 - Root: `/Users/keelim/Desktop/keelim-maestro/all-web-ui`
-- Generated: 2026-04-25 04:16 UTC
-- Files scanned: 46
+- Generated: 2026-05-22 00:35 UTC
+- Files scanned: 51
 - Detected shape: Node/JavaScript
 
 ## Read First
+- `AGENTS.md`
 - `README.md`
 - `package.json`
 - `src/index.ts`
 
 ## Repository Shape
 - TypeScript: 36 files
+- CSS: 4 files
+- Markdown: 3 files
 - .json: 3 files
-- CSS: 3 files
-- [no extension]: 1 files
-- Markdown: 1 files
+- [no extension]: 2 files
 - .lock: 1 files
+- YAML: 1 files
 - JavaScript: 1 files
 
 ## Entrypoints
 - `src/index.ts`
 
 ## Key Directories
-- `src/`: 38 files; examples: `src/components/accordion.tsx`, `src/components/alert-dialog.tsx`, `src/components/alert.tsx`
-- `./`: 6 files; examples: `.gitignore`, `README.md`, `bun.lock`
+- `src/`: 39 files; examples: `src/components/accordion.tsx`, `src/components/alert-dialog.tsx`, `src/components/alert.tsx`
+- `./`: 9 files; examples: `.gitignore`, `.npmrc`, `AGENTS.md`
+- `.github/`: 1 files; examples: `.github/workflows/publish-package.yml`
 - `scripts/`: 1 files; examples: `scripts/build.mjs`
 - `tests/`: 1 files; examples: `tests/components.test.tsx`
 
 ## Dependencies and Tooling
+- `.github/workflows/publish-package.yml`
+- `AGENTS.md`
 - `README.md`
 - `bun.lock`
 - `package.json`
 
 ## Useful Commands
 - npm script `build`: bun run ./scripts/build.mjs
+- npm script `design:lint`: bunx @google/design.md lint DESIGN.md
 - npm script `prepack`: bun run build
 - npm script `prepare`: bun run build
 - npm script `test`: bun test
@@ -78,8 +84,7 @@
 - `src/components/toast.tsx`: ToastProvider (L10), ToastViewport (L12), toastVariants (L27), Toast (L43), ToastAction (L58), ToastClose (L73), ToastTitle (L91), ToastDescription (L103)
 - `src/components/tooltip.tsx`: TooltipProvider (L8), Tooltip (L9), TooltipTrigger (L10), TooltipContent (L12)
 - `src/lib/cn.ts`: cn (L4)
-- `tests/components.test.tsx`: html (L56)
+- `tests/components.test.tsx`: packageJson (L57), spacingCss (L58), financeCss (L67), adminCss (L68), packageJson (L69), html (L84)
 
 ## Open Questions
 - No existing `docs/CODEMAPS/*` files were found.
-- No root `AGENTS.md` was found; check for deeper instruction files before editing.

@@ -343,6 +343,32 @@ Run after any change to `pyproject.toml` in the root or in `toto`/`rich`.
 
 ---
 
+## `scripts/refresh-codemaps.py`
+
+Automation script to generate/refresh all child project codemaps and dynamically update the root index table and date stamps.
+
+### Invocation
+
+| Invocation | Effect |
+|------------|--------|
+| `python3 scripts/refresh-codemaps.py` | Generate codemaps for all available child repos and update documentation indices |
+
+### Subprojects scanned
+- `all`
+- `all-web-ui`
+- `android-support`
+- `Keelim-Knowledge-Vault`
+- `keelim-plugin`
+- `keelim-vercel`
+- `rich`
+- `toto`
+
+### Exit behaviour
+
+Exits `0` on success, or a non-zero code on failures.
+
+---
+
 ## Adding New Scripts
 
 Follow the existing conventions:

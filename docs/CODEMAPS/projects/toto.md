@@ -2,8 +2,8 @@
 
 - Repository: `toto`
 - Root: `/Users/keelim/Desktop/keelim-maestro/toto`
-- Generated: 2026-04-25 04:52 UTC
-- Files scanned: 28
+- Generated: 2026-05-22 00:35 UTC
+- Files scanned: 29
 - Detected shape: Node/JavaScript, Python
 
 ## Read First
@@ -15,8 +15,8 @@
 ## Repository Shape
 - Python: 18 files
 - .txt: 4 files
+- Markdown: 3 files
 - [no extension]: 2 files
-- Markdown: 2 files
 - .json: 1 files
 - .toml: 1 files
 
@@ -28,7 +28,7 @@
 - `streamlit_app/`: 5 files; examples: `streamlit_app/Home.py`, `streamlit_app/__init__.py`, `streamlit_app/app.py`
 - `tests/`: 5 files; examples: `tests/test_dto_contracts.py`, `tests/test_empty_states.py`, `tests/test_filters_and_state.py`
 - `./`: 4 files; examples: `.gitignore`, `README.md`, `package.json`
-- `docs/`: 1 files; examples: `docs/2026-04-18-audit-report.md`
+- `docs/`: 2 files; examples: `docs/2026-04-18-audit-report.md`, `docs/CODEMAPS/projects/toto.md`
 
 ## Dependencies and Tooling
 - `README.md`
