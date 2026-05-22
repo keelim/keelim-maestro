@@ -59,6 +59,7 @@
 ## Verification expectations for root changes
 - For documentation/bootstrap work, verify the concrete files changed and report exact commands/results.
 - Before root-level pinning, submodule, or workspace-boundary changes, run `bun run report:baseline` to capture the live child-repo registration/divergence state without mutating children.
+- For child-repo status refresh or safe update previews, prefer `./scripts/update-subrepos.sh status` or `./scripts/update-subrepos.sh dry-run` before any manual multi-repo fetch/pull loop.
 - When touching the `all-web-ui` provider contract or its current consumers (`keelim-vercel`, `rich/web`), run `bun run report:shared-ui`; use `scripts/verify-all-web-ui-integration.sh` only when a strict static pass/fail gate is needed.
 - When the root Git repository is initialized, prefer these checks after root-owned changes:
   - `git status --short`
@@ -68,6 +69,11 @@
 - After submodules exist, also run:
   - `git submodule status`
   - `git ls-files --stage | grep 160000`
+
+## Root helper command boundaries
+- `bun run dev:codex-app-server` is the root helper for a local Codex app-server bound to this workspace; keep transport/config guidance at the root level rather than pushing it into child-repo docs.
+- `./scripts/update-subrepos.sh` is the root-owned status/update helper for registered submodules plus autonomous local repos surfaced in the report; prefer it over ad-hoc multi-repo pull loops when the task is root-level repo hygiene.
+- `bun run dev:strategy-builder` and `bun run dev:backtester` are root convenience wrappers into `rich/open-trading-api/*`, but they do **not** make those nested apps root workspace members or change `rich`'s child-repo ownership rules.
 
 ## Change boundaries
 - Prefer the smallest reversible root diff.
