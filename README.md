@@ -297,9 +297,25 @@ It verifies the root superproject contract: package metadata, required helper sc
 bun run typecheck:web
 bun run build:web
 bun run test:web
+bun run dev:codex-app-server
 bun run verify:toto
 ./scripts/verify-all-web-ui-integration.sh --full
 ```
+
+## Codex app-server helper
+
+Use the root helper when you want a local Codex app-server bound to this
+workspace:
+
+```bash
+bun run dev:codex-app-server
+codex --remote ws://127.0.0.1:7331
+```
+
+The helper defaults to local-only WebSocket transport at
+`ws://127.0.0.1:7331`. Override `CODEX_APP_SERVER_LISTEN` for other supported
+transports such as `unix:///tmp/codex-app.sock`, and pass additional
+`codex app-server` options after the script command when needed.
 
 ## Subrepo update helper
 
