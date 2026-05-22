@@ -1,6 +1,6 @@
 # android-support
 
-Last reviewed: 2026-05-16 KST
+Last reviewed: 2026-05-22 KST
 
 ## Signals
 
@@ -56,3 +56,11 @@ Status: proposed
 Why now: 이 action은 릴리스 핵심 경로를 직접 건드리는데, 현재 테스트는 입력 검증에 비해 실제 Play API 편집 생명주기 검증이 약해서 사소한 변경도 실배포까지 밀려갈 수 있다.
 
 First slice: sign/upload/internal sharing/staged rollout 응답을 대표 fixture로 기록하고, 이를 CI에서 재생해 Play Console에 닿지 않고도 전체 edit lifecycle을 검증한다.
+
+### 2026-05-22 - 앱별 릴리스 계약 매니페스트 & 롤아웃 정책 레지스트리
+
+Status: proposed
+
+Why now: `android-support`가 `track`, `status`, `userFraction`, `whatsNewDirectory` 같은 typed input 경계를 이미 가지고 있고, `all`은 6개 앱이 병렬로 릴리스되므로 앱별 Play 정책과 action 입력값이 어긋나도 실배포 전까지 감지하기 어렵다.
+
+First slice: 앱별 허용 track·status 조합, staged rollout 임계값, whatsNew 로케일 커버리지를 한 곳에 선언하는 매니페스트를 만들고, `action.yml` 입력 검증 단계와 dry-run 결과에서 교차 확인한다.

@@ -1,6 +1,6 @@
 # Keelim-Knowledge-Vault
 
-Last reviewed: 2026-05-16 KST
+Last reviewed: 2026-05-22 KST
 
 ## Signals
 
@@ -51,9 +51,9 @@ First slice: 각 코드맵 갱신 시점별로 파일 수, 핵심 결합점, 새
 
 Status: proposed
 
-Why now: AGENTS, CODEMAPS, automation memory, 백로그 노트가 흩어져 있어서, 현재 작업 기준을 한 노트에서 다시 찾을 수 있어야 다음 작업의 진입 비용이 줄어든다.
+Why now: AGENTS, CODEMAPS, automation memory, 백로그 노트가 흩어져 있어서, 현재 작업 기준을 한 노트에서 다시 찾을 수 있어야 다음 작업의 진입 비용이 줄어든다. 2026-05-22 코드맵 검토에서 `docs/knowledge/`(operator-runbook, source-targets, review-checklist, merge-guidance, verification-contract)가 루트 README에 참조되지만 실제 디렉터리가 없는 것이 확인됐다.
 
-First slice: 루트 AGENTS/CODEMAPS/idea 인덱스와 자주 바뀌는 운영 규칙을 연결한 단일 인덱스 노트를 만들고, 관련 프로젝트 노트에서 바로 왕복할 수 있게 한다.
+First slice: 루트 AGENTS/CODEMAPS/idea 인덱스와 자주 바뀌는 운영 규칙을 연결한 단일 인덱스 노트를 만들고, `docs/knowledge/` 누락 항목을 명시적 gap으로 표시해 관련 프로젝트 노트에서 바로 왕복할 수 있게 한다.
 
 ### 2026-04-14 - 워크스페이스 일일 변화 다이제스트
 
