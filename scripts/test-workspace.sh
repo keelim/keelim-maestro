@@ -82,6 +82,7 @@ check_package_contract() {
   run_check "web typecheck script exists" package_script_exists "typecheck:web"
   run_check "web build script exists" package_script_exists "build:web"
   run_check "web test script exists" package_script_exists "test:web"
+  run_check "codex app-server dev script exists" package_script_exists "dev:codex-app-server"
   run_check "toto verify script exists" package_script_exists "verify:toto"
 }
 
@@ -96,6 +97,7 @@ check_root_files() {
   run_check "root shared UI contract reporter runs" shared_ui_contract_report_runs
   run_check "root all-web-ui verifier exists" test -f scripts/verify-all-web-ui-integration.sh
   run_check "root keelim-plugin verifier exists" test -f scripts/verify-keelim-plugin-rename.sh
+  run_check "root codex app-server helper exists" test -f scripts/codex-app-server.sh
 }
 
 check_autonomous_repo_contract() {
