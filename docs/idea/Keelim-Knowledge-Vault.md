@@ -1,6 +1,6 @@
 # Keelim-Knowledge-Vault
 
-Last reviewed: 2026-05-16 KST
+Last reviewed: 2026-05-23 KST
 
 ## Signals
 
@@ -65,8 +65,8 @@ First slice: 루트에서 갱신된 운영 문서와 메모리 조각을 모아 
 
 ### 2026-04-16 - 워크스페이스 신뢰 기준선 보드
 
-Status: proposed
+Status: in progress
 
-Why now: 루트 AGENTS/CODEMAPS가 이미 신뢰 가능한 repo 집합, 제외 대상, pinning blocker를 정의하고 있어서, 이를 vault에 복원 가능한 한 장의 기준선 보드로 남기면 다음 작업에서 다시 해석하지 않아도 된다.
+Why now: 루트 AGENTS/CODEMAPS가 이미 신뢰 가능한 repo 집합, 제외 대상, pinning blocker를 정의하고 있어서, 이를 vault에 복원 가능한 한 장의 기준선 보드로 남기면 다음 작업에서 다시 해석하지 않아도 된다. `bun run report:baseline` (Trusted Baseline Scoreboard)이 루트에 추가돼 child repo 등록 상태·dirty tree·upstream divergence를 live로 볼 수 있게 됐다.
 
-First slice: 현재 trusted set, excluded set, pinning blocker, 마지막 검증 시각을 묶은 노트를 만들고 루트 workspace 문서와 상호 링크한다.
+First slice: `bun run report:baseline` 출력을 주기적으로 vault 기준선 노트로 저장하고, trusted set / excluded set / pinning blocker를 루트 workspace 문서와 상호 링크한다. 스크립트는 이미 있으므로 vault 노트 생성 자동화가 남은 단계다.

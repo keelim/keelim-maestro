@@ -1,6 +1,6 @@
 # toto
 
-Last reviewed: 2026-05-16 KST
+Last reviewed: 2026-05-23 KST
 
 ## Signals
 
@@ -35,10 +35,26 @@ Why now: 이 저장소의 핵심 가치는 수정이 아니라 재현이므로, 
 
 First slice: 앱 부팅, 홈 임포트, `verify` 흐름을 묶은 스모크 테스트를 추가하고, 비정상 쓰기 경로나 경로 드리프트가 있으면 실패하게 만든다.
 
-### 2026-04-25 - gitlink 커밋 및 재현 가능한 클론 게이트
+### 2026-04-25 - 클린 클론 재현성 CI 게이트
+
+Status: in progress
+
+Why now: 루트 WORKSPACE.md 스냅샷에 `toto`가 `5897ef44`로 pinned commit 등록된 것으로 기록됐다. gitlink 커밋 단계는 완료된 것으로 보이지만, `git submodule update --init toto` → `bun run bootstrap` → `bun run verify:toto` 순서가 CI에서 자동으로 그린을 내는지 확인이 필요하다.
+
+First slice: CI에서 clean clone 시나리오를 재현해 `bun run verify:toto`가 그린인지 자동 확인하는 게이트를 추가한다. 이것이 재현성 핵심 가치를 지속 보장하는 마지막 단계다.
+
+### 2026-05-23 - Python 환경 부트스트랩 경로 단일화
 
 Status: proposed
 
-Why now: `toto`가 `.gitmodules`에 선언돼 있지만 gitlink가 루트 인덱스에 커밋되지 않아서, 신규 클론 시 디렉터리가 없고 `bun run dev:toto`·`bun run verify:toto`를 실행할 수 없다. 재현성을 핵심 가치로 내세운 프로젝트에서 이 비대칭은 가장 먼저 해소해야 할 운영 위험이다.
+Why now: `bun run bootstrap`은 로컬 `.venv` + pip으로 환경을 구성하지만, 루트 `pyproject.toml`/`uv.lock`은 `toto`를 uv 워크스페이스 멤버로 선언하고 있다. 두 경로가 공존하면 어느 Python 환경이 `bun run verify:toto`의 기준인지 불명확하고, 루트와 로컬 패키지 버전 pinning이 조용히 어긋날 수 있다.
 
-First slice: 안정 커밋을 골라 gitlink를 루트 인덱스에 커밋하고, `git submodule update --init toto` → `bun run bootstrap` → `bun run verify:toto` 순서가 CI에서 그린으로 돌아오면 pinning 완료로 간주한다.
+First slice: 두 경로의 현재 패키지 버전을 비교하고, CI에서 어느 경로를 쓸지 명시적으로 선택하거나 uv 경로 하나로 통합하는 방향을 결정한다.
+
+### 2026-05-23 - KBO 시즌 데이터 최신성 경보
+
+Status: proposed
+
+Why now: 대시보드가 읽기전용이어서 시드된 `PredictionCardDTO` 데이터가 오래된 시즌을 계속 보여줘도 자동으로 알 수 없다. 현재 시즌 범위와 시드 기록의 연도/라운드를 비교하지 않으면 "화면은 열리지만 틀린 데이터"를 조용히 노출하는 상황이 생긴다.
+
+First slice: 시드 매니페스트에 기록된 시즌 범위를 홈 화면에 짧게 표시하고, 현재 연도보다 오래된 시즌임이 명확하면 경보 배너를 띄우는 freshness 표시기를 추가한다.

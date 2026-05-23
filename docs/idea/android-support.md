@@ -1,6 +1,6 @@
 # android-support
 
-Last reviewed: 2026-05-16 KST
+Last reviewed: 2026-05-23 KST
 
 ## Signals
 
@@ -56,3 +56,11 @@ Status: proposed
 Why now: 이 action은 릴리스 핵심 경로를 직접 건드리는데, 현재 테스트는 입력 검증에 비해 실제 Play API 편집 생명주기 검증이 약해서 사소한 변경도 실배포까지 밀려갈 수 있다.
 
 First slice: sign/upload/internal sharing/staged rollout 응답을 대표 fixture로 기록하고, 이를 CI에서 재생해 Play Console에 닿지 않고도 전체 edit lifecycle을 검증한다.
+
+### 2026-05-23 - 번들 빌드 드리프트 감시
+
+Status: proposed
+
+Why now: `lib/index.js`는 `bun run build`(@vercel/ncc)로 생성되는 컴파일 번들인데, 소스를 고친 뒤 번들을 커밋하지 않거나 번들만 직접 수정하는 드리프트가 조용히 생길 수 있다. 이 불일치는 Action이 실제 실행될 때까지 드러나지 않아 릴리스 직전에 발견될 위험이 있다.
+
+First slice: CI에서 소스를 재빌드한 뒤 `lib/index.js`와 diff를 비교해 번들이 최신 소스를 반영하지 않으면 PR을 차단하는 freshness 게이트를 추가한다.
