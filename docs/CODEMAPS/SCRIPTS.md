@@ -289,11 +289,11 @@ meet the documented workspace contract. Run via `bun run test` or
 - `packageManager` starts with `bun@`
 - `workspaces` is an array
 - `scripts` is an object
-- Required script keys exist: `test`, `test:workspace`, `report:baseline`, `report:shared-ui`, `typecheck:web`, `build:web`, `test:web`, `verify:toto`
+- Required script keys exist: `test`, `test:workspace`, `report:baseline`, `report:shared-ui`, `typecheck:web`, `build:web`, `test:web`, `dev:codex-app-server`, `verify:toto`
 
 **Root files (`check_root_files`)**
 - `README.md`, `.gitignore`, `.gitmodules` exist
-- `scripts/update-subrepos.sh`, `scripts/report-trusted-baseline.sh`, `scripts/report-shared-ui-contract.sh`, `scripts/verify-all-web-ui-integration.sh`, `scripts/verify-keelim-plugin-rename.sh` exist
+- `scripts/update-subrepos.sh`, `scripts/report-trusted-baseline.sh`, `scripts/report-shared-ui-contract.sh`, `scripts/verify-all-web-ui-integration.sh`, `scripts/verify-keelim-plugin-rename.sh`, `scripts/codex-app-server.sh` exist
 - The trusted-baseline and shared UI contract reporters run successfully in read-only mode
 
 **Autonomous repo contract (`check_autonomous_repo_contract`)**
@@ -366,6 +366,40 @@ Automation script to generate/refresh all child project codemaps and dynamically
 ### Exit behaviour
 
 Exits `0` on success, or a non-zero code on failures.
+
+---
+
+## `scripts/codex-app-server.sh`
+
+Start a Codex app-server bound to the workspace root, defaulting to a local-only WebSocket transport.
+
+### Invocation
+
+| Invocation | Effect |
+|------------|--------|
+| `sh scripts/codex-app-server.sh` | Start app-server at `ws://127.0.0.1:7331` |
+| `bun run dev:codex-app-server` | Same via root package script |
+| `sh scripts/codex-app-server.sh --listen unix:///tmp/codex-app.sock` | Unix socket transport |
+
+### Environment variables
+
+| Variable | Default | Purpose |
+|----------|---------|---------|
+| `CODEX_APP_SERVER_LISTEN` | `ws://127.0.0.1:7331` | Transport endpoint for the app-server |
+| `CODEX_BIN` | `codex` | Codex executable; set to full path if not on `PATH` |
+
+### Security gate
+
+The script refuses to start a non-loopback WebSocket listener (`ws://`) unless
+`--ws-auth` or `--ws-auth=<...>` is explicitly passed. Local-only transports
+(`ws://127.0.0.1:*`, `ws://localhost:*`, `ws://[::1]:*`), stdio, and Unix
+socket (`unix://`) transports are always allowed.
+
+### Exit behaviour
+
+Exits `127` if the Codex executable is not found. Exits `2` if a non-loopback
+WebSocket endpoint is requested without `--ws-auth`. Otherwise `exec`s into
+`codex app-server`; exit code propagates from the Codex process.
 
 ---
 

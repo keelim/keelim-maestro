@@ -1,4 +1,4 @@
-<!-- Generated: 2026-05-22 | Source-led root codemap reviewed after generator pass -->
+<!-- Generated: 2026-05-23 | Source-led root codemap reviewed after generator pass -->
 
 # keelim-maestro Workspace Codemap
 
@@ -70,6 +70,7 @@ maintenance and verification surfaces:
 - `scripts/verify-python-dependency-constraints.py` - verifies shared Python
   dependency constraints are aligned across uv workspace members (`toto`, `rich`).
   Run via `uv run python scripts/verify-python-dependency-constraints.py`.
+- `scripts/codex-app-server.sh` - starts a Codex app-server bound to the workspace root (defaults to `ws://127.0.0.1:7331`); refuses non-loopback WebSocket without `--ws-auth`.
 - `package.json` scripts:
   - `test` / `test:workspace` — root superproject contract tests via `test-workspace.sh`
   - `report:baseline` — trusted baseline reporter via `report-trusted-baseline.sh`
@@ -82,6 +83,7 @@ maintenance and verification surfaces:
   - `dev:toto`
   - `test:toto`
   - `verify:toto`
+  - `dev:codex-app-server` — start Codex app-server via `scripts/codex-app-server.sh`
   - `dev:strategy-builder` — start `rich/open-trading-api/strategy_builder`
   - `dev:backtester` — start `rich/open-trading-api/backtester`
 
@@ -150,6 +152,7 @@ repos plus test environment variables documented in `docs/CODEMAPS/SCRIPTS.md`.
 - `bun run dev:toto` - start the local `toto` dashboard workspace member.
 - `bun run test:toto` - run `toto` tests through the root workspace.
 - `bun run verify:toto` - run the `toto` verification script through the root workspace.
+- `bun run dev:codex-app-server` - start a Codex app-server at `ws://127.0.0.1:7331`; connect with `codex --remote ws://127.0.0.1:7331`.
 - `bun run dev:strategy-builder` - start the open-trading strategy builder frontend/backend.
 - `bun run dev:backtester` - start the open-trading backtester frontend/backend.
 - `uv run python scripts/verify-python-dependency-constraints.py` - verify Python dependency constraint alignment across uv workspace members.
