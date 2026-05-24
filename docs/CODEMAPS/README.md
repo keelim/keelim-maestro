@@ -1,6 +1,6 @@
 # keelim-maestro — Codemaps
 
-> Last updated: 2026-05-23
+> Last updated: 2026-05-24
 
 This directory documents the architecture and structure of the **keelim-maestro** workspace superproject.
 
@@ -61,7 +61,8 @@ keelim-maestro/
     ├── verify-keelim-plugin-rename.sh
     ├── verify-python-dependency-constraints.py
     ├── codex-app-server.sh
-    └── refresh-codemaps.py
+    ├── refresh-codemaps.py
+    └── all-web-ui-rich-allowed-drift.txt  ← allowlist for temporary primitive drift in rich/web
 ```
 
 Registered submodules (pinned via `.gitmodules`):
