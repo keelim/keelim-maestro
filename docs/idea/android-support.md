@@ -1,6 +1,6 @@
 # android-support
 
-Last reviewed: 2026-05-16 KST
+Last reviewed: 2026-05-24 KST
 
 ## Signals
 
@@ -56,3 +56,11 @@ Status: proposed
 Why now: 이 action은 릴리스 핵심 경로를 직접 건드리는데, 현재 테스트는 입력 검증에 비해 실제 Play API 편집 생명주기 검증이 약해서 사소한 변경도 실배포까지 밀려갈 수 있다.
 
 First slice: sign/upload/internal sharing/staged rollout 응답을 대표 fixture로 기록하고, 이를 CI에서 재생해 Play Console에 닿지 않고도 전체 edit lifecycle을 검증한다.
+
+### 2026-05-24 - 다운스트림 action 버전 핀 드리프트 감시
+
+Status: proposed
+
+Why now: `all`의 앱별 CI 워크플로우(`app_my_grade.yml`, `app_arducon.yml` 등 10여 개)가 `android-support`를 각각 직접 참조하므로, 워크플로우마다 다른 버전을 고정하거나 `@main` 같은 부동 참조를 쓰면 릴리스 행동이 앱마다 달라져도 인지하기 어렵다. SUBMODULES.md에 `android-support`가 `v0.0.8-4`로 고정된 것과 실제 워크플로우 참조가 일치하는지 확인하는 경로가 없다.
+
+First slice: `all/.github/workflows/*.yml`에서 `android-support` 참조 태그·SHA를 수집해, 버전 불일치·부동 참조·핀 누락 케이스를 릴리스 전 보고서에 포함한다.
