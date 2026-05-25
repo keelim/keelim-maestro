@@ -43,6 +43,8 @@
 
 ## CodeGraph boundaries
 - Root and child repositories may each have their own `.codegraph/`, but choose the graph by question type.
+- Prefer the root dispatcher for child code search: `bun run cg -- context <child-repo> "<task>"`, `bun run cg -- query <child-repo> <symbol>`, and `bun run cg -- files <child-repo> --max-depth 2`.
+- The dispatcher lives at `scripts/codegraph.sh` and delegates to child `.codegraph/` indexes with CodeGraph `--path`; do not recreate a root aggregate graph for child implementation search.
 - Use the root graph only for workspace maps, root-owned docs/scripts, shared config, and cross-project contract discovery.
 - Use the target child repo graph as the primary source for implementation, bug impact analysis, call/symbol context, and test scope.
 - Before using CodeGraph, check whether `.codegraph/` exists in both the root and the target child repo. If it is missing, report whether `codegraph init -i` is appropriate instead of initializing silently.
