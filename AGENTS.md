@@ -41,6 +41,15 @@
 - For idea gardener runs, read root `docs/CODEMAPS/*` first, then each project's `README.md` / `AGENTS.md` as read-only context before updating `docs/idea/`.
 - Keep child repositories read-only during root idea maintenance unless the user explicitly asks to enter a child repo.
 
+## CodeGraph boundaries
+- Root and child repositories may each have their own `.codegraph/`, but choose the graph by question type.
+- Use the root graph only for workspace maps, root-owned docs/scripts, shared config, and cross-project contract discovery.
+- Use the target child repo graph as the primary source for implementation, bug impact analysis, call/symbol context, and test scope.
+- Before using CodeGraph, check whether `.codegraph/` exists in both the root and the target child repo. If it is missing, report whether `codegraph init -i` is appropriate instead of initializing silently.
+- Keep root CodeGraph coordination-only. The root `.gitignore` should exclude `.codegraph/`, child repo working trees, dependency folders, environment files, and generated output so the root index does not swallow child source trees.
+- Sibling child repositories are read-only context unless the task explicitly requires them; explain the reason before editing across a child-repo boundary.
+- See `docs/CODEMAPS/CODEGRAPH.md` for the reusable root-plus-subproject prompt contract and setup checklist.
+
 ## `/all-web-ui` policy
 - `/all-web-ui` is currently treated as an autonomous local child repository from the root.
 - It now has a remote-backed public repository, but root submodule expansion is still deferred until the remaining child-repo blockers are resolved.

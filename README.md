@@ -88,6 +88,24 @@ readiness. It observes the `all-web-ui` provider plus the `keelim-vercel` and
 `rich/web` consumers without mutating child repositories. Use
 `scripts/verify-all-web-ui-integration.sh` for strict static failure semantics.
 
+## CodeGraph dispatcher
+
+Use the root CodeGraph dispatcher when you want root-level orchestration over
+child repo graphs without creating an aggregate root `.codegraph/`:
+
+```bash
+bun run cg -- list
+bun run cg:status
+bun run cg -- files rich --max-depth 2
+bun run cg -- context keelim-plugin "skill inventory"
+bun run cg:root-check
+```
+
+The dispatcher routes CodeGraph commands to the child repo selected with
+`--path`. It never initializes `.codegraph/` and does not use root as a child
+target. If a child graph is missing, initialize that child explicitly with the
+CodeGraph CLI after confirming the repo boundary and ignore coverage.
+
 ## Bun workspace bootstrap
 
 The current Bun workspace bootstrap is intentionally narrow. Its workspace
