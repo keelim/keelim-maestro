@@ -1,6 +1,6 @@
 # keelim-plugin
 
-Last reviewed: 2026-05-16 KST
+Last reviewed: 2026-05-25 KST
 
 ## Signals
 
@@ -10,6 +10,10 @@ Last reviewed: 2026-05-16 KST
 - The repository already has a clear `skills/<name>/SKILL.md` contract.
 - README가 Vercel skills CLI와 수동 symlink 설치 경로를 함께 설명하므로,
   카탈로그와 smoke-test가 설치 방식별 차이를 계속 드러내야 한다.
+- `skills/session-learning`은 훅 기반 세션 관찰 인프라(학습 관찰·후보 파일 검토·훅 설치
+  스크립트)를 도입했고, `skills/session-usage-dashboard`는 세션 사용량 집계 대시보드를
+  만들며, `skills/jira-ticket-desk`는 Jira 티켓 렌더 surface를 제공한다. 자동화 인프라
+  스킬이 늘면서 훅 설치 경로 검증과 관찰 파이프라인 신뢰도가 새로운 우선순위가 됐다.
 
 ## Open ideas
 
@@ -30,10 +34,13 @@ Status: proposed
 Why now: Cross-tool skills are valuable only if install paths, metadata, and
  basic workflow assumptions stay valid for both Codex and Claude, and there is
  no single check that compares install/readme metadata across both toolchains.
+ `session-learning`이 훅 설치 경로를 도입하면서, 훅 등록 여부와 관찰 파이프라인
+ 무결성도 같은 smoke-test 범위에 포함해야 한다.
 
 First slice: Add a lightweight verifier that checks required files, install
  commands, and any declared agent metadata for each skill folder, then surface
-Codex/Claude install parity gaps before publishing.
+ Codex/Claude install parity gaps before publishing. `session-learning`의 훅
+ 설치 스크립트 dry-run 결과와 설치 후 config 생성 여부도 함께 검증한다.
 
 ### 2026-04-13 - 스킬 변경 영향 노트
 
