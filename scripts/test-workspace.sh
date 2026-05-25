@@ -77,6 +77,9 @@ check_package_contract() {
 
   run_check "default test script exists" package_script_exists "test"
   run_check "workspace test script exists" package_script_exists "test:workspace"
+  run_check "CodeGraph dispatcher script exists in package scripts" package_script_exists "cg"
+  run_check "CodeGraph status script exists in package scripts" package_script_exists "cg:status"
+  run_check "CodeGraph root-check script exists in package scripts" package_script_exists "cg:root-check"
   run_check "baseline report script exists in package scripts" package_script_exists "report:baseline"
   run_check "shared UI contract report script exists in package scripts" package_script_exists "report:shared-ui"
   run_check "web typecheck script exists" package_script_exists "typecheck:web"
@@ -90,6 +93,7 @@ check_root_files() {
   run_check "root README exists" test -f README.md
   run_check "root .gitignore exists" test -f .gitignore
   run_check "root .gitmodules exists" test -f .gitmodules
+  run_check "root CodeGraph dispatcher exists" test -f scripts/codegraph.sh
   run_check "root update-subrepos helper exists" test -f scripts/update-subrepos.sh
   run_check "root trusted-baseline reporter exists" test -f scripts/report-trusted-baseline.sh
   run_check "root trusted-baseline reporter runs" trusted_baseline_report_runs
