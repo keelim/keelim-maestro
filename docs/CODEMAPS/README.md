@@ -11,6 +11,7 @@ This directory documents the architecture and structure of the **keelim-maestro*
 | [WORKSPACE.md](WORKSPACE.md) | Workspace topology, child repositories, policies |
 | [SUBMODULES.md](SUBMODULES.md) | Registered Git submodules — remotes, branches, purpose |
 | [SCRIPTS.md](SCRIPTS.md) | Root-level helper scripts — behaviour, flags, exit codes |
+| [CODEGRAPH.md](CODEGRAPH.md) | Root-plus-child CodeGraph prompt contract, setup checklist, and boundary rules |
 | [keelim-maestro.md](keelim-maestro.md) | Reviewed root and workspace-management codemap for this coordination repo |
 | [projects/README.md](projects/README.md) | Maestro-managed generated codemaps for available child repositories |
 | [architecture.md](architecture.md) | System topology and service boundaries |

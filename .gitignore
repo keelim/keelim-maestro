@@ -1,14 +1,34 @@
 /.DS_Store
 /debug-log.json
+/.env
+/.env.*
+!/.env.example
 /.omx/logs/
 /.omx/state/
+/dist/
+/build/
+/coverage/
+/.next/
+/out/
 /node_modules/
-/all-web-ui/
-/quant/
-/rich/
-/tools/
+
+# Local indexes and generated agent state.
+/.codegraph/
 /.omx
 .omx/
+
+# Child repository working trees. Tracked gitlinks remain tracked, but root-local
+# tools that honor .gitignore should stay coordination-only.
+/all/
+/all-web-ui/
+/android-support/
+/Keelim-Knowledge-Vault/
+/keelim-plugin/
+/keelim-vercel/
+/quant/
+/rich/
+/toto/
+/tools/
 
 # Generated video documentation outputs: keep source/project files in docs/videos,
 # but do not commit heavyweight renders or local preview thumbnails by default.
