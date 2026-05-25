@@ -114,7 +114,7 @@ def main():
         updated_content = re.sub(pattern, replacement, content)
         
         # Update Last updated: YYYY-MM-DD
-        updated_content = re.sub(r"Last updated:\s*\d{4}-\d{2}-\d{2}", "Last updated: 2026-05-22", updated_content)
+        updated_content = re.sub(r"Last updated:\s*\d{4}-\d{2}-\d{2}", "Last updated: 2026-05-25", updated_content)
         
         projects_readme.write_text(updated_content, encoding="utf-8")
         print(f"Updated {projects_readme}")
@@ -131,10 +131,10 @@ def main():
             content = doc_path.read_text(encoding="utf-8")
             
             # Replace Last updated: YYYY-MM-DD
-            updated_content = re.sub(r"Last updated:\s*\d{4}-\d{2}-\d{2}", "Last updated: 2026-05-22", content)
+            updated_content = re.sub(r"Last updated:\s*\d{4}-\d{2}-\d{2}", "Last updated: 2026-05-25", content)
             
             # Replace comment: <!-- Generated: YYYY-MM-DD ... -->
-            updated_content = re.sub(r"Generated:\s*\d{4}-\d{2}-\d{2}", "Generated: 2026-05-22", updated_content)
+            updated_content = re.sub(r"Generated:\s*\d{4}-\d{2}-\d{2}", "Generated: 2026-05-25", updated_content)
             
             doc_path.write_text(updated_content, encoding="utf-8")
             print(f"Updated {doc_path}")
