@@ -1,13 +1,18 @@
 # toto
 
-Last reviewed: 2026-05-16 KST
+Last reviewed: 2026-05-26 KST
 
 ## Signals
 
 - 로컬 read-only Streamlit 스켈레톤이라서, UI 확장보다 재현성과 입력 계약이 먼저다.
 - `bun run bootstrap`, `bun run seed`, `bun run dev`, `bun run test`, `bun run compile`, `bun run verify`가 이미 실행 경로를 정해준다.
 - wheel 배포보다 로컬 editable checkout 실행이 현재 계약이라서, 경로와 seed 재현성 검증이 더 중요하다.
-- KBO win1loss 대시보드는 시즌/경기 데이터가 조금만 흔들려도 표가 달라지므로, 시드와 공급자 경계를 분리해 두는 편이 좋다.
+- KBO win/loss 대시보드는 시즌/경기 데이터가 조금만 흔들려도 표가 달라지므로, 시드와 공급자 경계를 분리해 두는 편이 좋다.
+- `src/kbo_dashboard/contracts.py`와 `test_dto_contracts.py`가 추가되어 공급자 어댑터
+  분리가 진행 중임을 보여준다; `test_no_recommendation_surface.py`는 읽기전용 계약
+  위반 방지 테스트가 이미 존재함을 나타낸다.
+- 진입점이 `streamlit_app/Home.py`에서 `streamlit_app/app.py`로 변경됐다.
+- `docs/2026-04-18-audit-report.md`가 추가됐다.
 
 ## Open ideas
 

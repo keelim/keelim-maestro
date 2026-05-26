@@ -1,6 +1,6 @@
 # keelim-plugin
 
-Last reviewed: 2026-05-16 KST
+Last reviewed: 2026-05-26 KST
 
 ## Signals
 
@@ -10,6 +10,13 @@ Last reviewed: 2026-05-16 KST
 - The repository already has a clear `skills/<name>/SKILL.md` contract.
 - README가 Vercel skills CLI와 수동 symlink 설치 경로를 함께 설명하므로,
   카탈로그와 smoke-test가 설치 방식별 차이를 계속 드러내야 한다.
+- 스킬이 4개(release-automation, codebase-codemap, tech-post-maker, ralplan-team)에서
+  7개 이상으로 확장됐다: `jira-ticket-desk`, `session-learning`, `session-usage-dashboard`
+  가 새로 추가됐다.
+- `session-learning`은 Python 훅 설치 스크립트(`install_hooks.py`)와 관찰자·리뷰 후보
+  스크립트를 갖추고 테스트 커버리지까지 포함한 완성도 높은 스킬이다.
+- 새 스킬 3개 모두 전용 Python 스크립트와 테스트 파일을 가지므로, 카탈로그·설치 매트릭스·
+  smoke-test 수요가 이전보다 커졌다.
 
 ## Open ideas
 

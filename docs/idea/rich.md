@@ -1,6 +1,6 @@
 # rich
 
-Last reviewed: 2026-05-16 KST
+Last reviewed: 2026-05-26 KST
 
 ## Signals
 
@@ -8,6 +8,12 @@ Last reviewed: 2026-05-16 KST
   workflow control, Google integrations, and market data ingestion.
 - Already has strong operational surfaces around PyKRX, weekly review, Google-connected agenda,
   and personal inbox/loop items.
+- `open-trading-api/`가 1,000+ 파일의 독립 서브시스템으로 성장했고, KIS MCP 서버 2개
+  (KIS Code Assistant MCP, Kis Trading MCP), backtester, strategy builder 프론트엔드와
+  FastAPI 백엔드를 포함한다. `web/src/app/api/open-trading/[service]/[...path]` 프록시
+  라우트가 admin web과 이 서브시스템을 연결한다.
+- `web/` admin 표면이 strategy-lab, work-triage, dividends, journal, sentiment, signals,
+  support-funds 등 새 페이지와 workspace-dashboard API 라우트로 크게 확장됐다.
 - Reliability and operator leverage are at least as important as new UI pages.
 - Shared UI consumption and admin route inventory now add frontend contract drift
   to the existing backend/workflow reliability surface.
@@ -69,14 +75,16 @@ failed runs.
 First slice: Add a compact health panel that shows last-success time, reconnect
 state, and repair action for each upstream integration.
 
-### 2026-04-13 - 공공데이터 카탈로그 변경 피드
+### 2026-05-26 - open-trading-api 운영 경계와 MCP 서버 게이트
 
 Status: proposed
 
-Why now: `rich` already exports the data.go.kr API catalog, so the next leverage
-point is to turn that static inventory into a watchable change feed instead of a
-one-off dump.
+Why now: `open-trading-api/`가 1,000+ 파일의 독립 서브시스템으로 성장했고 KIS MCP 서버
+2개(KIS Code Assistant MCP, Kis Trading MCP)와 backtester·strategy builder를 포함한다.
+`web/src/app/api/open-trading/[service]/[...path]` 프록시 라우트가 admin web과 이
+서브시스템을 연결하지만, 이 경계가 조용히 깨져도 지금은 감지 수단이 없어서 전체
+trading 워크플로우가 영향을 받는다.
 
-First slice: Track a small watchlist of high-value dataset pages, diff title /
-field / link changes on each export, and push meaningful updates into the
-weekly review or recovery queue.
+First slice: `open-trading-api` 백엔드 healthcheck, KIS MCP 서버 가용성 확인, 프록시
+라우트 계약을 묶어 한 번에 확인하는 slim integration gate를 만들고, `rich/app` admin
+API와의 경계 계약을 명시한다.
