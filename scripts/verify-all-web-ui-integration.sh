@@ -277,75 +277,59 @@ all_web_ui_manifest_lists_exports() {
   package_json="$ALL_WEB_UI_DIR/package.json"
 
   [ -f "$manifest" ] || return 1
+  [ -f "$package_json" ] || return 1
+  command -v bun >/dev/null 2>&1 || return 1
 
-  for export_path in \
-    @keelim/all-web-ui/accordion \
-    @keelim/all-web-ui/alert \
-    @keelim/all-web-ui/alert-dialog \
-    @keelim/all-web-ui/avatar \
-    @keelim/all-web-ui/button \
-    @keelim/all-web-ui/calendar \
-    @keelim/all-web-ui/card \
-    @keelim/all-web-ui/checkbox \
-    @keelim/all-web-ui/dialog \
-    @keelim/all-web-ui/badge \
-    @keelim/all-web-ui/hover-card \
-    @keelim/all-web-ui/input \
-    @keelim/all-web-ui/label \
-    @keelim/all-web-ui/popover \
-    @keelim/all-web-ui/progress \
-    @keelim/all-web-ui/radio-group \
-    @keelim/all-web-ui/scroll-area \
-    @keelim/all-web-ui/select \
-    @keelim/all-web-ui/skeleton \
-    @keelim/all-web-ui/slider \
-    @keelim/all-web-ui/switch \
-    @keelim/all-web-ui/table \
-    @keelim/all-web-ui/tabs \
-    @keelim/all-web-ui/textarea \
-    @keelim/all-web-ui/tooltip \
-    @keelim/all-web-ui/toast \
-    @keelim/all-web-ui/sheet \
-    @keelim/all-web-ui/dropdown-menu \
-    @keelim/all-web-ui/breadcrumb
-  do
-    rg -q --fixed-strings "exportPath: '$export_path'" "$manifest" || return 1
+  stable_export_paths="$(
+    bun --eval "
+      import { pathToFileURL } from 'node:url';
+      const { componentManifest } = await import(pathToFileURL(process.argv[1]).href);
+      for (const entry of componentManifest) {
+        if (entry.lifecycle === 'stable') {
+          console.log(entry.exportPath);
+        }
+      }
+    " "$manifest"
+  )" || return 1
+
+  [ -n "$stable_export_paths" ] || return 1
+
+  for export_path in $stable_export_paths; do
+    case "$export_path" in
+      "$ALL_WEB_UI_PACKAGE"/*)
+        subpath=".${export_path#"$ALL_WEB_UI_PACKAGE"}"
+        ;;
+      *)
+        return 1
+        ;;
+    esac
+
+    component_key="${subpath#./}"
+    component_file="$ALL_WEB_UI_DIR/src/components/$component_key.tsx"
+    types_path="./dist/components/$component_key.d.ts"
+    import_path="./dist/components/$component_key.js"
+
+    [ -f "$component_file" ] || return 1
+    jq -e \
+      --arg subpath "$subpath" \
+      --arg types_path "$types_path" \
+      --arg import_path "$import_path" \
+      '
+        .exports[$subpath] == {
+          "types": $types_path,
+          "import": $import_path,
+          "default": $import_path
+        }
+      ' "$package_json" >/dev/null || return 1
   done
 
-  for subpath in \
-    ./accordion \
-    ./alert \
-    ./alert-dialog \
-    ./avatar \
-    ./button \
-    ./calendar \
-    ./card \
-    ./checkbox \
-    ./dialog \
-    ./badge \
-    ./hover-card \
-    ./input \
-    ./label \
-    ./popover \
-    ./progress \
-    ./radio-group \
-    ./scroll-area \
-    ./select \
-    ./table \
-    ./tabs \
-    ./skeleton \
-    ./slider \
-    ./switch \
-    ./textarea \
-    ./tooltip \
-    ./toast \
-    ./sheet \
-    ./dropdown-menu \
-    ./breadcrumb \
-    ./manifest
-  do
-    jq -e --arg subpath "$subpath" '.exports[$subpath]' "$package_json" >/dev/null || return 1
-  done
+  jq -e '
+    .exports["./manifest"] == {
+      "types": "./dist/manifest.d.ts",
+      "import": "./dist/manifest.js",
+      "default": "./dist/manifest.js"
+    }
+  ' "$package_json" >/dev/null
 }
 
 keelim_components_ui_is_shim_only() {
