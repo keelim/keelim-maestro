@@ -1,6 +1,6 @@
 # toto
 
-Last reviewed: 2026-05-16 KST
+Last reviewed: 2026-05-27 KST
 
 ## Signals
 
@@ -37,8 +37,16 @@ First slice: 앱 부팅, 홈 임포트, `verify` 흐름을 묶은 스모크 테�
 
 ### 2026-04-25 - gitlink 커밋 및 재현 가능한 클론 게이트
 
+Status: in-progress (2026-05-27: WORKSPACE.md 스냅샷에서 `5897ef44` pinned 확인됨; CI 게이트 검증은 미완)
+
+Why now: `toto`가 `.gitmodules`에 선언돼 있고 gitlink가 루트 인덱스에 커밋됐으나, 신규 클론 후 전체 재현 순서가 CI에서 자동으로 검증되지 않아 포인터 이동 후 무결성 확인이 수동에 머물러 있다.
+
+First slice: `git submodule update --init toto` → `bun run bootstrap` → `bun run verify:toto` 순서가 CI에서 그린으로 돌아오는지 확인하고, 루트 커밋이 포인터를 움직일 때마다 자동으로 검증되는 CI 스텝을 추가해 pinning 완료 상태를 유지한다.
+
+### 2026-05-27 - 시즌 전환 재시드 플레이북
+
 Status: proposed
 
-Why now: `toto`가 `.gitmodules`에 선언돼 있지만 gitlink가 루트 인덱스에 커밋되지 않아서, 신규 클론 시 디렉터리가 없고 `bun run dev:toto`·`bun run verify:toto`를 실행할 수 없다. 재현성을 핵심 가치로 내세운 프로젝트에서 이 비대칭은 가장 먼저 해소해야 할 운영 위험이다.
+Why now: 대시보드는 `bootstrap` → `seed` → Streamlit 파이프라인으로 로컬 CSV/fixture를 사용하는데, 새 KBO 시즌이 시작될 때 어떤 파일을 교체하고 어떤 순서로 재시드해야 하는지 문서화된 절차가 없어서 시즌 전환 시마다 시행착오가 반복된다.
 
-First slice: 안정 커밋을 골라 gitlink를 루트 인덱스에 커밋하고, `git submodule update --init toto` → `bun run bootstrap` → `bun run verify:toto` 순서가 CI에서 그린으로 돌아오면 pinning 완료로 간주한다.
+First slice: 시즌 전환 시 교체 대상 파일 목록, `bun run seed` 실행 순서, 결과 검증 기준(`bun run verify`)을 하나의 플레이북 문서로 정리하고 `toto/` 루트에 둬서 공급자 인터페이스 계약과 함께 참조할 수 있게 한다.

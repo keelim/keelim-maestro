@@ -1,6 +1,6 @@
 # android-support
 
-Last reviewed: 2026-05-16 KST
+Last reviewed: 2026-05-27 KST
 
 ## Signals
 
@@ -56,3 +56,11 @@ Status: proposed
 Why now: 이 action은 릴리스 핵심 경로를 직접 건드리는데, 현재 테스트는 입력 검증에 비해 실제 Play API 편집 생명주기 검증이 약해서 사소한 변경도 실배포까지 밀려갈 수 있다.
 
 First slice: sign/upload/internal sharing/staged rollout 응답을 대표 fixture로 기록하고, 이를 CI에서 재생해 Play Console에 닿지 않고도 전체 edit lifecycle을 검증한다.
+
+### 2026-05-27 - 버전 코드 단조 증가 사전 검증
+
+Status: proposed
+
+Why now: Play Console은 동일 트랙에서 버전 코드가 단조 증가해야만 업로드를 허용하는데, 현재 action은 업로드 전에 기존 최대 버전 코드를 조회해 비교하는 사전 검증이 없어서 파이프라인이 버전 코드를 재사용하면 업로드가 모호한 오류로 실패한다.
+
+First slice: 업로드 전 `edits.ts` 단계에서 Play Console의 현재 트랙 최대 버전 코드를 읽고, 제출 artifact의 버전 코드가 그보다 크지 않으면 명확한 오류 메시지와 함께 조기 종료하도록 사전 검증 스텝을 추가한다.
