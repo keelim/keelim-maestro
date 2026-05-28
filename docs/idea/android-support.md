@@ -1,6 +1,6 @@
 # android-support
 
-Last reviewed: 2026-05-16 KST
+Last reviewed: 2026-05-28 KST
 
 ## Signals
 
@@ -56,3 +56,11 @@ Status: proposed
 Why now: 이 action은 릴리스 핵심 경로를 직접 건드리는데, 현재 테스트는 입력 검증에 비해 실제 Play API 편집 생명주기 검증이 약해서 사소한 변경도 실배포까지 밀려갈 수 있다.
 
 First slice: sign/upload/internal sharing/staged rollout 응답을 대표 fixture로 기록하고, 이를 CI에서 재생해 Play Console에 닿지 않고도 전체 edit lifecycle을 검증한다.
+
+### 2026-05-28 - 액션 버전 소비자 핀 드리프트 감시
+
+Status: proposed
+
+Why now: `all/.github` 워크플로우들(`app_my_grade.yml`, `app_arducon.yml` 등 6개 앱 배포 워크플로우)이 `android-support@v*` 태그를 직접 핀한다. 루트 `.gitmodules`는 `android-support`를 커밋 `485a2e40`(v0.0.8-4)에 고정하지만, 소비자 워크플로우가 다른 버전 태그를 참조하면 action 계약 변경이 조용히 배포 경로에서 어긋날 수 있다.
+
+First slice: `all/.github/workflows/*.yml`에서 `android-support@v*` 참조를 스캔해 사용 버전, 최신 릴리스 태그, 루트 gitlink 커밋 사이의 갭을 보여주는 주간 리포트를 만들고, 버전 불일치 시 업그레이드 또는 핀 동기화 액션 항목을 제안한다.

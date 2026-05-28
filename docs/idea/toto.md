@@ -1,6 +1,6 @@
 # toto
 
-Last reviewed: 2026-05-16 KST
+Last reviewed: 2026-05-28 KST
 
 ## Signals
 
@@ -37,8 +37,18 @@ First slice: 앱 부팅, 홈 임포트, `verify` 흐름을 묶은 스모크 테�
 
 ### 2026-04-25 - gitlink 커밋 및 재현 가능한 클론 게이트
 
-Status: proposed
+Status: in-progress
 
 Why now: `toto`가 `.gitmodules`에 선언돼 있지만 gitlink가 루트 인덱스에 커밋되지 않아서, 신규 클론 시 디렉터리가 없고 `bun run dev:toto`·`bun run verify:toto`를 실행할 수 없다. 재현성을 핵심 가치로 내세운 프로젝트에서 이 비대칭은 가장 먼저 해소해야 할 운영 위험이다.
 
-First slice: 안정 커밋을 골라 gitlink를 루트 인덱스에 커밋하고, `git submodule update --init toto` → `bun run bootstrap` → `bun run verify:toto` 순서가 CI에서 그린으로 돌아오면 pinning 완료로 간주한다.
+현황(2026-05-28): gitlink가 루트 인덱스에 커밋됨(`5897ef44`). 남은 작업은 `git submodule update --init toto` → `bun run bootstrap` → `bun run verify:toto` 체인이 CI에서 그린으로 돌아오는지 확인하는 것이다.
+
+First slice: `bun run verify:toto` 실행이 CI 워크플로우에서 서브모듈 init 이후 그린으로 도는지 검증하고, 성공 시 pinning 완료로 간주한다.
+
+### 2026-05-28 - 루트 uv 의존성 제약 드리프트 감시
+
+Status: proposed
+
+Why now: `toto`는 루트 `pyproject.toml` uv workspace 멤버이며, 루트의 `tool.uv.constraint-dependencies`가 `anyio`, `numpy`, `pandas`, `starlette` 등 공유 패키지를 핀한다. `toto`의 로컬 의존성 선언이 루트 제약과 어긋나면 `uv lock --check` 실패 또는 환경 재현 불일치가 생길 수 있는데, 현재 이를 자동으로 검출하는 경로가 없다.
+
+First slice: `uv lock --check`와 `uv run python scripts/verify-python-dependency-constraints.py`를 루트 CI에 추가해 드리프트를 사전 차단하고, toto 로컬 `pyproject.toml`의 의존성 버전 범위가 루트 제약과 정렬돼 있는지 리포트로 확인한다.
