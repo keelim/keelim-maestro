@@ -1,6 +1,6 @@
 # android-support
 
-Last reviewed: 2026-05-16 KST
+Last reviewed: 2026-05-29 KST
 
 ## Signals
 
@@ -56,3 +56,11 @@ Status: proposed
 Why now: 이 action은 릴리스 핵심 경로를 직접 건드리는데, 현재 테스트는 입력 검증에 비해 실제 Play API 편집 생명주기 검증이 약해서 사소한 변경도 실배포까지 밀려갈 수 있다.
 
 First slice: sign/upload/internal sharing/staged rollout 응답을 대표 fixture로 기록하고, 이를 CI에서 재생해 Play Console에 닿지 않고도 전체 edit lifecycle을 검증한다.
+
+### 2026-05-29 - 서브모듈 핀 업스트림 드리프트 알림
+
+Status: proposed
+
+Why now: android-support는 루트 인덱스에 특정 SHA(485a2e40)로 핀돼 있고 현재 detached HEAD 상태다. upstream main이 이 핀보다 앞서 나가면 실제 액션 코드와 루트가 참조하는 계약 사이에 무음 드리프트가 생기며, 이를 사람이 직접 확인해야 하는 구조가 릴리스 직전까지 드리프트를 숨길 수 있다.
+
+First slice: `git submodule status android-support`와 upstream HEAD를 비교해 뒤처진 커밋 수를 출력하는 스크립트를 root `scripts/`에 추가하고, 임계값(예: 5커밋) 초과 시 경고 메시지를 내보내 정기 리뷰 때 핀 업데이트 여부를 판단하게 한다.
