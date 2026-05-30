@@ -1,4 +1,4 @@
-<!-- Generated: 2026-05-29 | Files scanned: 151+ | Token estimate: ~860 -->
+<!-- Generated: 2026-05-30 | Files scanned: 151+ | Token estimate: ~860 -->
 
 # Backend Codemap
 
