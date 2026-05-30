@@ -1,6 +1,6 @@
 # toto
 
-Last reviewed: 2026-05-16 KST
+Last reviewed: 2026-05-30 KST
 
 ## Signals
 
@@ -37,8 +37,16 @@ First slice: 앱 부팅, 홈 임포트, `verify` 흐름을 묶은 스모크 테�
 
 ### 2026-04-25 - gitlink 커밋 및 재현 가능한 클론 게이트
 
-Status: proposed
+Status: resolved — 2026-05-29 기준 루트 WORKSPACE.md에서 `toto` gitlink `5897ef44` 커밋 확인. `bun run verify:toto` 경로 유효.
 
 Why now: `toto`가 `.gitmodules`에 선언돼 있지만 gitlink가 루트 인덱스에 커밋되지 않아서, 신규 클론 시 디렉터리가 없고 `bun run dev:toto`·`bun run verify:toto`를 실행할 수 없다. 재현성을 핵심 가치로 내세운 프로젝트에서 이 비대칭은 가장 먼저 해소해야 할 운영 위험이다.
 
 First slice: 안정 커밋을 골라 gitlink를 루트 인덱스에 커밋하고, `git submodule update --init toto` → `bun run bootstrap` → `bun run verify:toto` 순서가 CI에서 그린으로 돌아오면 pinning 완료로 간주한다.
+
+### 2026-05-30 - 시즌 경계 재시드·이전 시즌 아카이브 검증
+
+Status: proposed
+
+Why now: `bun run seed`(내부적으로 `bootstrap.py --reset`)가 DB를 완전 초기화하고 새 시즌 데이터로 채운다. 이 흐름에서 이전 시즌 결과가 검증 없이 덮어써지므로, 시즌 교체 시점에 이전 시즌 스냅샷(행 수·팀 목록·날짜 범위)과 새 시즌 기대값을 비교해야 재현성 보증이 이어진다.
+
+First slice: 시드 실행 전 현재 DB 상태를 JSON 스냅샷으로 저장하고, `--reset` 이후 새 시즌 기대값과 비교해 이상이 있으면 `bun run verify`가 실패하게 만든다. 스냅샷 파일은 `docs/` 아래에 커밋해 과거 시즌 상태를 추적 가능하게 남긴다.
