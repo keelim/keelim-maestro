@@ -1,6 +1,6 @@
 # rich
 
-Last reviewed: 2026-05-16 KST
+Last reviewed: 2026-05-31 KST
 
 ## Signals
 
@@ -69,14 +69,10 @@ failed runs.
 First slice: Add a compact health panel that shows last-success time, reconnect
 state, and repair action for each upstream integration.
 
-### 2026-04-13 - 공공데이터 카탈로그 변경 피드
+### 2026-05-31 - Open Trading API 실행 표면 운영 계약
 
 Status: proposed
 
-Why now: `rich` already exports the data.go.kr API catalog, so the next leverage
-point is to turn that static inventory into a watchable change feed instead of a
-one-off dump.
+Why now: 루트에 `dev:strategy-builder`와 `dev:backtester` 헬퍼 스크립트가 추가되면서 `rich/open-trading-api/` 하위 전략 빌더와 백테스터가 운영 가시 표면으로 올라왔다. 현재 admin API·pykrx 수집 흐름에는 이 경로의 실행 결과, 오류, 재시도 힌트가 통합되지 않아서 장애 발생 시 복구 흐름이 분리된다.
 
-First slice: Track a small watchlist of high-value dataset pages, diff title /
-field / link changes on each export, and push meaningful updates into the
-weekly review or recovery queue.
+First slice: strategy_builder와 backtester 실행 결과를 recovery cockpit·execution ledger와 공유하는 같은 로그 스키마로 기록하고, 관리자 화면에서 전략 실행 이력을 조회할 수 있는 최소 표면을 만든다.

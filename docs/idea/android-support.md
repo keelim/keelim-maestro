@@ -1,6 +1,6 @@
 # android-support
 
-Last reviewed: 2026-05-16 KST
+Last reviewed: 2026-05-31 KST
 
 ## Signals
 
@@ -56,3 +56,11 @@ Status: proposed
 Why now: 이 action은 릴리스 핵심 경로를 직접 건드리는데, 현재 테스트는 입력 검증에 비해 실제 Play API 편집 생명주기 검증이 약해서 사소한 변경도 실배포까지 밀려갈 수 있다.
 
 First slice: sign/upload/internal sharing/staged rollout 응답을 대표 fixture로 기록하고, 이를 CI에서 재생해 Play Console에 닿지 않고도 전체 edit lifecycle을 검증한다.
+
+### 2026-05-31 - 앱별 Play 배포 정책 레지스트리
+
+Status: proposed
+
+Why now: `all`은 6개 앱 모듈(`app-my-grade`, `app-arducon`, `app-nanda`, `app-comssa`, `app-cnubus`, `app-mysenior`)과 앱별 CI 워크플로우를 따로 운영하는데, 각 앱의 `track`, `status`, `userFraction` 값이 `android-support` action 입력과 명시적으로 연결되지 않아서 앱별 배포 정책이 어긋나도 늦게 발견된다.
+
+First slice: `all`의 앱 모듈 목록과 각 워크플로우의 `android-support` action 입력값(track/status/userFraction)을 매핑한 JSON 매니페스트를 만들고, 사전 검증 스텝에서 매니페스트와 실제 action 입력이 일치하는지 확인한다.
