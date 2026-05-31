@@ -1,6 +1,6 @@
 # keelim-maestro — Codemaps
 
-> Last updated: 2026-05-30
+> Last updated: 2026-05-31
 
 This directory documents the architecture and structure of the **keelim-maestro** workspace superproject.
 
