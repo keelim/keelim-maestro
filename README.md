@@ -49,6 +49,7 @@ This repository currently owns only root-level coordination files:
 - `package.json`
 - `bun.lock`
 - `.gitmodules`
+- `docs/ops/`
 - `docs/idea/`
 - future root-only helper scripts/docs
 
@@ -87,6 +88,26 @@ integration verifier, build-canary command inventory, and visual-regression
 readiness. It observes the `all-web-ui` provider plus the `keelim-vercel` and
 `rich/web` consumers without mutating child repositories. Use
 `scripts/verify-all-web-ui-integration.sh` for strict static failure semantics.
+
+## Local automation stack
+
+Use `docs/ops/local-automation-stack.md` for the root-owned audit of local
+automation runtimes: `rich` local Kubernetes, `youtube` n8n Kubernetes, and
+`tools/agentgateway`. The root owns the cross-runtime contract, while each
+runtime keeps its own manifests, scripts, secrets, and verification commands.
+
+Use the root helper only as a script index / delegator:
+
+```bash
+bun run automation:local -- list
+bun run automation:local -- status
+bun run automation:local -- verify rich
+bun run automation:local -- start agentgateway
+bun run automation:local -- stop n8n
+```
+
+`status` and `list` are read-only. `start` and `stop` require an explicit
+runtime target and delegate to the owning runtime's documented command.
 
 ## CodeGraph dispatcher
 

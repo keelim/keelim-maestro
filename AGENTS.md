@@ -15,6 +15,7 @@
   - `pyproject.toml`
   - `uv.lock`
   - `docs/CODEMAPS/`
+  - `docs/ops/`
   - `docs/idea/`
   - `scripts/`
   - future `.gitmodules`
@@ -87,6 +88,7 @@
 - `bun run cg`, `bun run cg:status`, and `bun run cg:root-check` are root-owned CodeGraph dispatch/inspection helpers; use them for coordination only and do not treat them as permission to initialize or rely on a root aggregate child-source graph.
 - `bun run dev:keelim-vercel`, `bun run dev:rich-web`, and `bun run dev:toto` are root convenience wrappers for hydrated workspace members; they do not replace child-repo-local install, test, or release workflows.
 - `bun run dev:codex-app-server` is the root helper for a local Codex app-server bound to this workspace; keep transport/config guidance at the root level rather than pushing it into child-repo docs.
+- `bun run automation:local -- ...` is the root-owned local automation script index/delegator for `rich`, `youtube` n8n, and `tools/agentgateway`; keep runtime implementation, manifests, and secrets in the owning repos.
 - `./scripts/update-subrepos.sh` is the root-owned status/update helper for registered submodules plus autonomous local repos surfaced in the report; prefer it over ad-hoc multi-repo pull loops when the task is root-level repo hygiene.
 - `bun run dev:strategy-builder` and `bun run dev:backtester` are root convenience wrappers into `rich/open-trading-api/*`, but they do **not** make those nested apps root workspace members or change `rich`'s child-repo ownership rules.
 
