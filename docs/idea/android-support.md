@@ -1,6 +1,6 @@
 # android-support
 
-Last reviewed: 2026-05-16 KST
+Last reviewed: 2026-06-01 KST
 
 ## Signals
 
@@ -56,3 +56,11 @@ Status: proposed
 Why now: 이 action은 릴리스 핵심 경로를 직접 건드리는데, 현재 테스트는 입력 검증에 비해 실제 Play API 편집 생명주기 검증이 약해서 사소한 변경도 실배포까지 밀려갈 수 있다.
 
 First slice: sign/upload/internal sharing/staged rollout 응답을 대표 fixture로 기록하고, 이를 CI에서 재생해 Play Console에 닿지 않고도 전체 edit lifecycle을 검증한다.
+
+### 2026-06-01 - 번들 산출물 신선도 게이트
+
+Status: proposed
+
+Why now: `lib/index.js`는 `@vercel/ncc`로 컴파일된 산출물이라서 소스(`src/`) 변경 후 빌드를 실행하지 않으면 Action이 낡은 코드로 릴리스를 실행한다. 기존 `액션 계약 드리프트 검사`가 인터페이스 일치를 확인하는 것과 달리, 이 아이디어는 소스와 번들이 같은 커밋에서 함께 갱신됐는지를 검증한다.
+
+First slice: CI에서 `bun run build`를 실행한 뒤 `git diff --name-only`로 `lib/index.js`가 변경됐는지 확인하고, 변경이 감지되면 PR에서 번들 갱신을 요청하는 상태 체크를 추가한다.
