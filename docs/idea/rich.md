@@ -1,6 +1,6 @@
 # rich
 
-Last reviewed: 2026-05-16 KST
+Last reviewed: 2026-06-02 KST
 
 ## Signals
 
@@ -13,6 +13,7 @@ Last reviewed: 2026-05-16 KST
   to the existing backend/workflow reliability surface.
 - `docs/words/AGENTS.md` defines a raw-source/wiki/schema split for an investing
   LLM wiki, so durable review insights can be routed back into knowledge pages.
+- `open-trading-api/` 하위에 KIS API 기반 전략 빌더, 백테스터, MCP 서버(KIS Code Assistant, Kis Trading), 계좌·주문·마켓·백테스트 라우터가 별도 서브시스템으로 자라고 있어서, 기존 admin/운영 표면과의 통합 지점 및 인증 경계 관리가 새 운영 위험이 됐다.
 
 ## Open ideas
 
