@@ -1,6 +1,6 @@
 # rich
 
-Last reviewed: 2026-05-16 KST
+Last reviewed: 2026-06-04 KST
 
 ## Signals
 
@@ -13,6 +13,7 @@ Last reviewed: 2026-05-16 KST
   to the existing backend/workflow reliability surface.
 - `docs/words/AGENTS.md` defines a raw-source/wiki/schema split for an investing
   LLM wiki, so durable review insights can be routed back into knowledge pages.
+- `open-trading-api/` 하위에 strategy_builder와 backtester 표면이 추가됐으며, 루트 워크스페이스 `dev:strategy-builder`·`dev:backtester` 스크립트로 진입 가능한 신규 표면이다(코드맵 2026-06-03 기준).
 
 ## Open ideas
 

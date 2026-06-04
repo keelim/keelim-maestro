@@ -1,6 +1,6 @@
 # toto
 
-Last reviewed: 2026-05-16 KST
+Last reviewed: 2026-06-04 KST
 
 ## Signals
 
@@ -35,10 +35,18 @@ Why now: 이 저장소의 핵심 가치는 수정이 아니라 재현이므로, 
 
 First slice: 앱 부팅, 홈 임포트, `verify` 흐름을 묶은 스모크 테스트를 추가하고, 비정상 쓰기 경로나 경로 드리프트가 있으면 실패하게 만든다.
 
-### 2026-04-25 - gitlink 커밋 및 재현 가능한 클론 게이트
+### 2026-04-25 - 서브모듈 핀 업데이트 사이클 유지
 
 Status: proposed
 
-Why now: `toto`가 `.gitmodules`에 선언돼 있지만 gitlink가 루트 인덱스에 커밋되지 않아서, 신규 클론 시 디렉터리가 없고 `bun run dev:toto`·`bun run verify:toto`를 실행할 수 없다. 재현성을 핵심 가치로 내세운 프로젝트에서 이 비대칭은 가장 먼저 해소해야 할 운영 위험이다.
+Why now: `toto` gitlink는 루트 인덱스에 커밋됐고(`5897ef44`에 고정, WORKSPACE.md 2026-06-03 기준), `git submodule update --init toto` → `bun run bootstrap` → `bun run verify:toto` 경로가 작동한다. 남은 과제는 `toto main`에 새 커밋이 생겼을 때 루트 gitlink를 안정 커밋으로 올리고 클론-시드-검증 사이클을 유지하는 것이다.
 
-First slice: 안정 커밋을 골라 gitlink를 루트 인덱스에 커밋하고, `git submodule update --init toto` → `bun run bootstrap` → `bun run verify:toto` 순서가 CI에서 그린으로 돌아오면 pinning 완료로 간주한다.
+First slice: 루트 `bun run report:baseline` 리포트에서 `toto` 핀 대비 upstream 커밋 차이를 확인하고, 앞서 있으면 안정 커밋 선정 → gitlink 업데이트 → `verify:toto` 통과 순서를 밟는 절차를 문서화한다.
+
+### 2026-06-04 - KBO 라이브 데이터 전환 준비 게이트
+
+Status: proposed
+
+Why now: 현재 대시보드는 로컬 CSV/fixture 공급자만 지원한다. `데이터 공급자 어댑터 분리` 아이디어가 구현되면 다음 단계는 실제 KBO 데이터 소스로의 전환이다. 어댑터 계약이 오류·타임아웃·빈 데이터 케이스에서도 UI가 정상 동작하는지 미리 검증하는 게이트 없이는 라이브 전환 시 회귀를 늦게 발견하게 된다.
+
+First slice: 외부 KBO 데이터 소스(공개 API 또는 스크래핑 fixture)를 모의 연결해 provider 계약이 비정상 케이스에서도 유지되는지 확인하는 통합 테스트를 추가하고, `bun run verify:toto` 스모크 게이트에 포함한다.
