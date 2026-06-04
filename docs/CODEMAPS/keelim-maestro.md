@@ -1,4 +1,4 @@
-<!-- Generated: 2026-06-03 | Source-led root codemap reviewed after generator pass -->
+<!-- Generated: 2026-06-04 | Source-led root codemap reviewed after generator pass -->
 
 # keelim-maestro Workspace Codemap
 
@@ -70,6 +70,7 @@ maintenance and verification surfaces:
 - `scripts/verify-python-dependency-constraints.py` - verifies shared Python
   dependency constraints are aligned across uv workspace members (`toto`, `rich`).
   Run via `uv run python scripts/verify-python-dependency-constraints.py`.
+- `scripts/refresh-codemaps.py` - regenerates child-project codemap snapshots under `docs/CODEMAPS/projects/` using the `keelim-plugin` generator and updates "Last updated" dates in root codemap docs.
 - `scripts/codex-app-server.sh` - starts a Codex app-server bound to the workspace root (defaults to `ws://127.0.0.1:7331`); refuses non-loopback WebSocket without `--ws-auth`.
 - `package.json` scripts:
   - `test` / `test:workspace` — root superproject contract tests via `test-workspace.sh`
