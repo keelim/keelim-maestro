@@ -39,6 +39,13 @@ When adding or describing an MCP integration, document it behind
 `agentgateway` unless a lower-level implementation detail explicitly needs to
 be called out.
 
+Headroom is not exposed as an MCP target in the current local runtime. Codex and
+Claude Code should use the shared `agentgateway` MCP endpoint at
+`http://localhost:3000/mcp` for MCP tools, while the separate Headroom proxy
+surface is local-only at `http://127.0.0.1:8787` and should be treated as an
+opt-in pilot, especially for Codex where `/v1/responses` proxy behavior needs
+separate validation.
+
 ## Current safe scope
 
 This repository currently owns only root-level coordination files:
@@ -93,8 +100,9 @@ readiness. It observes the `all-web-ui` provider plus the `keelim-vercel` and
 
 Use `docs/ops/local-automation-stack.md` for the root-owned audit of local
 automation runtimes: `rich` local Kubernetes, `youtube` n8n Kubernetes, and
-`tools/agentgateway`. The root owns the cross-runtime contract, while each
-runtime keeps its own manifests, scripts, secrets, and verification commands.
+`tools/agentgateway` with its Headroom sidecar runtime. The root owns the
+cross-runtime contract, while each runtime keeps its own manifests, scripts,
+secrets, and verification commands.
 
 Use the root helper only as a script index / delegator:
 

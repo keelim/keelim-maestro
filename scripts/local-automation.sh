@@ -131,9 +131,11 @@ list_n8n() {
 list_agentgateway() {
   section "agentgateway MCP Kubernetes"
   info "Owner repo: tools/agentgateway"
-  info "Start:  cd tools/agentgateway && sh scripts/start-k8s-gateway.sh"
-  info "Verify: cd tools/agentgateway && AGENTGATEWAY_URL=http://127.0.0.1:3000 sh scripts/verify-k8s-gateway.sh"
-  info "Stop:   cd tools/agentgateway && sh scripts/stop-k8s-gateway.sh --apply"
+  info "Start:  cd tools/agentgateway && bash scripts/start-k8s-gateway.sh"
+  info "Verify: cd tools/agentgateway && AGENTGATEWAY_URL=http://127.0.0.1:3000 bash scripts/verify-k8s-gateway.sh"
+  info "Stop:   cd tools/agentgateway && bash scripts/stop-k8s-gateway.sh --apply"
+  info "MCP:    Codex/Claude -> http://127.0.0.1:3000/mcp -> agentgateway -> Supabase/Lazyweb/Stitch"
+  info "Proxy:  optional Headroom proxy pilot on http://127.0.0.1:8787"
   info "Files:  tools/agentgateway/scripts/, tools/agentgateway/k8s/"
 }
 
@@ -155,6 +157,7 @@ status_agentgateway() {
   run_kubectl -n agentgateway-local get deploy,svc,pod
   run_lsof_port 3000
   run_lsof_port 15000
+  run_lsof_port 8787
 }
 
 verify_rich() {
@@ -182,7 +185,7 @@ verify_agentgateway() {
 
   (
     cd tools/agentgateway
-    AGENTGATEWAY_URL=http://127.0.0.1:3000 sh scripts/verify-k8s-gateway.sh
+    AGENTGATEWAY_URL=http://127.0.0.1:3000 bash scripts/verify-k8s-gateway.sh
   ) || mark_failure
 }
 
@@ -205,7 +208,7 @@ start_runtime() {
       ;;
     agentgateway)
       cd tools/agentgateway
-      exec sh scripts/start-k8s-gateway.sh
+      exec bash scripts/start-k8s-gateway.sh
       ;;
   esac
 }
@@ -227,7 +230,7 @@ stop_runtime() {
       section "agentgateway stop"
       (
         cd tools/agentgateway
-        sh scripts/stop-k8s-gateway.sh --apply
+        bash scripts/stop-k8s-gateway.sh --apply
       ) || mark_failure
       ;;
   esac
