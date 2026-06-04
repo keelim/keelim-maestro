@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>keelim-maestro 서브프로젝트 기능·개선 리서치</title>
+<style>
+  :root{
+    --bg:#0f1115; --panel:#171a21; --panel2:#1e222b; --border:#2a2f3a;
+    --text:#e6e8ee; --muted:#9aa3b0; --accent:#6ea8fe;
+    --s:#2ea043; --m:#d29922; --l:#f85149; --deepen:#388bfd; --new:#a371f7; --block:#f85149;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--text);
+    font:15px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue","Apple SD Gothic Neo","Malgun Gothic",sans-serif;}
+  a{color:var(--accent);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 20px 80px}
+  header.hero{padding:48px 20px 28px;border-bottom:1px solid var(--border);
+    background:linear-gradient(180deg,#1a1f2b 0%,var(--bg) 100%)}
+  header.hero .wrap{padding-bottom:0}
+  h1{font-size:30px;margin:0 0 8px;letter-spacing:-.4px}
+  .meta{color:var(--muted);font-size:13.5px}
+  .meta code{color:#cdd3df}
+  nav.toc{position:sticky;top:0;z-index:20;background:rgba(15,17,21,.92);
+    backdrop-filter:blur(8px);border-bottom:1px solid var(--border);padding:10px 0}
+  nav.toc .wrap{padding:0 20px;display:flex;flex-wrap:wrap;gap:6px}
+  nav.toc a{font-size:12.5px;color:var(--muted);padding:5px 10px;border:1px solid var(--border);
+    border-radius:999px;background:var(--panel)}
+  nav.toc a:hover{color:var(--text);border-color:var(--accent);text-decoration:none}
+  section{margin-top:40px}
+  h2{font-size:21px;margin:0 0 4px;padding-top:8px;border-top:1px solid var(--border);padding-top:28px}
+  h2 .tag{font-size:12px;color:var(--muted);font-weight:400;margin-left:8px}
+  h3{font-size:15px;color:var(--muted);text-transform:uppercase;letter-spacing:.6px;margin:22px 0 8px}
+  p.state{background:var(--panel);border:1px solid var(--border);border-left:3px solid var(--accent);
+    border-radius:8px;padding:12px 14px;margin:10px 0;font-size:14px;color:#cfd5e1}
+  .summary{background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:20px 22px}
+  .summary ol{margin:10px 0 0;padding-left:20px}
+  .summary li{margin:8px 0}
+  .callout{border-radius:10px;padding:14px 16px;margin:16px 0;font-size:14px}
+  .callout.warn{background:#2a1d1f;border:1px solid #5c2b2b;border-left:3px solid var(--block)}
+  .callout.note{background:#16202b;border:1px solid #234055;border-left:3px solid var(--accent)}
+  .callout b{color:#fff}
+  pre{background:#0b0d11;border:1px solid var(--border);border-radius:8px;padding:12px 14px;
+    overflow:auto;font-size:12.5px;color:#cdd3df;margin:10px 0}
+  code{font-family:"SF Mono",ui-monospace,Menlo,Consolas,monospace;font-size:.9em;
+    background:#0b0d11;border:1px solid var(--border);border-radius:4px;padding:1px 5px}
+  p.state code,td code,.callout code{background:#0b0d11}
+  .tablewrap{overflow-x:auto;border:1px solid var(--border);border-radius:10px;margin:12px 0}
+  table{border-collapse:collapse;width:100%;min-width:760px;font-size:13px}
+  th,td{text-align:left;padding:9px 11px;border-bottom:1px solid var(--border);vertical-align:top}
+  th{background:var(--panel2);color:#c7cdd9;font-weight:600;position:sticky;top:0;white-space:nowrap}
+  tr:last-child td{border-bottom:none}
+  tbody tr:hover{background:#1b1f28}
+  td:first-child{font-weight:600;color:#eef1f6}
+  .badge{display:inline-block;font-size:11px;font-weight:700;padding:2px 8px;border-radius:999px;
+    white-space:nowrap;line-height:1.5}
+  .b-S{background:rgba(46,160,67,.16);color:#56d364;border:1px solid #2ea04355}
+  .b-M{background:rgba(210,153,34,.16);color:#e3b341;border:1px solid #d2992255}
+  .b-L{background:rgba(248,81,73,.16);color:#ff7b72;border:1px solid #f8514955}
+  .b-deepen{background:rgba(56,139,253,.16);color:#79c0ff;border:1px solid #388bfd55}
+  .b-new{background:rgba(163,113,247,.16);color:#d2a8ff;border:1px solid #a371f755}
+  .b-block{background:rgba(248,81,73,.2);color:#ff7b72;border:1px solid #f8514966}
+  .b-house{background:rgba(154,163,176,.16);color:#b9c0cc;border:1px solid #9aa3b055}
+  .waves{display:grid;gap:14px}
+  .wave{background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:16px 18px}
+  .wave h4{margin:0 0 10px;font-size:15px;display:flex;align-items:center;gap:10px}
+  .wave .pill{font-size:11px;font-weight:700;padding:3px 10px;border-radius:999px;
+    background:var(--panel2);border:1px solid var(--border);color:var(--muted)}
+  .wave.w0 h4 .pill{color:#ff7b72;border-color:#f8514955}
+  .wave.w1 h4 .pill{color:#56d364;border-color:#2ea04355}
+  .wave.w2 h4 .pill{color:#e3b341;border-color:#d2992255}
+  .wave.w3 h4 .pill{color:#d2a8ff;border-color:#a371f755}
+  .wave ul{margin:0;padding-left:18px}
+  .wave li{margin:5px 0;font-size:13.5px}
+  .src{font-size:13px}
+  .src li{margin:5px 0}
+  footer{margin-top:50px;padding-top:18px;border-top:1px solid var(--border);color:var(--muted);font-size:12.5px}
+  .legend{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 0}
+  @media(max-width:640px){h1{font-size:24px}.wrap{padding:0 14px 60px}}
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="wrap">
+    <h1>keelim-maestro 서브프로젝트 기능·개선 리서치</h1>
+    <div class="meta">
+      Generated: <code>2026-06-04 KST</code> · Scope: 8 sub-projects ·
+      Method: code-grounding(Explore 3) + bounded web research ·
+      Confidence: High(code) / Medium(외부 패턴 권고)
+    </div>
+    <div class="legend">
+      <span class="badge b-deepen">deepen</span>
+      <span class="badge b-new">new</span>
+      <span class="badge b-block">blocker</span>
+      <span class="badge b-house">housekeeping</span>
+      <span class="badge b-S">S</span>
+      <span class="badge b-M">M</span>
+      <span class="badge b-L">L</span>
+    </div>
+  </div>
+</header>
+
+<nav class="toc">
+  <div class="wrap">
+    <a href="#summary">Executive Summary</a>
+    <a href="#blockers">0 · 운영 블로커</a>
+    <a href="#vercel">1 · keelim-vercel</a>
+    <a href="#webui">2 · all-web-ui</a>
+    <a href="#rich">3 · rich</a>
+    <a href="#all">4 · all</a>
+    <a href="#toto">5 · toto</a>
+    <a href="#android">6 · android-support</a>
+    <a href="#plugin">7 · keelim-plugin</a>
+    <a href="#vault">8 · Knowledge-Vault</a>
+    <a href="#roadmap">9 · 로드맵</a>
+    <a href="#sources">Sources</a>
+  </div>
+</nav>
+
+<div class="wrap">
+
+<section id="summary">
+  <h2>Executive Summary</h2>
+  <div class="summary">
+    <p>8개 서브프로젝트 각각에 대해 (1) 기존 <code>docs/idea/&lt;project&gt;.md</code> 백로그를 실제 코드 진입점에 묶어 <b>심화</b>, (2) 백로그를 넘어선 <b>신규 기능</b> 발굴, (3) 운영 블로커·영향·노력을 함께 고려한 <b>우선순위 로드맵</b>을 제시한다.</p>
+    <ol>
+      <li><b>기존 백로그는 "신뢰성/드리프트 감시 리포트"에 강하게 편향</b>돼 있다. 요청한 "신규 기능 발굴"은 이 편향 밖(사용자/제품 가치)을 의도적으로 채웠다 — 대표: keelim-vercel <b>Next-best-action 피드</b>.</li>
+      <li><b>운영 블로커가 착수 시점을 강제</b>한다 — rich/keelim-vercel 더티 트리, rich <b>스케줄러 부재</b>, all-web-ui 미등록 서브모듈. <i>(toto/android-support는 서브모듈 포인터 드리프트로 가벼운 동기화 항목 — 초기 백로그의 "gitlink 미커밋/빈 클론" 주장은 <b>사실이 아님</b>, 루트 검증으로 정정.)</i></li>
+      <li><b>rich 스케줄러는 기능별이 아닌 공통 선결 작업</b>이다. execution ledger·freshness watchdog·data-portal feed 3기능이 모두 의존하므로 APScheduler in-process로 먼저 도입한다.</li>
+    </ol>
+    <p style="margin:14px 0 0">가장 빠른 승리(코드 준비 완료, <span class="badge b-S">S</span>): vercel 메뉴 배지/스토리지 레지스트리 게이트, all-web-ui 다운스트림 매트릭스, rich 통합 헬스 콘솔, android-support 액션 계약 드리프트, toto 스모크 게이트, keelim-plugin 생성 카탈로그, vault 백링크 허브.</p>
+  </div>
+</section>
+
+<section id="blockers">
+  <h2>0 · 교차 운영 블로커 <span class="tag">로드맵 선결 게이트</span></h2>
+  <div class="tablewrap"><table>
+    <thead><tr><th>블로커</th><th>영향</th><th>해소 작업</th><th>노력</th></tr></thead>
+    <tbody>
+      <tr><td><code>rich</code> 더티 트리</td><td>M <code>docs/words/*.md</code>, <code>web/tsconfig.tsbuildinfo</code> + "freeze/split before modernization" 정책 → 스키마/라우트 머지 전 정리 필요</td><td>더티 변경 커밋·정리, freeze/split 결정 확정</td><td><span class="badge b-S">S</span></td></tr>
+      <tr><td><code>rich</code> 스케줄러 계층 부재</td><td>APScheduler/Celery import 없음 → execution ledger·freshness·data-portal feed가 모두 의존</td><td>in-process APScheduler 먼저 도입, 추후 Celery 승격 평가</td><td><span class="badge b-M">M</span></td></tr>
+      <tr><td><code>keelim-vercel</code> 더티 트리</td><td>docs/CODEMAPS, scripts 등 → 기능 작업 전 로컬 드리프트 확인</td><td>더티 변경 커밋</td><td><span class="badge b-S">S</span></td></tr>
+      <tr><td><code>toto</code>·<code>android-support</code> 서브모듈 포인터 드리프트</td><td>인덱스 기록 커밋(<code>toto 5897ef44</code>, <code>android 485a2e40</code>)과 체크아웃 커밋(<code>b94974b4</code>, <code>06843399</code>) 불일치 → <code> M</code>. <b>빈 클론 아님</b> — 게이트링크 커밋됨</td><td><code>git add toto android-support</code> 후 검증, 또는 체크아웃을 인덱스 커밋으로 리셋</td><td><span class="badge b-S">S</span></td></tr>
+      <tr><td><code>all-web-ui</code> 미등록 서브모듈</td><td>자율 로컬 repo → 루트 핀/CI 카나리 통합 시점 제약</td><td>잔여 워크스페이스 블로커 해소 후 등록 평가</td><td>—</td></tr>
+    </tbody>
+  </table></div>
+  <div class="callout note">스케줄러 선택은 외부 패턴과 일치: 동일 FastAPI 앱 객체/소규모 주기 작업은 <b>APScheduler in-process</b>, 분산·재시도·모니터링이 필요한 무거운 처리는 <b>Celery</b>로 승격 (<a href="https://medium.com/@rasifrazak123/fastapi-scheduling-background-tasks-backgroundtasks-vs-apscheduler-vs-celery-complete-guide-ff90d6be524b">FastAPI Scheduling guide</a>, <a href="https://ahaw021.medium.com/scheduled-jobs-with-fastapi-and-apscheduler-5a4c50580b0e">APScheduler+FastAPI</a>).</div>
+</section>
+
+<section id="vercel">
+  <h2>1 · keelim-vercel <span class="tag">Next.js 금융 웹 — DEEP</span></h2>
+  <p class="state"><code>app/(dashboard)/*</code>에 ~19 도구 + 50+ 계산기, 네비 <code>lib/menu-config.ts</code>(<code>isNew:true</code> 4개). 데이터: Supabase(<code>lib/supabase.ts</code>) + Drizzle(<code>lib/db.ts</code>), 70+ <code>*-storage.ts</code>. 도구 추적 라이브: <code>lib/tool-tracking.ts</code> + <code>lib/ranking-actions.ts</code> → Supabase <code>tool_clicks</code>. 레지스트리 <code>lib/storage-version-registry.ts</code>(82키). 어댑터 <code>components/shared/all-web-ui-adapters.tsx</code>(3개만). <code>app/sitemap.ts</code>·<code>robots.ts</code> 존재.</p>
+  <div class="tablewrap"><table>
+    <thead><tr><th>Feature</th><th>Type</th><th>진입점</th><th>노력</th><th>영향</th><th>블로커/의존</th></tr></thead>
+    <tbody>
+      <tr><td>메뉴 배지 예산 강제</td><td><span class="badge b-deepen">deepen</span></td><td><code>lib/menu-config.ts</code> ↔ <code>lib/changelog-data.ts</code> ↔ <code>app/changelog/page.tsx</code></td><td><span class="badge b-S">S</span></td><td>배지 4개 규칙 위반·stale 자동 감지, pre-commit 가능</td><td>없음(regex+diff)</td></tr>
+      <tr><td>스토리지 키 레지스트리 드리프트 게이트</td><td><span class="badge b-deepen">deepen</span></td><td><code>lib/storage-version-registry.ts</code>(82키) ↔ <code>lib/*storage*.ts</code> ↔ <code>storage-versioning.ts</code></td><td><span class="badge b-S">S</span></td><td>레지스트리 누락/stale → 사용자 설정 조용한 손상 방지</td><td>없음(추출기+diff)</td></tr>
+      <tr><td>공유 UI 어댑터 스냅샷·diff</td><td><span class="badge b-deepen">deepen</span></td><td><code>all-web-ui-adapters.tsx</code>(3 export) ↔ downstream grep ↔ <code>all-web-ui/src/manifest.ts</code></td><td><span class="badge b-M">M</span></td><td>export 변경 CI 게이트; 표면 작음</td><td>cross-repo grep + manifest</td></tr>
+      <tr><td>도구 사용 히트맵 &amp; 데드 표면 정리</td><td><span class="badge b-deepen">deepen</span></td><td><code>lib/ranking-actions.ts</code>(Supabase <code>tool_clicks</code>) + <code>menu-config.ts</code></td><td><span class="badge b-M">M</span></td><td>50+ 도구 실사용 랭크, 미사용 라우트 통합 후보화</td><td>집계 쿼리 + 주간 잡(스케줄러)</td></tr>
+      <tr><td>라우트 계약 드리프트 리포트</td><td><span class="badge b-deepen">deepen</span></td><td><code>(dashboard)/layout.tsx</code>+nav ↔ <code>app/api/</code> ↔ <code>sitemap.ts</code>/<code>robots.ts</code></td><td><span class="badge b-M">M</span></td><td>메뉴·실라우트·API·sitemap 정합성 주간 리포트</td><td>빌드타임 스크립트 미통합</td></tr>
+      <tr><td>Next-best-action 피드</td><td><span class="badge b-new">new</span></td><td><code>tool-tracking.ts</code>+<code>household-goal-checkin-storage.ts</code>+<code>favorite-tools-storage.ts</code>; <code>/next-action</code></td><td><span class="badge b-L">M–L</span></td><td>긴 카탈로그 대신 "다음 행동" 추천 → 후속 행동 루프 강화</td><td>룰/LLM 스코어링 + 프로필 스키마</td></tr>
+    </tbody>
+  </table></div>
+  <div class="callout note"><b>신규 기능 노트</b> — Next-best-action 피드는 도구 히스토리·북마크·목표 체크인 표면이 이미 존재해 코드 앵커가 분명. 1차는 룰기반(최근 시퀀스+즐겨찾기+프로필)으로 시작 → 효과 검증 후 LLM 스코어링 승격 권장.</div>
+</section>
+
+<section id="webui">
+  <h2>2 · all-web-ui <span class="tag">공유 React UI 패키지 — LIGHT</span></h2>
+  <p class="state"><code>@keelim/all-web-ui</code> 34+ 프리미티브 + 테마 토큰. <code>src/index.ts</code> export, <code>src/manifest.ts</code> 라이프사이클(stable/deprecated/removed). 테마 2종(<code>admin-bw.css</code>, <code>finance.css</code>) + <code>src/lib/cn.ts</code>. 소비자: keelim-vercel + rich/web. <code>.stitch/</code>가 진행 중 마이그레이션 추적.</p>
+  <div class="tablewrap"><table>
+    <thead><tr><th>Feature</th><th>Type</th><th>진입점</th><th>노력</th><th>영향</th><th>블로커/의존</th></tr></thead>
+    <tbody>
+      <tr><td>다운스트림 사용 매트릭스</td><td><span class="badge b-deepen">deepen</span></td><td>import grep(vercel+rich/web) ↔ <code>src/manifest.ts</code></td><td><span class="badge b-S">S</span></td><td>(컴포넌트×소비자×사용수) → deprecation 영향 가시화</td><td>grep+TS AST, 비용 낮음</td></tr>
+      <tr><td>시각 회귀 &amp; 접근성 게이트 팩</td><td><span class="badge b-new">new</span></td><td><code>tests/visual-*.test.ts</code>(Playwright)+axe-core; 테마별 베이스라인</td><td><span class="badge b-M">M</span></td><td>드리프트를 소비자 도달 전 차단; 대비 회귀 방지</td><td>CI + Chromatic/Percy 또는 자체</td></tr>
+      <tr><td>토큰 플레이그라운드 &amp; 테마 diff 랩</td><td><span class="badge b-new">new</span></td><td><code>src/docs/theme-lab.tsx</code>; 두 테마 병렬 렌더 + 토큰 델타; <code>src/lib/cn.ts</code></td><td><span class="badge b-M">M</span></td><td>퍼블리시 전 토큰 변경 미리보기 → 깜짝 회귀 감소</td><td>데모 페이지 인프라(Storybook 부재)</td></tr>
+    </tbody>
+  </table></div>
+  <div class="callout note"><b>외부 패턴</b> — 표준 스택은 <b>Storybook + Chromatic(시각 회귀) + axe-core CI(WCAG 위반 시 머지 차단)</b>, 토큰은 <b>Style Dictionary</b>로 다중 플랫폼 변환(W3C Design Tokens 사양 2025-10 안정화). 두 테마를 이미 보유해 토큰 랩+시각 게이트가 자연스러운 진입 (<a href="https://www.chromatic.com/storybook">Chromatic</a>, <a href="https://bug0.com/knowledge-base/storybook-visual-regression-testing-chromatic">VRT</a>, <a href="https://a11ypros.com/blog/accessibility-in-design-systems">A11y</a>).</div>
+</section>
+
+<section id="rich">
+  <h2>3 · rich <span class="tag">FastAPI 관리자 + Next.js 웹 — DEEP</span></h2>
+  <p class="state">FastAPI(<code>app/main.py</code>+<code>/api/admin</code>), 서비스 <code>app/services/{weekly_review,market_fear_greed,quality_screener,krx_daily_price_cache,krx_data_portal_client}.py</code>. 라우트 <code>/api/admin/pykrx/*</code>, <code>/weekly-review/*</code>, 에러 엔벨로프. 프런트 계약 <code>web/src/lib/api.ts</code>. wiki <code>docs/words</code>. 통합: PyKRX·KRX 공공포털·Supabase·Google·GitHub CLI.</p>
+  <div class="tablewrap"><table>
+    <thead><tr><th>Feature</th><th>Type</th><th>진입점</th><th>노력</th><th>영향</th><th>블로커/의존</th></tr></thead>
+    <tbody>
+      <tr><td>통합 헬스 콘솔</td><td><span class="badge b-new">new</span></td><td>신규 <code>/api/admin/integrations/health</code> + <code>app/services/integration_health.py</code></td><td><span class="badge b-S">S</span></td><td>Supabase/Google/GitHub/KRX 드리프트 실시간 가시화</td><td>신규 서비스 모듈</td></tr>
+      <tr><td>데이터 신선도 워치독</td><td><span class="badge b-new">new</span></td><td><code>app/services/freshness_monitor.py</code> + <code>/api/admin/freshness/status</code></td><td><span class="badge b-S">S–M</span></td><td>조용한 staleness를 review 왜곡 전 감지</td><td><b>스케줄러 선결</b>; <code>as_of_date</code> 일관성</td></tr>
+      <tr><td>일일 리뷰 콕핏</td><td><span class="badge b-deepen">deepen</span></td><td><code>web/src/lib/api.ts</code> + 신규 페이지; weekly-review+fear-greed+docs/words 집계</td><td><span class="badge b-M">M</span></td><td>agenda·inbox·PyKRX·저널을 단일 랜딩 의식으로</td><td>통합 쿼리 계약 + 페이지</td></tr>
+      <tr><td>공공데이터 카탈로그 변경 피드</td><td><span class="badge b-new">new</span></td><td><code>krx_data_portal_client.py</code> differ + Supabase <code>data_portal_changes</code> + 엔드포인트</td><td><span class="badge b-M">M</span></td><td>정적 인벤토리 → watchable 피드(API deprecation 조기 포착)</td><td><b>스케줄러 선결</b>; diff 알고리즘</td></tr>
+      <tr><td>실행 원장 + 리플레이 타임라인</td><td><span class="badge b-deepen">deepen</span></td><td>Supabase <code>execution_events</code> + <code>execution_ledger.py</code> + <code>/api/admin/executions</code></td><td><span class="badge b-L">L</span></td><td>모든 run/retry/failure 가시화 + 워크플로 역링크</td><td>alembic·계측·RLS; <b>스케줄러</b></td></tr>
+      <tr><td>실패 run 복구 콕핏</td><td><span class="badge b-deepen">deepen</span></td><td>에러 핸들러 계측 → <code>failed_runs</code> + <code>recovery.py</code> + 큐 엔드포인트</td><td><span class="badge b-L">L</span></td><td>흩어진 로그를 단일 큐+정확한 재시도/복구 액션</td><td>execution_ledger 의존</td></tr>
+    </tbody>
+  </table></div>
+  <div class="callout note"><b>외부 패턴</b> — 실행 원장은 <b>Transactional Outbox</b>와 정합(상태/타임스탬프 행이 라이프사이클·감사 추적 제공, <code>processed_at IS NULL</code> 인덱스 쿼리 저렴). 단, 개인 운영 규모에선 풀 event-sourcing보다 <b>단순 append-only 이벤트 테이블 + 인덱스 폴링</b>으로 시작 권장 (<a href="https://docs.aws.amazon.com/prescriptive-guidance/latest/cloud-design-patterns/transactional-outbox.html">AWS Outbox</a>, <a href="https://dev.to/markoulis/how-i-learned-to-stop-worrying-and-love-raw-events-event-sourcing-cqrs-with-fastapi-and-celery-477e">ES+CQRS</a>).</div>
+</section>
+
+<section id="all">
+  <h2>4 · all <span class="tag">Android/KMP 멀티모듈 — DEEP</span></h2>
+  <p class="state">6 앱 + 14 <code>core:*</code> + 5 <code>feature:*</code> + KMP shared. 멀티플랫폼 <code>composeApp/</code>·<code>allIos/</code>·<code>all-rust-lib/</code>. 빌드 <code>build-logic/convention/</code>(17 플러그인) + <code>gradle/libs.versions.toml</code>. CI <code>.github/workflows/ci.yml</code>·<code>app_deploy.yml</code>. 계약: 루트+모듈별 <code>AGENTS.md</code>.</p>
+  <div class="tablewrap"><table>
+    <thead><tr><th>Feature</th><th>Type</th><th>진입점</th><th>노력</th><th>영향</th><th>블로커/의존</th></tr></thead>
+    <tbody>
+      <tr><td>공유 모듈 채택 맵</td><td><span class="badge b-deepen">deepen</span></td><td><code>settings.gradle.kts</code> + <code>libs.versions.toml</code> + Gradle 모델 파싱</td><td><span class="badge b-M">M</span></td><td>6앱 reuse/중복 가시화 → 통합 우선순위 데이터화</td><td>Gradle 모델 파싱</td></tr>
+      <tr><td>크로스앱 피처 플래그 레지스트리</td><td><span class="badge b-new">new</span></td><td>스키마 <code>core:data-api/</code>, 캐시 <code>core:data/</code>(Hilt), 화면 <code>feature:ui-setting/</code></td><td><span class="badge b-M">M</span></td><td>롤아웃 컨트롤을 여러 앱 동시 적용</td><td>없음(DataStore 정합)</td></tr>
+      <tr><td>릴리스 레디니스 레이더</td><td><span class="badge b-new">new</span></td><td>앱별 <code>build.gradle.kts</code> + <code>workflows/*.yml</code> + <code>Release-Note.md</code></td><td><span class="badge b-M">M</span></td><td>버전/QA/changelog 드리프트 한 리포트 → stalled 방지</td><td>CI 빌드/테스트 상태 노출</td></tr>
+      <tr><td>빌드 병목 열지도 &amp; CI 분할</td><td><span class="badge b-new">new</span></td><td><code>ci.yml</code> Gradle 호출 타이밍 계측 + task 그래프</td><td><span class="badge b-M">M</span></td><td>6앱×14모듈 복잡도 → 분할·병렬화 데이터화</td><td>CI 계측</td></tr>
+      <tr><td>KMP/iOS/Rust 플랫폼 빌드 게이트</td><td><span class="badge b-new">new</span></td><td><code>ci.yml</code>에 Xcode(<code>allIos</code>)+Cargo(<code>all-rust-lib</code>)+Compose MP 스텝 → PR 요약</td><td><span class="badge b-M">M</span></td><td>Android-only CI가 가리는 플랫폼별 실패 노출</td><td>러너 Xcode/Cargo, iOS 시크릿</td></tr>
+      <tr><td>컨벤션 드리프트 대시보드</td><td><span class="badge b-deepen">deepen</span></td><td>모듈별 <code>AGENTS.md</code> 인덱싱 + <code>core/*</code>·<code>feature/*</code> 소스 스캔</td><td><span class="badge b-L">L</span></td><td>8개 AGENTS.md 규칙 드리프트를 릴리스 전 포착</td><td>AST/regex 패턴</td></tr>
+    </tbody>
+  </table></div>
+  <div class="callout note"><b>외부 패턴</b> — 빌드 병목은 <b>Build Scan 베이스라인 → <code>--parallel</code>(실측 평균 40% 단축) → 병목 task 식별</b>, <code>gradle-profiler</code>로 벤치마크. 무료 경로(profiler+<code>--scan</code>)로 시작, 규모 확장 시 Develocity 평가 (<a href="https://docs.gradle.org/current/userguide/performance.html">Gradle perf</a>, <a href="https://github.com/gradle/gradle-profiler">gradle-profiler</a>, <a href="https://gradle.com/blog/optimize-your-gradle-and-maven-builds-with-resource-usage-data/">Develocity</a>).</div>
+</section>
+
+<section id="toto">
+  <h2>5 · toto <span class="tag">KBO Streamlit 대시보드 — DEEP(소형)</span></h2>
+  <p class="state">Streamlit(<code>streamlit_app/Home.py</code> → <code>prepare_page()</code>), SQLite(<code>.data/dashboard.sqlite3</code>), dataclass 계약(<code>src/kbo_dashboard/contracts.py</code>). 서비스 <code>repository.py</code> + <code>bootstrap.py</code>(<code>get_repository(reset=)</code>). bun 스크립트(bootstrap/seed/dev/test/verify/compile).</p>
+  <div class="tablewrap"><table>
+    <thead><tr><th>Feature</th><th>Type</th><th>진입점</th><th>노력</th><th>영향</th><th>블로커/의존</th></tr></thead>
+    <tbody>
+      <tr><td>서브모듈 포인터 핀 정렬 + 재현 클론 게이트</td><td><span class="badge b-house">housekeeping</span></td><td>게이트링크 커밋됨(<code>160000 5897ef44</code>); 인덱스↔체크아웃 정렬 후 CI <code>update --init toto → bootstrap → verify:toto</code></td><td><span class="badge b-S">S</span></td><td>포인터 드리프트 해소 + 재현 클론 그린 (※ 초기 "빈 클론" 주장은 오류)</td><td>의도 커밋 선택</td></tr>
+      <tr><td>읽기전용 스모크 게이트</td><td><span class="badge b-new">new</span></td><td><code>tests/test_smoke_readonly.py</code>(import+bootstrap+verify, write 부작용 0 assert) → <code>verify</code></td><td><span class="badge b-S">S</span></td><td>재현이 핵심 가치 → 우발적 쓰기/경로 드리프트 차단</td><td>파일 상태 pre/post 추적</td></tr>
+      <tr><td>시즌 스냅샷 매니페스트</td><td><span class="badge b-deepen">deepen</span></td><td><code>toto/manifest.json</code>(season/source/row_count/sha256) + seed 확장 + 재시드 diff 테스트</td><td><span class="badge b-M">M</span></td><td>동일 시드가 다른 행수/요약 → 즉시 실패(데이터 손상 조기 감지)</td><td>결정적 시드(외부 API 핀/픽스처)</td></tr>
+      <tr><td>데이터 공급자 어댑터 분리</td><td><span class="badge b-deepen">deepen</span></td><td><code>seed_demo_data()</code> → <code>GameResultProvider</code>/<code>RankingProvider</code> Protocol; <code>Home.py</code>는 repository만 호출</td><td><span class="badge b-M">M</span></td><td>UI/데이터소스 분리 → CSV/fixture/API 피벗 시 UI 무변경</td><td>DTO/내부모델 분리</td></tr>
+    </tbody>
+  </table></div>
+  <div class="callout warn"><b>정정</b> — 초기 <code>docs/idea/toto.md</code>(2026-04-25)의 "gitlink 미커밋 → 빈 클론" 기재는 <b>부정확</b>. 루트 검증 결과 <code>git ls-files --stage</code>가 <code>160000 5897ef44… toto</code>를 반환(게이트링크 커밋됨). 실제 상태는 인덱스(<code>5897ef44</code>) vs 체크아웃(<code>b94974b4</code>) <b>포인터 드리프트</b>로 가벼운 핀 정렬 항목이다.</div>
+</section>
+
+<section id="android">
+  <h2>6 · android-support <span class="tag">TS GitHub Action — LIGHT</span></h2>
+  <p class="state">TS 액션(<code>src/main.ts</code> → <code>lib/index.js</code>), <code>action.yml</code> 20+ 입력. 검증 <code>src/input-validation.ts</code>, 업로드 <code>src/edits.ts</code>(Play API edit 라이프사이클), 서명 <code>src/signing.ts</code>. 테스트 8개.</p>
+  <div class="tablewrap"><table>
+    <thead><tr><th>Feature</th><th>Type</th><th>진입점</th><th>노력</th><th>영향</th><th>블로커/의존</th></tr></thead>
+    <tbody>
+      <tr><td>액션 계약 드리프트 검사(CI)</td><td><span class="badge b-new">new</span></td><td><code>scripts/check-contract-drift.ts</code>: <code>action.yml</code> ↔ <code>main.ts</code> ↔ <code>README.md</code> 비교</td><td><span class="badge b-S">S</span></td><td>입력이 main.ts 미연결/문서 stale → 워크플로 깜짝 방지</td><td>YAML 파서 + TS AST</td></tr>
+      <tr><td>릴리스 프리플라이트 검증(dry-run)</td><td><span class="badge b-new">new</span></td><td><code>action.yml</code> <code>dryRun</code> + <code>src/preflight.ts</code>(아티팩트/메타/auth/track-status) — Play API 미호출</td><td><span class="badge b-M">M</span></td><td>비싼 Play API mutation 전 입력 오류 차단</td><td>input-validation 중복 회피</td></tr>
+    </tbody>
+  </table></div>
+  <div class="callout note"><b>외부 패턴</b> — 레퍼런스 <code>r0adkll/upload-google-play</code> 함정: <code>status</code>(completed/inProgress/halted/draft), <code>changesNotSentForReview</code>, <b>외부 변경 후 stale edit → 항상 fresh edit 생성</b>. 프리플라이트는 <code>packageName</code> 사전 존재·track 조합·드래프트 상태 검증 필요 (<a href="https://github.com/r0adkll/upload-google-play">repo</a>, <a href="https://github.com/r0adkll/upload-google-play/blob/master/action.yml">action.yml</a>).</div>
+  <div class="callout warn"><b>정정</b> — 코드 자체는 클린이나 루트에서 서브모듈 포인터 드리프트(인덱스 <code>485a2e40</code> vs 체크아웃 <code>06843399</code>) → <code> M android-support</code>. §0 핀 정렬 대상이다.</div>
+</section>
+
+<section id="plugin">
+  <h2>7 · keelim-plugin <span class="tag">개인 스킬 저장소 — LIGHT</span></h2>
+  <p class="state">8 스킬 <code>skills/*/SKILL.md</code>(+ 선택 <code>agents/openai.yaml</code>). 듀얼 설치(Vercel skills CLI + 수동 symlink). 루트 <code>AGENTS.md</code>/<code>README.md</code>.</p>
+  <div class="tablewrap"><table>
+    <thead><tr><th>Feature</th><th>Type</th><th>진입점</th><th>노력</th><th>영향</th><th>블로커/의존</th></tr></thead>
+    <tbody>
+      <tr><td>생성형 스킬 카탈로그 + 설치 매트릭스</td><td><span class="badge b-new">new</span></td><td><code>skills/*/SKILL.md</code> 메타 파싱 → 태그 + 설치 명령 매트릭스(CLI/symlink)</td><td><span class="badge b-S">S</span></td><td>스킬 증가 → 수기 README stale; 라이프사이클 태그로 오용 방지</td><td>frontmatter 파싱 + 템플릿</td></tr>
+      <tr><td>스킬 스모크 테스트 하네스</td><td><span class="badge b-new">new</span></td><td>필수 파일/설치 명령 검증 + Codex/Claude 패리티 비교</td><td><span class="badge b-S">S</span></td><td>두 설치 경로 유효성·툴 간 갭을 PR 전 노출</td><td>skills CLI + Claude 환경</td></tr>
+    </tbody>
+  </table></div>
+  <p style="color:var(--muted);font-size:13px">bespoke 개인 도구 — 외부 비교군 없음, 코드 앵커 있는 2건만 권장.</p>
+</section>
+
+<section id="vault">
+  <h2>8 · Keelim-Knowledge-Vault <span class="tag">LLM 위키 — LIGHT</span></h2>
+  <p class="state">Obsidian형 위키, 13 도메인 허브 + ops/schema. Layer 분리(raw/wiki/schema), 진입점 <code>Index.md</code>·<code>ops/domain-map.md</code>·<code>log.md</code>(append-only).</p>
+  <div class="tablewrap"><table>
+    <thead><tr><th>Feature</th><th>Type</th><th>진입점</th><th>노력</th><th>영향</th><th>블로커/의존</th></tr></thead>
+    <tbody>
+      <tr><td>프로젝트-노트 백링크 허브</td><td><span class="badge b-new">new</span></td><td>신규 <code>projects/keelim-maestro.md</code> — 각 repo → 아키텍처/운영/결정 노트 + 코드맵 + idea index 역링크</td><td><span class="badge b-S">S</span></td><td>활성 표면에서 vault 노트 발견 → 재진입 비용 감소</td><td>수동 큐레이션 + 동기 코드맵</td></tr>
+      <tr><td>주간 stale 노트 리서페이서</td><td><span class="badge b-new">new</span></td><td><code>ops/</code> 스크립트 — <code>log.md</code> 30일+ 미변경 고가치 노트 필터 → 주간 요약</td><td><span class="badge b-S">S</span></td><td>묻힌 고가치 노트를 활성 작업에 재진입</td><td>스케줄러; 일관된 타임스탬프</td></tr>
+    </tbody>
+  </table></div>
+  <p style="color:var(--muted);font-size:13px">bespoke — 로그 규율/수동 큐레이션 의존, 코드 통합 아님.</p>
+</section>
+
+<section id="roadmap">
+  <h2>9 · 교차 프로젝트 우선순위 로드맵</h2>
+  <p style="color:var(--muted);font-size:13.5px">영향/노력만이 아니라 <b>운영 블로커가 착수 가능 시점을 강제</b>한다는 점을 반영한 웨이브 구성.</p>
+  <div class="waves">
+    <div class="wave w0">
+      <h4><span class="pill">Wave 0</span> 언블록 (먼저, S–M)</h4>
+      <ul>
+        <li><code>rich</code> 더티 트리 커밋 + freeze/split 결정 <span class="badge b-S">S</span> — rich 스키마 작업 게이트</li>
+        <li><code>rich</code> in-process APScheduler 도입 <span class="badge b-M">M</span> — 3개 rich 기능 공통 선결</li>
+        <li><code>keelim-vercel</code> 더티 트리 커밋 <span class="badge b-S">S</span></li>
+        <li><code>toto</code>·<code>android-support</code> 서브모듈 포인터 핀 정렬 <span class="badge b-S">S</span> — 가벼운 housekeeping(빈 클론 아님), 임계 경로 아님</li>
+      </ul>
+    </div>
+    <div class="wave w1">
+      <h4><span class="pill">Wave 1</span> 빠른 승리 (코드 준비된 S)</h4>
+      <ul>
+        <li><code>keelim-vercel</code>: 메뉴 배지 예산, 스토리지 레지스트리 드리프트 게이트</li>
+        <li><code>all-web-ui</code>: 다운스트림 사용 매트릭스 · <code>rich</code>: 통합 헬스 콘솔</li>
+        <li><code>android-support</code>: 액션 계약 드리프트 · <code>toto</code>: 읽기전용 스모크 게이트</li>
+        <li><code>keelim-plugin</code>: 생성형 스킬 카탈로그 · vault: 프로젝트-노트 백링크 허브</li>
+      </ul>
+    </div>
+    <div class="wave w2">
+      <h4><span class="pill">Wave 2</span> 중간 빌드 (M, Wave 0/1 위에)</h4>
+      <ul>
+        <li><code>keelim-vercel</code>: 도구 사용 히트맵, 라우트 계약 드리프트</li>
+        <li><code>rich</code>: 데이터 신선도 워치독, 일일 리뷰 콕핏, 데이터포털 변경 피드</li>
+        <li><code>all</code>: 공유 모듈 채택 맵, 피처 플래그 레지스트리, 릴리스 레디니스 레이더</li>
+        <li><code>all-web-ui</code>: 시각 회귀+a11y 게이트 · <code>android-support</code>: 프리플라이트 검증</li>
+        <li><code>toto</code>: 시즌 스냅샷 매니페스트, 공급자 어댑터 · keelim-plugin: 스모크 하네스 · vault: 주간 리서페이서</li>
+      </ul>
+    </div>
+    <div class="wave w3">
+      <h4><span class="pill">Wave 3</span> 깊은 투자 (L 또는 신규 제품 표면)</h4>
+      <ul>
+        <li><code>keelim-vercel</code>: Next-best-action 피드 <span class="badge b-L">M–L</span> — 유일한 큰 신규 사용자 표면</li>
+        <li><code>rich</code>: 실행 원장 <span class="badge b-L">L</span>, 복구 콕핏 <span class="badge b-L">L</span></li>
+        <li><code>all</code>: 빌드 병목 열지도+CI 분할, KMP/iOS/Rust 플랫폼 게이트, 컨벤션 드리프트 대시보드</li>
+        <li><code>all-web-ui</code>: 토큰 플레이그라운드</li>
+      </ul>
+    </div>
+  </div>
+  <div class="callout note"><b>제품 vs 신뢰성 균형</b> — Wave 1–2가 백로그의 신뢰성/드리프트 편향을 빠르게 소진하고, Wave 3의 <code>keelim-vercel</code> Next-best-action 피드가 유일한 큰 신규 <i>사용자</i> 표면이다. 사용자 가치 우선순위가 높다면 이 항목을 Wave 2로 끌어올리는 것을 권장.</div>
+</section>
+
+<section id="sources">
+  <h2>외부 리서치 소스</h2>
+  <ol class="src">
+    <li><a href="https://docs.gradle.org/current/userguide/performance.html">Gradle Performance docs</a> — 빌드 베이스라인·<code>--parallel</code></li>
+    <li><a href="https://github.com/gradle/gradle-profiler">gradle-profiler</a> — 빌드 벤치마킹</li>
+    <li><a href="https://gradle.com/blog/optimize-your-gradle-and-maven-builds-with-resource-usage-data/">Develocity build observability</a></li>
+    <li><a href="https://www.chromatic.com/storybook">Chromatic for Storybook</a> / <a href="https://bug0.com/knowledge-base/storybook-visual-regression-testing-chromatic">Storybook+Chromatic VRT</a></li>
+    <li><a href="https://a11ypros.com/blog/accessibility-in-design-systems">Accessibility in Design Systems</a> — axe-core CI</li>
+    <li><a href="https://medium.com/@rasifrazak123/fastapi-scheduling-background-tasks-backgroundtasks-vs-apscheduler-vs-celery-complete-guide-ff90d6be524b">FastAPI Scheduling guide</a> / <a href="https://ahaw021.medium.com/scheduled-jobs-with-fastapi-and-apscheduler-5a4c50580b0e">APScheduler+FastAPI</a></li>
+    <li><a href="https://docs.aws.amazon.com/prescriptive-guidance/latest/cloud-design-patterns/transactional-outbox.html">Transactional Outbox — AWS</a> / <a href="https://dev.to/markoulis/how-i-learned-to-stop-worrying-and-love-raw-events-event-sourcing-cqrs-with-fastapi-and-celery-477e">Event Sourcing+CQRS</a></li>
+    <li><a href="https://github.com/r0adkll/upload-google-play">r0adkll/upload-google-play</a> + <a href="https://github.com/r0adkll/upload-google-play/blob/master/action.yml">action.yml</a></li>
+  </ol>
+</section>
+
+<footer>
+  <p><b>Methodology</b> — 코드 그라운딩: Explore 에이전트 3개 병렬, 통일 스키마(Feature/Type/진입점/Effort/Impact/Blockers). 외부 리서치: 활성·비-bespoke 스택에 한해 타깃 WebSearch 4건(bespoke 도구엔 일반론 회피). 로드맵: 단일 합성 단계에서 교차 랭킹, 운영 블로커를 선행 게이트로 명시. 한계: Supabase 스키마·CI 러너 toolchain·시드 결정성은 코드만으로 미확정 — 착수 전 검증 필요. 서브모듈 포인터 상태는 루트 <code>git ls-files --stage</code>로 직접 검증.</p>
+  <p>원본 마크다운: <code>docs/research/feature-enhancement-research-2026-06.md</code></p>
+</footer>
+
+</div>
+</body>
+</html>
