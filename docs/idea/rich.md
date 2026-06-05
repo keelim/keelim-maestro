@@ -1,6 +1,6 @@
 # rich
 
-Last reviewed: 2026-05-16 KST
+Last reviewed: 2026-06-05 KST
 
 ## Signals
 
@@ -13,16 +13,19 @@ Last reviewed: 2026-05-16 KST
   to the existing backend/workflow reliability surface.
 - `docs/words/AGENTS.md` defines a raw-source/wiki/schema split for an investing
   LLM wiki, so durable review insights can be routed back into knowledge pages.
+- `open-trading-api/` 아래에 KIS Code Assistant MCP, Kis Trading MCP, 백테스터(프론트+백엔드),
+  전략 빌더(프론트+백엔드)가 별도 서비스 레이어로 존재한다(2026-05-27 코드맵 기준 전체 1,834개 파일).
+  이 표면은 기존 admin API·PyKRX 흐름과 독립적으로 움직이고 있어서 운영 가시성을 별도로 확보해야 한다.
 
 ## Open ideas
 
-### 2026-04-12 - Recovery cockpit for failed runs
+### 2026-04-12 - 실패 복구 cockpit 및 실행 ledger
 
 Status: proposed
 
-Why now: `rich` now mixes cron jobs, manual runs, Slack reminders, Google reconnects, and pykrx ingestion, so recovery work needs one place to live instead of scattered logs.
+Why now: `rich`는 cron 잡, 수동 실행, Slack 리마인더, Google 재연결, PyKRX 수집을 함께 돌리는데 실패·재시도·이력이 흩어진 로그에만 남아서 복구 비용이 크다. 실행 이력을 정규화된 타임라인에 남기면 어떤 흐름이 깨졌는지, 재시도나 복구에 무엇이 필요한지를 한 화면에서 볼 수 있다.
 
-First slice: Collect failed or partial runs into a single queue with the exact retry or repair action, then link each item back to the affected workflow.
+First slice: 각 실행·재시도·실패 이벤트를 정규화된 로그에 저장하고, 실패 항목에 대한 정확한 재시도 또는 수동 복구 액션을 함께 표시하는 타임라인 패널을 만든다.
 
 ### 2026-04-12 - Daily review cockpit
 
@@ -46,18 +49,6 @@ First slice: Add a reliability panel that flags stale datasets, failed jobs,
  missing snapshots, and suspicious metric jumps before they affect downstream
  review flows.
 
-### 2026-04-12 - Execution ledger and replay timeline
-
-Status: proposed
-
-Why now: The admin surface already runs manual workflows, cron-triggered
-ingestion, and review flows, but the history of what happened is still
-scattered across endpoints and logs.
-
-First slice: Persist every run/retry/failure into a normalized log and render a
-timeline that links each event back to the affected workflow and recovery
-action.
-
 ### 2026-04-12 - Integration health console
 
 Status: proposed
@@ -80,3 +71,11 @@ one-off dump.
 First slice: Track a small watchlist of high-value dataset pages, diff title /
 field / link changes on each export, and push meaningful updates into the
 weekly review or recovery queue.
+
+### 2026-06-05 - Open Trading API MCP 서비스 운영 가시화
+
+Status: proposed
+
+Why now: `rich/open-trading-api/` 아래에 KIS Code Assistant MCP, Kis Trading MCP, 백테스터(프론트+백엔드), 전략 빌더(프론트+백엔드)가 독립적인 서비스 레이어로 실행된다. 이 표면은 기존 `rich/app` admin API·PyKRX 흐름과 별도로 움직이고 있어서, MCP 서버 상태·거래 실행 결과·백테스트 이력을 현재 관제 화면에서 확인할 수 없고 장애 감지도 늦어진다.
+
+First slice: KIS Trading MCP·KIS Code Assistant MCP의 현재 엔드포인트와 인증 경계를 정리하고, 백테스터/전략 빌더 백엔드와의 데이터 흐름을 기존 admin 관제 표면에서 확인할 수 있는 최소 상태 패널을 만든다.
