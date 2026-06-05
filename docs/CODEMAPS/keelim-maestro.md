@@ -1,4 +1,4 @@
-<!-- Generated: 2026-06-04 | Source-led root codemap reviewed after generator pass -->
+<!-- Generated: 2026-06-05 | Source-led root codemap reviewed after generator pass -->
 
 # keelim-maestro Workspace Codemap
 
@@ -171,14 +171,14 @@ repos plus test environment variables documented in `docs/CODEMAPS/SCRIPTS.md`.
   dirty, branch-mismatched, remote-less, or locally-ahead repos.
 - `scripts/verify-keelim-plugin-rename.sh:19` - root/child string checks for
   rename verification.
-- `scripts/verify-all-web-ui-integration.sh:151` -
+- `scripts/verify-all-web-ui-integration.sh:158` -
   `all_web_ui_dependency_protocol_is_lockfile_coherent`, guarding the selected
   `file:` or `workspace:*` dependency protocol.
 - `scripts/verify-all-web-ui-integration.sh:275` -
   `all_web_ui_manifest_lists_exports`, checking shared primitive exports.
-- `scripts/verify-all-web-ui-integration.sh:401` - `run_static_checks`, the
+- `scripts/verify-all-web-ui-integration.sh:481` - `run_static_checks`, the
   default shared UI integration verification lane.
-- `scripts/verify-all-web-ui-integration.sh:516` - `run_full_checks`, the
+- `scripts/verify-all-web-ui-integration.sh:601` - `run_full_checks`, the
   runtime verification lane.
 
 ## Open Questions

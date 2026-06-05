@@ -224,7 +224,7 @@ The default mode runs the following checks:
 - `update-subrepos.sh status` lists `all-web-ui`
 - `all-web-ui` default branch is `main`
 - `all-web-ui/package.json` exists and declares `typecheck` + `test` scripts
-- `all-web-ui/src/components/` exports the shared shadcn-compatible primitive set (`button.tsx`, `input.tsx`, `panel.tsx`, `card.tsx`, `calendar.tsx`, `badge.tsx`, `table.tsx`, `tabs.tsx`, `tooltip.tsx`, `sheet.tsx`, `dropdown-menu.tsx`, `breadcrumb.tsx`, `accordion.tsx`, `select.tsx`, `toast.tsx`, …)
+- `all-web-ui/src/components/` exports the shared shadcn-compatible primitive set (`button.tsx`, `input.tsx`, `panel.tsx`, `card.tsx`, `badge.tsx`, `loading-status.tsx`, `empty-state.tsx`, `table.tsx`, `tabs.tsx`, `tooltip.tsx`, `sheet.tsx`, `dropdown-menu.tsx`, `breadcrumb.tsx`, …)
 - `all-web-ui` defines shared CSS entrypoints (styles and theme files)
 - `all-web-ui` manifest lists package exports for shared primitives
 - `rich/web/package.json` depends on `@keelim/all-web-ui`
