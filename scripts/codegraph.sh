@@ -23,10 +23,9 @@ Repos:
   keelim-plugin
   keelim-vercel
   rich
-  toto
 
 Notes:
-  root, quant, tools, and tools/crawler are intentionally excluded targets.
+  root, quant, toto, tools, and tools/crawler are intentionally excluded targets.
   This helper never initializes .codegraph/; run codegraph init -i explicitly
   inside the intended child repo when a graph is missing.
 EOF
@@ -61,11 +60,11 @@ ROOT="$(git rev-parse --show-toplevel)"
 cd "$ROOT"
 
 CODEGRAPH="$(find_codegraph)"
-CHILD_REPOS="all all-web-ui android-support Keelim-Knowledge-Vault keelim-plugin keelim-vercel rich toto"
+CHILD_REPOS="all all-web-ui android-support Keelim-Knowledge-Vault keelim-plugin keelim-vercel rich"
 
 is_child_repo() {
   case "$1" in
-    all|all-web-ui|android-support|Keelim-Knowledge-Vault|keelim-plugin|keelim-vercel|rich|toto)
+    all|all-web-ui|android-support|Keelim-Knowledge-Vault|keelim-plugin|keelim-vercel|rich)
       return 0
       ;;
   esac
@@ -81,7 +80,7 @@ repo_path() {
       ""|.|root|keelim-maestro|"$ROOT")
         printf 'root is not a child CodeGraph target; use root-check for root guidance.\n' >&2
         ;;
-      quant|tools|tools/crawler)
+      quant|toto|tools|tools/crawler)
         printf '%s is intentionally excluded from child CodeGraph dispatch.\n' "$repo" >&2
         ;;
       *)

@@ -24,7 +24,8 @@
 - Do not discard, rewrite, or normalize child-repo changes from the root without an explicit request.
 
 ## Child repository autonomy
-- Every top-level child directory (`all`, `all-web-ui`, `android-support`, `Keelim-Knowledge-Vault`, `keelim-plugin`, `keelim-vercel`, `quant`, `rich`, `toto`) remains its own Git repository and working context.
+- Every top-level child directory (`all`, `all-web-ui`, `android-support`, `Keelim-Knowledge-Vault`, `keelim-plugin`, `keelim-vercel`, `quant`, `rich`) remains its own Git repository and working context.
+- `/toto` is archived from the root coordination layer. If a local `toto/` checkout remains, treat it as an ignored historical checkout, not an active root submodule, workspace member, CodeGraph target, or backlog target.
 - When modifying code inside a child repo, enter that repo, use its own Git history, and follow any deeper `AGENTS.md` that applies there.
 - Root-level changes should prefer updating documentation, submodule metadata, or pinned pointers rather than editing child-repo source files.
 - A deeper `AGENTS.md` inside a child repo overrides this file for files under that child repo.
@@ -33,7 +34,7 @@
 
 ## Python uv workspace policy
 - Root `pyproject.toml` / `uv.lock` may act as a uv workspace bootstrap for selected Python repos, but this does **not** convert the root into a single Python monorepo or remove child-repo standalone responsibilities.
-- Keep uv workspace membership narrow and explicit. As of the initial uv bootstrap, the in-scope Python members are `toto` and `rich`; do not include sibling repos such as `../easy-release-note` unless explicitly requested.
+- Keep uv workspace membership narrow and explicit. After archiving `toto`, the in-scope Python member is `rich`; do not include sibling repos such as `../easy-release-note` unless explicitly requested.
 - Do not change non-Python projects or existing Bun workspace behavior when doing uv workspace work.
 - Use root `tool.uv.constraint-dependencies` for Python packages that should resolve consistently across workspace members. If a child repo directly declares a shared package, keep its child-local declaration aligned with the root constraint so standalone fallback installs remain honest.
 - After uv dependency changes, run `uv run python scripts/verify-python-dependency-constraints.py`, `uv lock --check`, and package-local pytest commands documented in `README.md`. In sandboxed agent sessions, pass `--cache-dir .omx/uv-cache` if the default uv cache is not writable.
@@ -70,6 +71,11 @@
 - Do not add `/quant` as a local-path submodule; that would break reproducible clone/bootstrap workflows.
 - Keep `/quant` as an autonomous local repository unless a future explicit change request says otherwise.
 
+## `/toto` archive policy
+- `/toto` is archived as of 2026-06-04 and should no longer receive root-level active handling.
+- Do not add `/toto` back to `.gitmodules`, root Bun workspaces, root uv workspaces, CodeGraph dispatch, codemap refreshes, or idea gardener active project tables unless the user explicitly asks to reactivate it.
+- Do not delete, reset, normalize, or rewrite a local `toto/` checkout from the root. The root `.gitignore` keeps `/toto/` ignored so any remaining checkout is operator-local historical context.
+
 ## Verification expectations for root changes
 - For documentation/bootstrap work, verify the concrete files changed and report exact commands/results.
 - Before root-level pinning, submodule, or workspace-boundary changes, run `bun run report:baseline` to capture the live child-repo registration/divergence state without mutating children.
@@ -86,7 +92,7 @@
 
 ## Root helper command boundaries
 - `bun run cg`, `bun run cg:status`, and `bun run cg:root-check` are root-owned CodeGraph dispatch/inspection helpers; use them for coordination only and do not treat them as permission to initialize or rely on a root aggregate child-source graph.
-- `bun run dev:keelim-vercel`, `bun run dev:rich-web`, and `bun run dev:toto` are root convenience wrappers for hydrated workspace members; they do not replace child-repo-local install, test, or release workflows.
+- `bun run dev:keelim-vercel` and `bun run dev:rich-web` are root convenience wrappers for hydrated workspace members; they do not replace child-repo-local install, test, or release workflows.
 - `bun run dev:codex-app-server` is the root helper for a local Codex app-server bound to this workspace; keep transport/config guidance at the root level rather than pushing it into child-repo docs.
 - `bun run automation:local -- ...` is the root-owned local automation script index/delegator for `rich`, `youtube` n8n, and `tools/agentgateway`; keep runtime implementation, manifests, and secrets in the owning repos.
 - `./scripts/update-subrepos.sh` is the root-owned status/update helper for registered submodules plus autonomous local repos surfaced in the report; prefer it over ad-hoc multi-repo pull loops when the task is root-level repo hygiene.
