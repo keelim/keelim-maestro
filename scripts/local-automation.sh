@@ -169,7 +169,7 @@ status_rich() {
   section "rich status"
   run_kubectl -n rich-local get deploy,svc,pod
   run_lsof_port 8000
-  run_lsof_port 3000
+  run_lsof_port 3001
 }
 
 status_n8n() {
@@ -180,7 +180,8 @@ status_n8n() {
 
 status_agentgateway() {
   section "agentgateway status"
-  run_kubectl -n agentgateway-local get deploy,svc,pod
+  run_kubectl -n agentgateway-local get deployment/agentgateway-local service/agentgateway-local
+  run_kubectl -n agentgateway-local get pod -l app.kubernetes.io/name=agentgateway-local
   run_lsof_port 3000
   run_lsof_port 15000
 }
@@ -189,7 +190,7 @@ verify_rich() {
   section "rich verify"
   run_kubectl -n rich-local get deploy,svc,pod
   run_cmd "curl -fsS http://127.0.0.1:8000/healthz" curl -fsS http://127.0.0.1:8000/healthz
-  info "Admin UI: http://127.0.0.1:3000/admin"
+  info "Admin UI: http://127.0.0.1:3001/admin"
 }
 
 verify_n8n() {
