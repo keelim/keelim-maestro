@@ -11,7 +11,7 @@
   - local Kubernetes/OrbStack and Rich readiness triage,
   - Threads crawling for short-form content analysis,
   - Bedrock/Codex video workflow work,
-  - root local automation standby and Headroom removal requests.
+  - root local automation standby and local proxy removal requests.
 
 ## Improvements
 
@@ -53,8 +53,8 @@
      like an implementation failure.
 
 6. Keep scope-change handling explicit for operations requests.
-   - Evidence: the June 5 local automation request moved from standby, to
-     Headroom standby, to Headroom removal.
+   - Evidence: the June 5 local automation request moved from standby, to local
+     proxy standby, to local proxy removal.
    - Small change: when the user changes an operation from "standby" to
      "remove", record the change as a new commit unit and preserve data-retention
      boundaries such as PVCs or secrets unless deletion is explicit.
