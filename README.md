@@ -40,12 +40,8 @@ When adding or describing an MCP integration, document it behind
 `agentgateway` unless a lower-level implementation detail explicitly needs to
 be called out.
 
-Headroom is not exposed as an MCP target in the current local runtime. Codex and
-Claude Code should use the shared `agentgateway` MCP endpoint at
-`http://localhost:3000/mcp` for MCP tools, while the separate Headroom proxy
-surface is local-only at `http://127.0.0.1:8787` and should be treated as an
-opt-in pilot, especially for Codex where `/v1/responses` proxy behavior needs
-separate validation.
+Codex and Claude Code should use the shared `agentgateway` MCP endpoint at
+`http://localhost:3000/mcp` for MCP tools.
 
 ## Current safe scope
 
@@ -105,22 +101,27 @@ readiness. It observes the `all-web-ui` provider plus the `keelim-vercel` and
 
 Use `docs/ops/local-automation-stack.md` for the root-owned audit of local
 automation runtimes: `rich` local Kubernetes, `youtube` n8n Kubernetes, and
-`tools/agentgateway` with its Headroom sidecar runtime. The root owns the
-cross-runtime contract, while each runtime keeps its own manifests, scripts,
-secrets, and verification commands.
+`tools/agentgateway`. The root owns the cross-runtime contract, while each
+runtime keeps its own manifests, scripts, secrets, and verification commands.
 
 Use the root helper only as a script index / delegator:
 
 ```bash
 bun run automation:local -- list
 bun run automation:local -- status
+bun run automation:local -- standby
 bun run automation:local -- verify rich
 bun run automation:local -- start agentgateway
 bun run automation:local -- stop n8n
 ```
 
-`status` and `list` are read-only. `start` and `stop` require an explicit
-runtime target and delegate to the owning runtime's documented command.
+`agentgateway` is the fixed local Kubernetes resource for MCP access. `rich` and
+`n8n` are on-demand runtimes: start them only while using their features, then
+run `bun run automation:local -- standby` to stop the Rich Skaffold loop if it is
+active and scale Rich/n8n deployments to zero without deleting namespaces, PVCs,
+Secrets, or manifests. `status` and `list` are read-only. `start` and `stop`
+require an explicit runtime target and delegate to the owning runtime's
+documented command.
 
 ## CodeGraph dispatcher
 

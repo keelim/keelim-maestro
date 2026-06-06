@@ -62,11 +62,8 @@ Agent (leader / subagent / worker / plugin)
 Document MCP integrations behind `agentgateway` unless a lower-level
 implementation detail explicitly needs to be called out.
 
-Headroom is modeled as a colocated local proxy runtime, not an MCP target, in
-the current workspace. Codex and Claude Code use `http://localhost:3000/mcp`
-for the shared MCP surface. The Headroom proxy pilot remains separate on
-`http://127.0.0.1:8787`, with Codex kept MCP-first until `/v1/responses` proxy
-behavior is validated.
+Codex and Claude Code use `http://localhost:3000/mcp` for the shared MCP
+surface.
 
 ## Notable Couplings
 - `@keelim/all-web-ui` consumed as an exact GitHub Packages dependency by `keelim-vercel` and `rich/web`, with the root workspace retaining the local `all-web-ui/` checkout for authoring verification.

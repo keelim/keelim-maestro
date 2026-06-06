@@ -30,9 +30,9 @@ the child repo and follow its own `AGENTS.md` before changing child-owned files.
 
 | Runtime | Owner | Kubernetes shape | Local ports | Primary role |
 | --- | --- | --- | --- | --- |
-| Rich local app | `rich` | Namespace `rich-local`, deployments `rich-backend` and `rich-frontend`, services on ports `8000` and `3000`, Skaffold-managed dev loop | `8000`, `3000` | FastAPI backend plus Next admin UI for local app debugging |
-| n8n automation | `youtube` | Namespace `automation`, deployment `n8n`, service `n8n`, PVC `n8n-data`, task-runner sidecar | `5678` | Workflow automation for upload jobs and update-tracker workflows |
-| agentgateway MCP | `tools/agentgateway` | Namespace `agentgateway-local`, deployment/service `agentgateway-local`, custom local image; Headroom deployment/service/PVC in the same namespace | `3000`, `15000`, `8787` | MCP ingress for Codex/app clients and remote Supabase, Lazyweb, and Stitch targets; optional local Headroom proxy pilot |
+| Rich local app | `rich` | Namespace `rich-local`, deployments `rich-backend` and `rich-frontend`, services on ports `8000` and `3000`, Skaffold-managed dev loop | `8000`, `3000` | On-demand FastAPI backend plus Next admin UI for local app debugging |
+| n8n automation | `youtube` | Namespace `automation`, deployment `n8n`, service `n8n`, PVC `n8n-data`, task-runner sidecar | `5678` | On-demand workflow automation for upload jobs and update-tracker workflows |
+| agentgateway MCP | `tools/agentgateway` | Namespace `agentgateway-local`, deployment/service `agentgateway-local`, custom local image | `3000`, `15000` | Fixed MCP ingress for Codex/app clients and remote Supabase, Lazyweb, and Stitch targets |
 
 ## Runtime Contracts
 
@@ -48,6 +48,9 @@ the child repo and follow its own `AGENTS.md` before changing child-owned files.
   - open `http://127.0.0.1:3000/admin`
 - Stop: interrupt the foreground Skaffold loop; it owns cleanup for the local
   dev resources it started.
+- Standby from the root: `scripts/local-automation.sh standby rich` stops any
+  matching Rich Skaffold dev loop and scales `rich-backend` / `rich-frontend`
+  deployments to `0` replicas if they still exist.
 - Secrets and env: optional Kubernetes resources `rich-local-env` and
   `rich-local-secrets`. Do not commit Supabase, Google, KIS, Slack, or other
   real secret values into manifests, docs, or tests.
@@ -74,6 +77,9 @@ the child repo and follow its own `AGENTS.md` before changing child-owned files.
   - `kubectl -n automation exec deploy/n8n -c n8n -- test -d /data/easy-release-note/renders`
   - `kubectl -n automation exec deploy/n8n -c task-runners -- test -d /data/easy-release-note/renders`
 - Stop without deleting data: `kubectl -n automation scale deployment/n8n --replicas=0`.
+- Standby from the root: `scripts/local-automation.sh standby n8n` applies the
+  same scale-to-zero behavior while preserving the namespace, PVC, Secrets, and
+  manifests.
 - Destructive removal: deleting namespace `automation` also removes the local
   runtime resources and may remove local data depending on the cluster/PVC
   implementation. Do not make this the default root stop behavior.
@@ -102,19 +108,14 @@ the child repo and follow its own `AGENTS.md` before changing child-owned files.
 - Start: `./scripts/start-k8s-gateway.sh`.
 - Verify: `AGENTGATEWAY_URL=http://127.0.0.1:3000 ./scripts/verify-k8s-gateway.sh`.
 - Stop: `./scripts/stop-k8s-gateway.sh --apply` to stop only matching
-  Kubernetes `agentgateway` and Headroom port-forwards.
+  Kubernetes `agentgateway` port-forwards.
+- Standby from the root: `scripts/local-automation.sh standby` leaves
+  `agentgateway` unchanged because it is the fixed MCP resource for this
+  workspace. Stop it only with an explicit `scripts/local-automation.sh stop
+  agentgateway` when MCP access should also be taken down.
 - Ports:
   - `3000`: Codex/app and MCP endpoint, including `http://localhost:3000/mcp`.
   - `15000`: agentgateway admin UI port-forward.
-  - `8787`: local-only Headroom health, stats, and proxy pilot endpoint,
-    forwarded from Kubernetes service `headroom-local`.
-- Headroom runtime:
-  - Kubernetes resources: `headroom-deployment.yaml`, `headroom-service.yaml`,
-    and `headroom-pvc.yaml` under `tools/agentgateway/k8s/`.
-  - Image: `ghcr.io/chopratejas/headroom:latest`.
-  - Telemetry is disabled with `HEADROOM_TELEMETRY=off`.
-  - Proxy savings persist at `/data/proxy_savings.json` on PVC
-    `headroom-data`.
 - Secrets:
   - `supabase-mcp-authorization.txt`
   - `lazyweb-mcp-authorization.txt`
@@ -124,13 +125,6 @@ the child repo and follow its own `AGENTS.md` before changing child-owned files.
 - MCP routing contract:
   - Supabase, Lazyweb, and Stitch MCP access should be documented and used
     behind `agentgateway` from this workspace.
-  - Headroom is colocated with `agentgateway`, but the current Headroom runtime
-    exposes proxy/API endpoints rather than an MCP server. Do not register
-    `http://127.0.0.1:8787/mcp` as an MCP target unless a later Headroom
-    release adds that route or a dedicated bridge is introduced.
-  - Headroom proxy testing stays a separate pilot on
-    `ANTHROPIC_BASE_URL=http://127.0.0.1:8787 claude`. Keep Codex on MCP-first
-    routing until `/v1/responses` proxy behavior is separately validated.
   - Keep direct duplicate Supabase/Lazyweb registrations disabled when they
     would conflict with the gateway surface.
   - `omx_*` MCP registrations remain direct because they are local OMX runtime
@@ -152,6 +146,7 @@ scripts/local-automation.sh list [all|rich|n8n|agentgateway]
 scripts/local-automation.sh status [all|rich|n8n|agentgateway]
 scripts/local-automation.sh start <rich|n8n|agentgateway>
 scripts/local-automation.sh verify [all|rich|n8n|agentgateway]
+scripts/local-automation.sh standby [all|rich|n8n|agentgateway]
 scripts/local-automation.sh stop <rich|n8n|agentgateway>
 ```
 
@@ -163,6 +158,10 @@ Default behavior must be conservative:
 - `start` delegates to the runtime-owned command or documented `kubectl apply`
   flow.
 - `verify` runs the runtime-owned health checks listed above.
+- `standby` keeps `agentgateway` fixed and unchanged while stopping on-demand
+  runtimes. For `rich`, it stops only matching `skaffold dev --filename
+  .../rich/skaffold.yaml` processes and then scales remaining Rich deployments
+  to zero. For `n8n`, it scales `deployment/n8n` to zero.
 - `stop` is scoped and non-destructive by default. It may stop foreground
   port-forwards or scale a deployment to zero, but it must preserve PVCs,
   Secrets, and manifests unless a later explicit `destroy` command is approved.
@@ -178,7 +177,6 @@ lsof -nP -iTCP:3000 -sTCP:LISTEN
 lsof -nP -iTCP:5678 -sTCP:LISTEN
 lsof -nP -iTCP:8000 -sTCP:LISTEN
 lsof -nP -iTCP:15000 -sTCP:LISTEN
-lsof -nP -iTCP:8787 -sTCP:LISTEN
 ```
 
 ## Validation Plan
