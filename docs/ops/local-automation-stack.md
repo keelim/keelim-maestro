@@ -30,7 +30,7 @@ the child repo and follow its own `AGENTS.md` before changing child-owned files.
 
 | Runtime | Owner | Kubernetes shape | Local ports | Primary role |
 | --- | --- | --- | --- | --- |
-| Rich local app | `rich` | Namespace `rich-local`, deployments `rich-backend` and `rich-frontend`, services on ports `8000` and `3000`, Skaffold-managed dev loop | `8000`, `3000` | On-demand FastAPI backend plus Next admin UI for local app debugging |
+| Rich local app | `rich` | Namespace `rich-local`, deployments `rich-backend` and `rich-frontend`, services on ports `8000` and `3000`, Skaffold-managed dev loop | `8000`, `3001` | On-demand FastAPI backend plus Next admin UI for local app debugging |
 | n8n automation | `youtube` | Namespace `automation`, deployment `n8n`, service `n8n`, PVC `n8n-data`, task-runner sidecar | `5678` | On-demand workflow automation for upload jobs and update-tracker workflows |
 | agentgateway MCP | `tools/agentgateway` | Namespace `agentgateway-local`, deployment/service `agentgateway-local`, custom local image | `3000`, `15000` | Fixed MCP ingress for Codex/app clients and remote Supabase, Lazyweb, and Stitch targets |
 
@@ -45,7 +45,7 @@ the child repo and follow its own `AGENTS.md` before changing child-owned files.
 - Verify:
   - `kubectl -n rich-local get deploy,svc,pod`
   - `curl -fsS http://127.0.0.1:8000/healthz`
-  - open `http://127.0.0.1:3000/admin`
+  - open `http://127.0.0.1:3001/admin`
 - Stop: interrupt the foreground Skaffold loop; it owns cleanup for the local
   dev resources it started.
 - Standby from the root: `scripts/local-automation.sh standby rich` stops any
@@ -174,6 +174,7 @@ kubectl -n rich-local get deploy,svc,pod
 kubectl -n automation get deploy,svc,pvc,pod
 kubectl -n agentgateway-local get deploy,svc,pod
 lsof -nP -iTCP:3000 -sTCP:LISTEN
+lsof -nP -iTCP:3001 -sTCP:LISTEN
 lsof -nP -iTCP:5678 -sTCP:LISTEN
 lsof -nP -iTCP:8000 -sTCP:LISTEN
 lsof -nP -iTCP:15000 -sTCP:LISTEN
