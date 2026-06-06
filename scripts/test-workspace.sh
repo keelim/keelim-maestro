@@ -105,6 +105,12 @@ check_root_files() {
   run_check "root local automation helper exists" test -f scripts/local-automation.sh
 }
 
+check_local_automation_contract() {
+  run_check "local automation standby usage is documented in helper" file_contains scripts/local-automation.sh "scripts/local-automation.sh standby [all|rich|n8n|agentgateway]"
+  run_check "local automation keeps agentgateway fixed during standby" file_contains scripts/local-automation.sh "agentgateway is the fixed Kubernetes resource; standby leaves it unchanged."
+  run_check "local automation standby contract is documented" file_contains docs/ops/local-automation-stack.md 'standby` keeps `agentgateway` fixed and unchanged'
+}
+
 check_autonomous_repo_contract() {
   run_check "root ignores all-web-ui" file_contains .gitignore "/all-web-ui/"
   run_check "root ignores quant" file_contains .gitignore "/quant/"
@@ -119,6 +125,7 @@ main() {
   print_header
   check_package_contract
   check_root_files
+  check_local_automation_contract
   check_autonomous_repo_contract
 
   if [ "$FAILURES" -ne 0 ]; then
