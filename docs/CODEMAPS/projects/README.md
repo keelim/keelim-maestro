@@ -18,13 +18,18 @@ cross-repo orientation without pretending child source is root-owned.
 | `keelim-plugin` | [keelim-plugin.md](keelim-plugin.md) | 31 | Source repository |
 | `keelim-vercel` | [keelim-vercel.md](keelim-vercel.md) | 589 | Node/JavaScript |
 | `rich` | [rich.md](rich.md) | 1,834 | Node/JavaScript, Python, Docker |
-| `toto` | [toto.md](toto.md) | 29 | Node/JavaScript, Python |
 
 ## Not Collected In This Checkout
 
 | Project | Reason |
 | --- | --- |
 | `quant` | Directory absent in this checkout; root policy still treats it as excluded/autonomous when present. |
+
+## Archived Snapshots
+
+| Project | Codemap | Files scanned | Shape | Archive note |
+| --- | --- | ---: | --- | --- |
+| `toto` | [toto.md](toto.md) | 29 | Node/JavaScript, Python | Archived from root coordination on 2026-06-04; retained for historical context and not refreshed by `scripts/refresh-codemaps.py`. |
 
 ## Refresh Command
 

@@ -17,8 +17,8 @@
   |-- quant (absent in this checkout; excluded no-remote child repo when present)
   |-- all-web-ui (shared React UI package)
   |-- android-support (GitHub Action for Play Console upload)
-  |-- toto (KBO baseball Streamlit dashboard — registered submodule)
-  \-- Keelim-Knowledge-Vault (documentation)
+  |-- Keelim-Knowledge-Vault (documentation)
+  \-- toto (archived local checkout when present; ignored by root)
 ```
 
 ## Service Boundaries
@@ -26,7 +26,7 @@
 - `rich/app`: operational/admin FastAPI API (`/api/admin/**`) for GitHub workflow ops, PyKRX ingestion, weekly review workflows.
 - `rich/web`: Next.js frontend + BFF routes (`/api/agenda`, `/api/google-sheets`) bridging Supabase auth and Google APIs.
 - `all-web-ui`: shared UI components consumed by both `keelim-vercel` and `rich/web`.
-- `toto`: KBO baseball win/loss Streamlit dashboard registered as a root submodule.
+- `toto`: archived KBO dashboard checkout when present; no active root runtime boundary.
 - `quant`: no active runtime boundary in this checkout; keep excluded until a remote-backed reproducible path exists.
 
 ## High-Level Data Flow
@@ -46,7 +46,7 @@ Client Browser
 - Frontend-heavy: `keelim-vercel`, `rich/web`
 - Backend-heavy: `rich/app`
 - Infra/tooling: `android-support`, `Keelim-Knowledge-Vault`
-- Dashboard: `toto` (Streamlit)
+- Archived / inactive: `toto` (Streamlit, ignored local checkout when present)
 
 ## MCP Routing Model
 

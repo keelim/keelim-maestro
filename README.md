@@ -11,17 +11,18 @@ flowchart TB
     root --> rootFiles["root files<br/>AGENTS.md / README.md / .gitignore / .gitmodules"]
     root --> submodules["registered submodules"]
     root --> localRepos["autonomous local repos"]
+    root --> archivedRepos["archived local checkouts"]
 
     submodules --> all["all"]
     submodules --> android["android-support"]
     submodules --> vault["Keelim-Knowledge-Vault"]
     submodules --> skill["keelim-plugin"]
     submodules --> vercel["keelim-vercel"]
-    submodules --> toto["toto"]
 
     localRepos --> allWebUi["all-web-ui"]
     localRepos --> quant["quant"]
     localRepos --> rich["rich"]
+    archivedRepos --> toto["toto"]
 ```
 
 ## MCP routing model
@@ -62,8 +63,12 @@ This repository currently owns only root-level coordination files:
 
 The root may also carry a **Bun workspace bootstrap** for selected web repos. This is an orchestration layer for installs/scripts only; it does **not** collapse the child repositories into one Git monorepo.
 
-The child repositories remain autonomous at the codebase level. Remote-backed repos can be tracked from the root via `.gitmodules`; `quant` and `rich` remain outside the current submodule scope.
+The child repositories remain autonomous at the codebase level. Remote-backed repos can be tracked from the root via `.gitmodules`; `quant`, `rich`, and archived `toto` remain outside the current active submodule scope.
 `all-web-ui` now has a public remote repository, but it is still managed as an autonomous child repo from the root until the remaining workspace blockers are resolved.
+`toto` is archived from root coordination as of 2026-06-04. A local `toto/`
+checkout may remain for historical context, but it is ignored by the root and is
+not an active submodule, workspace member, helper-script target, or idea backlog
+target.
 
 Root idea/backlog maintenance now lives under `docs/idea/`, with `docs/idea/index.md` as the workspace index and `docs/idea/<project>.md` as each project's idea file. A root-level `idea/` directory should not be recreated.
 
@@ -143,7 +148,6 @@ members are the paths declared in the root `package.json`:
 - `all-web-ui`
 - `keelim-vercel`
 - `rich/web`
-- `toto`
 
 The nested Open Trading frontend paths under `rich/open-trading-api/*/frontend`
 are not root Bun workspace members unless `package.json` later declares them.
@@ -170,11 +174,9 @@ install and verification surface for these frontend workspace members:
 - `keelim-vercel`
 - `rich/web`
 
-`toto` remains a root workspace member for the current root scripts, but it is
-not part of the shared frontend dependency migration lane. The two nested
-`rich/open-trading-api/*/frontend` paths are local sidecar helper/dev surfaces
-inside the autonomous `rich` child repo; they do not become root workspace
-members or make `rich` safe to pin while its child repo is dirty.
+The two nested `rich/open-trading-api/*/frontend` paths are local sidecar
+helper/dev surfaces inside the autonomous `rich` child repo; they do not become
+root workspace members or make `rich` safe to pin while its child repo is dirty.
 `rich/web` intentionally uses the root Bun workspace as its install/verification
 surface so its `catalog:` dependencies resolve from the root catalog.
 Standalone consumers outside that root workspace install the exact GitHub
@@ -210,13 +212,12 @@ exist locally:
 - `all-web-ui/`
 - `keelim-vercel/`
 - `rich/web/`
-- `toto/`
 
-`keelim-vercel` and `toto` are available from the root submodule bootstrap, but
+`keelim-vercel` is available from the root submodule bootstrap, but
 `all-web-ui` and `rich` are still autonomous child repos, **not** root
 submodules. That means a fresh root clone must hydrate the autonomous repos
 that contain package workspace paths separately **before** running root
-`bun install`.
+`bun install`. Archived `toto/` is not required for root Bun installation.
 
 The root also exposes helper dev scripts for these non-workspace child paths
 inside the hydrated `rich/` checkout:
@@ -247,14 +248,13 @@ workspace layout. The nested Open Trading helper paths require the same hydrated
 
 The root also carries a narrow uv workspace for Python dependency coordination across the in-scope Python projects:
 
-- `toto`
 - `rich`
 
 This uv workspace is separate from the Bun workspace bootstrap. It does not change `package.json`, `bun.lock`, frontend install behavior, or child-repo Git ownership.
 
-The root uv project is coordination-only (`tool.uv.package = false`) and uses `requires-python = ">=3.13"` because `rich` requires Python 3.13 or newer. `toto` remains independently cloneable and may keep its child-local packaging workflow, but root uv operations use the shared Python floor and lock resolution.
+The root uv project is coordination-only (`tool.uv.package = false`) and uses `requires-python = ">=3.13"` because `rich` requires Python 3.13 or newer. Archived `toto` is no longer part of root uv operations.
 
-Shared Python packages should use aligned constraints across uv workspace members. The root uv workspace enforces shared dependency policy with `tool.uv.constraint-dependencies`, including the direct and transitive packages currently shared by `toto` and `rich`.
+Shared Python packages should use aligned constraints across uv workspace members. The root uv workspace enforces shared dependency policy with `tool.uv.constraint-dependencies` for the active Python member set.
 
 Child repos keep matching declarations for directly used shared packages as standalone fallback, and the root verification script fails if those mirrors drift.
 
@@ -264,7 +264,6 @@ Useful root-level uv checks:
 uv run python scripts/verify-python-dependency-constraints.py
 uv workspace metadata
 uv lock --check
-uv run --package kbo-streamlit-dashboard --extra dev pytest toto/tests
 uv run --package keelim-rich --group dev pytest rich/tests
 ```
 
@@ -293,9 +292,14 @@ The first-pass knowledge-system documentation lives under `docs/knowledge/`:
 | `Keelim-Knowledge-Vault` | yes | clean vs `origin/main` | registered submodule |
 | `keelim-plugin` | yes | clean vs `origin/main` | registered submodule |
 | `keelim-vercel` | yes | clean vs `origin/develop` | registered submodule and Vercel-linked app |
-| `toto` | yes | clean vs `origin/main` | registered submodule and local KBO dashboard workspace member |
 | `quant` | no | absent in this checkout | intentionally excluded for now |
 | `rich` | yes | dirty working tree, no ahead/behind drift vs `origin/master` | autonomous local repo; freeze/split before future pinning or data modernization |
+
+## Archived child checkouts
+
+| Path | Status | Root treatment |
+| --- | --- | --- |
+| `toto` | archived as of 2026-06-04 | ignored local historical checkout; not a registered submodule, Bun workspace member, uv workspace member, CodeGraph target, codemap refresh target, or active idea backlog target |
 
 ## Why `/quant` is excluded
 
@@ -345,7 +349,6 @@ bun run typecheck:web
 bun run build:web
 bun run test:web
 bun run dev:codex-app-server
-bun run verify:toto
 ./scripts/verify-all-web-ui-integration.sh --full
 ```
 
@@ -373,7 +376,6 @@ Tracked submodule default branches are declared in `.gitmodules`:
 - `Keelim-Knowledge-Vault` -> `main`
 - `keelim-plugin` -> `main`
 - `keelim-vercel` -> `develop`
-- `toto` -> `main`
 
 Helper script:
 

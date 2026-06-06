@@ -5,6 +5,7 @@
 - Generated: 2026-05-22 00:35 UTC
 - Files scanned: 29
 - Detected shape: Node/JavaScript, Python
+- Archive status: archived from root coordination on 2026-06-04; retained as a historical snapshot and not refreshed by root codemap automation.
 
 ## Read First
 - `README.md`

@@ -214,26 +214,6 @@ The rename is verified by `scripts/verify-keelim-plugin-rename.sh`.
 
 ---
 
-## `toto` — Local KBO Dashboard
-
-| Field | Value |
-|-------|-------|
-| Path | `toto/` |
-| Remote | https://github.com/keelim/toto.git |
-| Tracked branch | `main` |
-| Pinned commit | `5897ef44` |
-| Language / toolchain | Python / Streamlit with Bun wrapper scripts |
-| Purpose | Read-only local KBO dashboard skeleton and verification surface |
-
-### Root scripts
-```bash
-bun run dev:toto
-bun run test:toto
-bun run verify:toto
-```
-
----
-
 ## Autonomous Repos (not registered submodules)
 
 These repositories exist under the workspace root and are surfaced by helper
@@ -255,3 +235,17 @@ scripts, but are **not** declared in `.gitmodules`.
 - Remote: **none**
 - Status: Absent in this checkout; local-only when present
 - Policy: Do **not** create a remote; do **not** add as submodule; keep autonomous
+
+---
+
+## Archived Local Checkouts
+
+### `toto`
+- Remote: https://github.com/keelim/toto.git
+- Archived: 2026-06-04
+- Previous role: local KBO Streamlit dashboard and root workspace member
+- Policy: Do not register as a root submodule, root Bun workspace member, root
+  uv workspace member, CodeGraph dispatcher target, codemap refresh target, or
+  active idea backlog target unless the user explicitly reactivates it.
+- Local checkout treatment: ignored historical context only; do not delete,
+  reset, or normalize it from the root.

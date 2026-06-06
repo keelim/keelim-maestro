@@ -16,7 +16,7 @@ available from the maestro root.
 - `.gitmodules` - declared remote-backed child paths and tracked branches.
 - `.gitignore` - root exclusions for local autonomous repos and runtime state.
 - `package.json` - root Bun workspace membership and filtered web scripts.
-- `pyproject.toml` - root uv workspace membership (`toto`, `rich`) and shared Python constraint-dependencies.
+- `pyproject.toml` - root uv workspace membership (`rich`) and shared Python constraint-dependencies.
 - `uv.lock` - root uv lock file for Python workspace members.
 - `docs/CODEMAPS/README.md` - index for the existing workspace codemap set.
 - `docs/CODEMAPS/projects/README.md` - central index of generated child repo codemap snapshots.
@@ -37,7 +37,6 @@ Current declared `.gitmodules` paths:
 - `Keelim-Knowledge-Vault` tracks `main`
 - `keelim-plugin` tracks `main`
 - `keelim-vercel` tracks `develop`
-- `toto` tracks `main`
 
 Current live gitlink evidence from `git ls-files --stage | rg 160000` and
 `git submodule status` shows active root gitlinks for:
@@ -47,12 +46,13 @@ Current live gitlink evidence from `git ls-files --stage | rg 160000` and
 - `Keelim-Knowledge-Vault` - index pins `15b29c11`
 - `keelim-plugin` - index pins `a3463396`
 - `keelim-vercel` - index pins `1304f121`
-- `toto` - index pins `5897ef44`
 
 Root `.gitignore` excludes `.omx`, `node_modules`, `all-web-ui`, `quant`, and
-`rich`, so those local paths are intentionally not normal root source files.
+`rich`, and archived `toto`, so those local paths are intentionally not normal root source files.
 Their source-level orientation is still centrally collected under
-`docs/CODEMAPS/projects/` when the child repo exists locally.
+`docs/CODEMAPS/projects/` when the active child repo exists locally. The
+historical `toto` codemap is retained as an archived snapshot and is not
+refreshed by the root codemap helper.
 
 ## Entrypoints
 
@@ -68,7 +68,7 @@ maintenance and verification surfaces:
 - `scripts/verify-all-web-ui-integration.sh` - verifies the shared UI
   integration contract across `all-web-ui`, `rich/web`, and `keelim-vercel`.
 - `scripts/verify-python-dependency-constraints.py` - verifies shared Python
-  dependency constraints are aligned across uv workspace members (`toto`, `rich`).
+  dependency constraints are aligned across uv workspace members (`rich`).
   Run via `uv run python scripts/verify-python-dependency-constraints.py`.
 - `package.json` scripts:
   - `test` / `test:workspace` — root superproject contract tests via `test-workspace.sh`
@@ -79,9 +79,6 @@ maintenance and verification surfaces:
   - `test:web`
   - `dev:keelim-vercel`
   - `dev:rich-web`
-  - `dev:toto`
-  - `test:toto`
-  - `verify:toto`
   - `dev:strategy-builder` — start `rich/open-trading-api/strategy_builder`
   - `dev:backtester` — start `rich/open-trading-api/backtester`
 
@@ -94,8 +91,9 @@ maintenance and verification surfaces:
 - `docs/idea/` - per-project idea backlog and workspace idea index.
 - `scripts/` - root shell helpers for workspace contract tests, child repo status, integration verification, and rename verification.
 - `.omx/` - local OMX runtime state, logs, plans, and team worktrees; ignored root state, not source.
-- `all/`, `android-support/`, `Keelim-Knowledge-Vault/`, `keelim-plugin/`, `keelim-vercel/`, `toto/` - current active root gitlink paths.
+- `all/`, `android-support/`, `Keelim-Knowledge-Vault/`, `keelim-plugin/`, `keelim-vercel/` - current active root gitlink paths.
 - `all-web-ui/`, `rich/`, `quant/` - autonomous local repos surfaced by helper scripts when present, not root-owned source.
+- `toto/` - archived local checkout when present; ignored by the root and not an active dispatcher/workspace target.
 
 ## Tests and Verification
 
@@ -127,10 +125,10 @@ repos plus test environment variables documented in `docs/CODEMAPS/SCRIPTS.md`.
 ## Dependencies and Tooling
 
 - Root package manager: `bun@1.3.12`.
-- Root Bun workspaces: `all-web-ui`, `keelim-vercel`, `rich/web`, `toto`.
+- Root Bun workspaces: `all-web-ui`, `keelim-vercel`, `rich/web`.
 - Root `catalog` (Bun workspace catalog): pins shared versions for Radix UI primitives, Tailwind CSS 4, React 19, Next.js 16, testing-library, TypeScript 5.9, vitest, and utility libs across all workspace members. Consumers reference `catalog:` in their `package.json` instead of duplicating version strings.
 - Root Python package manager: `uv` (via `pyproject.toml` + `uv.lock`).
-- Root uv workspace members: `toto`, `rich`. Requires Python ≥ 3.13.
+- Root uv workspace members: `rich`. Requires Python ≥ 3.13.
 - Root `tool.uv.constraint-dependencies` pins shared transitive Python packages (anyio, numpy, pandas, starlette, uvicorn, etc.) so workspace members resolve consistently.
 - Shell helpers rely on `git`, `awk`, `jq`, `rg`, `grep`, and POSIX `sh`.
 - The root docs intentionally summarize child repo relationships; use each
@@ -147,14 +145,10 @@ repos plus test environment variables documented in `docs/CODEMAPS/SCRIPTS.md`.
 - `bun run test:web` - root-filtered `rich/web` test lane.
 - `bun run dev:keelim-vercel` - start the `keelim-vercel` dev server from the root workspace.
 - `bun run dev:rich-web` - start the `rich/web` dev server from the root workspace.
-- `bun run dev:toto` - start the local `toto` dashboard workspace member.
-- `bun run test:toto` - run `toto` tests through the root workspace.
-- `bun run verify:toto` - run the `toto` verification script through the root workspace.
 - `bun run dev:strategy-builder` - start the open-trading strategy builder frontend/backend.
 - `bun run dev:backtester` - start the open-trading backtester frontend/backend.
 - `uv run python scripts/verify-python-dependency-constraints.py` - verify Python dependency constraint alignment across uv workspace members.
 - `uv lock --check` - verify the uv lock file is up to date.
-- `uv run --package kbo-streamlit-dashboard --extra dev pytest toto/tests` - run `toto` Python tests via root uv.
 - `uv run --package keelim-rich --group dev pytest rich/tests` - run `rich` Python tests via root uv.
 
 ## Symbol Landmarks

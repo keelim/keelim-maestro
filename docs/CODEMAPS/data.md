@@ -42,10 +42,10 @@ Room database (`core:database`):
 - Entities and DAOs for app-specific data (grades, schedules, bookmarks, etc.)
 - DataStore Proto for user preferences and settings
 
-### toto (KBO dashboard)
-- Local fixtures / CSV files (seeded via `bun run seed`)
-- No remote database; read-only access pattern
-- Provider interface abstracts data source for portability
+### Archived: toto (KBO dashboard)
+`toto` is archived from root coordination. Any local fixtures or CSV data in a
+remaining `toto/` checkout are historical child-repo context and are not active
+root-observable data surfaces.
 
 ## Migration History
 

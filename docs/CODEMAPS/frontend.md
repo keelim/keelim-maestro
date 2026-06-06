@@ -7,7 +7,7 @@
 - `rich/web` (Next.js App Router)
 - `all-web-ui` (shared UI component package)
 - `all` (Android — Jetpack Compose)
-- `toto` (Streamlit — KBO dashboard; hydrate required)
+- Archived: `toto` (Streamlit KBO dashboard; not a root workspace target)
 
 ## Page Tree (high-level)
 
@@ -55,12 +55,10 @@ App modules (`app-*/`):
 
 Feature modules (`feature/ui-*/`): settings, scheme, WebView screens
 
-### toto (Streamlit — KBO dashboard)
-Entry: `streamlit_app/Home.py`
-- Read-only win/loss standings and game-result views
-- Data pipeline: `bootstrap` → `seed` → Streamlit app
-- Provider interface separates data source (CSV/fixture/API) from UI
-- `bun run verify` smoke-tests boot + read-only contract
+### Archived: toto (Streamlit — KBO dashboard)
+`toto` is archived from the root as of 2026-06-04. A local checkout may remain
+under `/toto/` for historical context, but root Bun scripts, CodeGraph dispatch,
+and codemap refreshes no longer target it.
 
 ## Component Hierarchy (representative)
 - `keelim-vercel`:

@@ -15,8 +15,7 @@ CHILD_REPOS = [
     "Keelim-Knowledge-Vault",
     "keelim-plugin",
     "keelim-vercel",
-    "rich",
-    "toto"
+    "rich"
 ]
 
 def run_cmd(args, cwd=None):

@@ -19,7 +19,7 @@
 - Kotlin Multiplatform/Gradle (`all`)
 - Jetpack Compose + Material 3 (`all` Android UI)
 - Hilt (`all` DI)
-- Streamlit (`toto` — KBO dashboard)
+- Archived Streamlit surface (`toto` — ignored local checkout when present)
 
 ## Shared Libraries / Internal Coupling
 - `@keelim/all-web-ui` GitHub Packages npm package consumed by:
@@ -31,7 +31,7 @@
 
 ## Root Workspace Tooling
 - **Bun** `1.3.12` — root JavaScript workspace package manager.
-- **uv** — root Python workspace package manager; `pyproject.toml` + `uv.lock` pin shared Python packages for `toto` and `rich` (requires Python ≥ 3.13).
+- **uv** — root Python workspace package manager; `pyproject.toml` + `uv.lock` pin shared Python packages for active Python members (`rich`, requires Python ≥ 3.13).
 - Root `tool.uv.constraint-dependencies` aligns shared transitive packages (anyio, numpy, pandas, starlette, uvicorn, websockets, etc.) across all uv workspace members.
 
 ## Persistence Tooling

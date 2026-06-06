@@ -33,11 +33,11 @@ bun run cg:root-check
 ```
 
 The helper resolves the CodeGraph CLI from `CODEGRAPH_BIN`, then `PATH`, then
-the known local CodeGraph 0.9.3 binary. It targets only AGENTS-listed child
-repos: `all`, `all-web-ui`, `android-support`, `Keelim-Knowledge-Vault`,
-`keelim-plugin`, `keelim-vercel`, `rich`, and `toto`.
+the known local CodeGraph 0.9.3 binary. It targets only active AGENTS-listed
+child repos: `all`, `all-web-ui`, `android-support`, `Keelim-Knowledge-Vault`,
+`keelim-plugin`, `keelim-vercel`, and `rich`.
 
-`root`, `quant`, `tools`, and `tools/crawler` are excluded dispatcher targets.
+`root`, `quant`, archived `toto`, `tools`, and `tools/crawler` are excluded dispatcher targets.
 The helper never runs `codegraph init -i`; missing child graphs are reported so
 they can be initialized explicitly inside the intended child repo.
 
@@ -143,8 +143,8 @@ As of 2026-05-24, root CodeGraph initialization is deferred:
   `docs/CODEMAPS/`, `docs/idea/`, root `package.json` / `pyproject.toml`, and
   helper scripts.
 - A root `codegraph init -i /Users/keelim/Desktop/keelim-maestro` run indexed
-  child source trees such as `all`, `android-support`, `keelim-vercel`, and
-  `toto`, so the root graph was removed and child graphs were kept.
+  child source trees such as `all`, `android-support`, and `keelim-vercel`, so
+  the root graph was removed and child graphs were kept.
 - Child source trees should not be part of the root index by default.
 - Root `.gitignore` excludes `.codegraph/`, dependency folders, common generated
   output, environment files, and known child-repo working trees for tools that

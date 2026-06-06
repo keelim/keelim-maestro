@@ -87,7 +87,6 @@ check_package_contract() {
   run_check "web test script exists" package_script_exists "test:web"
   run_check "codex app-server dev script exists" package_script_exists "dev:codex-app-server"
   run_check "local automation script exists in package scripts" package_script_exists "automation:local"
-  run_check "toto verify script exists" package_script_exists "verify:toto"
 }
 
 check_root_files() {
@@ -110,8 +109,10 @@ check_autonomous_repo_contract() {
   run_check "root ignores all-web-ui" file_contains .gitignore "/all-web-ui/"
   run_check "root ignores quant" file_contains .gitignore "/quant/"
   run_check "root ignores rich" file_contains .gitignore "/rich/"
+  run_check "root ignores archived toto" file_contains .gitignore "/toto/"
   run_check "root workspaces exclude quant" workspace_excludes "quant"
   run_check "root workspaces exclude rich" workspace_excludes "rich"
+  run_check "root workspaces exclude archived toto" workspace_excludes "toto"
 }
 
 main() {

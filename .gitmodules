@@ -18,7 +18,3 @@
 	path = keelim-vercel
 	url = https://github.com/keelim/keelim-vercel.git
 	branch = develop
-[submodule "toto"]
-	path = toto
-	url = https://github.com/keelim/toto.git
-	branch = main

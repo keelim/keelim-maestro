@@ -289,7 +289,7 @@ meet the documented workspace contract. Run via `bun run test` or
 - `packageManager` starts with `bun@`
 - `workspaces` is an array
 - `scripts` is an object
-- Required script keys exist: `test`, `test:workspace`, `report:baseline`, `report:shared-ui`, `typecheck:web`, `build:web`, `test:web`, `verify:toto`
+- Required script keys exist: `test`, `test:workspace`, `report:baseline`, `report:shared-ui`, `typecheck:web`, `build:web`, `test:web`
 
 **Root files (`check_root_files`)**
 - `README.md`, `.gitignore`, `.gitmodules` exist
@@ -297,8 +297,8 @@ meet the documented workspace contract. Run via `bun run test` or
 - The trusted-baseline and shared UI contract reporters run successfully in read-only mode
 
 **Autonomous repo contract (`check_autonomous_repo_contract`)**
-- `.gitignore` excludes `all-web-ui`, `quant`, and `rich`
-- `workspaces` array does **not** include `quant` or `rich`
+- `.gitignore` excludes `all-web-ui`, `quant`, `rich`, and archived `toto`
+- `workspaces` array does **not** include `quant`, `rich`, or archived `toto`
 
 ### Exit behaviour
 
@@ -311,7 +311,7 @@ Safe to run at any time; does not invoke child-repo builds or dirty-state-sensit
 
 ## `scripts/verify-python-dependency-constraints.py`
 
-Verification helper for shared Python dependency constraints across uv workspace members (`toto`, `rich`).
+Verification helper for shared Python dependency constraints across uv workspace members (`rich`).
 
 ### Purpose
 
@@ -339,7 +339,7 @@ Prints `OK: Python dependency constraints are aligned.` on success, with a summa
 
 Exits `0` on success, `1` on constraint drift, `2` if Python < 3.11 is detected.
 
-Run after any change to `pyproject.toml` in the root or in `toto`/`rich`.
+Run after any change to `pyproject.toml` in the root or in `rich`.
 
 ---
 
@@ -361,7 +361,6 @@ Automation script to generate/refresh all child project codemaps and dynamically
 - `keelim-plugin`
 - `keelim-vercel`
 - `rich`
-- `toto`
 
 ### Exit behaviour
 

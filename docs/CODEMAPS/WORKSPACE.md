@@ -8,8 +8,8 @@ branch model, and build toolchain. The root repository's sole responsibility is
 workspace-level coordination: submodule pointers, documentation, and helper scripts.
 
 The root carries two workspace bootstrap layers that operate independently:
-- **Bun workspace** (`package.json`) — JavaScript/TypeScript projects: `all-web-ui`, `keelim-vercel`, `rich/web`, `toto`.
-- **uv workspace** (`pyproject.toml`) — Python projects: `toto`, `rich`.
+- **Bun workspace** (`package.json`) — JavaScript/TypeScript projects: `all-web-ui`, `keelim-vercel`, `rich/web`.
+- **uv workspace** (`pyproject.toml`) — Python projects: `rich`.
 
 ## Topology
 
@@ -23,17 +23,18 @@ flowchart TB
     root --> scripts["scripts/\nhelper scripts"]
     root --> submodules["Registered submodules\n(pinned via .gitmodules)"]
     root --> autonomous["Autonomous child repos\n(tracked in scripts only)"]
+    root --> archived["Archived local checkouts\n(ignored by root)"]
 
     submodules --> all["all\nAndroid · develop"]
     submodules --> android["android-support\nGitHub Action · main"]
     submodules --> vault["Keelim-Knowledge-Vault\nDocumentation · main"]
     submodules --> plugin["keelim-plugin\nPlugin · main"]
     submodules --> vercel["keelim-vercel\nWeb/Vercel · develop"]
-    submodules --> toto["toto\nKBO dashboard · main"]
 
     autonomous --> webui["all-web-ui\nWeb UI · main (remote-backed)"]
     autonomous --> rich["rich\nWeb/Node.js · master (dirty working tree)"]
     autonomous --> quant["quant\n(absent, no remote)"]
+    archived --> toto["toto\nKBO dashboard"]
 ```
 
 ## Child Repository Catalogue
@@ -46,9 +47,9 @@ flowchart TB
 | `Keelim-Knowledge-Vault` | https://github.com/keelim/Keelim-Knowledge-Vault | `main` | Documentation | Registered submodule |
 | `keelim-plugin` | https://github.com/keelim/keelim-plugin | `main` | Plugin project | Registered submodule |
 | `keelim-vercel` | https://github.com/keelim/keelim-vercel | `develop` | Web / Vercel deployment | Registered submodule |
-| `toto` | https://github.com/keelim/toto | `main` | Local KBO Streamlit dashboard | Registered submodule |
 | `quant` | none | n/a | absent in this checkout; local-only when present | Intentionally excluded |
 | `rich` | https://github.com/keelim/rich | `master` | Web / Node.js | Autonomous (pending reconciliation) |
+| `toto` | https://github.com/keelim/toto | `main` | Archived KBO Streamlit dashboard | Archived local checkout; ignored by root |
 
 ## Architectural Principles
 
@@ -172,7 +173,7 @@ Files and directories that must **not** be edited from the root:
 | `Keelim-Knowledge-Vault` | `15b29c11` | `main` | Registered submodule |
 | `keelim-plugin` | `a3463396` | `main` | Registered submodule |
 | `keelim-vercel` | `1304f121` | `develop` | Registered submodule |
-| `toto` | `5897ef44` | `main` | Registered submodule |
 | `all-web-ui` | — | `main` | Autonomous (not in .gitmodules) |
 | `rich` | — | `master` | Autonomous, dirty working tree |
 | `quant` | — | — | Absent in this checkout; no remote |
+| `toto` | — | `main` | Archived local checkout when present |

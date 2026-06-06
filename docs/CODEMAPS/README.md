@@ -70,13 +70,13 @@ Registered submodules (pinned via `.gitmodules`):
 - `Keelim-Knowledge-Vault` — documentation knowledge base (`main`)
 - `keelim-plugin` — plugin project (`main`)
 - `keelim-vercel` — web / Vercel deployment project (`develop`)
-- `toto` — local KBO Streamlit dashboard (`main`)
 
 Autonomous child repos (not registered submodules):
 
 - `all-web-ui` — shared web UI (remote-backed, pending submodule conversion)
 - `rich` — autonomous; currently dirty, pending reconciliation
 - `quant` — intentionally excluded when present; absent in this checkout
+- `toto` — archived local checkout when present; ignored by root coordination
 
 Managed child codemap snapshots live under [`projects/`](projects/). They are
 generated from child sources and stored here so `maestro` can manage the whole
