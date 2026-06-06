@@ -14,12 +14,14 @@ Usage:
   scripts/local-automation.sh list [all|rich|n8n|agentgateway]
   scripts/local-automation.sh status [all|rich|n8n|agentgateway]
   scripts/local-automation.sh verify [all|rich|n8n|agentgateway]
+  scripts/local-automation.sh standby [all|rich|n8n|agentgateway]
   scripts/local-automation.sh start <rich|n8n|agentgateway>
   scripts/local-automation.sh stop <rich|n8n|agentgateway>
 
 Purpose:
   Keep root-level local automation commands discoverable while delegating
   runtime ownership to rich, youtube, and tools/agentgateway.
+  agentgateway is the fixed Kubernetes resource; rich and n8n are on-demand.
 EOF
 }
 
@@ -73,6 +75,30 @@ run_kubectl() {
   "$KUBECTL" "$@" || mark_failure
 }
 
+scale_deployment_to_zero() {
+  namespace="$1"
+  deployment="$2"
+
+  KUBECTL="$(kubectl_bin)"
+  if [ -z "$KUBECTL" ]; then
+    printf '[skip] kubectl not found in PATH or /usr/local/bin/kubectl\n'
+    mark_failure
+    return 0
+  fi
+
+  if ! "$KUBECTL" get namespace "$namespace" >/dev/null 2>&1; then
+    printf '[info] namespace/%s is not present; deployment/%s is already idle\n' "$namespace" "$deployment"
+    return 0
+  fi
+
+  if ! "$KUBECTL" -n "$namespace" get deployment "$deployment" >/dev/null 2>&1; then
+    printf '[info] deployment/%s is not present in namespace/%s\n' "$deployment" "$namespace"
+    return 0
+  fi
+
+  run_kubectl -n "$namespace" scale deployment "$deployment" --replicas=0
+}
+
 run_lsof_port() {
   port="$1"
 
@@ -115,7 +141,7 @@ list_rich() {
   info "Owner repo: rich"
   info "Start:  cd rich && sh run-k8s-dev.sh"
   info "Verify: scripts/local-automation.sh verify rich"
-  info "Stop:   interrupt the foreground Skaffold loop that started rich"
+  info "Stop:   scripts/local-automation.sh standby rich"
   info "Files:  rich/run-k8s-dev.sh, rich/skaffold.yaml, rich/k8s/local/"
 }
 
@@ -131,11 +157,11 @@ list_n8n() {
 list_agentgateway() {
   section "agentgateway MCP Kubernetes"
   info "Owner repo: tools/agentgateway"
+  info "Role:   fixed local Kubernetes resource; keep it up for MCP access"
   info "Start:  cd tools/agentgateway && bash scripts/start-k8s-gateway.sh"
   info "Verify: cd tools/agentgateway && AGENTGATEWAY_URL=http://127.0.0.1:3000 bash scripts/verify-k8s-gateway.sh"
   info "Stop:   cd tools/agentgateway && bash scripts/stop-k8s-gateway.sh --apply"
   info "MCP:    Codex/Claude -> http://127.0.0.1:3000/mcp -> agentgateway -> Supabase/Lazyweb/Stitch"
-  info "Proxy:  optional Headroom proxy pilot on http://127.0.0.1:8787"
   info "Files:  tools/agentgateway/scripts/, tools/agentgateway/k8s/"
 }
 
@@ -157,7 +183,6 @@ status_agentgateway() {
   run_kubectl -n agentgateway-local get deploy,svc,pod
   run_lsof_port 3000
   run_lsof_port 15000
-  run_lsof_port 8787
 }
 
 verify_rich() {
@@ -189,6 +214,85 @@ verify_agentgateway() {
   ) || mark_failure
 }
 
+rich_skaffold_pids() {
+  if ! command -v ps >/dev/null 2>&1; then
+    return 0
+  fi
+
+  ps -axo pid=,command= | while IFS= read -r line; do
+    case "$line" in
+      *"skaffold dev"*"$ROOT_DIR/rich/skaffold.yaml"*|*"skaffold dev"*"/rich/skaffold.yaml"*)
+        pid="$(printf '%s\n' "$line" | awk '{print $1}')"
+        if [ -n "$pid" ] && [ "$pid" != "$$" ]; then
+          printf '%s\n' "$pid"
+        fi
+        ;;
+    esac
+  done | sort -u
+}
+
+stop_rich_skaffold_loops() {
+  pids="$(rich_skaffold_pids || true)"
+
+  if [ -z "$pids" ]; then
+    info "[info] no rich Skaffold dev loop found"
+    return 0
+  fi
+
+  for pid in $pids; do
+    command="$(ps -p "$pid" -o command= 2>/dev/null || true)"
+    if kill "$pid" 2>/dev/null; then
+      printf 'stopped rich skaffold pid=%s command=%s\n' "$pid" "$command"
+    else
+      printf 'failed to stop rich skaffold pid=%s command=%s\n' "$pid" "$command" >&2
+      mark_failure
+    fi
+  done
+
+  sleep 2
+}
+
+standby_rich() {
+  section "rich standby"
+  stop_rich_skaffold_loops
+  scale_deployment_to_zero rich-local rich-backend
+  scale_deployment_to_zero rich-local rich-frontend
+}
+
+standby_n8n() {
+  section "n8n standby"
+  scale_deployment_to_zero automation n8n
+}
+
+standby_agentgateway() {
+  section "agentgateway fixed"
+  info "agentgateway is the fixed Kubernetes resource; standby leaves it unchanged."
+  info "Use scripts/local-automation.sh verify agentgateway to check it, or start agentgateway if it is intentionally down."
+}
+
+standby_runtime() {
+  case "$TARGET" in
+    all)
+      standby_rich
+      standby_n8n
+      standby_agentgateway
+      ;;
+    rich)
+      standby_rich
+      ;;
+    n8n)
+      standby_n8n
+      ;;
+    agentgateway)
+      standby_agentgateway
+      ;;
+    *)
+      print_usage
+      exit 1
+      ;;
+  esac
+}
+
 start_runtime() {
   require_single_runtime
 
@@ -218,13 +322,10 @@ stop_runtime() {
 
   case "$TARGET" in
     rich)
-      section "rich stop"
-      info "No root stop command is defined for rich."
-      info "Interrupt the foreground Skaffold loop that started rich so it can clean up its own dev resources."
+      standby_rich
       ;;
     n8n)
-      section "n8n stop"
-      run_kubectl -n automation scale deployment/n8n --replicas=0
+      standby_n8n
       ;;
     agentgateway)
       section "agentgateway stop"
@@ -259,6 +360,9 @@ run_for_targets() {
 case "$ACTION" in
   list|status|verify)
     run_for_targets
+    ;;
+  standby)
+    standby_runtime
     ;;
   start)
     start_runtime
