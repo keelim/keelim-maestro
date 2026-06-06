@@ -1,6 +1,6 @@
 # all-web-ui
 
-Last reviewed: 2026-05-16 KST
+Last reviewed: 2026-06-06 KST
 
 ## Signals
 
@@ -66,4 +66,4 @@ Status: proposed
 
 Why now: `all-web-ui`는 실제로 두 개의 다운스트림 앱에 붙어 있으니, export나 theme 파일 변경이 배포 전에 빌드 단위에서 먼저 깨지는지 확인해야 회귀 비용이 낮아진다.
 
-First slice: `keelim-vercel`과 `rich/web`이 쓰는 import 경로를 그대로 재현하는 작은 fixture 또는 매트릭스 빌드를 만들고, 타입체크/빌드 실패를 소비자 영향 경고로 보여준다.
+First slice: 루트의 `scripts/report-shared-ui-contract.sh`(`bun run report:shared-ui`)가 이미 `@keelim/all-web-ui@0.1.4`의 export·style 메타데이터와 `keelim-vercel`·`rich/web`의 의존성 정보를 같이 출력하므로, 이 보고서 결과를 CI에서 자동 실행해 타입체크/빌드 실패를 소비자 영향 경고로 연결하는 것을 첫 번째 슬라이스로 삼는다.
