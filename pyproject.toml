@@ -38,4 +38,5 @@ constraint-dependencies = [
 [tool.uv.workspace]
 members = [
   "rich",
+  "youtube",
 ]

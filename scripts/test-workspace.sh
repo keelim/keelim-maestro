@@ -56,6 +56,18 @@ workspace_excludes() {
   bun --eval "const fs = require('fs'); const pkg = JSON.parse(fs.readFileSync('package.json', 'utf8')); if ((pkg.workspaces || []).includes('${workspace_path}')) process.exit(1);" >/dev/null 2>&1
 }
 
+workspace_includes() {
+  workspace_path="$1"
+
+  bun --eval "const fs = require('fs'); const pkg = JSON.parse(fs.readFileSync('package.json', 'utf8')); if (!(pkg.workspaces || []).includes('${workspace_path}')) process.exit(1);" >/dev/null 2>&1
+}
+
+uv_workspace_includes() {
+  workspace_path="$1"
+
+  bun --eval "const fs = require('fs'); const text = fs.readFileSync('pyproject.toml', 'utf8'); const section = text.match(/\\[tool\\.uv\\.workspace\\][\\s\\S]*?(?=\\n\\[|$)/)?.[0] || ''; const members = [...section.matchAll(/\"([^\"]+)\"/g)].map((match) => match[1]); if (!members.includes('${workspace_path}')) process.exit(1);" >/dev/null 2>&1
+}
+
 trusted_baseline_report_runs() {
   sh scripts/report-trusted-baseline.sh >/dev/null
 }
@@ -115,10 +127,17 @@ check_autonomous_repo_contract() {
   run_check "root ignores all-web-ui" file_contains .gitignore "/all-web-ui/"
   run_check "root ignores quant" file_contains .gitignore "/quant/"
   run_check "root ignores rich" file_contains .gitignore "/rich/"
+  run_check "root ignores youtube" file_contains .gitignore "/youtube/"
   run_check "root ignores archived toto" file_contains .gitignore "/toto/"
   run_check "root workspaces exclude quant" workspace_excludes "quant"
   run_check "root workspaces exclude rich" workspace_excludes "rich"
+  run_check "root workspaces exclude top-level youtube" workspace_excludes "youtube"
+  run_check "root workspaces include youtube remotion" workspace_includes "youtube/remotion"
+  run_check "root workspaces include youtube services" workspace_includes "youtube/services/*"
+  run_check "root workspaces include youtube videos" workspace_includes "youtube/videos/*"
   run_check "root workspaces exclude archived toto" workspace_excludes "toto"
+  run_check "root uv workspace includes rich" uv_workspace_includes "rich"
+  run_check "root uv workspace includes youtube" uv_workspace_includes "youtube"
 }
 
 main() {
