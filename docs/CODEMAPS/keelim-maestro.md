@@ -47,8 +47,8 @@ Current live gitlink evidence from `git ls-files --stage | rg 160000` and
 - `keelim-plugin` - index pins `a3463396`
 - `keelim-vercel` - index pins `1304f121`
 
-Root `.gitignore` excludes `.omx`, `node_modules`, `all-web-ui`, `quant`, and
-`rich`, and archived `toto`, so those local paths are intentionally not normal root source files.
+Root `.gitignore` excludes `.omx`, `node_modules`, `all-web-ui`, `quant`,
+`rich`, `youtube`, and archived `toto`, so those local paths are intentionally not normal root source files.
 Their source-level orientation is still centrally collected under
 `docs/CODEMAPS/projects/` when the active child repo exists locally. The
 historical `toto` codemap is retained as an archived snapshot and is not
@@ -92,7 +92,7 @@ maintenance and verification surfaces:
 - `scripts/` - root shell helpers for workspace contract tests, child repo status, integration verification, and rename verification.
 - `.omx/` - local OMX runtime state, logs, plans, and team worktrees; ignored root state, not source.
 - `all/`, `android-support/`, `Keelim-Knowledge-Vault/`, `keelim-plugin/`, `keelim-vercel/` - current active root gitlink paths.
-- `all-web-ui/`, `rich/`, `quant/` - autonomous local repos surfaced by helper scripts when present, not root-owned source.
+- `all-web-ui/`, `rich/`, `quant/`, `youtube/` - autonomous local repos surfaced by helper scripts when present, not root-owned source.
 - `toto/` - archived local checkout when present; ignored by the root and not an active dispatcher/workspace target.
 
 ## Tests and Verification
@@ -125,10 +125,10 @@ repos plus test environment variables documented in `docs/CODEMAPS/SCRIPTS.md`.
 ## Dependencies and Tooling
 
 - Root package manager: `bun@1.3.12`.
-- Root Bun workspaces: `all-web-ui`, `keelim-vercel`, `rich/web`.
+- Root Bun workspaces: `all-web-ui`, `keelim-vercel`, `rich/web`, `youtube/remotion`, `youtube/services/*`, `youtube/videos/*`.
 - Root `catalog` (Bun workspace catalog): pins shared versions for Radix UI primitives, Tailwind CSS 4, React 19, Next.js 16, testing-library, TypeScript 5.9, vitest, and utility libs across all workspace members. Consumers reference `catalog:` in their `package.json` instead of duplicating version strings.
 - Root Python package manager: `uv` (via `pyproject.toml` + `uv.lock`).
-- Root uv workspace members: `rich`. Requires Python ≥ 3.13.
+- Root uv workspace members: `rich`, `youtube`. Root requires Python ≥ 3.13; `youtube` keeps its standalone lower Python requirement for child-local fallback.
 - Root `tool.uv.constraint-dependencies` pins shared transitive Python packages (anyio, numpy, pandas, starlette, uvicorn, etc.) so workspace members resolve consistently.
 - Shell helpers rely on `git`, `awk`, `jq`, `rg`, `grep`, and POSIX `sh`.
 - The root docs intentionally summarize child repo relationships; use each

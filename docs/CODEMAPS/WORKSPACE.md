@@ -8,8 +8,8 @@ branch model, and build toolchain. The root repository's sole responsibility is
 workspace-level coordination: submodule pointers, documentation, and helper scripts.
 
 The root carries two workspace bootstrap layers that operate independently:
-- **Bun workspace** (`package.json`) — JavaScript/TypeScript projects: `all-web-ui`, `keelim-vercel`, `rich/web`.
-- **uv workspace** (`pyproject.toml`) — Python projects: `rich`.
+- **Bun workspace** (`package.json`) — JavaScript/TypeScript projects: `all-web-ui`, `keelim-vercel`, `rich/web`, and YouTube package globs under `youtube/remotion`, `youtube/services/*`, and `youtube/videos/*`.
+- **uv workspace** (`pyproject.toml`) — Python projects: `rich`, `youtube`.
 
 ## Topology
 
@@ -33,6 +33,7 @@ flowchart TB
 
     autonomous --> webui["all-web-ui\nWeb UI · main (remote-backed)"]
     autonomous --> rich["rich\nWeb/Node.js · master (dirty working tree)"]
+    autonomous --> youtube["youtube\nShorts production · master (private local)"]
     autonomous --> quant["quant\n(absent, no remote)"]
     archived --> toto["toto\nKBO dashboard"]
 ```
@@ -49,6 +50,7 @@ flowchart TB
 | `keelim-vercel` | https://github.com/keelim/keelim-vercel | `develop` | Web / Vercel deployment | Registered submodule |
 | `quant` | none | n/a | absent in this checkout; local-only when present | Intentionally excluded |
 | `rich` | https://github.com/keelim/rich | `master` | Web / Node.js | Autonomous (pending reconciliation) |
+| `youtube` | none | `master` | YouTube Shorts / Easy Release Note production | Private autonomous child repo; root Bun/uv workspace participant |
 | `toto` | https://github.com/keelim/toto | `main` | Archived KBO Streamlit dashboard | Archived local checkout; ignored by root |
 
 ## Architectural Principles
@@ -72,6 +74,7 @@ Expanding `.gitmodules` to cover additional child repos is blocked until:
 - All existing child repos are clean (no dirty working trees)
 - `rich` dirty working tree is reconciled or explicitly preserved
 - `quant` absence/no-remote state is explicitly preserved
+- `youtube` private autonomous/no-origin state is explicitly preserved; root workspace membership does not make it a submodule
 - Any other diverged repos are normalised
 
 ## Bootstrap

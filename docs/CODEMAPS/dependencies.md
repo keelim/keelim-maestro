@@ -28,10 +28,11 @@
 - TanStack Query across web frontends
 - Zustand across web frontends
 - Bun `catalog` in root `package.json` pins shared versions (Radix UI, Tailwind 4, React 19, Next.js 16, TypeScript 5.9, vitest, testing-library, clsx, lucide-react, date-fns, react-day-picker) across all workspace members; consumers reference `"catalog:<pkg>"` instead of explicit semver strings.
+- YouTube Shorts tooling packages participate in the root Bun workspace through `youtube/remotion`, `youtube/services/*`, and `youtube/videos/*`; the top-level `youtube/` path remains a private child repo, not a Bun package.
 
 ## Root Workspace Tooling
 - **Bun** `1.3.12` — root JavaScript workspace package manager.
-- **uv** — root Python workspace package manager; `pyproject.toml` + `uv.lock` pin shared Python packages for active Python members (`rich`, requires Python ≥ 3.13).
+- **uv** — root Python workspace package manager; `pyproject.toml` + `uv.lock` pin shared Python packages for active Python members (`rich`, `youtube`; root requires Python ≥ 3.13).
 - Root `tool.uv.constraint-dependencies` aligns shared transitive packages (anyio, numpy, pandas, starlette, uvicorn, websockets, etc.) across all uv workspace members.
 
 ## Persistence Tooling
@@ -43,6 +44,7 @@
 - `keelim-vercel` has the broadest JS dependency footprint (UI + finance + infra SDKs).
 - `quant` is absent in this checkout and remains excluded until it has a remote-backed reproducible path.
 - `rich` bridges both web and Python service dependencies, plus Google and GitHub integrations.
+- `youtube` brings Easy Release Note Python automation plus Remotion/HyperFrames Shorts packages into root lock coordination while remaining private and autonomous.
 - `all` has the largest Kotlin dependency graph (Compose, Hilt, Room, Retrofit, KMP, Firebase, Rust).
 
 ## Risk Notes (high-level)

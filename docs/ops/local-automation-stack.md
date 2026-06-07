@@ -87,7 +87,7 @@ the child repo and follow its own `AGENTS.md` before changing child-owned files.
   - Secret resource: `n8n-secrets` with `N8N_ENCRYPTION_KEY` and
     `N8N_RUNNERS_AUTH_TOKEN`.
   - Persistent data: PVC `n8n-data` mounted at `/home/node/.n8n`.
-  - Host mount: `/Users/keelim/Desktop/youtube` mounted at
+  - Host mount: `/Users/keelim/Desktop/keelim-maestro/youtube` mounted at
     `/data/easy-release-note` for workflow file access.
 - Workflow contract:
   - Upload job generation stays in `uv run ern n8n export-upload-job`.
@@ -190,7 +190,7 @@ bun run test
 sh scripts/local-automation.sh list
 git status --short
 git -C rich status --short
-git -C /Users/keelim/Desktop/youtube status --short
+git -C /Users/keelim/Desktop/keelim-maestro/youtube status --short
 git -C tools/agentgateway status --short
 ```
 

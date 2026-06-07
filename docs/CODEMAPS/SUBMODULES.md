@@ -231,6 +231,14 @@ scripts, but are **not** declared in `.gitmodules`.
 - Type: Web / Node.js (contains `rich/web/` Next.js app that imports `all-web-ui`)
 - Status: Dirty working tree; needs reconciliation before pinning
 
+### `youtube`
+- Remote: **none**
+- Branch: `master`
+- Type: YouTube Shorts / Easy Release Note production repo
+- Status: Private autonomous local checkout under `keelim-maestro/youtube`; remote creation deferred
+- Policy: Include in status helpers; do not add as local-path submodule
+- Workspace: Participates in root Bun through `youtube/remotion`, `youtube/services/*`, and `youtube/videos/*`; participates in root uv as `youtube`
+
 ### `quant`
 - Remote: **none**
 - Status: Absent in this checkout; local-only when present

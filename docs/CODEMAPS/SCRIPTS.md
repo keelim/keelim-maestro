@@ -49,7 +49,7 @@ If any condition fails the script prints `[skip] <path> <reason>` and moves on.
 The script discovers child repos in two passes:
 
 1. **Registered submodules** — reads paths from `.gitmodules` via `git config -f`
-2. **Autonomous repos** — checks for `.git` in `all-web-ui`, `rich`, `quant`
+2. **Autonomous repos** — checks for `.git` in `all-web-ui`, `rich`, `quant`, `youtube`
 
 Duplicate paths are deduplicated (awk `!seen[$0]++`).
 
@@ -297,8 +297,10 @@ meet the documented workspace contract. Run via `bun run test` or
 - The trusted-baseline and shared UI contract reporters run successfully in read-only mode
 
 **Autonomous repo contract (`check_autonomous_repo_contract`)**
-- `.gitignore` excludes `all-web-ui`, `quant`, `rich`, and archived `toto`
-- `workspaces` array does **not** include `quant`, `rich`, or archived `toto`
+- `.gitignore` excludes `all-web-ui`, `quant`, `rich`, `youtube`, and archived `toto`
+- `workspaces` array does **not** include exact top-level `quant`, `rich`, `youtube`, or archived `toto`
+- `workspaces` array includes the YouTube package globs `youtube/remotion`, `youtube/services/*`, and `youtube/videos/*`
+- root uv workspace includes `rich` and `youtube`
 
 ### Exit behaviour
 
@@ -311,7 +313,7 @@ Safe to run at any time; does not invoke child-repo builds or dirty-state-sensit
 
 ## `scripts/verify-python-dependency-constraints.py`
 
-Verification helper for shared Python dependency constraints across uv workspace members (`rich`).
+Verification helper for shared Python dependency constraints across uv workspace members (`rich`, `youtube`).
 
 ### Purpose
 

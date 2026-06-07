@@ -29,6 +29,7 @@
 /rich/
 /toto/
 /tools/
+/youtube/
 
 # Generated video documentation outputs: keep source/project files in docs/videos,
 # but do not commit heavyweight renders or local preview thumbnails by default.
