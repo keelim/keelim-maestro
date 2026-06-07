@@ -58,3 +58,48 @@
    - Small change: when the user changes an operation from "standby" to
      "remove", record the change as a new commit unit and preserve data-retention
      boundaries such as PVCs or secrets unless deletion is explicit.
+
+## 2026-06-07 Follow-Up Evidence
+
+- Product Design preflight still reports no saved
+  `/Users/keelim/.codex/state/plugins/product-design/user-context.md`.
+- Recent Codex session files since the previous automation marker numbered 183.
+  Raw keyword scans over those JSONL logs were noisy because session files repeat
+  base instructions, tool schemas, and plugin descriptions.
+- The high-signal recent local artifacts were repo-backed rather than UI mocks:
+  `docs/research/skillopt-integration-2026-06.md`,
+  `docs/idea/net-new-2026-06-06.md`, root security/dependency scripts, and
+  automation/process status outputs.
+
+## 2026-06-07 Additional Improvements
+
+7. Add a lightweight session-summary index before cross-session product analysis.
+   - Evidence: 183 recent JSONL session files existed after the prior automation
+     marker, and raw `rg` hits were polluted by repeated instructions.
+   - Small change: build a local read-only summarizer that extracts session id,
+     cwd, first user prompt, final outcome, tools used, and committed files before
+     asking Product Design or service-improvement analysis to reason over sessions.
+
+8. Treat Product Design mentions inside automation as insight mode by default.
+   - Evidence: this run invoked `$product-design`, but the user asked for service
+     improvements, not a visual brief, ImageGen options, or prototype build.
+   - Small change: when Product Design is mentioned inside a repo-management
+     automation, run context preflight and produce improvement artifacts only;
+     do not enter image ideation unless the user supplies a concrete design target.
+
+9. Save durable design context after repo-backed product decisions.
+   - Evidence: Product Design context is still missing even though root docs now
+     contain repeated decisions about `rich`, `youtube`, `keelim-vercel`, and
+     shared UI surfaces.
+   - Small change: after a design/product analysis run, offer one curated context
+     bundle containing app paths, target surfaces, preferred verification commands,
+     and active non-goals.
+
+10. Distinguish product insight, runtime hygiene, and bug triage in automation
+    reports.
+    - Evidence: this recurring task combines commits, process cleanup,
+      Product Design analysis, and recent-commit bug scanning; each has different
+      proof requirements.
+    - Small change: automation output should keep separate sections for
+      `commits`, `processes`, `service improvements`, and `bug scan`, each with
+      exact evidence and skipped/blocked items.
