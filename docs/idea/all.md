@@ -65,3 +65,63 @@ Status: proposed
 Why now: `all`은 Android Gradle 빌드 외에 `composeApp/`(Compose Multiplatform), `allIos/`(iOS Xcode 프로젝트), `all-rust-lib/`(Cargo 프로젝트)를 함께 갖고 있어서, 각 플랫폼 빌드가 독립적으로 깨져도 Android CI만 봐서는 감지하기 어렵다.
 
 First slice: iOS Xcode 빌드, Cargo 빌드, Compose Multiplatform 빌드를 각각 최소 실행해 성공/실패를 확인하고, Android CI와 동일한 PR 게이트에서 플랫폼별 빌드 상태를 한 번에 보이는 요약 표를 만든다.
+
+## 앱 기능 (net-new N1)
+
+지금까지 `all`의 아이디어는 전부 빌드/릴리스 인프라였고 **실제 앱 사용자 기능**
+아이디어가 0개였다. 2026-06-06 코드 그라운딩 결과, 6개 앱 모두 *개별 화면은 있으나
+화면을 잇는 사용자 여정/연계 기능이 없다*는 공통 갭이 확인됐다. 앱별 1차 후보(실제
+화면 기반): (출처: `net-new-2026-06-06.md`)
+
+### 2026-06-06 - app-arducon 도구 파이프라인
+
+Status: proposed
+
+Why now: URL단축·Base64·QR·JSON·딥링크 등 단발 도구가 서로 단절돼, 한 도구 결과를 다음
+도구에 다시 붙여 넣어야 한다.
+
+First slice: 한 도구의 출력을 다음 도구 입력으로 잇는 파이프라인 + 최근 실행/핀 도구.
+
+### 2026-06-06 - app-cnubus 막차 카운트다운 + 도착 알림
+
+Status: proposed
+
+Why now: 캠퍼스 버스 앱이 Map/Setting 최소 표면뿐이라, 정작 버스 앱의 핵심 가치(언제
+타야 하는가)가 빠져 있다.
+
+First slice: 즐겨찾는 정류장의 막차 카운트다운과 도착 임박 알림.
+
+### 2026-06-06 - app-comssa 경제캘린더 ↔ 플래시카드 복습 연계
+
+Status: proposed
+
+Why now: MarketNotification·Ecocal·FlashCard가 각각 단독으로 존재한다.
+
+First slice: 경제 캘린더 이벤트 알림을 플래시카드 복습 루프와 연결해, 이벤트 전후로
+관련 카드를 띄운다.
+
+### 2026-06-06 - app-my-grade 목표 학점 역산 플래너
+
+Status: proposed
+
+Why now: Grade·StudyAnalytics가 *과거* 성적만 보여주고, 목표에서 역산하는 *미래*
+플래닝이 없다.
+
+First slice: 목표 GPA 입력 → 남은 과목별 필요 성적을 역산해 제시.
+
+### 2026-06-06 - app-mysenior 첫 사용자 표면 정의
+
+Status: proposed
+
+Why now: `app-mysenior`는 MainActivity만 있는 빈 스켈레톤이라 제품 표면 자체가 없다.
+
+First slice: 큰글씨 복약 알림을 첫 표면으로 정의(app-nanda MedicationScreen 패턴 재사용).
+
+### 2026-06-06 - app-nanda 복약·수분·영양 통합 순응도 리포트
+
+Status: proposed
+
+Why now: Medication·WaterIntake·Nutrient 화면이 따로 놀아, 하루 건강 순응도를 한눈에
+볼 수 없다.
+
+First slice: 세 표면을 묶은 데일리 순응도 리포트(목표 대비 달성률).

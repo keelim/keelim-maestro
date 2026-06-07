@@ -67,3 +67,33 @@ Status: proposed
 Why now: `all-web-ui`는 실제로 두 개의 다운스트림 앱에 붙어 있으니, export나 theme 파일 변경이 배포 전에 빌드 단위에서 먼저 깨지는지 확인해야 회귀 비용이 낮아진다.
 
 First slice: `keelim-vercel`과 `rich/web`이 쓰는 import 경로를 그대로 재현하는 작은 fixture 또는 매트릭스 빌드를 만들고, 타입체크/빌드 실패를 소비자 영향 경고로 보여준다.
+
+### 2026-06-06 - 통합 사용자 텔레메트리 이벤트 계약 (net-new N6)
+
+Status: proposed
+
+Why now: 사용 추적이 `keelim-vercel`의 `tool-tracking`에만 있어서 rich/apps/webui를
+가로지르는 사용 인사이트가 불가능하다. 공유 UI 패키지가 이벤트 스키마의 자연스러운
+소유처다. (출처: `net-new-2026-06-06.md`)
+
+First slice: opt-in 공통 이벤트 스키마(타입+페이로드)를 `all-web-ui`에 정의하고,
+소비자 1곳을 계측해 점진 확장한다.
+
+### 2026-06-06 - 온보딩 프리미티브 (steps/tour) (net-new N7)
+
+Status: proposed
+
+Why now: 소비자 앱 표면이 넓어 신규 진입 사용자가 길을 잃는데, 공용 온보딩
+프리미티브가 없어 각 앱이 진입 여정을 매번 새로 만든다. (출처: `net-new-2026-06-06.md`)
+
+First slice: steps/tour/highlight 프리미티브를 추가하고 두 테마(admin-bw/finance)에서
+렌더되게 한 뒤, `keelim-vercel` 온보딩(N7)이 이를 소비한다.
+
+### 2026-06-06 - 웹 성능 예산 게이트 (net-new N4)
+
+Status: proposed
+
+Why now: 공유 UI 패키지 빌드에도 번들 사이즈 예산이 없어, export 증가가 소비자 번들을
+조용히 키운다. (출처: `net-new-2026-06-06.md`)
+
+First slice: 패키지 빌드 산출물 번들 사이즈를 예산 임계와 대조해 초과 시 비0 종료.

@@ -69,3 +69,35 @@ Status: proposed
 Why now: `lib/*storage.ts`와 `storage-version-registry.ts`가 실제로 같은 저장 키 계약을 지켜야 하므로, 레지스트리 누락이나 stale sidecar가 생기면 사용자 설정이 조용히 깨질 수 있다.
 
 First slice: 저장소 키 상수와 registry 등록 목록을 비교하는 보고서를 만들고, 누락/불일치/정체된 마이그레이션 후보를 주간 점검에 띄운다.
+
+### 2026-06-06 - 금융 어시스턴트(자연어 → 도구 라우팅) (net-new N5b)
+
+Status: proposed
+
+Why now: 50+ 계산기 카탈로그가 넓어 사용자가 "내 상황에 맞는 도구"를 매번 직접 찾는다.
+기존 Next-best-action(룰기반 *추천 패널*)과 달리, 이건 **자연어 질의 → 적합 계산기
+라우팅 + 입력값 제안**이라는 다른 축이다(리서치 §1.44의 LLM 스코어링 승격과도 구별).
+(출처: `net-new-2026-06-06.md`)
+
+First slice: 계산기 메타 인덱스를 만들고 LLM이 질의→도구를 선택해 진입 폼을 프리필한다.
+Grounding: `lib/menu-config.ts`·계산기 라우트 구조에서 도구 메타 스키마 확정.
+
+### 2026-06-06 - 첫 실행·온보딩 여정 (net-new N7)
+
+Status: proposed
+
+Why now: 표면이 넓어 신규 진입 사용자가 길을 잃는다. operator collection kit(컴포넌트
+추출)과 달리 진입 여정 자체를 다룬다. (출처: `net-new-2026-06-06.md`)
+
+First slice: 첫 방문 시 프로필/관심사 기반 추천 온보딩 + 빈 상태 가이드.
+`all-web-ui` 온보딩 프리미티브(N6/N7)를 소비한다.
+
+### 2026-06-06 - 웹 성능 예산 게이트 (net-new N4)
+
+Status: proposed
+
+Why now: `build-bottleneck`은 `all` Gradle 전용이고, 이 앱에는 번들 사이즈/Web Vitals
+예산이 없어 성능 회귀가 늦게 드러난다. (출처: `net-new-2026-06-06.md`)
+
+First slice: 빌드 산출물 번들 사이즈를 예산 임계와 대조해 초과 시 비0 종료하는 검사.
+Lighthouse/Web Vitals는 헤드리스 브라우저(인프라) 필요.

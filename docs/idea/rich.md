@@ -80,3 +80,23 @@ one-off dump.
 First slice: Track a small watchlist of high-value dataset pages, diff title /
 field / link changes on each export, and push meaningful updates into the
 weekly review or recovery queue.
+
+### 2026-06-06 - 투자 위키 Q&A 제품 표면 (net-new N5a)
+
+Status: proposed (P1 freeze 블록 — 기획만, 실행 보류)
+
+Why now: `docs/words`의 raw-source/wiki/schema split이 이미 있는데 raw 소스에 머물러
+질의 가능한 제품 표면이 없다. 누적된 투자 리뷰 인사이트를 검색·질의로 재사용하면
+지식이 죽지 않는다. (출처: `net-new-2026-06-06.md`)
+
+First slice: `docs/words` 인덱싱 + 검색 API(룰 → 임베딩 단계적). rich freeze/split
+결정(P1) 이후에만 착수.
+
+### 2026-06-06 - 웹 성능 예산 게이트 (net-new N4)
+
+Status: proposed
+
+Why now: `rich/web`에 번들 사이즈/Web Vitals 예산이 없어 admin 표면이 커질수록 성능
+회귀가 늦게 드러난다. (출처: `net-new-2026-06-06.md`)
+
+First slice: `rich/web` 빌드 산출물 번들 사이즈를 예산 임계와 대조해 초과 시 비0 종료.
