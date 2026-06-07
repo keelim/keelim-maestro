@@ -5,7 +5,10 @@
   "workspaces": [
     "all-web-ui",
     "keelim-vercel",
-    "rich/web"
+    "rich/web",
+    "youtube/remotion",
+    "youtube/services/*",
+    "youtube/videos/*"
   ],
   "catalog": {
     "@radix-ui/react-accordion": "1.2.12",

@@ -22,6 +22,7 @@ flowchart TB
     localRepos --> allWebUi["all-web-ui"]
     localRepos --> quant["quant"]
     localRepos --> rich["rich"]
+    localRepos --> youtube["youtube"]
     archivedRepos --> toto["toto"]
 ```
 
@@ -59,8 +60,9 @@ This repository currently owns only root-level coordination files:
 
 The root may also carry a **Bun workspace bootstrap** for selected web repos. This is an orchestration layer for installs/scripts only; it does **not** collapse the child repositories into one Git monorepo.
 
-The child repositories remain autonomous at the codebase level. Remote-backed repos can be tracked from the root via `.gitmodules`; `quant`, `rich`, and archived `toto` remain outside the current active submodule scope.
+The child repositories remain autonomous at the codebase level. Remote-backed repos can be tracked from the root via `.gitmodules`; `quant`, `rich`, `youtube`, and archived `toto` remain outside the current active submodule scope.
 `all-web-ui` now has a public remote repository, but it is still managed as an autonomous child repo from the root until the remaining workspace blockers are resolved.
+`youtube` is a private autonomous child repo under `keelim-maestro/youtube`; keep it out of `.gitmodules`, but include its declared package paths in the root Bun workspace and include its root Python package in the root uv workspace.
 `toto` is archived from root coordination as of 2026-06-04. A local `toto/`
 checkout may remain for historical context, but it is ignored by the root and is
 not an active submodule, workspace member, helper-script target, or idea backlog
@@ -149,10 +151,17 @@ members are the paths declared in the root `package.json`:
 - `all-web-ui`
 - `keelim-vercel`
 - `rich/web`
+- `youtube/remotion`
+- `youtube/services/*`
+- `youtube/videos/*`
 
 The nested Open Trading frontend paths under `rich/open-trading-api/*/frontend`
 are not root Bun workspace members unless `package.json` later declares them.
 They remain child-repo helper/dev paths reached through root convenience scripts.
+The `youtube` entries intentionally include all current and future package
+manifests under the shared Remotion renderer, service tools, and per-episode
+video folders. The top-level `youtube/` directory is not a Bun package because
+it has no root `package.json`.
 
 Goals:
 
@@ -174,10 +183,16 @@ install and verification surface for these frontend workspace members:
 - `all-web-ui`
 - `keelim-vercel`
 - `rich/web`
+- `youtube/remotion`
+- `youtube/services/*`
+- `youtube/videos/*`
 
 The two nested `rich/open-trading-api/*/frontend` paths are local sidecar
 helper/dev surfaces inside the autonomous `rich` child repo; they do not become
 root workspace members or make `rich` safe to pin while its child repo is dirty.
+The `youtube` workspace entries are production tooling packages for Shorts
+rendering and local services; they are included for root-level install/lock
+coordination but still keep the `youtube` repo independently runnable.
 `rich/web` intentionally uses the root Bun workspace as its install/verification
 surface so its `catalog:` dependencies resolve from the root catalog.
 Standalone consumers outside that root workspace install the exact GitHub
@@ -213,9 +228,12 @@ exist locally:
 - `all-web-ui/`
 - `keelim-vercel/`
 - `rich/web/`
+- `youtube/remotion/`
+- `youtube/services/*/`
+- `youtube/videos/*/`
 
 `keelim-vercel` is available from the root submodule bootstrap, but
-`all-web-ui` and `rich` are still autonomous child repos, **not** root
+`all-web-ui`, `rich`, and `youtube` are still autonomous child repos, **not** root
 submodules. That means a fresh root clone must hydrate the autonomous repos
 that contain package workspace paths separately **before** running root
 `bun install`. Archived `toto/` is not required for root Bun installation.
@@ -236,6 +254,8 @@ git submodule update --init --recursive
 # hydrate autonomous repos expected by the Bun workspace
 git clone https://github.com/keelim/all-web-ui.git all-web-ui
 git clone https://github.com/keelim/rich.git rich
+# hydrate the private youtube checkout through the operator-approved path
+git clone <private-youtube-remote-or-local-path> youtube
 
 bun install
 ```
@@ -244,16 +264,22 @@ If those autonomous repos are absent, Bun workspace installation will fail
 because the package workspace paths are intentionally fixed to the local
 workspace layout. The nested Open Trading helper paths require the same hydrated
 `rich/` checkout, but they are not root Bun workspace members.
+The `youtube/videos/*` glob can make the root Bun lockfile change when new
+episode package folders are added or removed.
 
 ## Python uv workspace bootstrap
 
 The root also carries a narrow uv workspace for Python dependency coordination across the in-scope Python projects:
 
 - `rich`
+- `youtube`
 
 This uv workspace is separate from the Bun workspace bootstrap. It does not change `package.json`, `bun.lock`, frontend install behavior, or child-repo Git ownership.
 
-The root uv project is coordination-only (`tool.uv.package = false`) and uses `requires-python = ">=3.13"` because `rich` requires Python 3.13 or newer. Archived `toto` is no longer part of root uv operations.
+The root uv project is coordination-only (`tool.uv.package = false`) and uses `requires-python = ">=3.13"` because `rich` requires Python 3.13 or newer. `youtube` remains independently runnable with its own lower `requires-python` declaration, but root uv commands resolve it through the parent workspace. Archived `toto` is no longer part of root uv operations.
+
+The nested `youtube/simple` project is intentionally not a root uv workspace
+member; it keeps its own `pyproject.toml`, `uv.lock`, and compatibility range.
 
 Shared Python packages should use aligned constraints across uv workspace members. The root uv workspace enforces shared dependency policy with `tool.uv.constraint-dependencies` for the active Python member set.
 
@@ -266,6 +292,7 @@ uv run python scripts/verify-python-dependency-constraints.py
 uv workspace metadata
 uv lock --check
 uv run --package keelim-rich --group dev pytest rich/tests
+uv run --package easy-release-note --group dev pytest youtube/tests
 ```
 
 Sandboxed agent sessions can pass `--cache-dir .omx/uv-cache` if the default uv cache is not writable.
@@ -295,6 +322,7 @@ The first-pass knowledge-system documentation lives under `docs/knowledge/`:
 | `keelim-vercel` | yes | clean vs `origin/develop` | registered submodule and Vercel-linked app |
 | `quant` | no | absent in this checkout | intentionally excluded for now |
 | `rich` | yes | dirty working tree, no ahead/behind drift vs `origin/master` | autonomous local repo; freeze/split before future pinning or data modernization |
+| `youtube` | no | local private checkout under `keelim-maestro/youtube`; no origin/upstream yet | autonomous YouTube Shorts production repo; included in root subrepo helper, Bun workspace package globs, and root uv workspace; not a submodule |
 
 ## Archived child checkouts
 
@@ -332,7 +360,7 @@ git submodule foreach git status --short --branch
 git submodule update --init --recursive
 ```
 
-Note: the submodule commands above are valid for the registered submodules in `.gitmodules`. `quant` remains intentionally excluded, and `rich` is still treated as an autonomous child repo from the root.
+Note: the submodule commands above are valid for the registered submodules in `.gitmodules`. `quant` remains intentionally excluded, and `rich` and `youtube` are still treated as autonomous child repos from the root.
 `all-web-ui` is also surfaced through the root helper scripts as an autonomous child repo, but it is not yet a registered submodule.
 
 ## Root test command
@@ -390,7 +418,7 @@ Helper script:
 Behavior:
 
 - reads tracked submodule paths from `.gitmodules`
-- includes autonomous local repos `all-web-ui`, `rich`, and `quant` when present in status output
+- includes autonomous local repos `all-web-ui`, `rich`, `quant`, and `youtube` when present in status output
 - updates only clean repos on `main` / `master` / `develop`
 - supports dry-run preview before any fetch / pull
 - skips repos with local commits ahead of upstream
@@ -401,9 +429,10 @@ Behavior:
 1. Freeze/split the mixed dirty state in `rich` before any future pinning or data modernization.
 2. Re-run `bun run report:baseline` before any expansion and reconcile any future ahead/behind child repos it reports.
 3. Keep `quant` excluded unless a future explicit request provides a reproducible remote-backed path.
-4. Expand `.gitmodules` only after any newly targeted remote-backed child repos are safe to pin.
-5. Add new submodules from remote URLs only.
-6. Verify with:
+4. Keep `youtube` autonomous and out of `.gitmodules` until a private remote, clean working tree, and upstream are established.
+5. Expand `.gitmodules` only after any newly targeted remote-backed child repos are safe to pin.
+6. Add new submodules from remote URLs only.
+7. Verify with:
    - `git submodule status`
    - `git ls-files --stage | grep 160000`
    - `git status --ignore-submodules=none`
@@ -419,7 +448,7 @@ git submodule update --init --recursive
 ```
 
 If you also want the root Bun workspace bootstrap, hydrate the autonomous repos
-that contain package workspace paths (`all-web-ui`, `rich`) before running root
+that contain package workspace paths (`all-web-ui`, `rich`, `youtube`) before running root
 `bun install`; see **Bun workspace prerequisites** above. The nested
 `rich/open-trading-api/*` paths are helper/dev paths inside the hydrated `rich`
 checkout, not root Bun workspace members.

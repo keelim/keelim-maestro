@@ -24,7 +24,7 @@
 - Do not discard, rewrite, or normalize child-repo changes from the root without an explicit request.
 
 ## Child repository autonomy
-- Every top-level child directory (`all`, `all-web-ui`, `android-support`, `Keelim-Knowledge-Vault`, `keelim-plugin`, `keelim-vercel`, `quant`, `rich`) remains its own Git repository and working context.
+- Every top-level child directory (`all`, `all-web-ui`, `android-support`, `Keelim-Knowledge-Vault`, `keelim-plugin`, `keelim-vercel`, `quant`, `rich`, `youtube`) remains its own Git repository and working context.
 - `/toto` is archived from the root coordination layer. If a local `toto/` checkout remains, treat it as an ignored historical checkout, not an active root submodule, workspace member, CodeGraph target, or backlog target.
 - When modifying code inside a child repo, enter that repo, use its own Git history, and follow any deeper `AGENTS.md` that applies there.
 - Root-level changes should prefer updating documentation, submodule metadata, or pinned pointers rather than editing child-repo source files.
@@ -34,7 +34,8 @@
 
 ## Python uv workspace policy
 - Root `pyproject.toml` / `uv.lock` may act as a uv workspace bootstrap for selected Python repos, but this does **not** convert the root into a single Python monorepo or remove child-repo standalone responsibilities.
-- Keep uv workspace membership narrow and explicit. After archiving `toto`, the in-scope Python member is `rich`; do not include sibling repos such as `../easy-release-note` unless explicitly requested.
+- Keep uv workspace membership narrow and explicit. After archiving `toto`, the in-scope Python members are `rich` and the private local `youtube` checkout; do not include sibling repos such as `../easy-release-note` unless explicitly requested.
+- Keep `youtube/simple` outside the root uv workspace unless a later request explicitly promotes that nested Python project; it has its own lockfile and compatibility range.
 - Do not change non-Python projects or existing Bun workspace behavior when doing uv workspace work.
 - Use root `tool.uv.constraint-dependencies` for Python packages that should resolve consistently across workspace members. If a child repo directly declares a shared package, keep its child-local declaration aligned with the root constraint so standalone fallback installs remain honest.
 - After uv dependency changes, run `uv run python scripts/verify-python-dependency-constraints.py`, `uv lock --check`, and package-local pytest commands documented in `README.md`. In sandboxed agent sessions, pass `--cache-dir .omx/uv-cache` if the default uv cache is not writable.
@@ -70,6 +71,14 @@
 - Do not create a remote for `/quant` unless explicitly requested.
 - Do not add `/quant` as a local-path submodule; that would break reproducible clone/bootstrap workflows.
 - Keep `/quant` as an autonomous local repository unless a future explicit change request says otherwise.
+
+## `/youtube` policy
+- `/youtube` is a private autonomous child repository for YouTube Shorts and Easy Release Note production work.
+- Include `/youtube` in root-level subrepo status / verification helpers.
+- Do not add `/youtube` as a local-path submodule.
+- `/youtube` participates in the root Bun workspace only through package paths declared in root `package.json` (`youtube/remotion`, `youtube/services/*`, and `youtube/videos/*`), not as an exact top-level Bun package.
+- `/youtube` participates in the root uv workspace as the `easy-release-note` package; keep child-local dependency declarations aligned with root constraints so standalone fallback installs remain honest.
+- If it later gets a private remote and is clean enough to pin, add it only through a remote-backed URL after the broader workspace blockers are resolved.
 
 ## `/toto` archive policy
 - `/toto` is archived as of 2026-06-04 and should no longer receive root-level active handling.

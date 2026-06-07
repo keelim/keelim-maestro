@@ -43,7 +43,7 @@ list_registered_paths() {
 list_report_paths() {
   {
     list_registered_paths
-    for extra in all-web-ui rich quant; do
+    for extra in all-web-ui rich quant youtube; do
       if [ -e "$extra" ]; then
         printf '%s\n' "$extra"
       fi
