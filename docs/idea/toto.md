@@ -1,6 +1,6 @@
 # toto
 
-Last reviewed: 2026-05-16 KST
+Last reviewed: 2026-06-08 KST
 
 ## Signals
 
@@ -42,3 +42,11 @@ Status: proposed
 Why now: `toto`가 `.gitmodules`에 선언돼 있지만 gitlink가 루트 인덱스에 커밋되지 않아서, 신규 클론 시 디렉터리가 없고 `bun run dev:toto`·`bun run verify:toto`를 실행할 수 없다. 재현성을 핵심 가치로 내세운 프로젝트에서 이 비대칭은 가장 먼저 해소해야 할 운영 위험이다.
 
 First slice: 안정 커밋을 골라 gitlink를 루트 인덱스에 커밋하고, `git submodule update --init toto` → `bun run bootstrap` → `bun run verify:toto` 순서가 CI에서 그린으로 돌아오면 pinning 완료로 간주한다.
+
+### 2026-06-08 - Bun·uv 런타임 버전 정합성 검사
+
+Status: proposed
+
+Why now: toto는 Bun 래퍼 스크립트와 uv(Python ≥3.13) 환경을 함께 사용하는데, 두 레이어 사이의 버전 정합성을 확인하는 게이트가 없다. `bun run bootstrap`이 잘못된 Python 버전을 활성화하거나 uv lockfile과 Streamlit 설치 버전이 어긋나도 현재 CI가 잡지 못한다.
+
+First slice: `bun run verify` 단계에 Python 버전(≥3.13) 확인과 uv lockfile 대비 실제 Streamlit 설치 버전 비교를 추가하고, 불일치 시 종료 코드 1을 반환하게 한다.

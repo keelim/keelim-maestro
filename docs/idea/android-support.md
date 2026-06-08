@@ -1,6 +1,6 @@
 # android-support
 
-Last reviewed: 2026-05-16 KST
+Last reviewed: 2026-06-08 KST
 
 ## Signals
 
@@ -56,3 +56,11 @@ Status: proposed
 Why now: 이 action은 릴리스 핵심 경로를 직접 건드리는데, 현재 테스트는 입력 검증에 비해 실제 Play API 편집 생명주기 검증이 약해서 사소한 변경도 실배포까지 밀려갈 수 있다.
 
 First slice: sign/upload/internal sharing/staged rollout 응답을 대표 fixture로 기록하고, 이를 CI에서 재생해 Play Console에 닿지 않고도 전체 edit lifecycle을 검증한다.
+
+### 2026-06-08 - 앱별 롤아웃 정책 매니페스트
+
+Status: proposed
+
+Why now: 워크스페이스에서 여러 앱이 android-support 액션을 공유하지만, 각 앱의 track·staged rollout fraction·locale 필수 조건이 어디에도 버전 관리되지 않는다. 정책이 흩어지면 입력 불일치가 릴리스 직전에야 발견된다.
+
+First slice: 앱별 롤아웃 정책(track, userFraction, 허용 status, locale 필수 항목)을 선언하는 YAML 매니페스트를 android-support 설정 디렉터리에 추가하고, Release preflight validator가 실행 시 이 매니페스트와 실제 액션 입력을 대조해 불일치를 경고로 내보내게 한다.
