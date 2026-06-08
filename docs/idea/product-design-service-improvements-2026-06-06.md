@@ -103,3 +103,57 @@
     - Small change: automation output should keep separate sections for
       `commits`, `processes`, `service improvements`, and `bug scan`, each with
       exact evidence and skipped/blocked items.
+
+## 2026-06-08 Follow-Up Evidence
+
+- Product Design preflight still reports no saved
+  `/Users/keelim/.codex/state/plugins/product-design/user-context.md`.
+- Raw cross-session search remains noisy: direct keyword scans over session JSONL
+  match repeated system prompts, tool schemas, and old embedded session summaries.
+  Chronicle 10-minute summaries are currently the higher-signal session layer.
+- Recent session summaries after the previous automation run centered on:
+  Naver Clip Creator upload/metadata handling, Easy Release Note motion-graphic
+  variation, SkillOpt-style gated skill promotion, Rich local Kubernetes/admin
+  verification, and a docs/words investing wiki ingest.
+- The Naver Clip flow exposed an external-action risk: Chrome file-upload
+  automation was blocked, manual file selection was needed, and live visibility
+  settings could differ when reopening a draft.
+- The YouTube SkillOpt video workflow exposed a design-quality risk: even
+  source-correct videos can feel repetitive when the renderer reuses the same
+  scaffold without a per-source visual grammar check.
+
+## 2026-06-08 Additional Improvements
+
+11. Use chronicle summaries as the default cross-session analysis layer.
+    - Evidence: raw JSONL search returned repeated instructions and irrelevant
+      old embedded summaries, while chronicle summaries named concrete workflows,
+      files, blockers, and browser states.
+    - Small change: Product Design/service analysis should first read a bounded
+      chronicle index by timestamp, then open raw session logs only for a named
+      thread or missing proof.
+
+12. Add an external-action checkpoint for browser-backed publishing flows.
+    - Evidence: Naver Clip upload/metadata sessions required manual file-picker
+      selection, draft-save confirmation, and visibility-state checks before any
+      registration action.
+    - Small change: Product Design handoffs that cross into Chrome or creator
+      studios should label steps as `local-prep`, `manual-upload`, `draft-save`,
+      `visibility-check`, or `publish-authorized` and stop before publish unless
+      explicitly authorized.
+
+13. Track visual repetition risk before declaring a video/prototype done.
+    - Evidence: the Easy Release Note SkillOpt episode was source-faithful but
+      still needed a per-source render-layer pass because common scene scaffolding
+      made the middle section feel too similar to prior videos.
+    - Small change: add a lightweight `similarityRisk` field to Product Design
+      and video-design handoffs, with one sentence comparing the output to the
+      last few related artifacts.
+
+14. Reuse gated promotion patterns for Product Design playbooks.
+    - Evidence: recent SkillOpt work converged on ignored `.skillopt/` candidate
+      storage, dry-run validation, `no-diff` semantics, and explicit `--apply`
+      promotion rather than automatic skill overwrite.
+    - Small change: Product Design prompt/playbook improvements should follow the
+      same candidate -> validate -> inspect diff -> apply gate, especially for
+      recurring workflows such as visual QA, session analysis, and publishing
+      handoff checklists.
