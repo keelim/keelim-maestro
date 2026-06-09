@@ -157,3 +157,73 @@
       same candidate -> validate -> inspect diff -> apply gate, especially for
       recurring workflows such as visual QA, session analysis, and publishing
       handoff checklists.
+
+## 2026-06-09 Follow-Up Evidence
+
+- Product Design preflight still reports no saved
+  `/Users/keelim/.codex/state/plugins/product-design/user-context.md`.
+- Chronicle summaries after the previous automation run show Work Relay moving
+  from a broad "reduce work time by 50%" idea into a Product Design brief for a
+  Korean-first Rich admin surface around `/admin/work-triage` and proposed
+  `/admin/ops`.
+- The visible Work Relay UI evidence centered on a signal inbox, evidence
+  preview, Action Packet panel, risk boundary, required proof checklist, and
+  time-saved metrics.
+- SkillOpt production moved through Google Vids voiceover export, Remotion audio
+  attachment, EN/KO validation, YouTube Studio metadata/playlist checks, and
+  Naver Clip draft/upload-state checks.
+- Rich Stitch work synchronized route captures to an existing Stitch project
+  with local `.stitch` artifacts, dry-run defaults, explicit approval for
+  external sync, sensitive-content audit, and route-map reconciliation.
+- A separate Google Stitch session generated all-web-ui component/system
+  variants in browser state, including blueprint/editorial/SaaS directions,
+  without a saved Product Design context file.
+
+## 2026-06-09 Additional Improvements
+
+15. Persist Product Design brief decisions before retrying build or ideation.
+    - Evidence: Work Relay was blocked on Product Design brief approval, then a
+      retry path treated the brief as baseline and continued.
+    - Small change: write the accepted brief, target route, visual source, and
+      non-goals into a repo or Product Design context artifact before generating
+      variants or starting implementation.
+
+16. Make Action Packet plus Proof Bundle the default Product Design handoff shape
+    for Work Relay-style products.
+    - Evidence: the visible `/admin/ops` Work Relay concept already organized
+      signals into evidence previews, risk boundaries, required proof, and a
+      next-action button.
+    - Small change: design handoffs for operations consoles should include
+      `signal`, `evidence`, `riskBoundary`, `requiredProof`, `owner`, and
+      `nextAction` fields.
+
+17. Add a media-production quality gate for Product Design/video workflows.
+    - Evidence: the SkillOpt Korean Google Vids voiceover first exceeded the
+      Shorts target and had to be shortened before final Remotion validation.
+    - Small change: require duration, audio codec/sample-rate, loudness,
+      safe-area frame checks, and similarity-risk notes before a video/prototype
+      is marked ready.
+
+18. Treat external design sync as an approval-gated publish step.
+    - Evidence: the Rich Stitch workflow used local `.stitch` captures, dry-run
+      behavior, sensitive-content audit, explicit approval, and remote route-map
+      reconciliation against an existing project.
+    - Small change: Product Design share/sync workflows should label local
+      capture, privacy audit, dry run, external upload approval, remote id
+      reconciliation, and rollback notes separately.
+
+19. Track cross-posting state per platform instead of a single "published" flag.
+    - Evidence: the SkillOpt package had YouTube private upload plus playlist
+      state, while Naver Clip moved through upload, draft/edit, visibility, and a
+      cancel-unsaved modal.
+    - Small change: store per-platform states such as `local-rendered`,
+      `uploaded-private`, `draft-saved`, `visibility-checked`,
+      `playlist-attached`, and `publish-performed`.
+
+20. Save reusable design-system exploration into durable Product Design context.
+    - Evidence: a Google Stitch all-web-ui component map and multiple generated
+      variants existed in browser/design-tool state while Product Design saved
+      context remained missing.
+    - Small change: after design-system exploration, save the chosen component
+      map, rejected directions, visual rules, and share target into Product
+      Design context or repo `DESIGN.md`.
