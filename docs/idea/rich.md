@@ -1,6 +1,6 @@
 # rich
 
-Last reviewed: 2026-05-16 KST
+Last reviewed: 2026-06-09 KST
 
 ## Signals
 
@@ -16,13 +16,13 @@ Last reviewed: 2026-05-16 KST
 
 ## Open ideas
 
-### 2026-04-12 - Recovery cockpit for failed runs
+### 2026-04-12 - 실행 이력 & 복구 코크핏
 
 Status: proposed
 
-Why now: `rich` now mixes cron jobs, manual runs, Slack reminders, Google reconnects, and pykrx ingestion, so recovery work needs one place to live instead of scattered logs.
+Why now: `rich`는 cron 작업, 수동 실행, Slack 알림, Google 재연결, pykrx 수집 등 다양한 실행 흐름을 섞고 있어서, 실행 이력 타임라인과 실패 복구 큐를 같은 화면에서 관리해야 한다.
 
-First slice: Collect failed or partial runs into a single queue with the exact retry or repair action, then link each item back to the affected workflow.
+First slice: 모든 실행·재시도·실패를 정규화 로그에 저장하고 각 이벤트를 영향받은 워크플로우와 복구 행동에 연결하는 타임라인을 렌더링한다. 실패·미완료 실행은 정확한 재시도·수리 행동과 함께 단일 큐로 묶는다.
 
 ### 2026-04-12 - Daily review cockpit
 
@@ -46,18 +46,6 @@ First slice: Add a reliability panel that flags stale datasets, failed jobs,
  missing snapshots, and suspicious metric jumps before they affect downstream
  review flows.
 
-### 2026-04-12 - Execution ledger and replay timeline
-
-Status: proposed
-
-Why now: The admin surface already runs manual workflows, cron-triggered
-ingestion, and review flows, but the history of what happened is still
-scattered across endpoints and logs.
-
-First slice: Persist every run/retry/failure into a normalized log and render a
-timeline that links each event back to the affected workflow and recovery
-action.
-
 ### 2026-04-12 - Integration health console
 
 Status: proposed
@@ -80,3 +68,11 @@ one-off dump.
 First slice: Track a small watchlist of high-value dataset pages, diff title /
 field / link changes on each export, and push meaningful updates into the
 weekly review or recovery queue.
+
+### 2026-06-09 - 작업 트리 기준선 정리 게이트
+
+Status: proposed
+
+Why now: WORKSPACE.md 서브모듈 확장 게이트가 `rich` 작업 트리의 더티 상태를 명시적 차단 요인으로 기록하고 있다. 이를 해소하지 않으면 `all-web-ui` 등 자율 레포의 `.gitmodules` 승격이 계속 보류된다.
+
+First slice: `rich` 내 더티 파일을 커밋하거나 `.gitignore`에 추가해 클린 상태를 만들고, 루트의 `bun run report:baseline` 결과에서 `rich` 차단 항목이 사라지면 정리 완료로 간주한다.
