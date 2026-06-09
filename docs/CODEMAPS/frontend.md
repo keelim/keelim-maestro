@@ -1,4 +1,4 @@
-<!-- Generated: 2026-06-08 | Files scanned: 151+ | Token estimate: ~760 -->
+<!-- Generated: 2026-06-09 | Files scanned: 151+ | Token estimate: ~760 -->
 
 # Frontend Codemap
 
