@@ -227,3 +227,66 @@
     - Small change: after design-system exploration, save the chosen component
       map, rejected directions, visual rules, and share target into Product
       Design context or repo `DESIGN.md`.
+
+## 2026-06-12 Follow-Up Evidence
+
+- Product Design preflight still reports no saved
+  `/Users/keelim/.codex/state/plugins/product-design/user-context.md`.
+- Chronicle summaries after the previous automation run show a
+  `subproject-improvements-html-report` task aimed at an 800-item improvement
+  backlog across 8 subprojects, using the existing
+  `keelim-plugin/skills/html-report-generator` renderer.
+- The current repo state contains partial raw improvement inputs and helper
+  scripts under `docs/research/improvements-2026-06/` and
+  `scripts/improvements/`, but the planned final outputs
+  `improvements.json`, `report-input.json`, `improvement-items-2026-06.html`,
+  and `improvement-items-2026-06.md` are not present.
+- The same session showed a separate Fable video-production task moving through
+  source browsing, package preparation, Remotion scene checks, Google Vids
+  voiceover outputs, and per-platform upload/draft-state planning.
+- The generated raw improvement inputs include `debug-log.json` residue, which
+  reinforces the need to keep agent scratch/debug artifacts out of product
+  evidence packages.
+
+## 2026-06-12 Additional Improvements
+
+21. Mark cross-project improvement backlogs as staged until final counts render.
+    - Evidence: the Chronicle plan targeted 100 items per 8 projects, but the
+      repo currently has only partial raw files plus scripts and no final
+      `improvements.json` or report artifact.
+    - Small change: Product Design and report-generation handoffs should expose
+      `raw-collected`, `aggregated`, `validated`, `rendered`, and `ready`
+      statuses instead of a single done/undone state.
+
+22. Add a hard artifact-readiness gate before service insights are promoted.
+    - Evidence: helper scripts exist for aggregation and count checks, while the
+      final HTML/Markdown outputs are missing.
+    - Small change: do not cite or commit a large improvement report as an
+      output until `check_counts.py` passes and the renderer produces both the
+      HTML report and Markdown summary.
+
+23. Treat local file-path evidence as the shared currency between Product
+    Design, bug triage, and backlog reports.
+    - Evidence: the improvement-report plan required repository-relative file
+      paths, severity mapping, and no remote URL leakage; the recurring bug
+      scan requires concrete SHA/file/diff/test evidence.
+    - Small change: add an `evidenceRefs` shape with `repo`, `path`, optional
+      `commit`, `testCommand`, and `status` fields to Product Design handoffs
+      that feed engineering work.
+
+24. Keep generated debug artifacts out of durable design and research packages.
+    - Evidence: `debug-log.json` appears in root and child dirty states and also
+      inside `docs/research/improvements-2026-06/raw/`.
+    - Small change: add a reject rule for debug/session hook artifacts before
+      aggregation, and summarize them only as process residue in automation
+      reports.
+
+25. Connect source-backed video tasks to the same publish-state model as Product
+    Design external sync.
+    - Evidence: the Fable production path touched Chrome source review,
+      package files, Remotion props, Google Vids voiceover exports, Naver Clip
+      prep, and explicit no-upload/no-registration states.
+    - Small change: use one platform-state checklist for creator workflows:
+      `source-checked`, `local-rendered`, `voiceover-attached`,
+      `frame-reviewed`, `uploaded-private`, `draft-saved`,
+      `visibility-checked`, and `publish-authorized`.
