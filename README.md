@@ -113,6 +113,7 @@ bun run automation:local -- list
 bun run automation:local -- status
 bun run automation:local -- standby
 bun run automation:local -- verify rich
+bun run automation:local -- status gbrain
 bun run automation:local -- start agentgateway
 bun run automation:local -- stop n8n
 ```
@@ -124,6 +125,10 @@ active and scale Rich/n8n deployments to zero without deleting namespaces, PVCs,
 Secrets, or manifests. `status` and `list` are read-only. `start` and `stop`
 require an explicit runtime target and delegate to the owning runtime's
 documented command.
+
+`gbrain` is exposed through the helper only for `list`, `status`, and `verify`.
+Install, sync, migration, cron registration, and MCP wiring stay explicit
+operator actions documented under `docs/knowledge/`.
 
 ## CodeGraph dispatcher
 
@@ -301,14 +306,17 @@ Package-local lockfiles remain standalone child-repo fallback artifacts unless a
 
 ## Knowledge system docs
 
-The first-pass knowledge-system documentation lives under `docs/knowledge/`:
+The root-owned GBrain knowledge-system documentation lives under
+`docs/knowledge/`:
 
-- `docs/knowledge/README.md` — workspace contract and scope
-- `docs/knowledge/operator-runbook.md` — bootstrap, validation, Neo4j, and MCP flow
-- `docs/knowledge/source-targets.md` — grounded analyzer targets for `all`, `rich`, and `keelim-vercel`
-- `docs/knowledge/review-checklist.md` — review and handoff checklist
-- `docs/knowledge/merge-guidance.md` — cross-lane integration and conflict-resolution guidance
-- `docs/knowledge/verification-contract.md` — expected verification evidence and PASS/FAIL conventions
+- `docs/knowledge/README.md` - workspace contract and scope
+- `docs/knowledge/gbrain.md` - staged full-brain adoption contract
+- `docs/knowledge/operator-runbook.md` - install, local smoke, MCP, migration, and maintenance flow
+- `docs/knowledge/source-targets.md` - curated import pool and exclusions
+- `docs/knowledge/verification-contract.md` - expected verification evidence and blocker rules
+
+GBrain uses a separate operator brain repository such as `~/brain`; this root
+only owns the contract, helper discovery, and verification expectations.
 
 ## Child repositories in this workspace
 
