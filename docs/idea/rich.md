@@ -1,6 +1,6 @@
 # rich
 
-Last reviewed: 2026-05-16 KST
+Last reviewed: 2026-06-12 KST
 
 ## Signals
 
@@ -33,7 +33,7 @@ but they appear to live across separate endpoints and pages.
 
 First slice: Create one dashboard view that combines agenda, inbox priorities,
  PyKRX flow highlights, weekly review carry-over items, journal prompts, and
- links for filing durable insights into `docs/words`.
+ links for filing durable insights into `docs/words`. 2026-06-12 백엔드 코드맵에서 `POST /api/admin/weekly-review/generate-ai` 엔드포인트가 확인되므로, AI 생성 요약을 코크핏 내에서 직접 실행하고 결과를 carry-over 목록에 연결하는 흐름을 첫 번째 통합 목표로 잡는다.
 
 ### 2026-04-12 - Data freshness and anomaly watchdog
 

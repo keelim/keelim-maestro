@@ -1,6 +1,6 @@
 # all-web-ui
 
-Last reviewed: 2026-05-16 KST
+Last reviewed: 2026-06-12 KST
 
 ## Signals
 
@@ -66,4 +66,4 @@ Status: proposed
 
 Why now: `all-web-ui`는 실제로 두 개의 다운스트림 앱에 붙어 있으니, export나 theme 파일 변경이 배포 전에 빌드 단위에서 먼저 깨지는지 확인해야 회귀 비용이 낮아진다.
 
-First slice: `keelim-vercel`과 `rich/web`이 쓰는 import 경로를 그대로 재현하는 작은 fixture 또는 매트릭스 빌드를 만들고, 타입체크/빌드 실패를 소비자 영향 경고로 보여준다.
+First slice: `keelim-vercel`과 `rich/web`이 쓰는 import 경로를 그대로 재현하는 작은 fixture 또는 매트릭스 빌드를 만들고, 타입체크/빌드 실패를 소비자 영향 경고로 보여준다. 2026-06-12 코드맵 기준 현재 계약 버전은 `@keelim/all-web-ui@0.1.4`이며, 루트의 `bun run report:shared-ui` 스크립트가 이 계약을 관찰하므로 카나리 빌드는 해당 스크립트 결과와 연계해 버전 드리프트를 조기에 감지한다.

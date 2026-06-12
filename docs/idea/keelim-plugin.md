@@ -1,6 +1,6 @@
 # keelim-plugin
 
-Last reviewed: 2026-05-16 KST
+Last reviewed: 2026-06-12 KST
 
 ## Signals
 
@@ -65,4 +65,4 @@ Status: proposed
 
 Why now: 스킬이 늘수록 같은 절차나 판별 규칙이 여러 `SKILL.md`에 흩어져서, 공통 프리미티브와 재사용 가능한 조합을 한 장의 그래프로 보면 중복 정리와 신규 설치 판단이 빨라진다.
 
-First slice: `skills/*/SKILL.md`를 스캔해 공통 키워드·연관 스킬·설치 경로를 묶은 그래프를 만들고, 함께 묶어야 할 스킬 묶음을 표시한다.
+First slice: `skills/*/SKILL.md`를 스캔해 공통 키워드·연관 스킬·설치 경로를 묶은 그래프를 만들고, 함께 묶어야 할 스킬 묶음을 표시한다. 2026-06-12 아키텍처 코드맵에 agentgateway MCP 라우팅 모델이 명시되어 있으므로, 그래프에 각 스킬이 실행될 에이전트 유형(leader/subagent/worker/plugin)과 MCP 경로 메타데이터를 함께 기록해 설치 시 실행 경로 선택을 명확히 한다.

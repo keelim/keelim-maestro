@@ -1,6 +1,6 @@
 # toto
 
-Last reviewed: 2026-05-16 KST
+Last reviewed: 2026-06-12 KST
 
 ## Signals
 
@@ -41,4 +41,4 @@ Status: proposed
 
 Why now: `toto`가 `.gitmodules`에 선언돼 있지만 gitlink가 루트 인덱스에 커밋되지 않아서, 신규 클론 시 디렉터리가 없고 `bun run dev:toto`·`bun run verify:toto`를 실행할 수 없다. 재현성을 핵심 가치로 내세운 프로젝트에서 이 비대칭은 가장 먼저 해소해야 할 운영 위험이다.
 
-First slice: 안정 커밋을 골라 gitlink를 루트 인덱스에 커밋하고, `git submodule update --init toto` → `bun run bootstrap` → `bun run verify:toto` 순서가 CI에서 그린으로 돌아오면 pinning 완료로 간주한다.
+First slice: 2026-06-12 코드맵 기준 루트 인덱스에 `5897ef44`가 gitlink로 기록되어 초기 pinning 단계는 완료된 것으로 보인다. 다음 슬라이스는 `git submodule update --init toto` → `bun run bootstrap` → `bun run verify:toto` 시퀀스가 CI에서 지속적으로 그린을 유지하는지 확인하고, submodule 업데이트 시 검증 파이프라인이 자동으로 실행되는 게이트를 추가하는 것이다.

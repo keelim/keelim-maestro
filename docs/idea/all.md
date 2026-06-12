@@ -1,6 +1,6 @@
 # all
 
-Last reviewed: 2026-05-16 KST
+Last reviewed: 2026-06-12 KST
 
 ## Signals
 
@@ -40,7 +40,7 @@ Why now: A family of apps plus shared modules creates hidden release drift
 around versioning, QA coverage, changelog completeness, and regression risk.
 
 First slice: Generate a single report that gathers per-app version, pending
-release notes, test/build status, and any known rollout blockers.
+release notes, test/build status, and any known rollout blockers. 2026-06-12 코드맵 기준 targetSDK가 36(Android 16)으로 올라가 있으므로, 앱별 Android 16 행동 변경 적합성과 권한 선언 검토를 릴리스 체크리스트 항목으로 함께 포함한다.
 
 ### 2026-04-13 - 컨벤션 드리프트 대시보드
 
