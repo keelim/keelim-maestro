@@ -290,3 +290,45 @@
       `source-checked`, `local-rendered`, `voiceover-attached`,
       `frame-reviewed`, `uploaded-private`, `draft-saved`,
       `visibility-checked`, and `publish-authorized`.
+
+## 2026-06-12 GBrain Follow-Up Evidence
+
+- Product Design preflight still reports no saved
+  `/Users/keelim/.codex/state/plugins/product-design/user-context.md`.
+- Recent Chronicle/memory evidence after the previous automation marker shows a
+  GBrain knowledge-layer rollout that converged on a root-owned contract,
+  separate operator brain repository, local PGLite smoke first, and later
+  Postgres/Supabase promotion only after credentials and destination are
+  verified.
+- Current root docs under `docs/knowledge/` and `docs/ops/local-automation-stack.md`
+  separate documentation, install, sync, migration, cron, MCP, and secret
+  boundaries instead of treating "GBrain exists" as a single completed state.
+- `scripts/local-automation.sh status gbrain` can prove CLI availability and
+  local docs presence, but the verification contract still requires MCP tool
+  calls and search/query proof before the brain is considered ready.
+
+## 2026-06-12 GBrain Improvements
+
+26. Model knowledge-layer adoption as an explicit readiness ladder.
+    - Evidence: the GBrain rollout distinguishes local docs, PGLite smoke,
+      curated import, Postgres/Supabase promotion, MCP registration, and MCP
+      callability.
+    - Small change: Product Design and service handoffs for agent memory should
+      use states such as `documented`, `local-smoke`, `curated-imported`,
+      `remote-promoted`, `mcp-registered`, and `mcp-call-verified`.
+
+27. Add a credential-destination preflight before operator-plane mutations.
+    - Evidence: GBrain migration is blocked until provider/database credentials
+      and the external destination are verified, and the repo docs explicitly
+      keep database URLs, bearer tokens, and provider keys out of git.
+    - Small change: before install, migration, cron, sync, or external MCP setup,
+      require a short preflight that names the destination, secret location, and
+      rollback artifact without printing secret values.
+
+28. Treat MCP registration as incomplete until a tool-call proof bundle exists.
+    - Evidence: the GBrain verification contract requires identity, skill-list,
+      and search/query calls; status output alone only shows version, docs, and
+      local environment hints.
+    - Small change: every Product Design or automation handoff involving MCP
+      should attach a proof bundle with `server`, `transport`, `toolCalls`,
+      `resultSummary`, and `missingProof` fields.
