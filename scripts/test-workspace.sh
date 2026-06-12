@@ -115,12 +115,20 @@ check_root_files() {
   run_check "root keelim-plugin verifier exists" test -f scripts/verify-keelim-plugin-rename.sh
   run_check "root codex app-server helper exists" test -f scripts/codex-app-server.sh
   run_check "root local automation helper exists" test -f scripts/local-automation.sh
+  run_check "root knowledge docs README exists" test -f docs/knowledge/README.md
+  run_check "root GBrain contract exists" test -f docs/knowledge/gbrain.md
+  run_check "root GBrain source targets exist" test -f docs/knowledge/source-targets.md
+  run_check "root GBrain operator runbook exists" test -f docs/knowledge/operator-runbook.md
+  run_check "root GBrain verification contract exists" test -f docs/knowledge/verification-contract.md
 }
 
 check_local_automation_contract() {
+  run_check "local automation gbrain usage is documented in helper" file_contains scripts/local-automation.sh "scripts/local-automation.sh verify [all|rich|n8n|agentgateway|gbrain]"
   run_check "local automation standby usage is documented in helper" file_contains scripts/local-automation.sh "scripts/local-automation.sh standby [all|rich|n8n|agentgateway]"
   run_check "local automation keeps agentgateway fixed during standby" file_contains scripts/local-automation.sh "agentgateway is the fixed Kubernetes resource; standby leaves it unchanged."
+  run_check "local automation keeps gbrain read-only" file_contains scripts/local-automation.sh "gbrain is read-only from this helper: list, status, and verify only."
   run_check "local automation standby contract is documented" file_contains docs/ops/local-automation-stack.md 'standby` keeps `agentgateway` fixed and unchanged'
+  run_check "local automation gbrain contract is documented" file_contains docs/ops/local-automation-stack.md '`gbrain` supports only `list`, `status`, and `verify`'
 }
 
 check_autonomous_repo_contract() {

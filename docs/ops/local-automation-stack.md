@@ -33,6 +33,7 @@ the child repo and follow its own `AGENTS.md` before changing child-owned files.
 | Rich local app | `rich` | Namespace `rich-local`, deployments `rich-backend` and `rich-frontend`, services on ports `8000` and `3000`, Skaffold-managed dev loop | `8000`, `3001` | On-demand FastAPI backend plus Next admin UI for local app debugging |
 | n8n automation | `youtube` | Namespace `automation`, deployment `n8n`, service `n8n`, PVC `n8n-data`, task-runner sidecar | `5678` | On-demand workflow automation for upload jobs and update-tracker workflows |
 | agentgateway MCP | `tools/agentgateway` | Namespace `agentgateway-local`, deployment/service `agentgateway-local`, custom local image | `3000`, `15000` | Fixed MCP ingress for Codex/app clients and remote Supabase, Lazyweb, and Stitch targets |
+| GBrain knowledge layer | root docs + separate operator brain repo | PGLite smoke, later Postgres/Supabase brain | stdio MCP or remote HTTP MCP | Full-brain memory over curated workspace knowledge |
 
 ## Runtime Contracts
 
@@ -135,6 +136,34 @@ the child repo and follow its own `AGENTS.md` before changing child-owned files.
   - If ports `3000` or `15000` are occupied, the start script exits before
     changing the port-forward. Stop the existing listener intentionally.
 
+### GBrain knowledge layer
+
+- Owner files: `docs/knowledge/*` and the separate operator brain repository
+  such as `~/brain`.
+- Start/install: follow `docs/knowledge/operator-runbook.md`; do not install,
+  sync, migrate, or register cron jobs from the root helper.
+- Verify:
+  - `scripts/local-automation.sh status gbrain`
+  - `scripts/local-automation.sh verify gbrain`
+  - `gbrain doctor --json`
+  - `gbrain stats`
+  - one `gbrain search` and one `gbrain query` against root workspace topics
+- MCP:
+  - Local smoke may use `codex mcp add gbrain -- gbrain serve`.
+  - Remote operation should use `gbrain connect ... --agent codex --install`
+    with the bearer token kept in an environment variable.
+- Secrets and persistence:
+  - No provider keys, database URLs, bearer tokens, or local brain database files
+    belong in the root repository.
+  - The curated import pool and exclusions live in
+    `docs/knowledge/source-targets.md`.
+- Failure modes:
+  - A passing root test does not prove GBrain is installed.
+  - A registered MCP server is not proof of callability; verify
+    `get_brain_identity`, `list_skills`, and one search/query call.
+  - `gbrain sync` must be followed by `gbrain embed --stale` before treating new
+    content as searchable through vector retrieval.
+
 ## Root Script Contract
 
 The root has a coordination helper that delegates to existing runtime owners
@@ -142,10 +171,10 @@ instead of replacing them. Use it as a script index and conservative command
 surface:
 
 ```text
-scripts/local-automation.sh list [all|rich|n8n|agentgateway]
-scripts/local-automation.sh status [all|rich|n8n|agentgateway]
+scripts/local-automation.sh list [all|rich|n8n|agentgateway|gbrain]
+scripts/local-automation.sh status [all|rich|n8n|agentgateway|gbrain]
 scripts/local-automation.sh start <rich|n8n|agentgateway>
-scripts/local-automation.sh verify [all|rich|n8n|agentgateway]
+scripts/local-automation.sh verify [all|rich|n8n|agentgateway|gbrain]
 scripts/local-automation.sh standby [all|rich|n8n|agentgateway]
 scripts/local-automation.sh stop <rich|n8n|agentgateway>
 ```
@@ -165,6 +194,8 @@ Default behavior must be conservative:
 - `stop` is scoped and non-destructive by default. It may stop foreground
   port-forwards or scale a deployment to zero, but it must preserve PVCs,
   Secrets, and manifests unless a later explicit `destroy` command is approved.
+- `gbrain` supports only `list`, `status`, and `verify`; install, sync,
+  migration, cron, and MCP registration stay explicit operator actions.
 
 Suggested status probes:
 
