@@ -14,8 +14,8 @@ Ultragoal run after the user requested a pause and meaningful commits.
 ## Root Ledger Snapshot
 
 - `verified`: 516
-- `assigned`: 0
-- `todo`: 284
+- `assigned`: 41
+- `todo`: 243
 - `blocked`: 0
 - `in_progress`: 0
 - `needs_consumer_check`: 0
@@ -168,14 +168,17 @@ Verification highlights:
 
 ## Assigned Or Paused, Not Verified
 
-No active assigned or paused worker tasks remain. The next run can assign a new
-wave from the `todo` queue.
+| repo | task | owner | current state | next action |
+|---|---|---|---|---|
+| `keelim-vercel` | `T19-keelim-vercel-n-plus-one-query` | Heisenberg | Assigned to subagent `019ec0c3-e93e-7e40-b92e-7cdec24893e3`. | Wait for worker report, then leader-verify before marking complete. Preserve unrelated `keelim-vercel/debug-log.json`. |
+| `youtube` | `T29-youtube-ci-automation` | Hubble | Assigned to subagent `019ec0c4-0d2c-72a2-aa52-0c3b830790c6`. | Wait for worker report, then leader-verify before marking complete. Preserve unrelated production/media/package dirty work. |
+| `rich` | `T41-rich-api-security` | Peirce | Assigned to subagent `019ec0c4-33be-7423-8a20-0729790d82b4`. | Wait for worker report, then leader-verify before marking complete. Use agentgateway/agents MCP for live Supabase inspection unless local code/tests are sufficient. |
 
 ## Still Todo Next
 
-- `T19-keelim-vercel-n-plus-one-query`
 - `T25-keelim-vercel-bundle-size`
 - `T26-keelim-vercel-client-component`
+- `T27-keelim-vercel-image-optimization`
 - Remaining all-web-ui, keelim-plugin, keelim-vercel, youtube, Knowledge Vault,
   rich, and all task units in `docs/ops/improvement-items-progress-2026-06.md`.
 - `T43-rich-frontend-quality` should include the observed rich/web shared-ui
@@ -209,9 +212,9 @@ wave from the `todo` queue.
 1. Run `python3 scripts/improvements/init_progress_ledger.py --check`.
 2. Read this handoff and
    `docs/ops/improvement-items-ultragoal-runbook-2026-06.md`.
-3. No active assignments remain; pick the next `todo` task by wave order.
-4. For any new worker wave, leader-verify each child repo before moving the
-   ledger from `assigned` to `verified`.
+3. Resume active assignments first: `T19`, `T29`, and `T41`.
+4. If those workers are complete, leader-verify each child repo before moving
+   the ledger from `assigned` to `verified`.
 5. Track the remaining `rich/web` shared-ui primitive drift under
    `T43-rich-frontend-quality`.
 6. If a new worker wave is needed, next good candidates are `T19`, `T25`, and

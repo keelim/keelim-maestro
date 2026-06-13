@@ -11,8 +11,8 @@ Durable `/goal` ledger for completing every P1/P2 item from the June 2026 improv
 
 | status | count |
 |---|---:|
-| `todo` | 284 |
-| `assigned` | 0 |
+| `todo` | 243 |
+| `assigned` | 41 |
 | `in_progress` | 0 |
 | `verified` | 516 |
 | `blocked` | 0 |
@@ -45,14 +45,14 @@ Durable `/goal` ledger for completing every P1/P2 item from the June 2026 improv
 | 2 | `T24-keelim-vercel-testing` | `keelim-vercel` | `testing` | 15 | 7 | 8 | `verified` |
 | 2 | `T21-keelim-vercel-component-quality` | `keelim-vercel` | `component-quality` | 14 | 5 | 9 | `verified` |
 | 2 | `T22-keelim-vercel-dx-config` | `keelim-vercel` | `dx-config` | 11 | 2 | 9 | `verified` |
-| 2 | `T19-keelim-vercel-n-plus-one-query` | `keelim-vercel` | `N+1 쿼리` | 2 | 1 | 1 | `todo` |
+| 2 | `T19-keelim-vercel-n-plus-one-query` | `keelim-vercel` | `N+1 쿼리` | 2 | 1 | 1 | `assigned` |
 | 2 | `T25-keelim-vercel-bundle-size` | `keelim-vercel` | `번들 크기` | 6 | 1 | 5 | `todo` |
 | 2 | `T26-keelim-vercel-client-component` | `keelim-vercel` | `불필요한 use client` | 8 | 1 | 7 | `todo` |
 | 2 | `T27-keelim-vercel-image-optimization` | `keelim-vercel` | `이미지 최적화` | 1 | 0 | 1 | `todo` |
 | 2 | `T28-keelim-vercel-cache` | `keelim-vercel` | `캐싱 미활용` | 6 | 0 | 6 | `todo` |
 | 2 | `T34-youtube-testing` | `youtube` | `testing` | 21 | 8 | 13 | `verified` |
 | 2 | `T32-youtube-reliability` | `youtube` | `reliability` | 18 | 5 | 13 | `verified` |
-| 2 | `T29-youtube-ci-automation` | `youtube` | `ci-automation` | 18 | 4 | 14 | `todo` |
+| 2 | `T29-youtube-ci-automation` | `youtube` | `ci-automation` | 18 | 4 | 14 | `assigned` |
 | 2 | `T30-youtube-code-quality` | `youtube` | `code-quality` | 15 | 1 | 14 | `todo` |
 | 2 | `T33-youtube-remotion-quality` | `youtube` | `remotion-quality` | 14 | 1 | 13 | `todo` |
 | 2 | `T31-youtube-dx-docs` | `youtube` | `dx-docs` | 14 | 0 | 14 | `todo` |
@@ -62,7 +62,7 @@ Durable `/goal` ledger for completing every P1/P2 item from the June 2026 improv
 | 2 | `T40-keelim-knowledge-vault-structure` | `Keelim-Knowledge-Vault` | `structure` | 19 | 3 | 16 | `verified` |
 | 2 | `T35-keelim-knowledge-vault-automation` | `Keelim-Knowledge-Vault` | `automation` | 18 | 2 | 16 | `verified` |
 | 2 | `T38-keelim-knowledge-vault-linking` | `Keelim-Knowledge-Vault` | `linking` | 6 | 0 | 6 | `verified` |
-| 3 | `T41-rich-api-security` | `rich` | `api-security` | 21 | 7 | 14 | `todo` |
+| 3 | `T41-rich-api-security` | `rich` | `api-security` | 21 | 7 | 14 | `assigned` |
 | 3 | `T45-rich-reliability` | `rich` | `reliability` | 19 | 5 | 14 | `todo` |
 | 3 | `T46-rich-testing` | `rich` | `testing` | 18 | 4 | 14 | `todo` |
 | 3 | `T42-rich-backend-quality` | `rich` | `backend-quality` | 16 | 2 | 14 | `todo` |

@@ -48,7 +48,11 @@ The leader must:
 
 ## Current Assignments
 
-No active worker assignments are open. Pick the next `todo` task by wave order.
+| task | worker | scope |
+|---|---|---|
+| `T19-keelim-vercel-n-plus-one-query` | Heisenberg | `keelim-vercel` N+1 query backlog |
+| `T29-youtube-ci-automation` | Hubble | `youtube` CI/automation backlog |
+| `T41-rich-api-security` | Peirce | `rich` API/security backlog |
 
 ## Verified Task Units
 
