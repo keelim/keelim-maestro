@@ -9,12 +9,12 @@ Ultragoal run after the user requested a pause and meaningful commits.
 - Current Codex goal status from `get_goal`: `active`
 - Do not call `update_goal` yet. The aggregate run is not complete.
 - Ledger check: `python3 scripts/improvements/init_progress_ledger.py --check`
-  - Result: `OK: 800 items, 52 task units, 482 verified`
+  - Result: `OK: 800 items, 52 task units, 516 verified`
 
 ## Root Ledger Snapshot
 
-- `verified`: 482
-- `assigned`: 34
+- `verified`: 516
+- `assigned`: 0
 - `todo`: 284
 - `blocked`: 0
 - `in_progress`: 0
@@ -35,6 +35,7 @@ Durable state files:
 | `android-support` | `T02` | Leader verified and committed. | `eab61acbd0a503877daef597b89d9ee6725b5751` |
 | `android-support` | `T04` | Leader verified and committed. | `cba1055701cfd223db50ed6101b4f2f0afd63579` |
 | `android-support` | `T06` | Leader verified and committed. | `a2361258e35e6d3e4f651f2a3a9306cb2de92e61` |
+| `all-web-ui` | `T07` | Leader verified and committed. | `b13414453fbe3cb21a84c77440fba96551c9af1c` |
 | `all-web-ui` | `T08` | Leader verified and committed. | `aa9540415732274eb0e7eba4efed5c9c4c9a3ab3` |
 | `all-web-ui` | `T09` | Leader verified and committed. | `851ab59a81fdb1acf03b886f85cba06e7b348dfc` |
 | `all-web-ui` | `T10` | Leader verified and committed. | `d457277aa90abeaecd80c851d6d9f20bba54a4d2` |
@@ -52,6 +53,7 @@ Durable state files:
 | `keelim-vercel` | `T21` | Leader verified and committed. | `0191cd89a996b217b32118043357ae56a3056959` |
 | `keelim-vercel` | `T22` | Leader verified and committed. | `730f77e28fb067dfc13d5cc559497e424836c904` |
 | `keelim-vercel` | `T24` | Leader verified and committed. | `0f543d49423f5ada3e20d9223af03fb16a67186c` |
+| `youtube` | `T32` | Leader verified and committed. | `ad4709e49f251a0d49e65df3e8075f24af9f9242` |
 | `youtube` | `T34` | Leader verified and committed. | `87527904e1d05814315ec9f45c0d33dae8c18afe` |
 
 Verification highlights:
@@ -110,6 +112,14 @@ Verification highlights:
   pack:verify`, root shared-ui report, and `git diff --check` passed. Strict
   root full integration still fails only on `rich/web` generic primitive
   allowlist drift, carried to `T43`.
+- `all-web-ui` T07: accessible Dialog/Sheet/AlertDialog fallback titles and
+  descriptions, named Toast close controls, Alert/Breadcrumb semantics,
+  Select/Dropdown non-color focus affordances, Slider thumb labels, onboarding
+  state text, and reduced-motion/contrast CSS were verified with `bun run
+  typecheck`, `bun test` (37 pass / 777 expects), `bun run build`, `bun run
+  package:smoke`, `bun run pack:verify`, root shared-ui report, and `git diff
+  --check`. Strict root full integration still fails only on `rich/web`
+  generic primitive allowlist drift, carried to `T43`.
 - `keelim-plugin`: `uv --cache-dir .skillopt/uv-cache run --python 3.12 python scripts/run-tests.py`
   passed. A scanner-safe variable rename in
   `skills/session-usage-dashboard/scripts/test_build_session_usage_dashboard.py`
@@ -150,18 +160,22 @@ Verification highlights:
 - `youtube`: pytest passed with 135 tests and 90.30% coverage, `git diff --check`
   passed, root `uv.lock` was refreshed, and `uv lock --check` plus Python
   dependency constraint verification passed.
+- `youtube` T32: YouTube OAuth/upload/render reliability guards and Node
+  service request validation/limits were verified with `uv run pytest` (142
+  pass / 86.52% coverage), `bun run check` in `services/ai-content-generator`,
+  `bun run check` and `bun run test` (4 pass) in
+  `services/remotion-template-admin`, and `git diff --check`.
 
 ## Assigned Or Paused, Not Verified
 
-| repo | task | owner | current state | next action |
-|---|---|---|---|---|
-| `all-web-ui` | `T07-all-web-ui-a11y` | Jason | Assigned to subagent `019ec0b2-25e9-7383-b3c7-1da724307330`. | Wait for worker report, then leader-verify before marking complete. Preserve pre-existing `all-web-ui/AGENTS.md` edits and `debug-log.json`. |
-| `youtube` | `T32-youtube-reliability` | Maxwell | Assigned to subagent `019ec0b2-521e-7c23-b2f7-b19558f9e39e`. | Wait for worker report, then leader-verify before marking complete. Preserve unrelated production/media/package dirty work. |
+No active assigned or paused worker tasks remain. The next run can assign a new
+wave from the `todo` queue.
 
 ## Still Todo Next
 
 - `T19-keelim-vercel-n-plus-one-query`
 - `T25-keelim-vercel-bundle-size`
+- `T26-keelim-vercel-client-component`
 - Remaining all-web-ui, keelim-plugin, keelim-vercel, youtube, Knowledge Vault,
   rich, and all task units in `docs/ops/improvement-items-progress-2026-06.md`.
 - `T43-rich-frontend-quality` should include the observed rich/web shared-ui
@@ -175,9 +189,9 @@ Verification highlights:
 - Root `AGENTS.md`, root `bun.lock`, and `docs/idea/debug-log.json` were not
   staged by this handoff because they were outside the verified root
   coordination commit scope.
-- `all-web-ui` still has pre-existing uncommitted `AGENTS.md` edits and
-  untracked `debug-log.json`; these were intentionally excluded from `T09`,
-  `T10`, `T11`, `T12`, and `T08`.
+- `all-web-ui` T07, T08, T09, T10, T11, and T12 were committed; pre-existing
+  uncommitted `AGENTS.md` edits and untracked `debug-log.json` remain
+  intentionally excluded.
 - `Keelim-Knowledge-Vault` T36 and T40 were committed; only `debug-log.json`
   remains untracked in that child repo.
 - `keelim-plugin` T13 and T17 were committed and its child repo is clean.
@@ -185,8 +199,9 @@ Verification highlights:
   remains untracked in that child repo.
 - `android-support` T02, T04, and T06 were committed; only `debug-log.json`
   remains untracked in that child repo.
-- `youtube` still contains unrelated uncommitted production/media/package work;
-  do not stage it from root coordination.
+- `youtube` T32 and T34 were committed; unrelated uncommitted
+  production/media/package work remains and should not be staged from root
+  coordination.
 - Child repo `debug-log.json` files were left untracked and uncommitted.
 
 ## Resume Checklist
@@ -194,9 +209,9 @@ Verification highlights:
 1. Run `python3 scripts/improvements/init_progress_ledger.py --check`.
 2. Read this handoff and
    `docs/ops/improvement-items-ultragoal-runbook-2026-06.md`.
-3. Resume active assignments first: `T07` and `T32`.
-4. If those workers are complete, leader-verify each child repo before moving
-   the ledger from `assigned` to `verified`.
+3. No active assignments remain; pick the next `todo` task by wave order.
+4. For any new worker wave, leader-verify each child repo before moving the
+   ledger from `assigned` to `verified`.
 5. Track the remaining `rich/web` shared-ui primitive drift under
    `T43-rich-frontend-quality`.
 6. If a new worker wave is needed, next good candidates are `T19`, `T25`, and

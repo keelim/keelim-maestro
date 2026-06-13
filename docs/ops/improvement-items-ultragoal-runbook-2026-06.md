@@ -48,10 +48,7 @@ The leader must:
 
 ## Current Assignments
 
-| task | worker | scope |
-|---|---|---|
-| `T07-all-web-ui-a11y` | Jason | `all-web-ui` a11y backlog |
-| `T32-youtube-reliability` | Maxwell | `youtube` reliability backlog |
+No active worker assignments are open. Pick the next `todo` task by wave order.
 
 ## Verified Task Units
 
@@ -63,6 +60,7 @@ The leader must:
 | `T04-android-support-security` | Darwin | 17 selected ledger items verified with Android release action security hardening, path/archive/credential guard coverage, 11 passing suites / 169 tests / 100% coverage, contract and ci-release checks, rebuilt `lib/index.js`, and `git diff --check`. |
 | `T05-android-support-testing` | Lovelace | 18 selected ledger items verified with contract drift check, typecheck, test lint, unit tests, coverage, ncc build, CI/release workflow check, and `git diff --check`; leader rerun reported 9 suites / 144 tests / 100% coverage. |
 | `T06-android-support-type-safety` | Wegener | 15 selected ledger items verified with stricter TypeScript compiler options, typed release status/upload options, explicit Google API response data guards, ESLint, 11 passing suites / 172 tests / 100% coverage, contract and ci-release checks, rebuilt `lib/index.js`, and `git diff --check`. |
+| `T07-all-web-ui-a11y` | Jason | 16 selected ledger items verified with accessible fallback title/description support, named toast close controls, alert/breadcrumb semantics, non-color focus affordances, onboarding step state text, contrast/reduced-motion CSS, 37 passing Bun tests / 777 expects, typecheck, build, package smoke, npm pack dry-run, root shared-ui report, and `git diff --check`; root shared-ui full gate still carries only `rich/web` primitive drift to `T43`. |
 | `T08-all-web-ui-api-design` | Carson | 17 selected ledger items verified with API/theme/telemetry contract hardening, public prop and variant exports, scoped theme contract metadata, 35 passing Bun tests / 748 expects, typecheck, build, design lint, package smoke, npm pack dry-run, root shared-ui report, and `git diff --check`; root shared-ui full gate still carries only `rich/web` primitive drift to `T43`. |
 | `T09-all-web-ui-component-quality` | Halley | 14 selected ledger items verified with polymorphic component refs, normalized component primitives, portal/animation-aware interaction coverage, 34 passing Bun tests / 493 expects, package smoke, npm pack dry-run, root shared-ui report, and `git diff --check`; root shared-ui full gate still carries only `rich/web` primitive drift to `T43`. |
 | `T10-all-web-ui-docs` | Planck | 17 selected ledger items verified with README/DESIGN style-contract docs, manifest style/theme metadata, Stitch metadata hash refresh, design lint, typecheck, 35 passing Bun tests / 597 expects, build, package smoke, npm pack dry-run, root shared-ui report, and `git diff --check`; root shared-ui full gate still carries only `rich/web` primitive drift to `T43`. |
@@ -79,6 +77,7 @@ The leader must:
 | `T22-keelim-vercel-dx-config` | Lagrange | 11 selected ledger items verified with CI/pre-push/PR quality gates, typed ESLint/test/strict TS scaffolding, Drizzle/Supabase config guards, centralized env schema access, shared UI client shim build fix, 51 passing Bun tests / 179 expects, production build, `verify:maintenance`, root shared-ui report, and `git diff --check`; `typecheck:strict` remains a baseline-finding gate. |
 | `T23-keelim-vercel-security` | Schrodinger | 17 selected ledger items verified with production auth allowlist, route/server-action validation, SSRF/CSV/rate-limit guards, typecheck, 39-test Bun suite, production build, maintenance checks, scoped ESLint, and `git diff --check`. |
 | `T24-keelim-vercel-testing` | Feynman | 15 selected ledger items verified with selected API route regression tests, route mapping verifier, full tests/coverage, typecheck, lint, build, `verify:maintenance`, and `git diff --check`; root shared-ui full gate now passes `keelim-vercel` adapters and carries only the `rich/web` primitive drift to `T43`. |
+| `T32-youtube-reliability` | Maxwell | 18 selected ledger items verified with YouTube OAuth/upload/render reliability guards, service request validation and limits, focused Python/Node tests, `uv run pytest` passing 142 tests / 86.52% coverage, Node service checks, remotion-template-admin 4 passing tests, and `git diff --check`. |
 | `T34-youtube-testing` | Erdos | 21 selected ledger items verified with youtube pytest coverage gate, 135 passing tests, 90.30% coverage, `git diff --check`, root `uv.lock` refresh, `uv lock --check`, and Python dependency constraint verification. |
 | `T35-keelim-knowledge-vault-automation` | Codex | 18 selected ledger items verified with vault-wide backlink JSON/file checks, resurface check/threshold behavior, schema/template contract checks, Obsidian properties/templates config checks, workspace cleanup checks, verifier compile, and `git diff --check`. |
 | `T36-keelim-knowledge-vault-content-quality` | Aquinas | 19 selected ledger items verified with content-quality note expansion across Android, Kotlin, service, AI, Code, and Other domains, Bazel/Prototype naming fixes, Vault Log updates, backlink check for 251 files, targeted stale-marker scan over handled files, and `git diff --check`. |

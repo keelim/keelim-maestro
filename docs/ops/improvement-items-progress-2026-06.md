@@ -12,9 +12,9 @@ Durable `/goal` ledger for completing every P1/P2 item from the June 2026 improv
 | status | count |
 |---|---:|
 | `todo` | 284 |
-| `assigned` | 34 |
+| `assigned` | 0 |
 | `in_progress` | 0 |
-| `verified` | 482 |
+| `verified` | 516 |
 | `blocked` | 0 |
 | `needs_consumer_check` | 0 |
 
@@ -33,7 +33,7 @@ Durable `/goal` ledger for completing every P1/P2 item from the June 2026 improv
 | 1 | `T09-all-web-ui-component-quality` | `all-web-ui` | `component-quality` | 14 | 4 | 10 | `verified` |
 | 1 | `T10-all-web-ui-docs` | `all-web-ui` | `docs` | 17 | 3 | 14 | `verified` |
 | 1 | `T08-all-web-ui-api-design` | `all-web-ui` | `api-design` | 17 | 2 | 15 | `verified` |
-| 1 | `T07-all-web-ui-a11y` | `all-web-ui` | `a11y` | 16 | 1 | 15 | `assigned` |
+| 1 | `T07-all-web-ui-a11y` | `all-web-ui` | `a11y` | 16 | 1 | 15 | `verified` |
 | 1 | `T15-keelim-plugin-script-quality` | `keelim-plugin` | `script-quality` | 21 | 10 | 11 | `verified` |
 | 1 | `T18-keelim-plugin-testing-evals` | `keelim-plugin` | `testing-evals` | 19 | 7 | 12 | `verified` |
 | 1 | `T16-keelim-plugin-security` | `keelim-plugin` | `security` | 17 | 5 | 12 | `verified` |
@@ -51,7 +51,7 @@ Durable `/goal` ledger for completing every P1/P2 item from the June 2026 improv
 | 2 | `T27-keelim-vercel-image-optimization` | `keelim-vercel` | `이미지 최적화` | 1 | 0 | 1 | `todo` |
 | 2 | `T28-keelim-vercel-cache` | `keelim-vercel` | `캐싱 미활용` | 6 | 0 | 6 | `todo` |
 | 2 | `T34-youtube-testing` | `youtube` | `testing` | 21 | 8 | 13 | `verified` |
-| 2 | `T32-youtube-reliability` | `youtube` | `reliability` | 18 | 5 | 13 | `assigned` |
+| 2 | `T32-youtube-reliability` | `youtube` | `reliability` | 18 | 5 | 13 | `verified` |
 | 2 | `T29-youtube-ci-automation` | `youtube` | `ci-automation` | 18 | 4 | 14 | `todo` |
 | 2 | `T30-youtube-code-quality` | `youtube` | `code-quality` | 15 | 1 | 14 | `todo` |
 | 2 | `T33-youtube-remotion-quality` | `youtube` | `remotion-quality` | 14 | 1 | 13 | `todo` |
