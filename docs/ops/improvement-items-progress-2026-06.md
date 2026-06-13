@@ -11,8 +11,8 @@ Durable `/goal` ledger for completing every P1/P2 item from the June 2026 improv
 
 | status | count |
 |---|---:|
-| `todo` | 365 |
-| `assigned` | 0 |
+| `todo` | 318 |
+| `assigned` | 47 |
 | `in_progress` | 0 |
 | `verified` | 435 |
 | `blocked` | 0 |
@@ -32,7 +32,7 @@ Durable `/goal` ledger for completing every P1/P2 item from the June 2026 improv
 | 1 | `T11-all-web-ui-packaging` | `all-web-ui` | `packaging` | 17 | 7 | 10 | `verified` |
 | 1 | `T09-all-web-ui-component-quality` | `all-web-ui` | `component-quality` | 14 | 4 | 10 | `verified` |
 | 1 | `T10-all-web-ui-docs` | `all-web-ui` | `docs` | 17 | 3 | 14 | `verified` |
-| 1 | `T08-all-web-ui-api-design` | `all-web-ui` | `api-design` | 17 | 2 | 15 | `todo` |
+| 1 | `T08-all-web-ui-api-design` | `all-web-ui` | `api-design` | 17 | 2 | 15 | `assigned` |
 | 1 | `T07-all-web-ui-a11y` | `all-web-ui` | `a11y` | 16 | 1 | 15 | `todo` |
 | 1 | `T15-keelim-plugin-script-quality` | `keelim-plugin` | `script-quality` | 21 | 10 | 11 | `verified` |
 | 1 | `T18-keelim-plugin-testing-evals` | `keelim-plugin` | `testing-evals` | 19 | 7 | 12 | `verified` |
@@ -44,7 +44,7 @@ Durable `/goal` ledger for completing every P1/P2 item from the June 2026 improv
 | 2 | `T23-keelim-vercel-security` | `keelim-vercel` | `security` | 17 | 8 | 9 | `verified` |
 | 2 | `T24-keelim-vercel-testing` | `keelim-vercel` | `testing` | 15 | 7 | 8 | `verified` |
 | 2 | `T21-keelim-vercel-component-quality` | `keelim-vercel` | `component-quality` | 14 | 5 | 9 | `verified` |
-| 2 | `T22-keelim-vercel-dx-config` | `keelim-vercel` | `dx-config` | 11 | 2 | 9 | `todo` |
+| 2 | `T22-keelim-vercel-dx-config` | `keelim-vercel` | `dx-config` | 11 | 2 | 9 | `assigned` |
 | 2 | `T19-keelim-vercel-n-plus-one-query` | `keelim-vercel` | `N+1 쿼리` | 2 | 1 | 1 | `todo` |
 | 2 | `T25-keelim-vercel-bundle-size` | `keelim-vercel` | `번들 크기` | 6 | 1 | 5 | `todo` |
 | 2 | `T26-keelim-vercel-client-component` | `keelim-vercel` | `불필요한 use client` | 8 | 1 | 7 | `todo` |
@@ -59,7 +59,7 @@ Durable `/goal` ledger for completing every P1/P2 item from the June 2026 improv
 | 2 | `T39-keelim-knowledge-vault-naming` | `Keelim-Knowledge-Vault` | `naming` | 21 | 5 | 16 | `verified` |
 | 2 | `T36-keelim-knowledge-vault-content-quality` | `Keelim-Knowledge-Vault` | `content-quality` | 19 | 4 | 15 | `verified` |
 | 2 | `T37-keelim-knowledge-vault-frontmatter` | `Keelim-Knowledge-Vault` | `frontmatter` | 17 | 3 | 14 | `verified` |
-| 2 | `T40-keelim-knowledge-vault-structure` | `Keelim-Knowledge-Vault` | `structure` | 19 | 3 | 16 | `todo` |
+| 2 | `T40-keelim-knowledge-vault-structure` | `Keelim-Knowledge-Vault` | `structure` | 19 | 3 | 16 | `assigned` |
 | 2 | `T35-keelim-knowledge-vault-automation` | `Keelim-Knowledge-Vault` | `automation` | 18 | 2 | 16 | `verified` |
 | 2 | `T38-keelim-knowledge-vault-linking` | `Keelim-Knowledge-Vault` | `linking` | 6 | 0 | 6 | `verified` |
 | 3 | `T41-rich-api-security` | `rich` | `api-security` | 21 | 7 | 14 | `todo` |

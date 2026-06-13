@@ -5,7 +5,7 @@
     "inventory": "docs/research/improvements-2026-06/improvements.json",
     "rawDir": "docs/research/improvements-2026-06/raw"
   },
-  "generatedAt": "2026-06-13T10:52:09.978590+00:00",
+  "generatedAt": "2026-06-13T10:55:06.390904+00:00",
   "statusValues": [
     "todo",
     "assigned",
@@ -21,8 +21,8 @@
       "P2": 607
     },
     "byStatus": {
-      "todo": 365,
-      "assigned": 0,
+      "todo": 318,
+      "assigned": 47,
       "in_progress": 0,
       "verified": 435,
       "blocked": 0,
@@ -180,7 +180,7 @@
       "total": 17,
       "p1": 2,
       "p2": 15,
-      "status": "todo"
+      "status": "assigned"
     },
     {
       "task_id": "T07-all-web-ui-a11y",
@@ -300,7 +300,7 @@
       "total": 11,
       "p1": 2,
       "p2": 9,
-      "status": "todo"
+      "status": "assigned"
     },
     {
       "task_id": "T19-keelim-vercel-n-plus-one-query",
@@ -450,7 +450,7 @@
       "total": 19,
       "p1": 3,
       "p2": 16,
-      "status": "todo"
+      "status": "assigned"
     },
     {
       "task_id": "T35-keelim-knowledge-vault-automation",
@@ -4252,15 +4252,15 @@
       "severity": "P1",
       "effort": "S",
       "task_id": "T08-all-web-ui-api-design",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Carson",
       "title": "async sink 실패를 await/catch하지 않음",
       "file_path": "all-web-ui/src/telemetry.ts:168",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T10:54:56.674064+00:00"
     },
     {
       "id": "AWUI-003",
@@ -4269,15 +4269,15 @@
       "severity": "P1",
       "effort": "M",
       "task_id": "T08-all-web-ui-api-design",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Carson",
       "title": "telemetry payload의 알 수 없는 필드를 통과시킴",
       "file_path": "all-web-ui/src/telemetry.ts:174",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T10:54:56.674064+00:00"
     },
     {
       "id": "AWUI-042",
@@ -4286,15 +4286,15 @@
       "severity": "P2",
       "effort": "S",
       "task_id": "T08-all-web-ui-api-design",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Carson",
       "title": "CalendarProps 공개 타입이 없음",
       "file_path": "all-web-ui/src/index.ts:2",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T10:54:56.674064+00:00"
     },
     {
       "id": "AWUI-043",
@@ -4303,15 +4303,15 @@
       "severity": "P2",
       "effort": "S",
       "task_id": "T08-all-web-ui-api-design",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Carson",
       "title": "PopoverAnchor가 root barrel에서 누락됨",
       "file_path": "all-web-ui/src/index.ts:115",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T10:54:56.674064+00:00"
     },
     {
       "id": "AWUI-044",
@@ -4320,15 +4320,15 @@
       "severity": "P2",
       "effort": "M",
       "task_id": "T08-all-web-ui-api-design",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Carson",
       "title": "Radix wrapper Props 타입 이름이 root API에 없음",
       "file_path": "all-web-ui/src/index.ts:101",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T10:54:56.674064+00:00"
     },
     {
       "id": "AWUI-045",
@@ -4337,15 +4337,15 @@
       "severity": "P2",
       "effort": "S",
       "task_id": "T08-all-web-ui-api-design",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Carson",
       "title": "TelemetryEmitResult가 validation/delivery 실패를 표현하지 못함",
       "file_path": "all-web-ui/src/telemetry.ts:62",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T10:54:56.674064+00:00"
     },
     {
       "id": "AWUI-046",
@@ -4354,15 +4354,15 @@
       "severity": "P2",
       "effort": "M",
       "task_id": "T08-all-web-ui-api-design",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Carson",
       "title": "TelemetryEventType이 폐쇄형 union이라 앱 이벤트 확장이 막힘",
       "file_path": "all-web-ui/src/telemetry.ts:3",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T10:54:56.674064+00:00"
     },
     {
       "id": "AWUI-047",
@@ -4371,15 +4371,15 @@
       "severity": "P2",
       "effort": "S",
       "task_id": "T08-all-web-ui-api-design",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Carson",
       "title": "TelemetryTheme이 CSS theme 목록과 따로 하드코딩됨",
       "file_path": "all-web-ui/src/telemetry.ts:10",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T10:54:56.674064+00:00"
     },
     {
       "id": "AWUI-048",
@@ -4388,15 +4388,15 @@
       "severity": "P2",
       "effort": "S",
       "task_id": "T08-all-web-ui-api-design",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Carson",
       "title": "admin-bw theme가 radius와 font token을 완성하지 않음",
       "file_path": "all-web-ui/src/styles/themes/admin-bw.css:13",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T10:54:56.674064+00:00"
     },
     {
       "id": "AWUI-049",
@@ -4405,15 +4405,15 @@
       "severity": "P2",
       "effort": "M",
       "task_id": "T08-all-web-ui-api-design",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Carson",
       "title": "componentManifest가 mutable runtime API로 노출됨",
       "file_path": "all-web-ui/src/index.ts:147",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T10:54:56.674064+00:00"
     },
     {
       "id": "AWUI-050",
@@ -4422,15 +4422,15 @@
       "severity": "P2",
       "effort": "S",
       "task_id": "T08-all-web-ui-api-design",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Carson",
       "title": "finance dark selector가 앱 전체 .dark를 가로챔",
       "file_path": "all-web-ui/src/styles/themes/finance.css:94",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T10:54:56.674064+00:00"
     },
     {
       "id": "AWUI-051",
@@ -4439,15 +4439,15 @@
       "severity": "P2",
       "effort": "S",
       "task_id": "T08-all-web-ui-api-design",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Carson",
       "title": "finance theme import가 :root를 전역 변경함",
       "file_path": "all-web-ui/src/styles/themes/finance.css:9",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T10:54:56.674064+00:00"
     },
     {
       "id": "AWUI-052",
@@ -4456,15 +4456,15 @@
       "severity": "P2",
       "effort": "M",
       "task_id": "T08-all-web-ui-api-design",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Carson",
       "title": "opt-out이 emitter 생성 시점에만 가능함",
       "file_path": "all-web-ui/src/telemetry.ts:157",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T10:54:56.674064+00:00"
     },
     {
       "id": "AWUI-053",
@@ -4473,15 +4473,15 @@
       "severity": "P2",
       "effort": "M",
       "task_id": "T08-all-web-ui-api-design",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Carson",
       "title": "root import가 telemetry 런타임까지 함께 노출함",
       "file_path": "all-web-ui/src/index.ts:148",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T10:54:56.674064+00:00"
     },
     {
       "id": "AWUI-054",
@@ -4490,15 +4490,15 @@
       "severity": "P2",
       "effort": "S",
       "task_id": "T08-all-web-ui-api-design",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Carson",
       "title": "telemetry context의 추가 필드가 그대로 emit됨",
       "file_path": "all-web-ui/src/telemetry.ts:129",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T10:54:56.674064+00:00"
     },
     {
       "id": "AWUI-055",
@@ -4507,15 +4507,15 @@
       "severity": "P2",
       "effort": "M",
       "task_id": "T08-all-web-ui-api-design",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Carson",
       "title": "theme token 계약이 CSS 복제에 의존함",
       "file_path": "all-web-ui/src/styles/themes/finance.css:12",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T10:54:56.674064+00:00"
     },
     {
       "id": "AWUI-056",
@@ -4524,15 +4524,15 @@
       "severity": "P2",
       "effort": "S",
       "task_id": "T08-all-web-ui-api-design",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Carson",
       "title": "variant helper root export 정책 불일치",
       "file_path": "all-web-ui/src/index.ts:85",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T10:54:56.674064+00:00"
     },
     {
       "id": "AWUI-004",
@@ -11856,15 +11856,15 @@
       "severity": "P1",
       "effort": "S",
       "task_id": "T22-keelim-vercel-dx-config",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Lagrange",
       "title": "CI가 typecheck·lint·test·build를 실행하지 않음",
       "file_path": "keelim-vercel/.github/workflows/maintenance-guards.yml:30",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T10:55:01.125857+00:00"
     },
     {
       "id": "KVCL-019",
@@ -11873,15 +11873,15 @@
       "severity": "P1",
       "effort": "M",
       "task_id": "T22-keelim-vercel-dx-config",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Lagrange",
       "title": "Drizzle 의존성은 있지만 설정·스크립트가 없음",
       "file_path": "keelim-vercel/package.json:58",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T10:55:01.125857+00:00"
     },
     {
       "id": "KVCL-056",
@@ -11890,15 +11890,15 @@
       "severity": "P2",
       "effort": "M",
       "task_id": "T22-keelim-vercel-dx-config",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Lagrange",
       "title": "ESLint가 타입 기반 규칙을 쓰지 않음",
       "file_path": "keelim-vercel/eslint.config.mjs:4",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T10:55:01.125857+00:00"
     },
     {
       "id": "KVCL-057",
@@ -11907,15 +11907,15 @@
       "severity": "P2",
       "effort": "S",
       "task_id": "T22-keelim-vercel-dx-config",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Lagrange",
       "title": "PR 템플릿 체크리스트가 CI 핵심 명령을 빠뜨림",
       "file_path": "keelim-vercel/.github/pull_request_template.md:5",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T10:55:01.125857+00:00"
     },
     {
       "id": "KVCL-058",
@@ -11924,15 +11924,15 @@
       "severity": "P2",
       "effort": "M",
       "task_id": "T22-keelim-vercel-dx-config",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Lagrange",
       "title": "React Hooks 안전 규칙이 전역 비활성화됨",
       "file_path": "keelim-vercel/eslint.config.mjs:9",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T10:55:01.125857+00:00"
     },
     {
       "id": "KVCL-059",
@@ -11941,15 +11941,15 @@
       "severity": "P2",
       "effort": "M",
       "task_id": "T22-keelim-vercel-dx-config",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Lagrange",
       "title": "Supabase 함수 타입 검사가 통째로 빠짐",
       "file_path": "keelim-vercel/tsconfig.json:47",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T10:55:01.125857+00:00"
     },
     {
       "id": "KVCL-060",
@@ -11958,15 +11958,15 @@
       "severity": "P2",
       "effort": "S",
       "task_id": "T22-keelim-vercel-dx-config",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Lagrange",
       "title": "allowJs가 checkJs 없이 열려 있음",
       "file_path": "keelim-vercel/tsconfig.json:5",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T10:55:01.125857+00:00"
     },
     {
       "id": "KVCL-061",
@@ -11975,15 +11975,15 @@
       "severity": "P2",
       "effort": "S",
       "task_id": "T22-keelim-vercel-dx-config",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Lagrange",
       "title": "pre-push hook이 maintenance 검증만 실행함",
       "file_path": "keelim-vercel/.githooks/pre-push:4",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T10:55:01.125857+00:00"
     },
     {
       "id": "KVCL-062",
@@ -11992,15 +11992,15 @@
       "severity": "P2",
       "effort": "M",
       "task_id": "T22-keelim-vercel-dx-config",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Lagrange",
       "title": "옵셔널·인덱스 접근 엄격도가 낮음",
       "file_path": "keelim-vercel/tsconfig.json:20",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T10:55:01.125857+00:00"
     },
     {
       "id": "KVCL-063",
@@ -12009,15 +12009,15 @@
       "severity": "P2",
       "effort": "S",
       "task_id": "T22-keelim-vercel-dx-config",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Lagrange",
       "title": "테스트 파일이 타입체크에서 제외됨",
       "file_path": "keelim-vercel/tsconfig.json:47",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T10:55:01.125857+00:00"
     },
     {
       "id": "KVCL-064",
@@ -12026,15 +12026,15 @@
       "severity": "P2",
       "effort": "M",
       "task_id": "T22-keelim-vercel-dx-config",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Lagrange",
       "title": "환경변수 접근을 중앙 schema로 강제하지 않음",
       "file_path": "keelim-vercel/eslint.config.mjs:8",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T10:55:01.125857+00:00"
     },
     {
       "id": "KVCL-020",
@@ -18778,15 +18778,15 @@
       "severity": "P1",
       "effort": "M",
       "task_id": "T40-keelim-knowledge-vault-structure",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Boole",
       "title": ".omx 운영 산출물이 vault 내부 노트 트리에 섞임",
       "file_path": "Keelim-Knowledge-Vault/.omx/context/vault-wide-note-organization-20260412T015820Z.md:1",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T10:55:06.391645+00:00"
     },
     {
       "id": "KKV-016",
@@ -18795,15 +18795,15 @@
       "severity": "P1",
       "effort": "M",
       "task_id": "T40-keelim-knowledge-vault-structure",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Boole",
       "title": "HTTP/HTTPS 노트가 여러 도메인에 중복됨",
       "file_path": "Keelim-Knowledge-Vault/HTTP/index.md:14",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T10:55:06.391645+00:00"
     },
     {
       "id": "KKV-017",
@@ -18812,15 +18812,15 @@
       "severity": "P1",
       "effort": "L",
       "task_id": "T40-keelim-knowledge-vault-structure",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Boole",
       "title": "루트 Index가 loose note 보관소로 남아 있음",
       "file_path": "Keelim-Knowledge-Vault/Index.md:31",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T10:55:06.391645+00:00"
     },
     {
       "id": "KKV-085",
@@ -18829,15 +18829,15 @@
       "severity": "P2",
       "effort": "M",
       "task_id": "T40-keelim-knowledge-vault-structure",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Boole",
       "title": "AI concepts 디렉터리에 개념 지도 부재",
       "file_path": "Keelim-Knowledge-Vault/AI/keelim-ai/index.md:27",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T10:55:06.391645+00:00"
     },
     {
       "id": "KKV-086",
@@ -18846,15 +18846,15 @@
       "severity": "P2",
       "effort": "S",
       "task_id": "T40-keelim-knowledge-vault-structure",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Boole",
       "title": "AI harness 연재 폴더에 시리즈 MOC가 없음",
       "file_path": "Keelim-Knowledge-Vault/AI/index.md:38",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T10:55:06.391645+00:00"
     },
     {
       "id": "KKV-087",
@@ -18863,15 +18863,15 @@
       "severity": "P2",
       "effort": "M",
       "task_id": "T40-keelim-knowledge-vault-structure",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Boole",
       "title": "AI sources 디렉터리에 하위 MOC가 없음",
       "file_path": "Keelim-Knowledge-Vault/AI/keelim-ai/index.md:12",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T10:55:06.391645+00:00"
     },
     {
       "id": "KKV-088",
@@ -18880,15 +18880,15 @@
       "severity": "P2",
       "effort": "M",
       "task_id": "T40-keelim-knowledge-vault-structure",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Boole",
       "title": "Android UI와 Kotlin Compose 경계가 겹침",
       "file_path": "Keelim-Knowledge-Vault/Android/index.md:33",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T10:55:06.391645+00:00"
     },
     {
       "id": "KKV-089",
@@ -18897,15 +18897,15 @@
       "severity": "P2",
       "effort": "S",
       "task_id": "T40-keelim-knowledge-vault-structure",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Boole",
       "title": "Android sources 폴더가 source 요약 계층을 갖지 않음",
       "file_path": "Keelim-Knowledge-Vault/Android/index.md:6",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T10:55:06.391645+00:00"
     },
     {
       "id": "KKV-090",
@@ -18914,15 +18914,15 @@
       "severity": "P2",
       "effort": "M",
       "task_id": "T40-keelim-knowledge-vault-structure",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Boole",
       "title": "Computer Science Network와 service/network 역할이 겹침",
       "file_path": "Keelim-Knowledge-Vault/Computer Science/index.md:23",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T10:55:06.391645+00:00"
     },
     {
       "id": "KKV-091",
@@ -18931,15 +18931,15 @@
       "severity": "P2",
       "effort": "M",
       "task_id": "T40-keelim-knowledge-vault-structure",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Boole",
       "title": "Computer Science 빈 하위 도메인이 index에서 사라짐",
       "file_path": "Keelim-Knowledge-Vault/Computer Science/index.md:3",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T10:55:06.391645+00:00"
     },
     {
       "id": "KKV-092",
@@ -18948,15 +18948,15 @@
       "severity": "P2",
       "effort": "S",
       "task_id": "T40-keelim-knowledge-vault-structure",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Boole",
       "title": "Google I/O 2024 이벤트 폴더에 세션 MOC가 없음",
       "file_path": "Keelim-Knowledge-Vault/Other/index.md:10",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T10:55:06.391645+00:00"
     },
     {
       "id": "KKV-093",
@@ -18965,15 +18965,15 @@
       "severity": "P2",
       "effort": "S",
       "task_id": "T40-keelim-knowledge-vault-structure",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Boole",
       "title": "KMP dated session 폴더가 숫자 파일만 노출함",
       "file_path": "Keelim-Knowledge-Vault/KMP/index.md:9",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T10:55:06.391645+00:00"
     },
     {
       "id": "KKV-094",
@@ -18982,15 +18982,15 @@
       "severity": "P2",
       "effort": "S",
       "task_id": "T40-keelim-knowledge-vault-structure",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Boole",
       "title": "Keyword.md가 독립 MOC 역할을 하지 못함",
       "file_path": "Keelim-Knowledge-Vault/Keyword.md:14",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T10:55:06.391645+00:00"
     },
     {
       "id": "KKV-095",
@@ -18999,15 +18999,15 @@
       "severity": "P2",
       "effort": "S",
       "task_id": "T40-keelim-knowledge-vault-structure",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Boole",
       "title": "Language Kotlin Flow 하위 폴더에 개념 MOC가 없음",
       "file_path": "Keelim-Knowledge-Vault/Language/index.md:25",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T10:55:06.391645+00:00"
     },
     {
       "id": "KKV-096",
@@ -19016,15 +19016,15 @@
       "severity": "P2",
       "effort": "M",
       "task_id": "T40-keelim-knowledge-vault-structure",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Boole",
       "title": "Legacy keyword backlog가 루트 Index에 직접 섞임",
       "file_path": "Keelim-Knowledge-Vault/Index.md:66",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T10:55:06.391645+00:00"
     },
     {
       "id": "KKV-097",
@@ -19033,15 +19033,15 @@
       "severity": "P2",
       "effort": "M",
       "task_id": "T40-keelim-knowledge-vault-structure",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Boole",
       "title": "domain-map이 임시 라우팅표와 영구 규칙을 겸함",
       "file_path": "Keelim-Knowledge-Vault/ops/domain-map.md:3",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T10:55:06.391645+00:00"
     },
     {
       "id": "KKV-098",
@@ -19050,15 +19050,15 @@
       "severity": "P2",
       "effort": "M",
       "task_id": "T40-keelim-knowledge-vault-structure",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Boole",
       "title": "omx_wiki가 도메인 허브와 별도 섬으로 존재",
       "file_path": "Keelim-Knowledge-Vault/omx_wiki/index.md:3",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T10:55:06.391645+00:00"
     },
     {
       "id": "KKV-099",
@@ -19067,15 +19067,15 @@
       "severity": "P2",
       "effort": "M",
       "task_id": "T40-keelim-knowledge-vault-structure",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Boole",
       "title": "service/network 프로토콜 폴더에 로컬 MOC가 없음",
       "file_path": "Keelim-Knowledge-Vault/service/network/Network.md:9",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T10:55:06.391645+00:00"
     },
     {
       "id": "KKV-100",
@@ -19084,15 +19084,15 @@
       "severity": "P2",
       "effort": "M",
       "task_id": "T40-keelim-knowledge-vault-structure",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Boole",
       "title": "vault-wide schema와 AI sub-vault schema가 중복됨",
       "file_path": "Keelim-Knowledge-Vault/schema/LLM Wiki 운영 스키마.md:21",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T10:55:06.391645+00:00"
     },
     {
       "id": "RICH-001",

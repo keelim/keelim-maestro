@@ -50,7 +50,9 @@ The leader must:
 
 | task | worker | scope |
 |---|---|---|
-| _none_ | _none_ | All previously assigned task units have been leader-verified and committed. |
+| `T08-all-web-ui-api-design` | Carson | `all-web-ui` api-design backlog |
+| `T22-keelim-vercel-dx-config` | Lagrange | `keelim-vercel` dx-config backlog |
+| `T40-keelim-knowledge-vault-structure` | Boole | `Keelim-Knowledge-Vault` structure backlog |
 
 ## Verified Task Units
 

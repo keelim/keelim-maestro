@@ -14,8 +14,8 @@ Ultragoal run after the user requested a pause and meaningful commits.
 ## Root Ledger Snapshot
 
 - `verified`: 435
-- `assigned`: 0
-- `todo`: 365
+- `assigned`: 47
+- `todo`: 318
 - `blocked`: 0
 - `in_progress`: 0
 - `needs_consumer_check`: 0
@@ -135,14 +135,15 @@ Verification highlights:
 
 | repo | task | owner | current state | next action |
 |---|---|---|---|---|
-| _none_ | _none_ | _none_ | _none_ | No active worker assignment remains from the last wave. Pick the next `todo` task by wave order before spawning a new worker. |
+| `all-web-ui` | `T08-all-web-ui-api-design` | Carson | Assigned to subagent `019ec09e-bcb9-7782-af35-1f492b7cfe7a`. | Wait for worker report, then leader-verify before marking complete. Preserve pre-existing `all-web-ui/AGENTS.md` edits and `debug-log.json`. |
+| `keelim-vercel` | `T22-keelim-vercel-dx-config` | Lagrange | Assigned to subagent `019ec09e-c0de-7ab3-a8be-48d09b6e0bc5`. | Wait for worker report, then leader-verify before marking complete. Preserve untracked `debug-log.json`. |
+| `Keelim-Knowledge-Vault` | `T40-keelim-knowledge-vault-structure` | Boole | Assigned to subagent `019ec09e-c623-7560-8c20-64d82f819a8f`. | Wait for worker report, then leader-verify before marking complete. Preserve untracked `debug-log.json`. |
 
 ## Still Todo Next
 
-- `T08-all-web-ui-api-design`
 - `T07-all-web-ui-a11y`
-- `T22-keelim-vercel-dx-config`
-- `T40-keelim-knowledge-vault-structure`
+- `T19-keelim-vercel-n-plus-one-query`
+- `T25-keelim-vercel-bundle-size`
 - Remaining all-web-ui, keelim-plugin, keelim-vercel, youtube, Knowledge Vault,
   rich, and all task units in `docs/ops/improvement-items-progress-2026-06.md`.
 - `T43-rich-frontend-quality` should include the observed rich/web shared-ui
@@ -175,13 +176,13 @@ Verification highlights:
 1. Run `python3 scripts/improvements/init_progress_ledger.py --check`.
 2. Read this handoff and
    `docs/ops/improvement-items-ultragoal-runbook-2026-06.md`.
-3. Pick the next `todo` task by wave order. Good next candidates are `T08`,
-   `T07`, `T22`, and `T40`; avoid assigning multiple workers to the same dirty
-   child repo at once unless scopes are proven non-overlapping.
-4. Start a fresh worker assignment and record it in the ledger before edits.
+3. Resume active assignments first: `T08`, `T22`, and `T40`.
+4. If those workers are complete, leader-verify each child repo before moving
+   the ledger from `assigned` to `verified`.
 5. Track the remaining `rich/web` shared-ui primitive drift under
    `T43-rich-frontend-quality`.
-6. For any worker-completed task, rerun leader verification before changing the
-   ledger from `assigned` to `verified`.
+6. If a new worker wave is needed, next good candidates are `T07`, `T19`, and
+   `T32`; avoid assigning multiple workers to the same dirty child repo at
+   once unless scopes are proven non-overlapping.
 7. Keep commits per autonomous child repo and do not stage root child-repo
    pointers from the root.
