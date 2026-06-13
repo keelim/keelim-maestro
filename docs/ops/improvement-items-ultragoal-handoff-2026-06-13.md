@@ -7,7 +7,8 @@ wave with child-repo commits and root ledger verification, then assigned the
 next disjoint worker wave. `T25`, `T30`, and `T45` from that wave are now also
 verified and committed. The next non-overlapping worker wave closed `T26` and
 `T46`; `T47` was partially integrated with 19 of 24 items verified and 5
-architecture follow-up items still assigned.
+architecture follow-up items now reassigned to Huygens. `T27` is assigned to
+Harvey for the single remaining `keelim-vercel` image optimization item.
 
 ## Goal State
 
@@ -20,8 +21,8 @@ architecture follow-up items still assigned.
 ## Root Ledger Snapshot
 
 - `verified`: 642
-- `assigned`: 5
-- `todo`: 153
+- `assigned`: 6
+- `todo`: 152
 - `blocked`: 0
 - `in_progress`: 0
 - `needs_consumer_check`: 0
@@ -204,11 +205,11 @@ Verification highlights:
 
 | repo | task | owner | agent | current state | next action |
 |---|---|---|---|---|---|
-| `all` | `T47-all-architecture` residual | Nash | Kepler closed `019ec113-c99b-7f02-bfc4-efc66eaf3977` | 5 item-level follow-ups remain assigned: `ALL-025`, `ALL-026`, `ALL-031`, `ALL-034`, `ALL-035`. | Reassign a focused residual worker for SDK extraction, `core:common` purity split, `feature:app-function` aggregation, and browser/web contract abstraction. Preserve existing dirty `AGENTS.md`, `app-arducon/AGENTS.md`, and staged `debug-log.json`. |
+| `all` | `T47-all-architecture` residual | Huygens | `019ec149-5f98-7f02-8941-efc82ad02acc` | 5 item-level follow-ups remain assigned: `ALL-025`, `ALL-026`, `ALL-031`, `ALL-034`, `ALL-035`. | Finish SDK extraction, `core:common` purity split, `feature:app-function` aggregation, and browser/web contract abstraction. Preserve existing dirty `AGENTS.md`, `app-arducon/AGENTS.md`, and staged `debug-log.json`. |
+| `keelim-vercel` | `T27-keelim-vercel-image-optimization` | Harvey | `019ec149-9fc4-7ac1-80cf-a5716a23726d` | Single item `KVCL-094` assigned for `components/insight-card.tsx`. | Replace the reported unoptimized image path with the repo's expected image component/pattern, then report verification. Preserve untracked `debug-log.json`. |
 
 ## Still Todo Next
 
-- `T27-keelim-vercel-image-optimization`
 - `T28-keelim-vercel-cache`
 - T47 residual item IDs: `ALL-025`, `ALL-026`, `ALL-031`, `ALL-034`,
   `ALL-035`.
@@ -252,11 +253,11 @@ Verification highlights:
 1. Run `python3 scripts/improvements/init_progress_ledger.py --check`.
 2. Read this handoff and
    `docs/ops/improvement-items-ultragoal-runbook-2026-06.md`.
-3. Active assignment is the residual item-level portion of
-   `T47-all-architecture`: `ALL-025`, `ALL-026`, `ALL-031`, `ALL-034`, and
-   `ALL-035`.
-4. After T47 residual closes, pick the next `todo` task by wave order, starting
-   with `T27`, `T28`, and then the youtube tasks after its unrelated
+3. Active assignments are the residual item-level portion of
+   `T47-all-architecture` (`ALL-025`, `ALL-026`, `ALL-031`, `ALL-034`, and
+   `ALL-035`) and `T27-keelim-vercel-image-optimization` (`KVCL-094`).
+4. After T47 residual and T27 close, pick the next `todo` task by wave order,
+   starting with `T28` and then the youtube tasks after its unrelated
    production/doc dirtiness is reviewed.
 5. Track the remaining `rich/web` shared-ui primitive drift under
    `T43-rich-frontend-quality`.

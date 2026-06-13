@@ -50,14 +50,16 @@ The leader must:
 
 | task | worker | agent | scope |
 |---|---|---|---|
-| `T47-all-architecture` residual | unassigned | closed Kepler `019ec113-c99b-7f02-bfc4-efc66eaf3977` | `all` architecture residual IDs `ALL-025`, `ALL-026`, `ALL-031`, `ALL-034`, `ALL-035` |
+| `T47-all-architecture` residual | Huygens | `019ec149-5f98-7f02-8941-efc82ad02acc` | `all` architecture residual IDs `ALL-025`, `ALL-026`, `ALL-031`, `ALL-034`, `ALL-035` |
+| `T27-keelim-vercel-image-optimization` | Harvey | `019ec149-9fc4-7ac1-80cf-a5716a23726d` | `keelim-vercel` item `KVCL-094` |
 
 ## Latest Closed Wave
 
 `T19`, `T25`, `T26`, `T29`, `T30`, `T41`, `T45`, and `T46` were closed after
 worker completion, leader verification, child-repo commits, and root ledger
 verification. `T47` is partially integrated: 19 of 24 items are verified and
-5 remain assigned.
+5 remain assigned to Huygens. `T27` is assigned to Harvey for the next
+single-item `keelim-vercel` image optimization slice.
 
 - `T19-keelim-vercel-n-plus-one-query`: commit
   `c1df144541380d7edacf467479752e7c51b6c842`.

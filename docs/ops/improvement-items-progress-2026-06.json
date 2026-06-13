@@ -5,7 +5,7 @@
     "inventory": "docs/research/improvements-2026-06/improvements.json",
     "rawDir": "docs/research/improvements-2026-06/raw"
   },
-  "generatedAt": "2026-06-13T13:58:58.093073+00:00",
+  "generatedAt": "2026-06-13T14:03:46.626057+00:00",
   "statusValues": [
     "todo",
     "assigned",
@@ -21,8 +21,8 @@
       "P2": 607
     },
     "byStatus": {
-      "todo": 153,
-      "assigned": 5,
+      "todo": 152,
+      "assigned": 6,
       "in_progress": 0,
       "verified": 642,
       "blocked": 0,
@@ -340,7 +340,7 @@
       "total": 1,
       "p1": 0,
       "p2": 1,
-      "status": "todo"
+      "status": "assigned"
     },
     {
       "task_id": "T28-keelim-vercel-cache",
@@ -14383,15 +14383,15 @@
       "severity": "P2",
       "effort": "S",
       "task_id": "T27-keelim-vercel-image-optimization",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Harvey",
       "title": "insight card 이미지가 next/image optimizer를 우회함",
       "file_path": "keelim-vercel/components/insight-card.tsx:41",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T14:03:09.427235+00:00"
     },
     {
       "id": "KVCL-095",
@@ -22790,14 +22790,14 @@
       "effort": "L",
       "task_id": "T47-all-architecture",
       "status": "assigned",
-      "owner": "Nash",
+      "owner": "Huygens",
       "title": "core:common-android에 Firebase, Ads, Auth SDK가 집중됨",
       "file_path": "all/core/common-android/build.gradle.kts:30",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": "2026-06-13T13:02:29.662270+00:00"
+      "last_updated": "2026-06-13T14:03:31.354915+00:00"
     },
     {
       "id": "ALL-026",
@@ -22807,14 +22807,14 @@
       "effort": "M",
       "task_id": "T47-all-architecture",
       "status": "assigned",
-      "owner": "Nash",
+      "owner": "Huygens",
       "title": "core:common이 이름과 달리 Android Compose/Hilt 기반 모듈",
       "file_path": "all/core/common/build.gradle.kts:2",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": "2026-06-13T13:02:29.662270+00:00"
+      "last_updated": "2026-06-13T14:03:34.680895+00:00"
     },
     {
       "id": "ALL-027",
@@ -22900,14 +22900,14 @@
       "effort": "M",
       "task_id": "T47-all-architecture",
       "status": "assigned",
-      "owner": "Nash",
+      "owner": "Huygens",
       "title": "feature:app-function이 공유 feature에서 AppFunctions aggregate를 켬",
       "file_path": "all/feature/app-function/build.gradle.kts:12",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": "2026-06-13T13:02:29.662270+00:00"
+      "last_updated": "2026-06-13T14:03:38.794330+00:00"
     },
     {
       "id": "ALL-032",
@@ -22955,14 +22955,14 @@
       "effort": "M",
       "task_id": "T47-all-architecture",
       "status": "assigned",
-      "owner": "Nash",
+      "owner": "Huygens",
       "title": "settings slice들이 feature:ui-web에 공통 직접 의존",
       "file_path": "all/feature/settings-core/build.gradle.kts:28",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": "2026-06-13T13:02:29.662270+00:00"
+      "last_updated": "2026-06-13T14:03:42.672594+00:00"
     },
     {
       "id": "ALL-035",
@@ -22972,14 +22972,14 @@
       "effort": "M",
       "task_id": "T47-all-architecture",
       "status": "assigned",
-      "owner": "Nash",
+      "owner": "Huygens",
       "title": "settings-* 의존 블록이 복붙되어 feature convention이 없음",
       "file_path": "all/feature/settings-alarm/build.gradle.kts:12",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": "2026-06-13T13:02:29.662270+00:00"
+      "last_updated": "2026-06-13T14:03:46.626846+00:00"
     },
     {
       "id": "ALL-011",
