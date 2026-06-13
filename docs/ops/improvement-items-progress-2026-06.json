@@ -5,7 +5,7 @@
     "inventory": "docs/research/improvements-2026-06/improvements.json",
     "rawDir": "docs/research/improvements-2026-06/raw"
   },
-  "generatedAt": "2026-06-13T12:54:56.329716+00:00",
+  "generatedAt": "2026-06-13T12:59:02.596372+00:00",
   "statusValues": [
     "todo",
     "assigned",
@@ -21,8 +21,8 @@
       "P2": 607
     },
     "byStatus": {
-      "todo": 243,
-      "assigned": 0,
+      "todo": 203,
+      "assigned": 40,
       "in_progress": 0,
       "verified": 557,
       "blocked": 0,
@@ -320,7 +320,7 @@
       "total": 6,
       "p1": 1,
       "p2": 5,
-      "status": "todo"
+      "status": "assigned"
     },
     {
       "task_id": "T26-keelim-vercel-client-component",
@@ -390,7 +390,7 @@
       "total": 15,
       "p1": 1,
       "p2": 14,
-      "status": "todo"
+      "status": "assigned"
     },
     {
       "task_id": "T33-youtube-remotion-quality",
@@ -490,7 +490,7 @@
       "total": 19,
       "p1": 5,
       "p2": 14,
-      "status": "todo"
+      "status": "assigned"
     },
     {
       "task_id": "T46-rich-testing",
@@ -14129,15 +14129,15 @@
       "severity": "P1",
       "effort": "M",
       "task_id": "T25-keelim-vercel-bundle-size",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Noether",
       "title": "Recharts component 단위 dynamic import가 215회 반복됨",
       "file_path": "keelim-vercel/components/charts/lazy-line-chart.tsx:7",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T12:58:53.178433+00:00"
     },
     {
       "id": "KVCL-082",
@@ -14146,15 +14146,15 @@
       "severity": "P2",
       "effort": "M",
       "task_id": "T25-keelim-vercel-bundle-size",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Noether",
       "title": "CoupleWeddingHub가 inactive tab 도구까지 eager import함",
       "file_path": "keelim-vercel/components/couple-wedding-hub.tsx:4",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T12:58:53.178433+00:00"
     },
     {
       "id": "KVCL-083",
@@ -14163,15 +14163,15 @@
       "severity": "P2",
       "effort": "M",
       "task_id": "T25-keelim-vercel-bundle-size",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Noether",
       "title": "FinanceLearningHub가 여러 learning feature를 eager import함",
       "file_path": "keelim-vercel/components/finance-learning-hub.tsx:14",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T12:58:53.178433+00:00"
     },
     {
       "id": "KVCL-084",
@@ -14180,15 +14180,15 @@
       "severity": "P2",
       "effort": "M",
       "task_id": "T25-keelim-vercel-bundle-size",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Noether",
       "title": "Sankey chart가 무거운 Nivo 모듈을 client component에서 직접 import함",
       "file_path": "keelim-vercel/components/cash-flow-sankey.tsx:3",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T12:58:53.178433+00:00"
     },
     {
       "id": "KVCL-085",
@@ -14197,15 +14197,15 @@
       "severity": "P2",
       "effort": "S",
       "task_id": "T25-keelim-vercel-bundle-size",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Noether",
       "title": "SmartBudgetAdvisor chart 파일이 Recharts lazy boundary를 11개 정의함",
       "file_path": "keelim-vercel/components/smart-budget-advisor/charts.tsx:5",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T12:58:53.178433+00:00"
     },
     {
       "id": "KVCL-086",
@@ -14214,15 +14214,15 @@
       "severity": "P2",
       "effort": "M",
       "task_id": "T25-keelim-vercel-bundle-size",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Noether",
       "title": "SwingSimulator가 세 simulator를 첫 bundle에 함께 싣음",
       "file_path": "keelim-vercel/components/swing-simulator.tsx:4",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T12:58:53.178433+00:00"
     },
     {
       "id": "KVCL-036",
@@ -14792,15 +14792,15 @@
       "severity": "P1",
       "effort": "M",
       "task_id": "T30-youtube-code-quality",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Curie",
       "title": "실제 YouTube 업로드 호출 예외 분류 부재",
       "file_path": "youtube/src/easy_release_note/youtube_upload.py:77",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T12:58:56.507072+00:00"
     },
     {
       "id": "YTB-034",
@@ -14809,15 +14809,15 @@
       "severity": "P2",
       "effort": "S",
       "task_id": "T30-youtube-code-quality",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Curie",
       "title": "CLI command handler 타입 힌트 보강",
       "file_path": "youtube/src/easy_release_note/cli.py:34",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T12:58:56.507072+00:00"
     },
     {
       "id": "YTB-035",
@@ -14826,15 +14826,15 @@
       "severity": "P2",
       "effort": "S",
       "task_id": "T30-youtube-code-quality",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Curie",
       "title": "CLI main의 광범위 예외 포착 축소",
       "file_path": "youtube/src/easy_release_note/cli.py:445",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T12:58:56.507072+00:00"
     },
     {
       "id": "YTB-036",
@@ -14843,15 +14843,15 @@
       "severity": "P2",
       "effort": "S",
       "task_id": "T30-youtube-code-quality",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Curie",
       "title": "OAuth token 로드 실패 래핑 부재",
       "file_path": "youtube/src/easy_release_note/youtube_auth.py:38",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T12:58:56.507072+00:00"
     },
     {
       "id": "YTB-037",
@@ -14860,15 +14860,15 @@
       "severity": "P2",
       "effort": "S",
       "task_id": "T30-youtube-code-quality",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Curie",
       "title": "Remotion CLI 버전 latest 고정 제거",
       "file_path": "youtube/src/easy_release_note/config.py:6",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T12:58:56.507072+00:00"
     },
     {
       "id": "YTB-038",
@@ -14877,15 +14877,15 @@
       "severity": "P2",
       "effort": "M",
       "task_id": "T30-youtube-code-quality",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Curie",
       "title": "crawl_tab 거대 async loop와 매직 타임아웃",
       "file_path": "youtube/scripts/collect_threads_profile.py:252",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T12:58:56.507072+00:00"
     },
     {
       "id": "YTB-039",
@@ -14894,15 +14894,15 @@
       "severity": "P2",
       "effort": "S",
       "task_id": "T30-youtube-code-quality",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Curie",
       "title": "manifest boolean 필드 타입 검증 누락",
       "file_path": "youtube/src/easy_release_note/manifest.py:131",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T12:58:56.507072+00:00"
     },
     {
       "id": "YTB-040",
@@ -14911,15 +14911,15 @@
       "severity": "P2",
       "effort": "S",
       "task_id": "T30-youtube-code-quality",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Curie",
       "title": "n8n channel config 누락이 기본값으로 숨겨짐",
       "file_path": "youtube/src/easy_release_note/n8n.py:28",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T12:58:56.507072+00:00"
     },
     {
       "id": "YTB-041",
@@ -14928,15 +14928,15 @@
       "severity": "P2",
       "effort": "S",
       "task_id": "T30-youtube-code-quality",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Curie",
       "title": "repo root 탐색 실패가 조용히 현재 경로로 대체됨",
       "file_path": "youtube/src/easy_release_note/manifest.py:70",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T12:58:56.507072+00:00"
     },
     {
       "id": "YTB-042",
@@ -14945,15 +14945,15 @@
       "severity": "P2",
       "effort": "S",
       "task_id": "T30-youtube-code-quality",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Curie",
       "title": "stock manifest tags가 입력 종목과 분리됨",
       "file_path": "youtube/src/easy_release_note/stock_price.py:230",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T12:58:56.507072+00:00"
     },
     {
       "id": "YTB-043",
@@ -14962,15 +14962,15 @@
       "severity": "P2",
       "effort": "S",
       "task_id": "T30-youtube-code-quality",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Curie",
       "title": "렌더 실패 진단 정보 축소",
       "file_path": "youtube/src/easy_release_note/render.py:133",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T12:58:56.507072+00:00"
     },
     {
       "id": "YTB-044",
@@ -14979,15 +14979,15 @@
       "severity": "P2",
       "effort": "S",
       "task_id": "T30-youtube-code-quality",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Curie",
       "title": "렌더 실행 파일 탐색 경로 하드코딩",
       "file_path": "youtube/src/easy_release_note/render.py:20",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T12:58:56.507072+00:00"
     },
     {
       "id": "YTB-045",
@@ -14996,15 +14996,15 @@
       "severity": "P2",
       "effort": "S",
       "task_id": "T30-youtube-code-quality",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Curie",
       "title": "업로드 전 render output preflight 부재",
       "file_path": "youtube/src/easy_release_note/youtube_upload.py:75",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T12:58:56.507072+00:00"
     },
     {
       "id": "YTB-046",
@@ -15013,15 +15013,15 @@
       "severity": "P2",
       "effort": "M",
       "task_id": "T30-youtube-code-quality",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Curie",
       "title": "임베디드 JS의 catch가 실패를 무시",
       "file_path": "youtube/scripts/collect_threads_profile.py:26",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T12:58:56.507072+00:00"
     },
     {
       "id": "YTB-047",
@@ -15030,15 +15030,15 @@
       "severity": "P2",
       "effort": "S",
       "task_id": "T30-youtube-code-quality",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Curie",
       "title": "프레임레이트 파싱 실패가 0.0으로 숨겨짐",
       "file_path": "youtube/src/easy_release_note/validate.py:46",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T12:58:56.507072+00:00"
     },
     {
       "id": "YTB-048",
@@ -21861,15 +21861,15 @@
       "severity": "P1",
       "effort": "M",
       "task_id": "T45-rich-reliability",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Riemann",
       "title": "KIS quote 통합 호출에 timeout/retry 경계가 없음",
       "file_path": "rich/app/services/krx_kis_fear_candidates.py:946",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T12:59:02.596989+00:00"
     },
     {
       "id": "RICH-011",
@@ -21878,15 +21878,15 @@
       "severity": "P1",
       "effort": "M",
       "task_id": "T45-rich-reliability",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Riemann",
       "title": "KRX data portal 요청 예외가 서비스 오류로 변환되지 않음",
       "file_path": "rich/app/services/krx_data_portal_client.py:202",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T12:59:02.596989+00:00"
     },
     {
       "id": "RICH-012",
@@ -21895,15 +21895,15 @@
       "severity": "P1",
       "effort": "M",
       "task_id": "T45-rich-reliability",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Riemann",
       "title": "Weekly review Supabase 예외가 표준 오류로 감싸지지 않음",
       "file_path": "rich/app/services/weekly_review.py:109",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T12:59:02.596989+00:00"
     },
     {
       "id": "RICH-013",
@@ -21912,15 +21912,15 @@
       "severity": "P1",
       "effort": "S",
       "task_id": "T45-rich-reliability",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Riemann",
       "title": "currency-data-scheduler curl에 timeout/retry가 없음",
       "file_path": "rich/.github/workflows/currency-data-scheduler.yml:25",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T12:59:02.596989+00:00"
     },
     {
       "id": "RICH-014",
@@ -21929,15 +21929,15 @@
       "severity": "P1",
       "effort": "M",
       "task_id": "T45-rich-reliability",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Riemann",
       "title": "open-trading route 포함 실패가 앱 부팅을 중단",
       "file_path": "rich/app/main.py:25",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T12:59:02.596989+00:00"
     },
     {
       "id": "RICH-073",
@@ -21946,15 +21946,15 @@
       "severity": "P2",
       "effort": "S",
       "task_id": "T45-rich-reliability",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Riemann",
       "title": "CLI가 FastAPI detail 오류를 일반 메시지로 축약",
       "file_path": "rich/cli/client.py:20",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T12:59:02.596989+00:00"
     },
     {
       "id": "RICH-074",
@@ -21963,15 +21963,15 @@
       "severity": "P2",
       "effort": "S",
       "task_id": "T45-rich-reliability",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Riemann",
       "title": "CORS origin이 설정값과 분리된 하드코딩",
       "file_path": "rich/app/main.py:11",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T12:59:02.596989+00:00"
     },
     {
       "id": "RICH-075",
@@ -21980,15 +21980,15 @@
       "severity": "P2",
       "effort": "S",
       "task_id": "T45-rich-reliability",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Riemann",
       "title": "KRX 로그인 non-JSON 응답을 빈 payload로 처리",
       "file_path": "rich/app/services/krx_data_portal_client.py:174",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T12:59:02.596989+00:00"
     },
     {
       "id": "RICH-076",
@@ -21997,15 +21997,15 @@
       "severity": "P2",
       "effort": "M",
       "task_id": "T45-rich-reliability",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Riemann",
       "title": "OpenDART client가 일시적 전송 실패를 재시도하지 않음",
       "file_path": "rich/opendart_json/client.py:64",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T12:59:02.596989+00:00"
     },
     {
       "id": "RICH-077",
@@ -22014,15 +22014,15 @@
       "severity": "P2",
       "effort": "S",
       "task_id": "T45-rich-reliability",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Riemann",
       "title": "OpenDART non-JSON 응답이 전용 예외로 감싸지지 않음",
       "file_path": "rich/opendart_json/client.py:73",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T12:59:02.596989+00:00"
     },
     {
       "id": "RICH-078",
@@ -22031,15 +22031,15 @@
       "severity": "P2",
       "effort": "S",
       "task_id": "T45-rich-reliability",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Riemann",
       "title": "PyKRX 로그인 설정 누락이 upstream 장애로 분류됨",
       "file_path": "rich/app/api/admin.py:37",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T12:59:02.596989+00:00"
     },
     {
       "id": "RICH-079",
@@ -22048,15 +22048,15 @@
       "severity": "P2",
       "effort": "M",
       "task_id": "T45-rich-reliability",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Riemann",
       "title": "Quant Supabase fallback이 데이터 신선도를 검증하지 않음",
       "file_path": "rich/app/services/quant_client.py:181",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T12:59:02.596989+00:00"
     },
     {
       "id": "RICH-080",
@@ -22065,15 +22065,15 @@
       "severity": "P2",
       "effort": "M",
       "task_id": "T45-rich-reliability",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Riemann",
       "title": "Quant upstream 호출에 retry/backoff가 없음",
       "file_path": "rich/app/services/quant_client.py:118",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T12:59:02.596989+00:00"
     },
     {
       "id": "RICH-081",
@@ -22082,15 +22082,15 @@
       "severity": "P2",
       "effort": "S",
       "task_id": "T45-rich-reliability",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Riemann",
       "title": "Settings가 실행 위치 기준 .env에 의존",
       "file_path": "rich/app/core/settings.py:40",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T12:59:02.596989+00:00"
     },
     {
       "id": "RICH-082",
@@ -22099,15 +22099,15 @@
       "severity": "P2",
       "effort": "S",
       "task_id": "T45-rich-reliability",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Riemann",
       "title": "currency-data-scheduler 중복 실행 방지가 없음",
       "file_path": "rich/.github/workflows/currency-data-scheduler.yml:3",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T12:59:02.596989+00:00"
     },
     {
       "id": "RICH-083",
@@ -22116,15 +22116,15 @@
       "severity": "P2",
       "effort": "S",
       "task_id": "T45-rich-reliability",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Riemann",
       "title": "timeout·retry 설정에 범위 검증이 없음",
       "file_path": "rich/app/core/settings.py:25",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T12:59:02.596989+00:00"
     },
     {
       "id": "RICH-084",
@@ -22133,15 +22133,15 @@
       "severity": "P2",
       "effort": "S",
       "task_id": "T45-rich-reliability",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Riemann",
       "title": "돌파 후보 KRX 시총 수집 실패 원인이 사라짐",
       "file_path": "rich/app/services/leading_breakout_candidates.py:843",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T12:59:02.596989+00:00"
     },
     {
       "id": "RICH-085",
@@ -22150,15 +22150,15 @@
       "severity": "P2",
       "effort": "S",
       "task_id": "T45-rich-reliability",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Riemann",
       "title": "설정 오타가 extra ignore로 조용히 무시됨",
       "file_path": "rich/app/core/settings.py:40",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T12:59:02.596989+00:00"
     },
     {
       "id": "RICH-086",
@@ -22167,15 +22167,15 @@
       "severity": "P2",
       "effort": "M",
       "task_id": "T45-rich-reliability",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Riemann",
       "title": "직접 KRX timeout 처리에서 worker thread가 남을 수 있음",
       "file_path": "rich/app/services/leading_breakout_candidates.py:813",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T12:59:02.596989+00:00"
     },
     {
       "id": "RICH-015",

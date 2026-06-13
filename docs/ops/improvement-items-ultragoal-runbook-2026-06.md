@@ -48,7 +48,11 @@ The leader must:
 
 ## Current Assignments
 
-No task units are currently assigned.
+| task | worker | agent | scope |
+|---|---|---|---|
+| `T25-keelim-vercel-bundle-size` | Noether / Singer | `019ec110-9377-7850-b1bd-a7fb9435a14d` | `keelim-vercel` bundle-size backlog |
+| `T30-youtube-code-quality` | Curie / Ptolemy | `019ec110-b2f4-7231-88b4-1b37050ea460` | `youtube` code-quality backlog |
+| `T45-rich-reliability` | Riemann / Mencius | `019ec110-d542-7961-accb-5f3a21287975` | `rich` reliability backlog |
 
 ## Latest Closed Wave
 

@@ -3,7 +3,8 @@
 This handoff freezes the current state of the June 2026 P1/P2 improvement
 Ultragoal run after the user requested a pause and meaningful commits.
 The latest continuation closed the previously pending `T19`, `T29`, and `T41`
-wave with child-repo commits and root ledger verification.
+wave with child-repo commits and root ledger verification, then assigned the
+next disjoint worker wave for `T25`, `T30`, and `T45`.
 
 ## Goal State
 
@@ -16,8 +17,8 @@ wave with child-repo commits and root ledger verification.
 ## Root Ledger Snapshot
 
 - `verified`: 557
-- `assigned`: 0
-- `todo`: 243
+- `assigned`: 40
+- `todo`: 203
 - `blocked`: 0
 - `in_progress`: 0
 - `needs_consumer_check`: 0
@@ -186,12 +187,14 @@ Verification highlights:
 
 ## Assigned Or Paused, Not Verified
 
-No task units are currently assigned, in progress, blocked, or waiting on
-consumer verification.
+| repo | task | owner | agent | current state | next action |
+|---|---|---|---|---|---|
+| `keelim-vercel` | `T25-keelim-vercel-bundle-size` | Noether | Singer `019ec110-9377-7850-b1bd-a7fb9435a14d` | Assigned to worker. | Wait for worker report, then leader-verify and commit only the T25 file set. Preserve `keelim-vercel/debug-log.json`. |
+| `youtube` | `T30-youtube-code-quality` | Curie | Ptolemy `019ec110-b2f4-7231-88b4-1b37050ea460` | Assigned to worker. | Wait for worker report, then leader-verify and commit only code-quality changes. Preserve unrelated production/media/package/doc/remotion work. |
+| `rich` | `T45-rich-reliability` | Riemann | Mencius `019ec110-d542-7961-accb-5f3a21287975` | Assigned to worker. | Wait for worker report, then leader-verify and commit only reliability changes. Preserve unrelated guide/build/report dirtiness. |
 
 ## Still Todo Next
 
-- `T25-keelim-vercel-bundle-size`
 - `T26-keelim-vercel-client-component`
 - `T27-keelim-vercel-image-optimization`
 - Remaining all-web-ui, keelim-plugin, keelim-vercel, youtube, Knowledge Vault,
