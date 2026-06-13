@@ -5,6 +5,7 @@ import os
 import re
 import sys
 import subprocess
+from datetime import date
 from pathlib import Path
 
 # Child repositories to process
@@ -28,7 +29,8 @@ def run_cmd(args, cwd=None):
     return True
 
 def main():
-    root_dir = Path("/Users/keelim/Desktop/keelim-maestro").resolve()
+    today = date.today().isoformat()
+    root_dir = Path(__file__).resolve().parent.parent
     generator_script = root_dir / "keelim-plugin/skills/codebase-codemap/scripts/generate_codemap.py"
     output_dir = root_dir / "docs/CODEMAPS/projects"
 
@@ -113,7 +115,7 @@ def main():
         updated_content = re.sub(pattern, replacement, content)
         
         # Update Last updated: YYYY-MM-DD
-        updated_content = re.sub(r"Last updated:\s*\d{4}-\d{2}-\d{2}", "Last updated: 2026-05-22", updated_content)
+        updated_content = re.sub(r"Last updated:\s*\d{4}-\d{2}-\d{2}", f"Last updated: {today}", updated_content)
         
         projects_readme.write_text(updated_content, encoding="utf-8")
         print(f"Updated {projects_readme}")
@@ -130,10 +132,10 @@ def main():
             content = doc_path.read_text(encoding="utf-8")
             
             # Replace Last updated: YYYY-MM-DD
-            updated_content = re.sub(r"Last updated:\s*\d{4}-\d{2}-\d{2}", "Last updated: 2026-05-22", content)
-            
+            updated_content = re.sub(r"Last updated:\s*\d{4}-\d{2}-\d{2}", f"Last updated: {today}", content)
+
             # Replace comment: <!-- Generated: YYYY-MM-DD ... -->
-            updated_content = re.sub(r"Generated:\s*\d{4}-\d{2}-\d{2}", "Generated: 2026-05-22", updated_content)
+            updated_content = re.sub(r"Generated:\s*\d{4}-\d{2}-\d{2}", f"Generated: {today}", updated_content)
             
             doc_path.write_text(updated_content, encoding="utf-8")
             print(f"Updated {doc_path}")
