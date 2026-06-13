@@ -50,7 +50,9 @@ The leader must:
 
 | task | worker | scope |
 |---|---|---|
+| `T07-all-web-ui-a11y` | Jason | `all-web-ui` a11y backlog |
 | `T22-keelim-vercel-dx-config` | Lagrange | `keelim-vercel` dx-config backlog |
+| `T32-youtube-reliability` | Maxwell | `youtube` reliability backlog |
 
 ## Verified Task Units
 

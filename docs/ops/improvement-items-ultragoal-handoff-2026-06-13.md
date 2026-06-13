@@ -14,8 +14,8 @@ Ultragoal run after the user requested a pause and meaningful commits.
 ## Root Ledger Snapshot
 
 - `verified`: 471
-- `assigned`: 11
-- `todo`: 318
+- `assigned`: 45
+- `todo`: 284
 - `blocked`: 0
 - `in_progress`: 0
 - `needs_consumer_check`: 0
@@ -148,11 +148,12 @@ Verification highlights:
 
 | repo | task | owner | current state | next action |
 |---|---|---|---|---|
+| `all-web-ui` | `T07-all-web-ui-a11y` | Jason | Assigned to subagent `019ec0b2-25e9-7383-b3c7-1da724307330`. | Wait for worker report, then leader-verify before marking complete. Preserve pre-existing `all-web-ui/AGENTS.md` edits and `debug-log.json`. |
 | `keelim-vercel` | `T22-keelim-vercel-dx-config` | Lagrange | Assigned to subagent `019ec09e-c0de-7ab3-a8be-48d09b6e0bc5`. | Wait for worker report, then leader-verify before marking complete. Preserve untracked `debug-log.json`. |
+| `youtube` | `T32-youtube-reliability` | Maxwell | Assigned to subagent `019ec0b2-521e-7c23-b2f7-b19558f9e39e`. | Wait for worker report, then leader-verify before marking complete. Preserve unrelated production/media/package dirty work. |
 
 ## Still Todo Next
 
-- `T07-all-web-ui-a11y`
 - `T19-keelim-vercel-n-plus-one-query`
 - `T25-keelim-vercel-bundle-size`
 - Remaining all-web-ui, keelim-plugin, keelim-vercel, youtube, Knowledge Vault,
@@ -187,7 +188,7 @@ Verification highlights:
 1. Run `python3 scripts/improvements/init_progress_ledger.py --check`.
 2. Read this handoff and
    `docs/ops/improvement-items-ultragoal-runbook-2026-06.md`.
-3. Resume active assignment first: `T22`.
+3. Resume active assignments first: `T07`, `T22`, and `T32`.
 4. If those workers are complete, leader-verify each child repo before moving
    the ledger from `assigned` to `verified`.
 5. Track the remaining `rich/web` shared-ui primitive drift under
