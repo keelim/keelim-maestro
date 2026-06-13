@@ -5,7 +5,7 @@
     "inventory": "docs/research/improvements-2026-06/improvements.json",
     "rawDir": "docs/research/improvements-2026-06/raw"
   },
-  "generatedAt": "2026-06-12T23:48:00.072906+00:00",
+  "generatedAt": "2026-06-13T09:38:07.969861+00:00",
   "statusValues": [
     "todo",
     "assigned",
@@ -21,10 +21,10 @@
       "P2": 607
     },
     "byStatus": {
-      "todo": 555,
-      "assigned": 72,
+      "todo": 538,
+      "assigned": 51,
       "in_progress": 0,
-      "verified": 173,
+      "verified": 211,
       "blocked": 0,
       "needs_consumer_check": 0
     },
@@ -110,7 +110,7 @@
       "total": 17,
       "p1": 5,
       "p2": 12,
-      "status": "todo"
+      "status": "assigned"
     },
     {
       "task_id": "T06-android-support-type-safety",
@@ -270,7 +270,7 @@
       "total": 17,
       "p1": 8,
       "p2": 9,
-      "status": "assigned"
+      "status": "verified"
     },
     {
       "task_id": "T24-keelim-vercel-testing",
@@ -360,7 +360,7 @@
       "total": 21,
       "p1": 8,
       "p2": 13,
-      "status": "assigned"
+      "status": "verified"
     },
     {
       "task_id": "T32-youtube-reliability",
@@ -2117,15 +2117,15 @@
       "severity": "P1",
       "effort": "M",
       "task_id": "T04-android-support-security",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Darwin",
       "title": "BUILD_TOOLS_VERSION과 ANDROID_HOME 기반 도구 경로를 신뢰",
       "file_path": "android-support/src/signing.ts:34",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T09:32:28.745033+00:00"
     },
     {
       "id": "ASUP-014",
@@ -2134,15 +2134,15 @@
       "severity": "P1",
       "effort": "M",
       "task_id": "T04-android-support-security",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Darwin",
       "title": "apksigner 비밀번호를 명령행 인자로 전달",
       "file_path": "android-support/src/signing.ts:59",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T09:32:28.745033+00:00"
     },
     {
       "id": "ASUP-015",
@@ -2151,15 +2151,15 @@
       "severity": "P1",
       "effort": "M",
       "task_id": "T04-android-support-security",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Darwin",
       "title": "debugSymbols ZIP 생성이 symlink와 재귀 경계를 제한하지 않음",
       "file_path": "android-support/src/edits.ts:317",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T09:32:28.745033+00:00"
     },
     {
       "id": "ASUP-016",
@@ -2168,15 +2168,15 @@
       "severity": "P1",
       "effort": "S",
       "task_id": "T04-android-support-security",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Darwin",
       "title": "디코딩한 signingKey.jks를 삭제하지 않음",
       "file_path": "android-support/src/main.ts:271",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T09:32:28.745033+00:00"
     },
     {
       "id": "ASUP-017",
@@ -2185,15 +2185,15 @@
       "severity": "P1",
       "effort": "M",
       "task_id": "T04-android-support-security",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Darwin",
       "title": "서비스 계정 JSON을 고정 파일명으로 작업공간에 기록",
       "file_path": "android-support/src/main.ts:232",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T09:32:28.745033+00:00"
     },
     {
       "id": "ASUP-067",
@@ -2202,15 +2202,15 @@
       "severity": "P2",
       "effort": "S",
       "task_id": "T04-android-support-security",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Darwin",
       "title": "AAB 서명 후 검증 단계가 없음",
       "file_path": "android-support/src/signing.ts:109",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T09:32:28.745033+00:00"
     },
     {
       "id": "ASUP-068",
@@ -2219,15 +2219,15 @@
       "severity": "P2",
       "effort": "M",
       "task_id": "T04-android-support-security",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Darwin",
       "title": "debugSymbols 경로가 파일과 디렉터리를 모두 무제한 업로드",
       "file_path": "android-support/src/edits.ts:279",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T09:32:28.745033+00:00"
     },
     {
       "id": "ASUP-069",
@@ -2236,15 +2236,15 @@
       "severity": "P2",
       "effort": "M",
       "task_id": "T04-android-support-security",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Darwin",
       "title": "jarsigner를 PATH 검색 결과로 실행",
       "file_path": "android-support/src/signing.ts:97",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T09:32:28.745033+00:00"
     },
     {
       "id": "ASUP-070",
@@ -2253,15 +2253,15 @@
       "severity": "P2",
       "effort": "M",
       "task_id": "T04-android-support-security",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Darwin",
       "title": "mappingFile 경로가 임의 파일 업로드 통로가 됨",
       "file_path": "android-support/src/edits.ts:254",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T09:32:28.745033+00:00"
     },
     {
       "id": "ASUP-071",
@@ -2270,15 +2270,15 @@
       "severity": "P2",
       "effort": "S",
       "task_id": "T04-android-support-security",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Darwin",
       "title": "releaseDirectory를 검증 없이 readdirSync에 전달",
       "file_path": "android-support/src/utils/io-utils.ts:4",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T09:32:28.745033+00:00"
     },
     {
       "id": "ASUP-072",
@@ -2287,15 +2287,15 @@
       "severity": "P2",
       "effort": "S",
       "task_id": "T04-android-support-security",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Darwin",
       "title": "releaseNotesPath를 검증 없이 파일로 읽음",
       "file_path": "android-support/src/main.ts:328",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T09:32:28.745033+00:00"
     },
     {
       "id": "ASUP-073",
@@ -2304,15 +2304,15 @@
       "severity": "P2",
       "effort": "S",
       "task_id": "T04-android-support-security",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Darwin",
       "title": "serviceAccountJson 경로를 검증 없이 환경변수로 내보냄",
       "file_path": "android-support/src/main.ts:239",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T09:32:28.745033+00:00"
     },
     {
       "id": "ASUP-074",
@@ -2321,15 +2321,15 @@
       "severity": "P2",
       "effort": "S",
       "task_id": "T04-android-support-security",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Darwin",
       "title": "track 기본값이 production으로 설정됨",
       "file_path": "android-support/action.yml:29",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T09:32:28.745033+00:00"
     },
     {
       "id": "ASUP-075",
@@ -2338,15 +2338,15 @@
       "severity": "P2",
       "effort": "S",
       "task_id": "T04-android-support-security",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Darwin",
       "title": "두 자격증명 입력을 동시에 받아도 경고 후 계속 진행",
       "file_path": "android-support/src/main.ts:225",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T09:32:28.745033+00:00"
     },
     {
       "id": "ASUP-076",
@@ -2355,15 +2355,15 @@
       "severity": "P2",
       "effort": "M",
       "task_id": "T04-android-support-security",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Darwin",
       "title": "서명 대상 파일에서 symlink를 정규 파일로 배제하지 않음",
       "file_path": "android-support/src/utils/io-utils.ts:5",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T09:32:28.745033+00:00"
     },
     {
       "id": "ASUP-077",
@@ -2372,15 +2372,15 @@
       "severity": "P2",
       "effort": "S",
       "task_id": "T04-android-support-security",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Darwin",
       "title": "서비스 계정 JSON 원문 구조 검증 없이 자격증명으로 사용",
       "file_path": "android-support/src/main.ts:233",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T09:32:28.745033+00:00"
     },
     {
       "id": "ASUP-078",
@@ -2389,15 +2389,15 @@
       "severity": "P2",
       "effort": "S",
       "task_id": "T04-android-support-security",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Darwin",
       "title": "서비스 계정 임시파일 삭제가 중복되고 실패 처리 없음",
       "file_path": "android-support/src/main.ts:49",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T09:32:28.745033+00:00"
     },
     {
       "id": "ASUP-018",
@@ -4615,14 +4615,14 @@
       "effort": "M",
       "task_id": "T12-all-web-ui-testing",
       "status": "assigned",
-      "owner": "Parfit",
+      "owner": "Helmholtz",
       "title": "AlertDialog confirm/cancel 포커스 흐름 미검증",
       "file_path": "all-web-ui/src/components/alert-dialog.tsx:30",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": "2026-06-12T21:43:36.025744+00:00"
+      "last_updated": "2026-06-13T09:32:28.761178+00:00"
     },
     {
       "id": "AWUI-019",
@@ -4632,14 +4632,14 @@
       "effort": "M",
       "task_id": "T12-all-web-ui-testing",
       "status": "assigned",
-      "owner": "Parfit",
+      "owner": "Helmholtz",
       "title": "Calendar 선택과 포커스 회귀를 잡는 테스트가 없음",
       "file_path": "all-web-ui/src/components/calendar.tsx:175",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": "2026-06-12T21:43:36.025744+00:00"
+      "last_updated": "2026-06-13T09:32:28.761178+00:00"
     },
     {
       "id": "AWUI-020",
@@ -4649,14 +4649,14 @@
       "effort": "M",
       "task_id": "T12-all-web-ui-testing",
       "status": "assigned",
-      "owner": "Parfit",
+      "owner": "Helmholtz",
       "title": "Dialog close 버튼과 focus trap 테스트 부재",
       "file_path": "all-web-ui/src/components/dialog.tsx:32",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": "2026-06-12T21:43:36.025744+00:00"
+      "last_updated": "2026-06-13T09:32:28.761178+00:00"
     },
     {
       "id": "AWUI-021",
@@ -4666,14 +4666,14 @@
       "effort": "M",
       "task_id": "T12-all-web-ui-testing",
       "status": "assigned",
-      "owner": "Parfit",
+      "owner": "Helmholtz",
       "title": "DropdownMenu item 선택과 하위 메뉴 키보드 테스트 부재",
       "file_path": "all-web-ui/src/components/dropdown-menu.tsx:39",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": "2026-06-12T21:43:36.025744+00:00"
+      "last_updated": "2026-06-13T09:32:28.761178+00:00"
     },
     {
       "id": "AWUI-022",
@@ -4683,14 +4683,14 @@
       "effort": "M",
       "task_id": "T12-all-web-ui-testing",
       "status": "assigned",
-      "owner": "Parfit",
+      "owner": "Helmholtz",
       "title": "Select open/select/typeahead 테스트 부재",
       "file_path": "all-web-ui/src/components/select.tsx:15",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": "2026-06-12T21:43:36.025744+00:00"
+      "last_updated": "2026-06-13T09:32:28.761178+00:00"
     },
     {
       "id": "AWUI-023",
@@ -4700,14 +4700,14 @@
       "effort": "M",
       "task_id": "T12-all-web-ui-testing",
       "status": "assigned",
-      "owner": "Parfit",
+      "owner": "Helmholtz",
       "title": "SheetContent 접근성 및 side variant 테스트 부재",
       "file_path": "all-web-ui/src/components/sheet.tsx:40",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": "2026-06-12T21:43:36.025744+00:00"
+      "last_updated": "2026-06-13T09:32:28.761178+00:00"
     },
     {
       "id": "AWUI-024",
@@ -4717,14 +4717,14 @@
       "effort": "S",
       "task_id": "T12-all-web-ui-testing",
       "status": "assigned",
-      "owner": "Parfit",
+      "owner": "Helmholtz",
       "title": "Switch custom 상태 변경 계약 테스트 부재",
       "file_path": "all-web-ui/src/components/switch.tsx:4",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": "2026-06-12T21:43:36.025744+00:00"
+      "last_updated": "2026-06-13T09:32:28.761178+00:00"
     },
     {
       "id": "AWUI-025",
@@ -4734,14 +4734,14 @@
       "effort": "M",
       "task_id": "T12-all-web-ui-testing",
       "status": "assigned",
-      "owner": "Parfit",
+      "owner": "Helmholtz",
       "title": "Tabs active content와 화살표 키 이동 테스트 부재",
       "file_path": "all-web-ui/src/components/tabs.tsx:23",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": "2026-06-12T21:43:36.025744+00:00"
+      "last_updated": "2026-06-13T09:32:28.761178+00:00"
     },
     {
       "id": "AWUI-026",
@@ -4751,14 +4751,14 @@
       "effort": "M",
       "task_id": "T12-all-web-ui-testing",
       "status": "assigned",
-      "owner": "Parfit",
+      "owner": "Helmholtz",
       "title": "단일 SSR 테스트 파일에 DOM 상호작용 검증이 없음",
       "file_path": "all-web-ui/tests/components.test.tsx:3",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": "2026-06-12T21:43:36.025744+00:00"
+      "last_updated": "2026-06-13T09:32:28.761178+00:00"
     },
     {
       "id": "AWUI-091",
@@ -4768,14 +4768,14 @@
       "effort": "S",
       "task_id": "T12-all-web-ui-testing",
       "status": "assigned",
-      "owner": "Parfit",
+      "owner": "Helmholtz",
       "title": "Accordion 열림 상태와 키보드 토글 테스트 부재",
       "file_path": "all-web-ui/src/components/accordion.tsx:23",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": "2026-06-12T21:43:36.025744+00:00"
+      "last_updated": "2026-06-13T09:32:28.761178+00:00"
     },
     {
       "id": "AWUI-092",
@@ -4785,14 +4785,14 @@
       "effort": "S",
       "task_id": "T12-all-web-ui-testing",
       "status": "assigned",
-      "owner": "Parfit",
+      "owner": "Helmholtz",
       "title": "Avatar 이미지 실패 fallback 테스트 부재",
       "file_path": "all-web-ui/src/components/avatar.tsx:23",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": "2026-06-12T21:43:36.025744+00:00"
+      "last_updated": "2026-06-13T09:32:28.761178+00:00"
     },
     {
       "id": "AWUI-093",
@@ -4802,14 +4802,14 @@
       "effort": "S",
       "task_id": "T12-all-web-ui-testing",
       "status": "assigned",
-      "owner": "Parfit",
+      "owner": "Helmholtz",
       "title": "Checkbox checked/indeterminate 상호작용 테스트 부재",
       "file_path": "all-web-ui/src/components/checkbox.tsx:9",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": "2026-06-12T21:43:36.025744+00:00"
+      "last_updated": "2026-06-13T09:32:28.761178+00:00"
     },
     {
       "id": "AWUI-094",
@@ -4819,14 +4819,14 @@
       "effort": "S",
       "task_id": "T12-all-web-ui-testing",
       "status": "assigned",
-      "owner": "Parfit",
+      "owner": "Helmholtz",
       "title": "HoverCard hover/focus 표시 조건 테스트 부재",
       "file_path": "all-web-ui/src/components/hover-card.tsx:12",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": "2026-06-12T21:43:36.025744+00:00"
+      "last_updated": "2026-06-13T09:32:28.761178+00:00"
     },
     {
       "id": "AWUI-095",
@@ -4836,14 +4836,14 @@
       "effort": "M",
       "task_id": "T12-all-web-ui-testing",
       "status": "assigned",
-      "owner": "Parfit",
+      "owner": "Helmholtz",
       "title": "Popover open/escape/outside click 테스트 부재",
       "file_path": "all-web-ui/src/components/popover.tsx:14",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": "2026-06-12T21:43:36.025744+00:00"
+      "last_updated": "2026-06-13T09:32:28.761178+00:00"
     },
     {
       "id": "AWUI-096",
@@ -4853,14 +4853,14 @@
       "effort": "S",
       "task_id": "T12-all-web-ui-testing",
       "status": "assigned",
-      "owner": "Parfit",
+      "owner": "Helmholtz",
       "title": "Progress aria/value 스타일 계약 미검증",
       "file_path": "all-web-ui/src/components/progress.tsx:11",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": "2026-06-12T21:43:36.025744+00:00"
+      "last_updated": "2026-06-13T09:32:28.761178+00:00"
     },
     {
       "id": "AWUI-097",
@@ -4870,14 +4870,14 @@
       "effort": "S",
       "task_id": "T12-all-web-ui-testing",
       "status": "assigned",
-      "owner": "Parfit",
+      "owner": "Helmholtz",
       "title": "RadioGroup roving focus 키보드 테스트 부재",
       "file_path": "all-web-ui/src/components/radio-group.tsx:9",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": "2026-06-12T21:43:36.025744+00:00"
+      "last_updated": "2026-06-13T09:32:28.761178+00:00"
     },
     {
       "id": "AWUI-098",
@@ -4887,14 +4887,14 @@
       "effort": "S",
       "task_id": "T12-all-web-ui-testing",
       "status": "assigned",
-      "owner": "Parfit",
+      "owner": "Helmholtz",
       "title": "Slider pointer/keyboard value 변경 테스트 부재",
       "file_path": "all-web-ui/src/components/slider.tsx:8",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": "2026-06-12T21:43:36.025744+00:00"
+      "last_updated": "2026-06-13T09:32:28.761178+00:00"
     },
     {
       "id": "AWUI-099",
@@ -4904,14 +4904,14 @@
       "effort": "M",
       "task_id": "T12-all-web-ui-testing",
       "status": "assigned",
-      "owner": "Parfit",
+      "owner": "Helmholtz",
       "title": "Toast close/action/swipe 상태 테스트 부재",
       "file_path": "all-web-ui/src/components/toast.tsx:43",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": "2026-06-12T21:43:36.025744+00:00"
+      "last_updated": "2026-06-13T09:32:28.761178+00:00"
     },
     {
       "id": "AWUI-100",
@@ -4921,14 +4921,14 @@
       "effort": "S",
       "task_id": "T12-all-web-ui-testing",
       "status": "assigned",
-      "owner": "Parfit",
+      "owner": "Helmholtz",
       "title": "Tooltip content 표시와 aria 연결 테스트 부재",
       "file_path": "all-web-ui/src/components/tooltip.tsx:12",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": "2026-06-12T21:43:36.025744+00:00"
+      "last_updated": "2026-06-13T09:32:28.761178+00:00"
     },
     {
       "id": "KPLG-001",
@@ -5176,14 +5176,14 @@
       "effort": "M",
       "task_id": "T14-keelim-plugin-dx-tooling",
       "status": "assigned",
-      "owner": "Laplace",
+      "owner": "Euler",
       "title": "CI workflow가 없어 로컬 검증이 자동화되지 않음",
       "file_path": "keelim-plugin/AGENTS.md:37",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": "2026-06-12T23:37:56.605095+00:00"
+      "last_updated": "2026-06-13T09:32:28.922312+00:00"
     },
     {
       "id": "KPLG-003",
@@ -5193,14 +5193,14 @@
       "effort": "M",
       "task_id": "T14-keelim-plugin-dx-tooling",
       "status": "assigned",
-      "owner": "Laplace",
+      "owner": "Euler",
       "title": "evals와 SkillOpt 운영 스크립트가 ignore되어 소스 관리에서 빠짐",
       "file_path": "keelim-plugin/.gitignore:5",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": "2026-06-12T23:37:56.605095+00:00"
+      "last_updated": "2026-06-13T09:32:28.922312+00:00"
     },
     {
       "id": "KPLG-004",
@@ -5210,14 +5210,14 @@
       "effort": "M",
       "task_id": "T14-keelim-plugin-dx-tooling",
       "status": "assigned",
-      "owner": "Laplace",
+      "owner": "Euler",
       "title": "promotion apply 후 자동 검증 게이트가 없음",
       "file_path": "keelim-plugin/scripts/promote_plugin_skills.py:256",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": "2026-06-12T23:37:56.605095+00:00"
+      "last_updated": "2026-06-13T09:32:28.922312+00:00"
     },
     {
       "id": "KPLG-042",
@@ -5227,14 +5227,14 @@
       "effort": "S",
       "task_id": "T14-keelim-plugin-dx-tooling",
       "status": "assigned",
-      "owner": "Laplace",
+      "owner": "Euler",
       "title": "Codex metadata 누락이 실패가 아니라 정보 로그로만 처리됨",
       "file_path": "keelim-plugin/scripts/verify-skills.sh:41",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": "2026-06-12T23:37:56.605095+00:00"
+      "last_updated": "2026-06-13T09:32:28.922312+00:00"
     },
     {
       "id": "KPLG-043",
@@ -5244,14 +5244,14 @@
       "effort": "S",
       "task_id": "T14-keelim-plugin-dx-tooling",
       "status": "assigned",
-      "owner": "Laplace",
+      "owner": "Euler",
       "title": "README에 단일 전체 검증 명령이 없음",
       "file_path": "keelim-plugin/README.md:33",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": "2026-06-12T23:37:56.605095+00:00"
+      "last_updated": "2026-06-13T09:32:28.922312+00:00"
     },
     {
       "id": "KPLG-044",
@@ -5261,14 +5261,14 @@
       "effort": "S",
       "task_id": "T14-keelim-plugin-dx-tooling",
       "status": "assigned",
-      "owner": "Laplace",
+      "owner": "Euler",
       "title": "dev dependency group이 없어 검증 도구 버전이 잠기지 않음",
       "file_path": "keelim-plugin/pyproject.toml:5",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": "2026-06-12T23:37:56.605095+00:00"
+      "last_updated": "2026-06-13T09:32:28.922312+00:00"
     },
     {
       "id": "KPLG-045",
@@ -5278,14 +5278,14 @@
       "effort": "M",
       "task_id": "T14-keelim-plugin-dx-tooling",
       "status": "assigned",
-      "owner": "Laplace",
+      "owner": "Euler",
       "title": "mypy 설정이 없어 타입 힌트가 검증되지 않음",
       "file_path": "keelim-plugin/pyproject.toml:5",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": "2026-06-12T23:37:56.605095+00:00"
+      "last_updated": "2026-06-13T09:32:28.922312+00:00"
     },
     {
       "id": "KPLG-046",
@@ -5295,14 +5295,14 @@
       "effort": "S",
       "task_id": "T14-keelim-plugin-dx-tooling",
       "status": "assigned",
-      "owner": "Laplace",
+      "owner": "Euler",
       "title": "pre-commit 훅이 없어 commit 전 기본 검증이 누락됨",
       "file_path": "keelim-plugin/.gitignore:1",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": "2026-06-12T23:37:56.605095+00:00"
+      "last_updated": "2026-06-13T09:32:28.922312+00:00"
     },
     {
       "id": "KPLG-047",
@@ -5312,14 +5312,14 @@
       "effort": "S",
       "task_id": "T14-keelim-plugin-dx-tooling",
       "status": "assigned",
-      "owner": "Laplace",
+      "owner": "Euler",
       "title": "repo-local uv cache 사용 정책에 prune 절차가 없음",
       "file_path": "keelim-plugin/README.md:36",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": "2026-06-12T23:37:56.605095+00:00"
+      "last_updated": "2026-06-13T09:32:28.922312+00:00"
     },
     {
       "id": "KPLG-048",
@@ -5329,14 +5329,14 @@
       "effort": "S",
       "task_id": "T14-keelim-plugin-dx-tooling",
       "status": "assigned",
-      "owner": "Laplace",
+      "owner": "Euler",
       "title": "ruff 설정이 없어 Python 스타일 게이트가 재현되지 않음",
       "file_path": "keelim-plugin/pyproject.toml:1",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": "2026-06-12T23:37:56.605095+00:00"
+      "last_updated": "2026-06-13T09:32:28.922312+00:00"
     },
     {
       "id": "KPLG-049",
@@ -5346,14 +5346,14 @@
       "effort": "S",
       "task_id": "T14-keelim-plugin-dx-tooling",
       "status": "assigned",
-      "owner": "Laplace",
+      "owner": "Euler",
       "title": "session-learning hook이 uv-only 실행 정책을 우회함",
       "file_path": "keelim-plugin/skills/session-learning/hooks/observe.sh:8",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": "2026-06-12T23:37:56.605095+00:00"
+      "last_updated": "2026-06-13T09:32:28.922312+00:00"
     },
     {
       "id": "KPLG-050",
@@ -5363,14 +5363,14 @@
       "effort": "S",
       "task_id": "T14-keelim-plugin-dx-tooling",
       "status": "assigned",
-      "owner": "Laplace",
+      "owner": "Euler",
       "title": "subprocess wrapper에 timeout이 없어 검증이 멈출 수 있음",
       "file_path": "keelim-plugin/scripts/skillopt_plugin_skills.py:91",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": "2026-06-12T23:37:56.605095+00:00"
+      "last_updated": "2026-06-13T09:32:28.922312+00:00"
     },
     {
       "id": "KPLG-051",
@@ -5380,14 +5380,14 @@
       "effort": "S",
       "task_id": "T14-keelim-plugin-dx-tooling",
       "status": "assigned",
-      "owner": "Laplace",
+      "owner": "Euler",
       "title": "uv.lock이 실제 검증 도구를 잠그지 못함",
       "file_path": "keelim-plugin/uv.lock:5",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": "2026-06-12T23:37:56.605095+00:00"
+      "last_updated": "2026-06-13T09:32:28.922312+00:00"
     },
     {
       "id": "KPLG-052",
@@ -5397,14 +5397,14 @@
       "effort": "M",
       "task_id": "T14-keelim-plugin-dx-tooling",
       "status": "assigned",
-      "owner": "Laplace",
+      "owner": "Euler",
       "title": "verify-skills가 YAML frontmatter를 shell regex로 파싱함",
       "file_path": "keelim-plugin/scripts/verify-skills.sh:26",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": "2026-06-12T23:37:56.605095+00:00"
+      "last_updated": "2026-06-13T09:32:28.922312+00:00"
     },
     {
       "id": "KPLG-053",
@@ -5414,14 +5414,14 @@
       "effort": "S",
       "task_id": "T14-keelim-plugin-dx-tooling",
       "status": "assigned",
-      "owner": "Laplace",
+      "owner": "Euler",
       "title": "전역 *.json ignore가 fixture와 검증 산출물을 숨김",
       "file_path": "keelim-plugin/.gitignore:1",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": "2026-06-12T23:37:56.605095+00:00"
+      "last_updated": "2026-06-13T09:32:28.922312+00:00"
     },
     {
       "id": "KPLG-005",
@@ -9024,15 +9024,34 @@
       "severity": "P1",
       "effort": "M",
       "task_id": "T23-keelim-vercel-security",
-      "status": "assigned",
+      "status": "verified",
       "owner": "Schrodinger",
       "title": "Auth.js 설정이 보호 미들웨어로 연결되지 않음",
       "file_path": "keelim-vercel/lib/auth.ts:4",
-      "verification_commands": [],
-      "verification_result": null,
-      "changed_files": [],
+      "verification_commands": [
+        "cd keelim-vercel && bun run typecheck && bun run test && bun run build && bun run verify:maintenance && ./node_modules/.bin/eslint proxy.ts lib/auth.ts lib/auth-policy.ts lib/api-auth.ts lib/rate-limit.ts lib/api-contracts.ts lib/api-contracts.test.ts app/api/og-parser/route.ts app/api/products/import/route.ts app/api/products/export/route.ts app/api/newsletter/subscribe/route.ts app/api/tool-assistant/route.ts lib/financial-wiki-actions.ts lib/financial-wiki-qa-actions.ts lib/ranking-actions.ts && git diff --check"
+      ],
+      "verification_result": "Leader rerun passed after Schrodinger T23: typecheck, 39-test Bun suite, production build, maintenance checks, scoped ESLint, and git diff --check all passed. Build retained existing workspace-root warning and Supabase forex mock fallback during static generation.",
+      "changed_files": [
+        "keelim-vercel/proxy.ts",
+        "keelim-vercel/lib/auth.ts",
+        "keelim-vercel/lib/auth-policy.ts",
+        "keelim-vercel/lib/api-auth.ts",
+        "keelim-vercel/lib/rate-limit.ts",
+        "keelim-vercel/lib/api-contracts.ts",
+        "keelim-vercel/lib/api-contracts.test.ts",
+        "keelim-vercel/app/api/og-parser/route.ts",
+        "keelim-vercel/app/api/products/import/route.ts",
+        "keelim-vercel/app/api/products/export/route.ts",
+        "keelim-vercel/app/api/newsletter/subscribe/route.ts",
+        "keelim-vercel/app/api/tool-assistant/route.ts",
+        "keelim-vercel/lib/financial-wiki-actions.ts",
+        "keelim-vercel/lib/financial-wiki-qa-actions.ts",
+        "keelim-vercel/lib/ranking-actions.ts",
+        "keelim-vercel/AGENTS.md"
+      ],
       "blocked_reason": null,
-      "last_updated": "2026-06-12T22:30:20.007787+00:00"
+      "last_updated": "2026-06-13T09:36:20.853378+00:00"
     },
     {
       "id": "KVCL-021",
@@ -9041,15 +9060,34 @@
       "severity": "P1",
       "effort": "M",
       "task_id": "T23-keelim-vercel-security",
-      "status": "assigned",
+      "status": "verified",
       "owner": "Schrodinger",
       "title": "OG parser가 임의 URL을 서버에서 fetch함",
       "file_path": "keelim-vercel/app/api/og-parser/route.ts:24",
-      "verification_commands": [],
-      "verification_result": null,
-      "changed_files": [],
+      "verification_commands": [
+        "cd keelim-vercel && bun run typecheck && bun run test && bun run build && bun run verify:maintenance && ./node_modules/.bin/eslint proxy.ts lib/auth.ts lib/auth-policy.ts lib/api-auth.ts lib/rate-limit.ts lib/api-contracts.ts lib/api-contracts.test.ts app/api/og-parser/route.ts app/api/products/import/route.ts app/api/products/export/route.ts app/api/newsletter/subscribe/route.ts app/api/tool-assistant/route.ts lib/financial-wiki-actions.ts lib/financial-wiki-qa-actions.ts lib/ranking-actions.ts && git diff --check"
+      ],
+      "verification_result": "Leader rerun passed after Schrodinger T23: typecheck, 39-test Bun suite, production build, maintenance checks, scoped ESLint, and git diff --check all passed. Build retained existing workspace-root warning and Supabase forex mock fallback during static generation.",
+      "changed_files": [
+        "keelim-vercel/proxy.ts",
+        "keelim-vercel/lib/auth.ts",
+        "keelim-vercel/lib/auth-policy.ts",
+        "keelim-vercel/lib/api-auth.ts",
+        "keelim-vercel/lib/rate-limit.ts",
+        "keelim-vercel/lib/api-contracts.ts",
+        "keelim-vercel/lib/api-contracts.test.ts",
+        "keelim-vercel/app/api/og-parser/route.ts",
+        "keelim-vercel/app/api/products/import/route.ts",
+        "keelim-vercel/app/api/products/export/route.ts",
+        "keelim-vercel/app/api/newsletter/subscribe/route.ts",
+        "keelim-vercel/app/api/tool-assistant/route.ts",
+        "keelim-vercel/lib/financial-wiki-actions.ts",
+        "keelim-vercel/lib/financial-wiki-qa-actions.ts",
+        "keelim-vercel/lib/ranking-actions.ts",
+        "keelim-vercel/AGENTS.md"
+      ],
       "blocked_reason": null,
-      "last_updated": "2026-06-12T22:30:20.007787+00:00"
+      "last_updated": "2026-06-13T09:36:20.853378+00:00"
     },
     {
       "id": "KVCL-022",
@@ -9058,15 +9096,34 @@
       "severity": "P1",
       "effort": "M",
       "task_id": "T23-keelim-vercel-security",
-      "status": "assigned",
+      "status": "verified",
       "owner": "Schrodinger",
       "title": "금융 위키 승인·거절 server action에 관리자 검증이 없음",
       "file_path": "keelim-vercel/lib/financial-wiki-actions.ts:35",
-      "verification_commands": [],
-      "verification_result": null,
-      "changed_files": [],
+      "verification_commands": [
+        "cd keelim-vercel && bun run typecheck && bun run test && bun run build && bun run verify:maintenance && ./node_modules/.bin/eslint proxy.ts lib/auth.ts lib/auth-policy.ts lib/api-auth.ts lib/rate-limit.ts lib/api-contracts.ts lib/api-contracts.test.ts app/api/og-parser/route.ts app/api/products/import/route.ts app/api/products/export/route.ts app/api/newsletter/subscribe/route.ts app/api/tool-assistant/route.ts lib/financial-wiki-actions.ts lib/financial-wiki-qa-actions.ts lib/ranking-actions.ts && git diff --check"
+      ],
+      "verification_result": "Leader rerun passed after Schrodinger T23: typecheck, 39-test Bun suite, production build, maintenance checks, scoped ESLint, and git diff --check all passed. Build retained existing workspace-root warning and Supabase forex mock fallback during static generation.",
+      "changed_files": [
+        "keelim-vercel/proxy.ts",
+        "keelim-vercel/lib/auth.ts",
+        "keelim-vercel/lib/auth-policy.ts",
+        "keelim-vercel/lib/api-auth.ts",
+        "keelim-vercel/lib/rate-limit.ts",
+        "keelim-vercel/lib/api-contracts.ts",
+        "keelim-vercel/lib/api-contracts.test.ts",
+        "keelim-vercel/app/api/og-parser/route.ts",
+        "keelim-vercel/app/api/products/import/route.ts",
+        "keelim-vercel/app/api/products/export/route.ts",
+        "keelim-vercel/app/api/newsletter/subscribe/route.ts",
+        "keelim-vercel/app/api/tool-assistant/route.ts",
+        "keelim-vercel/lib/financial-wiki-actions.ts",
+        "keelim-vercel/lib/financial-wiki-qa-actions.ts",
+        "keelim-vercel/lib/ranking-actions.ts",
+        "keelim-vercel/AGENTS.md"
+      ],
       "blocked_reason": null,
-      "last_updated": "2026-06-12T22:30:20.007787+00:00"
+      "last_updated": "2026-06-13T09:36:20.853378+00:00"
     },
     {
       "id": "KVCL-023",
@@ -9075,15 +9132,34 @@
       "severity": "P1",
       "effort": "S",
       "task_id": "T23-keelim-vercel-security",
-      "status": "assigned",
+      "status": "verified",
       "owner": "Schrodinger",
       "title": "뉴스레터 미발행 초안이 쿼리 하나로 노출됨",
       "file_path": "keelim-vercel/app/api/newsletter/drafts/route.ts:33",
-      "verification_commands": [],
-      "verification_result": null,
-      "changed_files": [],
+      "verification_commands": [
+        "cd keelim-vercel && bun run typecheck && bun run test && bun run build && bun run verify:maintenance && ./node_modules/.bin/eslint proxy.ts lib/auth.ts lib/auth-policy.ts lib/api-auth.ts lib/rate-limit.ts lib/api-contracts.ts lib/api-contracts.test.ts app/api/og-parser/route.ts app/api/products/import/route.ts app/api/products/export/route.ts app/api/newsletter/subscribe/route.ts app/api/tool-assistant/route.ts lib/financial-wiki-actions.ts lib/financial-wiki-qa-actions.ts lib/ranking-actions.ts && git diff --check"
+      ],
+      "verification_result": "Leader rerun passed after Schrodinger T23: typecheck, 39-test Bun suite, production build, maintenance checks, scoped ESLint, and git diff --check all passed. Build retained existing workspace-root warning and Supabase forex mock fallback during static generation.",
+      "changed_files": [
+        "keelim-vercel/proxy.ts",
+        "keelim-vercel/lib/auth.ts",
+        "keelim-vercel/lib/auth-policy.ts",
+        "keelim-vercel/lib/api-auth.ts",
+        "keelim-vercel/lib/rate-limit.ts",
+        "keelim-vercel/lib/api-contracts.ts",
+        "keelim-vercel/lib/api-contracts.test.ts",
+        "keelim-vercel/app/api/og-parser/route.ts",
+        "keelim-vercel/app/api/products/import/route.ts",
+        "keelim-vercel/app/api/products/export/route.ts",
+        "keelim-vercel/app/api/newsletter/subscribe/route.ts",
+        "keelim-vercel/app/api/tool-assistant/route.ts",
+        "keelim-vercel/lib/financial-wiki-actions.ts",
+        "keelim-vercel/lib/financial-wiki-qa-actions.ts",
+        "keelim-vercel/lib/ranking-actions.ts",
+        "keelim-vercel/AGENTS.md"
+      ],
       "blocked_reason": null,
-      "last_updated": "2026-06-12T22:30:20.007787+00:00"
+      "last_updated": "2026-06-13T09:36:20.853378+00:00"
     },
     {
       "id": "KVCL-024",
@@ -9092,15 +9168,34 @@
       "severity": "P1",
       "effort": "S",
       "task_id": "T23-keelim-vercel-security",
-      "status": "assigned",
+      "status": "verified",
       "owner": "Schrodinger",
       "title": "뉴스레터 삭제 API가 인증 없이 row 삭제를 수행함",
       "file_path": "keelim-vercel/app/api/newsletter/drafts/route.ts:128",
-      "verification_commands": [],
-      "verification_result": null,
-      "changed_files": [],
+      "verification_commands": [
+        "cd keelim-vercel && bun run typecheck && bun run test && bun run build && bun run verify:maintenance && ./node_modules/.bin/eslint proxy.ts lib/auth.ts lib/auth-policy.ts lib/api-auth.ts lib/rate-limit.ts lib/api-contracts.ts lib/api-contracts.test.ts app/api/og-parser/route.ts app/api/products/import/route.ts app/api/products/export/route.ts app/api/newsletter/subscribe/route.ts app/api/tool-assistant/route.ts lib/financial-wiki-actions.ts lib/financial-wiki-qa-actions.ts lib/ranking-actions.ts && git diff --check"
+      ],
+      "verification_result": "Leader rerun passed after Schrodinger T23: typecheck, 39-test Bun suite, production build, maintenance checks, scoped ESLint, and git diff --check all passed. Build retained existing workspace-root warning and Supabase forex mock fallback during static generation.",
+      "changed_files": [
+        "keelim-vercel/proxy.ts",
+        "keelim-vercel/lib/auth.ts",
+        "keelim-vercel/lib/auth-policy.ts",
+        "keelim-vercel/lib/api-auth.ts",
+        "keelim-vercel/lib/rate-limit.ts",
+        "keelim-vercel/lib/api-contracts.ts",
+        "keelim-vercel/lib/api-contracts.test.ts",
+        "keelim-vercel/app/api/og-parser/route.ts",
+        "keelim-vercel/app/api/products/import/route.ts",
+        "keelim-vercel/app/api/products/export/route.ts",
+        "keelim-vercel/app/api/newsletter/subscribe/route.ts",
+        "keelim-vercel/app/api/tool-assistant/route.ts",
+        "keelim-vercel/lib/financial-wiki-actions.ts",
+        "keelim-vercel/lib/financial-wiki-qa-actions.ts",
+        "keelim-vercel/lib/ranking-actions.ts",
+        "keelim-vercel/AGENTS.md"
+      ],
       "blocked_reason": null,
-      "last_updated": "2026-06-12T22:30:20.007787+00:00"
+      "last_updated": "2026-06-13T09:36:20.853378+00:00"
     },
     {
       "id": "KVCL-025",
@@ -9109,15 +9204,34 @@
       "severity": "P1",
       "effort": "M",
       "task_id": "T23-keelim-vercel-security",
-      "status": "assigned",
+      "status": "verified",
       "owner": "Schrodinger",
       "title": "뉴스레터 생성 API가 인증 없이 DB에 insert함",
       "file_path": "keelim-vercel/app/api/newsletter/drafts/route.ts:59",
-      "verification_commands": [],
-      "verification_result": null,
-      "changed_files": [],
+      "verification_commands": [
+        "cd keelim-vercel && bun run typecheck && bun run test && bun run build && bun run verify:maintenance && ./node_modules/.bin/eslint proxy.ts lib/auth.ts lib/auth-policy.ts lib/api-auth.ts lib/rate-limit.ts lib/api-contracts.ts lib/api-contracts.test.ts app/api/og-parser/route.ts app/api/products/import/route.ts app/api/products/export/route.ts app/api/newsletter/subscribe/route.ts app/api/tool-assistant/route.ts lib/financial-wiki-actions.ts lib/financial-wiki-qa-actions.ts lib/ranking-actions.ts && git diff --check"
+      ],
+      "verification_result": "Leader rerun passed after Schrodinger T23: typecheck, 39-test Bun suite, production build, maintenance checks, scoped ESLint, and git diff --check all passed. Build retained existing workspace-root warning and Supabase forex mock fallback during static generation.",
+      "changed_files": [
+        "keelim-vercel/proxy.ts",
+        "keelim-vercel/lib/auth.ts",
+        "keelim-vercel/lib/auth-policy.ts",
+        "keelim-vercel/lib/api-auth.ts",
+        "keelim-vercel/lib/rate-limit.ts",
+        "keelim-vercel/lib/api-contracts.ts",
+        "keelim-vercel/lib/api-contracts.test.ts",
+        "keelim-vercel/app/api/og-parser/route.ts",
+        "keelim-vercel/app/api/products/import/route.ts",
+        "keelim-vercel/app/api/products/export/route.ts",
+        "keelim-vercel/app/api/newsletter/subscribe/route.ts",
+        "keelim-vercel/app/api/tool-assistant/route.ts",
+        "keelim-vercel/lib/financial-wiki-actions.ts",
+        "keelim-vercel/lib/financial-wiki-qa-actions.ts",
+        "keelim-vercel/lib/ranking-actions.ts",
+        "keelim-vercel/AGENTS.md"
+      ],
       "blocked_reason": null,
-      "last_updated": "2026-06-12T22:30:20.007787+00:00"
+      "last_updated": "2026-06-13T09:36:20.853378+00:00"
     },
     {
       "id": "KVCL-026",
@@ -9126,15 +9240,34 @@
       "severity": "P1",
       "effort": "M",
       "task_id": "T23-keelim-vercel-security",
-      "status": "assigned",
+      "status": "verified",
       "owner": "Schrodinger",
       "title": "뉴스레터 수정 API가 임의 id 업데이트를 허용함",
       "file_path": "keelim-vercel/app/api/newsletter/drafts/route.ts:91",
-      "verification_commands": [],
-      "verification_result": null,
-      "changed_files": [],
+      "verification_commands": [
+        "cd keelim-vercel && bun run typecheck && bun run test && bun run build && bun run verify:maintenance && ./node_modules/.bin/eslint proxy.ts lib/auth.ts lib/auth-policy.ts lib/api-auth.ts lib/rate-limit.ts lib/api-contracts.ts lib/api-contracts.test.ts app/api/og-parser/route.ts app/api/products/import/route.ts app/api/products/export/route.ts app/api/newsletter/subscribe/route.ts app/api/tool-assistant/route.ts lib/financial-wiki-actions.ts lib/financial-wiki-qa-actions.ts lib/ranking-actions.ts && git diff --check"
+      ],
+      "verification_result": "Leader rerun passed after Schrodinger T23: typecheck, 39-test Bun suite, production build, maintenance checks, scoped ESLint, and git diff --check all passed. Build retained existing workspace-root warning and Supabase forex mock fallback during static generation.",
+      "changed_files": [
+        "keelim-vercel/proxy.ts",
+        "keelim-vercel/lib/auth.ts",
+        "keelim-vercel/lib/auth-policy.ts",
+        "keelim-vercel/lib/api-auth.ts",
+        "keelim-vercel/lib/rate-limit.ts",
+        "keelim-vercel/lib/api-contracts.ts",
+        "keelim-vercel/lib/api-contracts.test.ts",
+        "keelim-vercel/app/api/og-parser/route.ts",
+        "keelim-vercel/app/api/products/import/route.ts",
+        "keelim-vercel/app/api/products/export/route.ts",
+        "keelim-vercel/app/api/newsletter/subscribe/route.ts",
+        "keelim-vercel/app/api/tool-assistant/route.ts",
+        "keelim-vercel/lib/financial-wiki-actions.ts",
+        "keelim-vercel/lib/financial-wiki-qa-actions.ts",
+        "keelim-vercel/lib/ranking-actions.ts",
+        "keelim-vercel/AGENTS.md"
+      ],
       "blocked_reason": null,
-      "last_updated": "2026-06-12T22:30:20.007787+00:00"
+      "last_updated": "2026-06-13T09:36:20.853378+00:00"
     },
     {
       "id": "KVCL-027",
@@ -9143,15 +9276,34 @@
       "severity": "P1",
       "effort": "M",
       "task_id": "T23-keelim-vercel-security",
-      "status": "assigned",
+      "status": "verified",
       "owner": "Schrodinger",
       "title": "상품 CSV import가 인증 없이 DB insert를 수행함",
       "file_path": "keelim-vercel/app/api/products/import/route.ts:157",
-      "verification_commands": [],
-      "verification_result": null,
-      "changed_files": [],
+      "verification_commands": [
+        "cd keelim-vercel && bun run typecheck && bun run test && bun run build && bun run verify:maintenance && ./node_modules/.bin/eslint proxy.ts lib/auth.ts lib/auth-policy.ts lib/api-auth.ts lib/rate-limit.ts lib/api-contracts.ts lib/api-contracts.test.ts app/api/og-parser/route.ts app/api/products/import/route.ts app/api/products/export/route.ts app/api/newsletter/subscribe/route.ts app/api/tool-assistant/route.ts lib/financial-wiki-actions.ts lib/financial-wiki-qa-actions.ts lib/ranking-actions.ts && git diff --check"
+      ],
+      "verification_result": "Leader rerun passed after Schrodinger T23: typecheck, 39-test Bun suite, production build, maintenance checks, scoped ESLint, and git diff --check all passed. Build retained existing workspace-root warning and Supabase forex mock fallback during static generation.",
+      "changed_files": [
+        "keelim-vercel/proxy.ts",
+        "keelim-vercel/lib/auth.ts",
+        "keelim-vercel/lib/auth-policy.ts",
+        "keelim-vercel/lib/api-auth.ts",
+        "keelim-vercel/lib/rate-limit.ts",
+        "keelim-vercel/lib/api-contracts.ts",
+        "keelim-vercel/lib/api-contracts.test.ts",
+        "keelim-vercel/app/api/og-parser/route.ts",
+        "keelim-vercel/app/api/products/import/route.ts",
+        "keelim-vercel/app/api/products/export/route.ts",
+        "keelim-vercel/app/api/newsletter/subscribe/route.ts",
+        "keelim-vercel/app/api/tool-assistant/route.ts",
+        "keelim-vercel/lib/financial-wiki-actions.ts",
+        "keelim-vercel/lib/financial-wiki-qa-actions.ts",
+        "keelim-vercel/lib/ranking-actions.ts",
+        "keelim-vercel/AGENTS.md"
+      ],
       "blocked_reason": null,
-      "last_updated": "2026-06-12T22:30:20.007787+00:00"
+      "last_updated": "2026-06-13T09:36:20.853378+00:00"
     },
     {
       "id": "KVCL-065",
@@ -9160,15 +9312,34 @@
       "severity": "P2",
       "effort": "S",
       "task_id": "T23-keelim-vercel-security",
-      "status": "assigned",
+      "status": "verified",
       "owner": "Schrodinger",
       "title": "CSV export가 formula injection을 방어하지 않음",
       "file_path": "keelim-vercel/app/api/products/export/route.ts:4",
-      "verification_commands": [],
-      "verification_result": null,
-      "changed_files": [],
+      "verification_commands": [
+        "cd keelim-vercel && bun run typecheck && bun run test && bun run build && bun run verify:maintenance && ./node_modules/.bin/eslint proxy.ts lib/auth.ts lib/auth-policy.ts lib/api-auth.ts lib/rate-limit.ts lib/api-contracts.ts lib/api-contracts.test.ts app/api/og-parser/route.ts app/api/products/import/route.ts app/api/products/export/route.ts app/api/newsletter/subscribe/route.ts app/api/tool-assistant/route.ts lib/financial-wiki-actions.ts lib/financial-wiki-qa-actions.ts lib/ranking-actions.ts && git diff --check"
+      ],
+      "verification_result": "Leader rerun passed after Schrodinger T23: typecheck, 39-test Bun suite, production build, maintenance checks, scoped ESLint, and git diff --check all passed. Build retained existing workspace-root warning and Supabase forex mock fallback during static generation.",
+      "changed_files": [
+        "keelim-vercel/proxy.ts",
+        "keelim-vercel/lib/auth.ts",
+        "keelim-vercel/lib/auth-policy.ts",
+        "keelim-vercel/lib/api-auth.ts",
+        "keelim-vercel/lib/rate-limit.ts",
+        "keelim-vercel/lib/api-contracts.ts",
+        "keelim-vercel/lib/api-contracts.test.ts",
+        "keelim-vercel/app/api/og-parser/route.ts",
+        "keelim-vercel/app/api/products/import/route.ts",
+        "keelim-vercel/app/api/products/export/route.ts",
+        "keelim-vercel/app/api/newsletter/subscribe/route.ts",
+        "keelim-vercel/app/api/tool-assistant/route.ts",
+        "keelim-vercel/lib/financial-wiki-actions.ts",
+        "keelim-vercel/lib/financial-wiki-qa-actions.ts",
+        "keelim-vercel/lib/ranking-actions.ts",
+        "keelim-vercel/AGENTS.md"
+      ],
       "blocked_reason": null,
-      "last_updated": "2026-06-12T22:30:20.007787+00:00"
+      "last_updated": "2026-06-13T09:36:20.853378+00:00"
     },
     {
       "id": "KVCL-066",
@@ -9177,15 +9348,34 @@
       "severity": "P2",
       "effort": "M",
       "task_id": "T23-keelim-vercel-security",
-      "status": "assigned",
+      "status": "verified",
       "owner": "Schrodinger",
       "title": "CSV import가 파일 크기와 행 수 제한 없이 처리됨",
       "file_path": "keelim-vercel/app/api/products/import/route.ts:172",
-      "verification_commands": [],
-      "verification_result": null,
-      "changed_files": [],
+      "verification_commands": [
+        "cd keelim-vercel && bun run typecheck && bun run test && bun run build && bun run verify:maintenance && ./node_modules/.bin/eslint proxy.ts lib/auth.ts lib/auth-policy.ts lib/api-auth.ts lib/rate-limit.ts lib/api-contracts.ts lib/api-contracts.test.ts app/api/og-parser/route.ts app/api/products/import/route.ts app/api/products/export/route.ts app/api/newsletter/subscribe/route.ts app/api/tool-assistant/route.ts lib/financial-wiki-actions.ts lib/financial-wiki-qa-actions.ts lib/ranking-actions.ts && git diff --check"
+      ],
+      "verification_result": "Leader rerun passed after Schrodinger T23: typecheck, 39-test Bun suite, production build, maintenance checks, scoped ESLint, and git diff --check all passed. Build retained existing workspace-root warning and Supabase forex mock fallback during static generation.",
+      "changed_files": [
+        "keelim-vercel/proxy.ts",
+        "keelim-vercel/lib/auth.ts",
+        "keelim-vercel/lib/auth-policy.ts",
+        "keelim-vercel/lib/api-auth.ts",
+        "keelim-vercel/lib/rate-limit.ts",
+        "keelim-vercel/lib/api-contracts.ts",
+        "keelim-vercel/lib/api-contracts.test.ts",
+        "keelim-vercel/app/api/og-parser/route.ts",
+        "keelim-vercel/app/api/products/import/route.ts",
+        "keelim-vercel/app/api/products/export/route.ts",
+        "keelim-vercel/app/api/newsletter/subscribe/route.ts",
+        "keelim-vercel/app/api/tool-assistant/route.ts",
+        "keelim-vercel/lib/financial-wiki-actions.ts",
+        "keelim-vercel/lib/financial-wiki-qa-actions.ts",
+        "keelim-vercel/lib/ranking-actions.ts",
+        "keelim-vercel/AGENTS.md"
+      ],
       "blocked_reason": null,
-      "last_updated": "2026-06-12T22:30:20.007787+00:00"
+      "last_updated": "2026-06-13T09:36:20.853378+00:00"
     },
     {
       "id": "KVCL-067",
@@ -9194,15 +9384,34 @@
       "severity": "P2",
       "effort": "S",
       "task_id": "T23-keelim-vercel-security",
-      "status": "assigned",
+      "status": "verified",
       "owner": "Schrodinger",
       "title": "GitHub OAuth 로그인 대상이 제한되지 않음",
       "file_path": "keelim-vercel/lib/auth.ts:5",
-      "verification_commands": [],
-      "verification_result": null,
-      "changed_files": [],
+      "verification_commands": [
+        "cd keelim-vercel && bun run typecheck && bun run test && bun run build && bun run verify:maintenance && ./node_modules/.bin/eslint proxy.ts lib/auth.ts lib/auth-policy.ts lib/api-auth.ts lib/rate-limit.ts lib/api-contracts.ts lib/api-contracts.test.ts app/api/og-parser/route.ts app/api/products/import/route.ts app/api/products/export/route.ts app/api/newsletter/subscribe/route.ts app/api/tool-assistant/route.ts lib/financial-wiki-actions.ts lib/financial-wiki-qa-actions.ts lib/ranking-actions.ts && git diff --check"
+      ],
+      "verification_result": "Leader rerun passed after Schrodinger T23: typecheck, 39-test Bun suite, production build, maintenance checks, scoped ESLint, and git diff --check all passed. Build retained existing workspace-root warning and Supabase forex mock fallback during static generation.",
+      "changed_files": [
+        "keelim-vercel/proxy.ts",
+        "keelim-vercel/lib/auth.ts",
+        "keelim-vercel/lib/auth-policy.ts",
+        "keelim-vercel/lib/api-auth.ts",
+        "keelim-vercel/lib/rate-limit.ts",
+        "keelim-vercel/lib/api-contracts.ts",
+        "keelim-vercel/lib/api-contracts.test.ts",
+        "keelim-vercel/app/api/og-parser/route.ts",
+        "keelim-vercel/app/api/products/import/route.ts",
+        "keelim-vercel/app/api/products/export/route.ts",
+        "keelim-vercel/app/api/newsletter/subscribe/route.ts",
+        "keelim-vercel/app/api/tool-assistant/route.ts",
+        "keelim-vercel/lib/financial-wiki-actions.ts",
+        "keelim-vercel/lib/financial-wiki-qa-actions.ts",
+        "keelim-vercel/lib/ranking-actions.ts",
+        "keelim-vercel/AGENTS.md"
+      ],
       "blocked_reason": null,
-      "last_updated": "2026-06-12T22:30:20.007787+00:00"
+      "last_updated": "2026-06-13T09:36:20.853378+00:00"
     },
     {
       "id": "KVCL-068",
@@ -9211,15 +9420,34 @@
       "severity": "P2",
       "effort": "S",
       "task_id": "T23-keelim-vercel-security",
-      "status": "assigned",
+      "status": "verified",
       "owner": "Schrodinger",
       "title": "구독 취소가 GET 요청으로 상태를 변경함",
       "file_path": "keelim-vercel/app/api/newsletter/unsubscribe/route.ts:4",
-      "verification_commands": [],
-      "verification_result": null,
-      "changed_files": [],
+      "verification_commands": [
+        "cd keelim-vercel && bun run typecheck && bun run test && bun run build && bun run verify:maintenance && ./node_modules/.bin/eslint proxy.ts lib/auth.ts lib/auth-policy.ts lib/api-auth.ts lib/rate-limit.ts lib/api-contracts.ts lib/api-contracts.test.ts app/api/og-parser/route.ts app/api/products/import/route.ts app/api/products/export/route.ts app/api/newsletter/subscribe/route.ts app/api/tool-assistant/route.ts lib/financial-wiki-actions.ts lib/financial-wiki-qa-actions.ts lib/ranking-actions.ts && git diff --check"
+      ],
+      "verification_result": "Leader rerun passed after Schrodinger T23: typecheck, 39-test Bun suite, production build, maintenance checks, scoped ESLint, and git diff --check all passed. Build retained existing workspace-root warning and Supabase forex mock fallback during static generation.",
+      "changed_files": [
+        "keelim-vercel/proxy.ts",
+        "keelim-vercel/lib/auth.ts",
+        "keelim-vercel/lib/auth-policy.ts",
+        "keelim-vercel/lib/api-auth.ts",
+        "keelim-vercel/lib/rate-limit.ts",
+        "keelim-vercel/lib/api-contracts.ts",
+        "keelim-vercel/lib/api-contracts.test.ts",
+        "keelim-vercel/app/api/og-parser/route.ts",
+        "keelim-vercel/app/api/products/import/route.ts",
+        "keelim-vercel/app/api/products/export/route.ts",
+        "keelim-vercel/app/api/newsletter/subscribe/route.ts",
+        "keelim-vercel/app/api/tool-assistant/route.ts",
+        "keelim-vercel/lib/financial-wiki-actions.ts",
+        "keelim-vercel/lib/financial-wiki-qa-actions.ts",
+        "keelim-vercel/lib/ranking-actions.ts",
+        "keelim-vercel/AGENTS.md"
+      ],
       "blocked_reason": null,
-      "last_updated": "2026-06-12T22:30:20.007787+00:00"
+      "last_updated": "2026-06-13T09:36:20.853378+00:00"
     },
     {
       "id": "KVCL-069",
@@ -9228,15 +9456,34 @@
       "severity": "P2",
       "effort": "S",
       "task_id": "T23-keelim-vercel-security",
-      "status": "assigned",
+      "status": "verified",
       "owner": "Schrodinger",
       "title": "금융 위키 제안 생성에 입력 검증과 남용 방어가 없음",
       "file_path": "keelim-vercel/lib/financial-wiki-actions.ts:7",
-      "verification_commands": [],
-      "verification_result": null,
-      "changed_files": [],
+      "verification_commands": [
+        "cd keelim-vercel && bun run typecheck && bun run test && bun run build && bun run verify:maintenance && ./node_modules/.bin/eslint proxy.ts lib/auth.ts lib/auth-policy.ts lib/api-auth.ts lib/rate-limit.ts lib/api-contracts.ts lib/api-contracts.test.ts app/api/og-parser/route.ts app/api/products/import/route.ts app/api/products/export/route.ts app/api/newsletter/subscribe/route.ts app/api/tool-assistant/route.ts lib/financial-wiki-actions.ts lib/financial-wiki-qa-actions.ts lib/ranking-actions.ts && git diff --check"
+      ],
+      "verification_result": "Leader rerun passed after Schrodinger T23: typecheck, 39-test Bun suite, production build, maintenance checks, scoped ESLint, and git diff --check all passed. Build retained existing workspace-root warning and Supabase forex mock fallback during static generation.",
+      "changed_files": [
+        "keelim-vercel/proxy.ts",
+        "keelim-vercel/lib/auth.ts",
+        "keelim-vercel/lib/auth-policy.ts",
+        "keelim-vercel/lib/api-auth.ts",
+        "keelim-vercel/lib/rate-limit.ts",
+        "keelim-vercel/lib/api-contracts.ts",
+        "keelim-vercel/lib/api-contracts.test.ts",
+        "keelim-vercel/app/api/og-parser/route.ts",
+        "keelim-vercel/app/api/products/import/route.ts",
+        "keelim-vercel/app/api/products/export/route.ts",
+        "keelim-vercel/app/api/newsletter/subscribe/route.ts",
+        "keelim-vercel/app/api/tool-assistant/route.ts",
+        "keelim-vercel/lib/financial-wiki-actions.ts",
+        "keelim-vercel/lib/financial-wiki-qa-actions.ts",
+        "keelim-vercel/lib/ranking-actions.ts",
+        "keelim-vercel/AGENTS.md"
+      ],
       "blocked_reason": null,
-      "last_updated": "2026-06-12T22:30:20.007787+00:00"
+      "last_updated": "2026-06-13T09:36:20.853378+00:00"
     },
     {
       "id": "KVCL-070",
@@ -9245,15 +9492,34 @@
       "severity": "P2",
       "effort": "S",
       "task_id": "T23-keelim-vercel-security",
-      "status": "assigned",
+      "status": "verified",
       "owner": "Schrodinger",
       "title": "뉴스레터 조회가 전체 컬럼을 선택함",
       "file_path": "keelim-vercel/app/api/newsletter/drafts/route.ts:37",
-      "verification_commands": [],
-      "verification_result": null,
-      "changed_files": [],
+      "verification_commands": [
+        "cd keelim-vercel && bun run typecheck && bun run test && bun run build && bun run verify:maintenance && ./node_modules/.bin/eslint proxy.ts lib/auth.ts lib/auth-policy.ts lib/api-auth.ts lib/rate-limit.ts lib/api-contracts.ts lib/api-contracts.test.ts app/api/og-parser/route.ts app/api/products/import/route.ts app/api/products/export/route.ts app/api/newsletter/subscribe/route.ts app/api/tool-assistant/route.ts lib/financial-wiki-actions.ts lib/financial-wiki-qa-actions.ts lib/ranking-actions.ts && git diff --check"
+      ],
+      "verification_result": "Leader rerun passed after Schrodinger T23: typecheck, 39-test Bun suite, production build, maintenance checks, scoped ESLint, and git diff --check all passed. Build retained existing workspace-root warning and Supabase forex mock fallback during static generation.",
+      "changed_files": [
+        "keelim-vercel/proxy.ts",
+        "keelim-vercel/lib/auth.ts",
+        "keelim-vercel/lib/auth-policy.ts",
+        "keelim-vercel/lib/api-auth.ts",
+        "keelim-vercel/lib/rate-limit.ts",
+        "keelim-vercel/lib/api-contracts.ts",
+        "keelim-vercel/lib/api-contracts.test.ts",
+        "keelim-vercel/app/api/og-parser/route.ts",
+        "keelim-vercel/app/api/products/import/route.ts",
+        "keelim-vercel/app/api/products/export/route.ts",
+        "keelim-vercel/app/api/newsletter/subscribe/route.ts",
+        "keelim-vercel/app/api/tool-assistant/route.ts",
+        "keelim-vercel/lib/financial-wiki-actions.ts",
+        "keelim-vercel/lib/financial-wiki-qa-actions.ts",
+        "keelim-vercel/lib/ranking-actions.ts",
+        "keelim-vercel/AGENTS.md"
+      ],
       "blocked_reason": null,
-      "last_updated": "2026-06-12T22:30:20.007787+00:00"
+      "last_updated": "2026-06-13T09:36:20.853378+00:00"
     },
     {
       "id": "KVCL-071",
@@ -9262,15 +9528,34 @@
       "severity": "P2",
       "effort": "S",
       "task_id": "T23-keelim-vercel-security",
-      "status": "assigned",
+      "status": "verified",
       "owner": "Schrodinger",
       "title": "도구 사용 랭킹 server action이 임의 이벤트 insert를 허용함",
       "file_path": "keelim-vercel/lib/ranking-actions.ts:29",
-      "verification_commands": [],
-      "verification_result": null,
-      "changed_files": [],
+      "verification_commands": [
+        "cd keelim-vercel && bun run typecheck && bun run test && bun run build && bun run verify:maintenance && ./node_modules/.bin/eslint proxy.ts lib/auth.ts lib/auth-policy.ts lib/api-auth.ts lib/rate-limit.ts lib/api-contracts.ts lib/api-contracts.test.ts app/api/og-parser/route.ts app/api/products/import/route.ts app/api/products/export/route.ts app/api/newsletter/subscribe/route.ts app/api/tool-assistant/route.ts lib/financial-wiki-actions.ts lib/financial-wiki-qa-actions.ts lib/ranking-actions.ts && git diff --check"
+      ],
+      "verification_result": "Leader rerun passed after Schrodinger T23: typecheck, 39-test Bun suite, production build, maintenance checks, scoped ESLint, and git diff --check all passed. Build retained existing workspace-root warning and Supabase forex mock fallback during static generation.",
+      "changed_files": [
+        "keelim-vercel/proxy.ts",
+        "keelim-vercel/lib/auth.ts",
+        "keelim-vercel/lib/auth-policy.ts",
+        "keelim-vercel/lib/api-auth.ts",
+        "keelim-vercel/lib/rate-limit.ts",
+        "keelim-vercel/lib/api-contracts.ts",
+        "keelim-vercel/lib/api-contracts.test.ts",
+        "keelim-vercel/app/api/og-parser/route.ts",
+        "keelim-vercel/app/api/products/import/route.ts",
+        "keelim-vercel/app/api/products/export/route.ts",
+        "keelim-vercel/app/api/newsletter/subscribe/route.ts",
+        "keelim-vercel/app/api/tool-assistant/route.ts",
+        "keelim-vercel/lib/financial-wiki-actions.ts",
+        "keelim-vercel/lib/financial-wiki-qa-actions.ts",
+        "keelim-vercel/lib/ranking-actions.ts",
+        "keelim-vercel/AGENTS.md"
+      ],
       "blocked_reason": null,
-      "last_updated": "2026-06-12T22:30:20.007787+00:00"
+      "last_updated": "2026-06-13T09:36:20.853378+00:00"
     },
     {
       "id": "KVCL-072",
@@ -9279,15 +9564,34 @@
       "severity": "P2",
       "effort": "S",
       "task_id": "T23-keelim-vercel-security",
-      "status": "assigned",
+      "status": "verified",
       "owner": "Schrodinger",
       "title": "상품 image_url 값에 protocol·host 검증이 없음",
       "file_path": "keelim-vercel/app/api/products/import/route.ts:105",
-      "verification_commands": [],
-      "verification_result": null,
-      "changed_files": [],
+      "verification_commands": [
+        "cd keelim-vercel && bun run typecheck && bun run test && bun run build && bun run verify:maintenance && ./node_modules/.bin/eslint proxy.ts lib/auth.ts lib/auth-policy.ts lib/api-auth.ts lib/rate-limit.ts lib/api-contracts.ts lib/api-contracts.test.ts app/api/og-parser/route.ts app/api/products/import/route.ts app/api/products/export/route.ts app/api/newsletter/subscribe/route.ts app/api/tool-assistant/route.ts lib/financial-wiki-actions.ts lib/financial-wiki-qa-actions.ts lib/ranking-actions.ts && git diff --check"
+      ],
+      "verification_result": "Leader rerun passed after Schrodinger T23: typecheck, 39-test Bun suite, production build, maintenance checks, scoped ESLint, and git diff --check all passed. Build retained existing workspace-root warning and Supabase forex mock fallback during static generation.",
+      "changed_files": [
+        "keelim-vercel/proxy.ts",
+        "keelim-vercel/lib/auth.ts",
+        "keelim-vercel/lib/auth-policy.ts",
+        "keelim-vercel/lib/api-auth.ts",
+        "keelim-vercel/lib/rate-limit.ts",
+        "keelim-vercel/lib/api-contracts.ts",
+        "keelim-vercel/lib/api-contracts.test.ts",
+        "keelim-vercel/app/api/og-parser/route.ts",
+        "keelim-vercel/app/api/products/import/route.ts",
+        "keelim-vercel/app/api/products/export/route.ts",
+        "keelim-vercel/app/api/newsletter/subscribe/route.ts",
+        "keelim-vercel/app/api/tool-assistant/route.ts",
+        "keelim-vercel/lib/financial-wiki-actions.ts",
+        "keelim-vercel/lib/financial-wiki-qa-actions.ts",
+        "keelim-vercel/lib/ranking-actions.ts",
+        "keelim-vercel/AGENTS.md"
+      ],
       "blocked_reason": null,
-      "last_updated": "2026-06-12T22:30:20.007787+00:00"
+      "last_updated": "2026-06-13T09:36:20.853378+00:00"
     },
     {
       "id": "KVCL-073",
@@ -9296,15 +9600,34 @@
       "severity": "P2",
       "effort": "S",
       "task_id": "T23-keelim-vercel-security",
-      "status": "assigned",
+      "status": "verified",
       "owner": "Schrodinger",
       "title": "재구독 upsert가 unsubscribe token을 매번 교체함",
       "file_path": "keelim-vercel/app/api/newsletter/subscribe/route.ts:31",
-      "verification_commands": [],
-      "verification_result": null,
-      "changed_files": [],
+      "verification_commands": [
+        "cd keelim-vercel && bun run typecheck && bun run test && bun run build && bun run verify:maintenance && ./node_modules/.bin/eslint proxy.ts lib/auth.ts lib/auth-policy.ts lib/api-auth.ts lib/rate-limit.ts lib/api-contracts.ts lib/api-contracts.test.ts app/api/og-parser/route.ts app/api/products/import/route.ts app/api/products/export/route.ts app/api/newsletter/subscribe/route.ts app/api/tool-assistant/route.ts lib/financial-wiki-actions.ts lib/financial-wiki-qa-actions.ts lib/ranking-actions.ts && git diff --check"
+      ],
+      "verification_result": "Leader rerun passed after Schrodinger T23: typecheck, 39-test Bun suite, production build, maintenance checks, scoped ESLint, and git diff --check all passed. Build retained existing workspace-root warning and Supabase forex mock fallback during static generation.",
+      "changed_files": [
+        "keelim-vercel/proxy.ts",
+        "keelim-vercel/lib/auth.ts",
+        "keelim-vercel/lib/auth-policy.ts",
+        "keelim-vercel/lib/api-auth.ts",
+        "keelim-vercel/lib/rate-limit.ts",
+        "keelim-vercel/lib/api-contracts.ts",
+        "keelim-vercel/lib/api-contracts.test.ts",
+        "keelim-vercel/app/api/og-parser/route.ts",
+        "keelim-vercel/app/api/products/import/route.ts",
+        "keelim-vercel/app/api/products/export/route.ts",
+        "keelim-vercel/app/api/newsletter/subscribe/route.ts",
+        "keelim-vercel/app/api/tool-assistant/route.ts",
+        "keelim-vercel/lib/financial-wiki-actions.ts",
+        "keelim-vercel/lib/financial-wiki-qa-actions.ts",
+        "keelim-vercel/lib/ranking-actions.ts",
+        "keelim-vercel/AGENTS.md"
+      ],
       "blocked_reason": null,
-      "last_updated": "2026-06-12T22:30:20.007787+00:00"
+      "last_updated": "2026-06-13T09:36:20.853378+00:00"
     },
     {
       "id": "KVCL-028",
@@ -11268,15 +11591,42 @@
       "severity": "P1",
       "effort": "M",
       "task_id": "T34-youtube-testing",
-      "status": "assigned",
+      "status": "verified",
       "owner": "Erdos",
       "title": "OAuth refresh 경로가 테스트 가능하게 분리되지 않음",
       "file_path": "youtube/src/easy_release_note/youtube_auth.py:65",
-      "verification_commands": [],
-      "verification_result": null,
-      "changed_files": [],
+      "verification_commands": [
+        "cd youtube && ../.venv/bin/python -m pytest && git diff --check",
+        "cd /Users/keelim/Desktop/keelim-maestro && uv --cache-dir .omx/uv-cache lock && uv --cache-dir .omx/uv-cache lock --check && uv --cache-dir .omx/uv-cache run python scripts/verify-python-dependency-constraints.py"
+      ],
+      "verification_result": "Leader rerun passed after Erdos T34: youtube pytest passed with 135 tests and 90.30% coverage; git diff --check passed; root uv.lock was updated; uv lock --check and Python dependency constraint verifier passed.",
+      "changed_files": [
+        "youtube/pyproject.toml",
+        "youtube/src/easy_release_note/cli.py",
+        "youtube/src/easy_release_note/manifest.py",
+        "youtube/src/easy_release_note/n8n.py",
+        "youtube/src/easy_release_note/render.py",
+        "youtube/src/easy_release_note/scaffold.py",
+        "youtube/src/easy_release_note/stock_price.py",
+        "youtube/src/easy_release_note/threads_crawl.py",
+        "youtube/src/easy_release_note/validate.py",
+        "youtube/src/easy_release_note/youtube_auth.py",
+        "youtube/src/easy_release_note/youtube_upload.py",
+        "youtube/tests/test_chart_race.py",
+        "youtube/tests/test_manifest.py",
+        "youtube/tests/test_n8n.py",
+        "youtube/tests/test_pipeline_command.py",
+        "youtube/tests/test_render_command.py",
+        "youtube/tests/test_scaffold.py",
+        "youtube/tests/test_stock_price.py",
+        "youtube/tests/test_threads_crawl.py",
+        "youtube/tests/test_validate.py",
+        "youtube/tests/test_youtube_upload.py",
+        "youtube/tests/test_youtube_auth.py",
+        "uv.lock"
+      ],
       "blocked_reason": null,
-      "last_updated": "2026-06-12T22:44:04.171846+00:00"
+      "last_updated": "2026-06-13T09:38:07.970591+00:00"
     },
     {
       "id": "YTB-013",
@@ -11285,15 +11635,42 @@
       "severity": "P1",
       "effort": "L",
       "task_id": "T34-youtube-testing",
-      "status": "assigned",
+      "status": "verified",
       "owner": "Erdos",
       "title": "Threads crawl 전체 흐름이 fake crawler 로 테스트되지 않음",
       "file_path": "youtube/src/easy_release_note/threads_crawl.py:206",
-      "verification_commands": [],
-      "verification_result": null,
-      "changed_files": [],
+      "verification_commands": [
+        "cd youtube && ../.venv/bin/python -m pytest && git diff --check",
+        "cd /Users/keelim/Desktop/keelim-maestro && uv --cache-dir .omx/uv-cache lock && uv --cache-dir .omx/uv-cache lock --check && uv --cache-dir .omx/uv-cache run python scripts/verify-python-dependency-constraints.py"
+      ],
+      "verification_result": "Leader rerun passed after Erdos T34: youtube pytest passed with 135 tests and 90.30% coverage; git diff --check passed; root uv.lock was updated; uv lock --check and Python dependency constraint verifier passed.",
+      "changed_files": [
+        "youtube/pyproject.toml",
+        "youtube/src/easy_release_note/cli.py",
+        "youtube/src/easy_release_note/manifest.py",
+        "youtube/src/easy_release_note/n8n.py",
+        "youtube/src/easy_release_note/render.py",
+        "youtube/src/easy_release_note/scaffold.py",
+        "youtube/src/easy_release_note/stock_price.py",
+        "youtube/src/easy_release_note/threads_crawl.py",
+        "youtube/src/easy_release_note/validate.py",
+        "youtube/src/easy_release_note/youtube_auth.py",
+        "youtube/src/easy_release_note/youtube_upload.py",
+        "youtube/tests/test_chart_race.py",
+        "youtube/tests/test_manifest.py",
+        "youtube/tests/test_n8n.py",
+        "youtube/tests/test_pipeline_command.py",
+        "youtube/tests/test_render_command.py",
+        "youtube/tests/test_scaffold.py",
+        "youtube/tests/test_stock_price.py",
+        "youtube/tests/test_threads_crawl.py",
+        "youtube/tests/test_validate.py",
+        "youtube/tests/test_youtube_upload.py",
+        "youtube/tests/test_youtube_auth.py",
+        "uv.lock"
+      ],
       "blocked_reason": null,
-      "last_updated": "2026-06-12T22:44:04.171846+00:00"
+      "last_updated": "2026-06-13T09:38:07.970591+00:00"
     },
     {
       "id": "YTB-014",
@@ -11302,15 +11679,42 @@
       "severity": "P1",
       "effort": "M",
       "task_id": "T34-youtube-testing",
-      "status": "assigned",
+      "status": "verified",
       "owner": "Erdos",
       "title": "authorize 의 secret 위치 가드와 OAuth flow 테스트가 없음",
       "file_path": "youtube/src/easy_release_note/youtube_auth.py:49",
-      "verification_commands": [],
-      "verification_result": null,
-      "changed_files": [],
+      "verification_commands": [
+        "cd youtube && ../.venv/bin/python -m pytest && git diff --check",
+        "cd /Users/keelim/Desktop/keelim-maestro && uv --cache-dir .omx/uv-cache lock && uv --cache-dir .omx/uv-cache lock --check && uv --cache-dir .omx/uv-cache run python scripts/verify-python-dependency-constraints.py"
+      ],
+      "verification_result": "Leader rerun passed after Erdos T34: youtube pytest passed with 135 tests and 90.30% coverage; git diff --check passed; root uv.lock was updated; uv lock --check and Python dependency constraint verifier passed.",
+      "changed_files": [
+        "youtube/pyproject.toml",
+        "youtube/src/easy_release_note/cli.py",
+        "youtube/src/easy_release_note/manifest.py",
+        "youtube/src/easy_release_note/n8n.py",
+        "youtube/src/easy_release_note/render.py",
+        "youtube/src/easy_release_note/scaffold.py",
+        "youtube/src/easy_release_note/stock_price.py",
+        "youtube/src/easy_release_note/threads_crawl.py",
+        "youtube/src/easy_release_note/validate.py",
+        "youtube/src/easy_release_note/youtube_auth.py",
+        "youtube/src/easy_release_note/youtube_upload.py",
+        "youtube/tests/test_chart_race.py",
+        "youtube/tests/test_manifest.py",
+        "youtube/tests/test_n8n.py",
+        "youtube/tests/test_pipeline_command.py",
+        "youtube/tests/test_render_command.py",
+        "youtube/tests/test_scaffold.py",
+        "youtube/tests/test_stock_price.py",
+        "youtube/tests/test_threads_crawl.py",
+        "youtube/tests/test_validate.py",
+        "youtube/tests/test_youtube_upload.py",
+        "youtube/tests/test_youtube_auth.py",
+        "uv.lock"
+      ],
       "blocked_reason": null,
-      "last_updated": "2026-06-12T22:44:04.171846+00:00"
+      "last_updated": "2026-06-13T09:38:07.970591+00:00"
     },
     {
       "id": "YTB-015",
@@ -11319,15 +11723,42 @@
       "severity": "P1",
       "effort": "S",
       "task_id": "T34-youtube-testing",
-      "status": "assigned",
+      "status": "verified",
       "owner": "Erdos",
       "title": "contains_synthetic_media 타입 검증 테스트 부재",
       "file_path": "youtube/src/easy_release_note/manifest.py:131",
-      "verification_commands": [],
-      "verification_result": null,
-      "changed_files": [],
+      "verification_commands": [
+        "cd youtube && ../.venv/bin/python -m pytest && git diff --check",
+        "cd /Users/keelim/Desktop/keelim-maestro && uv --cache-dir .omx/uv-cache lock && uv --cache-dir .omx/uv-cache lock --check && uv --cache-dir .omx/uv-cache run python scripts/verify-python-dependency-constraints.py"
+      ],
+      "verification_result": "Leader rerun passed after Erdos T34: youtube pytest passed with 135 tests and 90.30% coverage; git diff --check passed; root uv.lock was updated; uv lock --check and Python dependency constraint verifier passed.",
+      "changed_files": [
+        "youtube/pyproject.toml",
+        "youtube/src/easy_release_note/cli.py",
+        "youtube/src/easy_release_note/manifest.py",
+        "youtube/src/easy_release_note/n8n.py",
+        "youtube/src/easy_release_note/render.py",
+        "youtube/src/easy_release_note/scaffold.py",
+        "youtube/src/easy_release_note/stock_price.py",
+        "youtube/src/easy_release_note/threads_crawl.py",
+        "youtube/src/easy_release_note/validate.py",
+        "youtube/src/easy_release_note/youtube_auth.py",
+        "youtube/src/easy_release_note/youtube_upload.py",
+        "youtube/tests/test_chart_race.py",
+        "youtube/tests/test_manifest.py",
+        "youtube/tests/test_n8n.py",
+        "youtube/tests/test_pipeline_command.py",
+        "youtube/tests/test_render_command.py",
+        "youtube/tests/test_scaffold.py",
+        "youtube/tests/test_stock_price.py",
+        "youtube/tests/test_threads_crawl.py",
+        "youtube/tests/test_validate.py",
+        "youtube/tests/test_youtube_upload.py",
+        "youtube/tests/test_youtube_auth.py",
+        "uv.lock"
+      ],
       "blocked_reason": null,
-      "last_updated": "2026-06-12T22:44:04.171846+00:00"
+      "last_updated": "2026-06-13T09:38:07.970591+00:00"
     },
     {
       "id": "YTB-016",
@@ -11336,15 +11767,42 @@
       "severity": "P1",
       "effort": "M",
       "task_id": "T34-youtube-testing",
-      "status": "assigned",
+      "status": "verified",
       "owner": "Erdos",
       "title": "pipeline 명령의 단계 순서와 중단 조건 테스트 부족",
       "file_path": "youtube/src/easy_release_note/cli.py:65",
-      "verification_commands": [],
-      "verification_result": null,
-      "changed_files": [],
+      "verification_commands": [
+        "cd youtube && ../.venv/bin/python -m pytest && git diff --check",
+        "cd /Users/keelim/Desktop/keelim-maestro && uv --cache-dir .omx/uv-cache lock && uv --cache-dir .omx/uv-cache lock --check && uv --cache-dir .omx/uv-cache run python scripts/verify-python-dependency-constraints.py"
+      ],
+      "verification_result": "Leader rerun passed after Erdos T34: youtube pytest passed with 135 tests and 90.30% coverage; git diff --check passed; root uv.lock was updated; uv lock --check and Python dependency constraint verifier passed.",
+      "changed_files": [
+        "youtube/pyproject.toml",
+        "youtube/src/easy_release_note/cli.py",
+        "youtube/src/easy_release_note/manifest.py",
+        "youtube/src/easy_release_note/n8n.py",
+        "youtube/src/easy_release_note/render.py",
+        "youtube/src/easy_release_note/scaffold.py",
+        "youtube/src/easy_release_note/stock_price.py",
+        "youtube/src/easy_release_note/threads_crawl.py",
+        "youtube/src/easy_release_note/validate.py",
+        "youtube/src/easy_release_note/youtube_auth.py",
+        "youtube/src/easy_release_note/youtube_upload.py",
+        "youtube/tests/test_chart_race.py",
+        "youtube/tests/test_manifest.py",
+        "youtube/tests/test_n8n.py",
+        "youtube/tests/test_pipeline_command.py",
+        "youtube/tests/test_render_command.py",
+        "youtube/tests/test_scaffold.py",
+        "youtube/tests/test_stock_price.py",
+        "youtube/tests/test_threads_crawl.py",
+        "youtube/tests/test_validate.py",
+        "youtube/tests/test_youtube_upload.py",
+        "youtube/tests/test_youtube_auth.py",
+        "uv.lock"
+      ],
       "blocked_reason": null,
-      "last_updated": "2026-06-12T22:44:04.171846+00:00"
+      "last_updated": "2026-06-13T09:38:07.970591+00:00"
     },
     {
       "id": "YTB-017",
@@ -11353,15 +11811,42 @@
       "severity": "P1",
       "effort": "S",
       "task_id": "T34-youtube-testing",
-      "status": "assigned",
+      "status": "verified",
       "owner": "Erdos",
       "title": "pytest 설정이 최소값이라 회귀 게이트가 약함",
       "file_path": "youtube/pyproject.toml:22",
-      "verification_commands": [],
-      "verification_result": null,
-      "changed_files": [],
+      "verification_commands": [
+        "cd youtube && ../.venv/bin/python -m pytest && git diff --check",
+        "cd /Users/keelim/Desktop/keelim-maestro && uv --cache-dir .omx/uv-cache lock && uv --cache-dir .omx/uv-cache lock --check && uv --cache-dir .omx/uv-cache run python scripts/verify-python-dependency-constraints.py"
+      ],
+      "verification_result": "Leader rerun passed after Erdos T34: youtube pytest passed with 135 tests and 90.30% coverage; git diff --check passed; root uv.lock was updated; uv lock --check and Python dependency constraint verifier passed.",
+      "changed_files": [
+        "youtube/pyproject.toml",
+        "youtube/src/easy_release_note/cli.py",
+        "youtube/src/easy_release_note/manifest.py",
+        "youtube/src/easy_release_note/n8n.py",
+        "youtube/src/easy_release_note/render.py",
+        "youtube/src/easy_release_note/scaffold.py",
+        "youtube/src/easy_release_note/stock_price.py",
+        "youtube/src/easy_release_note/threads_crawl.py",
+        "youtube/src/easy_release_note/validate.py",
+        "youtube/src/easy_release_note/youtube_auth.py",
+        "youtube/src/easy_release_note/youtube_upload.py",
+        "youtube/tests/test_chart_race.py",
+        "youtube/tests/test_manifest.py",
+        "youtube/tests/test_n8n.py",
+        "youtube/tests/test_pipeline_command.py",
+        "youtube/tests/test_render_command.py",
+        "youtube/tests/test_scaffold.py",
+        "youtube/tests/test_stock_price.py",
+        "youtube/tests/test_threads_crawl.py",
+        "youtube/tests/test_validate.py",
+        "youtube/tests/test_youtube_upload.py",
+        "youtube/tests/test_youtube_auth.py",
+        "uv.lock"
+      ],
       "blocked_reason": null,
-      "last_updated": "2026-06-12T22:44:04.171846+00:00"
+      "last_updated": "2026-06-13T09:38:07.970591+00:00"
     },
     {
       "id": "YTB-018",
@@ -11370,15 +11855,42 @@
       "severity": "P1",
       "effort": "S",
       "task_id": "T34-youtube-testing",
-      "status": "assigned",
+      "status": "verified",
       "owner": "Erdos",
       "title": "upload 명령의 검증 실패 경로가 OAuth 차단까지 보장되지 않음",
       "file_path": "youtube/src/easy_release_note/cli.py:50",
-      "verification_commands": [],
-      "verification_result": null,
-      "changed_files": [],
+      "verification_commands": [
+        "cd youtube && ../.venv/bin/python -m pytest && git diff --check",
+        "cd /Users/keelim/Desktop/keelim-maestro && uv --cache-dir .omx/uv-cache lock && uv --cache-dir .omx/uv-cache lock --check && uv --cache-dir .omx/uv-cache run python scripts/verify-python-dependency-constraints.py"
+      ],
+      "verification_result": "Leader rerun passed after Erdos T34: youtube pytest passed with 135 tests and 90.30% coverage; git diff --check passed; root uv.lock was updated; uv lock --check and Python dependency constraint verifier passed.",
+      "changed_files": [
+        "youtube/pyproject.toml",
+        "youtube/src/easy_release_note/cli.py",
+        "youtube/src/easy_release_note/manifest.py",
+        "youtube/src/easy_release_note/n8n.py",
+        "youtube/src/easy_release_note/render.py",
+        "youtube/src/easy_release_note/scaffold.py",
+        "youtube/src/easy_release_note/stock_price.py",
+        "youtube/src/easy_release_note/threads_crawl.py",
+        "youtube/src/easy_release_note/validate.py",
+        "youtube/src/easy_release_note/youtube_auth.py",
+        "youtube/src/easy_release_note/youtube_upload.py",
+        "youtube/tests/test_chart_race.py",
+        "youtube/tests/test_manifest.py",
+        "youtube/tests/test_n8n.py",
+        "youtube/tests/test_pipeline_command.py",
+        "youtube/tests/test_render_command.py",
+        "youtube/tests/test_scaffold.py",
+        "youtube/tests/test_stock_price.py",
+        "youtube/tests/test_threads_crawl.py",
+        "youtube/tests/test_validate.py",
+        "youtube/tests/test_youtube_upload.py",
+        "youtube/tests/test_youtube_auth.py",
+        "uv.lock"
+      ],
       "blocked_reason": null,
-      "last_updated": "2026-06-12T22:44:04.171846+00:00"
+      "last_updated": "2026-06-13T09:38:07.970591+00:00"
     },
     {
       "id": "YTB-019",
@@ -11387,15 +11899,42 @@
       "severity": "P1",
       "effort": "M",
       "task_id": "T34-youtube-testing",
-      "status": "assigned",
+      "status": "verified",
       "owner": "Erdos",
       "title": "실제 YouTube upload 경로가 fake client 로 검증되지 않음",
       "file_path": "youtube/src/easy_release_note/youtube_upload.py:63",
-      "verification_commands": [],
-      "verification_result": null,
-      "changed_files": [],
+      "verification_commands": [
+        "cd youtube && ../.venv/bin/python -m pytest && git diff --check",
+        "cd /Users/keelim/Desktop/keelim-maestro && uv --cache-dir .omx/uv-cache lock && uv --cache-dir .omx/uv-cache lock --check && uv --cache-dir .omx/uv-cache run python scripts/verify-python-dependency-constraints.py"
+      ],
+      "verification_result": "Leader rerun passed after Erdos T34: youtube pytest passed with 135 tests and 90.30% coverage; git diff --check passed; root uv.lock was updated; uv lock --check and Python dependency constraint verifier passed.",
+      "changed_files": [
+        "youtube/pyproject.toml",
+        "youtube/src/easy_release_note/cli.py",
+        "youtube/src/easy_release_note/manifest.py",
+        "youtube/src/easy_release_note/n8n.py",
+        "youtube/src/easy_release_note/render.py",
+        "youtube/src/easy_release_note/scaffold.py",
+        "youtube/src/easy_release_note/stock_price.py",
+        "youtube/src/easy_release_note/threads_crawl.py",
+        "youtube/src/easy_release_note/validate.py",
+        "youtube/src/easy_release_note/youtube_auth.py",
+        "youtube/src/easy_release_note/youtube_upload.py",
+        "youtube/tests/test_chart_race.py",
+        "youtube/tests/test_manifest.py",
+        "youtube/tests/test_n8n.py",
+        "youtube/tests/test_pipeline_command.py",
+        "youtube/tests/test_render_command.py",
+        "youtube/tests/test_scaffold.py",
+        "youtube/tests/test_stock_price.py",
+        "youtube/tests/test_threads_crawl.py",
+        "youtube/tests/test_validate.py",
+        "youtube/tests/test_youtube_upload.py",
+        "youtube/tests/test_youtube_auth.py",
+        "uv.lock"
+      ],
       "blocked_reason": null,
-      "last_updated": "2026-06-12T22:44:04.171846+00:00"
+      "last_updated": "2026-06-13T09:38:07.970591+00:00"
     },
     {
       "id": "YTB-088",
@@ -11404,15 +11943,42 @@
       "severity": "P2",
       "effort": "M",
       "task_id": "T34-youtube-testing",
-      "status": "assigned",
+      "status": "verified",
       "owner": "Erdos",
       "title": "CDP target 조회 네트워크 경계 테스트 부재",
       "file_path": "youtube/src/easy_release_note/threads_crawl.py:321",
-      "verification_commands": [],
-      "verification_result": null,
-      "changed_files": [],
+      "verification_commands": [
+        "cd youtube && ../.venv/bin/python -m pytest && git diff --check",
+        "cd /Users/keelim/Desktop/keelim-maestro && uv --cache-dir .omx/uv-cache lock && uv --cache-dir .omx/uv-cache lock --check && uv --cache-dir .omx/uv-cache run python scripts/verify-python-dependency-constraints.py"
+      ],
+      "verification_result": "Leader rerun passed after Erdos T34: youtube pytest passed with 135 tests and 90.30% coverage; git diff --check passed; root uv.lock was updated; uv lock --check and Python dependency constraint verifier passed.",
+      "changed_files": [
+        "youtube/pyproject.toml",
+        "youtube/src/easy_release_note/cli.py",
+        "youtube/src/easy_release_note/manifest.py",
+        "youtube/src/easy_release_note/n8n.py",
+        "youtube/src/easy_release_note/render.py",
+        "youtube/src/easy_release_note/scaffold.py",
+        "youtube/src/easy_release_note/stock_price.py",
+        "youtube/src/easy_release_note/threads_crawl.py",
+        "youtube/src/easy_release_note/validate.py",
+        "youtube/src/easy_release_note/youtube_auth.py",
+        "youtube/src/easy_release_note/youtube_upload.py",
+        "youtube/tests/test_chart_race.py",
+        "youtube/tests/test_manifest.py",
+        "youtube/tests/test_n8n.py",
+        "youtube/tests/test_pipeline_command.py",
+        "youtube/tests/test_render_command.py",
+        "youtube/tests/test_scaffold.py",
+        "youtube/tests/test_stock_price.py",
+        "youtube/tests/test_threads_crawl.py",
+        "youtube/tests/test_validate.py",
+        "youtube/tests/test_youtube_upload.py",
+        "youtube/tests/test_youtube_auth.py",
+        "uv.lock"
+      ],
       "blocked_reason": null,
-      "last_updated": "2026-06-12T22:44:04.171846+00:00"
+      "last_updated": "2026-06-13T09:38:07.970591+00:00"
     },
     {
       "id": "YTB-089",
@@ -11421,15 +11987,42 @@
       "severity": "P2",
       "effort": "S",
       "task_id": "T34-youtube-testing",
-      "status": "assigned",
+      "status": "verified",
       "owner": "Erdos",
       "title": "Remotion 로컬 CLI 분기 테스트가 빠짐",
       "file_path": "youtube/src/easy_release_note/render.py:59",
-      "verification_commands": [],
-      "verification_result": null,
-      "changed_files": [],
+      "verification_commands": [
+        "cd youtube && ../.venv/bin/python -m pytest && git diff --check",
+        "cd /Users/keelim/Desktop/keelim-maestro && uv --cache-dir .omx/uv-cache lock && uv --cache-dir .omx/uv-cache lock --check && uv --cache-dir .omx/uv-cache run python scripts/verify-python-dependency-constraints.py"
+      ],
+      "verification_result": "Leader rerun passed after Erdos T34: youtube pytest passed with 135 tests and 90.30% coverage; git diff --check passed; root uv.lock was updated; uv lock --check and Python dependency constraint verifier passed.",
+      "changed_files": [
+        "youtube/pyproject.toml",
+        "youtube/src/easy_release_note/cli.py",
+        "youtube/src/easy_release_note/manifest.py",
+        "youtube/src/easy_release_note/n8n.py",
+        "youtube/src/easy_release_note/render.py",
+        "youtube/src/easy_release_note/scaffold.py",
+        "youtube/src/easy_release_note/stock_price.py",
+        "youtube/src/easy_release_note/threads_crawl.py",
+        "youtube/src/easy_release_note/validate.py",
+        "youtube/src/easy_release_note/youtube_auth.py",
+        "youtube/src/easy_release_note/youtube_upload.py",
+        "youtube/tests/test_chart_race.py",
+        "youtube/tests/test_manifest.py",
+        "youtube/tests/test_n8n.py",
+        "youtube/tests/test_pipeline_command.py",
+        "youtube/tests/test_render_command.py",
+        "youtube/tests/test_scaffold.py",
+        "youtube/tests/test_stock_price.py",
+        "youtube/tests/test_threads_crawl.py",
+        "youtube/tests/test_validate.py",
+        "youtube/tests/test_youtube_upload.py",
+        "youtube/tests/test_youtube_auth.py",
+        "uv.lock"
+      ],
       "blocked_reason": null,
-      "last_updated": "2026-06-12T22:44:04.171846+00:00"
+      "last_updated": "2026-06-13T09:38:07.970591+00:00"
     },
     {
       "id": "YTB-090",
@@ -11438,15 +12031,42 @@
       "severity": "P2",
       "effort": "S",
       "task_id": "T34-youtube-testing",
-      "status": "assigned",
+      "status": "verified",
       "owner": "Erdos",
       "title": "RenderSettings 파싱 경계 테스트가 부족함",
       "file_path": "youtube/src/easy_release_note/manifest.py:109",
-      "verification_commands": [],
-      "verification_result": null,
-      "changed_files": [],
+      "verification_commands": [
+        "cd youtube && ../.venv/bin/python -m pytest && git diff --check",
+        "cd /Users/keelim/Desktop/keelim-maestro && uv --cache-dir .omx/uv-cache lock && uv --cache-dir .omx/uv-cache lock --check && uv --cache-dir .omx/uv-cache run python scripts/verify-python-dependency-constraints.py"
+      ],
+      "verification_result": "Leader rerun passed after Erdos T34: youtube pytest passed with 135 tests and 90.30% coverage; git diff --check passed; root uv.lock was updated; uv lock --check and Python dependency constraint verifier passed.",
+      "changed_files": [
+        "youtube/pyproject.toml",
+        "youtube/src/easy_release_note/cli.py",
+        "youtube/src/easy_release_note/manifest.py",
+        "youtube/src/easy_release_note/n8n.py",
+        "youtube/src/easy_release_note/render.py",
+        "youtube/src/easy_release_note/scaffold.py",
+        "youtube/src/easy_release_note/stock_price.py",
+        "youtube/src/easy_release_note/threads_crawl.py",
+        "youtube/src/easy_release_note/validate.py",
+        "youtube/src/easy_release_note/youtube_auth.py",
+        "youtube/src/easy_release_note/youtube_upload.py",
+        "youtube/tests/test_chart_race.py",
+        "youtube/tests/test_manifest.py",
+        "youtube/tests/test_n8n.py",
+        "youtube/tests/test_pipeline_command.py",
+        "youtube/tests/test_render_command.py",
+        "youtube/tests/test_scaffold.py",
+        "youtube/tests/test_stock_price.py",
+        "youtube/tests/test_threads_crawl.py",
+        "youtube/tests/test_validate.py",
+        "youtube/tests/test_youtube_upload.py",
+        "youtube/tests/test_youtube_auth.py",
+        "uv.lock"
+      ],
       "blocked_reason": null,
-      "last_updated": "2026-06-12T22:44:04.171846+00:00"
+      "last_updated": "2026-06-13T09:38:07.970591+00:00"
     },
     {
       "id": "YTB-091",
@@ -11455,15 +12075,42 @@
       "severity": "P2",
       "effort": "S",
       "task_id": "T34-youtube-testing",
-      "status": "assigned",
+      "status": "verified",
       "owner": "Erdos",
       "title": "channel config 오류 경로 테스트가 약함",
       "file_path": "youtube/src/easy_release_note/n8n.py:25",
-      "verification_commands": [],
-      "verification_result": null,
-      "changed_files": [],
+      "verification_commands": [
+        "cd youtube && ../.venv/bin/python -m pytest && git diff --check",
+        "cd /Users/keelim/Desktop/keelim-maestro && uv --cache-dir .omx/uv-cache lock && uv --cache-dir .omx/uv-cache lock --check && uv --cache-dir .omx/uv-cache run python scripts/verify-python-dependency-constraints.py"
+      ],
+      "verification_result": "Leader rerun passed after Erdos T34: youtube pytest passed with 135 tests and 90.30% coverage; git diff --check passed; root uv.lock was updated; uv lock --check and Python dependency constraint verifier passed.",
+      "changed_files": [
+        "youtube/pyproject.toml",
+        "youtube/src/easy_release_note/cli.py",
+        "youtube/src/easy_release_note/manifest.py",
+        "youtube/src/easy_release_note/n8n.py",
+        "youtube/src/easy_release_note/render.py",
+        "youtube/src/easy_release_note/scaffold.py",
+        "youtube/src/easy_release_note/stock_price.py",
+        "youtube/src/easy_release_note/threads_crawl.py",
+        "youtube/src/easy_release_note/validate.py",
+        "youtube/src/easy_release_note/youtube_auth.py",
+        "youtube/src/easy_release_note/youtube_upload.py",
+        "youtube/tests/test_chart_race.py",
+        "youtube/tests/test_manifest.py",
+        "youtube/tests/test_n8n.py",
+        "youtube/tests/test_pipeline_command.py",
+        "youtube/tests/test_render_command.py",
+        "youtube/tests/test_scaffold.py",
+        "youtube/tests/test_stock_price.py",
+        "youtube/tests/test_threads_crawl.py",
+        "youtube/tests/test_validate.py",
+        "youtube/tests/test_youtube_upload.py",
+        "youtube/tests/test_youtube_auth.py",
+        "uv.lock"
+      ],
       "blocked_reason": null,
-      "last_updated": "2026-06-12T22:44:04.171846+00:00"
+      "last_updated": "2026-06-13T09:38:07.970591+00:00"
     },
     {
       "id": "YTB-092",
@@ -11472,15 +12119,42 @@
       "severity": "P2",
       "effort": "S",
       "task_id": "T34-youtube-testing",
-      "status": "assigned",
+      "status": "verified",
       "owner": "Erdos",
       "title": "ffprobe JSON 파싱 실패가 ValidationError 로 정규화되지 않음",
       "file_path": "youtube/src/easy_release_note/validate.py:50",
-      "verification_commands": [],
-      "verification_result": null,
-      "changed_files": [],
+      "verification_commands": [
+        "cd youtube && ../.venv/bin/python -m pytest && git diff --check",
+        "cd /Users/keelim/Desktop/keelim-maestro && uv --cache-dir .omx/uv-cache lock && uv --cache-dir .omx/uv-cache lock --check && uv --cache-dir .omx/uv-cache run python scripts/verify-python-dependency-constraints.py"
+      ],
+      "verification_result": "Leader rerun passed after Erdos T34: youtube pytest passed with 135 tests and 90.30% coverage; git diff --check passed; root uv.lock was updated; uv lock --check and Python dependency constraint verifier passed.",
+      "changed_files": [
+        "youtube/pyproject.toml",
+        "youtube/src/easy_release_note/cli.py",
+        "youtube/src/easy_release_note/manifest.py",
+        "youtube/src/easy_release_note/n8n.py",
+        "youtube/src/easy_release_note/render.py",
+        "youtube/src/easy_release_note/scaffold.py",
+        "youtube/src/easy_release_note/stock_price.py",
+        "youtube/src/easy_release_note/threads_crawl.py",
+        "youtube/src/easy_release_note/validate.py",
+        "youtube/src/easy_release_note/youtube_auth.py",
+        "youtube/src/easy_release_note/youtube_upload.py",
+        "youtube/tests/test_chart_race.py",
+        "youtube/tests/test_manifest.py",
+        "youtube/tests/test_n8n.py",
+        "youtube/tests/test_pipeline_command.py",
+        "youtube/tests/test_render_command.py",
+        "youtube/tests/test_scaffold.py",
+        "youtube/tests/test_stock_price.py",
+        "youtube/tests/test_threads_crawl.py",
+        "youtube/tests/test_validate.py",
+        "youtube/tests/test_youtube_upload.py",
+        "youtube/tests/test_youtube_auth.py",
+        "uv.lock"
+      ],
       "blocked_reason": null,
-      "last_updated": "2026-06-12T22:44:04.171846+00:00"
+      "last_updated": "2026-06-13T09:38:07.970591+00:00"
     },
     {
       "id": "YTB-093",
@@ -11489,15 +12163,42 @@
       "severity": "P2",
       "effort": "S",
       "task_id": "T34-youtube-testing",
-      "status": "assigned",
+      "status": "verified",
       "owner": "Erdos",
       "title": "n8n idempotency key 안정성 테스트가 부족함",
       "file_path": "youtube/src/easy_release_note/n8n.py:113",
-      "verification_commands": [],
-      "verification_result": null,
-      "changed_files": [],
+      "verification_commands": [
+        "cd youtube && ../.venv/bin/python -m pytest && git diff --check",
+        "cd /Users/keelim/Desktop/keelim-maestro && uv --cache-dir .omx/uv-cache lock && uv --cache-dir .omx/uv-cache lock --check && uv --cache-dir .omx/uv-cache run python scripts/verify-python-dependency-constraints.py"
+      ],
+      "verification_result": "Leader rerun passed after Erdos T34: youtube pytest passed with 135 tests and 90.30% coverage; git diff --check passed; root uv.lock was updated; uv lock --check and Python dependency constraint verifier passed.",
+      "changed_files": [
+        "youtube/pyproject.toml",
+        "youtube/src/easy_release_note/cli.py",
+        "youtube/src/easy_release_note/manifest.py",
+        "youtube/src/easy_release_note/n8n.py",
+        "youtube/src/easy_release_note/render.py",
+        "youtube/src/easy_release_note/scaffold.py",
+        "youtube/src/easy_release_note/stock_price.py",
+        "youtube/src/easy_release_note/threads_crawl.py",
+        "youtube/src/easy_release_note/validate.py",
+        "youtube/src/easy_release_note/youtube_auth.py",
+        "youtube/src/easy_release_note/youtube_upload.py",
+        "youtube/tests/test_chart_race.py",
+        "youtube/tests/test_manifest.py",
+        "youtube/tests/test_n8n.py",
+        "youtube/tests/test_pipeline_command.py",
+        "youtube/tests/test_render_command.py",
+        "youtube/tests/test_scaffold.py",
+        "youtube/tests/test_stock_price.py",
+        "youtube/tests/test_threads_crawl.py",
+        "youtube/tests/test_validate.py",
+        "youtube/tests/test_youtube_upload.py",
+        "youtube/tests/test_youtube_auth.py",
+        "uv.lock"
+      ],
       "blocked_reason": null,
-      "last_updated": "2026-06-12T22:44:04.171846+00:00"
+      "last_updated": "2026-06-13T09:38:07.970591+00:00"
     },
     {
       "id": "YTB-094",
@@ -11506,15 +12207,42 @@
       "severity": "P2",
       "effort": "S",
       "task_id": "T34-youtube-testing",
-      "status": "assigned",
+      "status": "verified",
       "owner": "Erdos",
       "title": "percent-change ranking 의 실패 경계 테스트 부족",
       "file_path": "youtube/src/easy_release_note/chart_race.py:156",
-      "verification_commands": [],
-      "verification_result": null,
-      "changed_files": [],
+      "verification_commands": [
+        "cd youtube && ../.venv/bin/python -m pytest && git diff --check",
+        "cd /Users/keelim/Desktop/keelim-maestro && uv --cache-dir .omx/uv-cache lock && uv --cache-dir .omx/uv-cache lock --check && uv --cache-dir .omx/uv-cache run python scripts/verify-python-dependency-constraints.py"
+      ],
+      "verification_result": "Leader rerun passed after Erdos T34: youtube pytest passed with 135 tests and 90.30% coverage; git diff --check passed; root uv.lock was updated; uv lock --check and Python dependency constraint verifier passed.",
+      "changed_files": [
+        "youtube/pyproject.toml",
+        "youtube/src/easy_release_note/cli.py",
+        "youtube/src/easy_release_note/manifest.py",
+        "youtube/src/easy_release_note/n8n.py",
+        "youtube/src/easy_release_note/render.py",
+        "youtube/src/easy_release_note/scaffold.py",
+        "youtube/src/easy_release_note/stock_price.py",
+        "youtube/src/easy_release_note/threads_crawl.py",
+        "youtube/src/easy_release_note/validate.py",
+        "youtube/src/easy_release_note/youtube_auth.py",
+        "youtube/src/easy_release_note/youtube_upload.py",
+        "youtube/tests/test_chart_race.py",
+        "youtube/tests/test_manifest.py",
+        "youtube/tests/test_n8n.py",
+        "youtube/tests/test_pipeline_command.py",
+        "youtube/tests/test_render_command.py",
+        "youtube/tests/test_scaffold.py",
+        "youtube/tests/test_stock_price.py",
+        "youtube/tests/test_threads_crawl.py",
+        "youtube/tests/test_validate.py",
+        "youtube/tests/test_youtube_upload.py",
+        "youtube/tests/test_youtube_auth.py",
+        "uv.lock"
+      ],
       "blocked_reason": null,
-      "last_updated": "2026-06-12T22:44:04.171846+00:00"
+      "last_updated": "2026-06-13T09:38:07.970591+00:00"
     },
     {
       "id": "YTB-095",
@@ -11523,15 +12251,42 @@
       "severity": "P2",
       "effort": "M",
       "task_id": "T34-youtube-testing",
-      "status": "assigned",
+      "status": "verified",
       "owner": "Erdos",
       "title": "render_episode 실패 분기와 환경 조립이 약하게 검증됨",
       "file_path": "youtube/src/easy_release_note/render.py:121",
-      "verification_commands": [],
-      "verification_result": null,
-      "changed_files": [],
+      "verification_commands": [
+        "cd youtube && ../.venv/bin/python -m pytest && git diff --check",
+        "cd /Users/keelim/Desktop/keelim-maestro && uv --cache-dir .omx/uv-cache lock && uv --cache-dir .omx/uv-cache lock --check && uv --cache-dir .omx/uv-cache run python scripts/verify-python-dependency-constraints.py"
+      ],
+      "verification_result": "Leader rerun passed after Erdos T34: youtube pytest passed with 135 tests and 90.30% coverage; git diff --check passed; root uv.lock was updated; uv lock --check and Python dependency constraint verifier passed.",
+      "changed_files": [
+        "youtube/pyproject.toml",
+        "youtube/src/easy_release_note/cli.py",
+        "youtube/src/easy_release_note/manifest.py",
+        "youtube/src/easy_release_note/n8n.py",
+        "youtube/src/easy_release_note/render.py",
+        "youtube/src/easy_release_note/scaffold.py",
+        "youtube/src/easy_release_note/stock_price.py",
+        "youtube/src/easy_release_note/threads_crawl.py",
+        "youtube/src/easy_release_note/validate.py",
+        "youtube/src/easy_release_note/youtube_auth.py",
+        "youtube/src/easy_release_note/youtube_upload.py",
+        "youtube/tests/test_chart_race.py",
+        "youtube/tests/test_manifest.py",
+        "youtube/tests/test_n8n.py",
+        "youtube/tests/test_pipeline_command.py",
+        "youtube/tests/test_render_command.py",
+        "youtube/tests/test_scaffold.py",
+        "youtube/tests/test_stock_price.py",
+        "youtube/tests/test_threads_crawl.py",
+        "youtube/tests/test_validate.py",
+        "youtube/tests/test_youtube_upload.py",
+        "youtube/tests/test_youtube_auth.py",
+        "uv.lock"
+      ],
       "blocked_reason": null,
-      "last_updated": "2026-06-12T22:44:04.171846+00:00"
+      "last_updated": "2026-06-13T09:38:07.970591+00:00"
     },
     {
       "id": "YTB-096",
@@ -11540,15 +12295,42 @@
       "severity": "P2",
       "effort": "M",
       "task_id": "T34-youtube-testing",
-      "status": "assigned",
+      "status": "verified",
       "owner": "Erdos",
       "title": "scaffold 다중 파일 쓰기가 원자적으로 검증되지 않음",
       "file_path": "youtube/src/easy_release_note/scaffold.py:438",
-      "verification_commands": [],
-      "verification_result": null,
-      "changed_files": [],
+      "verification_commands": [
+        "cd youtube && ../.venv/bin/python -m pytest && git diff --check",
+        "cd /Users/keelim/Desktop/keelim-maestro && uv --cache-dir .omx/uv-cache lock && uv --cache-dir .omx/uv-cache lock --check && uv --cache-dir .omx/uv-cache run python scripts/verify-python-dependency-constraints.py"
+      ],
+      "verification_result": "Leader rerun passed after Erdos T34: youtube pytest passed with 135 tests and 90.30% coverage; git diff --check passed; root uv.lock was updated; uv lock --check and Python dependency constraint verifier passed.",
+      "changed_files": [
+        "youtube/pyproject.toml",
+        "youtube/src/easy_release_note/cli.py",
+        "youtube/src/easy_release_note/manifest.py",
+        "youtube/src/easy_release_note/n8n.py",
+        "youtube/src/easy_release_note/render.py",
+        "youtube/src/easy_release_note/scaffold.py",
+        "youtube/src/easy_release_note/stock_price.py",
+        "youtube/src/easy_release_note/threads_crawl.py",
+        "youtube/src/easy_release_note/validate.py",
+        "youtube/src/easy_release_note/youtube_auth.py",
+        "youtube/src/easy_release_note/youtube_upload.py",
+        "youtube/tests/test_chart_race.py",
+        "youtube/tests/test_manifest.py",
+        "youtube/tests/test_n8n.py",
+        "youtube/tests/test_pipeline_command.py",
+        "youtube/tests/test_render_command.py",
+        "youtube/tests/test_scaffold.py",
+        "youtube/tests/test_stock_price.py",
+        "youtube/tests/test_threads_crawl.py",
+        "youtube/tests/test_validate.py",
+        "youtube/tests/test_youtube_upload.py",
+        "youtube/tests/test_youtube_auth.py",
+        "uv.lock"
+      ],
       "blocked_reason": null,
-      "last_updated": "2026-06-12T22:44:04.171846+00:00"
+      "last_updated": "2026-06-13T09:38:07.970591+00:00"
     },
     {
       "id": "YTB-097",
@@ -11557,15 +12339,42 @@
       "severity": "P2",
       "effort": "S",
       "task_id": "T34-youtube-testing",
-      "status": "assigned",
+      "status": "verified",
       "owner": "Erdos",
       "title": "stock-price manifest tags 가 종목 인자와 독립적으로 하드코딩됨",
       "file_path": "youtube/src/easy_release_note/stock_price.py:218",
-      "verification_commands": [],
-      "verification_result": null,
-      "changed_files": [],
+      "verification_commands": [
+        "cd youtube && ../.venv/bin/python -m pytest && git diff --check",
+        "cd /Users/keelim/Desktop/keelim-maestro && uv --cache-dir .omx/uv-cache lock && uv --cache-dir .omx/uv-cache lock --check && uv --cache-dir .omx/uv-cache run python scripts/verify-python-dependency-constraints.py"
+      ],
+      "verification_result": "Leader rerun passed after Erdos T34: youtube pytest passed with 135 tests and 90.30% coverage; git diff --check passed; root uv.lock was updated; uv lock --check and Python dependency constraint verifier passed.",
+      "changed_files": [
+        "youtube/pyproject.toml",
+        "youtube/src/easy_release_note/cli.py",
+        "youtube/src/easy_release_note/manifest.py",
+        "youtube/src/easy_release_note/n8n.py",
+        "youtube/src/easy_release_note/render.py",
+        "youtube/src/easy_release_note/scaffold.py",
+        "youtube/src/easy_release_note/stock_price.py",
+        "youtube/src/easy_release_note/threads_crawl.py",
+        "youtube/src/easy_release_note/validate.py",
+        "youtube/src/easy_release_note/youtube_auth.py",
+        "youtube/src/easy_release_note/youtube_upload.py",
+        "youtube/tests/test_chart_race.py",
+        "youtube/tests/test_manifest.py",
+        "youtube/tests/test_n8n.py",
+        "youtube/tests/test_pipeline_command.py",
+        "youtube/tests/test_render_command.py",
+        "youtube/tests/test_scaffold.py",
+        "youtube/tests/test_stock_price.py",
+        "youtube/tests/test_threads_crawl.py",
+        "youtube/tests/test_validate.py",
+        "youtube/tests/test_youtube_upload.py",
+        "youtube/tests/test_youtube_auth.py",
+        "uv.lock"
+      ],
       "blocked_reason": null,
-      "last_updated": "2026-06-12T22:44:04.171846+00:00"
+      "last_updated": "2026-06-13T09:38:07.970591+00:00"
     },
     {
       "id": "YTB-098",
@@ -11574,15 +12383,42 @@
       "severity": "P2",
       "effort": "S",
       "task_id": "T34-youtube-testing",
-      "status": "assigned",
+      "status": "verified",
       "owner": "Erdos",
       "title": "stock-price 날짜 파싱 정책 테스트가 없음",
       "file_path": "youtube/src/easy_release_note/stock_price.py:56",
-      "verification_commands": [],
-      "verification_result": null,
-      "changed_files": [],
+      "verification_commands": [
+        "cd youtube && ../.venv/bin/python -m pytest && git diff --check",
+        "cd /Users/keelim/Desktop/keelim-maestro && uv --cache-dir .omx/uv-cache lock && uv --cache-dir .omx/uv-cache lock --check && uv --cache-dir .omx/uv-cache run python scripts/verify-python-dependency-constraints.py"
+      ],
+      "verification_result": "Leader rerun passed after Erdos T34: youtube pytest passed with 135 tests and 90.30% coverage; git diff --check passed; root uv.lock was updated; uv lock --check and Python dependency constraint verifier passed.",
+      "changed_files": [
+        "youtube/pyproject.toml",
+        "youtube/src/easy_release_note/cli.py",
+        "youtube/src/easy_release_note/manifest.py",
+        "youtube/src/easy_release_note/n8n.py",
+        "youtube/src/easy_release_note/render.py",
+        "youtube/src/easy_release_note/scaffold.py",
+        "youtube/src/easy_release_note/stock_price.py",
+        "youtube/src/easy_release_note/threads_crawl.py",
+        "youtube/src/easy_release_note/validate.py",
+        "youtube/src/easy_release_note/youtube_auth.py",
+        "youtube/src/easy_release_note/youtube_upload.py",
+        "youtube/tests/test_chart_race.py",
+        "youtube/tests/test_manifest.py",
+        "youtube/tests/test_n8n.py",
+        "youtube/tests/test_pipeline_command.py",
+        "youtube/tests/test_render_command.py",
+        "youtube/tests/test_scaffold.py",
+        "youtube/tests/test_stock_price.py",
+        "youtube/tests/test_threads_crawl.py",
+        "youtube/tests/test_validate.py",
+        "youtube/tests/test_youtube_upload.py",
+        "youtube/tests/test_youtube_auth.py",
+        "uv.lock"
+      ],
       "blocked_reason": null,
-      "last_updated": "2026-06-12T22:44:04.171846+00:00"
+      "last_updated": "2026-06-13T09:38:07.970591+00:00"
     },
     {
       "id": "YTB-099",
@@ -11591,15 +12427,42 @@
       "severity": "P2",
       "effort": "M",
       "task_id": "T34-youtube-testing",
-      "status": "assigned",
+      "status": "verified",
       "owner": "Erdos",
       "title": "두 probe 검증 API 의 동등성 테스트가 없음",
       "file_path": "youtube/src/easy_release_note/validate.py:75",
-      "verification_commands": [],
-      "verification_result": null,
-      "changed_files": [],
+      "verification_commands": [
+        "cd youtube && ../.venv/bin/python -m pytest && git diff --check",
+        "cd /Users/keelim/Desktop/keelim-maestro && uv --cache-dir .omx/uv-cache lock && uv --cache-dir .omx/uv-cache lock --check && uv --cache-dir .omx/uv-cache run python scripts/verify-python-dependency-constraints.py"
+      ],
+      "verification_result": "Leader rerun passed after Erdos T34: youtube pytest passed with 135 tests and 90.30% coverage; git diff --check passed; root uv.lock was updated; uv lock --check and Python dependency constraint verifier passed.",
+      "changed_files": [
+        "youtube/pyproject.toml",
+        "youtube/src/easy_release_note/cli.py",
+        "youtube/src/easy_release_note/manifest.py",
+        "youtube/src/easy_release_note/n8n.py",
+        "youtube/src/easy_release_note/render.py",
+        "youtube/src/easy_release_note/scaffold.py",
+        "youtube/src/easy_release_note/stock_price.py",
+        "youtube/src/easy_release_note/threads_crawl.py",
+        "youtube/src/easy_release_note/validate.py",
+        "youtube/src/easy_release_note/youtube_auth.py",
+        "youtube/src/easy_release_note/youtube_upload.py",
+        "youtube/tests/test_chart_race.py",
+        "youtube/tests/test_manifest.py",
+        "youtube/tests/test_n8n.py",
+        "youtube/tests/test_pipeline_command.py",
+        "youtube/tests/test_render_command.py",
+        "youtube/tests/test_scaffold.py",
+        "youtube/tests/test_stock_price.py",
+        "youtube/tests/test_threads_crawl.py",
+        "youtube/tests/test_validate.py",
+        "youtube/tests/test_youtube_upload.py",
+        "youtube/tests/test_youtube_auth.py",
+        "uv.lock"
+      ],
       "blocked_reason": null,
-      "last_updated": "2026-06-12T22:44:04.171846+00:00"
+      "last_updated": "2026-06-13T09:38:07.970591+00:00"
     },
     {
       "id": "YTB-100",
@@ -11608,15 +12471,42 @@
       "severity": "P2",
       "effort": "S",
       "task_id": "T34-youtube-testing",
-      "status": "assigned",
+      "status": "verified",
       "owner": "Erdos",
       "title": "업로드 기록 생성이 시간·파일 상태에 강하게 결합됨",
       "file_path": "youtube/src/easy_release_note/youtube_upload.py:39",
-      "verification_commands": [],
-      "verification_result": null,
-      "changed_files": [],
+      "verification_commands": [
+        "cd youtube && ../.venv/bin/python -m pytest && git diff --check",
+        "cd /Users/keelim/Desktop/keelim-maestro && uv --cache-dir .omx/uv-cache lock && uv --cache-dir .omx/uv-cache lock --check && uv --cache-dir .omx/uv-cache run python scripts/verify-python-dependency-constraints.py"
+      ],
+      "verification_result": "Leader rerun passed after Erdos T34: youtube pytest passed with 135 tests and 90.30% coverage; git diff --check passed; root uv.lock was updated; uv lock --check and Python dependency constraint verifier passed.",
+      "changed_files": [
+        "youtube/pyproject.toml",
+        "youtube/src/easy_release_note/cli.py",
+        "youtube/src/easy_release_note/manifest.py",
+        "youtube/src/easy_release_note/n8n.py",
+        "youtube/src/easy_release_note/render.py",
+        "youtube/src/easy_release_note/scaffold.py",
+        "youtube/src/easy_release_note/stock_price.py",
+        "youtube/src/easy_release_note/threads_crawl.py",
+        "youtube/src/easy_release_note/validate.py",
+        "youtube/src/easy_release_note/youtube_auth.py",
+        "youtube/src/easy_release_note/youtube_upload.py",
+        "youtube/tests/test_chart_race.py",
+        "youtube/tests/test_manifest.py",
+        "youtube/tests/test_n8n.py",
+        "youtube/tests/test_pipeline_command.py",
+        "youtube/tests/test_render_command.py",
+        "youtube/tests/test_scaffold.py",
+        "youtube/tests/test_stock_price.py",
+        "youtube/tests/test_threads_crawl.py",
+        "youtube/tests/test_validate.py",
+        "youtube/tests/test_youtube_upload.py",
+        "youtube/tests/test_youtube_auth.py",
+        "uv.lock"
+      ],
       "blocked_reason": null,
-      "last_updated": "2026-06-12T22:44:04.171846+00:00"
+      "last_updated": "2026-06-13T09:38:07.970591+00:00"
     },
     {
       "id": "KKV-001",

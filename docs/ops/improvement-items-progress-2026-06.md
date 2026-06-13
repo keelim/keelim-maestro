@@ -11,10 +11,10 @@ Durable `/goal` ledger for completing every P1/P2 item from the June 2026 improv
 
 | status | count |
 |---|---:|
-| `todo` | 555 |
-| `assigned` | 72 |
+| `todo` | 538 |
+| `assigned` | 51 |
 | `in_progress` | 0 |
-| `verified` | 173 |
+| `verified` | 211 |
 | `blocked` | 0 |
 | `needs_consumer_check` | 0 |
 
@@ -25,7 +25,7 @@ Durable `/goal` ledger for completing every P1/P2 item from the June 2026 improv
 | 1 | `T01-android-support-ci-release` | `android-support` | `ci-release` | 19 | 6 | 13 | `verified` |
 | 1 | `T03-android-support-error-handling` | `android-support` | `error-handling` | 18 | 6 | 12 | `verified` |
 | 1 | `T05-android-support-testing` | `android-support` | `testing` | 18 | 6 | 12 | `verified` |
-| 1 | `T04-android-support-security` | `android-support` | `security` | 17 | 5 | 12 | `todo` |
+| 1 | `T04-android-support-security` | `android-support` | `security` | 17 | 5 | 12 | `assigned` |
 | 1 | `T06-android-support-type-safety` | `android-support` | `type-safety` | 15 | 5 | 10 | `todo` |
 | 1 | `T02-android-support-dx-docs` | `android-support` | `dx-docs` | 13 | 0 | 13 | `todo` |
 | 1 | `T12-all-web-ui-testing` | `all-web-ui` | `testing` | 19 | 9 | 10 | `assigned` |
@@ -41,7 +41,7 @@ Durable `/goal` ledger for completing every P1/P2 item from the June 2026 improv
 | 1 | `T17-keelim-plugin-skill-quality` | `keelim-plugin` | `skill-quality` | 14 | 2 | 12 | `todo` |
 | 1 | `T13-keelim-plugin-docs` | `keelim-plugin` | `docs` | 14 | 1 | 13 | `todo` |
 | 2 | `T20-keelim-vercel-api-correctness` | `keelim-vercel` | `api-correctness` | 20 | 11 | 9 | `verified` |
-| 2 | `T23-keelim-vercel-security` | `keelim-vercel` | `security` | 17 | 8 | 9 | `assigned` |
+| 2 | `T23-keelim-vercel-security` | `keelim-vercel` | `security` | 17 | 8 | 9 | `verified` |
 | 2 | `T24-keelim-vercel-testing` | `keelim-vercel` | `testing` | 15 | 7 | 8 | `todo` |
 | 2 | `T21-keelim-vercel-component-quality` | `keelim-vercel` | `component-quality` | 14 | 5 | 9 | `todo` |
 | 2 | `T22-keelim-vercel-dx-config` | `keelim-vercel` | `dx-config` | 11 | 2 | 9 | `todo` |
@@ -50,7 +50,7 @@ Durable `/goal` ledger for completing every P1/P2 item from the June 2026 improv
 | 2 | `T26-keelim-vercel-client-component` | `keelim-vercel` | `불필요한 use client` | 8 | 1 | 7 | `todo` |
 | 2 | `T27-keelim-vercel-image-optimization` | `keelim-vercel` | `이미지 최적화` | 1 | 0 | 1 | `todo` |
 | 2 | `T28-keelim-vercel-cache` | `keelim-vercel` | `캐싱 미활용` | 6 | 0 | 6 | `todo` |
-| 2 | `T34-youtube-testing` | `youtube` | `testing` | 21 | 8 | 13 | `assigned` |
+| 2 | `T34-youtube-testing` | `youtube` | `testing` | 21 | 8 | 13 | `verified` |
 | 2 | `T32-youtube-reliability` | `youtube` | `reliability` | 18 | 5 | 13 | `todo` |
 | 2 | `T29-youtube-ci-automation` | `youtube` | `ci-automation` | 18 | 4 | 14 | `todo` |
 | 2 | `T30-youtube-code-quality` | `youtube` | `code-quality` | 15 | 1 | 14 | `todo` |

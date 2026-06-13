@@ -9,13 +9,13 @@ Ultragoal run after the user requested a pause and meaningful commits.
 - Current Codex goal status from `get_goal`: `paused`
 - Do not call `update_goal` yet. The aggregate run is not complete.
 - Ledger check: `python3 scripts/improvements/init_progress_ledger.py --check`
-  - Result: `OK: 800 items, 52 task units, 173 verified`
+  - Result: `OK: 800 items, 52 task units, 211 verified`
 
 ## Root Ledger Snapshot
 
-- `verified`: 173
-- `assigned`: 72
-- `todo`: 555
+- `verified`: 211
+- `assigned`: 51
+- `todo`: 538
 - `blocked`: 0
 - `in_progress`: 0
 - `needs_consumer_check`: 0
@@ -34,6 +34,8 @@ Durable state files:
 | `android-support` | `T01`, `T03`, `T05` | Leader verified and committed. | `982e380d72b8b0d299658fc0a08889396e32b393` |
 | `Keelim-Knowledge-Vault` | `T35`, `T37`, `T38` | Leader verified and committed. | `eea3b4d51d7ddc553d2498e710507ac5a81fd09c` |
 | `keelim-plugin` | `T15`, `T16`, `T18` | Leader verified and committed. | `64d229aef8ef88a862b195330f8f7a0a82fee442` |
+| `keelim-vercel` | `T20`, `T23` | Leader verified and committed. | `777cb64be29b43415786523fa3b452431619732d` |
+| `youtube` | `T34` | Leader verified and committed. | `87527904e1d05814315ec9f45c0d33dae8c18afe` |
 
 Verification highlights:
 
@@ -46,20 +48,22 @@ Verification highlights:
   passed. A scanner-safe variable rename in
   `skills/session-usage-dashboard/scripts/test_build_session_usage_dashboard.py`
   was validated with the targeted test before commit.
+- `keelim-vercel`: typecheck, 39-test Bun suite, production build,
+  maintenance checks, scoped ESLint, and `git diff --check` passed.
+- `youtube`: pytest passed with 135 tests and 90.30% coverage, `git diff --check`
+  passed, root `uv.lock` was refreshed, and `uv lock --check` plus Python
+  dependency constraint verification passed.
 
 ## Assigned Or Paused, Not Verified
 
 | repo | task | owner | current state | next action |
 |---|---|---|---|---|
-| `all-web-ui` | `T12-all-web-ui-testing` | Parfit | Incomplete. Leader rerun of `bun test` failed with 25 pass / 6 fail / 4 errors. Parfit then changed `tests/components/interaction.test.tsx`, but the focused test was interrupted before a pass/fail result. | Continue test stabilization, then rerun `bun run typecheck`, `bun test`, and `bun run build`. Do not mark verified until leader rerun passes. |
-| `keelim-plugin` | `T14-keelim-plugin-dx-tooling` | Laplace | Assigned in ledger, but paused before edits. Laplace read AGENTS/README and mapped inventory only. | Resume or reset assignment. No code changes to commit for T14 yet. |
-| `keelim-vercel` | `T23-keelim-vercel-security` | Schrodinger | Paused after implementation. Worker reports `bun run test`, `bun run build`, `bun run verify:maintenance`, scoped ESLint, and `git diff --check` passed, but final post-format `bun run typecheck` was interrupted. | Rerun leader verification: `bun run typecheck`, `bun run test`, `bun run build`, `bun run verify:maintenance`, scoped lint if needed, and `git diff --check`. Do not commit yet because T20 verified changes and T23 unverified changes are interleaved. |
-| `youtube` | `T34-youtube-testing` | Erdos | Worker completed and reported `../.venv/bin/python -m pytest` passed with 135 tests and 90.30% coverage, plus `git diff --check`. Leader verification not yet run. | Rerun pytest and `git diff --check`; resolve the `pytest-cov` / parent uv workspace lock caveat before marking verified. |
+| `android-support` | `T04-android-support-security` | Darwin | Assigned and running. | Wait for worker report, then leader-verify before marking complete. |
+| `all-web-ui` | `T12-all-web-ui-testing` | Helmholtz | Incomplete. Prior leader rerun of `bun test` failed with 25 pass / 6 fail / 4 errors. New worker is stabilizing tests. | Continue test stabilization, then rerun `bun run typecheck`, `bun test`, and `bun run build`. Do not mark verified until leader rerun passes. |
+| `keelim-plugin` | `T14-keelim-plugin-dx-tooling` | Euler | Assigned and running. Previous paused worker had made no T14 edits. | Wait for worker report, then leader-verify before marking complete. |
 
 ## Still Todo Next
 
-- `T04-android-support-security` remains `todo`. A prompt was prepared but not
-  assigned because the turn was interrupted.
 - `T06-android-support-type-safety`
 - `T02-android-support-dx-docs`
 - Remaining all-web-ui, keelim-plugin, keelim-vercel, youtube, Knowledge Vault,
