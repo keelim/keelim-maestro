@@ -5,7 +5,7 @@
     "inventory": "docs/research/improvements-2026-06/improvements.json",
     "rawDir": "docs/research/improvements-2026-06/raw"
   },
-  "generatedAt": "2026-06-13T10:31:11.931665+00:00",
+  "generatedAt": "2026-06-13T10:35:06.842382+00:00",
   "statusValues": [
     "todo",
     "assigned",
@@ -21,8 +21,8 @@
       "P2": 607
     },
     "byStatus": {
-      "todo": 415,
-      "assigned": 0,
+      "todo": 365,
+      "assigned": 50,
       "in_progress": 0,
       "verified": 385,
       "blocked": 0,
@@ -170,7 +170,7 @@
       "total": 17,
       "p1": 3,
       "p2": 14,
-      "status": "todo"
+      "status": "assigned"
     },
     {
       "task_id": "T08-all-web-ui-api-design",
@@ -290,7 +290,7 @@
       "total": 14,
       "p1": 5,
       "p2": 9,
-      "status": "todo"
+      "status": "assigned"
     },
     {
       "task_id": "T22-keelim-vercel-dx-config",
@@ -430,7 +430,7 @@
       "total": 19,
       "p1": 4,
       "p2": 15,
-      "status": "todo"
+      "status": "assigned"
     },
     {
       "task_id": "T37-keelim-knowledge-vault-frontmatter",
@@ -5143,15 +5143,15 @@
       "severity": "P1",
       "effort": "S",
       "task_id": "T10-all-web-ui-docs",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Planck",
       "title": "DESIGN components catalog에 없는 export인 divider가 섞임",
       "file_path": "all-web-ui/DESIGN.md:174",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T10:34:54.318631+00:00"
     },
     {
       "id": "AWUI-009",
@@ -5160,15 +5160,15 @@
       "severity": "P1",
       "effort": "S",
       "task_id": "T10-all-web-ui-docs",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Planck",
       "title": "DESIGN.md style import 경로가 scoped package명과 맞지 않음",
       "file_path": "all-web-ui/DESIGN.md:334",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T10:34:54.318631+00:00"
     },
     {
       "id": "AWUI-010",
@@ -5177,15 +5177,15 @@
       "severity": "P1",
       "effort": "S",
       "task_id": "T10-all-web-ui-docs",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Planck",
       "title": "README 공개 export 목록이 실제 package exports보다 작음",
       "file_path": "all-web-ui/README.md:5",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T10:34:54.318631+00:00"
     },
     {
       "id": "AWUI-067",
@@ -5194,15 +5194,15 @@
       "severity": "P2",
       "effort": "M",
       "task_id": "T10-all-web-ui-docs",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Planck",
       "title": "DESIGN admin YAML이 admin theme token 표면을 과소기록함",
       "file_path": "all-web-ui/DESIGN.md:29",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T10:34:54.318631+00:00"
     },
     {
       "id": "AWUI-068",
@@ -5211,15 +5211,15 @@
       "severity": "P2",
       "effort": "M",
       "task_id": "T10-all-web-ui-docs",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Planck",
       "title": "DESIGN color front matter의 surface-soft 값이 런타임 토큰과 다름",
       "file_path": "all-web-ui/DESIGN.md:12",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T10:34:54.318631+00:00"
     },
     {
       "id": "AWUI-069",
@@ -5228,15 +5228,15 @@
       "severity": "P2",
       "effort": "S",
       "task_id": "T10-all-web-ui-docs",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Planck",
       "title": "DESIGN market token에 flat 상태가 없음",
       "file_path": "all-web-ui/DESIGN.md:25",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T10:34:54.318631+00:00"
     },
     {
       "id": "AWUI-070",
@@ -5245,15 +5245,15 @@
       "severity": "P2",
       "effort": "S",
       "task_id": "T10-all-web-ui-docs",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Planck",
       "title": "DESIGN rounded.full이 런타임 CSS token으로 선언되지 않음",
       "file_path": "all-web-ui/DESIGN.md:88",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T10:34:54.318631+00:00"
     },
     {
       "id": "AWUI-071",
@@ -5262,15 +5262,15 @@
       "severity": "P2",
       "effort": "M",
       "task_id": "T10-all-web-ui-docs",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Planck",
       "title": "DESIGN status token이 CSS border role을 표현하지 못함",
       "file_path": "all-web-ui/DESIGN.md:17",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T10:34:54.318631+00:00"
     },
     {
       "id": "AWUI-072",
@@ -5279,15 +5279,15 @@
       "severity": "P2",
       "effort": "M",
       "task_id": "T10-all-web-ui-docs",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Planck",
       "title": "DESIGN typography catalog가 runtime utility보다 작음",
       "file_path": "all-web-ui/DESIGN.md:33",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T10:34:54.318631+00:00"
     },
     {
       "id": "AWUI-073",
@@ -5296,15 +5296,15 @@
       "severity": "P2",
       "effort": "S",
       "task_id": "T10-all-web-ui-docs",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Planck",
       "title": "README Build 섹션이 검증 계약을 축소함",
       "file_path": "all-web-ui/README.md:63",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T10:34:54.318631+00:00"
     },
     {
       "id": "AWUI-074",
@@ -5313,15 +5313,15 @@
       "severity": "P2",
       "effort": "M",
       "task_id": "T10-all-web-ui-docs",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Planck",
       "title": "README Usage가 import만 보여 주고 컴포넌트 렌더 예제가 없음",
       "file_path": "all-web-ui/README.md:46",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T10:34:54.318631+00:00"
     },
     {
       "id": "AWUI-075",
@@ -5330,15 +5330,15 @@
       "severity": "P2",
       "effort": "S",
       "task_id": "T10-all-web-ui-docs",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Planck",
       "title": "README admin theme 가이드에 wrapper 예제가 없음",
       "file_path": "all-web-ui/README.md:59",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T10:34:54.318631+00:00"
     },
     {
       "id": "AWUI-076",
@@ -5347,15 +5347,15 @@
       "severity": "P2",
       "effort": "S",
       "task_id": "T10-all-web-ui-docs",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Planck",
       "title": "README dark mode selector 설명이 DESIGN 계약보다 좁음",
       "file_path": "all-web-ui/README.md:54",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T10:34:54.318631+00:00"
     },
     {
       "id": "AWUI-077",
@@ -5364,15 +5364,15 @@
       "severity": "P2",
       "effort": "S",
       "task_id": "T10-all-web-ui-docs",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Planck",
       "title": "README manifest 업데이트 규칙이 자동 검증과 연결되지 않음",
       "file_path": "all-web-ui/README.md:97",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T10:34:54.318631+00:00"
     },
     {
       "id": "AWUI-078",
@@ -5381,15 +5381,15 @@
       "severity": "P2",
       "effort": "S",
       "task_id": "T10-all-web-ui-docs",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Planck",
       "title": "README 설치 절차가 실행 가능한 명령으로 정리되지 않음",
       "file_path": "all-web-ui/README.md:73",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T10:34:54.318631+00:00"
     },
     {
       "id": "AWUI-079",
@@ -5398,15 +5398,15 @@
       "severity": "P2",
       "effort": "S",
       "task_id": "T10-all-web-ui-docs",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Planck",
       "title": "README에 React 19 peer dependency 전제가 없음",
       "file_path": "all-web-ui/README.md:63",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T10:34:54.318631+00:00"
     },
     {
       "id": "AWUI-080",
@@ -5415,15 +5415,15 @@
       "severity": "P2",
       "effort": "S",
       "task_id": "T10-all-web-ui-docs",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Planck",
       "title": "manifest가 필요한 CSS/theme import를 알려 주지 않음",
       "file_path": "all-web-ui/src/manifest.ts:3",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T10:34:54.318631+00:00"
     },
     {
       "id": "AWUI-011",
@@ -11049,15 +11049,15 @@
       "severity": "P1",
       "effort": "M",
       "task_id": "T21-keelim-vercel-component-quality",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Linnaeus",
       "title": "GoalListSidebar 목표 카드가 클릭 가능한 div로 구현됨",
       "file_path": "keelim-vercel/components/goal-hub/goal-list-sidebar.tsx:323",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T10:35:01.586834+00:00"
     },
     {
       "id": "KVCL-014",
@@ -11066,15 +11066,15 @@
       "severity": "P1",
       "effort": "M",
       "task_id": "T21-keelim-vercel-component-quality",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Linnaeus",
       "title": "SitemapModal이 button 안에 즐겨찾기 버튼을 중첩",
       "file_path": "keelim-vercel/components/sitemap-modal.tsx:150",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T10:35:01.586834+00:00"
     },
     {
       "id": "KVCL-015",
@@ -11083,15 +11083,15 @@
       "severity": "P1",
       "effort": "M",
       "task_id": "T21-keelim-vercel-component-quality",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Linnaeus",
       "title": "VisionBoardEventPanel도 SelectContent 안 커스텀 div 옵션을 반복",
       "file_path": "keelim-vercel/components/goal-hub/vision-board-event-panel.tsx:76",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T10:35:01.586834+00:00"
     },
     {
       "id": "KVCL-016",
@@ -11100,15 +11100,15 @@
       "severity": "P1",
       "effort": "M",
       "task_id": "T21-keelim-vercel-component-quality",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Linnaeus",
       "title": "VisionBoardGoalPanel이 SelectContent 안에 커스텀 div 옵션을 둠",
       "file_path": "keelim-vercel/components/goal-hub/vision-board-goal-panel.tsx:63",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T10:35:01.586834+00:00"
     },
     {
       "id": "KVCL-017",
@@ -11117,15 +11117,15 @@
       "severity": "P1",
       "effort": "M",
       "task_id": "T21-keelim-vercel-component-quality",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Linnaeus",
       "title": "VisionBoardMonthCard가 클릭 가능한 div 카드로 구현됨",
       "file_path": "keelim-vercel/components/goal-hub/vision-board-month-card.tsx:29",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T10:35:01.586834+00:00"
     },
     {
       "id": "KVCL-047",
@@ -11134,15 +11134,15 @@
       "severity": "P2",
       "effort": "M",
       "task_id": "T21-keelim-vercel-component-quality",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Linnaeus",
       "title": "FinancialPipeline 수동 입력 Slider가 Label과 연결되지 않음",
       "file_path": "keelim-vercel/components/financial-pipeline.tsx:291",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T10:35:01.586834+00:00"
     },
     {
       "id": "KVCL-048",
@@ -11151,15 +11151,15 @@
       "severity": "P2",
       "effort": "S",
       "task_id": "T21-keelim-vercel-component-quality",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Linnaeus",
       "title": "FinancialPipeline의 아이콘 버튼이 title 속성에 의존",
       "file_path": "keelim-vercel/components/financial-pipeline.tsx:243",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T10:35:01.586834+00:00"
     },
     {
       "id": "KVCL-049",
@@ -11168,15 +11168,15 @@
       "severity": "P2",
       "effort": "S",
       "task_id": "T21-keelim-vercel-component-quality",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Linnaeus",
       "title": "GoalListSidebar 삭제 버튼이 hover에서만 보임",
       "file_path": "keelim-vercel/components/goal-hub/goal-list-sidebar.tsx:369",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T10:35:01.586834+00:00"
     },
     {
       "id": "KVCL-050",
@@ -11185,15 +11185,15 @@
       "severity": "P2",
       "effort": "S",
       "task_id": "T21-keelim-vercel-component-quality",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Linnaeus",
       "title": "GoalListSidebar의 새 목표 버튼이 아이콘만 노출",
       "file_path": "keelim-vercel/components/goal-hub/goal-list-sidebar.tsx:144",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T10:35:01.586834+00:00"
     },
     {
       "id": "KVCL-051",
@@ -11202,15 +11202,15 @@
       "severity": "P2",
       "effort": "S",
       "task_id": "T21-keelim-vercel-component-quality",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Linnaeus",
       "title": "InsightClipper 검색 입력이 placeholder에만 의존",
       "file_path": "keelim-vercel/components/insight-clipper-component.tsx:104",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T10:35:01.586834+00:00"
     },
     {
       "id": "KVCL-052",
@@ -11219,15 +11219,15 @@
       "severity": "P2",
       "effort": "S",
       "task_id": "T21-keelim-vercel-component-quality",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Linnaeus",
       "title": "InsightClipper 모바일 메뉴 버튼에 접근 가능한 이름이 없음",
       "file_path": "keelim-vercel/components/insight-clipper-component.tsx:84",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T10:35:01.586834+00:00"
     },
     {
       "id": "KVCL-053",
@@ -11236,15 +11236,15 @@
       "severity": "P2",
       "effort": "S",
       "task_id": "T21-keelim-vercel-component-quality",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Linnaeus",
       "title": "LoanCalculator의 상환기간과 상환방식 label이 컨트롤과 분리됨",
       "file_path": "keelim-vercel/components/loan-calculator.tsx:293",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T10:35:01.586834+00:00"
     },
     {
       "id": "KVCL-054",
@@ -11253,15 +11253,15 @@
       "severity": "P2",
       "effort": "S",
       "task_id": "T21-keelim-vercel-component-quality",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Linnaeus",
       "title": "SitemapModal 검색 input에 명시적 accessible name이 없음",
       "file_path": "keelim-vercel/components/sitemap-modal.tsx:133",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T10:35:01.586834+00:00"
     },
     {
       "id": "KVCL-055",
@@ -11270,15 +11270,15 @@
       "severity": "P2",
       "effort": "S",
       "task_id": "T21-keelim-vercel-component-quality",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Linnaeus",
       "title": "VisionBoardGoalPanel의 아이콘 버튼들에 이름이 없음",
       "file_path": "keelim-vercel/components/goal-hub/vision-board-goal-panel.tsx:96",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T10:35:01.586834+00:00"
     },
     {
       "id": "KVCL-018",
@@ -15631,15 +15631,15 @@
       "severity": "P1",
       "effort": "M",
       "task_id": "T36-keelim-knowledge-vault-content-quality",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Aquinas",
       "title": "Android 2026 업데이트 노트가 재확인 상태를 닫지 않음",
       "file_path": "Keelim-Knowledge-Vault/Android/2026 Android 개발 업데이트.md:33",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T10:35:06.843416+00:00"
     },
     {
       "id": "KKV-004",
@@ -15648,15 +15648,15 @@
       "severity": "P1",
       "effort": "M",
       "task_id": "T36-keelim-knowledge-vault-content-quality",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Aquinas",
       "title": "Android Health 노트가 행사 연도와 내용 연도가 충돌",
       "file_path": "Keelim-Knowledge-Vault/Other/Conference/Google IO 2024/Android Health를 사용하여 적응형 경험 구축하기.md:7",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T10:35:06.843416+00:00"
     },
     {
       "id": "KKV-005",
@@ -15665,15 +15665,15 @@
       "severity": "P1",
       "effort": "S",
       "task_id": "T36-keelim-knowledge-vault-content-quality",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Aquinas",
       "title": "Credential Manager 의존성이 alpha 버전에 고정됨",
       "file_path": "Keelim-Knowledge-Vault/service/auth/Credential Manager.md:36",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T10:35:06.843416+00:00"
     },
     {
       "id": "KKV-006",
@@ -15682,15 +15682,15 @@
       "severity": "P1",
       "effort": "M",
       "task_id": "T36-keelim-knowledge-vault-content-quality",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Aquinas",
       "title": "Google I/O 2026 Android 메모가 pasted source 상태",
       "file_path": "Keelim-Knowledge-Vault/Android/sources/Google IO 2026 Android 발표 메모.md:6",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T10:35:06.843416+00:00"
     },
     {
       "id": "KKV-034",
@@ -15699,15 +15699,15 @@
       "severity": "P2",
       "effort": "M",
       "task_id": "T36-keelim-knowledge-vault-content-quality",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Aquinas",
       "title": "AI 노트가 glossary와 링크 덤프를 한 파일에 혼합",
       "file_path": "Keelim-Knowledge-Vault/AI/keelim-ai/AI.md:6",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T10:35:06.843416+00:00"
     },
     {
       "id": "KKV-035",
@@ -15716,15 +15716,15 @@
       "severity": "P2",
       "effort": "M",
       "task_id": "T36-keelim-knowledge-vault-content-quality",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Aquinas",
       "title": "Abstract Factory 노트가 placeholder 상태",
       "file_path": "Keelim-Knowledge-Vault/Code/Abstract Factory.md:7",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T10:35:06.843416+00:00"
     },
     {
       "id": "KKV-036",
@@ -15733,15 +15733,15 @@
       "severity": "P2",
       "effort": "M",
       "task_id": "T36-keelim-knowledge-vault-content-quality",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Aquinas",
       "title": "Android 13 노트에 빈 섹션과 단일 출처 메모가 남음",
       "file_path": "Keelim-Knowledge-Vault/Android/Version/Android 13.md:28",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T10:35:06.843416+00:00"
     },
     {
       "id": "KKV-037",
@@ -15750,15 +15750,15 @@
       "severity": "P2",
       "effort": "M",
       "task_id": "T36-keelim-knowledge-vault-content-quality",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Aquinas",
       "title": "App Bundle 노트가 Android 배포 핵심을 설명하지 않음",
       "file_path": "Keelim-Knowledge-Vault/Android/Component/App Bundle.md:7",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T10:35:06.843416+00:00"
     },
     {
       "id": "KKV-038",
@@ -15767,15 +15767,15 @@
       "severity": "P2",
       "effort": "S",
       "task_id": "T36-keelim-knowledge-vault-content-quality",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Aquinas",
       "title": "Bazile 노트 제목이 빌드 도구명과 불일치 가능",
       "file_path": "Keelim-Knowledge-Vault/Other/Build/Bazile.md:1",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T10:35:06.843416+00:00"
     },
     {
       "id": "KKV-039",
@@ -15784,15 +15784,15 @@
       "severity": "P2",
       "effort": "M",
       "task_id": "T36-keelim-knowledge-vault-content-quality",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Aquinas",
       "title": "Build with AI 노트가 비공식 메모 조각 상태",
       "file_path": "Keelim-Knowledge-Vault/Other/Conference/Build with AI.md:7",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T10:35:06.843416+00:00"
     },
     {
       "id": "KKV-040",
@@ -15801,15 +15801,15 @@
       "severity": "P2",
       "effort": "S",
       "task_id": "T36-keelim-knowledge-vault-content-quality",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Aquinas",
       "title": "Compose 릴리스 노트의 미래 버전 예고가 갱신 큐 없이 남음",
       "file_path": "Keelim-Knowledge-Vault/Language/Kotlin/Compose/Jetpack Compose 2026년 4월 릴리스.md:50",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T10:35:06.843416+00:00"
     },
     {
       "id": "KKV-041",
@@ -15818,15 +15818,15 @@
       "severity": "P2",
       "effort": "M",
       "task_id": "T36-keelim-knowledge-vault-content-quality",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Aquinas",
       "title": "Deep link 노트가 검증 체크리스트 없이 stub",
       "file_path": "Keelim-Knowledge-Vault/Android/Deep link.md:7",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T10:35:06.843416+00:00"
     },
     {
       "id": "KKV-042",
@@ -15835,15 +15835,15 @@
       "severity": "P2",
       "effort": "S",
       "task_id": "T36-keelim-knowledge-vault-content-quality",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Aquinas",
       "title": "Dynamic Feature Module 노트에 API명 오탈자가 있음",
       "file_path": "Keelim-Knowledge-Vault/Android/Component/Dynamic Feature Module.md:14",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T10:35:06.843416+00:00"
     },
     {
       "id": "KKV-043",
@@ -15852,15 +15852,15 @@
       "severity": "P2",
       "effort": "M",
       "task_id": "T36-keelim-knowledge-vault-content-quality",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Aquinas",
       "title": "GraphQL 네트워크 노트가 API 비교 없이 stub",
       "file_path": "Keelim-Knowledge-Vault/service/network/GraphQL.md:7",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T10:35:06.843416+00:00"
     },
     {
       "id": "KKV-044",
@@ -15869,15 +15869,15 @@
       "severity": "P2",
       "effort": "S",
       "task_id": "T36-keelim-knowledge-vault-content-quality",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Aquinas",
       "title": "HTTP 노트에 상태 코드와 헤더 표기 오류가 있음",
       "file_path": "Keelim-Knowledge-Vault/service/network/HTTP.md:25",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T10:35:06.843416+00:00"
     },
     {
       "id": "KKV-045",
@@ -15886,15 +15886,15 @@
       "severity": "P2",
       "effort": "M",
       "task_id": "T36-keelim-knowledge-vault-content-quality",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Aquinas",
       "title": "Kotlin 2.0 버전 노트가 비어 있음",
       "file_path": "Keelim-Knowledge-Vault/Language/Kotlin/Version/Kotlin 2.0.md:7",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T10:35:06.843416+00:00"
     },
     {
       "id": "KKV-046",
@@ -15903,15 +15903,15 @@
       "severity": "P2",
       "effort": "M",
       "task_id": "T36-keelim-knowledge-vault-content-quality",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Aquinas",
       "title": "Kotlin 2.2 노트가 출처와 버전 매트릭스 없이 일반론",
       "file_path": "Keelim-Knowledge-Vault/Language/Kotlin/Version/Kotlin 2.2.md:8",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T10:35:06.843416+00:00"
     },
     {
       "id": "KKV-047",
@@ -15920,15 +15920,15 @@
       "severity": "P2",
       "effort": "M",
       "task_id": "T36-keelim-knowledge-vault-content-quality",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Aquinas",
       "title": "MVVM 아키텍처 노트가 역할 설명 없이 비어 있음",
       "file_path": "Keelim-Knowledge-Vault/Code/MVVM.md:7",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T10:35:06.843416+00:00"
     },
     {
       "id": "KKV-048",
@@ -15937,15 +15937,15 @@
       "severity": "P2",
       "effort": "S",
       "task_id": "T36-keelim-knowledge-vault-content-quality",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Aquinas",
       "title": "ProtoType 표기가 표준 패턴명과 어긋남",
       "file_path": "Keelim-Knowledge-Vault/Code/ProtoType.md:1",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T10:35:06.843416+00:00"
     },
     {
       "id": "KKV-007",

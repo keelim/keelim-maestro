@@ -50,7 +50,9 @@ The leader must:
 
 | task | worker | scope |
 |---|---|---|
-| _none_ | _none_ | All previously assigned task units have been leader-verified and committed. |
+| `T10-all-web-ui-docs` | Planck | `all-web-ui` docs backlog |
+| `T21-keelim-vercel-component-quality` | Linnaeus | `keelim-vercel` component-quality backlog |
+| `T36-keelim-knowledge-vault-content-quality` | Aquinas | `Keelim-Knowledge-Vault` content-quality backlog |
 
 ## Verified Task Units
 
