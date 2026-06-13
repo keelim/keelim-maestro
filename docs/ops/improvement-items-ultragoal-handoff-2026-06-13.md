@@ -9,12 +9,12 @@ Ultragoal run after the user requested a pause and meaningful commits.
 - Current Codex goal status from `get_goal`: `active`
 - Do not call `update_goal` yet. The aggregate run is not complete.
 - Ledger check: `python3 scripts/improvements/init_progress_ledger.py --check`
-  - Result: `OK: 800 items, 52 task units, 298 verified`
+  - Result: `OK: 800 items, 52 task units, 344 verified`
 
 ## Root Ledger Snapshot
 
-- `verified`: 298
-- `assigned`: 46
+- `verified`: 344
+- `assigned`: 0
 - `todo`: 456
 - `blocked`: 0
 - `in_progress`: 0
@@ -33,11 +33,14 @@ Durable state files:
 |---|---|---|---|
 | `android-support` | `T01`, `T03`, `T05` | Leader verified and committed. | `982e380d72b8b0d299658fc0a08889396e32b393` |
 | `android-support` | `T04` | Leader verified and committed. | `cba1055701cfd223db50ed6101b4f2f0afd63579` |
+| `android-support` | `T06` | Leader verified and committed. | `a2361258e35e6d3e4f651f2a3a9306cb2de92e61` |
+| `all-web-ui` | `T11` | Leader verified and committed. | `9fad16c38c52bdce89a188e1d7224b967b2a85bb` |
 | `all-web-ui` | `T12` | Leader verified and committed. | `84da34abe713a1b42e16f834f47cf5d6f1d64a8a` |
 | `Keelim-Knowledge-Vault` | `T35`, `T37`, `T38` | Leader verified and committed. | `eea3b4d51d7ddc553d2498e710507ac5a81fd09c` |
 | `Keelim-Knowledge-Vault` | `T39` | Leader verified and committed. | `5445e89fa9f15bc28cba1cef5b6093ee950d680e` |
 | `keelim-plugin` | `T15`, `T16`, `T18` | Leader verified and committed. | `64d229aef8ef88a862b195330f8f7a0a82fee442` |
 | `keelim-plugin` | `T14` | Leader verified and committed. | `3391dc9677ba9d5f1e600452b7ea26c8b43ea69a` |
+| `keelim-plugin` | `T17` | Leader verified and committed. | `48ebea55425cabed64a736720a899dd621ee6dea` |
 | `keelim-vercel` | `T20`, `T23` | Leader verified and committed. | `777cb64be29b43415786523fa3b452431619732d` |
 | `keelim-vercel` | `T24` | Leader verified and committed. | `0f543d49423f5ada3e20d9223af03fb16a67186c` |
 | `youtube` | `T34` | Leader verified and committed. | `87527904e1d05814315ec9f45c0d33dae8c18afe` |
@@ -50,6 +53,9 @@ Verification highlights:
 - `android-support` T04: `bun run typecheck`, `bun run test` (11 suites / 169
   tests / 100% coverage), `bun run check:contract`, `bun run
   check:ci-release`, `bun run build`, and `git diff --check` passed.
+- `android-support` T06: `bun run typecheck`, ESLint, `bun run test` (11
+  suites / 172 tests / 100% coverage), `bun run check:contract`, `bun run
+  check:ci-release`, `bun run build`, and `git diff --check` passed.
 - `Keelim-Knowledge-Vault`: automation/frontmatter/linking verifiers,
   backlink/resurface checks, script compile, and `git diff --check` passed.
 - `Keelim-Knowledge-Vault` T39: backlink check passed for 251 files, JSON
@@ -61,6 +67,11 @@ Verification highlights:
   standalone child `bun.lock` from an isolated copy. `bun run report:shared-ui`
   emitted successfully, but the strict shared-ui integration gate still reports
   consumer-side drift in `keelim-vercel` and `rich/web`.
+- `all-web-ui` T11: `bun run typecheck`, `bun test` (31 pass / 463 expects),
+  `bun run build`, `bun run package:smoke`, `bun run pack:verify`, release
+  version check, root shared-ui report, and `git diff --check` passed. Strict
+  root full integration still fails only on `rich/web` generic primitive
+  allowlist drift, carried to `T43`.
 - `keelim-plugin`: `uv --cache-dir .skillopt/uv-cache run --python 3.12 python scripts/run-tests.py`
   passed. A scanner-safe variable rename in
   `skills/session-usage-dashboard/scripts/test_build_session_usage_dashboard.py`
@@ -68,6 +79,9 @@ Verification highlights:
 - `keelim-plugin` T14: `bash scripts/check.sh`, pre-commit all-files, and
   `git diff --check` passed after adding CI/pre-commit/full-check tooling and
   deterministic skill/catalog validation.
+- `keelim-plugin` T17: `bash scripts/check.sh`, pre-commit all-files, and
+  `git diff --check` passed after adding skill-quality regression checks,
+  tightening skill docs/references, and regenerating catalog artifacts.
 - `keelim-vercel`: typecheck, 39-test Bun suite, production build,
   maintenance checks, scoped ESLint, and `git diff --check` passed.
 - `keelim-vercel` T24: selected API route regressions, API route mapping,
@@ -81,16 +95,14 @@ Verification highlights:
 
 ## Assigned Or Paused, Not Verified
 
-| repo | task | owner | current state | next action |
-|---|---|---|---|---|
-| `android-support` | `T06-android-support-type-safety` | Wegener | Assigned. | Wait for worker report, then leader-verify before marking complete. Preserve existing untracked `debug-log.json`. |
-| `all-web-ui` | `T11-all-web-ui-packaging` | Turing | Assigned. | Wait for worker report, then leader-verify before marking complete. Preserve pre-existing `AGENTS.md` edits and untracked `debug-log.json` unless the worker proves ownership. |
-| `keelim-plugin` | `T17-keelim-plugin-skill-quality` | Lorentz | Assigned. | Wait for worker report, then leader-verify before marking complete. |
+No active worker assignment is recorded in the ledger. The next continuation
+can pick the next `todo` task by wave order.
 
 ## Still Todo Next
 
-- `T06-android-support-type-safety`
 - `T02-android-support-dx-docs`
+- `T09-all-web-ui-component-quality`
+- `T13-keelim-plugin-docs`
 - Remaining all-web-ui, keelim-plugin, keelim-vercel, youtube, Knowledge Vault,
   rich, and all task units in `docs/ops/improvement-items-progress-2026-06.md`.
 - `T43-rich-frontend-quality` should include the observed rich/web shared-ui
@@ -105,11 +117,13 @@ Verification highlights:
   staged by this handoff because they were outside the verified root
   coordination commit scope.
 - `all-web-ui` still has pre-existing uncommitted `AGENTS.md` edits and
-  untracked `debug-log.json`; these were intentionally excluded from `T12`.
+  untracked `debug-log.json`; these were intentionally excluded from `T11` and
+  `T12`.
+- `keelim-plugin` T17 was committed and its child repo is clean.
 - `keelim-vercel` T24 was committed; only `debug-log.json` remains untracked
   in that child repo.
-- `android-support` T04 was committed; only `debug-log.json` remains untracked
-  in that child repo.
+- `android-support` T04 and T06 were committed; only `debug-log.json` remains
+  untracked in that child repo.
 - `youtube` still contains unrelated uncommitted production/media/package work;
   do not stage it from root coordination.
 - Child repo `debug-log.json` files were left untracked and uncommitted.
@@ -119,8 +133,7 @@ Verification highlights:
 1. Run `python3 scripts/improvements/init_progress_ledger.py --check`.
 2. Read this handoff and
    `docs/ops/improvement-items-ultragoal-runbook-2026-06.md`.
-3. Resume assigned tasks first: `T06`, `T11`, and `T17`.
-4. If those workers are complete, good next candidates are
+3. Pick the next `todo` task by wave order. Good next candidates are
    `T02-android-support-dx-docs`, `T09-all-web-ui-component-quality`, and
    `T13-keelim-plugin-docs`.
 5. Track the remaining `rich/web` shared-ui primitive drift under
