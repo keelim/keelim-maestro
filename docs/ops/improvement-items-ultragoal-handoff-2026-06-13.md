@@ -14,8 +14,8 @@ Ultragoal run after the user requested a pause and meaningful commits.
 ## Root Ledger Snapshot
 
 - `verified`: 344
-- `assigned`: 0
-- `todo`: 456
+- `assigned`: 41
+- `todo`: 415
 - `blocked`: 0
 - `in_progress`: 0
 - `needs_consumer_check`: 0
@@ -95,14 +95,17 @@ Verification highlights:
 
 ## Assigned Or Paused, Not Verified
 
-No active worker assignment is recorded in the ledger. The next continuation
-can pick the next `todo` task by wave order.
+| repo | task | owner | current state | next action |
+|---|---|---|---|---|
+| `android-support` | `T02-android-support-dx-docs` | Chandrasekhar | Assigned. | Wait for worker report, then leader-verify before marking complete. Preserve existing untracked `debug-log.json`. |
+| `all-web-ui` | `T09-all-web-ui-component-quality` | Halley | Assigned. | Wait for worker report, then leader-verify before marking complete. Preserve pre-existing `AGENTS.md` edits and untracked `debug-log.json` unless the worker proves ownership. |
+| `keelim-plugin` | `T13-keelim-plugin-docs` | Russell | Assigned. | Wait for worker report, then leader-verify before marking complete. |
 
 ## Still Todo Next
 
-- `T02-android-support-dx-docs`
-- `T09-all-web-ui-component-quality`
-- `T13-keelim-plugin-docs`
+- `T10-all-web-ui-docs`
+- `T08-all-web-ui-api-design`
+- `T07-all-web-ui-a11y`
 - Remaining all-web-ui, keelim-plugin, keelim-vercel, youtube, Knowledge Vault,
   rich, and all task units in `docs/ops/improvement-items-progress-2026-06.md`.
 - `T43-rich-frontend-quality` should include the observed rich/web shared-ui
@@ -133,9 +136,10 @@ can pick the next `todo` task by wave order.
 1. Run `python3 scripts/improvements/init_progress_ledger.py --check`.
 2. Read this handoff and
    `docs/ops/improvement-items-ultragoal-runbook-2026-06.md`.
-3. Pick the next `todo` task by wave order. Good next candidates are
-   `T02-android-support-dx-docs`, `T09-all-web-ui-component-quality`, and
-   `T13-keelim-plugin-docs`.
+3. Resume assigned tasks first: `T02`, `T09`, and `T13`.
+4. If those workers are complete, good next candidates are
+   `T10-all-web-ui-docs`, `T08-all-web-ui-api-design`, and
+   `T07-all-web-ui-a11y`.
 5. Track the remaining `rich/web` shared-ui primitive drift under
    `T43-rich-frontend-quality`.
 6. For any worker-completed task, rerun leader verification before changing the

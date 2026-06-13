@@ -11,8 +11,8 @@ Durable `/goal` ledger for completing every P1/P2 item from the June 2026 improv
 
 | status | count |
 |---|---:|
-| `todo` | 456 |
-| `assigned` | 0 |
+| `todo` | 415 |
+| `assigned` | 41 |
 | `in_progress` | 0 |
 | `verified` | 344 |
 | `blocked` | 0 |
@@ -27,10 +27,10 @@ Durable `/goal` ledger for completing every P1/P2 item from the June 2026 improv
 | 1 | `T05-android-support-testing` | `android-support` | `testing` | 18 | 6 | 12 | `verified` |
 | 1 | `T04-android-support-security` | `android-support` | `security` | 17 | 5 | 12 | `verified` |
 | 1 | `T06-android-support-type-safety` | `android-support` | `type-safety` | 15 | 5 | 10 | `verified` |
-| 1 | `T02-android-support-dx-docs` | `android-support` | `dx-docs` | 13 | 0 | 13 | `todo` |
+| 1 | `T02-android-support-dx-docs` | `android-support` | `dx-docs` | 13 | 0 | 13 | `assigned` |
 | 1 | `T12-all-web-ui-testing` | `all-web-ui` | `testing` | 19 | 9 | 10 | `verified` |
 | 1 | `T11-all-web-ui-packaging` | `all-web-ui` | `packaging` | 17 | 7 | 10 | `verified` |
-| 1 | `T09-all-web-ui-component-quality` | `all-web-ui` | `component-quality` | 14 | 4 | 10 | `todo` |
+| 1 | `T09-all-web-ui-component-quality` | `all-web-ui` | `component-quality` | 14 | 4 | 10 | `assigned` |
 | 1 | `T10-all-web-ui-docs` | `all-web-ui` | `docs` | 17 | 3 | 14 | `todo` |
 | 1 | `T08-all-web-ui-api-design` | `all-web-ui` | `api-design` | 17 | 2 | 15 | `todo` |
 | 1 | `T07-all-web-ui-a11y` | `all-web-ui` | `a11y` | 16 | 1 | 15 | `todo` |
@@ -39,7 +39,7 @@ Durable `/goal` ledger for completing every P1/P2 item from the June 2026 improv
 | 1 | `T16-keelim-plugin-security` | `keelim-plugin` | `security` | 17 | 5 | 12 | `verified` |
 | 1 | `T14-keelim-plugin-dx-tooling` | `keelim-plugin` | `dx-tooling` | 15 | 3 | 12 | `verified` |
 | 1 | `T17-keelim-plugin-skill-quality` | `keelim-plugin` | `skill-quality` | 14 | 2 | 12 | `verified` |
-| 1 | `T13-keelim-plugin-docs` | `keelim-plugin` | `docs` | 14 | 1 | 13 | `todo` |
+| 1 | `T13-keelim-plugin-docs` | `keelim-plugin` | `docs` | 14 | 1 | 13 | `assigned` |
 | 2 | `T20-keelim-vercel-api-correctness` | `keelim-vercel` | `api-correctness` | 20 | 11 | 9 | `verified` |
 | 2 | `T23-keelim-vercel-security` | `keelim-vercel` | `security` | 17 | 8 | 9 | `verified` |
 | 2 | `T24-keelim-vercel-testing` | `keelim-vercel` | `testing` | 15 | 7 | 8 | `verified` |
