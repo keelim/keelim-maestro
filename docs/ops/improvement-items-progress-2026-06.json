@@ -5,7 +5,7 @@
     "inventory": "docs/research/improvements-2026-06/improvements.json",
     "rawDir": "docs/research/improvements-2026-06/raw"
   },
-  "generatedAt": "2026-06-13T14:38:50.634281+00:00",
+  "generatedAt": "2026-06-13T14:51:27.286292+00:00",
   "statusValues": [
     "todo",
     "assigned",
@@ -21,8 +21,8 @@
       "P2": 607
     },
     "byStatus": {
-      "todo": 152,
-      "assigned": 5,
+      "todo": 146,
+      "assigned": 11,
       "in_progress": 0,
       "verified": 643,
       "blocked": 0,
@@ -350,7 +350,7 @@
       "total": 6,
       "p1": 0,
       "p2": 6,
-      "status": "todo"
+      "status": "assigned"
     },
     {
       "task_id": "T34-youtube-testing",
@@ -14415,15 +14415,15 @@
       "severity": "P2",
       "effort": "S",
       "task_id": "T28-keelim-vercel-cache",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Newton",
       "title": "FAQ API가 공개 읽기 결과에 server cache를 지정하지 않음",
       "file_path": "keelim-vercel/app/api/faq/route.ts:28",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T14:51:27.287254+00:00"
     },
     {
       "id": "KVCL-096",
@@ -14432,15 +14432,15 @@
       "severity": "P2",
       "effort": "S",
       "task_id": "T28-keelim-vercel-cache",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Newton",
       "title": "FAQ page와 FAQ API가 같은 Supabase read를 별도 구현함",
       "file_path": "keelim-vercel/app/faq/page.tsx:16",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T14:51:27.287254+00:00"
     },
     {
       "id": "KVCL-097",
@@ -14449,15 +14449,15 @@
       "severity": "P2",
       "effort": "S",
       "task_id": "T28-keelim-vercel-cache",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Newton",
       "title": "FearGreedWidget이 기존 query cache를 우회해 직접 fetch함",
       "file_path": "keelim-vercel/components/fear-greed-widget.tsx:44",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T14:51:27.287254+00:00"
     },
     {
       "id": "KVCL-098",
@@ -14466,15 +14466,15 @@
       "severity": "P2",
       "effort": "S",
       "task_id": "T28-keelim-vercel-cache",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Newton",
       "title": "MarketRadar refresh가 query invalidation 대신 card remount를 사용함",
       "file_path": "keelim-vercel/components/market-radar.tsx:62",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T14:51:27.287254+00:00"
     },
     {
       "id": "KVCL-099",
@@ -14483,15 +14483,15 @@
       "severity": "P2",
       "effort": "S",
       "task_id": "T28-keelim-vercel-cache",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Newton",
       "title": "Notice list와 detail API가 공개 읽기 cache를 쓰지 않음",
       "file_path": "keelim-vercel/app/api/notice/route.ts:29",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T14:51:27.287254+00:00"
     },
     {
       "id": "KVCL-100",
@@ -14500,15 +14500,15 @@
       "severity": "P2",
       "effort": "S",
       "task_id": "T28-keelim-vercel-cache",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Newton",
       "title": "crypto query가 browser에서 외부 데이터 endpoint를 직접 호출함",
       "file_path": "keelim-vercel/lib/queries/market.ts:52",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T14:51:27.287254+00:00"
     },
     {
       "id": "YTB-001",

@@ -8,7 +8,8 @@ next disjoint worker wave. `T25`, `T30`, and `T45` from that wave are now also
 verified and committed. The next non-overlapping worker wave closed `T26` and
 `T46`; `T47` was partially integrated with 19 of 24 items verified and 5
 architecture follow-up items now reassigned to Huygens. `T27` was verified
-and committed for `keelim-vercel` image optimization.
+and committed for `keelim-vercel` image optimization, and `T28` is now
+assigned to Newton for the next `keelim-vercel` cache slice.
 
 ## Goal State
 
@@ -21,8 +22,8 @@ and committed for `keelim-vercel` image optimization.
 ## Root Ledger Snapshot
 
 - `verified`: 643
-- `assigned`: 5
-- `todo`: 152
+- `assigned`: 11
+- `todo`: 146
 - `blocked`: 0
 - `in_progress`: 0
 - `needs_consumer_check`: 0
@@ -208,10 +209,10 @@ Verification highlights:
 | repo | task | owner | agent | current state | next action |
 |---|---|---|---|---|---|
 | `all` | `T47-all-architecture` residual | Huygens | `019ec149-5f98-7f02-8941-efc82ad02acc` | 5 item-level follow-ups remain assigned: `ALL-025`, `ALL-026`, `ALL-031`, `ALL-034`, `ALL-035`. | Finish SDK extraction, `core:common` purity split, `feature:app-function` aggregation, and browser/web contract abstraction. Preserve existing dirty `AGENTS.md`, `app-arducon/AGENTS.md`, and staged `debug-log.json`. |
+| `keelim-vercel` | `T28-keelim-vercel-cache` | Newton | `019ec177-3afc-7071-85ca-fced42f70251` | 6 cache items assigned: `KVCL-095`, `KVCL-096`, `KVCL-097`, `KVCL-098`, `KVCL-099`, `KVCL-100`. | Finish FAQ/notice public read cache, query cache reuse/invalidation, and browser direct endpoint follow-up. Preserve untracked `debug-log.json`. |
 
 ## Still Todo Next
 
-- `T28-keelim-vercel-cache`
 - T47 residual item IDs: `ALL-025`, `ALL-026`, `ALL-031`, `ALL-034`,
   `ALL-035`.
 - Remaining all-web-ui, keelim-plugin, keelim-vercel, youtube, Knowledge Vault,
@@ -254,11 +255,11 @@ Verification highlights:
 1. Run `python3 scripts/improvements/init_progress_ledger.py --check`.
 2. Read this handoff and
    `docs/ops/improvement-items-ultragoal-runbook-2026-06.md`.
-3. Active assignment is the residual item-level portion of
+3. Active assignments are the residual item-level portion of
    `T47-all-architecture` (`ALL-025`, `ALL-026`, `ALL-031`, `ALL-034`, and
-   `ALL-035`).
-4. After T47 residual closes, pick the next `todo` task by wave order,
-   starting with `T28` and then the youtube tasks after its unrelated
+   `ALL-035`) and `T28-keelim-vercel-cache` (`KVCL-095` through `KVCL-100`).
+4. After T47 residual and T28 close, pick the next `todo` task by wave order,
+   starting with the youtube tasks after its unrelated
    production/doc dirtiness is reviewed.
 5. Track the remaining `rich/web` shared-ui primitive drift under
    `T43-rich-frontend-quality`.

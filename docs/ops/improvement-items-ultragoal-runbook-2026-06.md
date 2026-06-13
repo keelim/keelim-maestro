@@ -51,6 +51,7 @@ The leader must:
 | task | worker | agent | scope |
 |---|---|---|---|
 | `T47-all-architecture` residual | Huygens | `019ec149-5f98-7f02-8941-efc82ad02acc` | `all` architecture residual IDs `ALL-025`, `ALL-026`, `ALL-031`, `ALL-034`, `ALL-035` |
+| `T28-keelim-vercel-cache` | Newton | `019ec177-3afc-7071-85ca-fced42f70251` | `keelim-vercel` cache IDs `KVCL-095` through `KVCL-100` |
 
 ## Latest Closed Wave
 
