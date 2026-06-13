@@ -11,10 +11,10 @@ Durable `/goal` ledger for completing every P1/P2 item from the June 2026 improv
 
 | status | count |
 |---|---:|
-| `todo` | 538 |
-| `assigned` | 51 |
+| `todo` | 502 |
+| `assigned` | 0 |
 | `in_progress` | 0 |
-| `verified` | 211 |
+| `verified` | 298 |
 | `blocked` | 0 |
 | `needs_consumer_check` | 0 |
 
@@ -25,10 +25,10 @@ Durable `/goal` ledger for completing every P1/P2 item from the June 2026 improv
 | 1 | `T01-android-support-ci-release` | `android-support` | `ci-release` | 19 | 6 | 13 | `verified` |
 | 1 | `T03-android-support-error-handling` | `android-support` | `error-handling` | 18 | 6 | 12 | `verified` |
 | 1 | `T05-android-support-testing` | `android-support` | `testing` | 18 | 6 | 12 | `verified` |
-| 1 | `T04-android-support-security` | `android-support` | `security` | 17 | 5 | 12 | `assigned` |
+| 1 | `T04-android-support-security` | `android-support` | `security` | 17 | 5 | 12 | `verified` |
 | 1 | `T06-android-support-type-safety` | `android-support` | `type-safety` | 15 | 5 | 10 | `todo` |
 | 1 | `T02-android-support-dx-docs` | `android-support` | `dx-docs` | 13 | 0 | 13 | `todo` |
-| 1 | `T12-all-web-ui-testing` | `all-web-ui` | `testing` | 19 | 9 | 10 | `assigned` |
+| 1 | `T12-all-web-ui-testing` | `all-web-ui` | `testing` | 19 | 9 | 10 | `verified` |
 | 1 | `T11-all-web-ui-packaging` | `all-web-ui` | `packaging` | 17 | 7 | 10 | `todo` |
 | 1 | `T09-all-web-ui-component-quality` | `all-web-ui` | `component-quality` | 14 | 4 | 10 | `todo` |
 | 1 | `T10-all-web-ui-docs` | `all-web-ui` | `docs` | 17 | 3 | 14 | `todo` |
@@ -37,12 +37,12 @@ Durable `/goal` ledger for completing every P1/P2 item from the June 2026 improv
 | 1 | `T15-keelim-plugin-script-quality` | `keelim-plugin` | `script-quality` | 21 | 10 | 11 | `verified` |
 | 1 | `T18-keelim-plugin-testing-evals` | `keelim-plugin` | `testing-evals` | 19 | 7 | 12 | `verified` |
 | 1 | `T16-keelim-plugin-security` | `keelim-plugin` | `security` | 17 | 5 | 12 | `verified` |
-| 1 | `T14-keelim-plugin-dx-tooling` | `keelim-plugin` | `dx-tooling` | 15 | 3 | 12 | `assigned` |
+| 1 | `T14-keelim-plugin-dx-tooling` | `keelim-plugin` | `dx-tooling` | 15 | 3 | 12 | `verified` |
 | 1 | `T17-keelim-plugin-skill-quality` | `keelim-plugin` | `skill-quality` | 14 | 2 | 12 | `todo` |
 | 1 | `T13-keelim-plugin-docs` | `keelim-plugin` | `docs` | 14 | 1 | 13 | `todo` |
 | 2 | `T20-keelim-vercel-api-correctness` | `keelim-vercel` | `api-correctness` | 20 | 11 | 9 | `verified` |
 | 2 | `T23-keelim-vercel-security` | `keelim-vercel` | `security` | 17 | 8 | 9 | `verified` |
-| 2 | `T24-keelim-vercel-testing` | `keelim-vercel` | `testing` | 15 | 7 | 8 | `todo` |
+| 2 | `T24-keelim-vercel-testing` | `keelim-vercel` | `testing` | 15 | 7 | 8 | `verified` |
 | 2 | `T21-keelim-vercel-component-quality` | `keelim-vercel` | `component-quality` | 14 | 5 | 9 | `todo` |
 | 2 | `T22-keelim-vercel-dx-config` | `keelim-vercel` | `dx-config` | 11 | 2 | 9 | `todo` |
 | 2 | `T19-keelim-vercel-n-plus-one-query` | `keelim-vercel` | `N+1 쿼리` | 2 | 1 | 1 | `todo` |
@@ -56,7 +56,7 @@ Durable `/goal` ledger for completing every P1/P2 item from the June 2026 improv
 | 2 | `T30-youtube-code-quality` | `youtube` | `code-quality` | 15 | 1 | 14 | `todo` |
 | 2 | `T33-youtube-remotion-quality` | `youtube` | `remotion-quality` | 14 | 1 | 13 | `todo` |
 | 2 | `T31-youtube-dx-docs` | `youtube` | `dx-docs` | 14 | 0 | 14 | `todo` |
-| 2 | `T39-keelim-knowledge-vault-naming` | `Keelim-Knowledge-Vault` | `naming` | 21 | 5 | 16 | `todo` |
+| 2 | `T39-keelim-knowledge-vault-naming` | `Keelim-Knowledge-Vault` | `naming` | 21 | 5 | 16 | `verified` |
 | 2 | `T36-keelim-knowledge-vault-content-quality` | `Keelim-Knowledge-Vault` | `content-quality` | 19 | 4 | 15 | `todo` |
 | 2 | `T37-keelim-knowledge-vault-frontmatter` | `Keelim-Knowledge-Vault` | `frontmatter` | 17 | 3 | 14 | `verified` |
 | 2 | `T40-keelim-knowledge-vault-structure` | `Keelim-Knowledge-Vault` | `structure` | 19 | 3 | 16 | `todo` |

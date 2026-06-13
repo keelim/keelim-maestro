@@ -50,11 +50,7 @@ The leader must:
 
 | task | worker | scope |
 |---|---|---|
-| `T05-android-support-testing` | Lovelace | `android-support` testing backlog |
-| `T12-all-web-ui-testing` | Parfit | `all-web-ui` interaction/accessibility testing backlog |
-| `T16-keelim-plugin-security` | Laplace | `keelim-plugin` security backlog |
-| `T23-keelim-vercel-security` | Schrodinger | `keelim-vercel` security backlog |
-| `T34-youtube-testing` | Erdos | `youtube` testing backlog |
+| _none_ | _n/a_ | No active worker assignment is recorded in the ledger. Pick the next `todo` task by wave order. |
 
 ## Verified Task Units
 
@@ -62,16 +58,21 @@ The leader must:
 |---|---|---|
 | `T01-android-support-ci-release` | Lovelace | 19 selected ledger items verified with CI/release workflow checks, tests, coverage, build, bundle freshness, and `git diff --check`. |
 | `T03-android-support-error-handling` | Lovelace | 18 selected ledger items verified with contextual error handling, retry/timeout guards, response validation, expanded tests, rebuilt bundle, and CI/release checks. |
+| `T04-android-support-security` | Darwin | 17 selected ledger items verified with Android release action security hardening, path/archive/credential guard coverage, 11 passing suites / 169 tests / 100% coverage, contract and ci-release checks, rebuilt `lib/index.js`, and `git diff --check`. |
 | `T05-android-support-testing` | Lovelace | 18 selected ledger items verified with contract drift check, typecheck, test lint, unit tests, coverage, ncc build, CI/release workflow check, and `git diff --check`; leader rerun reported 9 suites / 144 tests / 100% coverage. |
+| `T12-all-web-ui-testing` | Helmholtz | 19 selected ledger items verified with DOM interaction coverage, Progress aria value propagation, RadioGroup keyboard movement coverage, standalone `bun.lock` refresh, typecheck, 31 passing Bun tests / 459 expects, build, and `git diff --check`; root shared-ui report still surfaces consumer-side follow-up drift for `T24`/`T43`. |
+| `T14-keelim-plugin-dx-tooling` | Euler | 15 selected ledger items verified with CI/pre-commit/full-check tooling, deterministic skill/catalog validation, uv dev tooling, `bash scripts/check.sh`, pre-commit all-files, and `git diff --check`. |
 | `T15-keelim-plugin-script-quality` | Laplace | 21 selected ledger items verified with Python compile checks, bundled script tests, skill verification, catalog check, SkillOpt validation, and `git diff --check`. |
 | `T16-keelim-plugin-security` | Laplace | 17 selected ledger items verified with path/env guard changes, script/skill security regression tests, SkillOpt eval checks, skill/catalog checks, and leader rerun of `uv --cache-dir .skillopt/uv-cache run --python 3.12 python scripts/run-tests.py`. |
 | `T18-keelim-plugin-testing-evals` | Laplace | 19 selected ledger items verified with repo-local test/eval runner, SkillOpt validation, score fixtures, skill/catalog checks, durable eval file visibility, and `git diff --check`. |
 | `T20-keelim-vercel-api-correctness` | Schrodinger | 20 selected ledger items verified with authenticated API contracts, data envelopes, validation/error guards, CSV/SSRF limits, route tests, typecheck, build, maintenance check, and `git diff --check`. |
 | `T23-keelim-vercel-security` | Schrodinger | 17 selected ledger items verified with production auth allowlist, route/server-action validation, SSRF/CSV/rate-limit guards, typecheck, 39-test Bun suite, production build, maintenance checks, scoped ESLint, and `git diff --check`. |
+| `T24-keelim-vercel-testing` | Feynman | 15 selected ledger items verified with selected API route regression tests, route mapping verifier, full tests/coverage, typecheck, lint, build, `verify:maintenance`, and `git diff --check`; root shared-ui full gate now passes `keelim-vercel` adapters and carries only the `rich/web` primitive drift to `T43`. |
 | `T34-youtube-testing` | Erdos | 21 selected ledger items verified with youtube pytest coverage gate, 135 passing tests, 90.30% coverage, `git diff --check`, root `uv.lock` refresh, `uv lock --check`, and Python dependency constraint verification. |
 | `T35-keelim-knowledge-vault-automation` | Codex | 18 selected ledger items verified with vault-wide backlink JSON/file checks, resurface check/threshold behavior, schema/template contract checks, Obsidian properties/templates config checks, workspace cleanup checks, verifier compile, and `git diff --check`. |
 | `T37-keelim-knowledge-vault-frontmatter` | Codex | 17 selected ledger items verified with a frontmatter role-field verifier, link regression verifier, script compile, backlink check, and `git diff --check`. |
 | `T38-keelim-knowledge-vault-linking` | Codex | 6 selected ledger items verified with Knowledge Vault backlink checks, selected inbound/outbound wikilink checks, Python verifier compile, and `git diff --check`. |
+| `T39-keelim-knowledge-vault-naming` | Kant | 21 selected ledger items verified with Knowledge Vault rename/link updates, backlink check for 251 files, JSON backlink check, old-basename audit, duplicate-basename audit leaving only `index.md`, and `git diff --check`. |
 
 ## Ledger Commands
 
