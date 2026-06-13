@@ -50,20 +50,21 @@ The leader must:
 
 | task | worker | agent | scope |
 |---|---|---|---|
-| `T26-keelim-vercel-client-component` | Nietzsche | `019ec135-334d-71f0-ba57-9cdc051b8536` | `keelim-vercel` client-component backlog |
-| `T46-rich-testing` | Raman | `019ec135-819f-7271-a171-46b7ff3a7467` | `rich` testing backlog |
-| `T47-all-architecture` | Nash / Kepler | `019ec113-c99b-7f02-bfc4-efc66eaf3977` | `all` architecture backlog |
+| `T47-all-architecture` residual | unassigned | closed Kepler `019ec113-c99b-7f02-bfc4-efc66eaf3977` | `all` architecture residual IDs `ALL-025`, `ALL-026`, `ALL-031`, `ALL-034`, `ALL-035` |
 
 ## Latest Closed Wave
 
-`T19`, `T25`, `T29`, `T30`, `T41`, and `T45` were closed after worker
-completion, leader verification, child-repo commits, and root ledger
-verification.
+`T19`, `T25`, `T26`, `T29`, `T30`, `T41`, `T45`, and `T46` were closed after
+worker completion, leader verification, child-repo commits, and root ledger
+verification. `T47` is partially integrated: 19 of 24 items are verified and
+5 remain assigned.
 
 - `T19-keelim-vercel-n-plus-one-query`: commit
   `c1df144541380d7edacf467479752e7c51b6c842`.
 - `T25-keelim-vercel-bundle-size`: commit
   `0dc58a79eeabeaab872fcaabeb77f50f89bd7d79`.
+- `T26-keelim-vercel-client-component`: commit
+  `eaf79e3b144f6a146e8167e155f25c34648859c1`.
 - `T29-youtube-ci-automation`: commit
   `df0ca546db9384fb8a4efae22ddc12a5e37abcb7`.
 - `T30-youtube-code-quality`: commit
@@ -73,6 +74,11 @@ verification.
   `f31be3a4fd6f59233d4389e252dff21b1a169e0e`.
 - `T45-rich-reliability`: commit
   `ac2977bfd0eff208291366bd1e557d0d0966ec2e`.
+- `T46-rich-testing`: commit
+  `a7404c5c963226249dfad39ce3b03bfbb87b4fd7`.
+- `T47-all-architecture` partial: commit
+  `a8002339e815aae4578c512d00117aff13fdb64a`; residual IDs are
+  `ALL-025`, `ALL-026`, `ALL-031`, `ALL-034`, and `ALL-035`.
 
 ## Verified Task Units
 
@@ -103,6 +109,7 @@ verification.
 | `T24-keelim-vercel-testing` | Feynman | 15 selected ledger items verified with selected API route regression tests, route mapping verifier, full tests/coverage, typecheck, lint, build, `verify:maintenance`, and `git diff --check`; root shared-ui full gate now passes `keelim-vercel` adapters and carries only the `rich/web` primitive drift to `T43`. |
 | `T19-keelim-vercel-n-plus-one-query` | Heisenberg | 2 selected ledger items verified with ranking aggregation RPC, query helper tests, `git diff --check`, focused Bun tests, test/app typecheck, full tests, lint, `db:check`, production build, and `verify:maintenance`; committed as `c1df144541380d7edacf467479752e7c51b6c842`. |
 | `T25-keelim-vercel-bundle-size` | Noether / Singer | 6 selected ledger items verified with dynamic hub/chart boundaries, shared Recharts loader adapters, `git diff --check`, typecheck, regression hotspot verifier, bundle budget check, 55 passing Bun tests, AGENTS update verifier, and production build; committed as `0dc58a79eeabeaab872fcaabeb77f50f89bd7d79`. |
+| `T26-keelim-vercel-client-component` | Nietzsche | 8 selected ledger items verified with server route shells, client leaf extraction, static landing section cleanup, `git diff --check`, typecheck, ESLint quiet, 55 passing Bun tests, AGENTS update verifier, and production build; committed as `eaf79e3b144f6a146e8167e155f25c34648859c1`. |
 | `T29-youtube-ci-automation` | Hubble | 18 selected ledger items verified with CI script coverage, SkillOpt dry-run checks, Python compile, focused pytest, Ruff, `scripts/ci-python.sh`, root dependency constraint verification, and `git diff --check`; committed as `df0ca546db9384fb8a4efae22ddc12a5e37abcb7`. |
 | `T30-youtube-code-quality` | Curie / Ptolemy | 15 selected ledger items verified with CLI exception boundaries, executable resolution, n8n channel-config guardrails, render/probe diagnostics, full pytest passing 156 tests with 87.05% coverage, Ruff, and `git diff --check`; committed as `b45ed9e2ad4c1f4078c966b0d2f0feff6ca3a741`. |
 | `T32-youtube-reliability` | Maxwell | 18 selected ledger items verified with YouTube OAuth/upload/render reliability guards, service request validation and limits, focused Python/Node tests, `uv run pytest` passing 142 tests / 86.52% coverage, Node service checks, remotion-template-admin 4 passing tests, and `git diff --check`. |
@@ -115,6 +122,13 @@ verification.
 | `T40-keelim-knowledge-vault-structure` | Boole | 19 selected ledger items verified with local MOCs/schema navigation for AI, Android, CS, Kotlin, service, and vault-wide structures, Obsidian `.omx/` ignore, backlink JSON check returning ok with no failures, valid `.obsidian/app.json`, and `git diff --check`. |
 | `T41-rich-api-security` | Peirce | 21 selected ledger items verified with Supabase bearer-token admin auth, public/service-role key split, admin/open-trading auth guards, validation/CORS/upstream error hardening, focused backend pytest passing 61 tests, focused web tests passing 6 tests, `rich/web` typecheck, dependency constraint verification, and `git diff --check`; committed as `3f7a6133db19ef9cb4bb61576cf6c2f5c57fe988` plus dependency alignment commit `f31be3a4fd6f59233d4389e252dff21b1a169e0e`. |
 | `T45-rich-reliability` | Riemann / Mencius | 19 selected ledger items verified with settings validation, upstream retry/timeout handling, KRX/KIS and OpenDART response guards, weekly review and scheduler hardening, CLI diagnostics, `git diff --check`, and `.venv/bin/python -m pytest` passing 181 tests; committed as `ac2977bfd0eff208291366bd1e557d0d0966ec2e`. |
+| `T46-rich-testing` | Raman | 18 selected ledger items verified with backend test coverage expansion, test network/Supabase guardrails, focused service behavior coverage, `git diff --check`, and `.venv/bin/python -m pytest -q` passing 207 tests; committed as `a7404c5c963226249dfad39ce3b03bfbb87b4fd7`. |
+
+## Partially Verified Task Units
+
+| task | worker | evidence | remaining |
+|---|---|---|---|
+| `T47-all-architecture` | Nash / Kepler | 19 of 24 selected ledger items verified with app registration/build-logic/core/settings boundary changes, all registered app debug assemble, `:feature:ui-setting:testDebugUnitTest`, `:core:domain:test`, and `git diff HEAD --check`; committed as `a8002339e815aae4578c512d00117aff13fdb64a`. | `ALL-025`, `ALL-026`, `ALL-031`, `ALL-034`, `ALL-035` remain assigned for SDK extraction, `core:common` purity, `feature:app-function` aggregation, and browser/web abstraction follow-up. |
 
 ## Ledger Commands
 
