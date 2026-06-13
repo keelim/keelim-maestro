@@ -1,6 +1,6 @@
 # rich
 
-Last reviewed: 2026-05-16 KST
+Last reviewed: 2026-06-13 KST
 
 ## Signals
 
@@ -69,14 +69,10 @@ failed runs.
 First slice: Add a compact health panel that shows last-success time, reconnect
 state, and repair action for each upstream integration.
 
-### 2026-04-13 - 공공데이터 카탈로그 변경 피드
+### 2026-06-13 - 오픈트레이딩 전략 빌더·백테스터 운영 가시화
 
 Status: proposed
 
-Why now: `rich` already exports the data.go.kr API catalog, so the next leverage
-point is to turn that static inventory into a watchable change feed instead of a
-one-off dump.
+Why now: `rich/open-trading-api/strategy_builder`와 `rich/open-trading-api/backtester`가 루트 워크스페이스의 `dev:strategy-builder`·`dev:backtester` 스크립트로 노출되어 새로운 운영 표면으로 성장하고 있다. 이 서비스들의 실행 상태·API 경계·기존 PyKRX 및 weekly-review 흐름과의 데이터 의존성이 아직 운영 관제 표면에 통합되지 않아 장애나 데이터 품질 이상이 늦게 드러날 수 있다.
 
-First slice: Track a small watchlist of high-value dataset pages, diff title /
-field / link changes on each export, and push meaningful updates into the
-weekly review or recovery queue.
+First slice: strategy_builder·backtester의 최신 실행 결과와 상태를 기존 recovery cockpit 또는 daily review cockpit 패널에 추가해, 다른 rich 운영 흐름과 같은 화면에서 모니터링할 수 있게 한다.

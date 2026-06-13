@@ -1,6 +1,6 @@
 # android-support
 
-Last reviewed: 2026-05-16 KST
+Last reviewed: 2026-06-13 KST
 
 ## Signals
 
@@ -56,3 +56,11 @@ Status: proposed
 Why now: 이 action은 릴리스 핵심 경로를 직접 건드리는데, 현재 테스트는 입력 검증에 비해 실제 Play API 편집 생명주기 검증이 약해서 사소한 변경도 실배포까지 밀려갈 수 있다.
 
 First slice: sign/upload/internal sharing/staged rollout 응답을 대표 fixture로 기록하고, 이를 CI에서 재생해 Play Console에 닿지 않고도 전체 edit lifecycle을 검증한다.
+
+### 2026-06-13 - 앱별 Play 롤아웃 정책 레지스트리
+
+Status: proposed
+
+Why now: `all`은 6개 Android 앱(`app-my-grade`, `app-arducon`, `app-nanda`, `app-comssa`, `app-cnubus`, `app-mysenior`)을 함께 운영하는데, 앱마다 허용 track·status·userFraction 조합이 다를 수 있다. 현재는 action input을 잘못 구성해도 실행 전에 앱별 정책과 비교할 수단이 없어서 production track에 dev 빌드가 올라가거나 staged rollout fraction이 누락된 채 실배포로 이어질 수 있다.
+
+First slice: 앱별 허용 track·status 조합과 staged rollout 기본값을 정책 파일로 정의하고, dry-run 또는 preflight 단계에서 action input과 비교해 정책 위반을 실행 전에 차단한다.
