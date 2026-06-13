@@ -4,7 +4,8 @@ This handoff freezes the current state of the June 2026 P1/P2 improvement
 Ultragoal run after the user requested a pause and meaningful commits.
 The latest continuation closed the previously pending `T19`, `T29`, and `T41`
 wave with child-repo commits and root ledger verification, then assigned the
-next disjoint worker wave for `T25`, `T30`, `T45`, and `T47`.
+next disjoint worker wave. `T25`, `T30`, and `T45` from that wave are now also
+verified and committed; `T47` remains the only active worker assignment.
 
 ## Goal State
 
@@ -12,12 +13,12 @@ next disjoint worker wave for `T25`, `T30`, `T45`, and `T47`.
 - Current Codex goal status from `get_goal`: `active`
 - Do not call `update_goal` yet. The aggregate run is not complete.
 - Ledger check: `python3 scripts/improvements/init_progress_ledger.py --check`
-  - Result: `OK: 800 items, 52 task units, 557 verified`
+  - Result: `OK: 800 items, 52 task units, 597 verified`
 
 ## Root Ledger Snapshot
 
-- `verified`: 557
-- `assigned`: 64
+- `verified`: 597
+- `assigned`: 24
 - `todo`: 179
 - `blocked`: 0
 - `in_progress`: 0
@@ -57,11 +58,14 @@ Durable state files:
 | `keelim-vercel` | `T22` | Leader verified and committed. | `730f77e28fb067dfc13d5cc559497e424836c904` |
 | `keelim-vercel` | `T24` | Leader verified and committed. | `0f543d49423f5ada3e20d9223af03fb16a67186c` |
 | `keelim-vercel` | `T19` | Leader verified and committed. | `c1df144541380d7edacf467479752e7c51b6c842` |
+| `keelim-vercel` | `T25` | Leader verified and committed. | `0dc58a79eeabeaab872fcaabeb77f50f89bd7d79` |
 | `youtube` | `T29` | Leader verified and committed. | `df0ca546db9384fb8a4efae22ddc12a5e37abcb7` |
+| `youtube` | `T30` | Leader verified and committed. | `b45ed9e2ad4c1f4078c966b0d2f0feff6ca3a741` |
 | `youtube` | `T32` | Leader verified and committed. | `ad4709e49f251a0d49e65df3e8075f24af9f9242` |
 | `youtube` | `T34` | Leader verified and committed. | `87527904e1d05814315ec9f45c0d33dae8c18afe` |
 | `rich` | `T41` | Leader verified and committed. | `3f7a6133db19ef9cb4bb61576cf6c2f5c57fe988` |
 | `rich` | dependency alignment | Root/rich Python constraints aligned after T29/T41 verification. | `f31be3a4fd6f59233d4389e252dff21b1a169e0e` |
+| `rich` | `T45` | Leader verified and committed. | `ac2977bfd0eff208291366bd1e557d0d0966ec2e` |
 
 ## Latest Closed Wave
 
@@ -72,8 +76,11 @@ root progress ledger.
 | repo | task | evidence |
 |---|---|---|
 | `keelim-vercel` | `T19-keelim-vercel-n-plus-one-query` | `git diff --check`, focused Bun tests, test/app typecheck, full test, lint, `db:check`, production build, and `verify:maintenance` passed. Commit `c1df144541380d7edacf467479752e7c51b6c842`. |
+| `keelim-vercel` | `T25-keelim-vercel-bundle-size` | `git diff --check`, `bun run typecheck`, `bun run verify:regression-hotspots`, `node scripts/check-bundle-budget.mjs`, `bun run test`, `bun run verify:agents-update`, and `bun run build` passed. Commit `0dc58a79eeabeaab872fcaabeb77f50f89bd7d79`. |
 | `youtube` | `T29-youtube-ci-automation` | `git diff --check`, Python compile, focused pytest, Ruff, `scripts/ci-python.sh`, root dependency constraint verification, and root diff check passed. Commit `df0ca546db9384fb8a4efae22ddc12a5e37abcb7`. |
+| `youtube` | `T30-youtube-code-quality` | `git diff --check`, `uv --cache-dir .omx/uv-cache run pytest` passing 156 tests with 87.05% coverage, and `uv --cache-dir .omx/uv-cache run ruff check src tests scripts` passed. Commit `b45ed9e2ad4c1f4078c966b0d2f0feff6ca3a741`. |
 | `rich` | `T41-rich-api-security` | Focused backend pytest passed `61 passed`; focused web tests passed `6 tests`; `bun run typecheck` in `rich/web`, root dependency constraint verification, and `git diff --check` passed. Commit `3f7a6133db19ef9cb4bb61576cf6c2f5c57fe988`; dependency alignment commit `f31be3a4fd6f59233d4389e252dff21b1a169e0e`. |
+| `rich` | `T45-rich-reliability` | `git diff --check` passed and `.venv/bin/python -m pytest` passed with `181 passed`; retry/timeout/error guards, settings validation, scheduler hardening, CLI diagnostics, and service reliability coverage were committed as `ac2977bfd0eff208291366bd1e557d0d0966ec2e`. |
 
 Verification highlights:
 
@@ -189,9 +196,6 @@ Verification highlights:
 
 | repo | task | owner | agent | current state | next action |
 |---|---|---|---|---|---|
-| `keelim-vercel` | `T25-keelim-vercel-bundle-size` | Noether | Singer `019ec110-9377-7850-b1bd-a7fb9435a14d` | Assigned to worker. | Wait for worker report, then leader-verify and commit only the T25 file set. Preserve `keelim-vercel/debug-log.json`. |
-| `youtube` | `T30-youtube-code-quality` | Curie | Ptolemy `019ec110-b2f4-7231-88b4-1b37050ea460` | Assigned to worker. | Wait for worker report, then leader-verify and commit only code-quality changes. Preserve unrelated production/media/package/doc/remotion work. |
-| `rich` | `T45-rich-reliability` | Riemann | Mencius `019ec110-d542-7961-accb-5f3a21287975` | Assigned to worker. | Wait for worker report, then leader-verify and commit only reliability changes. Preserve unrelated guide/build/report dirtiness. |
 | `all` | `T47-all-architecture` | Nash | Kepler `019ec113-c99b-7f02-bfc4-efc66eaf3977` | Assigned to worker. | Wait for worker report, then leader-verify and commit only architecture changes. Preserve existing dirty `AGENTS.md`, `app-arducon/AGENTS.md`, and `debug-log.json` unless the worker explicitly owns a touched file. |
 
 ## Still Todo Next
@@ -217,16 +221,16 @@ Verification highlights:
 - `Keelim-Knowledge-Vault` T36 and T40 were committed; only `debug-log.json`
   remains untracked in that child repo.
 - `keelim-plugin` T13 and T17 were committed and its child repo is clean.
-- `keelim-vercel` T19, T21, T22, and T24 were committed; only `debug-log.json`
+- `keelim-vercel` T19, T21, T22, T24, and T25 were committed; only `debug-log.json`
   remains untracked in that child repo.
 - `android-support` T02, T04, and T06 were committed; only `debug-log.json`
   remains untracked in that child repo.
-- `youtube` T29, T32, and T34 were committed; unrelated uncommitted
+- `youtube` T29, T30, T32, and T34 were committed; unrelated uncommitted
   production/media/package work remains and should not be staged from root
   coordination.
-- `rich` T41 and the dependency alignment commit were committed. `AGENTS.md`,
-  `docs/words/AGENTS.md`, `web/tsconfig.tsbuildinfo`, and
-  `docs/words/reports/company/` remain outside the committed T41 boundary.
+- `rich` T41, the dependency alignment commit, and T45 were committed.
+  `AGENTS.md`, `docs/words/AGENTS.md`, `web/tsconfig.tsbuildinfo`, and
+  `docs/words/reports/company/` remain outside the committed T41/T45 boundary.
 - Child repo `debug-log.json` files were left untracked and uncommitted.
 
 ## Resume Checklist
@@ -234,13 +238,14 @@ Verification highlights:
 1. Run `python3 scripts/improvements/init_progress_ledger.py --check`.
 2. Read this handoff and
    `docs/ops/improvement-items-ultragoal-runbook-2026-06.md`.
-3. There are no active assignments after closing `T19`, `T29`, and `T41`.
-4. Pick the next `todo` task by wave order, starting with `T25`, `T26`, and
-   `T27` unless a newer user instruction changes priority.
+3. The only active assignment after closing `T25`, `T30`, and `T45` is
+   `T47-all-architecture` with Kepler.
+4. After `T47` closes, pick the next `todo` task by wave order, starting with
+   `T26`, `T27`, and `T28` unless a newer user instruction changes priority.
 5. Track the remaining `rich/web` shared-ui primitive drift under
    `T43-rich-frontend-quality`.
-6. If a new worker wave is needed, next good candidates are `T19`, `T25`, and
-   `T26`; avoid assigning multiple workers to the same dirty child repo at
+6. If a new worker wave is needed after `T47`, next good candidates are `T26`,
+   `T27`, and `T28`; avoid assigning multiple workers to the same dirty child repo at
    once unless scopes are proven non-overlapping.
 7. Keep commits per autonomous child repo and do not stage root child-repo
    pointers from the root.
