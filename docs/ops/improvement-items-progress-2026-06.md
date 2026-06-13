@@ -12,9 +12,9 @@ Durable `/goal` ledger for completing every P1/P2 item from the June 2026 improv
 | status | count |
 |---|---:|
 | `todo` | 152 |
-| `assigned` | 6 |
+| `assigned` | 5 |
 | `in_progress` | 0 |
-| `verified` | 642 |
+| `verified` | 643 |
 | `blocked` | 0 |
 | `needs_consumer_check` | 0 |
 
@@ -48,7 +48,7 @@ Durable `/goal` ledger for completing every P1/P2 item from the June 2026 improv
 | 2 | `T19-keelim-vercel-n-plus-one-query` | `keelim-vercel` | `N+1 쿼리` | 2 | 1 | 1 | `verified` |
 | 2 | `T25-keelim-vercel-bundle-size` | `keelim-vercel` | `번들 크기` | 6 | 1 | 5 | `verified` |
 | 2 | `T26-keelim-vercel-client-component` | `keelim-vercel` | `불필요한 use client` | 8 | 1 | 7 | `verified` |
-| 2 | `T27-keelim-vercel-image-optimization` | `keelim-vercel` | `이미지 최적화` | 1 | 0 | 1 | `assigned` |
+| 2 | `T27-keelim-vercel-image-optimization` | `keelim-vercel` | `이미지 최적화` | 1 | 0 | 1 | `verified` |
 | 2 | `T28-keelim-vercel-cache` | `keelim-vercel` | `캐싱 미활용` | 6 | 0 | 6 | `todo` |
 | 2 | `T34-youtube-testing` | `youtube` | `testing` | 21 | 8 | 13 | `verified` |
 | 2 | `T32-youtube-reliability` | `youtube` | `reliability` | 18 | 5 | 13 | `verified` |

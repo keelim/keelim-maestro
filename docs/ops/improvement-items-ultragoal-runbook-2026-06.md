@@ -51,15 +51,13 @@ The leader must:
 | task | worker | agent | scope |
 |---|---|---|---|
 | `T47-all-architecture` residual | Huygens | `019ec149-5f98-7f02-8941-efc82ad02acc` | `all` architecture residual IDs `ALL-025`, `ALL-026`, `ALL-031`, `ALL-034`, `ALL-035` |
-| `T27-keelim-vercel-image-optimization` | Harvey | `019ec149-9fc4-7ac1-80cf-a5716a23726d` | `keelim-vercel` item `KVCL-094` |
 
 ## Latest Closed Wave
 
-`T19`, `T25`, `T26`, `T29`, `T30`, `T41`, `T45`, and `T46` were closed after
+`T19`, `T25`, `T26`, `T27`, `T29`, `T30`, `T41`, `T45`, and `T46` were closed after
 worker completion, leader verification, child-repo commits, and root ledger
 verification. `T47` is partially integrated: 19 of 24 items are verified and
-5 remain assigned to Huygens. `T27` is assigned to Harvey for the next
-single-item `keelim-vercel` image optimization slice.
+5 remain assigned to Huygens.
 
 - `T19-keelim-vercel-n-plus-one-query`: commit
   `c1df144541380d7edacf467479752e7c51b6c842`.
@@ -67,6 +65,8 @@ single-item `keelim-vercel` image optimization slice.
   `0dc58a79eeabeaab872fcaabeb77f50f89bd7d79`.
 - `T26-keelim-vercel-client-component`: commit
   `eaf79e3b144f6a146e8167e155f25c34648859c1`.
+- `T27-keelim-vercel-image-optimization`: commit
+  `dd857a084e83d4ec76ed35ef25ecb05b4877619f`.
 - `T29-youtube-ci-automation`: commit
   `df0ca546db9384fb8a4efae22ddc12a5e37abcb7`.
 - `T30-youtube-code-quality`: commit
@@ -112,6 +112,7 @@ single-item `keelim-vercel` image optimization slice.
 | `T19-keelim-vercel-n-plus-one-query` | Heisenberg | 2 selected ledger items verified with ranking aggregation RPC, query helper tests, `git diff --check`, focused Bun tests, test/app typecheck, full tests, lint, `db:check`, production build, and `verify:maintenance`; committed as `c1df144541380d7edacf467479752e7c51b6c842`. |
 | `T25-keelim-vercel-bundle-size` | Noether / Singer | 6 selected ledger items verified with dynamic hub/chart boundaries, shared Recharts loader adapters, `git diff --check`, typecheck, regression hotspot verifier, bundle budget check, 55 passing Bun tests, AGENTS update verifier, and production build; committed as `0dc58a79eeabeaab872fcaabeb77f50f89bd7d79`. |
 | `T26-keelim-vercel-client-component` | Nietzsche | 8 selected ledger items verified with server route shells, client leaf extraction, static landing section cleanup, `git diff --check`, typecheck, ESLint quiet, 55 passing Bun tests, AGENTS update verifier, and production build; committed as `eaf79e3b144f6a146e8167e155f25c34648859c1`. |
+| `T27-keelim-vercel-image-optimization` | Harvey | 1 selected ledger item verified with insight image proxy validation, removal of `next/image` `unoptimized`, explicit image `sizes`, focused API regression test passing 13 tests, app/test typechecks, full Bun test passing 56 tests, API route mapping verifier, AGENTS update verifier, lint exit 0 with the existing 158-warning baseline, and `git diff --check`; committed as `dd857a084e83d4ec76ed35ef25ecb05b4877619f`. Worker reported production build passed; leader build reruns compiled successfully but were interrupted during the long Next TypeScript step, so build is recorded as worker-pass/leader-inconclusive. |
 | `T29-youtube-ci-automation` | Hubble | 18 selected ledger items verified with CI script coverage, SkillOpt dry-run checks, Python compile, focused pytest, Ruff, `scripts/ci-python.sh`, root dependency constraint verification, and `git diff --check`; committed as `df0ca546db9384fb8a4efae22ddc12a5e37abcb7`. |
 | `T30-youtube-code-quality` | Curie / Ptolemy | 15 selected ledger items verified with CLI exception boundaries, executable resolution, n8n channel-config guardrails, render/probe diagnostics, full pytest passing 156 tests with 87.05% coverage, Ruff, and `git diff --check`; committed as `b45ed9e2ad4c1f4078c966b0d2f0feff6ca3a741`. |
 | `T32-youtube-reliability` | Maxwell | 18 selected ledger items verified with YouTube OAuth/upload/render reliability guards, service request validation and limits, focused Python/Node tests, `uv run pytest` passing 142 tests / 86.52% coverage, Node service checks, remotion-template-admin 4 passing tests, and `git diff --check`. |

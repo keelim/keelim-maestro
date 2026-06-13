@@ -5,7 +5,7 @@
     "inventory": "docs/research/improvements-2026-06/improvements.json",
     "rawDir": "docs/research/improvements-2026-06/raw"
   },
-  "generatedAt": "2026-06-13T14:03:46.626057+00:00",
+  "generatedAt": "2026-06-13T14:38:50.634281+00:00",
   "statusValues": [
     "todo",
     "assigned",
@@ -22,9 +22,9 @@
     },
     "byStatus": {
       "todo": 152,
-      "assigned": 6,
+      "assigned": 5,
       "in_progress": 0,
-      "verified": 642,
+      "verified": 643,
       "blocked": 0,
       "needs_consumer_check": 0
     },
@@ -340,7 +340,7 @@
       "total": 1,
       "p1": 0,
       "p2": 1,
-      "status": "assigned"
+      "status": "verified"
     },
     {
       "task_id": "T28-keelim-vercel-cache",
@@ -14383,15 +14383,30 @@
       "severity": "P2",
       "effort": "S",
       "task_id": "T27-keelim-vercel-image-optimization",
-      "status": "assigned",
+      "status": "verified",
       "owner": "Harvey",
       "title": "insight card 이미지가 next/image optimizer를 우회함",
       "file_path": "keelim-vercel/components/insight-card.tsx:41",
-      "verification_commands": [],
-      "verification_result": null,
-      "changed_files": [],
+      "verification_commands": [
+        "bun test tests/api/selected-routes.test.ts",
+        "bun run typecheck",
+        "bun run typecheck:tests",
+        "bun run test",
+        "bun run verify:api-route-tests",
+        "bun run verify:agents-update",
+        "bun run lint"
+      ],
+      "verification_result": "Leader verified focused API regression test (13 pass), standalone app/test typechecks, full Bun test suite (56 pass), API route mapping, AGENTS update verifier, lint exit 0 with existing 158-warning baseline, and git diff checks. Worker also reported bun run build passed; leader build reruns compiled successfully then stayed in Next TypeScript step long enough to be interrupted, so build is recorded as worker-pass/leader-inconclusive.",
+      "changed_files": [
+        "AGENTS.md",
+        "app/api/insight-image/route.ts",
+        "lib/insight-image.ts",
+        "components/insight-card.tsx",
+        "components/add-insight-dialog.tsx",
+        "tests/api/selected-routes.test.ts"
+      ],
       "blocked_reason": null,
-      "last_updated": "2026-06-13T14:03:09.427235+00:00"
+      "last_updated": "2026-06-13T14:38:50.639008+00:00"
     },
     {
       "id": "KVCL-095",

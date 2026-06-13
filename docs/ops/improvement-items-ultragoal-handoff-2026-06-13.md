@@ -7,8 +7,8 @@ wave with child-repo commits and root ledger verification, then assigned the
 next disjoint worker wave. `T25`, `T30`, and `T45` from that wave are now also
 verified and committed. The next non-overlapping worker wave closed `T26` and
 `T46`; `T47` was partially integrated with 19 of 24 items verified and 5
-architecture follow-up items now reassigned to Huygens. `T27` is assigned to
-Harvey for the single remaining `keelim-vercel` image optimization item.
+architecture follow-up items now reassigned to Huygens. `T27` was verified
+and committed for `keelim-vercel` image optimization.
 
 ## Goal State
 
@@ -16,12 +16,12 @@ Harvey for the single remaining `keelim-vercel` image optimization item.
 - Current Codex goal status from `get_goal`: `active`
 - Do not call `update_goal` yet. The aggregate run is not complete.
 - Ledger check: `python3 scripts/improvements/init_progress_ledger.py --check`
-  - Result: `OK: 800 items, 52 task units, 642 verified`
+  - Result: `OK: 800 items, 52 task units, 643 verified`
 
 ## Root Ledger Snapshot
 
-- `verified`: 642
-- `assigned`: 6
+- `verified`: 643
+- `assigned`: 5
 - `todo`: 152
 - `blocked`: 0
 - `in_progress`: 0
@@ -63,6 +63,7 @@ Durable state files:
 | `keelim-vercel` | `T19` | Leader verified and committed. | `c1df144541380d7edacf467479752e7c51b6c842` |
 | `keelim-vercel` | `T25` | Leader verified and committed. | `0dc58a79eeabeaab872fcaabeb77f50f89bd7d79` |
 | `keelim-vercel` | `T26` | Leader verified and committed. | `eaf79e3b144f6a146e8167e155f25c34648859c1` |
+| `keelim-vercel` | `T27` | Leader verified and committed. | `dd857a084e83d4ec76ed35ef25ecb05b4877619f` |
 | `youtube` | `T29` | Leader verified and committed. | `df0ca546db9384fb8a4efae22ddc12a5e37abcb7` |
 | `youtube` | `T30` | Leader verified and committed. | `b45ed9e2ad4c1f4078c966b0d2f0feff6ca3a741` |
 | `youtube` | `T32` | Leader verified and committed. | `ad4709e49f251a0d49e65df3e8075f24af9f9242` |
@@ -83,6 +84,7 @@ root progress ledger.
 |---|---|---|
 | `keelim-vercel` | `T19-keelim-vercel-n-plus-one-query` | `git diff --check`, focused Bun tests, test/app typecheck, full test, lint, `db:check`, production build, and `verify:maintenance` passed. Commit `c1df144541380d7edacf467479752e7c51b6c842`. |
 | `keelim-vercel` | `T25-keelim-vercel-bundle-size` | `git diff --check`, `bun run typecheck`, `bun run verify:regression-hotspots`, `node scripts/check-bundle-budget.mjs`, `bun run test`, `bun run verify:agents-update`, and `bun run build` passed. Commit `0dc58a79eeabeaab872fcaabeb77f50f89bd7d79`. |
+| `keelim-vercel` | `T27-keelim-vercel-image-optimization` | Insight image URLs now route through `/api/insight-image` and `next/image` without `unoptimized`; `git diff --check`, focused API route test (13 pass), app/test typechecks, full Bun test (56 pass), API route mapping, AGENTS update verifier, and lint exit 0 with the existing 158-warning baseline passed. Worker reported production build passed; leader build reruns compiled successfully but were interrupted during the long Next TypeScript step. Commit `dd857a084e83d4ec76ed35ef25ecb05b4877619f`. |
 | `youtube` | `T29-youtube-ci-automation` | `git diff --check`, Python compile, focused pytest, Ruff, `scripts/ci-python.sh`, root dependency constraint verification, and root diff check passed. Commit `df0ca546db9384fb8a4efae22ddc12a5e37abcb7`. |
 | `youtube` | `T30-youtube-code-quality` | `git diff --check`, `uv --cache-dir .omx/uv-cache run pytest` passing 156 tests with 87.05% coverage, and `uv --cache-dir .omx/uv-cache run ruff check src tests scripts` passed. Commit `b45ed9e2ad4c1f4078c966b0d2f0feff6ca3a741`. |
 | `rich` | `T41-rich-api-security` | Focused backend pytest passed `61 passed`; focused web tests passed `6 tests`; `bun run typecheck` in `rich/web`, root dependency constraint verification, and `git diff --check` passed. Commit `3f7a6133db19ef9cb4bb61576cf6c2f5c57fe988`; dependency alignment commit `f31be3a4fd6f59233d4389e252dff21b1a169e0e`. |
@@ -206,7 +208,6 @@ Verification highlights:
 | repo | task | owner | agent | current state | next action |
 |---|---|---|---|---|---|
 | `all` | `T47-all-architecture` residual | Huygens | `019ec149-5f98-7f02-8941-efc82ad02acc` | 5 item-level follow-ups remain assigned: `ALL-025`, `ALL-026`, `ALL-031`, `ALL-034`, `ALL-035`. | Finish SDK extraction, `core:common` purity split, `feature:app-function` aggregation, and browser/web contract abstraction. Preserve existing dirty `AGENTS.md`, `app-arducon/AGENTS.md`, and staged `debug-log.json`. |
-| `keelim-vercel` | `T27-keelim-vercel-image-optimization` | Harvey | `019ec149-9fc4-7ac1-80cf-a5716a23726d` | Single item `KVCL-094` assigned for `components/insight-card.tsx`. | Replace the reported unoptimized image path with the repo's expected image component/pattern, then report verification. Preserve untracked `debug-log.json`. |
 
 ## Still Todo Next
 
@@ -253,10 +254,10 @@ Verification highlights:
 1. Run `python3 scripts/improvements/init_progress_ledger.py --check`.
 2. Read this handoff and
    `docs/ops/improvement-items-ultragoal-runbook-2026-06.md`.
-3. Active assignments are the residual item-level portion of
+3. Active assignment is the residual item-level portion of
    `T47-all-architecture` (`ALL-025`, `ALL-026`, `ALL-031`, `ALL-034`, and
-   `ALL-035`) and `T27-keelim-vercel-image-optimization` (`KVCL-094`).
-4. After T47 residual and T27 close, pick the next `todo` task by wave order,
+   `ALL-035`).
+4. After T47 residual closes, pick the next `todo` task by wave order,
    starting with `T28` and then the youtube tasks after its unrelated
    production/doc dirtiness is reviewed.
 5. Track the remaining `rich/web` shared-ui primitive drift under
