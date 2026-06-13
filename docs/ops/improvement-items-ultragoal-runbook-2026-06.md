@@ -48,11 +48,20 @@ The leader must:
 
 ## Current Assignments
 
-| task | worker | scope |
-|---|---|---|
-| `T19-keelim-vercel-n-plus-one-query` | Heisenberg | `keelim-vercel` N+1 query backlog |
-| `T29-youtube-ci-automation` | Hubble | `youtube` CI/automation backlog |
-| `T41-rich-api-security` | Peirce | `rich` API/security backlog |
+No task units are currently assigned.
+
+## Latest Closed Wave
+
+`T19`, `T29`, and `T41` were closed after worker completion, leader
+verification, child-repo commits, and root ledger verification.
+
+- `T19-keelim-vercel-n-plus-one-query`: commit
+  `c1df144541380d7edacf467479752e7c51b6c842`.
+- `T29-youtube-ci-automation`: commit
+  `df0ca546db9384fb8a4efae22ddc12a5e37abcb7`.
+- `T41-rich-api-security`: commit
+  `3f7a6133db19ef9cb4bb61576cf6c2f5c57fe988`; dependency alignment commit
+  `f31be3a4fd6f59233d4389e252dff21b1a169e0e`.
 
 ## Verified Task Units
 
@@ -81,6 +90,8 @@ The leader must:
 | `T22-keelim-vercel-dx-config` | Lagrange | 11 selected ledger items verified with CI/pre-push/PR quality gates, typed ESLint/test/strict TS scaffolding, Drizzle/Supabase config guards, centralized env schema access, shared UI client shim build fix, 51 passing Bun tests / 179 expects, production build, `verify:maintenance`, root shared-ui report, and `git diff --check`; `typecheck:strict` remains a baseline-finding gate. |
 | `T23-keelim-vercel-security` | Schrodinger | 17 selected ledger items verified with production auth allowlist, route/server-action validation, SSRF/CSV/rate-limit guards, typecheck, 39-test Bun suite, production build, maintenance checks, scoped ESLint, and `git diff --check`. |
 | `T24-keelim-vercel-testing` | Feynman | 15 selected ledger items verified with selected API route regression tests, route mapping verifier, full tests/coverage, typecheck, lint, build, `verify:maintenance`, and `git diff --check`; root shared-ui full gate now passes `keelim-vercel` adapters and carries only the `rich/web` primitive drift to `T43`. |
+| `T19-keelim-vercel-n-plus-one-query` | Heisenberg | 2 selected ledger items verified with ranking aggregation RPC, query helper tests, `git diff --check`, focused Bun tests, test/app typecheck, full tests, lint, `db:check`, production build, and `verify:maintenance`; committed as `c1df144541380d7edacf467479752e7c51b6c842`. |
+| `T29-youtube-ci-automation` | Hubble | 18 selected ledger items verified with CI script coverage, SkillOpt dry-run checks, Python compile, focused pytest, Ruff, `scripts/ci-python.sh`, root dependency constraint verification, and `git diff --check`; committed as `df0ca546db9384fb8a4efae22ddc12a5e37abcb7`. |
 | `T32-youtube-reliability` | Maxwell | 18 selected ledger items verified with YouTube OAuth/upload/render reliability guards, service request validation and limits, focused Python/Node tests, `uv run pytest` passing 142 tests / 86.52% coverage, Node service checks, remotion-template-admin 4 passing tests, and `git diff --check`. |
 | `T34-youtube-testing` | Erdos | 21 selected ledger items verified with youtube pytest coverage gate, 135 passing tests, 90.30% coverage, `git diff --check`, root `uv.lock` refresh, `uv lock --check`, and Python dependency constraint verification. |
 | `T35-keelim-knowledge-vault-automation` | Codex | 18 selected ledger items verified with vault-wide backlink JSON/file checks, resurface check/threshold behavior, schema/template contract checks, Obsidian properties/templates config checks, workspace cleanup checks, verifier compile, and `git diff --check`. |
@@ -89,6 +100,7 @@ The leader must:
 | `T38-keelim-knowledge-vault-linking` | Codex | 6 selected ledger items verified with Knowledge Vault backlink checks, selected inbound/outbound wikilink checks, Python verifier compile, and `git diff --check`. |
 | `T39-keelim-knowledge-vault-naming` | Kant | 21 selected ledger items verified with Knowledge Vault rename/link updates, backlink check for 251 files, JSON backlink check, old-basename audit, duplicate-basename audit leaving only `index.md`, and `git diff --check`. |
 | `T40-keelim-knowledge-vault-structure` | Boole | 19 selected ledger items verified with local MOCs/schema navigation for AI, Android, CS, Kotlin, service, and vault-wide structures, Obsidian `.omx/` ignore, backlink JSON check returning ok with no failures, valid `.obsidian/app.json`, and `git diff --check`. |
+| `T41-rich-api-security` | Peirce | 21 selected ledger items verified with Supabase bearer-token admin auth, public/service-role key split, admin/open-trading auth guards, validation/CORS/upstream error hardening, focused backend pytest passing 61 tests, focused web tests passing 6 tests, `rich/web` typecheck, dependency constraint verification, and `git diff --check`; committed as `3f7a6133db19ef9cb4bb61576cf6c2f5c57fe988` plus dependency alignment commit `f31be3a4fd6f59233d4389e252dff21b1a169e0e`. |
 
 ## Ledger Commands
 
