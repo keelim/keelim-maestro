@@ -14,8 +14,8 @@ Ultragoal run after the user requested a pause and meaningful commits.
 ## Root Ledger Snapshot
 
 - `verified`: 298
-- `assigned`: 0
-- `todo`: 502
+- `assigned`: 46
+- `todo`: 456
 - `blocked`: 0
 - `in_progress`: 0
 - `needs_consumer_check`: 0
@@ -81,8 +81,11 @@ Verification highlights:
 
 ## Assigned Or Paused, Not Verified
 
-No active worker assignment is recorded in the ledger. The next continuation
-can pick the next `todo` task by wave order.
+| repo | task | owner | current state | next action |
+|---|---|---|---|---|
+| `android-support` | `T06-android-support-type-safety` | Wegener | Assigned. | Wait for worker report, then leader-verify before marking complete. Preserve existing untracked `debug-log.json`. |
+| `all-web-ui` | `T11-all-web-ui-packaging` | Turing | Assigned. | Wait for worker report, then leader-verify before marking complete. Preserve pre-existing `AGENTS.md` edits and untracked `debug-log.json` unless the worker proves ownership. |
+| `keelim-plugin` | `T17-keelim-plugin-skill-quality` | Lorentz | Assigned. | Wait for worker report, then leader-verify before marking complete. |
 
 ## Still Todo Next
 
@@ -116,12 +119,13 @@ can pick the next `todo` task by wave order.
 1. Run `python3 scripts/improvements/init_progress_ledger.py --check`.
 2. Read this handoff and
    `docs/ops/improvement-items-ultragoal-runbook-2026-06.md`.
-3. Pick the next `todo` task by wave order. Good next candidates are
-   `T06-android-support-type-safety`, `T02-android-support-dx-docs`, and the
-   next `all-web-ui` task unit.
-4. Track the remaining `rich/web` shared-ui primitive drift under
+3. Resume assigned tasks first: `T06`, `T11`, and `T17`.
+4. If those workers are complete, good next candidates are
+   `T02-android-support-dx-docs`, `T09-all-web-ui-component-quality`, and
+   `T13-keelim-plugin-docs`.
+5. Track the remaining `rich/web` shared-ui primitive drift under
    `T43-rich-frontend-quality`.
-5. For any worker-completed task, rerun leader verification before changing the
+6. For any worker-completed task, rerun leader verification before changing the
    ledger from `assigned` to `verified`.
-6. Keep commits per autonomous child repo and do not stage root child-repo
+7. Keep commits per autonomous child repo and do not stage root child-repo
    pointers from the root.

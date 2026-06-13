@@ -50,7 +50,9 @@ The leader must:
 
 | task | worker | scope |
 |---|---|---|
-| _none_ | _n/a_ | No active worker assignment is recorded in the ledger. Pick the next `todo` task by wave order. |
+| `T06-android-support-type-safety` | Wegener | `android-support` type-safety backlog |
+| `T11-all-web-ui-packaging` | Turing | `all-web-ui` packaging/export/build backlog |
+| `T17-keelim-plugin-skill-quality` | Lorentz | `keelim-plugin` skill-quality backlog |
 
 ## Verified Task Units
 
