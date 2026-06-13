@@ -9,12 +9,12 @@ Ultragoal run after the user requested a pause and meaningful commits.
 - Current Codex goal status from `get_goal`: `active`
 - Do not call `update_goal` yet. The aggregate run is not complete.
 - Ledger check: `python3 scripts/improvements/init_progress_ledger.py --check`
-  - Result: `OK: 800 items, 52 task units, 344 verified`
+  - Result: `OK: 800 items, 52 task units, 385 verified`
 
 ## Root Ledger Snapshot
 
-- `verified`: 344
-- `assigned`: 41
+- `verified`: 385
+- `assigned`: 0
 - `todo`: 415
 - `blocked`: 0
 - `in_progress`: 0
@@ -32,13 +32,16 @@ Durable state files:
 | repo | task units | status | commit |
 |---|---|---|---|
 | `android-support` | `T01`, `T03`, `T05` | Leader verified and committed. | `982e380d72b8b0d299658fc0a08889396e32b393` |
+| `android-support` | `T02` | Leader verified and committed. | `eab61acbd0a503877daef597b89d9ee6725b5751` |
 | `android-support` | `T04` | Leader verified and committed. | `cba1055701cfd223db50ed6101b4f2f0afd63579` |
 | `android-support` | `T06` | Leader verified and committed. | `a2361258e35e6d3e4f651f2a3a9306cb2de92e61` |
+| `all-web-ui` | `T09` | Leader verified and committed. | `851ab59a81fdb1acf03b886f85cba06e7b348dfc` |
 | `all-web-ui` | `T11` | Leader verified and committed. | `9fad16c38c52bdce89a188e1d7224b967b2a85bb` |
 | `all-web-ui` | `T12` | Leader verified and committed. | `84da34abe713a1b42e16f834f47cf5d6f1d64a8a` |
 | `Keelim-Knowledge-Vault` | `T35`, `T37`, `T38` | Leader verified and committed. | `eea3b4d51d7ddc553d2498e710507ac5a81fd09c` |
 | `Keelim-Knowledge-Vault` | `T39` | Leader verified and committed. | `5445e89fa9f15bc28cba1cef5b6093ee950d680e` |
 | `keelim-plugin` | `T15`, `T16`, `T18` | Leader verified and committed. | `64d229aef8ef88a862b195330f8f7a0a82fee442` |
+| `keelim-plugin` | `T13` | Leader verified and committed. | `e2d3633d76eb20839b0f698a4fb6ad3bc7dd0892` |
 | `keelim-plugin` | `T14` | Leader verified and committed. | `3391dc9677ba9d5f1e600452b7ea26c8b43ea69a` |
 | `keelim-plugin` | `T17` | Leader verified and committed. | `48ebea55425cabed64a736720a899dd621ee6dea` |
 | `keelim-vercel` | `T20`, `T23` | Leader verified and committed. | `777cb64be29b43415786523fa3b452431619732d` |
@@ -50,6 +53,10 @@ Verification highlights:
 - `android-support`: contract drift, typecheck, test lint, unit test, coverage,
   build, CI/release workflow check, and `git diff --check` passed. Leader rerun
   reported 9 suites / 144 tests / 100% coverage.
+- `android-support` T02: README/action metadata/runtime output docs,
+  contract parser coverage, `bun run check:contract` (25 consumed / 25
+  documented inputs), `bun run test` (11 suites / 174 tests / 100% coverage),
+  typecheck, ESLint, ci-release check, build, and `git diff --check` passed.
 - `android-support` T04: `bun run typecheck`, `bun run test` (11 suites / 169
   tests / 100% coverage), `bun run check:contract`, `bun run
   check:ci-release`, `bun run build`, and `git diff --check` passed.
@@ -72,6 +79,11 @@ Verification highlights:
   version check, root shared-ui report, and `git diff --check` passed. Strict
   root full integration still fails only on `rich/web` generic primitive
   allowlist drift, carried to `T43`.
+- `all-web-ui` T09: `bun run typecheck`, `bun test` (34 pass / 493 expects),
+  `bun run build`, `bun run package:smoke`, `bun run pack:verify`, root
+  shared-ui report, and `git diff --check` passed. Strict root full
+  integration still fails only on `rich/web` generic primitive allowlist drift,
+  carried to `T43`.
 - `keelim-plugin`: `uv --cache-dir .skillopt/uv-cache run --python 3.12 python scripts/run-tests.py`
   passed. A scanner-safe variable rename in
   `skills/session-usage-dashboard/scripts/test_build_session_usage_dashboard.py`
@@ -79,6 +91,12 @@ Verification highlights:
 - `keelim-plugin` T14: `bash scripts/check.sh`, pre-commit all-files, and
   `git diff --check` passed after adding CI/pre-commit/full-check tooling and
   deterministic skill/catalog validation.
+- `keelim-plugin` T13: `node --check scripts/gen-catalog.mjs`,
+  `node scripts/gen-catalog.mjs --check`,
+  `bash scripts/verify-skills.sh --require-codex-meta`,
+  `bash scripts/check.sh`, pre-commit all-files, and `git diff --check`
+  passed after documenting catalog workflows and tightening deterministic
+  catalog generation.
 - `keelim-plugin` T17: `bash scripts/check.sh`, pre-commit all-files, and
   `git diff --check` passed after adding skill-quality regression checks,
   tightening skill docs/references, and regenerating catalog artifacts.
@@ -97,9 +115,7 @@ Verification highlights:
 
 | repo | task | owner | current state | next action |
 |---|---|---|---|---|
-| `android-support` | `T02-android-support-dx-docs` | Chandrasekhar | Assigned. | Wait for worker report, then leader-verify before marking complete. Preserve existing untracked `debug-log.json`. |
-| `all-web-ui` | `T09-all-web-ui-component-quality` | Halley | Assigned. | Wait for worker report, then leader-verify before marking complete. Preserve pre-existing `AGENTS.md` edits and untracked `debug-log.json` unless the worker proves ownership. |
-| `keelim-plugin` | `T13-keelim-plugin-docs` | Russell | Assigned. | Wait for worker report, then leader-verify before marking complete. |
+| _none_ | _none_ | _none_ | _none_ | No active worker assignment remains from the last wave. Pick the next `todo` task by wave order before spawning a new worker. |
 
 ## Still Todo Next
 
@@ -120,13 +136,13 @@ Verification highlights:
   staged by this handoff because they were outside the verified root
   coordination commit scope.
 - `all-web-ui` still has pre-existing uncommitted `AGENTS.md` edits and
-  untracked `debug-log.json`; these were intentionally excluded from `T11` and
-  `T12`.
-- `keelim-plugin` T17 was committed and its child repo is clean.
+  untracked `debug-log.json`; these were intentionally excluded from `T09`,
+  `T11`, and `T12`.
+- `keelim-plugin` T13 and T17 were committed and its child repo is clean.
 - `keelim-vercel` T24 was committed; only `debug-log.json` remains untracked
   in that child repo.
-- `android-support` T04 and T06 were committed; only `debug-log.json` remains
-  untracked in that child repo.
+- `android-support` T02, T04, and T06 were committed; only `debug-log.json`
+  remains untracked in that child repo.
 - `youtube` still contains unrelated uncommitted production/media/package work;
   do not stage it from root coordination.
 - Child repo `debug-log.json` files were left untracked and uncommitted.
@@ -136,10 +152,11 @@ Verification highlights:
 1. Run `python3 scripts/improvements/init_progress_ledger.py --check`.
 2. Read this handoff and
    `docs/ops/improvement-items-ultragoal-runbook-2026-06.md`.
-3. Resume assigned tasks first: `T02`, `T09`, and `T13`.
-4. If those workers are complete, good next candidates are
+3. Pick the next `todo` task by wave order. Good next candidates are
    `T10-all-web-ui-docs`, `T08-all-web-ui-api-design`, and
-   `T07-all-web-ui-a11y`.
+   `T07-all-web-ui-a11y`; avoid assigning multiple workers to the same dirty
+   child repo at once unless the scopes are proven non-overlapping.
+4. Start a fresh worker assignment and record it in the ledger before edits.
 5. Track the remaining `rich/web` shared-ui primitive drift under
    `T43-rich-frontend-quality`.
 6. For any worker-completed task, rerun leader verification before changing the

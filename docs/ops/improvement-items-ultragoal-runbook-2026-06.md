@@ -50,21 +50,22 @@ The leader must:
 
 | task | worker | scope |
 |---|---|---|
-| `T02-android-support-dx-docs` | Chandrasekhar | `android-support` docs/developer-experience backlog |
-| `T09-all-web-ui-component-quality` | Halley | `all-web-ui` component-quality backlog |
-| `T13-keelim-plugin-docs` | Russell | `keelim-plugin` docs backlog |
+| _none_ | _none_ | All previously assigned task units have been leader-verified and committed. |
 
 ## Verified Task Units
 
 | task | worker | evidence |
 |---|---|---|
 | `T01-android-support-ci-release` | Lovelace | 19 selected ledger items verified with CI/release workflow checks, tests, coverage, build, bundle freshness, and `git diff --check`. |
+| `T02-android-support-dx-docs` | Chandrasekhar | 13 selected ledger items verified with split upload/sign README docs, credential and release-note precedence docs, declared runtime outputs, README/action/runtime contract parser coverage, clean contract drift check, 11 passing suites / 174 tests / 100% coverage, typecheck, ESLint, ci-release check, build, and `git diff --check`. |
 | `T03-android-support-error-handling` | Lovelace | 18 selected ledger items verified with contextual error handling, retry/timeout guards, response validation, expanded tests, rebuilt bundle, and CI/release checks. |
 | `T04-android-support-security` | Darwin | 17 selected ledger items verified with Android release action security hardening, path/archive/credential guard coverage, 11 passing suites / 169 tests / 100% coverage, contract and ci-release checks, rebuilt `lib/index.js`, and `git diff --check`. |
 | `T05-android-support-testing` | Lovelace | 18 selected ledger items verified with contract drift check, typecheck, test lint, unit tests, coverage, ncc build, CI/release workflow check, and `git diff --check`; leader rerun reported 9 suites / 144 tests / 100% coverage. |
 | `T06-android-support-type-safety` | Wegener | 15 selected ledger items verified with stricter TypeScript compiler options, typed release status/upload options, explicit Google API response data guards, ESLint, 11 passing suites / 172 tests / 100% coverage, contract and ci-release checks, rebuilt `lib/index.js`, and `git diff --check`. |
+| `T09-all-web-ui-component-quality` | Halley | 14 selected ledger items verified with polymorphic component refs, normalized component primitives, portal/animation-aware interaction coverage, 34 passing Bun tests / 493 expects, package smoke, npm pack dry-run, root shared-ui report, and `git diff --check`; root shared-ui full gate still carries only `rich/web` primitive drift to `T43`. |
 | `T11-all-web-ui-packaging` | Turing | 17 selected ledger items verified with package publish gates, dist contract verifier, consumer smoke, npm pack dry-run, release-version guard, typecheck, 31 passing Bun tests / 463 expects, build, and `git diff --check`; root shared-ui full gate still carries only `rich/web` primitive drift to `T43`. |
 | `T12-all-web-ui-testing` | Helmholtz | 19 selected ledger items verified with DOM interaction coverage, Progress aria value propagation, RadioGroup keyboard movement coverage, standalone `bun.lock` refresh, typecheck, 31 passing Bun tests / 459 expects, build, and `git diff --check`; root shared-ui report still surfaces consumer-side follow-up drift for `T24`/`T43`. |
+| `T13-keelim-plugin-docs` | Russell | 14 selected ledger items verified with README/catalog workflow docs, deterministic catalog generator checks, 8/8 skill metadata validation, full repo check, pre-commit all-files, and `git diff --check`. |
 | `T14-keelim-plugin-dx-tooling` | Euler | 15 selected ledger items verified with CI/pre-commit/full-check tooling, deterministic skill/catalog validation, uv dev tooling, `bash scripts/check.sh`, pre-commit all-files, and `git diff --check`. |
 | `T15-keelim-plugin-script-quality` | Laplace | 21 selected ledger items verified with Python compile checks, bundled script tests, skill verification, catalog check, SkillOpt validation, and `git diff --check`. |
 | `T16-keelim-plugin-security` | Laplace | 17 selected ledger items verified with path/env guard changes, script/skill security regression tests, SkillOpt eval checks, skill/catalog checks, and leader rerun of `uv --cache-dir .skillopt/uv-cache run --python 3.12 python scripts/run-tests.py`. |

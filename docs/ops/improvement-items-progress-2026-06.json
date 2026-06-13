@@ -5,7 +5,7 @@
     "inventory": "docs/research/improvements-2026-06/improvements.json",
     "rawDir": "docs/research/improvements-2026-06/raw"
   },
-  "generatedAt": "2026-06-13T10:19:23.827319+00:00",
+  "generatedAt": "2026-06-13T10:31:11.931665+00:00",
   "statusValues": [
     "todo",
     "assigned",
@@ -22,9 +22,9 @@
     },
     "byStatus": {
       "todo": 415,
-      "assigned": 41,
+      "assigned": 0,
       "in_progress": 0,
-      "verified": 344,
+      "verified": 385,
       "blocked": 0,
       "needs_consumer_check": 0
     },
@@ -130,7 +130,7 @@
       "total": 13,
       "p1": 0,
       "p2": 13,
-      "status": "assigned"
+      "status": "verified"
     },
     {
       "task_id": "T12-all-web-ui-testing",
@@ -160,7 +160,7 @@
       "total": 14,
       "p1": 4,
       "p2": 10,
-      "status": "assigned"
+      "status": "verified"
     },
     {
       "task_id": "T10-all-web-ui-docs",
@@ -250,7 +250,7 @@
       "total": 14,
       "p1": 1,
       "p2": 13,
-      "status": "assigned"
+      "status": "verified"
     },
     {
       "task_id": "T20-keelim-vercel-api-correctness",
@@ -1266,15 +1266,28 @@
       "severity": "P2",
       "effort": "S",
       "task_id": "T02-android-support-dx-docs",
-      "status": "assigned",
+      "status": "verified",
       "owner": "Chandrasekhar",
       "title": "AAB signing의 jarsigner 필요 조건이 빠져 있음",
       "file_path": "android-support/src/signing.ts:97",
-      "verification_commands": [],
-      "verification_result": "Assigned to subagent Chandrasekhar for android-support dx-docs slice; leader will verify before marking complete.",
-      "changed_files": [],
+      "verification_commands": [
+        "android-support: bun run check:contract",
+        "android-support: bun run typecheck",
+        "android-support: ./node_modules/.bin/eslint . --ext .ts",
+        "android-support: bun run test",
+        "android-support: bun run check:ci-release",
+        "android-support: bun run build",
+        "android-support: git diff --check"
+      ],
+      "verification_result": "Committed eab61acbd0a503877daef597b89d9ee6725b5751; README/action metadata/output docs aligned, contract drift clean with 25 consumed/25 documented inputs, 11 suites / 174 tests / 100% coverage, typecheck, ESLint, ci-release, build, and diff-check passed.",
+      "changed_files": [
+        "android-support/README.md",
+        "android-support/action.yml",
+        "android-support/__tests__/action-contract.test.ts",
+        "android-support/scripts/check-contract-drift.mjs"
+      ],
       "blocked_reason": null,
-      "last_updated": "2026-06-13T10:19:08.348647+00:00"
+      "last_updated": "2026-06-13T10:25:56.527984+00:00"
     },
     {
       "id": "ASUP-043",
@@ -1283,15 +1296,28 @@
       "severity": "P2",
       "effort": "S",
       "task_id": "T02-android-support-dx-docs",
-      "status": "assigned",
+      "status": "verified",
       "owner": "Chandrasekhar",
       "title": "APK signing 도구 전제 조건이 README에 없음",
       "file_path": "android-support/src/signing.ts:34",
-      "verification_commands": [],
-      "verification_result": "Assigned to subagent Chandrasekhar for android-support dx-docs slice; leader will verify before marking complete.",
-      "changed_files": [],
+      "verification_commands": [
+        "android-support: bun run check:contract",
+        "android-support: bun run typecheck",
+        "android-support: ./node_modules/.bin/eslint . --ext .ts",
+        "android-support: bun run test",
+        "android-support: bun run check:ci-release",
+        "android-support: bun run build",
+        "android-support: git diff --check"
+      ],
+      "verification_result": "Committed eab61acbd0a503877daef597b89d9ee6725b5751; README/action metadata/output docs aligned, contract drift clean with 25 consumed/25 documented inputs, 11 suites / 174 tests / 100% coverage, typecheck, ESLint, ci-release, build, and diff-check passed.",
+      "changed_files": [
+        "android-support/README.md",
+        "android-support/action.yml",
+        "android-support/__tests__/action-contract.test.ts",
+        "android-support/scripts/check-contract-drift.mjs"
+      ],
       "blocked_reason": null,
-      "last_updated": "2026-06-13T10:19:08.348647+00:00"
+      "last_updated": "2026-06-13T10:25:56.527984+00:00"
     },
     {
       "id": "ASUP-044",
@@ -1300,15 +1326,28 @@
       "severity": "P2",
       "effort": "S",
       "task_id": "T02-android-support-dx-docs",
-      "status": "assigned",
+      "status": "verified",
       "owner": "Chandrasekhar",
       "title": "DEBUG_ACTION 환경변수의 short-circuit 동작이 숨겨져 있음",
       "file_path": "android-support/src/main.ts:252",
-      "verification_commands": [],
-      "verification_result": "Assigned to subagent Chandrasekhar for android-support dx-docs slice; leader will verify before marking complete.",
-      "changed_files": [],
+      "verification_commands": [
+        "android-support: bun run check:contract",
+        "android-support: bun run typecheck",
+        "android-support: ./node_modules/.bin/eslint . --ext .ts",
+        "android-support: bun run test",
+        "android-support: bun run check:ci-release",
+        "android-support: bun run build",
+        "android-support: git diff --check"
+      ],
+      "verification_result": "Committed eab61acbd0a503877daef597b89d9ee6725b5751; README/action metadata/output docs aligned, contract drift clean with 25 consumed/25 documented inputs, 11 suites / 174 tests / 100% coverage, typecheck, ESLint, ci-release, build, and diff-check passed.",
+      "changed_files": [
+        "android-support/README.md",
+        "android-support/action.yml",
+        "android-support/__tests__/action-contract.test.ts",
+        "android-support/scripts/check-contract-drift.mjs"
+      ],
       "blocked_reason": null,
-      "last_updated": "2026-06-13T10:19:08.348647+00:00"
+      "last_updated": "2026-06-13T10:25:56.527984+00:00"
     },
     {
       "id": "ASUP-045",
@@ -1317,15 +1356,28 @@
       "severity": "P2",
       "effort": "S",
       "task_id": "T02-android-support-dx-docs",
-      "status": "assigned",
+      "status": "verified",
       "owner": "Chandrasekhar",
       "title": "README 필수 입력 표기가 action.yml과 불일치",
       "file_path": "android-support/README.md:12",
-      "verification_commands": [],
-      "verification_result": "Assigned to subagent Chandrasekhar for android-support dx-docs slice; leader will verify before marking complete.",
-      "changed_files": [],
+      "verification_commands": [
+        "android-support: bun run check:contract",
+        "android-support: bun run typecheck",
+        "android-support: ./node_modules/.bin/eslint . --ext .ts",
+        "android-support: bun run test",
+        "android-support: bun run check:ci-release",
+        "android-support: bun run build",
+        "android-support: git diff --check"
+      ],
+      "verification_result": "Committed eab61acbd0a503877daef597b89d9ee6725b5751; README/action metadata/output docs aligned, contract drift clean with 25 consumed/25 documented inputs, 11 suites / 174 tests / 100% coverage, typecheck, ESLint, ci-release, build, and diff-check passed.",
+      "changed_files": [
+        "android-support/README.md",
+        "android-support/action.yml",
+        "android-support/__tests__/action-contract.test.ts",
+        "android-support/scripts/check-contract-drift.mjs"
+      ],
       "blocked_reason": null,
-      "last_updated": "2026-06-13T10:19:08.348647+00:00"
+      "last_updated": "2026-06-13T10:25:56.527984+00:00"
     },
     {
       "id": "ASUP-046",
@@ -1334,15 +1386,28 @@
       "severity": "P2",
       "effort": "S",
       "task_id": "T02-android-support-dx-docs",
-      "status": "assigned",
+      "status": "verified",
       "owner": "Chandrasekhar",
       "title": "dryRun 출력이 action.yml과 README Outputs에 없음",
       "file_path": "android-support/src/main.ts:174",
-      "verification_commands": [],
-      "verification_result": "Assigned to subagent Chandrasekhar for android-support dx-docs slice; leader will verify before marking complete.",
-      "changed_files": [],
+      "verification_commands": [
+        "android-support: bun run check:contract",
+        "android-support: bun run typecheck",
+        "android-support: ./node_modules/.bin/eslint . --ext .ts",
+        "android-support: bun run test",
+        "android-support: bun run check:ci-release",
+        "android-support: bun run build",
+        "android-support: git diff --check"
+      ],
+      "verification_result": "Committed eab61acbd0a503877daef597b89d9ee6725b5751; README/action metadata/output docs aligned, contract drift clean with 25 consumed/25 documented inputs, 11 suites / 174 tests / 100% coverage, typecheck, ESLint, ci-release, build, and diff-check passed.",
+      "changed_files": [
+        "android-support/README.md",
+        "android-support/action.yml",
+        "android-support/__tests__/action-contract.test.ts",
+        "android-support/scripts/check-contract-drift.mjs"
+      ],
       "blocked_reason": null,
-      "last_updated": "2026-06-13T10:19:08.348647+00:00"
+      "last_updated": "2026-06-13T10:25:56.527984+00:00"
     },
     {
       "id": "ASUP-047",
@@ -1351,15 +1416,28 @@
       "severity": "P2",
       "effort": "S",
       "task_id": "T02-android-support-dx-docs",
-      "status": "assigned",
+      "status": "verified",
       "owner": "Chandrasekhar",
       "title": "mappingFile/debugSymbols의 APK 전용 동작이 README에 없음",
       "file_path": "android-support/src/edits.ts:439",
-      "verification_commands": [],
-      "verification_result": "Assigned to subagent Chandrasekhar for android-support dx-docs slice; leader will verify before marking complete.",
-      "changed_files": [],
+      "verification_commands": [
+        "android-support: bun run check:contract",
+        "android-support: bun run typecheck",
+        "android-support: ./node_modules/.bin/eslint . --ext .ts",
+        "android-support: bun run test",
+        "android-support: bun run check:ci-release",
+        "android-support: bun run build",
+        "android-support: git diff --check"
+      ],
+      "verification_result": "Committed eab61acbd0a503877daef597b89d9ee6725b5751; README/action metadata/output docs aligned, contract drift clean with 25 consumed/25 documented inputs, 11 suites / 174 tests / 100% coverage, typecheck, ESLint, ci-release, build, and diff-check passed.",
+      "changed_files": [
+        "android-support/README.md",
+        "android-support/action.yml",
+        "android-support/__tests__/action-contract.test.ts",
+        "android-support/scripts/check-contract-drift.mjs"
+      ],
       "blocked_reason": null,
-      "last_updated": "2026-06-13T10:19:08.348647+00:00"
+      "last_updated": "2026-06-13T10:25:56.527984+00:00"
     },
     {
       "id": "ASUP-048",
@@ -1368,15 +1446,28 @@
       "severity": "P2",
       "effort": "S",
       "task_id": "T02-android-support-dx-docs",
-      "status": "assigned",
+      "status": "verified",
       "owner": "Chandrasekhar",
       "title": "plural internalSharingDownloadUrls 출력 계약이 action.yml에 없음",
       "file_path": "android-support/action.yml:89",
-      "verification_commands": [],
-      "verification_result": "Assigned to subagent Chandrasekhar for android-support dx-docs slice; leader will verify before marking complete.",
-      "changed_files": [],
+      "verification_commands": [
+        "android-support: bun run check:contract",
+        "android-support: bun run typecheck",
+        "android-support: ./node_modules/.bin/eslint . --ext .ts",
+        "android-support: bun run test",
+        "android-support: bun run check:ci-release",
+        "android-support: bun run build",
+        "android-support: git diff --check"
+      ],
+      "verification_result": "Committed eab61acbd0a503877daef597b89d9ee6725b5751; README/action metadata/output docs aligned, contract drift clean with 25 consumed/25 documented inputs, 11 suites / 174 tests / 100% coverage, typecheck, ESLint, ci-release, build, and diff-check passed.",
+      "changed_files": [
+        "android-support/README.md",
+        "android-support/action.yml",
+        "android-support/__tests__/action-contract.test.ts",
+        "android-support/scripts/check-contract-drift.mjs"
+      ],
       "blocked_reason": null,
-      "last_updated": "2026-06-13T10:19:08.348647+00:00"
+      "last_updated": "2026-06-13T10:25:56.527984+00:00"
     },
     {
       "id": "ASUP-049",
@@ -1385,15 +1476,28 @@
       "severity": "P2",
       "effort": "S",
       "task_id": "T02-android-support-dx-docs",
-      "status": "assigned",
+      "status": "verified",
       "owner": "Chandrasekhar",
       "title": "releaseNotes 직접 입력의 우선순위가 README에 없음",
       "file_path": "android-support/src/main.ts:321",
-      "verification_commands": [],
-      "verification_result": "Assigned to subagent Chandrasekhar for android-support dx-docs slice; leader will verify before marking complete.",
-      "changed_files": [],
+      "verification_commands": [
+        "android-support: bun run check:contract",
+        "android-support: bun run typecheck",
+        "android-support: ./node_modules/.bin/eslint . --ext .ts",
+        "android-support: bun run test",
+        "android-support: bun run check:ci-release",
+        "android-support: bun run build",
+        "android-support: git diff --check"
+      ],
+      "verification_result": "Committed eab61acbd0a503877daef597b89d9ee6725b5751; README/action metadata/output docs aligned, contract drift clean with 25 consumed/25 documented inputs, 11 suites / 174 tests / 100% coverage, typecheck, ESLint, ci-release, build, and diff-check passed.",
+      "changed_files": [
+        "android-support/README.md",
+        "android-support/action.yml",
+        "android-support/__tests__/action-contract.test.ts",
+        "android-support/scripts/check-contract-drift.mjs"
+      ],
       "blocked_reason": null,
-      "last_updated": "2026-06-13T10:19:08.348647+00:00"
+      "last_updated": "2026-06-13T10:25:56.527984+00:00"
     },
     {
       "id": "ASUP-050",
@@ -1402,15 +1506,28 @@
       "severity": "P2",
       "effort": "S",
       "task_id": "T02-android-support-dx-docs",
-      "status": "assigned",
+      "status": "verified",
       "owner": "Chandrasekhar",
       "title": "releaseNotesSource 입력이 README에 없음",
       "file_path": "android-support/action.yml:47",
-      "verification_commands": [],
-      "verification_result": "Assigned to subagent Chandrasekhar for android-support dx-docs slice; leader will verify before marking complete.",
-      "changed_files": [],
+      "verification_commands": [
+        "android-support: bun run check:contract",
+        "android-support: bun run typecheck",
+        "android-support: ./node_modules/.bin/eslint . --ext .ts",
+        "android-support: bun run test",
+        "android-support: bun run check:ci-release",
+        "android-support: bun run build",
+        "android-support: git diff --check"
+      ],
+      "verification_result": "Committed eab61acbd0a503877daef597b89d9ee6725b5751; README/action metadata/output docs aligned, contract drift clean with 25 consumed/25 documented inputs, 11 suites / 174 tests / 100% coverage, typecheck, ESLint, ci-release, build, and diff-check passed.",
+      "changed_files": [
+        "android-support/README.md",
+        "android-support/action.yml",
+        "android-support/__tests__/action-contract.test.ts",
+        "android-support/scripts/check-contract-drift.mjs"
+      ],
       "blocked_reason": null,
-      "last_updated": "2026-06-13T10:19:08.348647+00:00"
+      "last_updated": "2026-06-13T10:25:56.527984+00:00"
     },
     {
       "id": "ASUP-051",
@@ -1419,15 +1536,28 @@
       "severity": "P2",
       "effort": "S",
       "task_id": "T02-android-support-dx-docs",
-      "status": "assigned",
+      "status": "verified",
       "owner": "Chandrasekhar",
       "title": "sign 모드 입력이 README 입력 표에 없음",
       "file_path": "android-support/action.yml:70",
-      "verification_commands": [],
-      "verification_result": "Assigned to subagent Chandrasekhar for android-support dx-docs slice; leader will verify before marking complete.",
-      "changed_files": [],
+      "verification_commands": [
+        "android-support: bun run check:contract",
+        "android-support: bun run typecheck",
+        "android-support: ./node_modules/.bin/eslint . --ext .ts",
+        "android-support: bun run test",
+        "android-support: bun run check:ci-release",
+        "android-support: bun run build",
+        "android-support: git diff --check"
+      ],
+      "verification_result": "Committed eab61acbd0a503877daef597b89d9ee6725b5751; README/action metadata/output docs aligned, contract drift clean with 25 consumed/25 documented inputs, 11 suites / 174 tests / 100% coverage, typecheck, ESLint, ci-release, build, and diff-check passed.",
+      "changed_files": [
+        "android-support/README.md",
+        "android-support/action.yml",
+        "android-support/__tests__/action-contract.test.ts",
+        "android-support/scripts/check-contract-drift.mjs"
+      ],
       "blocked_reason": null,
-      "last_updated": "2026-06-13T10:19:08.348647+00:00"
+      "last_updated": "2026-06-13T10:25:56.527984+00:00"
     },
     {
       "id": "ASUP-052",
@@ -1436,15 +1566,28 @@
       "severity": "P2",
       "effort": "S",
       "task_id": "T02-android-support-dx-docs",
-      "status": "assigned",
+      "status": "verified",
       "owner": "Chandrasekhar",
       "title": "sign 모드 출력이 README Outputs에 빠져 있음",
       "file_path": "android-support/action.yml:91",
-      "verification_commands": [],
-      "verification_result": "Assigned to subagent Chandrasekhar for android-support dx-docs slice; leader will verify before marking complete.",
-      "changed_files": [],
+      "verification_commands": [
+        "android-support: bun run check:contract",
+        "android-support: bun run typecheck",
+        "android-support: ./node_modules/.bin/eslint . --ext .ts",
+        "android-support: bun run test",
+        "android-support: bun run check:ci-release",
+        "android-support: bun run build",
+        "android-support: git diff --check"
+      ],
+      "verification_result": "Committed eab61acbd0a503877daef597b89d9ee6725b5751; README/action metadata/output docs aligned, contract drift clean with 25 consumed/25 documented inputs, 11 suites / 174 tests / 100% coverage, typecheck, ESLint, ci-release, build, and diff-check passed.",
+      "changed_files": [
+        "android-support/README.md",
+        "android-support/action.yml",
+        "android-support/__tests__/action-contract.test.ts",
+        "android-support/scripts/check-contract-drift.mjs"
+      ],
       "blocked_reason": null,
-      "last_updated": "2026-06-13T10:19:08.348647+00:00"
+      "last_updated": "2026-06-13T10:25:56.527984+00:00"
     },
     {
       "id": "ASUP-053",
@@ -1453,15 +1596,28 @@
       "severity": "P2",
       "effort": "M",
       "task_id": "T02-android-support-dx-docs",
-      "status": "assigned",
+      "status": "verified",
       "owner": "Chandrasekhar",
       "title": "whatsNewDirectory locale 규칙과 구현 패턴이 맞지 않음",
       "file_path": "android-support/src/whatsnew.ts:24",
-      "verification_commands": [],
-      "verification_result": "Assigned to subagent Chandrasekhar for android-support dx-docs slice; leader will verify before marking complete.",
-      "changed_files": [],
+      "verification_commands": [
+        "android-support: bun run check:contract",
+        "android-support: bun run typecheck",
+        "android-support: ./node_modules/.bin/eslint . --ext .ts",
+        "android-support: bun run test",
+        "android-support: bun run check:ci-release",
+        "android-support: bun run build",
+        "android-support: git diff --check"
+      ],
+      "verification_result": "Committed eab61acbd0a503877daef597b89d9ee6725b5751; README/action metadata/output docs aligned, contract drift clean with 25 consumed/25 documented inputs, 11 suites / 174 tests / 100% coverage, typecheck, ESLint, ci-release, build, and diff-check passed.",
+      "changed_files": [
+        "android-support/README.md",
+        "android-support/action.yml",
+        "android-support/__tests__/action-contract.test.ts",
+        "android-support/scripts/check-contract-drift.mjs"
+      ],
       "blocked_reason": null,
-      "last_updated": "2026-06-13T10:19:08.348647+00:00"
+      "last_updated": "2026-06-13T10:25:56.527984+00:00"
     },
     {
       "id": "ASUP-054",
@@ -1470,15 +1626,28 @@
       "severity": "P2",
       "effort": "S",
       "task_id": "T02-android-support-dx-docs",
-      "status": "assigned",
+      "status": "verified",
       "owner": "Chandrasekhar",
       "title": "서비스 계정 입력의 one-of 규칙 문서가 불명확함",
       "file_path": "android-support/src/main.ts:225",
-      "verification_commands": [],
-      "verification_result": "Assigned to subagent Chandrasekhar for android-support dx-docs slice; leader will verify before marking complete.",
-      "changed_files": [],
+      "verification_commands": [
+        "android-support: bun run check:contract",
+        "android-support: bun run typecheck",
+        "android-support: ./node_modules/.bin/eslint . --ext .ts",
+        "android-support: bun run test",
+        "android-support: bun run check:ci-release",
+        "android-support: bun run build",
+        "android-support: git diff --check"
+      ],
+      "verification_result": "Committed eab61acbd0a503877daef597b89d9ee6725b5751; README/action metadata/output docs aligned, contract drift clean with 25 consumed/25 documented inputs, 11 suites / 174 tests / 100% coverage, typecheck, ESLint, ci-release, build, and diff-check passed.",
+      "changed_files": [
+        "android-support/README.md",
+        "android-support/action.yml",
+        "android-support/__tests__/action-contract.test.ts",
+        "android-support/scripts/check-contract-drift.mjs"
+      ],
       "blocked_reason": null,
-      "last_updated": "2026-06-13T10:19:08.348647+00:00"
+      "last_updated": "2026-06-13T10:25:56.527984+00:00"
     },
     {
       "id": "ASUP-007",
@@ -4372,15 +4541,41 @@
       "severity": "P1",
       "effort": "S",
       "task_id": "T09-all-web-ui-component-quality",
-      "status": "assigned",
+      "status": "verified",
       "owner": "Halley",
       "title": "AlertTitle ref 타입이 heading 렌더링과 불일치",
       "file_path": "all-web-ui/src/components/alert.tsx:29",
-      "verification_commands": [],
-      "verification_result": "Assigned to subagent Halley for all-web-ui component-quality slice; leader will verify before marking complete.",
-      "changed_files": [],
+      "verification_commands": [
+        "all-web-ui: bun run typecheck",
+        "all-web-ui: bun test",
+        "all-web-ui: bun run build",
+        "all-web-ui: bun run package:smoke",
+        "all-web-ui: bun run pack:verify",
+        "root: bun run report:shared-ui",
+        "root: ./scripts/verify-all-web-ui-integration.sh --full",
+        "all-web-ui: git diff --check"
+      ],
+      "verification_result": "Committed 851ab59a81fdb1acf03b886f85cba06e7b348dfc. Typecheck, 34 tests with 493 expects, build with dist contract, consumer smoke, npm pack dry-run with 84 files, root shared-ui report, and diff-check passed. Strict root full integration still fails only on rich/web generic primitive allowlist drift, carried to T43.",
+      "changed_files": [
+        "all-web-ui/src/components/alert.tsx",
+        "all-web-ui/src/components/breadcrumb.tsx",
+        "all-web-ui/src/components/card.tsx",
+        "all-web-ui/src/components/hover-card.tsx",
+        "all-web-ui/src/components/loading-status.tsx",
+        "all-web-ui/src/components/metric-card.tsx",
+        "all-web-ui/src/components/panel.tsx",
+        "all-web-ui/src/components/progress.tsx",
+        "all-web-ui/src/components/slider.tsx",
+        "all-web-ui/src/components/switch.tsx",
+        "all-web-ui/src/components/table.tsx",
+        "all-web-ui/src/components/tooltip.tsx",
+        "all-web-ui/src/index.ts",
+        "all-web-ui/src/lib/polymorphic.ts",
+        "all-web-ui/tests/components.test.tsx",
+        "all-web-ui/tests/components/interaction.test.tsx"
+      ],
       "blocked_reason": null,
-      "last_updated": "2026-06-13T10:19:16.550098+00:00"
+      "last_updated": "2026-06-13T10:31:05.689982+00:00"
     },
     {
       "id": "AWUI-005",
@@ -4389,15 +4584,41 @@
       "severity": "P1",
       "effort": "S",
       "task_id": "T09-all-web-ui-component-quality",
-      "status": "assigned",
+      "status": "verified",
       "owner": "Halley",
       "title": "Breadcrumb의 separator prop이 DOM으로 누수됨",
       "file_path": "all-web-ui/src/components/breadcrumb.tsx:7",
-      "verification_commands": [],
-      "verification_result": "Assigned to subagent Halley for all-web-ui component-quality slice; leader will verify before marking complete.",
-      "changed_files": [],
+      "verification_commands": [
+        "all-web-ui: bun run typecheck",
+        "all-web-ui: bun test",
+        "all-web-ui: bun run build",
+        "all-web-ui: bun run package:smoke",
+        "all-web-ui: bun run pack:verify",
+        "root: bun run report:shared-ui",
+        "root: ./scripts/verify-all-web-ui-integration.sh --full",
+        "all-web-ui: git diff --check"
+      ],
+      "verification_result": "Committed 851ab59a81fdb1acf03b886f85cba06e7b348dfc. Typecheck, 34 tests with 493 expects, build with dist contract, consumer smoke, npm pack dry-run with 84 files, root shared-ui report, and diff-check passed. Strict root full integration still fails only on rich/web generic primitive allowlist drift, carried to T43.",
+      "changed_files": [
+        "all-web-ui/src/components/alert.tsx",
+        "all-web-ui/src/components/breadcrumb.tsx",
+        "all-web-ui/src/components/card.tsx",
+        "all-web-ui/src/components/hover-card.tsx",
+        "all-web-ui/src/components/loading-status.tsx",
+        "all-web-ui/src/components/metric-card.tsx",
+        "all-web-ui/src/components/panel.tsx",
+        "all-web-ui/src/components/progress.tsx",
+        "all-web-ui/src/components/slider.tsx",
+        "all-web-ui/src/components/switch.tsx",
+        "all-web-ui/src/components/table.tsx",
+        "all-web-ui/src/components/tooltip.tsx",
+        "all-web-ui/src/index.ts",
+        "all-web-ui/src/lib/polymorphic.ts",
+        "all-web-ui/tests/components.test.tsx",
+        "all-web-ui/tests/components/interaction.test.tsx"
+      ],
       "blocked_reason": null,
-      "last_updated": "2026-06-13T10:19:16.550098+00:00"
+      "last_updated": "2026-06-13T10:31:05.689982+00:00"
     },
     {
       "id": "AWUI-006",
@@ -4406,15 +4627,41 @@
       "severity": "P1",
       "effort": "S",
       "task_id": "T09-all-web-ui-component-quality",
-      "status": "assigned",
+      "status": "verified",
       "owner": "Halley",
       "title": "CardTitle ref 타입이 실제 h3 요소와 다름",
       "file_path": "all-web-ui/src/components/card.tsx:19",
-      "verification_commands": [],
-      "verification_result": "Assigned to subagent Halley for all-web-ui component-quality slice; leader will verify before marking complete.",
-      "changed_files": [],
+      "verification_commands": [
+        "all-web-ui: bun run typecheck",
+        "all-web-ui: bun test",
+        "all-web-ui: bun run build",
+        "all-web-ui: bun run package:smoke",
+        "all-web-ui: bun run pack:verify",
+        "root: bun run report:shared-ui",
+        "root: ./scripts/verify-all-web-ui-integration.sh --full",
+        "all-web-ui: git diff --check"
+      ],
+      "verification_result": "Committed 851ab59a81fdb1acf03b886f85cba06e7b348dfc. Typecheck, 34 tests with 493 expects, build with dist contract, consumer smoke, npm pack dry-run with 84 files, root shared-ui report, and diff-check passed. Strict root full integration still fails only on rich/web generic primitive allowlist drift, carried to T43.",
+      "changed_files": [
+        "all-web-ui/src/components/alert.tsx",
+        "all-web-ui/src/components/breadcrumb.tsx",
+        "all-web-ui/src/components/card.tsx",
+        "all-web-ui/src/components/hover-card.tsx",
+        "all-web-ui/src/components/loading-status.tsx",
+        "all-web-ui/src/components/metric-card.tsx",
+        "all-web-ui/src/components/panel.tsx",
+        "all-web-ui/src/components/progress.tsx",
+        "all-web-ui/src/components/slider.tsx",
+        "all-web-ui/src/components/switch.tsx",
+        "all-web-ui/src/components/table.tsx",
+        "all-web-ui/src/components/tooltip.tsx",
+        "all-web-ui/src/index.ts",
+        "all-web-ui/src/lib/polymorphic.ts",
+        "all-web-ui/tests/components.test.tsx",
+        "all-web-ui/tests/components/interaction.test.tsx"
+      ],
       "blocked_reason": null,
-      "last_updated": "2026-06-13T10:19:16.550098+00:00"
+      "last_updated": "2026-06-13T10:31:05.689982+00:00"
     },
     {
       "id": "AWUI-007",
@@ -4423,15 +4670,41 @@
       "severity": "P1",
       "effort": "M",
       "task_id": "T09-all-web-ui-component-quality",
-      "status": "assigned",
+      "status": "verified",
       "owner": "Halley",
       "title": "Switch의 이벤트 계약이 ButtonHTMLAttributes와 충돌함",
       "file_path": "all-web-ui/src/components/switch.tsx:6",
-      "verification_commands": [],
-      "verification_result": "Assigned to subagent Halley for all-web-ui component-quality slice; leader will verify before marking complete.",
-      "changed_files": [],
+      "verification_commands": [
+        "all-web-ui: bun run typecheck",
+        "all-web-ui: bun test",
+        "all-web-ui: bun run build",
+        "all-web-ui: bun run package:smoke",
+        "all-web-ui: bun run pack:verify",
+        "root: bun run report:shared-ui",
+        "root: ./scripts/verify-all-web-ui-integration.sh --full",
+        "all-web-ui: git diff --check"
+      ],
+      "verification_result": "Committed 851ab59a81fdb1acf03b886f85cba06e7b348dfc. Typecheck, 34 tests with 493 expects, build with dist contract, consumer smoke, npm pack dry-run with 84 files, root shared-ui report, and diff-check passed. Strict root full integration still fails only on rich/web generic primitive allowlist drift, carried to T43.",
+      "changed_files": [
+        "all-web-ui/src/components/alert.tsx",
+        "all-web-ui/src/components/breadcrumb.tsx",
+        "all-web-ui/src/components/card.tsx",
+        "all-web-ui/src/components/hover-card.tsx",
+        "all-web-ui/src/components/loading-status.tsx",
+        "all-web-ui/src/components/metric-card.tsx",
+        "all-web-ui/src/components/panel.tsx",
+        "all-web-ui/src/components/progress.tsx",
+        "all-web-ui/src/components/slider.tsx",
+        "all-web-ui/src/components/switch.tsx",
+        "all-web-ui/src/components/table.tsx",
+        "all-web-ui/src/components/tooltip.tsx",
+        "all-web-ui/src/index.ts",
+        "all-web-ui/src/lib/polymorphic.ts",
+        "all-web-ui/tests/components.test.tsx",
+        "all-web-ui/tests/components/interaction.test.tsx"
+      ],
       "blocked_reason": null,
-      "last_updated": "2026-06-13T10:19:16.550098+00:00"
+      "last_updated": "2026-06-13T10:31:05.689982+00:00"
     },
     {
       "id": "AWUI-057",
@@ -4440,15 +4713,41 @@
       "severity": "P2",
       "effort": "S",
       "task_id": "T09-all-web-ui-component-quality",
-      "status": "assigned",
+      "status": "verified",
       "owner": "Halley",
       "title": "HoverCardContent만 Portal 없이 레이어를 렌더링",
       "file_path": "all-web-ui/src/components/hover-card.tsx:12",
-      "verification_commands": [],
-      "verification_result": "Assigned to subagent Halley for all-web-ui component-quality slice; leader will verify before marking complete.",
-      "changed_files": [],
+      "verification_commands": [
+        "all-web-ui: bun run typecheck",
+        "all-web-ui: bun test",
+        "all-web-ui: bun run build",
+        "all-web-ui: bun run package:smoke",
+        "all-web-ui: bun run pack:verify",
+        "root: bun run report:shared-ui",
+        "root: ./scripts/verify-all-web-ui-integration.sh --full",
+        "all-web-ui: git diff --check"
+      ],
+      "verification_result": "Committed 851ab59a81fdb1acf03b886f85cba06e7b348dfc. Typecheck, 34 tests with 493 expects, build with dist contract, consumer smoke, npm pack dry-run with 84 files, root shared-ui report, and diff-check passed. Strict root full integration still fails only on rich/web generic primitive allowlist drift, carried to T43.",
+      "changed_files": [
+        "all-web-ui/src/components/alert.tsx",
+        "all-web-ui/src/components/breadcrumb.tsx",
+        "all-web-ui/src/components/card.tsx",
+        "all-web-ui/src/components/hover-card.tsx",
+        "all-web-ui/src/components/loading-status.tsx",
+        "all-web-ui/src/components/metric-card.tsx",
+        "all-web-ui/src/components/panel.tsx",
+        "all-web-ui/src/components/progress.tsx",
+        "all-web-ui/src/components/slider.tsx",
+        "all-web-ui/src/components/switch.tsx",
+        "all-web-ui/src/components/table.tsx",
+        "all-web-ui/src/components/tooltip.tsx",
+        "all-web-ui/src/index.ts",
+        "all-web-ui/src/lib/polymorphic.ts",
+        "all-web-ui/tests/components.test.tsx",
+        "all-web-ui/tests/components/interaction.test.tsx"
+      ],
       "blocked_reason": null,
-      "last_updated": "2026-06-13T10:19:16.550098+00:00"
+      "last_updated": "2026-06-13T10:31:05.689982+00:00"
     },
     {
       "id": "AWUI-058",
@@ -4457,15 +4756,41 @@
       "severity": "P2",
       "effort": "S",
       "task_id": "T09-all-web-ui-component-quality",
-      "status": "assigned",
+      "status": "verified",
       "owner": "Halley",
       "title": "LoadingStatus activeStep이 범위 검증 없이 완료 상태를 계산",
       "file_path": "all-web-ui/src/components/loading-status.tsx:41",
-      "verification_commands": [],
-      "verification_result": "Assigned to subagent Halley for all-web-ui component-quality slice; leader will verify before marking complete.",
-      "changed_files": [],
+      "verification_commands": [
+        "all-web-ui: bun run typecheck",
+        "all-web-ui: bun test",
+        "all-web-ui: bun run build",
+        "all-web-ui: bun run package:smoke",
+        "all-web-ui: bun run pack:verify",
+        "root: bun run report:shared-ui",
+        "root: ./scripts/verify-all-web-ui-integration.sh --full",
+        "all-web-ui: git diff --check"
+      ],
+      "verification_result": "Committed 851ab59a81fdb1acf03b886f85cba06e7b348dfc. Typecheck, 34 tests with 493 expects, build with dist contract, consumer smoke, npm pack dry-run with 84 files, root shared-ui report, and diff-check passed. Strict root full integration still fails only on rich/web generic primitive allowlist drift, carried to T43.",
+      "changed_files": [
+        "all-web-ui/src/components/alert.tsx",
+        "all-web-ui/src/components/breadcrumb.tsx",
+        "all-web-ui/src/components/card.tsx",
+        "all-web-ui/src/components/hover-card.tsx",
+        "all-web-ui/src/components/loading-status.tsx",
+        "all-web-ui/src/components/metric-card.tsx",
+        "all-web-ui/src/components/panel.tsx",
+        "all-web-ui/src/components/progress.tsx",
+        "all-web-ui/src/components/slider.tsx",
+        "all-web-ui/src/components/switch.tsx",
+        "all-web-ui/src/components/table.tsx",
+        "all-web-ui/src/components/tooltip.tsx",
+        "all-web-ui/src/index.ts",
+        "all-web-ui/src/lib/polymorphic.ts",
+        "all-web-ui/tests/components.test.tsx",
+        "all-web-ui/tests/components/interaction.test.tsx"
+      ],
       "blocked_reason": null,
-      "last_updated": "2026-06-13T10:19:16.550098+00:00"
+      "last_updated": "2026-06-13T10:31:05.689982+00:00"
     },
     {
       "id": "AWUI-059",
@@ -4474,15 +4799,41 @@
       "severity": "P2",
       "effort": "S",
       "task_id": "T09-all-web-ui-component-quality",
-      "status": "assigned",
+      "status": "verified",
       "owner": "Halley",
       "title": "LoadingStatus가 div HTML 속성을 받을 수 없음",
       "file_path": "all-web-ui/src/components/loading-status.tsx:5",
-      "verification_commands": [],
-      "verification_result": "Assigned to subagent Halley for all-web-ui component-quality slice; leader will verify before marking complete.",
-      "changed_files": [],
+      "verification_commands": [
+        "all-web-ui: bun run typecheck",
+        "all-web-ui: bun test",
+        "all-web-ui: bun run build",
+        "all-web-ui: bun run package:smoke",
+        "all-web-ui: bun run pack:verify",
+        "root: bun run report:shared-ui",
+        "root: ./scripts/verify-all-web-ui-integration.sh --full",
+        "all-web-ui: git diff --check"
+      ],
+      "verification_result": "Committed 851ab59a81fdb1acf03b886f85cba06e7b348dfc. Typecheck, 34 tests with 493 expects, build with dist contract, consumer smoke, npm pack dry-run with 84 files, root shared-ui report, and diff-check passed. Strict root full integration still fails only on rich/web generic primitive allowlist drift, carried to T43.",
+      "changed_files": [
+        "all-web-ui/src/components/alert.tsx",
+        "all-web-ui/src/components/breadcrumb.tsx",
+        "all-web-ui/src/components/card.tsx",
+        "all-web-ui/src/components/hover-card.tsx",
+        "all-web-ui/src/components/loading-status.tsx",
+        "all-web-ui/src/components/metric-card.tsx",
+        "all-web-ui/src/components/panel.tsx",
+        "all-web-ui/src/components/progress.tsx",
+        "all-web-ui/src/components/slider.tsx",
+        "all-web-ui/src/components/switch.tsx",
+        "all-web-ui/src/components/table.tsx",
+        "all-web-ui/src/components/tooltip.tsx",
+        "all-web-ui/src/index.ts",
+        "all-web-ui/src/lib/polymorphic.ts",
+        "all-web-ui/tests/components.test.tsx",
+        "all-web-ui/tests/components/interaction.test.tsx"
+      ],
       "blocked_reason": null,
-      "last_updated": "2026-06-13T10:19:16.550098+00:00"
+      "last_updated": "2026-06-13T10:31:05.689982+00:00"
     },
     {
       "id": "AWUI-060",
@@ -4491,15 +4842,41 @@
       "severity": "P2",
       "effort": "M",
       "task_id": "T09-all-web-ui-component-quality",
-      "status": "assigned",
+      "status": "verified",
       "owner": "Halley",
       "title": "Metric primitives가 as를 지원하면서 ref를 버림",
       "file_path": "all-web-ui/src/components/metric-card.tsx:11",
-      "verification_commands": [],
-      "verification_result": "Assigned to subagent Halley for all-web-ui component-quality slice; leader will verify before marking complete.",
-      "changed_files": [],
+      "verification_commands": [
+        "all-web-ui: bun run typecheck",
+        "all-web-ui: bun test",
+        "all-web-ui: bun run build",
+        "all-web-ui: bun run package:smoke",
+        "all-web-ui: bun run pack:verify",
+        "root: bun run report:shared-ui",
+        "root: ./scripts/verify-all-web-ui-integration.sh --full",
+        "all-web-ui: git diff --check"
+      ],
+      "verification_result": "Committed 851ab59a81fdb1acf03b886f85cba06e7b348dfc. Typecheck, 34 tests with 493 expects, build with dist contract, consumer smoke, npm pack dry-run with 84 files, root shared-ui report, and diff-check passed. Strict root full integration still fails only on rich/web generic primitive allowlist drift, carried to T43.",
+      "changed_files": [
+        "all-web-ui/src/components/alert.tsx",
+        "all-web-ui/src/components/breadcrumb.tsx",
+        "all-web-ui/src/components/card.tsx",
+        "all-web-ui/src/components/hover-card.tsx",
+        "all-web-ui/src/components/loading-status.tsx",
+        "all-web-ui/src/components/metric-card.tsx",
+        "all-web-ui/src/components/panel.tsx",
+        "all-web-ui/src/components/progress.tsx",
+        "all-web-ui/src/components/slider.tsx",
+        "all-web-ui/src/components/switch.tsx",
+        "all-web-ui/src/components/table.tsx",
+        "all-web-ui/src/components/tooltip.tsx",
+        "all-web-ui/src/index.ts",
+        "all-web-ui/src/lib/polymorphic.ts",
+        "all-web-ui/tests/components.test.tsx",
+        "all-web-ui/tests/components/interaction.test.tsx"
+      ],
       "blocked_reason": null,
-      "last_updated": "2026-06-13T10:19:16.550098+00:00"
+      "last_updated": "2026-06-13T10:31:05.689982+00:00"
     },
     {
       "id": "AWUI-061",
@@ -4508,15 +4885,41 @@
       "severity": "P2",
       "effort": "M",
       "task_id": "T09-all-web-ui-component-quality",
-      "status": "assigned",
+      "status": "verified",
       "owner": "Halley",
       "title": "Panel 다형성 root가 ref를 전달하지 못함",
       "file_path": "all-web-ui/src/components/panel.tsx:12",
-      "verification_commands": [],
-      "verification_result": "Assigned to subagent Halley for all-web-ui component-quality slice; leader will verify before marking complete.",
-      "changed_files": [],
+      "verification_commands": [
+        "all-web-ui: bun run typecheck",
+        "all-web-ui: bun test",
+        "all-web-ui: bun run build",
+        "all-web-ui: bun run package:smoke",
+        "all-web-ui: bun run pack:verify",
+        "root: bun run report:shared-ui",
+        "root: ./scripts/verify-all-web-ui-integration.sh --full",
+        "all-web-ui: git diff --check"
+      ],
+      "verification_result": "Committed 851ab59a81fdb1acf03b886f85cba06e7b348dfc. Typecheck, 34 tests with 493 expects, build with dist contract, consumer smoke, npm pack dry-run with 84 files, root shared-ui report, and diff-check passed. Strict root full integration still fails only on rich/web generic primitive allowlist drift, carried to T43.",
+      "changed_files": [
+        "all-web-ui/src/components/alert.tsx",
+        "all-web-ui/src/components/breadcrumb.tsx",
+        "all-web-ui/src/components/card.tsx",
+        "all-web-ui/src/components/hover-card.tsx",
+        "all-web-ui/src/components/loading-status.tsx",
+        "all-web-ui/src/components/metric-card.tsx",
+        "all-web-ui/src/components/panel.tsx",
+        "all-web-ui/src/components/progress.tsx",
+        "all-web-ui/src/components/slider.tsx",
+        "all-web-ui/src/components/switch.tsx",
+        "all-web-ui/src/components/table.tsx",
+        "all-web-ui/src/components/tooltip.tsx",
+        "all-web-ui/src/index.ts",
+        "all-web-ui/src/lib/polymorphic.ts",
+        "all-web-ui/tests/components.test.tsx",
+        "all-web-ui/tests/components/interaction.test.tsx"
+      ],
       "blocked_reason": null,
-      "last_updated": "2026-06-13T10:19:16.550098+00:00"
+      "last_updated": "2026-06-13T10:31:05.689982+00:00"
     },
     {
       "id": "AWUI-062",
@@ -4525,15 +4928,41 @@
       "severity": "P2",
       "effort": "S",
       "task_id": "T09-all-web-ui-component-quality",
-      "status": "assigned",
+      "status": "verified",
       "owner": "Halley",
       "title": "Progress value가 범위 밖 값을 그대로 transform에 반영",
       "file_path": "all-web-ui/src/components/progress.tsx:21",
-      "verification_commands": [],
-      "verification_result": "Assigned to subagent Halley for all-web-ui component-quality slice; leader will verify before marking complete.",
-      "changed_files": [],
+      "verification_commands": [
+        "all-web-ui: bun run typecheck",
+        "all-web-ui: bun test",
+        "all-web-ui: bun run build",
+        "all-web-ui: bun run package:smoke",
+        "all-web-ui: bun run pack:verify",
+        "root: bun run report:shared-ui",
+        "root: ./scripts/verify-all-web-ui-integration.sh --full",
+        "all-web-ui: git diff --check"
+      ],
+      "verification_result": "Committed 851ab59a81fdb1acf03b886f85cba06e7b348dfc. Typecheck, 34 tests with 493 expects, build with dist contract, consumer smoke, npm pack dry-run with 84 files, root shared-ui report, and diff-check passed. Strict root full integration still fails only on rich/web generic primitive allowlist drift, carried to T43.",
+      "changed_files": [
+        "all-web-ui/src/components/alert.tsx",
+        "all-web-ui/src/components/breadcrumb.tsx",
+        "all-web-ui/src/components/card.tsx",
+        "all-web-ui/src/components/hover-card.tsx",
+        "all-web-ui/src/components/loading-status.tsx",
+        "all-web-ui/src/components/metric-card.tsx",
+        "all-web-ui/src/components/panel.tsx",
+        "all-web-ui/src/components/progress.tsx",
+        "all-web-ui/src/components/slider.tsx",
+        "all-web-ui/src/components/switch.tsx",
+        "all-web-ui/src/components/table.tsx",
+        "all-web-ui/src/components/tooltip.tsx",
+        "all-web-ui/src/index.ts",
+        "all-web-ui/src/lib/polymorphic.ts",
+        "all-web-ui/tests/components.test.tsx",
+        "all-web-ui/tests/components/interaction.test.tsx"
+      ],
       "blocked_reason": null,
-      "last_updated": "2026-06-13T10:19:16.550098+00:00"
+      "last_updated": "2026-06-13T10:31:05.689982+00:00"
     },
     {
       "id": "AWUI-063",
@@ -4542,15 +4971,41 @@
       "severity": "P2",
       "effort": "M",
       "task_id": "T09-all-web-ui-component-quality",
-      "status": "assigned",
+      "status": "verified",
       "owner": "Halley",
       "title": "Slider가 다중 값 API를 받지만 Thumb은 하나만 렌더링",
       "file_path": "all-web-ui/src/components/slider.tsx:20",
-      "verification_commands": [],
-      "verification_result": "Assigned to subagent Halley for all-web-ui component-quality slice; leader will verify before marking complete.",
-      "changed_files": [],
+      "verification_commands": [
+        "all-web-ui: bun run typecheck",
+        "all-web-ui: bun test",
+        "all-web-ui: bun run build",
+        "all-web-ui: bun run package:smoke",
+        "all-web-ui: bun run pack:verify",
+        "root: bun run report:shared-ui",
+        "root: ./scripts/verify-all-web-ui-integration.sh --full",
+        "all-web-ui: git diff --check"
+      ],
+      "verification_result": "Committed 851ab59a81fdb1acf03b886f85cba06e7b348dfc. Typecheck, 34 tests with 493 expects, build with dist contract, consumer smoke, npm pack dry-run with 84 files, root shared-ui report, and diff-check passed. Strict root full integration still fails only on rich/web generic primitive allowlist drift, carried to T43.",
+      "changed_files": [
+        "all-web-ui/src/components/alert.tsx",
+        "all-web-ui/src/components/breadcrumb.tsx",
+        "all-web-ui/src/components/card.tsx",
+        "all-web-ui/src/components/hover-card.tsx",
+        "all-web-ui/src/components/loading-status.tsx",
+        "all-web-ui/src/components/metric-card.tsx",
+        "all-web-ui/src/components/panel.tsx",
+        "all-web-ui/src/components/progress.tsx",
+        "all-web-ui/src/components/slider.tsx",
+        "all-web-ui/src/components/switch.tsx",
+        "all-web-ui/src/components/table.tsx",
+        "all-web-ui/src/components/tooltip.tsx",
+        "all-web-ui/src/index.ts",
+        "all-web-ui/src/lib/polymorphic.ts",
+        "all-web-ui/tests/components.test.tsx",
+        "all-web-ui/tests/components/interaction.test.tsx"
+      ],
       "blocked_reason": null,
-      "last_updated": "2026-06-13T10:19:16.550098+00:00"
+      "last_updated": "2026-06-13T10:31:05.689982+00:00"
     },
     {
       "id": "AWUI-064",
@@ -4559,15 +5014,41 @@
       "severity": "P2",
       "effort": "S",
       "task_id": "T09-all-web-ui-component-quality",
-      "status": "assigned",
+      "status": "verified",
       "owner": "Halley",
       "title": "Table 계열 props가 DOM별 전용 타입보다 넓게 선언됨",
       "file_path": "all-web-ui/src/components/table.tsx:5",
-      "verification_commands": [],
-      "verification_result": "Assigned to subagent Halley for all-web-ui component-quality slice; leader will verify before marking complete.",
-      "changed_files": [],
+      "verification_commands": [
+        "all-web-ui: bun run typecheck",
+        "all-web-ui: bun test",
+        "all-web-ui: bun run build",
+        "all-web-ui: bun run package:smoke",
+        "all-web-ui: bun run pack:verify",
+        "root: bun run report:shared-ui",
+        "root: ./scripts/verify-all-web-ui-integration.sh --full",
+        "all-web-ui: git diff --check"
+      ],
+      "verification_result": "Committed 851ab59a81fdb1acf03b886f85cba06e7b348dfc. Typecheck, 34 tests with 493 expects, build with dist contract, consumer smoke, npm pack dry-run with 84 files, root shared-ui report, and diff-check passed. Strict root full integration still fails only on rich/web generic primitive allowlist drift, carried to T43.",
+      "changed_files": [
+        "all-web-ui/src/components/alert.tsx",
+        "all-web-ui/src/components/breadcrumb.tsx",
+        "all-web-ui/src/components/card.tsx",
+        "all-web-ui/src/components/hover-card.tsx",
+        "all-web-ui/src/components/loading-status.tsx",
+        "all-web-ui/src/components/metric-card.tsx",
+        "all-web-ui/src/components/panel.tsx",
+        "all-web-ui/src/components/progress.tsx",
+        "all-web-ui/src/components/slider.tsx",
+        "all-web-ui/src/components/switch.tsx",
+        "all-web-ui/src/components/table.tsx",
+        "all-web-ui/src/components/tooltip.tsx",
+        "all-web-ui/src/index.ts",
+        "all-web-ui/src/lib/polymorphic.ts",
+        "all-web-ui/tests/components.test.tsx",
+        "all-web-ui/tests/components/interaction.test.tsx"
+      ],
       "blocked_reason": null,
-      "last_updated": "2026-06-13T10:19:16.550098+00:00"
+      "last_updated": "2026-06-13T10:31:05.689982+00:00"
     },
     {
       "id": "AWUI-065",
@@ -4576,15 +5057,41 @@
       "severity": "P2",
       "effort": "M",
       "task_id": "T09-all-web-ui-component-quality",
-      "status": "assigned",
+      "status": "verified",
       "owner": "Halley",
       "title": "Table의 overflow wrapper를 제어할 API가 없음",
       "file_path": "all-web-ui/src/components/table.tsx:9",
-      "verification_commands": [],
-      "verification_result": "Assigned to subagent Halley for all-web-ui component-quality slice; leader will verify before marking complete.",
-      "changed_files": [],
+      "verification_commands": [
+        "all-web-ui: bun run typecheck",
+        "all-web-ui: bun test",
+        "all-web-ui: bun run build",
+        "all-web-ui: bun run package:smoke",
+        "all-web-ui: bun run pack:verify",
+        "root: bun run report:shared-ui",
+        "root: ./scripts/verify-all-web-ui-integration.sh --full",
+        "all-web-ui: git diff --check"
+      ],
+      "verification_result": "Committed 851ab59a81fdb1acf03b886f85cba06e7b348dfc. Typecheck, 34 tests with 493 expects, build with dist contract, consumer smoke, npm pack dry-run with 84 files, root shared-ui report, and diff-check passed. Strict root full integration still fails only on rich/web generic primitive allowlist drift, carried to T43.",
+      "changed_files": [
+        "all-web-ui/src/components/alert.tsx",
+        "all-web-ui/src/components/breadcrumb.tsx",
+        "all-web-ui/src/components/card.tsx",
+        "all-web-ui/src/components/hover-card.tsx",
+        "all-web-ui/src/components/loading-status.tsx",
+        "all-web-ui/src/components/metric-card.tsx",
+        "all-web-ui/src/components/panel.tsx",
+        "all-web-ui/src/components/progress.tsx",
+        "all-web-ui/src/components/slider.tsx",
+        "all-web-ui/src/components/switch.tsx",
+        "all-web-ui/src/components/table.tsx",
+        "all-web-ui/src/components/tooltip.tsx",
+        "all-web-ui/src/index.ts",
+        "all-web-ui/src/lib/polymorphic.ts",
+        "all-web-ui/tests/components.test.tsx",
+        "all-web-ui/tests/components/interaction.test.tsx"
+      ],
       "blocked_reason": null,
-      "last_updated": "2026-06-13T10:19:16.550098+00:00"
+      "last_updated": "2026-06-13T10:31:05.689982+00:00"
     },
     {
       "id": "AWUI-066",
@@ -4593,15 +5100,41 @@
       "severity": "P2",
       "effort": "S",
       "task_id": "T09-all-web-ui-component-quality",
-      "status": "assigned",
+      "status": "verified",
       "owner": "Halley",
       "title": "TooltipContent가 overlay 계열의 Portal/animation 규칙에서 벗어남",
       "file_path": "all-web-ui/src/components/tooltip.tsx:12",
-      "verification_commands": [],
-      "verification_result": "Assigned to subagent Halley for all-web-ui component-quality slice; leader will verify before marking complete.",
-      "changed_files": [],
+      "verification_commands": [
+        "all-web-ui: bun run typecheck",
+        "all-web-ui: bun test",
+        "all-web-ui: bun run build",
+        "all-web-ui: bun run package:smoke",
+        "all-web-ui: bun run pack:verify",
+        "root: bun run report:shared-ui",
+        "root: ./scripts/verify-all-web-ui-integration.sh --full",
+        "all-web-ui: git diff --check"
+      ],
+      "verification_result": "Committed 851ab59a81fdb1acf03b886f85cba06e7b348dfc. Typecheck, 34 tests with 493 expects, build with dist contract, consumer smoke, npm pack dry-run with 84 files, root shared-ui report, and diff-check passed. Strict root full integration still fails only on rich/web generic primitive allowlist drift, carried to T43.",
+      "changed_files": [
+        "all-web-ui/src/components/alert.tsx",
+        "all-web-ui/src/components/breadcrumb.tsx",
+        "all-web-ui/src/components/card.tsx",
+        "all-web-ui/src/components/hover-card.tsx",
+        "all-web-ui/src/components/loading-status.tsx",
+        "all-web-ui/src/components/metric-card.tsx",
+        "all-web-ui/src/components/panel.tsx",
+        "all-web-ui/src/components/progress.tsx",
+        "all-web-ui/src/components/slider.tsx",
+        "all-web-ui/src/components/switch.tsx",
+        "all-web-ui/src/components/table.tsx",
+        "all-web-ui/src/components/tooltip.tsx",
+        "all-web-ui/src/index.ts",
+        "all-web-ui/src/lib/polymorphic.ts",
+        "all-web-ui/tests/components.test.tsx",
+        "all-web-ui/tests/components/interaction.test.tsx"
+      ],
       "blocked_reason": null,
-      "last_updated": "2026-06-13T10:19:16.550098+00:00"
+      "last_updated": "2026-06-13T10:31:05.689982+00:00"
     },
     {
       "id": "AWUI-008",
@@ -6104,15 +6637,27 @@
       "severity": "P1",
       "effort": "S",
       "task_id": "T13-keelim-plugin-docs",
-      "status": "assigned",
+      "status": "verified",
       "owner": "Russell",
       "title": "README 수동 설치 경로가 현재 체크아웃과 다름",
       "file_path": "keelim-plugin/README.md:139",
-      "verification_commands": [],
-      "verification_result": "Assigned to subagent Russell for keelim-plugin docs slice; leader will verify before marking complete.",
-      "changed_files": [],
+      "verification_commands": [
+        "keelim-plugin: node --check scripts/gen-catalog.mjs",
+        "keelim-plugin: node scripts/gen-catalog.mjs --check",
+        "keelim-plugin: bash scripts/verify-skills.sh --require-codex-meta",
+        "keelim-plugin: bash scripts/check.sh",
+        "keelim-plugin: PRE_COMMIT_HOME=.skillopt/pre-commit-cache uv --cache-dir .skillopt/uv-cache run --python 3.12 --group dev pre-commit run --all-files",
+        "keelim-plugin: git diff --check"
+      ],
+      "verification_result": "Committed e2d3633d76eb20839b0f698a4fb6ad3bc7dd0892. Catalog docs and generator updates passed node check, catalog check, 8 of 8 skill validation, full check, pre-commit all-files, and diff-check.",
+      "changed_files": [
+        "keelim-plugin/README.md",
+        "keelim-plugin/scripts/gen-catalog.mjs",
+        "keelim-plugin/CATALOG.md",
+        "keelim-plugin/catalog.json"
+      ],
       "blocked_reason": null,
-      "last_updated": "2026-06-13T10:19:23.827970+00:00"
+      "last_updated": "2026-06-13T10:31:11.932346+00:00"
     },
     {
       "id": "KPLG-029",
@@ -6121,15 +6666,27 @@
       "severity": "P2",
       "effort": "M",
       "task_id": "T13-keelim-plugin-docs",
-      "status": "assigned",
+      "status": "verified",
       "owner": "Russell",
       "title": "CATALOG.md 수동 symlink가 machine-specific 경로를 고정함",
       "file_path": "keelim-plugin/CATALOG.md:25",
-      "verification_commands": [],
-      "verification_result": "Assigned to subagent Russell for keelim-plugin docs slice; leader will verify before marking complete.",
-      "changed_files": [],
+      "verification_commands": [
+        "keelim-plugin: node --check scripts/gen-catalog.mjs",
+        "keelim-plugin: node scripts/gen-catalog.mjs --check",
+        "keelim-plugin: bash scripts/verify-skills.sh --require-codex-meta",
+        "keelim-plugin: bash scripts/check.sh",
+        "keelim-plugin: PRE_COMMIT_HOME=.skillopt/pre-commit-cache uv --cache-dir .skillopt/uv-cache run --python 3.12 --group dev pre-commit run --all-files",
+        "keelim-plugin: git diff --check"
+      ],
+      "verification_result": "Committed e2d3633d76eb20839b0f698a4fb6ad3bc7dd0892. Catalog docs and generator updates passed node check, catalog check, 8 of 8 skill validation, full check, pre-commit all-files, and diff-check.",
+      "changed_files": [
+        "keelim-plugin/README.md",
+        "keelim-plugin/scripts/gen-catalog.mjs",
+        "keelim-plugin/CATALOG.md",
+        "keelim-plugin/catalog.json"
+      ],
       "blocked_reason": null,
-      "last_updated": "2026-06-13T10:19:23.827970+00:00"
+      "last_updated": "2026-06-13T10:31:11.932346+00:00"
     },
     {
       "id": "KPLG-030",
@@ -6138,15 +6695,27 @@
       "severity": "P2",
       "effort": "M",
       "task_id": "T13-keelim-plugin-docs",
-      "status": "assigned",
+      "status": "verified",
       "owner": "Russell",
       "title": "CATALOG.md가 bundled resources를 보여주지 않음",
       "file_path": "keelim-plugin/CATALOG.md:5",
-      "verification_commands": [],
-      "verification_result": "Assigned to subagent Russell for keelim-plugin docs slice; leader will verify before marking complete.",
-      "changed_files": [],
+      "verification_commands": [
+        "keelim-plugin: node --check scripts/gen-catalog.mjs",
+        "keelim-plugin: node scripts/gen-catalog.mjs --check",
+        "keelim-plugin: bash scripts/verify-skills.sh --require-codex-meta",
+        "keelim-plugin: bash scripts/check.sh",
+        "keelim-plugin: PRE_COMMIT_HOME=.skillopt/pre-commit-cache uv --cache-dir .skillopt/uv-cache run --python 3.12 --group dev pre-commit run --all-files",
+        "keelim-plugin: git diff --check"
+      ],
+      "verification_result": "Committed e2d3633d76eb20839b0f698a4fb6ad3bc7dd0892. Catalog docs and generator updates passed node check, catalog check, 8 of 8 skill validation, full check, pre-commit all-files, and diff-check.",
+      "changed_files": [
+        "keelim-plugin/README.md",
+        "keelim-plugin/scripts/gen-catalog.mjs",
+        "keelim-plugin/CATALOG.md",
+        "keelim-plugin/catalog.json"
+      ],
       "blocked_reason": null,
-      "last_updated": "2026-06-13T10:19:23.827970+00:00"
+      "last_updated": "2026-06-13T10:31:11.932346+00:00"
     },
     {
       "id": "KPLG-031",
@@ -6155,15 +6724,27 @@
       "severity": "P2",
       "effort": "S",
       "task_id": "T13-keelim-plugin-docs",
-      "status": "assigned",
+      "status": "verified",
       "owner": "Russell",
       "title": "CATALOG.md에 생성 시각이 없음",
       "file_path": "keelim-plugin/CATALOG.md:3",
-      "verification_commands": [],
-      "verification_result": "Assigned to subagent Russell for keelim-plugin docs slice; leader will verify before marking complete.",
-      "changed_files": [],
+      "verification_commands": [
+        "keelim-plugin: node --check scripts/gen-catalog.mjs",
+        "keelim-plugin: node scripts/gen-catalog.mjs --check",
+        "keelim-plugin: bash scripts/verify-skills.sh --require-codex-meta",
+        "keelim-plugin: bash scripts/check.sh",
+        "keelim-plugin: PRE_COMMIT_HOME=.skillopt/pre-commit-cache uv --cache-dir .skillopt/uv-cache run --python 3.12 --group dev pre-commit run --all-files",
+        "keelim-plugin: git diff --check"
+      ],
+      "verification_result": "Committed e2d3633d76eb20839b0f698a4fb6ad3bc7dd0892. Catalog docs and generator updates passed node check, catalog check, 8 of 8 skill validation, full check, pre-commit all-files, and diff-check.",
+      "changed_files": [
+        "keelim-plugin/README.md",
+        "keelim-plugin/scripts/gen-catalog.mjs",
+        "keelim-plugin/CATALOG.md",
+        "keelim-plugin/catalog.json"
+      ],
       "blocked_reason": null,
-      "last_updated": "2026-06-13T10:19:23.827970+00:00"
+      "last_updated": "2026-06-13T10:31:11.932346+00:00"
     },
     {
       "id": "KPLG-032",
@@ -6172,15 +6753,27 @@
       "severity": "P2",
       "effort": "M",
       "task_id": "T13-keelim-plugin-docs",
-      "status": "assigned",
+      "status": "verified",
       "owner": "Russell",
       "title": "CATALOG.md에 설치 후 검증 명령이 없음",
       "file_path": "keelim-plugin/CATALOG.md:16",
-      "verification_commands": [],
-      "verification_result": "Assigned to subagent Russell for keelim-plugin docs slice; leader will verify before marking complete.",
-      "changed_files": [],
+      "verification_commands": [
+        "keelim-plugin: node --check scripts/gen-catalog.mjs",
+        "keelim-plugin: node scripts/gen-catalog.mjs --check",
+        "keelim-plugin: bash scripts/verify-skills.sh --require-codex-meta",
+        "keelim-plugin: bash scripts/check.sh",
+        "keelim-plugin: PRE_COMMIT_HOME=.skillopt/pre-commit-cache uv --cache-dir .skillopt/uv-cache run --python 3.12 --group dev pre-commit run --all-files",
+        "keelim-plugin: git diff --check"
+      ],
+      "verification_result": "Committed e2d3633d76eb20839b0f698a4fb6ad3bc7dd0892. Catalog docs and generator updates passed node check, catalog check, 8 of 8 skill validation, full check, pre-commit all-files, and diff-check.",
+      "changed_files": [
+        "keelim-plugin/README.md",
+        "keelim-plugin/scripts/gen-catalog.mjs",
+        "keelim-plugin/CATALOG.md",
+        "keelim-plugin/catalog.json"
+      ],
       "blocked_reason": null,
-      "last_updated": "2026-06-13T10:19:23.827970+00:00"
+      "last_updated": "2026-06-13T10:31:11.932346+00:00"
     },
     {
       "id": "KPLG-033",
@@ -6189,15 +6782,27 @@
       "severity": "P2",
       "effort": "M",
       "task_id": "T13-keelim-plugin-docs",
-      "status": "assigned",
+      "status": "verified",
       "owner": "Russell",
       "title": "CATALOG.md에 스킬 사용 예제가 없음",
       "file_path": "keelim-plugin/CATALOG.md:16",
-      "verification_commands": [],
-      "verification_result": "Assigned to subagent Russell for keelim-plugin docs slice; leader will verify before marking complete.",
-      "changed_files": [],
+      "verification_commands": [
+        "keelim-plugin: node --check scripts/gen-catalog.mjs",
+        "keelim-plugin: node scripts/gen-catalog.mjs --check",
+        "keelim-plugin: bash scripts/verify-skills.sh --require-codex-meta",
+        "keelim-plugin: bash scripts/check.sh",
+        "keelim-plugin: PRE_COMMIT_HOME=.skillopt/pre-commit-cache uv --cache-dir .skillopt/uv-cache run --python 3.12 --group dev pre-commit run --all-files",
+        "keelim-plugin: git diff --check"
+      ],
+      "verification_result": "Committed e2d3633d76eb20839b0f698a4fb6ad3bc7dd0892. Catalog docs and generator updates passed node check, catalog check, 8 of 8 skill validation, full check, pre-commit all-files, and diff-check.",
+      "changed_files": [
+        "keelim-plugin/README.md",
+        "keelim-plugin/scripts/gen-catalog.mjs",
+        "keelim-plugin/CATALOG.md",
+        "keelim-plugin/catalog.json"
+      ],
       "blocked_reason": null,
-      "last_updated": "2026-06-13T10:19:23.827970+00:00"
+      "last_updated": "2026-06-13T10:31:11.932346+00:00"
     },
     {
       "id": "KPLG-034",
@@ -6206,15 +6811,27 @@
       "severity": "P2",
       "effort": "M",
       "task_id": "T13-keelim-plugin-docs",
-      "status": "assigned",
+      "status": "verified",
       "owner": "Russell",
       "title": "README Current skills 설명이 frontmatter와 별도 관리됨",
       "file_path": "keelim-plugin/README.md:15",
-      "verification_commands": [],
-      "verification_result": "Assigned to subagent Russell for keelim-plugin docs slice; leader will verify before marking complete.",
-      "changed_files": [],
+      "verification_commands": [
+        "keelim-plugin: node --check scripts/gen-catalog.mjs",
+        "keelim-plugin: node scripts/gen-catalog.mjs --check",
+        "keelim-plugin: bash scripts/verify-skills.sh --require-codex-meta",
+        "keelim-plugin: bash scripts/check.sh",
+        "keelim-plugin: PRE_COMMIT_HOME=.skillopt/pre-commit-cache uv --cache-dir .skillopt/uv-cache run --python 3.12 --group dev pre-commit run --all-files",
+        "keelim-plugin: git diff --check"
+      ],
+      "verification_result": "Committed e2d3633d76eb20839b0f698a4fb6ad3bc7dd0892. Catalog docs and generator updates passed node check, catalog check, 8 of 8 skill validation, full check, pre-commit all-files, and diff-check.",
+      "changed_files": [
+        "keelim-plugin/README.md",
+        "keelim-plugin/scripts/gen-catalog.mjs",
+        "keelim-plugin/CATALOG.md",
+        "keelim-plugin/catalog.json"
+      ],
       "blocked_reason": null,
-      "last_updated": "2026-06-13T10:19:23.827970+00:00"
+      "last_updated": "2026-06-13T10:31:11.932346+00:00"
     },
     {
       "id": "KPLG-035",
@@ -6223,15 +6840,27 @@
       "severity": "P2",
       "effort": "S",
       "task_id": "T13-keelim-plugin-docs",
-      "status": "assigned",
+      "status": "verified",
       "owner": "Russell",
       "title": "README에 catalog 재생성 명령이 없음",
       "file_path": "keelim-plugin/README.md:25",
-      "verification_commands": [],
-      "verification_result": "Assigned to subagent Russell for keelim-plugin docs slice; leader will verify before marking complete.",
-      "changed_files": [],
+      "verification_commands": [
+        "keelim-plugin: node --check scripts/gen-catalog.mjs",
+        "keelim-plugin: node scripts/gen-catalog.mjs --check",
+        "keelim-plugin: bash scripts/verify-skills.sh --require-codex-meta",
+        "keelim-plugin: bash scripts/check.sh",
+        "keelim-plugin: PRE_COMMIT_HOME=.skillopt/pre-commit-cache uv --cache-dir .skillopt/uv-cache run --python 3.12 --group dev pre-commit run --all-files",
+        "keelim-plugin: git diff --check"
+      ],
+      "verification_result": "Committed e2d3633d76eb20839b0f698a4fb6ad3bc7dd0892. Catalog docs and generator updates passed node check, catalog check, 8 of 8 skill validation, full check, pre-commit all-files, and diff-check.",
+      "changed_files": [
+        "keelim-plugin/README.md",
+        "keelim-plugin/scripts/gen-catalog.mjs",
+        "keelim-plugin/CATALOG.md",
+        "keelim-plugin/catalog.json"
+      ],
       "blocked_reason": null,
-      "last_updated": "2026-06-13T10:19:23.827970+00:00"
+      "last_updated": "2026-06-13T10:31:11.932346+00:00"
     },
     {
       "id": "KPLG-036",
@@ -6240,15 +6869,27 @@
       "severity": "P2",
       "effort": "S",
       "task_id": "T13-keelim-plugin-docs",
-      "status": "assigned",
+      "status": "verified",
       "owner": "Russell",
       "title": "README에 verify-skills 실행 경로가 없음",
       "file_path": "keelim-plugin/README.md:147",
-      "verification_commands": [],
-      "verification_result": "Assigned to subagent Russell for keelim-plugin docs slice; leader will verify before marking complete.",
-      "changed_files": [],
+      "verification_commands": [
+        "keelim-plugin: node --check scripts/gen-catalog.mjs",
+        "keelim-plugin: node scripts/gen-catalog.mjs --check",
+        "keelim-plugin: bash scripts/verify-skills.sh --require-codex-meta",
+        "keelim-plugin: bash scripts/check.sh",
+        "keelim-plugin: PRE_COMMIT_HOME=.skillopt/pre-commit-cache uv --cache-dir .skillopt/uv-cache run --python 3.12 --group dev pre-commit run --all-files",
+        "keelim-plugin: git diff --check"
+      ],
+      "verification_result": "Committed e2d3633d76eb20839b0f698a4fb6ad3bc7dd0892. Catalog docs and generator updates passed node check, catalog check, 8 of 8 skill validation, full check, pre-commit all-files, and diff-check.",
+      "changed_files": [
+        "keelim-plugin/README.md",
+        "keelim-plugin/scripts/gen-catalog.mjs",
+        "keelim-plugin/CATALOG.md",
+        "keelim-plugin/catalog.json"
+      ],
       "blocked_reason": null,
-      "last_updated": "2026-06-13T10:19:23.827970+00:00"
+      "last_updated": "2026-06-13T10:31:11.932346+00:00"
     },
     {
       "id": "KPLG-037",
@@ -6257,15 +6898,27 @@
       "severity": "P2",
       "effort": "S",
       "task_id": "T13-keelim-plugin-docs",
-      "status": "assigned",
+      "status": "verified",
       "owner": "Russell",
       "title": "Repository layout에 catalog 산출물이 없음",
       "file_path": "keelim-plugin/README.md:10",
-      "verification_commands": [],
-      "verification_result": "Assigned to subagent Russell for keelim-plugin docs slice; leader will verify before marking complete.",
-      "changed_files": [],
+      "verification_commands": [
+        "keelim-plugin: node --check scripts/gen-catalog.mjs",
+        "keelim-plugin: node scripts/gen-catalog.mjs --check",
+        "keelim-plugin: bash scripts/verify-skills.sh --require-codex-meta",
+        "keelim-plugin: bash scripts/check.sh",
+        "keelim-plugin: PRE_COMMIT_HOME=.skillopt/pre-commit-cache uv --cache-dir .skillopt/uv-cache run --python 3.12 --group dev pre-commit run --all-files",
+        "keelim-plugin: git diff --check"
+      ],
+      "verification_result": "Committed e2d3633d76eb20839b0f698a4fb6ad3bc7dd0892. Catalog docs and generator updates passed node check, catalog check, 8 of 8 skill validation, full check, pre-commit all-files, and diff-check.",
+      "changed_files": [
+        "keelim-plugin/README.md",
+        "keelim-plugin/scripts/gen-catalog.mjs",
+        "keelim-plugin/CATALOG.md",
+        "keelim-plugin/catalog.json"
+      ],
       "blocked_reason": null,
-      "last_updated": "2026-06-13T10:19:23.827970+00:00"
+      "last_updated": "2026-06-13T10:31:11.932346+00:00"
     },
     {
       "id": "KPLG-038",
@@ -6274,15 +6927,27 @@
       "severity": "P2",
       "effort": "S",
       "task_id": "T13-keelim-plugin-docs",
-      "status": "assigned",
+      "status": "verified",
       "owner": "Russell",
       "title": "Repository layout에 scripts 역할이 빠짐",
       "file_path": "keelim-plugin/README.md:10",
-      "verification_commands": [],
-      "verification_result": "Assigned to subagent Russell for keelim-plugin docs slice; leader will verify before marking complete.",
-      "changed_files": [],
+      "verification_commands": [
+        "keelim-plugin: node --check scripts/gen-catalog.mjs",
+        "keelim-plugin: node scripts/gen-catalog.mjs --check",
+        "keelim-plugin: bash scripts/verify-skills.sh --require-codex-meta",
+        "keelim-plugin: bash scripts/check.sh",
+        "keelim-plugin: PRE_COMMIT_HOME=.skillopt/pre-commit-cache uv --cache-dir .skillopt/uv-cache run --python 3.12 --group dev pre-commit run --all-files",
+        "keelim-plugin: git diff --check"
+      ],
+      "verification_result": "Committed e2d3633d76eb20839b0f698a4fb6ad3bc7dd0892. Catalog docs and generator updates passed node check, catalog check, 8 of 8 skill validation, full check, pre-commit all-files, and diff-check.",
+      "changed_files": [
+        "keelim-plugin/README.md",
+        "keelim-plugin/scripts/gen-catalog.mjs",
+        "keelim-plugin/CATALOG.md",
+        "keelim-plugin/catalog.json"
+      ],
       "blocked_reason": null,
-      "last_updated": "2026-06-13T10:19:23.827970+00:00"
+      "last_updated": "2026-06-13T10:31:11.932346+00:00"
     },
     {
       "id": "KPLG-039",
@@ -6291,15 +6956,27 @@
       "severity": "P2",
       "effort": "M",
       "task_id": "T13-keelim-plugin-docs",
-      "status": "assigned",
+      "status": "verified",
       "owner": "Russell",
       "title": "`--copy` 설치와 single source of truth 목표가 충돌함",
       "file_path": "keelim-plugin/README.md:109",
-      "verification_commands": [],
-      "verification_result": "Assigned to subagent Russell for keelim-plugin docs slice; leader will verify before marking complete.",
-      "changed_files": [],
+      "verification_commands": [
+        "keelim-plugin: node --check scripts/gen-catalog.mjs",
+        "keelim-plugin: node scripts/gen-catalog.mjs --check",
+        "keelim-plugin: bash scripts/verify-skills.sh --require-codex-meta",
+        "keelim-plugin: bash scripts/check.sh",
+        "keelim-plugin: PRE_COMMIT_HOME=.skillopt/pre-commit-cache uv --cache-dir .skillopt/uv-cache run --python 3.12 --group dev pre-commit run --all-files",
+        "keelim-plugin: git diff --check"
+      ],
+      "verification_result": "Committed e2d3633d76eb20839b0f698a4fb6ad3bc7dd0892. Catalog docs and generator updates passed node check, catalog check, 8 of 8 skill validation, full check, pre-commit all-files, and diff-check.",
+      "changed_files": [
+        "keelim-plugin/README.md",
+        "keelim-plugin/scripts/gen-catalog.mjs",
+        "keelim-plugin/CATALOG.md",
+        "keelim-plugin/catalog.json"
+      ],
       "blocked_reason": null,
-      "last_updated": "2026-06-13T10:19:23.827970+00:00"
+      "last_updated": "2026-06-13T10:31:11.932346+00:00"
     },
     {
       "id": "KPLG-040",
@@ -6308,15 +6985,27 @@
       "severity": "P2",
       "effort": "S",
       "task_id": "T13-keelim-plugin-docs",
-      "status": "assigned",
+      "status": "verified",
       "owner": "Russell",
       "title": "session-learning 설치 후 hook 절차가 catalog에 없음",
       "file_path": "keelim-plugin/CATALOG.md:73",
-      "verification_commands": [],
-      "verification_result": "Assigned to subagent Russell for keelim-plugin docs slice; leader will verify before marking complete.",
-      "changed_files": [],
+      "verification_commands": [
+        "keelim-plugin: node --check scripts/gen-catalog.mjs",
+        "keelim-plugin: node scripts/gen-catalog.mjs --check",
+        "keelim-plugin: bash scripts/verify-skills.sh --require-codex-meta",
+        "keelim-plugin: bash scripts/check.sh",
+        "keelim-plugin: PRE_COMMIT_HOME=.skillopt/pre-commit-cache uv --cache-dir .skillopt/uv-cache run --python 3.12 --group dev pre-commit run --all-files",
+        "keelim-plugin: git diff --check"
+      ],
+      "verification_result": "Committed e2d3633d76eb20839b0f698a4fb6ad3bc7dd0892. Catalog docs and generator updates passed node check, catalog check, 8 of 8 skill validation, full check, pre-commit all-files, and diff-check.",
+      "changed_files": [
+        "keelim-plugin/README.md",
+        "keelim-plugin/scripts/gen-catalog.mjs",
+        "keelim-plugin/CATALOG.md",
+        "keelim-plugin/catalog.json"
+      ],
       "blocked_reason": null,
-      "last_updated": "2026-06-13T10:19:23.827970+00:00"
+      "last_updated": "2026-06-13T10:31:11.932346+00:00"
     },
     {
       "id": "KPLG-041",
@@ -6325,15 +7014,27 @@
       "severity": "P2",
       "effort": "M",
       "task_id": "T13-keelim-plugin-docs",
-      "status": "assigned",
+      "status": "verified",
       "owner": "Russell",
       "title": "스킬 추가·이름 변경 기여 체크리스트가 없음",
       "file_path": "keelim-plugin/README.md:147",
-      "verification_commands": [],
-      "verification_result": "Assigned to subagent Russell for keelim-plugin docs slice; leader will verify before marking complete.",
-      "changed_files": [],
+      "verification_commands": [
+        "keelim-plugin: node --check scripts/gen-catalog.mjs",
+        "keelim-plugin: node scripts/gen-catalog.mjs --check",
+        "keelim-plugin: bash scripts/verify-skills.sh --require-codex-meta",
+        "keelim-plugin: bash scripts/check.sh",
+        "keelim-plugin: PRE_COMMIT_HOME=.skillopt/pre-commit-cache uv --cache-dir .skillopt/uv-cache run --python 3.12 --group dev pre-commit run --all-files",
+        "keelim-plugin: git diff --check"
+      ],
+      "verification_result": "Committed e2d3633d76eb20839b0f698a4fb6ad3bc7dd0892. Catalog docs and generator updates passed node check, catalog check, 8 of 8 skill validation, full check, pre-commit all-files, and diff-check.",
+      "changed_files": [
+        "keelim-plugin/README.md",
+        "keelim-plugin/scripts/gen-catalog.mjs",
+        "keelim-plugin/CATALOG.md",
+        "keelim-plugin/catalog.json"
+      ],
       "blocked_reason": null,
-      "last_updated": "2026-06-13T10:19:23.827970+00:00"
+      "last_updated": "2026-06-13T10:31:11.932346+00:00"
     },
     {
       "id": "KPLG-002",
