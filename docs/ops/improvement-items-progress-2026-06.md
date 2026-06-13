@@ -12,9 +12,9 @@ Durable `/goal` ledger for completing every P1/P2 item from the June 2026 improv
 | status | count |
 |---|---:|
 | `todo` | 284 |
-| `assigned` | 45 |
+| `assigned` | 34 |
 | `in_progress` | 0 |
-| `verified` | 471 |
+| `verified` | 482 |
 | `blocked` | 0 |
 | `needs_consumer_check` | 0 |
 
@@ -44,7 +44,7 @@ Durable `/goal` ledger for completing every P1/P2 item from the June 2026 improv
 | 2 | `T23-keelim-vercel-security` | `keelim-vercel` | `security` | 17 | 8 | 9 | `verified` |
 | 2 | `T24-keelim-vercel-testing` | `keelim-vercel` | `testing` | 15 | 7 | 8 | `verified` |
 | 2 | `T21-keelim-vercel-component-quality` | `keelim-vercel` | `component-quality` | 14 | 5 | 9 | `verified` |
-| 2 | `T22-keelim-vercel-dx-config` | `keelim-vercel` | `dx-config` | 11 | 2 | 9 | `assigned` |
+| 2 | `T22-keelim-vercel-dx-config` | `keelim-vercel` | `dx-config` | 11 | 2 | 9 | `verified` |
 | 2 | `T19-keelim-vercel-n-plus-one-query` | `keelim-vercel` | `N+1 쿼리` | 2 | 1 | 1 | `todo` |
 | 2 | `T25-keelim-vercel-bundle-size` | `keelim-vercel` | `번들 크기` | 6 | 1 | 5 | `todo` |
 | 2 | `T26-keelim-vercel-client-component` | `keelim-vercel` | `불필요한 use client` | 8 | 1 | 7 | `todo` |

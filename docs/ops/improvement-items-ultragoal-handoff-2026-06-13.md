@@ -9,12 +9,12 @@ Ultragoal run after the user requested a pause and meaningful commits.
 - Current Codex goal status from `get_goal`: `active`
 - Do not call `update_goal` yet. The aggregate run is not complete.
 - Ledger check: `python3 scripts/improvements/init_progress_ledger.py --check`
-  - Result: `OK: 800 items, 52 task units, 471 verified`
+  - Result: `OK: 800 items, 52 task units, 482 verified`
 
 ## Root Ledger Snapshot
 
-- `verified`: 471
-- `assigned`: 45
+- `verified`: 482
+- `assigned`: 34
 - `todo`: 284
 - `blocked`: 0
 - `in_progress`: 0
@@ -50,6 +50,7 @@ Durable state files:
 | `keelim-plugin` | `T17` | Leader verified and committed. | `48ebea55425cabed64a736720a899dd621ee6dea` |
 | `keelim-vercel` | `T20`, `T23` | Leader verified and committed. | `777cb64be29b43415786523fa3b452431619732d` |
 | `keelim-vercel` | `T21` | Leader verified and committed. | `0191cd89a996b217b32118043357ae56a3056959` |
+| `keelim-vercel` | `T22` | Leader verified and committed. | `730f77e28fb067dfc13d5cc559497e424836c904` |
 | `keelim-vercel` | `T24` | Leader verified and committed. | `0f543d49423f5ada3e20d9223af03fb16a67186c` |
 | `youtube` | `T34` | Leader verified and committed. | `87527904e1d05814315ec9f45c0d33dae8c18afe` |
 
@@ -140,6 +141,12 @@ Verification highlights:
   `verify:maintenance` passed. The root shared-ui full gate now passes
   `keelim-vercel` adapters and still fails only on `rich/web` generic primitive
   allowlist drift, carried to `T43`.
+- `keelim-vercel` T22: Drizzle/Supabase config guards, test typecheck, app
+  typecheck, lint (0 errors / 161 warnings), 51 passing Bun tests / 179
+  expects, production build, `verify:maintenance`, root shared-ui report, and
+  `git diff --check` passed after adding client boundaries to shared UI shims.
+  `typecheck:strict` intentionally remains a baseline-finding gate for exact
+  optional/index-access findings.
 - `youtube`: pytest passed with 135 tests and 90.30% coverage, `git diff --check`
   passed, root `uv.lock` was refreshed, and `uv lock --check` plus Python
   dependency constraint verification passed.
@@ -149,7 +156,6 @@ Verification highlights:
 | repo | task | owner | current state | next action |
 |---|---|---|---|---|
 | `all-web-ui` | `T07-all-web-ui-a11y` | Jason | Assigned to subagent `019ec0b2-25e9-7383-b3c7-1da724307330`. | Wait for worker report, then leader-verify before marking complete. Preserve pre-existing `all-web-ui/AGENTS.md` edits and `debug-log.json`. |
-| `keelim-vercel` | `T22-keelim-vercel-dx-config` | Lagrange | Assigned to subagent `019ec09e-c0de-7ab3-a8be-48d09b6e0bc5`. | Wait for worker report, then leader-verify before marking complete. Preserve untracked `debug-log.json`. |
 | `youtube` | `T32-youtube-reliability` | Maxwell | Assigned to subagent `019ec0b2-521e-7c23-b2f7-b19558f9e39e`. | Wait for worker report, then leader-verify before marking complete. Preserve unrelated production/media/package dirty work. |
 
 ## Still Todo Next
@@ -175,8 +181,8 @@ Verification highlights:
 - `Keelim-Knowledge-Vault` T36 and T40 were committed; only `debug-log.json`
   remains untracked in that child repo.
 - `keelim-plugin` T13 and T17 were committed and its child repo is clean.
-- `keelim-vercel` T21 and T24 were committed; only `debug-log.json` remains
-  untracked in that child repo.
+- `keelim-vercel` T21, T22, and T24 were committed; only `debug-log.json`
+  remains untracked in that child repo.
 - `android-support` T02, T04, and T06 were committed; only `debug-log.json`
   remains untracked in that child repo.
 - `youtube` still contains unrelated uncommitted production/media/package work;
@@ -188,13 +194,13 @@ Verification highlights:
 1. Run `python3 scripts/improvements/init_progress_ledger.py --check`.
 2. Read this handoff and
    `docs/ops/improvement-items-ultragoal-runbook-2026-06.md`.
-3. Resume active assignments first: `T07`, `T22`, and `T32`.
+3. Resume active assignments first: `T07` and `T32`.
 4. If those workers are complete, leader-verify each child repo before moving
    the ledger from `assigned` to `verified`.
 5. Track the remaining `rich/web` shared-ui primitive drift under
    `T43-rich-frontend-quality`.
-6. If a new worker wave is needed, next good candidates are `T07`, `T19`, and
-   `T32`; avoid assigning multiple workers to the same dirty child repo at
+6. If a new worker wave is needed, next good candidates are `T19`, `T25`, and
+   `T26`; avoid assigning multiple workers to the same dirty child repo at
    once unless scopes are proven non-overlapping.
 7. Keep commits per autonomous child repo and do not stage root child-repo
    pointers from the root.

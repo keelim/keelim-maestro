@@ -51,7 +51,6 @@ The leader must:
 | task | worker | scope |
 |---|---|---|
 | `T07-all-web-ui-a11y` | Jason | `all-web-ui` a11y backlog |
-| `T22-keelim-vercel-dx-config` | Lagrange | `keelim-vercel` dx-config backlog |
 | `T32-youtube-reliability` | Maxwell | `youtube` reliability backlog |
 
 ## Verified Task Units
@@ -77,6 +76,7 @@ The leader must:
 | `T18-keelim-plugin-testing-evals` | Laplace | 19 selected ledger items verified with repo-local test/eval runner, SkillOpt validation, score fixtures, skill/catalog checks, durable eval file visibility, and `git diff --check`. |
 | `T20-keelim-vercel-api-correctness` | Schrodinger | 20 selected ledger items verified with authenticated API contracts, data envelopes, validation/error guards, CSV/SSRF limits, route tests, typecheck, build, maintenance check, and `git diff --check`. |
 | `T21-keelim-vercel-component-quality` | Linnaeus | 14 selected ledger items verified with native button/sibling-button interaction fixes, accessible names and label wiring for icon buttons, selects, sliders, and search inputs, AGENTS lesson update, typecheck, lint with 0 errors / 13 existing warnings, 51 passing tests, production build, `verify:maintenance`, root shared-ui report, and `git diff --check`; root shared-ui full gate still carries only `rich/web` primitive drift to `T43`. |
+| `T22-keelim-vercel-dx-config` | Lagrange | 11 selected ledger items verified with CI/pre-push/PR quality gates, typed ESLint/test/strict TS scaffolding, Drizzle/Supabase config guards, centralized env schema access, shared UI client shim build fix, 51 passing Bun tests / 179 expects, production build, `verify:maintenance`, root shared-ui report, and `git diff --check`; `typecheck:strict` remains a baseline-finding gate. |
 | `T23-keelim-vercel-security` | Schrodinger | 17 selected ledger items verified with production auth allowlist, route/server-action validation, SSRF/CSV/rate-limit guards, typecheck, 39-test Bun suite, production build, maintenance checks, scoped ESLint, and `git diff --check`. |
 | `T24-keelim-vercel-testing` | Feynman | 15 selected ledger items verified with selected API route regression tests, route mapping verifier, full tests/coverage, typecheck, lint, build, `verify:maintenance`, and `git diff --check`; root shared-ui full gate now passes `keelim-vercel` adapters and carries only the `rich/web` primitive drift to `T43`. |
 | `T34-youtube-testing` | Erdos | 21 selected ledger items verified with youtube pytest coverage gate, 135 passing tests, 90.30% coverage, `git diff --check`, root `uv.lock` refresh, `uv lock --check`, and Python dependency constraint verification. |
