@@ -50,7 +50,6 @@ The leader must:
 
 | task | worker | scope |
 |---|---|---|
-| `T08-all-web-ui-api-design` | Carson | `all-web-ui` api-design backlog |
 | `T22-keelim-vercel-dx-config` | Lagrange | `keelim-vercel` dx-config backlog |
 
 ## Verified Task Units
@@ -63,6 +62,7 @@ The leader must:
 | `T04-android-support-security` | Darwin | 17 selected ledger items verified with Android release action security hardening, path/archive/credential guard coverage, 11 passing suites / 169 tests / 100% coverage, contract and ci-release checks, rebuilt `lib/index.js`, and `git diff --check`. |
 | `T05-android-support-testing` | Lovelace | 18 selected ledger items verified with contract drift check, typecheck, test lint, unit tests, coverage, ncc build, CI/release workflow check, and `git diff --check`; leader rerun reported 9 suites / 144 tests / 100% coverage. |
 | `T06-android-support-type-safety` | Wegener | 15 selected ledger items verified with stricter TypeScript compiler options, typed release status/upload options, explicit Google API response data guards, ESLint, 11 passing suites / 172 tests / 100% coverage, contract and ci-release checks, rebuilt `lib/index.js`, and `git diff --check`. |
+| `T08-all-web-ui-api-design` | Carson | 17 selected ledger items verified with API/theme/telemetry contract hardening, public prop and variant exports, scoped theme contract metadata, 35 passing Bun tests / 748 expects, typecheck, build, design lint, package smoke, npm pack dry-run, root shared-ui report, and `git diff --check`; root shared-ui full gate still carries only `rich/web` primitive drift to `T43`. |
 | `T09-all-web-ui-component-quality` | Halley | 14 selected ledger items verified with polymorphic component refs, normalized component primitives, portal/animation-aware interaction coverage, 34 passing Bun tests / 493 expects, package smoke, npm pack dry-run, root shared-ui report, and `git diff --check`; root shared-ui full gate still carries only `rich/web` primitive drift to `T43`. |
 | `T10-all-web-ui-docs` | Planck | 17 selected ledger items verified with README/DESIGN style-contract docs, manifest style/theme metadata, Stitch metadata hash refresh, design lint, typecheck, 35 passing Bun tests / 597 expects, build, package smoke, npm pack dry-run, root shared-ui report, and `git diff --check`; root shared-ui full gate still carries only `rich/web` primitive drift to `T43`. |
 | `T11-all-web-ui-packaging` | Turing | 17 selected ledger items verified with package publish gates, dist contract verifier, consumer smoke, npm pack dry-run, release-version guard, typecheck, 31 passing Bun tests / 463 expects, build, and `git diff --check`; root shared-ui full gate still carries only `rich/web` primitive drift to `T43`. |

@@ -12,9 +12,9 @@ Durable `/goal` ledger for completing every P1/P2 item from the June 2026 improv
 | status | count |
 |---|---:|
 | `todo` | 318 |
-| `assigned` | 28 |
+| `assigned` | 11 |
 | `in_progress` | 0 |
-| `verified` | 454 |
+| `verified` | 471 |
 | `blocked` | 0 |
 | `needs_consumer_check` | 0 |
 
@@ -32,7 +32,7 @@ Durable `/goal` ledger for completing every P1/P2 item from the June 2026 improv
 | 1 | `T11-all-web-ui-packaging` | `all-web-ui` | `packaging` | 17 | 7 | 10 | `verified` |
 | 1 | `T09-all-web-ui-component-quality` | `all-web-ui` | `component-quality` | 14 | 4 | 10 | `verified` |
 | 1 | `T10-all-web-ui-docs` | `all-web-ui` | `docs` | 17 | 3 | 14 | `verified` |
-| 1 | `T08-all-web-ui-api-design` | `all-web-ui` | `api-design` | 17 | 2 | 15 | `assigned` |
+| 1 | `T08-all-web-ui-api-design` | `all-web-ui` | `api-design` | 17 | 2 | 15 | `verified` |
 | 1 | `T07-all-web-ui-a11y` | `all-web-ui` | `a11y` | 16 | 1 | 15 | `todo` |
 | 1 | `T15-keelim-plugin-script-quality` | `keelim-plugin` | `script-quality` | 21 | 10 | 11 | `verified` |
 | 1 | `T18-keelim-plugin-testing-evals` | `keelim-plugin` | `testing-evals` | 19 | 7 | 12 | `verified` |

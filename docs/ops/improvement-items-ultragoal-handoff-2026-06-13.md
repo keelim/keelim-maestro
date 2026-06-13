@@ -9,12 +9,12 @@ Ultragoal run after the user requested a pause and meaningful commits.
 - Current Codex goal status from `get_goal`: `active`
 - Do not call `update_goal` yet. The aggregate run is not complete.
 - Ledger check: `python3 scripts/improvements/init_progress_ledger.py --check`
-  - Result: `OK: 800 items, 52 task units, 454 verified`
+  - Result: `OK: 800 items, 52 task units, 471 verified`
 
 ## Root Ledger Snapshot
 
-- `verified`: 454
-- `assigned`: 28
+- `verified`: 471
+- `assigned`: 11
 - `todo`: 318
 - `blocked`: 0
 - `in_progress`: 0
@@ -35,6 +35,7 @@ Durable state files:
 | `android-support` | `T02` | Leader verified and committed. | `eab61acbd0a503877daef597b89d9ee6725b5751` |
 | `android-support` | `T04` | Leader verified and committed. | `cba1055701cfd223db50ed6101b4f2f0afd63579` |
 | `android-support` | `T06` | Leader verified and committed. | `a2361258e35e6d3e4f651f2a3a9306cb2de92e61` |
+| `all-web-ui` | `T08` | Leader verified and committed. | `aa9540415732274eb0e7eba4efed5c9c4c9a3ab3` |
 | `all-web-ui` | `T09` | Leader verified and committed. | `851ab59a81fdb1acf03b886f85cba06e7b348dfc` |
 | `all-web-ui` | `T10` | Leader verified and committed. | `d457277aa90abeaecd80c851d6d9f20bba54a4d2` |
 | `all-web-ui` | `T11` | Leader verified and committed. | `9fad16c38c52bdce89a188e1d7224b967b2a85bb` |
@@ -101,6 +102,13 @@ Verification highlights:
   pack:verify`, root shared-ui report, and `git diff --check` passed. Strict
   root full integration still fails only on `rich/web` generic primitive
   allowlist drift, carried to `T43`.
+- `all-web-ui` T08: API/theme/telemetry contracts were hardened with public
+  prop and variant exports plus a scoped `theme-contract` subpath. `bun run
+  typecheck`, `bun test` (35 pass / 748 expects), `bun run build`, `bun run
+  design:lint` (0 errors / 6 warnings), `bun run package:smoke`, `bun run
+  pack:verify`, root shared-ui report, and `git diff --check` passed. Strict
+  root full integration still fails only on `rich/web` generic primitive
+  allowlist drift, carried to `T43`.
 - `keelim-plugin`: `uv --cache-dir .skillopt/uv-cache run --python 3.12 python scripts/run-tests.py`
   passed. A scanner-safe variable rename in
   `skills/session-usage-dashboard/scripts/test_build_session_usage_dashboard.py`
@@ -140,7 +148,6 @@ Verification highlights:
 
 | repo | task | owner | current state | next action |
 |---|---|---|---|---|
-| `all-web-ui` | `T08-all-web-ui-api-design` | Carson | Assigned to subagent `019ec09e-bcb9-7782-af35-1f492b7cfe7a`. | Wait for worker report, then leader-verify before marking complete. Preserve pre-existing `all-web-ui/AGENTS.md` edits and `debug-log.json`. |
 | `keelim-vercel` | `T22-keelim-vercel-dx-config` | Lagrange | Assigned to subagent `019ec09e-c0de-7ab3-a8be-48d09b6e0bc5`. | Wait for worker report, then leader-verify before marking complete. Preserve untracked `debug-log.json`. |
 
 ## Still Todo Next
@@ -163,7 +170,7 @@ Verification highlights:
   coordination commit scope.
 - `all-web-ui` still has pre-existing uncommitted `AGENTS.md` edits and
   untracked `debug-log.json`; these were intentionally excluded from `T09`,
-  `T10`, `T11`, and `T12`.
+  `T10`, `T11`, `T12`, and `T08`.
 - `Keelim-Knowledge-Vault` T36 and T40 were committed; only `debug-log.json`
   remains untracked in that child repo.
 - `keelim-plugin` T13 and T17 were committed and its child repo is clean.
@@ -180,7 +187,7 @@ Verification highlights:
 1. Run `python3 scripts/improvements/init_progress_ledger.py --check`.
 2. Read this handoff and
    `docs/ops/improvement-items-ultragoal-runbook-2026-06.md`.
-3. Resume active assignments first: `T08` and `T22`.
+3. Resume active assignment first: `T22`.
 4. If those workers are complete, leader-verify each child repo before moving
    the ledger from `assigned` to `verified`.
 5. Track the remaining `rich/web` shared-ui primitive drift under
