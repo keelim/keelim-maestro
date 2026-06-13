@@ -1,4 +1,4 @@
-<!-- Generated: 2026-06-12 | Source-led root codemap reviewed after generator pass -->
+<!-- Generated: 2026-06-13 | Source-led root codemap reviewed after generator pass -->
 
 # keelim-maestro Workspace Codemap
 
