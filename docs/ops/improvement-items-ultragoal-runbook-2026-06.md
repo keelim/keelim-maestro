@@ -50,6 +50,8 @@ The leader must:
 
 | task | worker | agent | scope |
 |---|---|---|---|
+| `T26-keelim-vercel-client-component` | Nietzsche | `019ec135-334d-71f0-ba57-9cdc051b8536` | `keelim-vercel` client-component backlog |
+| `T46-rich-testing` | Raman | `019ec135-819f-7271-a171-46b7ff3a7467` | `rich` testing backlog |
 | `T47-all-architecture` | Nash / Kepler | `019ec113-c99b-7f02-bfc4-efc66eaf3977` | `all` architecture backlog |
 
 ## Latest Closed Wave

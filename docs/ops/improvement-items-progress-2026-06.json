@@ -5,7 +5,7 @@
     "inventory": "docs/research/improvements-2026-06/improvements.json",
     "rawDir": "docs/research/improvements-2026-06/raw"
   },
-  "generatedAt": "2026-06-13T13:24:15.998639+00:00",
+  "generatedAt": "2026-06-13T13:39:54.755197+00:00",
   "statusValues": [
     "todo",
     "assigned",
@@ -21,8 +21,8 @@
       "P2": 607
     },
     "byStatus": {
-      "todo": 179,
-      "assigned": 24,
+      "todo": 153,
+      "assigned": 50,
       "in_progress": 0,
       "verified": 597,
       "blocked": 0,
@@ -330,7 +330,7 @@
       "total": 8,
       "p1": 1,
       "p2": 7,
-      "status": "todo"
+      "status": "assigned"
     },
     {
       "task_id": "T27-keelim-vercel-image-optimization",
@@ -500,7 +500,7 @@
       "total": 18,
       "p1": 4,
       "p2": 14,
-      "status": "todo"
+      "status": "assigned"
     },
     {
       "task_id": "T42-rich-backend-quality",
@@ -14231,15 +14231,15 @@
       "severity": "P1",
       "effort": "M",
       "task_id": "T26-keelim-vercel-client-component",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Nietzsche",
       "title": "대시보드 랜딩 page 전체가 analytics 때문에 client component가 됨",
       "file_path": "keelim-vercel/app/(dashboard)/page.tsx:1",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T13:39:42.470385+00:00"
     },
     {
       "id": "KVCL-087",
@@ -14248,15 +14248,15 @@
       "severity": "P2",
       "effort": "S",
       "task_id": "T26-keelim-vercel-client-component",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Nietzsche",
       "title": "BlurText가 hook 없이 client component로 선언됨",
       "file_path": "keelim-vercel/components/react-bits/blur-text.tsx:1",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T13:39:42.470385+00:00"
     },
     {
       "id": "KVCL-088",
@@ -14265,15 +14265,15 @@
       "severity": "P2",
       "effort": "S",
       "task_id": "T26-keelim-vercel-client-component",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Nietzsche",
       "title": "HeroGraphics가 정적 그래픽을 client mount 이후에만 보여줌",
       "file_path": "keelim-vercel/components/landing/hero-graphics.tsx:1",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T13:39:42.470385+00:00"
     },
     {
       "id": "KVCL-089",
@@ -14282,15 +14282,15 @@
       "severity": "P2",
       "effort": "S",
       "task_id": "T26-keelim-vercel-client-component",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Nietzsche",
       "title": "HeroSection이 mount gate로 첫 paint를 비움",
       "file_path": "keelim-vercel/components/landing/hero-section.tsx:22",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T13:39:42.470385+00:00"
     },
     {
       "id": "KVCL-090",
@@ -14299,15 +14299,15 @@
       "severity": "P2",
       "effort": "M",
       "task_id": "T26-keelim-vercel-client-component",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Nietzsche",
       "title": "achievements page가 localStorage 조회 때문에 전체 client page가 됨",
       "file_path": "keelim-vercel/app/(dashboard)/achievements/page.tsx:1",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T13:39:42.470385+00:00"
     },
     {
       "id": "KVCL-091",
@@ -14316,15 +14316,15 @@
       "severity": "P2",
       "effort": "S",
       "task_id": "T26-keelim-vercel-client-component",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Nietzsche",
       "title": "cash-flow page가 dynamic chart 때문에 전체 client page가 됨",
       "file_path": "keelim-vercel/app/(dashboard)/cash-flow/page.tsx:1",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T13:39:42.470385+00:00"
     },
     {
       "id": "KVCL-092",
@@ -14333,15 +14333,15 @@
       "severity": "P2",
       "effort": "S",
       "task_id": "T26-keelim-vercel-client-component",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Nietzsche",
       "title": "settings page가 theme label 때문에 전체 client page가 됨",
       "file_path": "keelim-vercel/app/(dashboard)/settings/page.tsx:1",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T13:39:42.470385+00:00"
     },
     {
       "id": "KVCL-093",
@@ -14350,15 +14350,15 @@
       "severity": "P2",
       "effort": "S",
       "task_id": "T26-keelim-vercel-client-component",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Nietzsche",
       "title": "정적 landing section들이 모두 client component로 선언됨",
       "file_path": "keelim-vercel/components/landing/problem-section.tsx:1",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T13:39:42.470385+00:00"
     },
     {
       "id": "KVCL-094",
@@ -22184,15 +22184,15 @@
       "severity": "P1",
       "effort": "M",
       "task_id": "T46-rich-testing",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Raman",
       "title": "Playwright KRX login 흐름 단위 테스트 부족",
       "file_path": "rich/app/services/krx_data_portal_client.py:53",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T13:39:54.756536+00:00"
     },
     {
       "id": "RICH-016",
@@ -22201,15 +22201,15 @@
       "severity": "P1",
       "effort": "M",
       "task_id": "T46-rich-testing",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Raman",
       "title": "leading_breakout direct source timeout 테스트 없음",
       "file_path": "rich/app/services/leading_breakout_candidates.py:813",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T13:39:54.756536+00:00"
     },
     {
       "id": "RICH-017",
@@ -22218,15 +22218,15 @@
       "severity": "P1",
       "effort": "M",
       "task_id": "T46-rich-testing",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Raman",
       "title": "quality_screener public wrapper Supabase 쿼리 미테스트",
       "file_path": "rich/app/services/quality_screener.py:521",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T13:39:54.756536+00:00"
     },
     {
       "id": "RICH-018",
@@ -22235,15 +22235,15 @@
       "severity": "P1",
       "effort": "M",
       "task_id": "T46-rich-testing",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Raman",
       "title": "전역 외부 네트워크 차단 fixture 부재",
       "file_path": "rich/tests/conftest.py:4",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T13:39:54.756536+00:00"
     },
     {
       "id": "RICH-087",
@@ -22252,15 +22252,15 @@
       "severity": "P2",
       "effort": "M",
       "task_id": "T46-rich-testing",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Raman",
       "title": "KIS quote auth/unavailable 통합 지점 테스트 부족",
       "file_path": "rich/app/services/krx_kis_fear_candidates.py:946",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T13:39:54.756536+00:00"
     },
     {
       "id": "RICH-088",
@@ -22269,15 +22269,15 @@
       "severity": "P2",
       "effort": "M",
       "task_id": "T46-rich-testing",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Raman",
       "title": "Open Trading 테스트가 벤더 내부 파일을 직접 검사",
       "file_path": "rich/tests/test_open_trading_api_root_venv.py:42",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T13:39:54.756536+00:00"
     },
     {
       "id": "RICH-089",
@@ -22286,15 +22286,15 @@
       "severity": "P2",
       "effort": "S",
       "task_id": "T46-rich-testing",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Raman",
       "title": "Quant Supabase fallback 예외 경로 미검증",
       "file_path": "rich/app/services/quant_client.py:181",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T13:39:54.756536+00:00"
     },
     {
       "id": "RICH-090",
@@ -22303,15 +22303,15 @@
       "severity": "P2",
       "effort": "S",
       "task_id": "T46-rich-testing",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Raman",
       "title": "daily price cache upsert retry 미검증",
       "file_path": "rich/app/services/krx_daily_price_cache.py:365",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T13:39:54.756536+00:00"
     },
     {
       "id": "RICH-091",
@@ -22320,15 +22320,15 @@
       "severity": "P2",
       "effort": "S",
       "task_id": "T46-rich-testing",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Raman",
       "title": "fear candidates investor flow 예외 경로 미검증",
       "file_path": "rich/app/services/krx_kis_fear_candidates.py:922",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T13:39:54.756536+00:00"
     },
     {
       "id": "RICH-092",
@@ -22337,15 +22337,15 @@
       "severity": "P2",
       "effort": "S",
       "task_id": "T46-rich-testing",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Raman",
       "title": "get_quant_client create_client 실패 격리 부족",
       "file_path": "rich/app/services/quant_client.py:238",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T13:39:54.756536+00:00"
     },
     {
       "id": "RICH-093",
@@ -22354,15 +22354,15 @@
       "severity": "P2",
       "effort": "S",
       "task_id": "T46-rich-testing",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Raman",
       "title": "leading_breakout fallback CSV 실패 진단 미검증",
       "file_path": "rich/app/services/leading_breakout_candidates.py:902",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T13:39:54.756536+00:00"
     },
     {
       "id": "RICH-094",
@@ -22371,15 +22371,15 @@
       "severity": "P2",
       "effort": "M",
       "task_id": "T46-rich-testing",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Raman",
       "title": "market_fear_greed Supabase 예외 코드 미검증",
       "file_path": "rich/app/services/market_fear_greed.py:179",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T13:39:54.756536+00:00"
     },
     {
       "id": "RICH-095",
@@ -22388,15 +22388,15 @@
       "severity": "P2",
       "effort": "S",
       "task_id": "T46-rich-testing",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Raman",
       "title": "market_fear_greed pagination 경계 테스트 부족",
       "file_path": "rich/app/services/market_fear_greed.py:160",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T13:39:54.756536+00:00"
     },
     {
       "id": "RICH-096",
@@ -22405,15 +22405,15 @@
       "severity": "P2",
       "effort": "M",
       "task_id": "T46-rich-testing",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Raman",
       "title": "pykrx logout hook 전역 상태 reset fixture 없음",
       "file_path": "rich/app/services/krx_data_portal_client.py:305",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T13:39:54.756536+00:00"
     },
     {
       "id": "RICH-097",
@@ -22422,15 +22422,15 @@
       "severity": "P2",
       "effort": "S",
       "task_id": "T46-rich-testing",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Raman",
       "title": "quality_screener 조회 실패 동작 미고정",
       "file_path": "rich/app/services/quality_screener.py:505",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T13:39:54.756536+00:00"
     },
     {
       "id": "RICH-098",
@@ -22439,15 +22439,15 @@
       "severity": "P2",
       "effort": "S",
       "task_id": "T46-rich-testing",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Raman",
       "title": "sector_history 없음 + flow_destinations 조합 미검증",
       "file_path": "rich/app/services/market_fear_greed.py:1039",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T13:39:54.756536+00:00"
     },
     {
       "id": "RICH-099",
@@ -22456,15 +22456,15 @@
       "severity": "P2",
       "effort": "S",
       "task_id": "T46-rich-testing",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Raman",
       "title": "trading-day resolver 전체 실패 케이스 부재",
       "file_path": "rich/app/services/krx_daily_price_cache.py:202",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T13:39:54.756536+00:00"
     },
     {
       "id": "RICH-100",
@@ -22473,15 +22473,15 @@
       "severity": "P2",
       "effort": "S",
       "task_id": "T46-rich-testing",
-      "status": "todo",
-      "owner": null,
+      "status": "assigned",
+      "owner": "Raman",
       "title": "weekly_review Supabase client 중복 생성 미검출",
       "file_path": "rich/app/services/weekly_review.py:164",
       "verification_commands": [],
       "verification_result": null,
       "changed_files": [],
       "blocked_reason": null,
-      "last_updated": null
+      "last_updated": "2026-06-13T13:39:54.756536+00:00"
     },
     {
       "id": "ALL-001",

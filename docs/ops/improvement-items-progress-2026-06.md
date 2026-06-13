@@ -11,8 +11,8 @@ Durable `/goal` ledger for completing every P1/P2 item from the June 2026 improv
 
 | status | count |
 |---|---:|
-| `todo` | 179 |
-| `assigned` | 24 |
+| `todo` | 153 |
+| `assigned` | 50 |
 | `in_progress` | 0 |
 | `verified` | 597 |
 | `blocked` | 0 |
@@ -47,7 +47,7 @@ Durable `/goal` ledger for completing every P1/P2 item from the June 2026 improv
 | 2 | `T22-keelim-vercel-dx-config` | `keelim-vercel` | `dx-config` | 11 | 2 | 9 | `verified` |
 | 2 | `T19-keelim-vercel-n-plus-one-query` | `keelim-vercel` | `N+1 쿼리` | 2 | 1 | 1 | `verified` |
 | 2 | `T25-keelim-vercel-bundle-size` | `keelim-vercel` | `번들 크기` | 6 | 1 | 5 | `verified` |
-| 2 | `T26-keelim-vercel-client-component` | `keelim-vercel` | `불필요한 use client` | 8 | 1 | 7 | `todo` |
+| 2 | `T26-keelim-vercel-client-component` | `keelim-vercel` | `불필요한 use client` | 8 | 1 | 7 | `assigned` |
 | 2 | `T27-keelim-vercel-image-optimization` | `keelim-vercel` | `이미지 최적화` | 1 | 0 | 1 | `todo` |
 | 2 | `T28-keelim-vercel-cache` | `keelim-vercel` | `캐싱 미활용` | 6 | 0 | 6 | `todo` |
 | 2 | `T34-youtube-testing` | `youtube` | `testing` | 21 | 8 | 13 | `verified` |
@@ -64,7 +64,7 @@ Durable `/goal` ledger for completing every P1/P2 item from the June 2026 improv
 | 2 | `T38-keelim-knowledge-vault-linking` | `Keelim-Knowledge-Vault` | `linking` | 6 | 0 | 6 | `verified` |
 | 3 | `T41-rich-api-security` | `rich` | `api-security` | 21 | 7 | 14 | `verified` |
 | 3 | `T45-rich-reliability` | `rich` | `reliability` | 19 | 5 | 14 | `verified` |
-| 3 | `T46-rich-testing` | `rich` | `testing` | 18 | 4 | 14 | `todo` |
+| 3 | `T46-rich-testing` | `rich` | `testing` | 18 | 4 | 14 | `assigned` |
 | 3 | `T42-rich-backend-quality` | `rich` | `backend-quality` | 16 | 2 | 14 | `todo` |
 | 3 | `T43-rich-frontend-quality` | `rich` | `frontend-quality` | 14 | 0 | 14 | `todo` |
 | 3 | `T44-rich-performance` | `rich` | `performance` | 12 | 0 | 12 | `todo` |

@@ -5,7 +5,8 @@ Ultragoal run after the user requested a pause and meaningful commits.
 The latest continuation closed the previously pending `T19`, `T29`, and `T41`
 wave with child-repo commits and root ledger verification, then assigned the
 next disjoint worker wave. `T25`, `T30`, and `T45` from that wave are now also
-verified and committed; `T47` remains the only active worker assignment.
+verified and committed. `T47` remains active, and the next non-overlapping
+worker wave assigned `T26` and `T46`.
 
 ## Goal State
 
@@ -18,8 +19,8 @@ verified and committed; `T47` remains the only active worker assignment.
 ## Root Ledger Snapshot
 
 - `verified`: 597
-- `assigned`: 24
-- `todo`: 179
+- `assigned`: 50
+- `todo`: 153
 - `blocked`: 0
 - `in_progress`: 0
 - `needs_consumer_check`: 0
@@ -196,12 +197,14 @@ Verification highlights:
 
 | repo | task | owner | agent | current state | next action |
 |---|---|---|---|---|---|
+| `keelim-vercel` | `T26-keelim-vercel-client-component` | Nietzsche | Nietzsche `019ec135-334d-71f0-ba57-9cdc051b8536` | Assigned to worker. | Wait for worker report, then leader-verify and commit only client-component boundary changes. Preserve `keelim-vercel/debug-log.json`. |
+| `rich` | `T46-rich-testing` | Raman | Raman `019ec135-819f-7271-a171-46b7ff3a7467` | Assigned to worker. | Wait for worker report, then leader-verify and commit only testing changes. Preserve unrelated guide/build/report dirtiness. |
 | `all` | `T47-all-architecture` | Nash | Kepler `019ec113-c99b-7f02-bfc4-efc66eaf3977` | Assigned to worker. | Wait for worker report, then leader-verify and commit only architecture changes. Preserve existing dirty `AGENTS.md`, `app-arducon/AGENTS.md`, and `debug-log.json` unless the worker explicitly owns a touched file. |
 
 ## Still Todo Next
 
-- `T26-keelim-vercel-client-component`
 - `T27-keelim-vercel-image-optimization`
+- `T28-keelim-vercel-cache`
 - Remaining all-web-ui, keelim-plugin, keelim-vercel, youtube, Knowledge Vault,
   rich, and all task units in `docs/ops/improvement-items-progress-2026-06.md`.
 - `T43-rich-frontend-quality` should include the observed rich/web shared-ui
@@ -238,14 +241,15 @@ Verification highlights:
 1. Run `python3 scripts/improvements/init_progress_ledger.py --check`.
 2. Read this handoff and
    `docs/ops/improvement-items-ultragoal-runbook-2026-06.md`.
-3. The only active assignment after closing `T25`, `T30`, and `T45` is
-   `T47-all-architecture` with Kepler.
-4. After `T47` closes, pick the next `todo` task by wave order, starting with
-   `T26`, `T27`, and `T28` unless a newer user instruction changes priority.
+3. Active assignments are `T26-keelim-vercel-client-component` with
+   Nietzsche, `T46-rich-testing` with Raman, and `T47-all-architecture` with
+   Kepler.
+4. After these close, pick the next `todo` task by wave order, starting with
+   `T27`, `T28`, and then the youtube tasks after its unrelated production/doc
+   dirtiness is reviewed.
 5. Track the remaining `rich/web` shared-ui primitive drift under
    `T43-rich-frontend-quality`.
-6. If a new worker wave is needed after `T47`, next good candidates are `T26`,
-   `T27`, and `T28`; avoid assigning multiple workers to the same dirty child repo at
-   once unless scopes are proven non-overlapping.
+6. Avoid assigning multiple workers to the same dirty child repo at once unless
+   scopes are proven non-overlapping.
 7. Keep commits per autonomous child repo and do not stage root child-repo
    pointers from the root.
