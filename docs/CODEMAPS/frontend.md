@@ -1,4 +1,4 @@
-<!-- Generated: 2026-05-22 | Files scanned: 151+ | Token estimate: ~760 -->
+<!-- Generated: 2026-06-13 | Files scanned: 151+ | Token estimate: ~760 -->
 
 # Frontend Codemap
 
@@ -40,8 +40,9 @@ Main route groups:
 API+BFF colocated under `src/app/api/*`.
 
 ### all-web-ui
-Exports reusable primitives:
-- `button`, `input`, `panel`, `badge`, `card`, `loading-status`, `empty-state`
+Exports reusable primitives (shadcn-compatible, verified by `verify-all-web-ui-integration.sh`):
+- `button`, `input`, `panel`, `card`, `badge`, `loading-status`, `empty-state`
+- `table`, `tabs`, `tooltip`, `sheet`, `dropdown-menu`, `breadcrumb`
 - shared styles and theme files (`finance.css`, `admin-bw.css`)
 
 ### all (Android — Jetpack Compose)

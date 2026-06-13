@@ -1,4 +1,4 @@
-<!-- Generated: 2026-05-22 | Source-led root codemap reviewed after generator pass -->
+<!-- Generated: 2026-06-13 | Source-led root codemap reviewed after generator pass -->
 
 # keelim-maestro Workspace Codemap
 
@@ -70,6 +70,8 @@ maintenance and verification surfaces:
 - `scripts/verify-python-dependency-constraints.py` - verifies shared Python
   dependency constraints are aligned across uv workspace members (`rich`).
   Run via `uv run python scripts/verify-python-dependency-constraints.py`.
+- `scripts/refresh-codemaps.py` - regenerates child-project codemap snapshots under `docs/CODEMAPS/projects/` using the `keelim-plugin` generator and updates "Last updated" dates in root codemap docs.
+- `scripts/codex-app-server.sh` - starts a Codex app-server bound to the workspace root (defaults to `ws://127.0.0.1:7331`); refuses non-loopback WebSocket without `--ws-auth`.
 - `package.json` scripts:
   - `test` / `test:workspace` — root superproject contract tests via `test-workspace.sh`
   - `report:baseline` — trusted baseline reporter via `report-trusted-baseline.sh`
@@ -79,6 +81,7 @@ maintenance and verification surfaces:
   - `test:web`
   - `dev:keelim-vercel`
   - `dev:rich-web`
+  - `dev:codex-app-server` — start Codex app-server via `scripts/codex-app-server.sh`
   - `dev:strategy-builder` — start `rich/open-trading-api/strategy_builder`
   - `dev:backtester` — start `rich/open-trading-api/backtester`
 
@@ -145,6 +148,7 @@ repos plus test environment variables documented in `docs/CODEMAPS/SCRIPTS.md`.
 - `bun run test:web` - root-filtered `rich/web` test lane.
 - `bun run dev:keelim-vercel` - start the `keelim-vercel` dev server from the root workspace.
 - `bun run dev:rich-web` - start the `rich/web` dev server from the root workspace.
+- `bun run dev:codex-app-server` - start a Codex app-server at `ws://127.0.0.1:7331`; connect with `codex --remote ws://127.0.0.1:7331`.
 - `bun run dev:strategy-builder` - start the open-trading strategy builder frontend/backend.
 - `bun run dev:backtester` - start the open-trading backtester frontend/backend.
 - `uv run python scripts/verify-python-dependency-constraints.py` - verify Python dependency constraint alignment across uv workspace members.
@@ -161,14 +165,14 @@ repos plus test environment variables documented in `docs/CODEMAPS/SCRIPTS.md`.
   dirty, branch-mismatched, remote-less, or locally-ahead repos.
 - `scripts/verify-keelim-plugin-rename.sh:19` - root/child string checks for
   rename verification.
-- `scripts/verify-all-web-ui-integration.sh:151` -
+- `scripts/verify-all-web-ui-integration.sh:158` -
   `all_web_ui_dependency_protocol_is_lockfile_coherent`, guarding the selected
   `file:` or `workspace:*` dependency protocol.
 - `scripts/verify-all-web-ui-integration.sh:275` -
   `all_web_ui_manifest_lists_exports`, checking shared primitive exports.
-- `scripts/verify-all-web-ui-integration.sh:401` - `run_static_checks`, the
+- `scripts/verify-all-web-ui-integration.sh:481` - `run_static_checks`, the
   default shared UI integration verification lane.
-- `scripts/verify-all-web-ui-integration.sh:516` - `run_full_checks`, the
+- `scripts/verify-all-web-ui-integration.sh:601` - `run_full_checks`, the
   runtime verification lane.
 
 ## Open Questions
