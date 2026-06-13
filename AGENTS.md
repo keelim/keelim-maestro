@@ -15,8 +15,10 @@
   - `pyproject.toml`
   - `uv.lock`
   - `docs/CODEMAPS/`
+  - `docs/knowledge/`
   - `docs/ops/`
   - `docs/idea/`
+  - `docs/research/`
   - `scripts/`
   - future `.gitmodules`
   - future root-only helper scripts/docs
@@ -45,6 +47,12 @@
 - Do not recreate or maintain a root-level `idea/` directory; route the workspace index and per-project idea files to `docs/idea/index.md` and `docs/idea/<project>.md`.
 - For idea gardener runs, read root `docs/CODEMAPS/*` first, then each project's `README.md` / `AGENTS.md` as read-only context before updating `docs/idea/`.
 - Keep child repositories read-only during root idea maintenance unless the user explicitly asks to enter a child repo.
+
+## Root research and session-history artifacts
+- Root-level research/export work that analyzes child repositories should keep child source files read-only and save derived artifacts under `docs/research/` unless a deeper `AGENTS.md` names a narrower home.
+- For saved improvement inventories, validate real `file_path` targets, line ranges, duplicate ids or duplicate intent, required fields, and URL bans when requested; close with the saved item count and artifact path.
+- For cross-session, Product Design, or service-improvement analysis, use `MEMORY.md`, Chronicle summaries, and existing repo artifacts as the first-pass signal; open raw session JSONL only for named evidence because broad raw grep is noisy.
+- Do not promote session ids, debug logs, temporary paths, or one-off task state into `AGENTS.md`; package only repeated repo-operational behavior through the narrowest applicable guide, skill, or reusable artifact.
 
 ## CodeGraph boundaries
 - Root and child repositories may each have their own `.codegraph/`, but choose the graph by question type.
@@ -104,8 +112,16 @@
 - `bun run dev:keelim-vercel` and `bun run dev:rich-web` are root convenience wrappers for hydrated workspace members; they do not replace child-repo-local install, test, or release workflows.
 - `bun run dev:codex-app-server` is the root helper for a local Codex app-server bound to this workspace; keep transport/config guidance at the root level rather than pushing it into child-repo docs.
 - `bun run automation:local -- ...` is the root-owned local automation script index/delegator for `rich`, `youtube` n8n, and `tools/agentgateway`; keep runtime implementation, manifests, and secrets in the owning repos.
+- When claiming local MCP or `agentgateway` readiness, prove method-level callability through the helper verification path or JSON-RPC calls such as `initialize`, `tools/list`, and `tools/call`, not only a green health or connected status.
 - `./scripts/update-subrepos.sh` is the root-owned status/update helper for registered submodules plus autonomous local repos surfaced in the report; prefer it over ad-hoc multi-repo pull loops when the task is root-level repo hygiene.
 - `bun run dev:strategy-builder` and `bun run dev:backtester` are root convenience wrappers into `rich/open-trading-api/*`, but they do **not** make those nested apps root workspace members or change `rich`'s child-repo ownership rules.
+
+## GBrain knowledge layer
+- Root-owned GBrain operating docs live under `docs/knowledge/`; the operator brain repo remains separate from this checkout, and importing child docs into GBrain does not grant permission to edit child source from the root.
+- For local PGLite GBrain imports, use the curated source manifest/log under the operator brain repo and import only allowlisted documentation paths. Do not broad-import child source trees, caches, generated output, secrets, archived `toto`, or no-remote `quant`.
+- When verifying imported GBrain knowledge, use a real phrase from an allowlisted local markdown source and show the search result; do not treat manifest membership alone as proof that the knowledge is queryable.
+- PGLite is single-writer sensitive: do not run bulk `gbrain import`, `gbrain sync`, `gbrain stats`, or ad-hoc search commands concurrently with a running `gbrain serve` MCP process. Stop the local serve process for bulk CLI work, run GBrain commands sequentially, then let Codex restart MCP from the registered `gbrain serve` config when needed.
+- Treat Supabase/Postgres GBrain promotion as an external data migration. Require explicit confirmation that the configured destination is trusted, keep DB URLs/API keys/tokens out of repo files, and stop rather than work around approval or connection failures.
 
 ## Change boundaries
 - Prefer the smallest reversible root diff.
