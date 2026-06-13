@@ -12,9 +12,9 @@ Durable `/goal` ledger for completing every P1/P2 item from the June 2026 improv
 | status | count |
 |---|---:|
 | `todo` | 318 |
-| `assigned` | 47 |
+| `assigned` | 28 |
 | `in_progress` | 0 |
-| `verified` | 435 |
+| `verified` | 454 |
 | `blocked` | 0 |
 | `needs_consumer_check` | 0 |
 
@@ -59,7 +59,7 @@ Durable `/goal` ledger for completing every P1/P2 item from the June 2026 improv
 | 2 | `T39-keelim-knowledge-vault-naming` | `Keelim-Knowledge-Vault` | `naming` | 21 | 5 | 16 | `verified` |
 | 2 | `T36-keelim-knowledge-vault-content-quality` | `Keelim-Knowledge-Vault` | `content-quality` | 19 | 4 | 15 | `verified` |
 | 2 | `T37-keelim-knowledge-vault-frontmatter` | `Keelim-Knowledge-Vault` | `frontmatter` | 17 | 3 | 14 | `verified` |
-| 2 | `T40-keelim-knowledge-vault-structure` | `Keelim-Knowledge-Vault` | `structure` | 19 | 3 | 16 | `assigned` |
+| 2 | `T40-keelim-knowledge-vault-structure` | `Keelim-Knowledge-Vault` | `structure` | 19 | 3 | 16 | `verified` |
 | 2 | `T35-keelim-knowledge-vault-automation` | `Keelim-Knowledge-Vault` | `automation` | 18 | 2 | 16 | `verified` |
 | 2 | `T38-keelim-knowledge-vault-linking` | `Keelim-Knowledge-Vault` | `linking` | 6 | 0 | 6 | `verified` |
 | 3 | `T41-rich-api-security` | `rich` | `api-security` | 21 | 7 | 14 | `todo` |

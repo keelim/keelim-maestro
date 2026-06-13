@@ -52,7 +52,6 @@ The leader must:
 |---|---|---|
 | `T08-all-web-ui-api-design` | Carson | `all-web-ui` api-design backlog |
 | `T22-keelim-vercel-dx-config` | Lagrange | `keelim-vercel` dx-config backlog |
-| `T40-keelim-knowledge-vault-structure` | Boole | `Keelim-Knowledge-Vault` structure backlog |
 
 ## Verified Task Units
 
@@ -84,6 +83,7 @@ The leader must:
 | `T37-keelim-knowledge-vault-frontmatter` | Codex | 17 selected ledger items verified with a frontmatter role-field verifier, link regression verifier, script compile, backlink check, and `git diff --check`. |
 | `T38-keelim-knowledge-vault-linking` | Codex | 6 selected ledger items verified with Knowledge Vault backlink checks, selected inbound/outbound wikilink checks, Python verifier compile, and `git diff --check`. |
 | `T39-keelim-knowledge-vault-naming` | Kant | 21 selected ledger items verified with Knowledge Vault rename/link updates, backlink check for 251 files, JSON backlink check, old-basename audit, duplicate-basename audit leaving only `index.md`, and `git diff --check`. |
+| `T40-keelim-knowledge-vault-structure` | Boole | 19 selected ledger items verified with local MOCs/schema navigation for AI, Android, CS, Kotlin, service, and vault-wide structures, Obsidian `.omx/` ignore, backlink JSON check returning ok with no failures, valid `.obsidian/app.json`, and `git diff --check`. |
 
 ## Ledger Commands
 

@@ -9,12 +9,12 @@ Ultragoal run after the user requested a pause and meaningful commits.
 - Current Codex goal status from `get_goal`: `active`
 - Do not call `update_goal` yet. The aggregate run is not complete.
 - Ledger check: `python3 scripts/improvements/init_progress_ledger.py --check`
-  - Result: `OK: 800 items, 52 task units, 435 verified`
+  - Result: `OK: 800 items, 52 task units, 454 verified`
 
 ## Root Ledger Snapshot
 
-- `verified`: 435
-- `assigned`: 47
+- `verified`: 454
+- `assigned`: 28
 - `todo`: 318
 - `blocked`: 0
 - `in_progress`: 0
@@ -42,6 +42,7 @@ Durable state files:
 | `Keelim-Knowledge-Vault` | `T35`, `T37`, `T38` | Leader verified and committed. | `eea3b4d51d7ddc553d2498e710507ac5a81fd09c` |
 | `Keelim-Knowledge-Vault` | `T36` | Leader verified and committed. | `ff448970eab0a453120e97630b72ec4c3ea20446` |
 | `Keelim-Knowledge-Vault` | `T39` | Leader verified and committed. | `5445e89fa9f15bc28cba1cef5b6093ee950d680e` |
+| `Keelim-Knowledge-Vault` | `T40` | Leader verified and committed. | `ecd7541f03a1491ea5c41ae9e3a10ba9f3ee5a6c` |
 | `keelim-plugin` | `T15`, `T16`, `T18` | Leader verified and committed. | `64d229aef8ef88a862b195330f8f7a0a82fee442` |
 | `keelim-plugin` | `T13` | Leader verified and committed. | `e2d3633d76eb20839b0f698a4fb6ad3bc7dd0892` |
 | `keelim-plugin` | `T14` | Leader verified and committed. | `3391dc9677ba9d5f1e600452b7ea26c8b43ea69a` |
@@ -75,6 +76,10 @@ Verification highlights:
 - `Keelim-Knowledge-Vault` T36: backlink check passed for 251 files,
   targeted stale-marker/typo scan passed over handled files, Bazel/Prototype
   naming fixes were committed, and `git diff --check` passed.
+- `Keelim-Knowledge-Vault` T40: backlink JSON check returned ok with no
+  failures, `.obsidian/app.json` parsed as valid JSON with `.omx/` ignored,
+  local MOCs/schema navigation covered 19 selected structure items, and `git
+  diff --check` passed.
 - `all-web-ui`: `bun run typecheck`, `bun test` (31 pass / 459 expects),
   `bun run build`, and `git diff --check` passed after refreshing the
   standalone child `bun.lock` from an isolated copy. `bun run report:shared-ui`
@@ -137,7 +142,6 @@ Verification highlights:
 |---|---|---|---|---|
 | `all-web-ui` | `T08-all-web-ui-api-design` | Carson | Assigned to subagent `019ec09e-bcb9-7782-af35-1f492b7cfe7a`. | Wait for worker report, then leader-verify before marking complete. Preserve pre-existing `all-web-ui/AGENTS.md` edits and `debug-log.json`. |
 | `keelim-vercel` | `T22-keelim-vercel-dx-config` | Lagrange | Assigned to subagent `019ec09e-c0de-7ab3-a8be-48d09b6e0bc5`. | Wait for worker report, then leader-verify before marking complete. Preserve untracked `debug-log.json`. |
-| `Keelim-Knowledge-Vault` | `T40-keelim-knowledge-vault-structure` | Boole | Assigned to subagent `019ec09e-c623-7560-8c20-64d82f819a8f`. | Wait for worker report, then leader-verify before marking complete. Preserve untracked `debug-log.json`. |
 
 ## Still Todo Next
 
@@ -160,8 +164,8 @@ Verification highlights:
 - `all-web-ui` still has pre-existing uncommitted `AGENTS.md` edits and
   untracked `debug-log.json`; these were intentionally excluded from `T09`,
   `T10`, `T11`, and `T12`.
-- `Keelim-Knowledge-Vault` T36 was committed; only `debug-log.json` remains
-  untracked in that child repo.
+- `Keelim-Knowledge-Vault` T36 and T40 were committed; only `debug-log.json`
+  remains untracked in that child repo.
 - `keelim-plugin` T13 and T17 were committed and its child repo is clean.
 - `keelim-vercel` T21 and T24 were committed; only `debug-log.json` remains
   untracked in that child repo.
@@ -176,7 +180,7 @@ Verification highlights:
 1. Run `python3 scripts/improvements/init_progress_ledger.py --check`.
 2. Read this handoff and
    `docs/ops/improvement-items-ultragoal-runbook-2026-06.md`.
-3. Resume active assignments first: `T08`, `T22`, and `T40`.
+3. Resume active assignments first: `T08` and `T22`.
 4. If those workers are complete, leader-verify each child repo before moving
    the ledger from `assigned` to `verified`.
 5. Track the remaining `rich/web` shared-ui primitive drift under
