@@ -11,8 +11,8 @@ Durable `/goal` ledger for completing every P1/P2 item from the June 2026 improv
 
 | status | count |
 |---|---:|
-| `todo` | 203 |
-| `assigned` | 40 |
+| `todo` | 179 |
+| `assigned` | 64 |
 | `in_progress` | 0 |
 | `verified` | 557 |
 | `blocked` | 0 |
@@ -68,7 +68,7 @@ Durable `/goal` ledger for completing every P1/P2 item from the June 2026 improv
 | 3 | `T42-rich-backend-quality` | `rich` | `backend-quality` | 16 | 2 | 14 | `todo` |
 | 3 | `T43-rich-frontend-quality` | `rich` | `frontend-quality` | 14 | 0 | 14 | `todo` |
 | 3 | `T44-rich-performance` | `rich` | `performance` | 12 | 0 | 12 | `todo` |
-| 3 | `T47-all-architecture` | `all` | `architecture` | 24 | 10 | 14 | `todo` |
+| 3 | `T47-all-architecture` | `all` | `architecture` | 24 | 10 | 14 | `assigned` |
 | 3 | `T51-all-security` | `all` | `security` | 18 | 4 | 14 | `todo` |
 | 3 | `T48-all-build-ci` | `all` | `build-ci` | 15 | 3 | 12 | `todo` |
 | 3 | `T52-all-testing` | `all` | `testing` | 16 | 3 | 13 | `todo` |

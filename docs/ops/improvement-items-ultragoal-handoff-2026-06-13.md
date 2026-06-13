@@ -4,7 +4,7 @@ This handoff freezes the current state of the June 2026 P1/P2 improvement
 Ultragoal run after the user requested a pause and meaningful commits.
 The latest continuation closed the previously pending `T19`, `T29`, and `T41`
 wave with child-repo commits and root ledger verification, then assigned the
-next disjoint worker wave for `T25`, `T30`, and `T45`.
+next disjoint worker wave for `T25`, `T30`, `T45`, and `T47`.
 
 ## Goal State
 
@@ -17,8 +17,8 @@ next disjoint worker wave for `T25`, `T30`, and `T45`.
 ## Root Ledger Snapshot
 
 - `verified`: 557
-- `assigned`: 40
-- `todo`: 203
+- `assigned`: 64
+- `todo`: 179
 - `blocked`: 0
 - `in_progress`: 0
 - `needs_consumer_check`: 0
@@ -192,6 +192,7 @@ Verification highlights:
 | `keelim-vercel` | `T25-keelim-vercel-bundle-size` | Noether | Singer `019ec110-9377-7850-b1bd-a7fb9435a14d` | Assigned to worker. | Wait for worker report, then leader-verify and commit only the T25 file set. Preserve `keelim-vercel/debug-log.json`. |
 | `youtube` | `T30-youtube-code-quality` | Curie | Ptolemy `019ec110-b2f4-7231-88b4-1b37050ea460` | Assigned to worker. | Wait for worker report, then leader-verify and commit only code-quality changes. Preserve unrelated production/media/package/doc/remotion work. |
 | `rich` | `T45-rich-reliability` | Riemann | Mencius `019ec110-d542-7961-accb-5f3a21287975` | Assigned to worker. | Wait for worker report, then leader-verify and commit only reliability changes. Preserve unrelated guide/build/report dirtiness. |
+| `all` | `T47-all-architecture` | Nash | Kepler `019ec113-c99b-7f02-bfc4-efc66eaf3977` | Assigned to worker. | Wait for worker report, then leader-verify and commit only architecture changes. Preserve existing dirty `AGENTS.md`, `app-arducon/AGENTS.md`, and `debug-log.json` unless the worker explicitly owns a touched file. |
 
 ## Still Todo Next
 

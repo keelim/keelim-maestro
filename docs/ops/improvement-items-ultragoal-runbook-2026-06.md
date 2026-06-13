@@ -53,6 +53,7 @@ The leader must:
 | `T25-keelim-vercel-bundle-size` | Noether / Singer | `019ec110-9377-7850-b1bd-a7fb9435a14d` | `keelim-vercel` bundle-size backlog |
 | `T30-youtube-code-quality` | Curie / Ptolemy | `019ec110-b2f4-7231-88b4-1b37050ea460` | `youtube` code-quality backlog |
 | `T45-rich-reliability` | Riemann / Mencius | `019ec110-d542-7961-accb-5f3a21287975` | `rich` reliability backlog |
+| `T47-all-architecture` | Nash / Kepler | `019ec113-c99b-7f02-bfc4-efc66eaf3977` | `all` architecture backlog |
 
 ## Latest Closed Wave
 
