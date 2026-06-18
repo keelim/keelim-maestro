@@ -1,7 +1,7 @@
 # Root Scripts Codemap
 
-<!-- Generated: 2026-06-17 -->
-Last updated: 2026-06-17
+<!-- Generated: 2026-06-18 -->
+Last updated: 2026-06-18
 
 All scripts live under `scripts/`. Run them from the repo root.
 
@@ -10,7 +10,7 @@ All scripts live under `scripts/`. Run them from the repo root.
 | Script | Invocation | Purpose |
 | --- | --- | --- |
 | `test-workspace.sh` | `bun run test` | Lightweight root contract verifier (metadata, scripts, boundaries) |
-| `update-subrepos.sh` | `bun run update-subrepos` / direct | Status/update helper for submodules + autonomous repos |
+| `update-subrepos.sh` | `./scripts/update-subrepos.sh` (direct) | Status/update helper for submodules + autonomous repos |
 | `codegraph.sh` | `bun run cg -- <args>` | CodeGraph dispatcher for child repos |
 | `codex-app-server.sh` | `bun run dev:codex-app-server` | Local Codex app-server (WebSocket at ws://127.0.0.1:7331) |
 | `local-automation.sh` | `bun run automation:local -- <cmd>` | Local automation stack delegator (rich, n8n, agentgateway) |
