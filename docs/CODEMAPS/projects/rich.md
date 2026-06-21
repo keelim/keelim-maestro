@@ -1,339 +1,46 @@
-# Agent Codemap
+# `rich` Codemap
 
-- Repository: `rich`
-- Root: `/Users/keelim/Desktop/keelim-maestro/rich`
-- Generated: 2026-05-27 00:00 UTC
-- Files scanned: 1834
-- Detected shape: Node/JavaScript, Python, Docker
+<!-- Generated: 2026-06-21 -->
 
-## Read First
-- `AGENTS.md`
-- `README.md`
-- `open-trading-api/MCP/KIS Code Assistant MCP/pyproject.toml`
-- `open-trading-api/MCP/Kis Trading MCP/pyproject.toml`
-- `open-trading-api/backtester/frontend/package.json`
-- `open-trading-api/strategy_builder/frontend/package.json`
-- `package.json`
-- `pyproject.toml`
-- `web/package.json`
-- `app/api/__init__.py`
-- `app/api/admin.py`
-- `app/main.py`
-- `main.py`
-- `open-trading-api/MCP/KIS Code Assistant MCP/server.py`
-- `open-trading-api/MCP/Kis Trading MCP/server.py`
-- `open-trading-api/backend/main.py`
+**Type:** Autonomous child repo (not a submodule)
+**Remote:** https://github.com/keelim/rich
+**Branch:** master
+**Status:** Dirty working tree; commits ahead of origin; do not pin until reconciled
 
-## Repository Shape
-- Python: 956 files
-- TypeScript: 439 files
-- Markdown: 254 files
-- SQL: 49 files
-- .json: 25 files
-- [no extension]: 20 files
-- .h: 16 files
-- YAML: 15 files
-- .ipynb: 10 files
-- Shell: 8 files
-- .csv: 6 files
-- .lock: 6 files
+## Shape
 
-## Entrypoints
-- `app/api/__init__.py`
-- `app/api/admin.py`
-- `app/main.py`
-- `main.py`
-- `open-trading-api/MCP/KIS Code Assistant MCP/server.py`
-- `open-trading-api/MCP/Kis Trading MCP/server.py`
-- `open-trading-api/backend/main.py`
-- `open-trading-api/backtester/frontend/src/app/backtest/page.tsx`
-- `open-trading-api/backtester/frontend/src/app/layout.tsx`
-- `open-trading-api/backtester/frontend/src/app/page.tsx`
-- `open-trading-api/backtester/frontend/src/components/backtest/index.ts`
-- `open-trading-api/backtester/frontend/src/components/file/index.ts`
-- `open-trading-api/backtester/frontend/src/components/layout/index.ts`
-- `open-trading-api/backtester/frontend/src/components/settings/index.ts`
-- `open-trading-api/backtester/frontend/src/components/symbols/index.ts`
-- `open-trading-api/backtester/frontend/src/contexts/index.ts`
-- `open-trading-api/backtester/frontend/src/hooks/index.ts`
-- `open-trading-api/backtester/frontend/src/lib/api/auth.ts`
-- `open-trading-api/backtester/frontend/src/lib/api/backtest.ts`
-- `open-trading-api/backtester/frontend/src/lib/api/client.ts`
-- `open-trading-api/backtester/frontend/src/lib/api/files.ts`
-- `open-trading-api/backtester/frontend/src/lib/api/index.ts`
-- `open-trading-api/backtester/frontend/src/lib/api/strategies.ts`
-- `open-trading-api/backtester/frontend/src/lib/api/symbols.ts`
-- `open-trading-api/backtester/frontend/src/types/index.ts`
-- `open-trading-api/kis_mcp/server.py`
-- `open-trading-api/strategy_builder/frontend/src/app/builder/page.tsx`
-- `open-trading-api/strategy_builder/frontend/src/app/execute/page.tsx`
-- `open-trading-api/strategy_builder/frontend/src/app/lab/page.tsx`
-- `open-trading-api/strategy_builder/frontend/src/app/layout.tsx`
-- `open-trading-api/strategy_builder/frontend/src/app/page.tsx`
-- `open-trading-api/strategy_builder/frontend/src/components/auth/index.ts`
-- `open-trading-api/strategy_builder/frontend/src/components/builder/index.ts`
-- `open-trading-api/strategy_builder/frontend/src/components/execute/index.ts`
-- `open-trading-api/strategy_builder/frontend/src/components/file/index.ts`
-- `open-trading-api/strategy_builder/frontend/src/components/layout/index.ts`
-- `open-trading-api/strategy_builder/frontend/src/components/settings/index.ts`
-- `open-trading-api/strategy_builder/frontend/src/components/symbols/index.ts`
-- `open-trading-api/strategy_builder/frontend/src/components/ui/index.ts`
-- `open-trading-api/strategy_builder/frontend/src/contexts/index.ts`
-- `open-trading-api/strategy_builder/frontend/src/hooks/index.ts`
-- `open-trading-api/strategy_builder/frontend/src/lib/api/account.ts`
-- `open-trading-api/strategy_builder/frontend/src/lib/api/auth.ts`
-- `open-trading-api/strategy_builder/frontend/src/lib/api/backtest.ts`
-- `open-trading-api/strategy_builder/frontend/src/lib/api/client.ts`
-- `open-trading-api/strategy_builder/frontend/src/lib/api/index.ts`
-- `open-trading-api/strategy_builder/frontend/src/lib/api/market.ts`
-- `open-trading-api/strategy_builder/frontend/src/lib/api/orders.ts`
-- `open-trading-api/strategy_builder/frontend/src/lib/api/strategies.ts`
-- `open-trading-api/strategy_builder/frontend/src/lib/api/symbols.ts`
-- `open-trading-api/strategy_builder/frontend/src/lib/builder/index.ts`
-- `open-trading-api/strategy_builder/frontend/src/types/index.ts`
-- `supabase/functions/crawl-sectors/index.ts`
-- `supabase/functions/crawl-support-funds/index.ts`
-- `supabase/functions/slack-review-reminder/index.ts`
-- `web/src/app/admin/common-flow/page.tsx`
-- `web/src/app/admin/dashboard/page.tsx`
-- `web/src/app/admin/layout.tsx`
-- `web/src/app/admin/money/checklist/page.tsx`
-- `web/src/app/admin/money/dividends/page.tsx`
-- `web/src/app/admin/money/journal/page.tsx`
-- `web/src/app/admin/money/quant/page.tsx`
-- `web/src/app/admin/money/review/page.tsx`
-- `web/src/app/admin/money/sentiment/page.tsx`
-- `web/src/app/admin/money/signals/page.tsx`
-- `web/src/app/admin/money/strategy-lab/backtest/page.tsx`
-- `web/src/app/admin/money/strategy-lab/builder/page.tsx`
-- `web/src/app/admin/money/strategy-lab/execute/page.tsx`
-- `web/src/app/admin/money/strategy-lab/layout.tsx`
-- `web/src/app/admin/money/strategy-lab/master/page.tsx`
-- `web/src/app/admin/money/strategy-lab/page.tsx`
-- `web/src/app/admin/money/support-funds/page.tsx`
-- `web/src/app/admin/page.tsx`
-- `web/src/app/admin/profit-notes/page.tsx`
-- `web/src/app/admin/review/page.tsx`
-- `web/src/app/admin/weekly-review/page.tsx`
-- `web/src/app/admin/work-triage/page.tsx`
-- `web/src/app/agenda/page.tsx`
-- `web/src/app/api/admin/workspace-dashboard/route.test.ts`
-- `web/src/app/api/admin/workspace-dashboard/route.ts`
-- ... 52 more
+Mixed Python + React/TypeScript admin stack.
 
-## Key Directories
-- `open-trading-api/`: 1124 files; examples: `open-trading-api/.gitignore`, `open-trading-api/MCP/KIS Code Assistant MCP/.dockerignore`, `open-trading-api/MCP/KIS Code Assistant MCP/.gitignore`
-- `web/`: 327 files; examples: `web/.env.local`, `web/.npmrc`, `web/bun.lock`
-- `docs/`: 242 files; examples: `docs/CODEMAPS/architecture.md`, `docs/CODEMAPS/backend.md`, `docs/CODEMAPS/data.md`
-- `supabase/`: 63 files; examples: `supabase/.gitignore`, `supabase/config.toml`, `supabase/functions/_shared/slack-auth.test.ts`
-- `tests/`: 17 files; examples: `tests/conftest.py`, `tests/fixtures/data_go_kr/listing_page.html`, `tests/fixtures/data_go_kr/listing_page_embedded_json.html`
-- `./`: 15 files; examples: `.env`, `.gitignore`, `.python-version`
-- `app/`: 11 files; examples: `app/__init__.py`, `app/api/__init__.py`, `app/api/admin.py`
-- `legacy/`: 10 files; examples: `legacy/README.md`, `legacy/core/crawaling/크롤링.ipynb`, `legacy/core/screener.ipynb`
-- `alembic/`: 6 files; examples: `alembic/versions/20260302_01_pykrx_foreign_flow.sql`, `alembic/versions/20260302_02_pykrx_investor_type.sql`, `alembic/versions/20260302_03_pykrx_schema_repair.sql`
-- `opendart_json/`: 6 files; examples: `opendart_json/__init__.py`, `opendart_json/catalog.py`, `opendart_json/client.py`
-- `cli/`: 5 files; examples: `cli/__init__.py`, `cli/_typer.py`, `cli/client.py`
-- `.codex/`: 3 files; examples: `.codex/environments/environment.toml`, `.codex/skills/update-codemaps/SKILL.md`, `.codex/skills/update-codemaps/references/claude-update-codemaps-command.md`
-- `scripts/`: 2 files; examples: `scripts/export_data_go_kr_api_catalog.py`, `scripts/smoke_open_trading_api_kis.py`
-- `utils/`: 2 files; examples: `utils/__init__.py`, `utils/data_go_kr_api_catalog.py`
-- `.github/`: 1 files; examples: `.github/workflows/currency-data-scheduler.yml`
+## Key Components
 
-## Dependencies and Tooling
-- `.github/workflows/currency-data-scheduler.yml`
-- `AGENTS.md`
-- `README.md`
-- `docs/words/AGENTS.md`
-- `legacy/README.md`
-- `open-trading-api/MCP/KIS Code Assistant MCP/Dockerfile`
-- `open-trading-api/MCP/KIS Code Assistant MCP/README.md`
-- `open-trading-api/MCP/KIS Code Assistant MCP/pyproject.toml`
-- `open-trading-api/MCP/KIS Code Assistant MCP/uv.lock`
-- `open-trading-api/MCP/Kis Trading MCP/Dockerfile`
-- `open-trading-api/MCP/Kis Trading MCP/pyproject.toml`
-- `open-trading-api/README.md`
-- `open-trading-api/backtester/README.md`
-- `open-trading-api/backtester/examples/README.md`
-- `open-trading-api/backtester/frontend/package.json`
-- `open-trading-api/backtester/tests/fixtures/local_engine/golden/README.md`
-- `open-trading-api/requirements.txt`
-- `open-trading-api/strategy_builder/README.md`
-- `open-trading-api/strategy_builder/examples/README.md`
-- `open-trading-api/strategy_builder/frontend/package.json`
-- `package.json`
-- `pyproject.toml`
-- `uv.lock`
-- `web/bun.lock`
-- `web/package.json`
+| Component | Path | Stack |
+| --- | --- | --- |
+| Admin web | `rich/web/` | React 19 + Vite; root Bun workspace member |
+| Python backend | `rich/` (root) | Python >=3.13; root uv workspace member (`keelim-rich`) |
+| Strategy builder | `rich/open-trading-api/strategy_builder/` | Python + FastAPI; root helper: `bun run dev:strategy-builder` |
+| Backtester | `rich/open-trading-api/backtester/` | Python; root helper: `bun run dev:backtester` |
+| Kubernetes stack | `rich/` (k8s manifests) | Skaffold-managed local dev cluster |
 
-## Useful Commands
-- npm script `backend`: sh ./run-backend.sh
-- npm script `dev`: sh ./run-dev.sh
-- npm script `frontend`: sh ./run-frontend.sh
+## Local Dev
 
-## Tests and Verification
-- `open-trading-api/backtester/tests/conftest.py`
-- `open-trading-api/backtester/tests/fixtures/local_engine/golden/README.md`
-- `open-trading-api/backtester/tests/fixtures/local_engine/golden/macd_rsi_price_threshold_trades.json`
-- `open-trading-api/backtester/tests/fixtures/local_engine/golden/manifest.json`
-- `open-trading-api/backtester/tests/fixtures/local_engine/golden/sma_crossover_signal_trades.json`
-- `open-trading-api/backtester/tests/fixtures/local_engine/golden/sma_crossover_stop_loss_trades.json`
-- `open-trading-api/backtester/tests/fixtures/local_engine/golden/sma_crossover_take_profit_trades.json`
-- `open-trading-api/backtester/tests/fixtures/local_engine/market_data/005930.csv`
-- `open-trading-api/backtester/tests/fixtures/local_engine/market_data/signal.csv`
-- `open-trading-api/backtester/tests/fixtures/local_engine/market_data/stop_loss.csv`
-- `open-trading-api/backtester/tests/fixtures/local_engine/market_data/take_profit.csv`
-- `open-trading-api/backtester/tests/fixtures/local_engine/strategies/sma_crossover.kis.yaml`
-- `open-trading-api/backtester/tests/fixtures/local_engine/strategies/sma_crossover_stop_loss.kis.yaml`
-- `open-trading-api/backtester/tests/fixtures/local_engine/strategies/sma_crossover_take_profit.kis.yaml`
-- `open-trading-api/backtester/tests/test_download_master.py`
-- `open-trading-api/backtester/tests/test_engine_selection.py`
-- `open-trading-api/backtester/tests/test_lean_executor.py`
-- `open-trading-api/backtester/tests/test_local_engine.py`
-- `supabase/functions/_shared/slack-auth.test.ts`
-- `supabase/functions/crawl-sectors/index.test.ts`
-- `supabase/functions/crawl-support-funds/index.test.ts`
-- `supabase/functions/slack-review-reminder/config.test.ts`
-- `supabase/functions/slack-review-reminder/index.test.ts`
-- `tests/conftest.py`
-- `tests/fixtures/data_go_kr/listing_page.html`
-- `tests/fixtures/data_go_kr/listing_page_embedded_json.html`
-- `tests/fixtures/data_go_kr/listing_page_live_like.html`
-- `tests/test_admin_api.py`
-- `tests/test_cli_dashboard.py`
-- `tests/test_data_go_kr_api_catalog_service.py`
-- `tests/test_market_fear_greed_service.py`
-- `tests/test_open_trading_api_root_venv.py`
-- `tests/test_open_trading_unified_backend.py`
-- `tests/test_opendart_client.py`
-- `tests/test_portfolio_strategy_constants.py`
-- `tests/test_pykrx_read_model.py`
-- `tests/test_quant_migration_retirement.py`
-- `tests/test_root_bun_scripts.py`
-- `tests/test_run_helper_scripts.py`
-- `tests/test_weekly_review_service.py`
-- `web/next.config.test.ts`
-- `web/src/app/admin/common-flow/page.test.tsx`
-- `web/src/app/admin/dashboard/page.test.tsx`
-- `web/src/app/admin/layout.test.tsx`
-- `web/src/app/admin/money/checklist/page.test.tsx`
-- `web/src/app/admin/money/dividends/page.test.tsx`
-- `web/src/app/admin/money/journal/page.test.tsx`
-- `web/src/app/admin/money/quant/page.test.tsx`
-- `web/src/app/admin/money/review/page.test.tsx`
-- `web/src/app/admin/money/sentiment/page.test.tsx`
-- `web/src/app/admin/money/signals/page.test.tsx`
-- `web/src/app/admin/money/strategy-lab/backtest/page.test.tsx`
-- `web/src/app/admin/money/strategy-lab/builder/page.test.tsx`
-- `web/src/app/admin/money/strategy-lab/execute/page.test.tsx`
-- `web/src/app/admin/money/strategy-lab/master/page.test.tsx`
-- `web/src/app/admin/money/strategy-lab/page.test.tsx`
-- `web/src/app/admin/money/support-funds/page.test.tsx`
-- `web/src/app/admin/page.test.tsx`
-- `web/src/app/admin/profit-notes/page.test.tsx`
-- `web/src/app/admin/review/page.test.tsx`
-- `web/src/app/admin/weekly-review/page.test.tsx`
-- `web/src/app/admin/work-triage/page.test.tsx`
-- `web/src/app/agenda/page.test.tsx`
-- `web/src/app/api/admin/workspace-dashboard/route.test.ts`
-- `web/src/app/api/agenda/route.test.ts`
-- `web/src/app/api/google-sheets/route.test.ts`
-- `web/src/app/api/open-trading/[service]/[...path]/route.test.ts`
-- `web/src/app/api/open-trading/_lib/proxy.test.ts`
-- `web/src/app/auth/callback/callback-handler.test.ts`
-- `web/src/app/error.test.tsx`
-- `web/src/app/global-error.test.tsx`
-- `web/src/app/layout.test.tsx`
-- `web/src/app/login/page.test.tsx`
-- `web/src/app/logout/route.test.ts`
-- `web/src/app/not-found.test.tsx`
-- `web/src/app/robots.test.ts`
-- `web/src/app/sitemap.test.ts`
-- `web/src/app/tqqq-checklist/page.test.tsx`
-- `web/src/features/admin/admin-route-inventory.test.ts`
-- `web/src/features/admin/channel-todo-dashboard-core.test.ts`
-- ... 49 more
+```bash
+bun run dev:rich-web                   # Root: start admin web dev server
+bun run dev:strategy-builder           # Root: start strategy builder
+bun run dev:backtester                 # Root: start backtester
+bun run automation:local -- start rich # Start full local K8s stack
+bun run automation:local -- standby    # Stop rich Skaffold loop
+```
 
-## Symbol Landmarks
-- `main.py`: main (L1)
-- `app/main.py`: _ensure_open_trading_import_path (L13), _include_open_trading_routes (L19), create_app (L26), healthz (L39)
-- `app/api/admin.py`: ErrorDetail (L25), ErrorEnvelope (L30), _pykrx_error_response (L34), _weekly_review_error_response (L56), _quant_error_response (L76), WeeklyReviewGenerateRequest (L95), WeeklyReviewSaveRequest (L99), get_quant_forex (L106)
-- `app/core/settings.py`: Settings (L20), get_settings (L38)
-- `app/services/market_fear_greed.py`: LatestSectorSnapshot (L33), _now_kst (L40), _shift_business_days (L48), _resolve_latest_krx_business_day (L59), _clamp (L71), _score_to_label (L75), _confidence_band (L84), _freshness_status (L92)
-- `app/services/pykrx_read_model.py`: PykrxIngestionError (L12), __str__ (L16), _as_int (L20), _as_optional_int (L38), _as_optional_float (L56), _normalize_ticker (L74), _create_supabase_client (L85)
-- `app/services/quant_client.py`: QuantClientError (L18), __init__ (L19), _normalize_currency_code (L25), _normalize_currency_codes (L33), QuantForexRate (L42), validate_currency (L51), QuantForexRatesResponse (L57), validate_base_currency (L65)
-- `app/services/weekly_review.py`: WeeklyReviewError (L16), __str__ (L20), _create_supabase_client (L24), _validate_user_id (L34), _week_end (L41), _as_float (L45), _normalize_profit_by_currency (L59), _normalize_review_row (L72)
-- `cli/_typer.py`: _OptionInfo (L15), Option (L22), _resolve_click_type (L31), _apply_option (L41), _build_click_command (L60), Typer (L72), __init__ (L73), command (L83)
-- `cli/client.py`: AdminApiError (L12), _build_url (L16), _extract_error_message (L20), _request (L36), get (L54), post (L60)
-- `cli/display.py`: format_signed_value (L1), build_streak_days (L11)
-- `open-trading-api/MCP/KIS Code Assistant MCP/server.py`: extract_category_function_from_url (L42), _kis_api_main_file (L291), _kis_api_check_file (L309), search_auth_api (L376), search_domestic_stock_api (L406), search_domestic_bond_api (L435), search_domestic_futureoption_api (L464), search_overseas_stock_api (L493)
-- `open-trading-api/MCP/KIS Code Assistant MCP/src/prompts/prompt.py`: register_prompts (L3), kis_detailed_code_prompt (L11), websocket_example (L104), kis_easy_code_prompt (L156), main_api_function (L212), websocket_function (L231)
-- `open-trading-api/MCP/KIS Code Assistant MCP/src/utils/api_searcher.py`: APISearcher (L4), __init__ (L12), load_data (L16), search (L26)
-- `open-trading-api/MCP/Kis Trading MCP/server.py`: main (L19)
-- `open-trading-api/MCP/Kis Trading MCP/model/auth.py`: AuthMaster (L5)
-- `open-trading-api/MCP/Kis Trading MCP/model/domestic_bond.py`: DomesticBondMaster (L5)
-- `open-trading-api/MCP/Kis Trading MCP/model/domestic_futureoption.py`: DomesticFutureoptionMaster (L5)
-- `open-trading-api/MCP/Kis Trading MCP/model/domestic_stock.py`: DomesticStockMaster (L5)
-- `open-trading-api/MCP/Kis Trading MCP/model/elw.py`: ElwMaster (L5)
-- `open-trading-api/MCP/Kis Trading MCP/model/etfetn.py`: EtfetnMaster (L5)
-- `open-trading-api/MCP/Kis Trading MCP/model/overseas_futureoption.py`: OverseasFutureoptionMaster (L5)
-- `open-trading-api/MCP/Kis Trading MCP/model/overseas_stock.py`: OverseasStockMaster (L5)
-- `open-trading-api/MCP/Kis Trading MCP/model/updated.py`: Updated (L5), __repr__ (L13)
-- `open-trading-api/MCP/Kis Trading MCP/module/decorator.py`: singleton (L4), __init__ (L16), __new__ (L23)
-- `open-trading-api/MCP/Kis Trading MCP/module/middleware.py`: EnvironmentMiddleware (L10), __init__ (L11), on_call_tool (L14)
-- `open-trading-api/MCP/Kis Trading MCP/module/plugin/database.py`: DatabaseEngine (L12), __init__ (L15), _initialize_engine (L27), _create_tables (L57), get_session (L67), insert (L73), update (L97), delete (L136)
-- `open-trading-api/MCP/Kis Trading MCP/module/plugin/environment.py`: setup_environment (L13)
-- `open-trading-api/MCP/Kis Trading MCP/module/plugin/kis.py`: setup_kis_config (L7)
-- `open-trading-api/MCP/Kis Trading MCP/module/plugin/master_file.py`: MasterFileManager (L11), __init__ (L245), _log (L285), get_master_models_for_tool (L298), ensure_master_file_updated (L323), is_master_file_available (L361), __ensure_single_master_updated (L387), __should_update_from_db (L475)
-- `open-trading-api/MCP/Kis Trading MCP/tools/auth.py`: AuthTool (L6), tool_name (L8)
-- `open-trading-api/MCP/Kis Trading MCP/tools/base.py`: ApiExecutor (L16), __init__ (L19), _create_temp_directory (L29), _download_file (L37), _download_kis_auth (L50), _download_api_code (L56), _extract_trenv_params_from_example (L69), _modify_api_code (L101)
-- `open-trading-api/MCP/Kis Trading MCP/tools/domestic_bond.py`: DomesticBondTool (L6), tool_name (L8)
-- `open-trading-api/MCP/Kis Trading MCP/tools/domestic_futureoption.py`: DomesticFutureOptionTool (L11), tool_name (L13)
-- `open-trading-api/MCP/Kis Trading MCP/tools/domestic_stock.py`: DomesticStockTool (L6), tool_name (L8)
-- `open-trading-api/MCP/Kis Trading MCP/tools/elw.py`: ElwTool (L6), tool_name (L8)
-- `open-trading-api/MCP/Kis Trading MCP/tools/etfetn.py`: EtfEtnTool (L6), tool_name (L8)
-- `open-trading-api/MCP/Kis Trading MCP/tools/overseas_futureoption.py`: OverseasFutureOptionTool (L6), tool_name (L8)
-- `open-trading-api/MCP/Kis Trading MCP/tools/overseas_stock.py`: OverseasStockTool (L6), tool_name (L8)
-- `open-trading-api/backend/__init__.py`: authenticate (L12), is_authenticated (L24), get_current_mode (L29), get_status (L34)
-- `open-trading-api/backend/main.py`: lifespan (L48), global_exception_handler (L71), health_check (L87), root (L96), include_open_trading_routes (L105), create_app (L164)
-- `open-trading-api/backend/state.py`: TradingState (L21), __init__ (L35), _get_config_root (L47), _get_mode_file_path (L57), _load_mode_file (L61), _save_mode_file (L74), _delete_mode_file (L84), _detect_mode_from_token (L97)
-- `open-trading-api/backend/routers/account.py`: LogEntry (L24), AccountInfoResponse (L31), HoldingsResponse (L39), BalanceResponse (L47), get_account_info (L60), add_log (L72), get_holdings (L135), add_log (L152)
-- `open-trading-api/backend/routers/market.py`: ensure_authenticated (L18), get_orderbook (L27), get_current_price (L86), websocket_orderbook (L142)
-- `open-trading-api/backend/routers/orders.py`: _get_cached_account (L46), _clear_account_cache (L96), OrderRequest (L108), LogEntry (L119), OrderResponse (L126), execute_order (L135), add_log (L151), AccountResponse (L304)
-- `open-trading-api/backend/routers/strategy.py`: _api_sleep (L33), get_stock_name (L45), ExecuteRequest (L66), BuildRequest (L73), SignalResult (L79), LogEntry (L88), ExecuteResponse (L94), list_strategies (L106)
-- `open-trading-api/backend/routes/auth.py`: LoginRequest (L20), SwitchModeRequest (L24), AuthStatusResponse (L28), login (L37), get_auth_status (L68), switch_mode (L75), logout (L112)
-- `open-trading-api/backend/routes/backtest.py`: _load_benchmark_curve (L37), _lean_run_to_api_response (L104), _classify_lean_error (L221), prepare_market_data (L272), check_date_coverage (L295), prepare_benchmark_data (L403), _date_to_api_string (L492), _prepare_backtest_data (L498)
-- `open-trading-api/backend/routes/files.py`: list_templates (L28), get_template (L59), get_template_python (L86), download_template (L113), import_strategy (L133), export_strategy (L175), validate_strategy (L263)
-- `open-trading-api/backend/routes/strategies.py`: list_strategies (L28), list_categories (L62), get_strategy (L82), build_strategy (L101), get_strategy_yaml (L131), get_strategy_python (L158), get_lean_params (L185)
-- `open-trading-api/backend/routes/symbols.py`: SymbolSearchItem (L40), SymbolSearchResponse (L49), SymbolDetailResponse (L58), MasterStatus (L66), CollectResult (L76), _ensure_master_dir (L90), _get_csv_path (L95), _get_file_mtime (L100)
-- `open-trading-api/backend/schemas/backtest.py`: BacktestRequest (L11), Config (L35), BacktestResponse (L51)
-- `open-trading-api/backend/schemas/file.py`: TemplateListResponse (L8), FileImportResponse (L15)
-- `open-trading-api/backend/schemas/strategy.py`: StrategyListResponse (L8), StrategyDetailResponse (L15), StrategyBuildRequest (L21), StrategyBuildResponse (L34)
-- `open-trading-api/backtester/kis_auth.py`: clearConsole (L34), _resolve_config_root (L40), save_token (L96), _has_valid_config_token (L106), _read_config_token (L123), _upsert_config_values (L129), persist_token_to_config (L155), read_token (L165)
-- `open-trading-api/backtester/examples/basic_backtest.py`: create_client (L38), run_builtin_strategy_backtest (L60), get_custom_strategy_code (L138), KRXEquity (L146), GetSource (L149), Reader (L154), RSIMeanReversion (L176), Initialize (L184)
-- `open-trading-api/backtester/examples/expert_strategies.py`: story_beginner (L137), story_compare (L265), story_research (L402), show_catalog (L546)
-- `open-trading-api/backtester/examples/live_trading.py`: create_live_client (L34), run_manual_order (L63), run_position_management (L112), run_limit_order (L161), run_realtime_streaming (L226), on_bar (L243), run_live_strategy (L271), on_bar (L296)
-- `open-trading-api/backtester/examples/optimization.py`: create_client (L35), example_basic_optimization (L58), example_grid_search (L118), on_progress (L133), example_random_search (L178), example_visualize_results (L237), example_multi_strategy_optimization (L328)
-- `open-trading-api/backtester/examples/portfolio_analysis.py`: create_client (L30), example_basic_analysis (L48), example_correlation_analysis (L143), example_efficient_frontier (L232), example_rebalance_simulation (L322), example_comprehensive_report (L412)
-- `open-trading-api/backtester/examples/rule_builder.py`: create_client (L30), example_basic_usage (L48), example_various_indicators (L118), example_complex_conditions (L224), example_crossover_events (L330), example_risk_management (L414), example_compare_strategies (L511)
-- `open-trading-api/backtester/examples/strategy_generation.py`: example_list_strategies (L32), example_generate_builtin_strategy (L52), example_generate_with_risk_management (L83), example_multi_symbol_strategy (L139), example_macd_strategy (L179), example_position_sizing (L205), example_strategy_categories (L235), example_parameter_validation (L257)
-- `open-trading-api/backtester/examples/yaml_strategy.py`: example_basic_yaml_load (L32), example_param_override (L98), example_custom_yaml (L214), example_export_import (L352), example_bollinger_yaml (L422), _print_condition (L520), _create_example_templates (L539)
-- `open-trading-api/backtester/frontend/next.config.ts`: basePath (L3)
-- `open-trading-api/backtester/frontend/src/app/layout.tsx`: geistSans (L7), geistMono (L12)
-- `open-trading-api/backtester/frontend/src/app/backtest/page.tsx`: StatCard (L29), ParamSlider (L66), step (L77), label (L78), MetricsGroup (L104), d (L159), selectedStrategy (L175), handleParamChange (L194)
-- `open-trading-api/backtester/frontend/src/components/backtest/EquityChart.tsx`: CHART_COLORS (L20), formatAxisValue (L60), formatDrawdownAxis (L66), EquityTooltipInner (L71), data (L82), trades (L83), excessReturn (L84), DrawdownTooltip (L192)
-- `open-trading-api/backtester/frontend/src/components/file/ExportButton.tsx`: ExportButton (L41), dropdownRef (L51), handleClickOutside (L55), downloadYamlDirect (L66), blob (L67), url (L68), a (L69), handleExport (L78)
-- `open-trading-api/backtester/frontend/src/components/file/FileDropZone.tsx`: FileDropZone (L15), handleFile (L25), content (L39), result (L42), handleDrop (L61), file (L66), handleDragOver (L74), handleDragLeave (L79)
-- `open-trading-api/backtester/frontend/src/components/layout/Header.tsx`: Header (L9), badgeLabel (L13), badgeColor (L19)
-- `open-trading-api/backtester/frontend/src/components/providers/Providers.tsx`: Providers (L10)
-- `open-trading-api/backtester/frontend/src/components/settings/SettingsModal.tsx`: SettingsModal (L14), interval (L36), fetchMasterStatus (L43), handleCollect (L51), handleLogin (L64), handleSwitchMode (L68), newMode (L69), success (L70)
-- `open-trading-api/backtester/frontend/src/components/symbols/StockInput.tsx`: STORAGE_KEY (L8), POPULAR_CODES (L21), StockInput (L23), inputRef (L33), listRef (L34), debounceRef (L35), isInitialLoadRef (L36), resolveStockName (L39)
-- `open-trading-api/backtester/frontend/src/contexts/AuthContext.tsx`: AuthContext (L36), AuthProvider (L38), checkStatus (L43), response (L45), login (L54), response (L59), message (L75), logout (L83)
-- `open-trading-api/backtester/frontend/src/hooks/useAuth.ts`: useAuth (L11)
-- `open-trading-api/backtester/frontend/src/lib/utils.ts`: cn (L4), formatCurrency (L11), formatPercent (L21), sign (L22), formatDate (L29), d (L30)
-- `open-trading-api/backtester/frontend/src/lib/api/auth.ts`: login (L20), getAuthStatus (L25), response (L26), switchMode (L39), logout (L45)
-- `open-trading-api/backtester/frontend/src/lib/api/backtest.ts`: withEngine (L13), params (L15), runBacktest (L22), runCustomBacktest (L32)
-- `open-trading-api/backtester/frontend/src/lib/api/client.ts`: API_BASE (L6), res (L15), error (L17), res (L24), error (L30), res (L37), error (L42), apiGetBlob (L48)
-- `open-trading-api/backtester/frontend/src/lib/api/files.ts`: listTemplates (L16), getTemplate (L23), getTemplatePython (L30), downloadTemplate (L40), importStrategy (L47), formData (L48), exportStrategy (L56), validateFile (L66)
+## Pre-Pinning Requirements
 
-## Open Questions
-- No existing `docs/CODEMAPS/*` files were found.
+Before this repo can become a root submodule:
+1. Freeze/split the mixed dirty working tree state
+2. Push ahead-of-origin commits to remote
+3. Confirm clean state vs `origin/master`
+4. Run `bun run report:baseline` to verify
+
+## Notes
+
+- Absent in a fresh root checkout. Clone separately: `git clone https://github.com/keelim/rich.git rich`
+- Root `.gitignore` excludes `/rich/` so root index stays coordination-only.
+- Full codemap requires local hydration. Re-run `scripts/refresh-codemaps.py` after cloning.

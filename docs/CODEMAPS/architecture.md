@@ -1,68 +1,62 @@
-<!-- Generated: 2026-06-05 | Files scanned: 151+ | Token estimate: ~620 -->
+# Architecture Codemap
 
-# Architecture Codemap (Workspace)
+<!-- Generated: 2026-06-21 -->
 
-## Project Type
-`keelim-maestro` is a root superproject coordinating multiple autonomous repos (mixed stack: Next.js, FastAPI, SQLAlchemy, Android/Kotlin, Python tooling).
+## Workspace Topology
 
-## System Topology (ASCII)
-```text
-[keelim-maestro root]
-  |-- docs/CODEMAPS/ (architecture documentation)
-  |-- all (Kotlin Multiplatform apps/modules)
-  |-- keelim-vercel (Next.js app + API routes + Drizzle/Supabase)
-  |-- rich
-  |    |-- app (FastAPI admin API)
-  |    \-- web (Next.js admin/capture web)
-  |-- quant (absent in this checkout; excluded no-remote child repo when present)
-  |-- all-web-ui (shared React UI package)
-  |-- android-support (GitHub Action for Play Console upload)
-  |-- toto (KBO baseball Streamlit dashboard — registered submodule)
-  \-- Keelim-Knowledge-Vault (documentation)
 ```
-
-## Service Boundaries
-- `keelim-vercel`: user-facing finance web app; server routes in `app/api/**`; mixed data access via Supabase + Drizzle/Neon.
-- `rich/app`: operational/admin FastAPI API (`/api/admin/**`) for GitHub workflow ops, PyKRX ingestion, weekly review workflows.
-- `rich/web`: Next.js frontend + BFF routes (`/api/agenda`, `/api/google-sheets`) bridging Supabase auth and Google APIs.
-- `all-web-ui`: shared UI components consumed by both `keelim-vercel` and `rich/web`.
-- `toto`: KBO baseball win/loss Streamlit dashboard registered as a root submodule.
-- `quant`: no active runtime boundary in this checkout; keep excluded until a remote-backed reproducible path exists.
-
-## High-Level Data Flow
-```text
-Client Browser
-  -> Next.js pages (keelim-vercel or rich/web)
-  -> Route handlers / API clients
-  -> Service layer
-      -> Supabase (Postgres tables + auth)
-      -> Neon Postgres via Drizzle (products table)
-      -> External APIs (Yahoo, Alternative.me, Google, KRX)
-      -> GitHub CLI (rich/app GH Actions control)
-  <- JSON/SSR payloads back to UI
+keelim-maestro (superproject / coordination layer)
+├── all               [submodule] Android app — Keelim "all" app
+├── android-support   [submodule] Android shared support library
+├── Keelim-Knowledge-Vault  [submodule] Knowledge/PKM vault
+├── keelim-plugin     [submodule] Claude/Codex skill plugin (codemap generator, etc.)
+├── keelim-vercel     [submodule] Vercel-deployed Next.js frontend
+├── all-web-ui        [autonomous] Shared React/Tailwind UI component library
+├── rich              [autonomous] Rich admin web + Python backend + open trading API
+├── youtube           [autonomous] YouTube Shorts production (Remotion + services)
+└── quant             [autonomous, no remote] Quantitative research (excluded from root)
 ```
-
-## Runtime Surfaces
-- Frontend-heavy: `keelim-vercel`, `rich/web`
-- Backend-heavy: `rich/app`
-- Infra/tooling: `android-support`, `Keelim-Knowledge-Vault`
-- Dashboard: `toto` (Streamlit)
 
 ## MCP Routing Model
 
-All MCP calls are modeled as passing through `agentgateway` regardless of agent
-type. Agent type changes the execution role, not the MCP ingress path.
+All MCP calls are modeled as passing through `agentgateway` regardless of agent type.
+Agent type changes the execution role, not the MCP ingress path.
 
-```text
+```
 Agent (leader / subagent / worker / plugin)
-  -> agentgateway MCP
-  -> MCP servers / tools
+    └─► agentgateway MCP  (http://localhost:3000/mcp)
+            └─► MCP servers / tools
 ```
 
-Document MCP integrations behind `agentgateway` unless a lower-level
-implementation detail explicitly needs to be called out.
+Codex and Claude Code use the shared `agentgateway` MCP endpoint at
+`http://localhost:3000/mcp`. Document integrations behind `agentgateway` unless
+a lower-level detail explicitly needs to be called out.
 
-## Notable Couplings
-- `@keelim/all-web-ui` consumed as an exact GitHub Packages dependency by `keelim-vercel` and `rich/web`, with the root workspace retaining the local `all-web-ui/` checkout for authoring verification.
-- `rich/web` depends on `rich/app` admin API contract (`/api/admin/**`) via `src/lib/api.ts`.
-- `keelim-vercel` / `rich` depend on Supabase auth and external data APIs (Yahoo Finance, Alternative.me, KRX/PyKRX, Google Workspace).
+## Subproject Shapes
+
+| Repo | Primary stack | Shape |
+| --- | --- | --- |
+| `all` | Android / Kotlin | Android app (multi-module Gradle) |
+| `android-support` | Android / Kotlin | Android library (Gradle, detached at v0.0.8-4) |
+| `Keelim-Knowledge-Vault` | Markdown / Obsidian | Knowledge vault (flat notes + metadata) |
+| `keelim-plugin` | Python | Claude/Codex skills and automation scripts |
+| `keelim-vercel` | Next.js / TypeScript | Full-stack web app (App Router, deployed to Vercel) |
+| `all-web-ui` | React / TypeScript / Tailwind | Shared component library (publishes to GitHub Packages) |
+| `rich` | Python + FastAPI + React | Admin web + algo trading + K8s local stack |
+| `youtube` | TypeScript + Python | Shorts renderer (Remotion) + Easy Release Note tooling |
+
+## Coordination Contracts
+
+- **Bun workspace** — root install/lock surface for `all-web-ui`, `keelim-vercel`, `rich/web`, `youtube/*`
+- **uv workspace** — root Python constraint surface for `rich` and `youtube`
+- **Submodule pointers** — root gitlinks for `all`, `android-support`, `Keelim-Knowledge-Vault`, `keelim-plugin`, `keelim-vercel`
+- **agentgateway** — shared local Kubernetes resource exposing MCP tools
+- **GBrain** — knowledge system using a separate operator brain repo (`~/brain`); contract at `docs/knowledge/`
+
+## Local Kubernetes Stack
+
+| Runtime | Namespace | Start/stop |
+| --- | --- | --- |
+| `agentgateway` | fixed | `bun run automation:local -- start agentgateway` (always keep running) |
+| `rich` (Skaffold) | on-demand | `bun run automation:local -- start rich` / `standby` |
+| `youtube` n8n | on-demand | `bun run automation:local -- start n8n` / `standby` |

@@ -1,257 +1,56 @@
-# Registered Submodules
+# Submodules Codemap
 
-All entries below are declared in `/.gitmodules` and are pinned to a specific
-commit when the root superproject is cloned with `git submodule update --init --recursive`.
+<!-- Generated: 2026-06-21 -->
+Last updated: 2026-06-21
 
----
+## Registered Submodules
 
-## `all` — Main Android Project
+Sourced from `.gitmodules` and `git ls-files --stage | grep 160000`.
 
-| Field | Value |
-|-------|-------|
-| Path | `all/` |
-| Remote | https://github.com/keelim/all.git |
-| Tracked branch | `develop` |
-| Pinned commit | `0643bab4` |
-| Language / toolchain | Kotlin / Android Gradle (Kotlin DSL) |
-| Architecture | Clean Architecture + MVVM + Unidirectional Data Flow (UDF) |
+| Submodule path | Remote URL | Default branch | Pinned commit |
+| --- | --- | --- | --- |
+| `all` | https://github.com/keelim/all.git | `develop` | `0643bab4281700c08c12492af7fe0d0a0663d12e` |
+| `android-support` | https://github.com/keelim/android-support | `main` | `485a2e404248182f48b01266c2d2ab8eb67145aa` (v0.0.8-4) |
+| `Keelim-Knowledge-Vault` | https://github.com/keelim/Keelim-Knowledge-Vault.git | `main` | `15b29c11b7199d6f2c97a518781de97bbbea0dfd` |
+| `keelim-plugin` | https://github.com/keelim/keelim-plugin.git | `main` | `a3463396c95dcd4749727bf1f32495db45bba220` |
+| `keelim-vercel` | https://github.com/keelim/keelim-vercel.git | `develop` | `8d29b510a82db0ff3c6de2a1ffa78105beb8d177` |
 
-### Build configuration
-| Setting | Value |
-|---------|-------|
-| Min SDK | 26 (Android 8.0+) |
-| Target SDK | 36 (Android 16) |
-| JVM target | 17 |
-| Kotlin | 1.9+ |
-| Core library desugaring | enabled |
+## Autonomous Local Repos (not in .gitmodules)
 
-### Key dependencies
-- **UI**: Jetpack Compose, Material 3
-- **DI**: Hilt
-- **Storage**: Room (SQLite), DataStore Proto
-- **Network**: Retrofit + OkHttp
-- **Async**: Kotlin Coroutines + Flow
-- **Multiplatform**: Kotlin Multiplatform (KMP)
-- **Push**: Firebase Cloud Messaging (FCM)
+| Path | Remote | Branch | Notes |
+| --- | --- | --- | --- |
+| `all-web-ui` | github.com/keelim/all-web-ui | main | Public remote; clean vs origin/main; pending submodule conversion |
+| `rich` | github.com/keelim/rich | master | Dirty working tree; commits ahead of origin; freeze/split before pinning |
+| `youtube` | private (no upstream yet) | — | Private local checkout; not a submodule |
+| `quant` | none | — | Intentionally excluded; no remote |
 
-### App modules (6 Android applications)
-| Module | Files | Description |
-|--------|-------|-------------|
-| `app-my-grade` | 237 | Grade calculator, study timer, analytics, vocabulary learning |
-| `app-arducon` | 210 | DeepLink tester, QR scanner, JSON formatter, device info |
-| `app-nanda` | 206 | NANDA diagnosis, food/exercise tracker, water intake monitor |
-| `app-comssa` | 28 | Financial calculators, economic calendar, flashcards |
-| `app-cnubus` | 12 | CNU bus real-time info, Google Maps integration |
-| `app-mysenior` | 4 | Minimal accessibility-friendly app for seniors |
+## Archived
 
-### Core modules (14 shared modules)
-| Module | Files | Description |
-|--------|-------|-------------|
-| `core:component` | 144 | Shared Compose UI, custom Material 3 components, theme utilities |
-| `core:data` | 85 | Repository implementations, data sources, FCM service |
-| `core:common-android` | 61 | Android-specific utilities, extensions, helpers |
-| `core:model` | 38 | Shared domain data models |
-| `core:database` | 35 | Room DB schema, entities, DAOs, mappers |
-| `core:data-api` | 25 | Repository interfaces / API contracts (boundary layer) |
-| `core:common` | 24 | Pure Kotlin utilities (no Android dependencies) |
-| `core:network` | 18 | Retrofit, OkHttp, HTTP interceptors |
-| `core:resource` | 9 | Shared string/drawable resources |
-| `core:designsystem` | 5 | Material 3 design tokens, color/typography system |
-| `core:domain` | 4 | Use cases |
-| `core:navigation` | 2 | Navigation graphs, route models |
-| `core:testing` | 2 | Test utilities and helpers |
-| `core:datastore-proto` | — | Protocol Buffer DataStore definitions |
+| Path | Status |
+| --- | --- |
+| `toto` | Archived 2026-06-04; removed from .gitmodules; local checkout ignored by root |
 
-### Feature modules
-| Module | Files | Description |
-|--------|-------|-------------|
-| `feature:ui-setting` | 104 | Settings screens, animated theme selector, preferences UI |
-| `feature:ui-scheme` | 14 | Scheme-related UI |
-| `feature:ui-web` | 4 | WebView screens |
-| `feature:settings-*` | — | Modular settings: theme, notification, alarm, device, admin, lab |
-| `feature:app-function` | — | Shared app-level feature screens |
+## Bootstrap Commands
 
-### Other modules
-```
-all/
-├── shared/               # Kotlin Multiplatform shared code, DB models/DAOs
-├── build-logic/          # 17 custom Gradle convention plugins
-├── benchmarks/           # Performance benchmarking
-├── widget/               # Android widget implementations
-├── composeApp/           # Compose Multiplatform app shell
-├── catalog/              # Version catalog definitions
-├── allIos/               # iOS Xcode project
-└── all-rust-lib/         # Rust library (Cargo project)
-```
-
-### Architecture layers
-- **Presentation**: Jetpack Compose screens in `app-*/` and `feature/ui-*/`; ViewModels expose `StateFlow`
-- **Domain**: Use cases in `core:domain`
-- **Data**: Repository implementations in `core:data`, interfaces in `core:data-api`
-- **Storage**: Room DB in `core:database`, Retrofit in `core:network`
-
-### Coding conventions
-- UI text must specify `style` and `color` explicitly (no defaults)
-- Dates/numbers use shared formatters (ISO/epoch for storage, locale-aware for display)
-- All apps use Hilt for DI; LiveData is not used — `StateFlow`/`Flow` only
-- No global mutable state; no string concatenation in SQL
-- Coroutines must not block the main thread
-
-### CI/CD workflows
-| Workflow | Trigger |
-|----------|--------|
-| `ci.yml` | Main CI — build + test on every PR |
-| `app_my_grade.yml` | Per-app build for `app-my-grade` |
-| `app_arducon.yml` | Per-app build for `app-arducon` |
-| `app_nanda.yml` | Per-app build for `app-nanda` |
-| `app_comssa.yml` | Per-app build for `app-comssa` |
-| `app_cnubus.yml` | Per-app build for `app-cnubus` |
-| `app_deploy.yml` | Shared release deployment |
-| `release.yml` | Release workflow |
-| `release_tag.yml` | Tag-triggered release |
-| `gh_page.yml` | GitHub Pages publication |
-| `slack.yml` | Slack notifications |
-
----
-
-## `android-support` — GitHub Action for Android Workflows
-
-| Field | Value |
-|-------|-------|
-| Path | `android-support/` |
-| Remote | https://github.com/keelim/android-support |
-| Tracked branch | `main` |
-| Pinned commit | `485a2e40` (v0.0.8-4) |
-| Language / toolchain | TypeScript / Node.js (Bun package manager) |
-| Purpose | GitHub Action for APK/AAB signing and Google Play Console upload |
-
-### Key files inside the submodule
-```
-android-support/
-├── action.yml            # GitHub Action interface definition
-├── package.json          # dependencies (uses Bun)
-├── tsconfig.json         # TypeScript configuration (ES2018, CommonJS)
-├── src/
-│   ├── main.ts           # Action entry point
-│   ├── edits.ts          # Google Play Edit workflow
-│   ├── signing.ts        # APK/AAB signing
-│   ├── whatsnew.ts       # Play Store "What's New" text handling
-│   ├── input-validation.ts
-│   └── utils/            # Logger, IO utilities
-├── __tests__/            # Jest (ts-jest) test suite
-└── lib/index.js          # compiled output (@vercel/ncc)
-```
-
-### Action inputs / outputs
-- **Inputs**: `type` (sign/upload), `serviceAccount`, `packageName`, `releaseFiles`, `track`, `status`, `userFraction`
-- **Outputs**: `signedReleaseFile(s)`, `internalSharingDownloadUrl`, `nofSignedReleaseFiles`
-
-### Build commands
 ```bash
-bun install
-bun run build   # generates lib/index.js
-bun run jest    # run tests
+# Initialize/update all registered submodules
+git submodule update --init --recursive
+
+# Status check
+git submodule status
+git ls-files --stage | grep 160000
+
+# Subrepo helper (includes autonomous repos)
+./scripts/update-subrepos.sh status
+./scripts/update-subrepos.sh dry-run
+./scripts/update-subrepos.sh update
 ```
 
----
+## Expansion Blockers
 
-## `Keelim-Knowledge-Vault` — Documentation Knowledge Base
+Before registering new submodules, resolve:
+1. `rich` dirty/ahead state — freeze/split before pinning
+2. `youtube` — needs private remote and clean working tree
+3. `all-web-ui` — pending reconciliation of workspace blockers
 
-| Field | Value |
-|-------|-------|
-| Path | `Keelim-Knowledge-Vault/` |
-| Remote | https://github.com/keelim/Keelim-Knowledge-Vault.git |
-| Tracked branch | `main` |
-| Pinned commit | `15b29c11` |
-| Language / toolchain | Markdown / Obsidian |
-| Purpose | Shared knowledge base and documentation for the workspace |
-
-### Content categories
-- `AI/`, `Android/`, `Books/`, `Code/`, `Computer Science/`
-- `KMP/`, `Language/`, `System Design/`, `HTTP/`
-- `convention/`, `service/`, `test/`
-
----
-
-## `keelim-plugin` — Plugin Project
-
-| Field | Value |
-|-------|-------|
-| Path | `keelim-plugin/` |
-| Remote | https://github.com/keelim/keelim-plugin.git |
-| Tracked branch | `main` |
-| Pinned commit | `a3463396` |
-| Previous name | `keelim-skill` (renamed; continuity preserved via `.gitmodules` and submodule metadata) |
-| Purpose | Plugin / skill definitions for AI-assisted workflows |
-
-### Skills
-```
-keelim-plugin/skills/
-├── release-automation/   # Date-based Android release workflow
-├── codebase-codemap/     # Source-led repository mapping workflow
-├── tech-post-maker/      # Technical post writing skill
-└── ralplan-team/         # Team planning skill
-```
-
-Each skill has a `SKILL.md` definition and optional `agents/openai.yaml` metadata.
-
-### Rename history
-The submodule directory was renamed from `keelim-skill` to `keelim-plugin`.
-The rename is verified by `scripts/verify-keelim-plugin-rename.sh`.
-
----
-
-## `keelim-vercel` — Web / Vercel Deployment Project
-
-| Field | Value |
-|-------|-------|
-| Path | `keelim-vercel/` |
-| Remote | https://github.com/keelim/keelim-vercel.git |
-| Tracked branch | `develop` |
-| Pinned commit | `1304f121` |
-| Language / toolchain | Node.js / JavaScript (Vercel deployment) |
-| Purpose | Web frontend deployed on Vercel; integrates `all-web-ui` component library |
-
----
-
-## `toto` — Local KBO Dashboard
-
-| Field | Value |
-|-------|-------|
-| Path | `toto/` |
-| Remote | https://github.com/keelim/toto.git |
-| Tracked branch | `main` |
-| Pinned commit | `5897ef44` |
-| Language / toolchain | Python / Streamlit with Bun wrapper scripts |
-| Purpose | Read-only local KBO dashboard skeleton and verification surface |
-
-### Root scripts
-```bash
-bun run dev:toto
-bun run test:toto
-bun run verify:toto
-```
-
----
-
-## Autonomous Repos (not registered submodules)
-
-These repositories exist under the workspace root and are surfaced by helper
-scripts, but are **not** declared in `.gitmodules`.
-
-### `all-web-ui`
-- Remote: https://github.com/keelim/all-web-ui.git
-- Branch: `main`
-- Status: Remote-backed; submodule conversion deferred pending workspace cleanup
-- Policy: Include in status helpers; do not add as local-path submodule
-
-### `rich`
-- Remote: https://github.com/keelim/rich.git
-- Branch: `master`
-- Type: Web / Node.js (contains `rich/web/` Next.js app that imports `all-web-ui`)
-- Status: Dirty working tree; needs reconciliation before pinning
-
-### `quant`
-- Remote: **none**
-- Status: Absent in this checkout; local-only when present
-- Policy: Do **not** create a remote; do **not** add as submodule; keep autonomous
+When adding new submodules, always use remote-backed URLs (never local paths).

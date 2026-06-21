@@ -1,64 +1,52 @@
-<!-- Generated: 2026-06-05 | Files scanned: 151+ | Token estimate: ~700 -->
-
 # Data Codemap
 
-## Data Stores by Subsystem
+<!-- Generated: 2026-06-21 -->
 
-### keelim-vercel
-1. Neon Postgres via Drizzle (`lib/db.ts`)
-- Table: `products`
-- Columns: `id`, `image_url`, `name`, `status(enum: active|inactive|archived)`, `price`, `stock`, `available_at`
-- Access paths:
-  - `GET /api/products/export` (read)
-  - `POST /api/products/import` (bulk insert)
+## Knowledge and Storage Patterns
 
-2. Supabase tables (queried from route handlers)
-- `faq`
-- `notices`
-- `newsletters`
-- `newsletter_subscribers`
-- Additional Supabase-backed domains in lib: `financial_terms`, `term_proposals`, `wiki_questions`, `wiki_answers`, `sector_history`, `sector_items`, `tool_clicks`
+This workspace coordinates multiple data stores across child repositories.
+The root owns contracts; child repos own implementation and migrations.
 
-### rich/app
-Supabase tables used in services (`weekly_review.py` + pykrx service):
-- `personal_inbox_items`
-- `personal_loop_items`
-- `daily_profit_notes`
-- `personal_weekly_reviews`
-- PyKRX ingestion/streak tables are managed by service logic (upsert/query pattern)
+## Knowledge Vault (`Keelim-Knowledge-Vault`)
 
-### rich/web
-- No primary schema definitions; uses Supabase auth/session and calls:
-  - `rich/app` admin API
-  - Google Calendar/Sheets via OAuth tokens persisted in Supabase connection data
+- **Type:** Obsidian/Markdown knowledge base
+- **Submodule:** `Keelim-Knowledge-Vault/` — pinned at `15b29c11` on `main`
+- **GBrain integration:** Knowledge Vault content is a curated import source for the
+  GBrain knowledge system (separate `~/brain` repo)
+- **Verification:** `scripts/improvements/verify_knowledge_vault_*.py` scripts check
+  frontmatter, internal links, and automation compliance
 
-### quant
-`quant/` is absent in this checkout and intentionally excluded from the root
-superproject because it has no remote-backed reproducible path. There is no
-active root-observable data model for it in this checkout.
+## GBrain (`~/brain`)
 
-### all (Android)
-Room database (`core:database`):
-- Entities and DAOs for app-specific data (grades, schedules, bookmarks, etc.)
-- DataStore Proto for user preferences and settings
+- **Type:** Separate operator brain repo (not under keelim-maestro)
+- **Integration:** Synced from curated sources including Keelim-Knowledge-Vault
+- **Root contract:** `docs/knowledge/` documents scope, runbook, and verification
+- **MCP exposure:** via `agentgateway` at `http://localhost:3000/mcp`
 
-### toto (KBO dashboard)
-- Local fixtures / CSV files (seeded via `bun run seed`)
-- No remote database; read-only access pattern
-- Provider interface abstracts data source for portability
+## Rich Data Layer
 
-## Migration History
+`rich/` contains:
+- PostgreSQL / database migrations (Python/SQLAlchemy)
+- Open Trading API data: market data, strategy parameters, backtest results
+- Kubernetes PVCs for persistent data (not managed from root)
 
-### quant historical notes
-Prior codemaps referenced FastAPI, SQLAlchemy, and Alembic surfaces under the
-missing `quant/` tree. Those files are not present in the current checkout.
-Refresh this section only after `quant/` is restored with a remote-backed
-reproducible path.
+## YouTube Data
 
-## Data Flow Summary (ASCII)
-```text
-UI -> API Route/Router -> Service/CRUD -> DB Client
-  keelim-vercel: Next route -> Supabase/Drizzle -> Postgres
-  rich/app: FastAPI -> services -> Supabase + external datasets
-  all (Android): ViewModel -> Repository -> Room DB / Retrofit
-```
+`youtube/` contains:
+- Remotion project data, episode assets, video configs
+- n8n workflow state (Kubernetes PVCs)
+- Release note source data
+
+## Idea / Backlog
+
+Root idea backlog lives under `docs/idea/`:
+- `docs/idea/index.md` — workspace index
+- `docs/idea/<project>.md` — per-project idea files
+
+Idea gardener runs read `docs/CODEMAPS/*` first, then each project's `README.md`/`AGENTS.md`.
+
+## Ops Documentation
+
+Local automation stack audit: `docs/ops/local-automation-stack.md`
+- Covers: `rich` Kubernetes, `youtube` n8n Kubernetes, `tools/agentgateway`
+- Root owns cross-runtime contract; child repos own manifests, scripts, secrets

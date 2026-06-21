@@ -1,58 +1,72 @@
-<!-- Generated: 2026-06-05 | Files scanned: 151+ | Token estimate: ~860 -->
-
 # Backend Codemap
 
-## Backend Surfaces
-- `keelim-vercel/app/api/**` (Next.js route handlers)
-- `rich/app/api/admin.py` (FastAPI router)
-- `rich/web/src/app/api/**` (Next.js BFF routes)
-- `quant/` is absent in this checkout and intentionally excluded from active backend surfaces.
+<!-- Generated: 2026-06-21 -->
 
-## Middleware Chain
-- `rich/app/main.py`
-  - `FastAPI` -> `CORSMiddleware` -> `include_router(admin_router)`
-- Next.js route handlers (`keelim-vercel`, `rich/web`)
-  - Request -> route module function (`GET/POST/...`) -> direct service/db calls
+## Python Workspace Members
 
-## Routes (Representative, route-style)
+Root uv workspace provides shared dependency constraints for:
 
-### keelim-vercel
-GET `/api/faq` -> `app/api/faq/route.ts::GET` -> `supabase.from('faq').select...`
-GET `/api/forex` -> `app/api/forex/route.ts::GET` -> `supabase.from('latest_forex_rates'|'forex_rates')`
-GET `/api/notice` -> `route.ts::GET` -> `supabase.from('notices').select...`
-GET `/api/notice/{id}` -> `route.ts::GET` -> `supabase.from('notices').eq(id).single()`
-POST `/api/notice` (dev only) -> `route.ts::POST` -> `supabase.from('notices').insert...`
-GET|POST|PUT|DELETE `/api/newsletter/drafts` -> `route.ts::{GET,POST,PUT,DELETE}` -> `supabase.from('newsletters')`
-POST `/api/newsletter/subscribe` -> `route.ts::POST` -> `supabase.from('newsletter_subscribers').upsert...`
-GET `/api/newsletter/unsubscribe` -> `route.ts::GET` -> `supabase.from('newsletter_subscribers').delete...`
-GET `/api/products/export` -> `route.ts::GET` -> `getDb().select().from(products)`
-POST `/api/products/import` -> `route.ts::POST` -> CSV parse/validate -> `getDb().insert(products)`
-GET `/api/indices` -> `route.ts::GET` -> `yahoo-finance2.quote(...)`
-GET `/api/fear-greed` -> `route.ts::GET` -> `fetch('https://api.alternative.me/fng/')`
-POST `/api/og-parser` -> `route.ts::POST` -> `fetch(url)` + `cheerio` parse
-GET `/api/og` -> `route.tsx::GET` -> `next/og ImageResponse`
+| Member | Package | Path | Runtime | Notes |
+| --- | --- | --- | --- | --- |
+| `keelim-rich` | `rich` package | `rich/` | Python >=3.13 | Admin API + open trading backend; dirty working tree |
+| `easy-release-note` | `youtube` package | `youtube/` | Python >=3.x | YouTube Shorts tooling + release note automation |
 
-### rich/app
-GET `/api/admin/me` -> `admin_me` -> `get_identity` -> `gh auth status` + `gh api user`
-GET `/api/admin/workflows` -> `get_workflows` -> `resolve_default_ref` -> `list_workflow_cards`
-POST `/api/admin/workflows/{workflow_id}/run` -> `run_workflow` -> `run_workflow_by_id`
-POST `/api/admin/pykrx/foreign-flow/run` -> `run_pykrx_foreign_flow` -> `run_foreign_flow_ingestion`
-GET `/api/admin/pykrx/foreign-flow/streaks` -> `get_pykrx_foreign_flow_streaks` -> `list_foreign_flow_streaks`
-POST `/api/admin/pykrx/institution-flow/run` -> `run_pykrx_institution_flow` -> `run_institution_flow_ingestion`
-GET `/api/admin/pykrx/common-flow/streaks` -> `get_pykrx_common_flow_streaks` -> `list_common_flow_streaks`
-POST `/api/admin/pykrx/market-fundamental/lookup` -> `lookup_pykrx_market_fundamental` -> `lookup_market_fundamentals`
-GET `/api/admin/weekly-review/summary` -> `get_admin_weekly_review_summary` -> `get_week_summary`
-POST `/api/admin/weekly-review/generate-ai` -> `generate_admin_weekly_review_ai` -> `generate_ai_summary`
-POST `/api/admin/weekly-review/save` -> `save_admin_weekly_review` -> `save_weekly_review`
+**Excluded from root uv workspace:**
+- `youtube/simple` — standalone Python project with its own lockfile and range
+- `toto` — archived 2026-06-04
 
-### rich/web (BFF)
-GET `/api/agenda` -> `route.ts::GET` -> Supabase user -> Google OAuth token -> Google Calendar fetch
-GET `/api/google-sheets` -> `route.ts::GET` -> Supabase user -> Google OAuth token -> Sheets read
-POST `/api/google-sheets` -> `route.ts::POST` -> Supabase user -> token -> Sheets append/update
-GET `/auth/callback` -> callback handler -> OAuth finalize
-GET `/logout` -> Supabase signOut -> redirect
+## Rich Backend
 
-## Service -> Repository Mapping
-- `keelim-vercel`: route handlers -> Supabase tables / Drizzle `products` table.
-- `rich/app`: API router -> service modules (`gh_actions`, `pykrx_foreign_flow`, `weekly_review`) -> external systems (GitHub CLI, KRX/PyKRX, Supabase).
-- `quant`: absent from this checkout; no active service mapping.
+`rich/` is an autonomous child repo with a mixed Python + TypeScript stack:
+
+- **Python/FastAPI backend** — admin API, data pipelines
+- **Open Trading API** — algo trading platform with two sub-apps:
+  - `rich/open-trading-api/strategy_builder/` — strategy builder (root helper: `bun run dev:strategy-builder`)
+  - `rich/open-trading-api/backtester/` — backtesting engine (root helper: `bun run dev:backtester`)
+- **Local Kubernetes** — managed via Skaffold; start/stop via local automation helper
+
+## YouTube / Easy Release Note
+
+`youtube/` is a private autonomous child repo:
+
+- **Remotion renderer** (`youtube/remotion/`) — TypeScript + Remotion for Shorts video generation
+- **Services** (`youtube/services/*`) — TypeScript service tools
+- **Videos** (`youtube/videos/*`) — Per-episode packages
+- **Easy Release Note** — Python package for automated release note generation
+- **n8n workflows** — Local Kubernetes n8n for automation
+
+## Local Automation Stack
+
+`agentgateway` + `rich` + `youtube` n8n run in local Kubernetes.
+See `docs/ops/local-automation-stack.md` for the full runtime audit.
+
+```bash
+bun run automation:local -- list
+bun run automation:local -- status
+bun run automation:local -- standby       # Stop on-demand runtimes (rich, n8n)
+bun run automation:local -- start agentgateway
+bun run automation:local -- verify rich
+```
+
+## GBrain Knowledge System
+
+GBrain uses a separate operator brain repository (`~/brain`). The root owns only:
+- `docs/knowledge/README.md` — workspace contract and scope
+- `docs/knowledge/gbrain.md` — staged full-brain adoption contract
+- `docs/knowledge/operator-runbook.md` — install, local smoke, MCP, migration
+- `docs/knowledge/source-targets.md` — curated import pool and exclusions
+- `docs/knowledge/verification-contract.md` — expected verification evidence
+
+## Python Commands
+
+```bash
+# Constraint verification
+uv run python scripts/verify-python-dependency-constraints.py
+
+# Lock check
+uv lock --check
+
+# Tests
+uv run --package keelim-rich --group dev pytest rich/tests
+uv run --package easy-release-note --group dev pytest youtube/tests
+```

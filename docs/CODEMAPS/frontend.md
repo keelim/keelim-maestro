@@ -1,94 +1,54 @@
-<!-- Generated: 2026-06-05 | Files scanned: 151+ | Token estimate: ~760 -->
-
 # Frontend Codemap
 
-## Frontend Surfaces
-- `keelim-vercel` (Next.js App Router)
-- `rich/web` (Next.js App Router)
-- `all-web-ui` (shared UI component package)
-- `all` (Android — Jetpack Compose)
-- `toto` (Streamlit — KBO dashboard; hydrate required)
+<!-- Generated: 2026-06-21 -->
 
-## Page Tree (high-level)
+## Frontend Workspace Members
 
-### keelim-vercel
-`app/layout.tsx`
-- global providers (`QueryClientProvider`, `ThemeProvider`, tooltip)
-- analytics/deployment listeners
+All frontend packages are part of the root Bun workspace.
 
-`app/(dashboard)/layout.tsx`
-- wraps all dashboard routes with `DashboardClient`
+| Package | Path | Framework | Purpose |
+| --- | --- | --- | --- |
+| `@keelim/all-web-ui` | `all-web-ui/` | React 19 + Tailwind 4 | Shared UI component library; publishes to GitHub Packages |
+| `keelim-vercel` | `keelim-vercel/` | Next.js 16 / App Router | Main Vercel-deployed web application |
+| `rich-admin-web` | `rich/web/` | React 19 + Vite | Rich admin dashboard; uses root Bun workspace for catalog resolution |
+| `@keelim/youtube-remotion` | `youtube/remotion/` | Remotion | YouTube Shorts video renderer |
+| YouTube services | `youtube/services/*` | TypeScript | Production service tools |
+| YouTube videos | `youtube/videos/*` | TypeScript + Remotion | Per-episode video packages |
 
-Routes:
-- Top-level: `/`, `/about`, `/faq`, `/contact`, `/changelog`, `/login`, `/unsubscribe/[token]`
-- Dashboard group: large tool catalog (`/loan`, `/budget-*`, `/tax-*`, `/notice`, `/financial-wiki/*`, `/market-*`, `/subscription-*`, etc.)
-- Characteristics: many page-level calculators/tools, centralized shell via dashboard layout
+## Shared UI Contract (`all-web-ui`)
 
-### rich/web
-`src/app/layout.tsx`
-- global styles + shared `all-web-ui` theme CSS
-- global `Providers` (React Query)
-- dev toolbar component
+- Published as `@keelim/all-web-ui@0.1.4` to `https://npm.pkg.github.com`
+- Consumers: `keelim-vercel` (submodule), `rich/web` (autonomous)
+- Standalone consumers need `.npmrc` scope mapping for `@keelim` + `NODE_AUTH_TOKEN`
+- Root Bun workspace is the authoritative install/verification surface
+- Package-local `bun.lock` files in `keelim-vercel` are standalone consumer fallbacks
 
-Main route groups:
-- `/admin/*`: workflows, pykrx common-flow, inbox/loop, money pages, weekly review
-- `/capture/inbox`
-- `/agenda`
-- `/login`, `/logout`, `/auth/callback`
-- utility metadata routes (`robots`, `sitemap`)
+### Verification
 
-API+BFF colocated under `src/app/api/*`.
+```bash
+bun run report:shared-ui                        # Read-only contract report
+./scripts/verify-all-web-ui-integration.sh      # Strict static pass/fail gate
+./scripts/verify-all-web-ui-integration.sh --full  # Includes GitHub Packages registry check
+bun run typecheck:web                           # Typecheck all three consumers
+bun run build:web                               # Build keelim-vercel + rich-admin-web
+```
 
-### all-web-ui
-Exports reusable primitives (shadcn-compatible, verified by `verify-all-web-ui-integration.sh`):
-- `button`, `input`, `panel`, `card`, `badge`, `loading-status`, `empty-state`
-- `table`, `tabs`, `tooltip`, `sheet`, `dropdown-menu`, `breadcrumb`
-- shared styles and theme files (`finance.css`, `admin-bw.css`)
+## Dependency Catalog
 
-### all (Android — Jetpack Compose)
-App modules (`app-*/`):
-- `app-my-grade`: grade calculator, study timer, analytics, vocabulary
-- `app-arducon`: DeepLink tester, QR scanner, JSON formatter
-- `app-nanda`: NANDA diagnosis, food/exercise tracker
-- `app-comssa`: financial calculators, flashcards
-- `app-cnubus`: real-time bus info + Google Maps
-- `app-mysenior`: accessibility-focused minimal app
+The root `package.json` `catalog:` field pins shared frontend versions for catalog
+resolution in `rich/web`. See [dependencies.md](dependencies.md) for the full list.
 
-Feature modules (`feature/ui-*/`): settings, scheme, WebView screens
+Key catalog entries: React 19.2.5, Next.js 16.2.4, Tailwind 4.2.2, TypeScript 5.9.3,
+Radix UI, Lucide React 0.562.0, Vitest 2.1.1.
 
-### toto (Streamlit — KBO dashboard)
-Entry: `streamlit_app/Home.py`
-- Read-only win/loss standings and game-result views
-- Data pipeline: `bootstrap` → `seed` → Streamlit app
-- Provider interface separates data source (CSV/fixture/API) from UI
-- `bun run verify` smoke-tests boot + read-only contract
+## Vercel Deployment
 
-## Component Hierarchy (representative)
-- `keelim-vercel`:
-  - `RootLayout` -> `Providers` -> `DashboardClient` -> page components
-- `rich/web`:
-  - `RootLayout` -> `Providers` -> route page -> feature components (`src/features/**`)
-- Android:
-  - `Activity` -> `NavHost` -> Compose screens -> ViewModels -> `StateFlow`
+`keelim-vercel` is the Vercel-linked app. Vercel is pointed at the `keelim-vercel/`
+directory, not the root. The root Bun workspace is used locally; Vercel reads the
+submodule's own `package.json` and `bun.lock`.
 
-## State Management Flow
-- `keelim-vercel`
-  - Server data: Next route handlers + fetch
-  - Client cache: TanStack Query in `components/providers.tsx`
-  - Local persisted UI/domain state: Zustand (`lib/store/use-financial-store.ts` + many `*-storage.ts` modules)
+## Registry Requirements
 
-- `rich/web`
-  - Server data: `src/lib/api.ts` -> `rich/app` admin API or BFF routes
-  - Client cache: TanStack Query (`src/app/providers.tsx`, `src/features/**/queries.ts`)
-  - Local UI state: Zustand (`src/features/admin/store.ts`)
-
-- Android (`all`)
-  - ViewModel exposes `StateFlow` / `SharedFlow`
-  - Repositories consume `Flow` from Room DAOs and Retrofit
-  - Hilt provides dependencies at ViewModel scope
-
-## Navigation / Data Coupling
-- `rich/web` admin pages are tightly coupled to `rich/app` endpoints (`/api/admin/**`).
-- `keelim-vercel` pages consume both internal Next API routes and local storage-backed modules.
-- `all-web-ui` ensures visual/system consistency across multiple repos.
-- Android: `core:navigation` defines route destinations; each app builds its own `NavHost`.
+For local multi-repo frontend work requiring `@keelim/all-web-ui`:
+- Root Bun workspace resolves it from the local workspace package
+- Standalone installs require: `NODE_AUTH_TOKEN` or GitHub CLI token + `.npmrc` scope mapping

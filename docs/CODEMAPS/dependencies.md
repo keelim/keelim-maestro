@@ -1,51 +1,89 @@
-<!-- Generated: 2026-06-05 | Files scanned: 151+ | Token estimate: ~670 -->
-
 # Dependencies Codemap
 
-## External Services / APIs
-- Supabase (`@supabase/supabase-js`, `@supabase/ssr`, Python `supabase`)
-- Neon Postgres (`@neondatabase/serverless` + Drizzle)
-- Vercel runtime services (`@vercel/analytics`, `@vercel/speed-insights`); the OG image route uses `next/og`.
-- Yahoo Finance (`yahoo-finance2`)
-- Alternative.me Fear & Greed API (`https://api.alternative.me/fng/`)
-- GitHub CLI (`gh`) for workflow control in `rich/app/services/gh_actions.py`
-- Google Workspace APIs (Calendar + Sheets in `rich/web` BFF)
-- KRX/PyKRX data sources (`pykrx`, KRX web endpoints in `pykrx_foreign_flow.py`)
-- Google Play Android Publisher API (`@googleapis/androidpublisher` in `android-support`)
+<!-- Generated: 2026-06-21 -->
 
-## Core Frameworks
-- Next.js 16 + React 19 (`keelim-vercel`, `rich/web`)
-- FastAPI (`rich/app`)
-- Kotlin Multiplatform/Gradle (`all`)
-- Jetpack Compose + Material 3 (`all` Android UI)
-- Hilt (`all` DI)
-- Streamlit (`toto` — KBO dashboard)
+## Bun Workspace Catalog
 
-## Shared Libraries / Internal Coupling
-- `@keelim/all-web-ui` GitHub Packages npm package consumed by:
-  - `keelim-vercel`
-  - `rich/web`
-- TanStack Query across web frontends
-- Zustand across web frontends
-- Bun `catalog` in root `package.json` pins shared versions (Radix UI, Tailwind 4, React 19, Next.js 16, TypeScript 5.9, vitest, testing-library, clsx, lucide-react, date-fns, react-day-picker) across all workspace members; consumers reference `"catalog:<pkg>"` instead of explicit semver strings.
+Pinned in root `package.json` `catalog:` field. Used by `rich/web` for `catalog:` dependency references.
 
-## Root Workspace Tooling
-- **Bun** `1.3.12` — root JavaScript workspace package manager.
-- **uv** — root Python workspace package manager; `pyproject.toml` + `uv.lock` pin shared Python packages for `toto` and `rich` (requires Python ≥ 3.13).
-- Root `tool.uv.constraint-dependencies` aligns shared transitive packages (anyio, numpy, pandas, starlette, uvicorn, websockets, etc.) across all uv workspace members.
+| Package | Pinned version |
+| --- | --- |
+| `@radix-ui/react-accordion` | 1.2.12 |
+| `@radix-ui/react-alert-dialog` | 1.1.15 |
+| `@radix-ui/react-avatar` | 1.1.11 |
+| `@radix-ui/react-checkbox` | 1.3.3 |
+| `@radix-ui/react-dialog` | 1.1.15 |
+| `@radix-ui/react-dropdown-menu` | 2.1.16 |
+| `@radix-ui/react-hover-card` | 1.1.15 |
+| `@radix-ui/react-label` | 2.1.8 |
+| `@radix-ui/react-popover` | 1.1.15 |
+| `@radix-ui/react-progress` | 1.1.8 |
+| `@radix-ui/react-radio-group` | 1.3.8 |
+| `@radix-ui/react-scroll-area` | 1.2.10 |
+| `@radix-ui/react-select` | 2.2.6 |
+| `@radix-ui/react-slider` | 1.3.6 |
+| `@radix-ui/react-slot` | 1.2.4 |
+| `@radix-ui/react-tabs` | 1.1.13 |
+| `@radix-ui/react-toast` | 1.2.15 |
+| `@radix-ui/react-tooltip` | 1.2.8 |
+| `@tailwindcss/postcss` | 4.2.2 |
+| `@testing-library/jest-dom` | 6.9.1 |
+| `@testing-library/react` | 16.3.2 |
+| `@testing-library/user-event` | 14.6.1 |
+| `@types/react` | 19.2.14 |
+| `@types/react-dom` | 19.2.3 |
+| `class-variance-authority` | 0.7.1 |
+| `clsx` | 2.1.1 |
+| `date-fns` | 4.1.0 |
+| `jsdom` | 26.1.0 |
+| `lucide-react` | 0.562.0 |
+| `next` | 16.2.4 |
+| `react` | 19.2.5 |
+| `react-day-picker` | 9.13.2 |
+| `react-dom` | 19.2.5 |
+| `tailwind-merge` | 3.4.1 |
+| `tailwindcss` | 4.2.2 |
+| `typescript` | 5.9.3 |
+| `vitest` | 2.1.1 |
 
-## Persistence Tooling
-- Drizzle ORM + drizzle-zod (`keelim-vercel`)
-- Supabase SDKs (JS + Python)
-- Room + DataStore Proto (`all` Android)
+## Python uv Constraint Dependencies
 
-## Dependency Hotspots
-- `keelim-vercel` has the broadest JS dependency footprint (UI + finance + infra SDKs).
-- `quant` is absent in this checkout and remains excluded until it has a remote-backed reproducible path.
-- `rich` bridges both web and Python service dependencies, plus Google and GitHub integrations.
-- `all` has the largest Kotlin dependency graph (Compose, Hilt, Room, Retrofit, KMP, Firebase, Rust).
+Pinned in root `pyproject.toml` `tool.uv.constraint-dependencies`. Enforced across
+`rich` and `youtube` workspace members.
 
-## Risk Notes (high-level)
-- Multi-repo shared UI (`@keelim/all-web-ui`) creates coordinated-release coupling.
-- `rich/web` depends on stable contract of `rich/app` admin endpoints.
-- Multiple data providers (Supabase, Neon, Yahoo, Alternative.me, KRX, Google) increase integration surface and failure modes.
+| Package | Constraint range |
+| --- | --- |
+| `anyio` | >=4.13.0,<5.0.0 |
+| `certifi` | >=2026.4.22 |
+| `charset-normalizer` | >=3.4.7,<4.0.0 |
+| `click` | >=8.3.3,<9.0.0 |
+| `h11` | >=0.16.0,<1.0.0 |
+| `idna` | >=3.14,<4.0.0 |
+| `iniconfig` | >=2.3.0,<3.0.0 |
+| `narwhals` | >=2.21.0,<3.0.0 |
+| `numpy` | >=2.4.4,<3.0.0 |
+| `packaging` | >=26.2,<27.0.0 |
+| `pandas` | >=3.0.3,<4.0.0 |
+| `pillow` | >=12.2.0,<13.0.0 |
+| `playwright` | >=1.56.0,<2.0.0 |
+| `pluggy` | >=1.6.0,<2.0.0 |
+| `pygments` | >=2.20.0,<3.0.0 |
+| `pyyaml` | >=6.0.2,<7.0.0 |
+| `pytest` | >=9.0.3,<10.0 |
+| `python-dateutil` | >=2.9.0.post0,<3.0.0 |
+| `python-multipart` | >=0.0.28,<0.1.0 |
+| `requests` | >=2.34.0,<3.0.0 |
+| `six` | >=1.17.0,<2.0.0 |
+| `starlette` | >=1.0.0,<2.0.0 |
+| `typing-extensions` | >=4.15.0,<5.0.0 |
+| `urllib3` | >=2.7.0,<3.0.0 |
+| `uvicorn` | >=0.46.0,<1.0.0 |
+| `websockets` | >=15.0.1,<16.0.0 |
+
+## Dependency Audit / Freshness
+
+```bash
+bun scripts/dep-audit.mjs        # Frontend dependency audit
+bun scripts/dep-freshness.mjs    # Frontend freshness check
+bun scripts/security-scan.mjs    # Security scan
+```

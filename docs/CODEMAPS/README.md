@@ -1,85 +1,44 @@
-# keelim-maestro — Codemaps
+# keelim-maestro Codemaps
 
-> Last updated: 2026-06-05
+<!-- Generated: 2026-06-21 -->
+Last updated: 2026-06-21
 
-This directory documents the architecture and structure of the **keelim-maestro** workspace superproject.
+This directory contains codemap snapshots for the **keelim-maestro** workspace superproject.
+Codemaps are coordination-layer documentation only; child repo implementation details live
+in each child's own codebase.
 
 ## Index
 
-| File | Contents |
-|------|----------|
-| [WORKSPACE.md](WORKSPACE.md) | Workspace topology, child repositories, policies |
-| [SUBMODULES.md](SUBMODULES.md) | Registered Git submodules — remotes, branches, purpose |
-| [SCRIPTS.md](SCRIPTS.md) | Root-level helper scripts — behaviour, flags, exit codes |
-| [keelim-maestro.md](keelim-maestro.md) | Reviewed root and workspace-management codemap for this coordination repo |
-| [projects/README.md](projects/README.md) | Maestro-managed generated codemaps for available child repositories |
-| [architecture.md](architecture.md) | System topology and service boundaries |
-| [backend.md](backend.md) | API routes and middleware chains |
-| [data.md](data.md) | Data stores and migrations |
-| [frontend.md](frontend.md) | UI surfaces and component hierarchy |
-| [dependencies.md](dependencies.md) | External services and libraries |
+| File | Purpose |
+| --- | --- |
+| [keelim-maestro.md](keelim-maestro.md) | Root superproject structure and key files |
+| [WORKSPACE.md](WORKSPACE.md) | Bun + uv workspace membership and bootstrap |
+| [SUBMODULES.md](SUBMODULES.md) | Registered Git submodules and pinned commits |
+| [SCRIPTS.md](SCRIPTS.md) | Root helper scripts inventory |
+| [architecture.md](architecture.md) | High-level architecture and MCP routing |
+| [frontend.md](frontend.md) | Frontend workspace members and shared UI contract |
+| [backend.md](backend.md) | Backend/Python workspace and local automation |
+| [data.md](data.md) | Data, knowledge, and storage patterns |
+| [dependencies.md](dependencies.md) | Bun catalog and uv constraint dependencies |
+| [CODEGRAPH.md](CODEGRAPH.md) | CodeGraph setup and dispatch contract |
+| [projects/README.md](projects/README.md) | Per-project codemap snapshots index |
 
-## Design
+## Refresh
 
-| File | Contents |
-|------|----------|
-| [../design/design-system.md](../design/design-system.md) | Keelim Design System — tokens, themes, components, and maintenance rules |
+To regenerate all codemaps, run:
 
-## Video Documentation
-
-| File | Contents |
-|------|----------|
-| [../videos/README.md](../videos/README.md) | Video docs source policy — commit boundary and ignored outputs |
-| `../videos/subproject-intros/` | HyperFrames source project for Korean subproject introduction content |
-
-## Quick orientation
-
-`keelim-maestro` is a **Git superproject / workspace coordination layer**.
-It does _not_ vendor child-repository source code; it tracks their remote-backed
-commit pointers via `.gitmodules` and supplies shared documentation and helper
-scripts.
-
-```
-keelim-maestro/
-├── .gitmodules          ← submodule declarations
-├── AGENTS.md            ← AI-agent operating guidance
-├── CLAUDE.md            ← Claude Code operating guidance (currently empty)
-├── README.md            ← human-facing workspace overview
-├── docs/
-│   ├── CODEMAPS/        ← root maps plus managed child-project snapshots
-│   ├── design/          ← workspace-level design system notes
-│   ├── idea/
-│   │   ├── index.md     ← workspace idea index (open ideas, priorities)
-│   │   └── <project>.md ← per-project idea tracking (all, rich, keelim-vercel, …)
-│   └── videos/          ← video documentation source projects (HyperFrames)
-└── scripts/
-    ├── test-workspace.sh
-    ├── report-trusted-baseline.sh
-    ├── report-shared-ui-contract.sh
-    ├── update-subrepos.sh
-    ├── verify-all-web-ui-integration.sh
-    ├── verify-keelim-plugin-rename.sh
-    ├── verify-python-dependency-constraints.py
-    ├── codex-app-server.sh
-    ├── refresh-codemaps.py
-    └── all-web-ui-rich-allowed-drift.txt  ← allowlist for temporary primitive drift in rich/web
+```bash
+python3 scripts/refresh-codemaps.py
 ```
 
-Registered submodules (pinned via `.gitmodules`):
+The generator script requires `keelim-plugin` to be initialized (it hosts `generate_codemap.py`).
+For a root-only timestamp refresh when no structural changes occurred, update dates in each file
+and run `git add docs/CODEMAPS/ && git commit -m "chore: update codemaps [skip ci]"`.
 
-- `all` — main Android Gradle project (`develop`)
-- `android-support` — GitHub Action for Android build workflows (`main`)
-- `Keelim-Knowledge-Vault` — documentation knowledge base (`main`)
-- `keelim-plugin` — plugin project (`main`)
-- `keelim-vercel` — web / Vercel deployment project (`develop`)
-- `toto` — local KBO Streamlit dashboard (`main`)
+## Scope
 
-Autonomous child repos (not registered submodules):
-
-- `all-web-ui` — shared web UI (remote-backed, pending submodule conversion)
-- `rich` — autonomous; currently dirty, pending reconciliation
-- `quant` — intentionally excluded when present; absent in this checkout
-
-Managed child codemap snapshots live under [`projects/`](projects/). They are
-generated from child sources and stored here so `maestro` can manage the whole
-workspace from the root without flattening child Git ownership.
+These codemaps cover:
+- Root superproject files (this repo's coordination layer)
+- Registered submodules (as gitlink pointers)
+- Autonomous child repos (`all-web-ui`, `rich`, `youtube`) — structural notes only
+- Excluded: `quant` (no remote), `toto` (archived 2026-06-04)
