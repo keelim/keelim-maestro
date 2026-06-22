@@ -1,6 +1,6 @@
 # keelim-maestro Root Superproject Codemap
 
-<!-- Generated: 2026-06-21 -->
+<!-- Generated: 2026-06-22 -->
 
 ## Overview
 
@@ -48,23 +48,22 @@ keelim-maestro/
 | `android-support` | submodule | github.com/keelim/android-support | main | pinned `485a2e40` (v0.0.8-4) |
 | `Keelim-Knowledge-Vault` | submodule | github.com/keelim/Keelim-Knowledge-Vault | main | pinned `15b29c11` |
 | `keelim-plugin` | submodule | github.com/keelim/keelim-plugin | main | pinned `a3463396` |
-| `keelim-vercel` | submodule | github.com/keelim/keelim-vercel | develop | pinned `8d29b510` |
+| `keelim-vercel` | submodule | github.com/keelim/keelim-vercel | develop | pinned `1304f121` |
+| `toto` | submodule | github.com/keelim/toto | main | pinned `5897ef44`; KBO dashboard; active Bun + uv workspace member |
 | `all-web-ui` | autonomous | github.com/keelim/all-web-ui | main | clean vs origin/main; pending submodule conversion |
 | `rich` | autonomous | github.com/keelim/rich | master | dirty working tree; ahead of origin |
-| `youtube` | autonomous | private (no upstream yet) | — | local private checkout |
 | `quant` | autonomous | none | — | intentionally excluded |
-| `toto` | archived | github.com/keelim/toto | main | archived 2026-06-04; ignored |
 
 ## Key Policies
 
 - Root-level changes must prefer the smallest reversible diff.
 - Child repos may not be modified from root unless explicitly requested.
 - `quant` has no remote — do not create one or add it to .gitmodules.
-- `toto` is archived — do not reactivate in submodules, workspaces, or idea backlog.
-- `youtube` is private and autonomous — include in subrepo helper and Bun/uv workspaces, but keep out of .gitmodules until a private remote and clean working tree are established.
+- `toto` is a registered submodule and active Bun/uv workspace member (KBO dashboard).
 
 ## Open Questions
 
 - `docs/knowledge/` is referenced in README.md but may be absent from this checkout.
 - `all-web-ui` pending formal submodule registration (blocked until rich is reconciled and workspace is safe to pin).
 - `rich` local commits ahead of origin pending reconciliation before pinning.
+- `youtube` autonomous repo removed from root Bun/uv workspaces; no longer tracked by root scripts.

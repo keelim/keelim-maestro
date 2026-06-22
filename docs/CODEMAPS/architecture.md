@@ -1,6 +1,6 @@
 # Architecture Codemap
 
-<!-- Generated: 2026-06-21 -->
+<!-- Generated: 2026-06-22 -->
 
 ## Workspace Topology
 
@@ -11,9 +11,9 @@ keelim-maestro (superproject / coordination layer)
 ├── Keelim-Knowledge-Vault  [submodule] Knowledge/PKM vault
 ├── keelim-plugin     [submodule] Claude/Codex skill plugin (codemap generator, etc.)
 ├── keelim-vercel     [submodule] Vercel-deployed Next.js frontend
+├── toto              [submodule] KBO Streamlit dashboard (active Bun + uv workspace member)
 ├── all-web-ui        [autonomous] Shared React/Tailwind UI component library
 ├── rich              [autonomous] Rich admin web + Python backend + open trading API
-├── youtube           [autonomous] YouTube Shorts production (Remotion + services)
 └── quant             [autonomous, no remote] Quantitative research (excluded from root)
 ```
 
@@ -41,14 +41,14 @@ a lower-level detail explicitly needs to be called out.
 | `Keelim-Knowledge-Vault` | Markdown / Obsidian | Knowledge vault (flat notes + metadata) |
 | `keelim-plugin` | Python | Claude/Codex skills and automation scripts |
 | `keelim-vercel` | Next.js / TypeScript | Full-stack web app (App Router, deployed to Vercel) |
+| `toto` | Python / Streamlit | KBO baseball dashboard (29 files; Node/JavaScript + Python) |
 | `all-web-ui` | React / TypeScript / Tailwind | Shared component library (publishes to GitHub Packages) |
 | `rich` | Python + FastAPI + React | Admin web + algo trading + K8s local stack |
-| `youtube` | TypeScript + Python | Shorts renderer (Remotion) + Easy Release Note tooling |
 
 ## Coordination Contracts
 
-- **Bun workspace** — root install/lock surface for `all-web-ui`, `keelim-vercel`, `rich/web`, `youtube/*`
-- **uv workspace** — root Python constraint surface for `rich` and `youtube`
+- **Bun workspace** — root install/lock surface for `all-web-ui`, `keelim-vercel`, `rich/web`, `toto`
+- **uv workspace** — root Python constraint surface for `toto` and `rich`
 - **Submodule pointers** — root gitlinks for `all`, `android-support`, `Keelim-Knowledge-Vault`, `keelim-plugin`, `keelim-vercel`
 - **agentgateway** — shared local Kubernetes resource exposing MCP tools
 - **GBrain** — knowledge system using a separate operator brain repo (`~/brain`); contract at `docs/knowledge/`

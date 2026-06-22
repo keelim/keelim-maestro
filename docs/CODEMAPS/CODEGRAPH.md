@@ -1,6 +1,6 @@
 # CodeGraph Setup and Dispatch Contract
 
-<!-- Generated: 2026-06-21 -->
+<!-- Generated: 2026-06-22 -->
 
 ## Overview
 
@@ -11,15 +11,14 @@ child repo without initializing a root aggregate graph.
 ## Dispatch Commands
 
 ```bash
-# Route to a child repo graph
-bun run cg -- files rich --max-depth 2
-bun run cg -- context keelim-plugin "skill inventory"
-bun run cg -- query all "MainActivity"
-
-# Root-level checks
-bun run cg:status              # CodeGraph status of 'all'
-bun run cg:root-check          # Check for unwanted root graph initialization
+# Route to a child repo graph (run from within child repo)
+cd rich && codegraph files . --max-depth 2
+cd keelim-plugin && codegraph context . "skill inventory"
+cd all && codegraph query . "MainActivity"
 ```
+
+Note: `scripts/codegraph.sh` is not present in this checkout; CodeGraph commands must be
+run directly within each initialized child repo.
 
 ## When to Use Root vs Child Graph
 

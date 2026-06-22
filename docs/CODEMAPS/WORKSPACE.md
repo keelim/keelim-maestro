@@ -1,7 +1,7 @@
 # Workspace Bootstrap Codemap
 
-<!-- Generated: 2026-06-21 -->
-Last updated: 2026-06-21
+<!-- Generated: 2026-06-22 -->
+Last updated: 2026-06-22
 
 ## Bun Workspace
 
@@ -14,9 +14,7 @@ Runtime: **Bun 1.3.12** (`packageManager` field in package.json)
   "all-web-ui",
   "keelim-vercel",
   "rich/web",
-  "youtube/remotion",
-  "youtube/services/*",
-  "youtube/videos/*"
+  "toto"
 ]
 ```
 
@@ -24,12 +22,10 @@ Runtime: **Bun 1.3.12** (`packageManager` field in package.json)
 | --- | --- |
 | `all-web-ui` | Shared UI library; publishes `@keelim/all-web-ui` to GitHub Packages |
 | `keelim-vercel` | Vercel-linked Next.js app; also a registered submodule |
-| `rich/web` | Rich admin web; uses root Bun workspace for `catalog:` resolution |
-| `youtube/remotion` | Remotion renderer for Shorts production |
-| `youtube/services/*` | YouTube service tool packages |
-| `youtube/videos/*` | Per-episode video packages |
+| `rich/web` | Rich admin dashboard; uses root Bun workspace for `catalog:` resolution |
+| `toto` | KBO Streamlit dashboard; registered submodule (`toto-kbo-streamlit-dashboard`) |
 
-**Prerequisites:** `all-web-ui`, `rich`, and `youtube` must be hydrated locally before
+**Prerequisites:** `all-web-ui` and `rich` must be hydrated locally before
 `bun install` since they are autonomous repos (not submodules).
 
 ### Key scripts
@@ -50,15 +46,15 @@ Runtime: **Python >=3.13** (required by `rich`)
 
 ```toml
 [tool.uv.workspace]
-members = ["rich", "youtube"]
+members = ["toto", "rich"]
 ```
 
 | Member | Package | Notes |
 | --- | --- | --- |
+| `toto` | `kbo-dashboard` | KBO Streamlit dashboard; pinned submodule |
 | `rich` | `keelim-rich` | Requires Python >=3.13 |
-| `youtube` | `easy-release-note` | Lower requires-python; resolved via parent workspace |
 
-**Excluded:** `youtube/simple` (keeps its own lockfile/range), `toto` (archived)
+**Excluded:** `youtube` (removed from root workspaces)
 
 ### Constraint dependencies
 

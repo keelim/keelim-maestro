@@ -1,6 +1,6 @@
 # Backend Codemap
 
-<!-- Generated: 2026-06-21 -->
+<!-- Generated: 2026-06-22 -->
 
 ## Python Workspace Members
 
@@ -8,12 +8,11 @@ Root uv workspace provides shared dependency constraints for:
 
 | Member | Package | Path | Runtime | Notes |
 | --- | --- | --- | --- | --- |
+| `kbo-dashboard` | `toto` package | `toto/` | Python | KBO Streamlit dashboard; pinned submodule |
 | `keelim-rich` | `rich` package | `rich/` | Python >=3.13 | Admin API + open trading backend; dirty working tree |
-| `easy-release-note` | `youtube` package | `youtube/` | Python >=3.x | YouTube Shorts tooling + release note automation |
 
 **Excluded from root uv workspace:**
-- `youtube/simple` — standalone Python project with its own lockfile and range
-- `toto` — archived 2026-06-04
+- `youtube` — removed from root workspaces
 
 ## Rich Backend
 
@@ -25,28 +24,19 @@ Root uv workspace provides shared dependency constraints for:
   - `rich/open-trading-api/backtester/` — backtesting engine (root helper: `bun run dev:backtester`)
 - **Local Kubernetes** — managed via Skaffold; start/stop via local automation helper
 
-## YouTube / Easy Release Note
+## Toto (KBO Dashboard)
 
-`youtube/` is a private autonomous child repo:
+`toto/` is a registered submodule and active workspace member:
 
-- **Remotion renderer** (`youtube/remotion/`) — TypeScript + Remotion for Shorts video generation
-- **Services** (`youtube/services/*`) — TypeScript service tools
-- **Videos** (`youtube/videos/*`) — Per-episode packages
-- **Easy Release Note** — Python package for automated release note generation
-- **n8n workflows** — Local Kubernetes n8n for automation
+- **Streamlit app** (`toto/streamlit_app/`) — KBO baseball prediction dashboard
+- **Python library** (`toto/src/kbo_dashboard/`) — data contracts, repository, UI support
+- **Tests** (`toto/tests/`) — DTO, repository, state, and filter tests
+- Run locally: `bun run dev:toto` (via `bun --filter toto-kbo-streamlit-dashboard dev`)
 
 ## Local Automation Stack
 
-`agentgateway` + `rich` + `youtube` n8n run in local Kubernetes.
+`agentgateway` and `rich` run in local Kubernetes.
 See `docs/ops/local-automation-stack.md` for the full runtime audit.
-
-```bash
-bun run automation:local -- list
-bun run automation:local -- status
-bun run automation:local -- standby       # Stop on-demand runtimes (rich, n8n)
-bun run automation:local -- start agentgateway
-bun run automation:local -- verify rich
-```
 
 ## GBrain Knowledge System
 
@@ -68,5 +58,5 @@ uv lock --check
 
 # Tests
 uv run --package keelim-rich --group dev pytest rich/tests
-uv run --package easy-release-note --group dev pytest youtube/tests
+uv run --package kbo-dashboard --group dev pytest toto/tests
 ```

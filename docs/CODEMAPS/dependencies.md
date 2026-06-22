@@ -1,6 +1,6 @@
 # Dependencies Codemap
 
-<!-- Generated: 2026-06-21 -->
+<!-- Generated: 2026-06-22 -->
 
 ## Bun Workspace Catalog
 
@@ -65,7 +65,6 @@ Pinned in root `pyproject.toml` `tool.uv.constraint-dependencies`. Enforced acro
 | `packaging` | >=26.2,<27.0.0 |
 | `pandas` | >=3.0.3,<4.0.0 |
 | `pillow` | >=12.2.0,<13.0.0 |
-| `playwright` | >=1.56.0,<2.0.0 |
 | `pluggy` | >=1.6.0,<2.0.0 |
 | `pygments` | >=2.20.0,<3.0.0 |
 | `pyyaml` | >=6.0.2,<7.0.0 |
@@ -80,10 +79,10 @@ Pinned in root `pyproject.toml` `tool.uv.constraint-dependencies`. Enforced acro
 | `uvicorn` | >=0.46.0,<1.0.0 |
 | `websockets` | >=15.0.1,<16.0.0 |
 
-## Dependency Audit / Freshness
+## Dependency Verification
 
 ```bash
-bun scripts/dep-audit.mjs        # Frontend dependency audit
-bun scripts/dep-freshness.mjs    # Frontend freshness check
-bun scripts/security-scan.mjs    # Security scan
+uv run python scripts/verify-python-dependency-constraints.py  # Python constraint check
+uv lock --check                                                  # uv lock integrity
+bun run typecheck:web                                            # Frontend type safety
 ```

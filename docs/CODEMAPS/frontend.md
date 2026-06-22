@@ -1,6 +1,6 @@
 # Frontend Codemap
 
-<!-- Generated: 2026-06-21 -->
+<!-- Generated: 2026-06-22 -->
 
 ## Frontend Workspace Members
 
@@ -11,9 +11,7 @@ All frontend packages are part of the root Bun workspace.
 | `@keelim/all-web-ui` | `all-web-ui/` | React 19 + Tailwind 4 | Shared UI component library; publishes to GitHub Packages |
 | `keelim-vercel` | `keelim-vercel/` | Next.js 16 / App Router | Main Vercel-deployed web application |
 | `rich-admin-web` | `rich/web/` | React 19 + Vite | Rich admin dashboard; uses root Bun workspace for catalog resolution |
-| `@keelim/youtube-remotion` | `youtube/remotion/` | Remotion | YouTube Shorts video renderer |
-| YouTube services | `youtube/services/*` | TypeScript | Production service tools |
-| YouTube videos | `youtube/videos/*` | TypeScript + Remotion | Per-episode video packages |
+| `toto-kbo-streamlit-dashboard` | `toto/` | Python / Streamlit | KBO baseball dashboard (registered submodule) |
 
 ## Shared UI Contract (`all-web-ui`)
 

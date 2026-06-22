@@ -1,7 +1,7 @@
 # Root Scripts Codemap
 
-<!-- Generated: 2026-06-21 -->
-Last updated: 2026-06-21
+<!-- Generated: 2026-06-22 -->
+Last updated: 2026-06-22
 
 All scripts live under `scripts/`. Run them from the repo root.
 
@@ -11,9 +11,7 @@ All scripts live under `scripts/`. Run them from the repo root.
 | --- | --- | --- |
 | `test-workspace.sh` | `bun run test` | Lightweight root contract verifier (metadata, scripts, boundaries) |
 | `update-subrepos.sh` | `./scripts/update-subrepos.sh` (direct) | Status/update helper for submodules + autonomous repos |
-| `codegraph.sh` | `bun run cg -- <args>` | CodeGraph dispatcher for child repos |
 | `codex-app-server.sh` | `bun run dev:codex-app-server` | Local Codex app-server (WebSocket at ws://127.0.0.1:7331) |
-| `local-automation.sh` | `bun run automation:local -- <cmd>` | Local automation stack delegator (rich, n8n, agentgateway) |
 
 ## Reporting / Verification Scripts
 
@@ -25,44 +23,25 @@ All scripts live under `scripts/`. Run them from the repo root.
 | `verify-keelim-plugin-rename.sh` | direct | Verifies keelim-plugin rename contract |
 | `verify-python-dependency-constraints.py` | `uv run python scripts/...` | Checks uv workspace constraint alignment |
 
-## Dependency / Security Scripts
-
-| Script | Invocation | Purpose |
-| --- | --- | --- |
-| `dep-audit.mjs` | direct via `bun` | Dependency audit (frontend packages) |
-| `dep-freshness.mjs` | direct via `bun` | Dependency freshness check |
-| `security-scan.mjs` | direct via `bun` | Security scan across workspace |
-
 ## Codemap Scripts
 
 | Script | Invocation | Purpose |
 | --- | --- | --- |
 | `refresh-codemaps.py` | `python3 scripts/refresh-codemaps.py` | Generates per-child codemap docs; updates timestamps |
 
-## Improvements Scripts (`scripts/improvements/`)
-
-| Script | Purpose |
-| --- | --- |
-| `aggregate_improvements.py` | Aggregates improvement items across projects |
-| `build_detailed_report_input.py` | Builds detailed report input data |
-| `build_report_input.py` | Builds summary report input data |
-| `build_viewer_report.py` | Generates human-readable improvement viewer report |
-| `check_counts.py` | Counts improvement items by status |
-| `init_progress_ledger.py` | Initializes progress ledger for improvement tracking |
-| `verify_knowledge_vault_automation.py` | Verifies Knowledge Vault automation |
-| `verify_knowledge_vault_frontmatter.py` | Verifies Knowledge Vault frontmatter compliance |
-| `verify_knowledge_vault_links.py` | Verifies internal links in Knowledge Vault |
-
-## Local Automation Commands
+## Key Package.json Scripts
 
 ```bash
-bun run automation:local -- list
-bun run automation:local -- status
-bun run automation:local -- standby        # Stop Rich Skaffold loop + scale deployments to zero
-bun run automation:local -- verify rich
-bun run automation:local -- status gbrain
-bun run automation:local -- start agentgateway
-bun run automation:local -- stop n8n
+bun run test                  # Root contract verifier (test-workspace.sh)
+bun run report:baseline       # Read-only trusted-baseline report
+bun run report:shared-ui      # Shared UI contract report
+bun run dev:keelim-vercel     # Vercel Next.js dev server
+bun run dev:rich-web          # Rich admin web dev server
+bun run dev:toto              # Toto KBO dashboard dev server
+bun run dev:codex-app-server  # Local Codex WebSocket server
+bun run build:web             # Build keelim-vercel + rich-admin-web
+bun run typecheck:web         # Typecheck all-web-ui + keelim-vercel + rich-admin-web
+bun run test:web              # Run rich-admin-web tests
+bun run test:toto             # Run toto tests
+bun run verify:toto           # Verify toto (test + compile)
 ```
-
-`agentgateway` is fixed/always-on. `rich` and `n8n` are on-demand — start when needed, standby when done.
