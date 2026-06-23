@@ -1,6 +1,6 @@
 # Data Codemap
 
-<!-- Generated: 2026-06-21 -->
+<!-- Generated: 2026-06-23 -->
 
 ## Knowledge and Storage Patterns
 
@@ -30,13 +30,6 @@ The root owns contracts; child repos own implementation and migrations.
 - Open Trading API data: market data, strategy parameters, backtest results
 - Kubernetes PVCs for persistent data (not managed from root)
 
-## YouTube Data
-
-`youtube/` contains:
-- Remotion project data, episode assets, video configs
-- n8n workflow state (Kubernetes PVCs)
-- Release note source data
-
 ## Idea / Backlog
 
 Root idea backlog lives under `docs/idea/`:
@@ -48,5 +41,5 @@ Idea gardener runs read `docs/CODEMAPS/*` first, then each project's `README.md`
 ## Ops Documentation
 
 Local automation stack audit: `docs/ops/local-automation-stack.md`
-- Covers: `rich` Kubernetes, `youtube` n8n Kubernetes, `tools/agentgateway`
+- Covers: `rich` Kubernetes, `tools/agentgateway`
 - Root owns cross-runtime contract; child repos own manifests, scripts, secrets

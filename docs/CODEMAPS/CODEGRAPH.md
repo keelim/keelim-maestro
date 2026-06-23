@@ -1,6 +1,6 @@
 # CodeGraph Setup and Dispatch Contract
 
-<!-- Generated: 2026-06-22 -->
+<!-- Generated: 2026-06-23 -->
 
 ## Overview
 
@@ -64,4 +64,3 @@ When adding a new child repo to CodeGraph dispatch:
 | `keelim-plugin` | unknown — submodule not initialized in this checkout | — |
 | `keelim-vercel` | unknown — submodule not initialized in this checkout | — |
 | `rich` | unknown — autonomous repo, check locally | — |
-| `youtube` | unknown — autonomous repo, check locally | — |

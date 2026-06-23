@@ -1,6 +1,6 @@
 # Dependencies Codemap
 
-<!-- Generated: 2026-06-22 -->
+<!-- Generated: 2026-06-23 -->
 
 ## Bun Workspace Catalog
 
@@ -49,7 +49,7 @@ Pinned in root `package.json` `catalog:` field. Used by `rich/web` for `catalog:
 ## Python uv Constraint Dependencies
 
 Pinned in root `pyproject.toml` `tool.uv.constraint-dependencies`. Enforced across
-`rich` and `youtube` workspace members.
+`toto` and `rich` workspace members.
 
 | Package | Constraint range |
 | --- | --- |
@@ -67,7 +67,6 @@ Pinned in root `pyproject.toml` `tool.uv.constraint-dependencies`. Enforced acro
 | `pillow` | >=12.2.0,<13.0.0 |
 | `pluggy` | >=1.6.0,<2.0.0 |
 | `pygments` | >=2.20.0,<3.0.0 |
-| `pyyaml` | >=6.0.2,<7.0.0 |
 | `pytest` | >=9.0.3,<10.0 |
 | `python-dateutil` | >=2.9.0.post0,<3.0.0 |
 | `python-multipart` | >=0.0.28,<0.1.0 |

@@ -1,7 +1,7 @@
 # keelim-maestro Codemaps
 
-<!-- Generated: 2026-06-22 -->
-Last updated: 2026-06-22
+<!-- Generated: 2026-06-23 -->
+Last updated: 2026-06-23
 
 This directory contains codemap snapshots for the **keelim-maestro** workspace superproject.
 Codemaps are coordination-layer documentation only; child repo implementation details live
@@ -40,5 +40,5 @@ and run `git add docs/CODEMAPS/ && git commit -m "chore: update codemaps [skip c
 These codemaps cover:
 - Root superproject files (this repo's coordination layer)
 - Registered submodules (as gitlink pointers)
-- Autonomous child repos (`all-web-ui`, `rich`, `youtube`) — structural notes only
-- Excluded: `quant` (no remote), `toto` (archived 2026-06-04)
+- Autonomous child repos (`all-web-ui`, `rich`) — structural notes only
+- Excluded: `quant` (no remote)

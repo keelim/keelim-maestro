@@ -1,6 +1,6 @@
 # `all` Codemap
 
-<!-- Generated: 2026-06-21 -->
+<!-- Generated: 2026-06-23 -->
 
 **Type:** Registered Git submodule
 **Remote:** https://github.com/keelim/all.git

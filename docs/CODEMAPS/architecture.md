@@ -1,6 +1,6 @@
 # Architecture Codemap
 
-<!-- Generated: 2026-06-22 -->
+<!-- Generated: 2026-06-23 -->
 
 ## Workspace Topology
 
@@ -59,4 +59,3 @@ a lower-level detail explicitly needs to be called out.
 | --- | --- | --- |
 | `agentgateway` | fixed | `bun run automation:local -- start agentgateway` (always keep running) |
 | `rich` (Skaffold) | on-demand | `bun run automation:local -- start rich` / `standby` |
-| `youtube` n8n | on-demand | `bun run automation:local -- start n8n` / `standby` |

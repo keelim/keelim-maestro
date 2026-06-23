@@ -1,7 +1,7 @@
 # Workspace Bootstrap Codemap
 
-<!-- Generated: 2026-06-22 -->
-Last updated: 2026-06-22
+<!-- Generated: 2026-06-23 -->
+Last updated: 2026-06-23
 
 ## Bun Workspace
 
@@ -54,8 +54,6 @@ members = ["toto", "rich"]
 | `toto` | `kbo-dashboard` | KBO Streamlit dashboard; pinned submodule |
 | `rich` | `keelim-rich` | Requires Python >=3.13 |
 
-**Excluded:** `youtube` (removed from root workspaces)
-
 ### Constraint dependencies
 
 The root `tool.uv.constraint-dependencies` pins shared packages (anyio, certifi, numpy,
@@ -68,7 +66,7 @@ uv run python scripts/verify-python-dependency-constraints.py
 uv lock --check
 uv workspace metadata
 uv run --package keelim-rich --group dev pytest rich/tests
-uv run --package easy-release-note --group dev pytest youtube/tests
+uv run --package kbo-dashboard --group dev pytest toto/tests
 ```
 
 ## Bun Catalog
