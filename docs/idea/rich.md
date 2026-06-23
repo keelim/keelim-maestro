@@ -1,6 +1,6 @@
 # rich
 
-Last reviewed: 2026-05-16 KST
+Last reviewed: 2026-06-23 KST
 
 ## Signals
 
@@ -13,6 +13,7 @@ Last reviewed: 2026-05-16 KST
   to the existing backend/workflow reliability surface.
 - `docs/words/AGENTS.md` defines a raw-source/wiki/schema split for an investing
   LLM wiki, so durable review insights can be routed back into knowledge pages.
+- 2026-06-23 코드맵 기준 working tree가 dirty하고 origin보다 앞선 커밋이 있어, 루트 SUBMODULES.md에서 `all-web-ui` 서브모듈 등록을 포함한 신규 submodule 확장의 공식 차단 요소로 명시됨. git 상태 정리(freeze/split)가 선행 필요.
 
 ## Open ideas
 

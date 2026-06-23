@@ -1,6 +1,6 @@
 # toto
 
-Last reviewed: 2026-05-16 KST
+Last reviewed: 2026-06-23 KST
 
 ## Signals
 
@@ -42,3 +42,11 @@ Status: proposed
 Why now: `toto`가 `.gitmodules`에 선언돼 있지만 gitlink가 루트 인덱스에 커밋되지 않아서, 신규 클론 시 디렉터리가 없고 `bun run dev:toto`·`bun run verify:toto`를 실행할 수 없다. 재현성을 핵심 가치로 내세운 프로젝트에서 이 비대칭은 가장 먼저 해소해야 할 운영 위험이다.
 
 First slice: 안정 커밋을 골라 gitlink를 루트 인덱스에 커밋하고, `git submodule update --init toto` → `bun run bootstrap` → `bun run verify:toto` 순서가 CI에서 그린으로 돌아오면 pinning 완료로 간주한다.
+
+### 2026-06-23 - uv 워크스페이스 제약 준수 게이트
+
+Status: proposed
+
+Why now: 2026-06-23 코드맵에서 `toto`가 루트 uv 워크스페이스(`kbo-dashboard` 패키지)의 정식 멤버로 등록된 것이 확인됐다. anyio·numpy·pandas·pytest 등 핵심 패키지 버전이 루트 `pyproject.toml`의 `tool.uv.constraint-dependencies`로 통제되는데, 제약이 어긋나면 `uv lock --check`가 조용히 실패해 로컬 스켈레톤 실행보다 늦게 발견될 수 있다.
+
+First slice: `uv lock --check`와 `uv run python scripts/verify-python-dependency-constraints.py`를 `bun run verify:toto` 흐름에 포함하고, 제약 위반이 발생하면 시드 및 앱 실행 전에 경고를 출력한다.

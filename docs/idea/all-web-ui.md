@@ -1,6 +1,6 @@
 # all-web-ui
 
-Last reviewed: 2026-05-16 KST
+Last reviewed: 2026-06-23 KST
 
 ## Signals
 
@@ -10,6 +10,8 @@ Last reviewed: 2026-05-16 KST
   migration between sibling-source imports and package exports.
 - Shared UI releases create coupling, so downstream impact, export contracts,
   and discoverability matter together.
+- 2026-06-23 코드맵 기준 공식 배포 버전은 `@keelim/all-web-ui@0.1.4` (React 19.2.5 + Tailwind 4.2.2). 루트 Bun workspace가 로컬 설치 기준이며 `./scripts/verify-all-web-ui-integration.sh`로 정적 계약 게이트가 이미 존재함.
+- 서브모듈 정식 등록 대기 중: `rich`의 dirty/ahead-of-origin 상태 해소 후 진행 가능 (루트 SUBMODULES.md 확장 차단 요소).
 
 ## Open ideas
 
