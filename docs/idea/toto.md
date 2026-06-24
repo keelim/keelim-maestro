@@ -1,6 +1,6 @@
 # toto
 
-Last reviewed: 2026-05-16 KST
+Last reviewed: 2026-06-24 KST
 
 ## Signals
 
@@ -42,3 +42,11 @@ Status: proposed
 Why now: `toto`가 `.gitmodules`에 선언돼 있지만 gitlink가 루트 인덱스에 커밋되지 않아서, 신규 클론 시 디렉터리가 없고 `bun run dev:toto`·`bun run verify:toto`를 실행할 수 없다. 재현성을 핵심 가치로 내세운 프로젝트에서 이 비대칭은 가장 먼저 해소해야 할 운영 위험이다.
 
 First slice: 안정 커밋을 골라 gitlink를 루트 인덱스에 커밋하고, `git submodule update --init toto` → `bun run bootstrap` → `bun run verify:toto` 순서가 CI에서 그린으로 돌아오면 pinning 완료로 간주한다.
+
+### 2026-06-24 - 이중 워크스페이스 의존성 드리프트 게이트
+
+Status: proposed
+
+Why now: `toto`는 Bun 워크스페이스(`toto-kbo-streamlit-dashboard`)와 uv 워크스페이스(`kbo-dashboard`) 양쪽에 동시 등록된 유일한 프로젝트다. 루트 `bun.lock`과 `uv.lock`이 독립적으로 갱신될 때 Python 환경과 Node 환경 사이에 조용한 버전 불일치가 생길 수 있으며, 루트 `pyproject.toml`의 uv constraint-dependencies가 명시적으로 선언된 지금이 게이트를 만들기 가장 좋은 시점이다.
+
+First slice: `bun run test`와 `uv run --package kbo-dashboard --group dev pytest toto/tests`를 단일 CI 체크로 묶어 두 워크스페이스 모두에서 통과하는지 확인하고, `uv lock --check`를 함께 실행해 constraint 드리프트 후보를 조기에 표시한다.
