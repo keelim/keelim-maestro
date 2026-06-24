@@ -1,8 +1,8 @@
 # Agent Codemap
 
 - Repository: `toto`
-- Root: `/Users/keelim/Desktop/keelim-maestro/toto`
-- Generated: 2026-06-23
+- Root: `toto/` (within keelim-maestro workspace)
+- Generated: 2026-06-24
 - Files scanned: 29
 - Detected shape: Node/JavaScript, Python
 

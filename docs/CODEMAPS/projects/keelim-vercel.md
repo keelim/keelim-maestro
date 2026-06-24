@@ -1,11 +1,11 @@
 # `keelim-vercel` Codemap
 
-<!-- Generated: 2026-06-23 -->
+<!-- Generated: 2026-06-24 -->
 
 **Type:** Registered Git submodule
 **Remote:** https://github.com/keelim/keelim-vercel.git
 **Branch:** develop
-**Pinned commit:** `8d29b510a82db0ff3c6de2a1ffa78105beb8d177`
+**Pinned commit:** `1304f1216351f268636c09e43a3315071ed6c769`
 
 ## Shape
 

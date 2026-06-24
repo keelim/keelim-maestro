@@ -1,6 +1,6 @@
 # Data Codemap
 
-<!-- Generated: 2026-06-23 -->
+<!-- Generated: 2026-06-24 -->
 
 ## Knowledge and Storage Patterns
 
@@ -20,7 +20,7 @@ The root owns contracts; child repos own implementation and migrations.
 
 - **Type:** Separate operator brain repo (not under keelim-maestro)
 - **Integration:** Synced from curated sources including Keelim-Knowledge-Vault
-- **Root contract:** `docs/knowledge/` documents scope, runbook, and verification
+- **Root contract:** Previously in `docs/knowledge/` (not present in this checkout)
 - **MCP exposure:** via `agentgateway` at `http://localhost:3000/mcp`
 
 ## Rich Data Layer
@@ -40,6 +40,7 @@ Idea gardener runs read `docs/CODEMAPS/*` first, then each project's `README.md`
 
 ## Ops Documentation
 
-Local automation stack audit: `docs/ops/local-automation-stack.md`
-- Covers: `rich` Kubernetes, `tools/agentgateway`
+Local automation stack is documented in [architecture.md](architecture.md).
+- `rich` Kubernetes stack is Skaffold-managed
+- `agentgateway` is the shared local MCP gateway
 - Root owns cross-runtime contract; child repos own manifests, scripts, secrets

@@ -1,6 +1,6 @@
 # Backend Codemap
 
-<!-- Generated: 2026-06-23 -->
+<!-- Generated: 2026-06-24 -->
 
 ## Python Workspace Members
 
@@ -35,17 +35,15 @@ Root uv workspace provides shared dependency constraints for:
 
 ## Local Automation Stack
 
-`agentgateway` and `rich` run in local Kubernetes.
-See `docs/ops/local-automation-stack.md` for the full runtime audit.
+`agentgateway` and `rich` run in local Kubernetes (Skaffold-managed).
+Architecture details are in [architecture.md](architecture.md).
 
 ## GBrain Knowledge System
 
-GBrain uses a separate operator brain repository (`~/brain`). The root owns only:
-- `docs/knowledge/README.md` — workspace contract and scope
-- `docs/knowledge/gbrain.md` — staged full-brain adoption contract
-- `docs/knowledge/operator-runbook.md` — install, local smoke, MCP, migration
-- `docs/knowledge/source-targets.md` — curated import pool and exclusions
-- `docs/knowledge/verification-contract.md` — expected verification evidence
+GBrain uses a separate operator brain repository (`~/brain`). Contracts were
+previously tracked under `docs/knowledge/` (not present in this checkout).
+The `Keelim-Knowledge-Vault` submodule is a curated import source for the GBrain system.
+MCP exposure is via `agentgateway` at `http://localhost:3000/mcp`.
 
 ## Python Commands
 

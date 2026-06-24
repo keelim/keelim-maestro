@@ -1,6 +1,6 @@
 # `Keelim-Knowledge-Vault` Codemap
 
-<!-- Generated: 2026-06-23 -->
+<!-- Generated: 2026-06-24 -->
 
 **Type:** Registered Git submodule
 **Remote:** https://github.com/keelim/Keelim-Knowledge-Vault.git
@@ -20,8 +20,8 @@ Root-owned scripts check vault health:
 
 ## GBrain Integration
 
-The Knowledge Vault is a curated import source for the GBrain knowledge system.
-See `docs/knowledge/source-targets.md` for the curated import pool and exclusions.
+The Knowledge Vault is a curated import source for the GBrain knowledge system
+(`~/brain` operator repo). See [backend.md](../backend.md) for GBrain details.
 
 ## Notes
 

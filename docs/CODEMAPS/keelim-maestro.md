@@ -1,6 +1,6 @@
 # keelim-maestro Root Superproject Codemap
 
-<!-- Generated: 2026-06-23 -->
+<!-- Generated: 2026-06-24 -->
 
 ## Overview
 
@@ -24,7 +24,6 @@ keelim-maestro/
 ├── README.md                  # Human-facing workspace overview
 ├── .gitignore                 # Excludes child working trees, env, generated
 ├── .gitmodules                # Registered submodule pointers
-├── .gitattributes             # Git attributes
 ├── .npmrc                     # npm/bun registry config (GitHub Packages)
 ├── package.json               # Bun workspace bootstrap + script catalog
 ├── bun.lock                   # Bun lockfile (root workspace)
@@ -33,9 +32,9 @@ keelim-maestro/
 ├── scripts/                   # Root helper scripts (see SCRIPTS.md)
 ├── docs/
 │   ├── CODEMAPS/              # This directory — workspace codemap snapshots
-│   ├── ops/                   # Local automation stack docs
+│   ├── design/                # Keelim Design System documentation
 │   ├── idea/                  # Per-project idea/backlog files
-│   └── knowledge/             # GBrain knowledge system docs
+│   └── videos/                # Video documentation assets (subproject-intros)
 └── .reports/
     └── codemap-diff.txt       # Last codemap diff report
 ```
@@ -63,7 +62,8 @@ keelim-maestro/
 
 ## Open Questions
 
-- `docs/knowledge/` is referenced in README.md but may be absent from this checkout.
+- `docs/design/` contains the Keelim Design System spec (CSS tokens, themes, components) in Korean.
+- `docs/videos/subproject-intros/` contains per-project video documentation assets.
 - `all-web-ui` pending formal submodule registration (blocked until rich is reconciled and workspace is safe to pin).
 - `rich` local commits ahead of origin pending reconciliation before pinning.
 - `youtube` autonomous repo removed from root Bun/uv workspaces; no longer tracked by root scripts.
