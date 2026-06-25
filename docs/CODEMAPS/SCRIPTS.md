@@ -1,7 +1,7 @@
 # Root Scripts Codemap
 
-<!-- Generated: 2026-06-24 -->
-Last updated: 2026-06-24
+<!-- Generated: 2026-06-25 -->
+Last updated: 2026-06-25
 
 All scripts live under `scripts/`. Run them from the repo root.
 
@@ -22,6 +22,12 @@ All scripts live under `scripts/`. Run them from the repo root.
 | `verify-all-web-ui-integration.sh` | direct | Strict static verifier for all-web-ui integration |
 | `verify-keelim-plugin-rename.sh` | direct | Verifies keelim-plugin rename contract |
 | `verify-python-dependency-constraints.py` | `uv run python scripts/...` | Checks uv workspace constraint alignment |
+
+## Support / Config Files
+
+| File | Purpose |
+| --- | --- |
+| `all-web-ui-rich-allowed-drift.txt` | Temporary allowlist of `rich/web` files still using local design-system primitives; read by `verify-all-web-ui-integration.sh` to suppress false positives during migration |
 
 ## Codemap Scripts
 
