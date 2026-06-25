@@ -1,6 +1,6 @@
 # android-support
 
-Last reviewed: 2026-05-16 KST
+Last reviewed: 2026-06-25 KST
 
 ## Signals
 
@@ -56,3 +56,11 @@ Status: proposed
 Why now: 이 action은 릴리스 핵심 경로를 직접 건드리는데, 현재 테스트는 입력 검증에 비해 실제 Play API 편집 생명주기 검증이 약해서 사소한 변경도 실배포까지 밀려갈 수 있다.
 
 First slice: sign/upload/internal sharing/staged rollout 응답을 대표 fixture로 기록하고, 이를 CI에서 재생해 Play Console에 닿지 않고도 전체 edit lifecycle을 검증한다.
+
+### 2026-06-25 - 서브모듈 pin 버전과 소비자 워크플로 참조 추적기
+
+Status: proposed
+
+Why now: `android-support`는 현재 `v0.0.8-4`(커밋 `485a2e40`)로 루트 인덱스에 pin되어 있고, `all` 등 소비자 저장소의 GitHub Actions 워크플로는 이 액션을 특정 버전 태그나 커밋 SHA로 참조한다. pin 버전이 업데이트되더라도 소비자 참조가 자동으로 갱신되지 않으면 구버전 액션이 계속 실행될 위험이 있다.
+
+First slice: 루트 gitlink가 가리키는 `android-support` pin 커밋과 `all`의 `.github/workflows/` 내 액션 참조 버전을 비교해 불일치를 리포트하는 스크립트를 만들고, pin 변경 시 소비자 업데이트 필요 목록을 함께 출력한다.
