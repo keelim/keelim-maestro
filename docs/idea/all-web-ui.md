@@ -1,6 +1,6 @@
 # all-web-ui
 
-Last reviewed: 2026-05-16 KST
+Last reviewed: 2026-06-26 KST
 
 ## Signals
 
@@ -17,11 +17,9 @@ Last reviewed: 2026-05-16 KST
 
 Status: proposed
 
-Why now: Shared theme tokens are more valuable when consumers can preview what a
-token change will do before publishing it into downstream apps.
+Why now: Shared theme tokens are more valuable when consumers can preview what a token change will do before publishing it into downstream apps. `docs/design/`에 Keelim Design System 스펙(CSS 토큰·테마·컴포넌트 가이드라인)이 존재하므로, 스펙과 실제 구현 토큰 사이의 간극을 시각적으로 보여주는 표면이 더욱 구체적으로 필요해졌다.
 
-First slice: Build a tiny docs/demo page that renders each primitive under the
-existing themes and highlights token deltas side by side.
+First slice: Build a tiny docs/demo page that renders each primitive under the existing themes and highlights token deltas side by side; include a spec-vs-implementation diff view grounded in `docs/design/` entries.
 
 ### 2026-04-12 - Visual regression and accessibility gate pack
 

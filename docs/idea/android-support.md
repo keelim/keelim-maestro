@@ -1,6 +1,6 @@
 # android-support
 
-Last reviewed: 2026-05-16 KST
+Last reviewed: 2026-06-26 KST
 
 ## Signals
 
@@ -56,3 +56,11 @@ Status: proposed
 Why now: 이 action은 릴리스 핵심 경로를 직접 건드리는데, 현재 테스트는 입력 검증에 비해 실제 Play API 편집 생명주기 검증이 약해서 사소한 변경도 실배포까지 밀려갈 수 있다.
 
 First slice: sign/upload/internal sharing/staged rollout 응답을 대표 fixture로 기록하고, 이를 CI에서 재생해 Play Console에 닿지 않고도 전체 edit lifecycle을 검증한다.
+
+### 2026-06-26 - 핀된 버전 안전 업그레이드 절차
+
+Status: proposed
+
+Why now: SUBMODULES.md에서 android-support가 v0.0.8-4 커밋에 detach된 채 로컬 upstream이 없는 상태로 기록되어 있어서, 다음 버전 업그레이드 시 unpinning → 검증 → 재pin 절차가 없으면 검증되지 않은 커밋이 루트에 등록될 위험이 있다.
+
+First slice: 안전한 버전 범프 절차(upstream fetch → dry-run smoke test → root gitlink 갱신 → `bun run report:baseline` 통과)를 루트 AGENTS.md 또는 README에 기록하고, 새 pin이 검증 게이트를 거치지 않고 커밋되지 않도록 체크리스트를 만든다.
