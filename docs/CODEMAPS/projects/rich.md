@@ -1,6 +1,6 @@
 # `rich` Codemap
 
-<!-- Generated: 2026-06-26 -->
+<!-- Generated: 2026-06-27 -->
 
 **Type:** Autonomous child repo (not a submodule)
 **Remote:** https://github.com/keelim/rich
