@@ -395,3 +395,58 @@
     - Small change: research-oriented Product Design or service-analysis tasks
       should keep `sourceSet`, `verdict`, `completionSnapshot`, and
       `openQuestions` fields together in the final handoff.
+
+## 2026-06-27 Follow-Up Evidence
+
+- Product Design preflight still found no saved
+`/Users/keelim/.codex/state/plugins/product-design/user-context.md`, and
+tool discovery exposed Lazyweb tools rather than a Product Design-specific
+MCP surface.
+- The 2026-06-25 Codex App usage session separated Desktop UI visibility
+from Headroom proxy/runtime proof: config pointed at `127.0.0.1:8787/v1`,
+Headroom had request/savings evidence, but the app usage surface still did
+not show the expected result.
+- Recent wiki sessions in `rich` / `words` stored raw Korean trading notes,
+then converted them into reusable wiki pages or a five-gate same-day stock
+selection abstraction.
+- The 2026-06-26 `rich` wiki ingestion session showed a duplicated title
+/ stretched-content artifact that had to be manually cleaned before
+`wiki_refresh` and `wiki_lint` could be trusted.
+- The `TauricResearch/TradingAgents` review context emphasized financial
+agent nondeterminism: live data, LLM sampling, and reasoning-model behavior
+can vary even with similar prompts.
+
+## 2026-06-27 Improvements
+
+34. Split UI-visible status from runtime proof in service handoffs.
+- Evidence: Codex App usage analysis had real Headroom config and proxy
+activity evidence, while the Desktop usage display remained unclear.
+- Small change: Product Design/service handoffs should report `uiVisible`,
+`runtimeCallable`, `dataObserved`, and `userExpectation` separately.
+
+35. Preserve specific notes and reusable abstractions together.
+- Evidence: Korean day-trading work needed both raw wiki capture and the
+five-gate generalized stock-selection framework.
+- Small change: session-to-service analysis should keep `rawNote`,
+`normalizedPattern`, and `reusePrompt` fields when turning one-off knowledge
+into product guidance.
+
+36. Validate generated wiki text before treating lint as final.
+- Evidence: `rich` wiki ingest duplicated/stretched the title/content, and
+manual cleanup was required before final wiki checks were meaningful.
+- Small change: add a pre-lint text-integrity check for duplicate headings,
+repeated paragraphs, and source-reference preservation.
+
+37. Make financial-agent reproducibility an explicit gate.
+- Evidence: `TradingAgents` repo review context called out LLM sampling,
+live data changes, and reasoning-model nondeterminism.
+- Small change: financial research agent outputs should include
+`dataSnapshot`, `modelConfig`, `rerunVariance`, and `claimGrounding` before
+being promoted into product backlog or trading guidance.
+
+38. Treat install/reload states as first-class plugin setup proof.
+- Evidence: harness setup work moved through plugin install, reload, skill
+/ agent counts, then project-local exploration before planning.
+- Small change: agent/team setup handoffs should record `installed`,
+`reloaded`, `capabilitiesObserved`, and `projectFitChecked` rather than a
+single "setup done" flag.
