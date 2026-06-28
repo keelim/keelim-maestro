@@ -450,3 +450,37 @@ being promoted into product backlog or trading guidance.
 - Small change: agent/team setup handoffs should record `installed`,
 `reloaded`, `capabilitiesObserved`, and `projectFitChecked` rather than a
 single "setup done" flag.
+
+## 2026-06-28 Correction
+
+- Recent commit `91369fa` added the 2026-06-27 section, but parts of items 36-38 are hard to review because several sentences were compressed into one paragraph. Treat the normalized wording below as the current readable version of those items.
+- Item 36: generated wiki text needs a pre-lint text-integrity check for duplicate headings, repeated paragraphs, and source-reference preservation.
+- Item 37: financial research agent outputs need `dataSnapshot`, `modelConfig`, `rerunVariance`, and `claimGrounding` before promotion into product backlog or trading guidance.
+- Item 38: plugin or agent setup handoffs need `installed`, `reloaded`, `capabilitiesObserved`, and `projectFitChecked` rather than a single "setup done" flag.
+
+## 2026-06-28 Follow-Up Evidence
+
+- Product Design preflight still reports missing `/Users/keelim/.codex/state/plugins/product-design/user-context.md`.
+- Since the 2026-06-27T00:01:50Z automation marker, root commit `91369fa` only changed this service-improvement document; no child repo had a newer commit in `git log --since`.
+- `tools/codex-hygiene/codex-hygiene.sh --dry-run` found no runaway native-hook scans; it reported one Codex stdio app-server process and no `node_repl` residue.
+- `rich` and `youtube` currently have broad dirty trees, while `all-web-ui` only has untracked `debug-log.json`; these are not safe automatic commit units.
+- Chronicle evidence for TradingAgents split provider quota/rate-limit failures from graph bugs, and split Headroom's OpenAI-compatible HTTP endpoint from Codex app-server's WebSocket turn protocol.
+- Chronicle evidence for the YouTube Easy Release Note harness showed four `.claude/agents/*` files plus `.claude/commands/youtube-create.md`, reusing existing repo assets and avoiding new production code.
+
+## 2026-06-28 Improvements
+
+39. Classify repo sweep state before any automated commit.
+- Evidence: current root status has a small uv constraint diff, broad mixed `rich` and `youtube` changes, `Keelim-Knowledge-Vault` pointer movement, and scratch artifacts such as `.coverage`, `ORIGINAL_REQUEST.md`, `PROJECT.md`, `reports/`, and `debug-log.json`.
+- Small change: commit automation should label each candidate `commit-ready`, `mixed-user-work`, `scratch`, or `submodule-pointer` before staging files.
+
+40. Split provider, protocol, and product-result proof for agent integrations.
+- Evidence: TradingAgents work had Gemini `429` quota evidence, Headroom `/v1` HTTP compatibility, Codex app-server WebSocket incompatibility, and market-only smoke outcomes as separate facts.
+- Small change: agent-integration handoffs should record `providerState`, `endpointProtocol`, `marketSmokeResult`, and `structuredOutputStatus` separately.
+
+41. Make creator harness setup proof asset-based.
+- Evidence: the YouTube harness was useful because it reused `AGENTS.md`, the Easy Release Note workflow skill, `platform-prep.md`, and the object-character prompt skill rather than creating a second production pipeline.
+- Small change: creator workflow setup should include `reusedAssets`, `newCoordinationFiles`, and `productionCodeChanged` fields.
+
+42. Keep Product Design context absence as a health flag, not a repeated finding.
+- Evidence: multiple automation runs still find no saved Product Design `user-context.md`.
+- Small change: service-improvement runs should report the missing context once per run as `productDesignContext=missing`, then spend analysis budget on new session evidence.
