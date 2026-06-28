@@ -1,10 +1,13 @@
 # keelim-plugin
 
-Last reviewed: 2026-05-16 KST
+Last reviewed: 2026-06-28 KST
 
 ## Signals
 
-- Personal skill repository shared across Codex and Claude.
+- Personal skill repository shared across Codex and Claude; architecture.md(2026-06-28)는
+  이 저장소를 "Claude/Codex skill plugin (codemap generator, etc.)"으로 명시한다.
+- 코드맵 생성 스크립트가 `docs/CODEMAPS/` 전체를 만드는 루트 운영 기반이므로,
+  스킬 외에 코드맵 출력 계약도 검증 범위에 포함해야 한다.
 - Current value depends on discoverability, installation clarity, and confidence
   that a skill still works as documented.
 - The repository already has a clear `skills/<name>/SKILL.md` contract.
@@ -23,17 +26,22 @@ Why now: As the skill set grows, a human-maintained README will become less
 First slice: Generate a catalog page from `skills/*/SKILL.md` metadata with
  quick filters for purpose, platform, and maintenance state.
 
-### 2026-04-12 - Skill smoke-test harness
+### 2026-04-12 - Skill smoke-test harness (코드맵 생성기 포함)
 
 Status: proposed
 
 Why now: Cross-tool skills are valuable only if install paths, metadata, and
  basic workflow assumptions stay valid for both Codex and Claude, and there is
  no single check that compares install/readme metadata across both toolchains.
+ 2026-06-28 아키텍처 코드맵이 keelim-plugin을 코드맵 생성기로 명시함에 따라,
+ 생성된 CODEMAPS 파일의 필수 섹션·날짜 헤더·cross-reference 완결성도 같은 검증
+ 표면에 포함해야 한다.
 
 First slice: Add a lightweight verifier that checks required files, install
- commands, and any declared agent metadata for each skill folder, then surface
-Codex/Claude install parity gaps before publishing.
+ commands, and declared agent metadata for each skill folder, surface
+ Codex/Claude install parity gaps, and also assert that each generated
+ CODEMAPS file contains the required header fields and non-empty content
+ sections before any codemap PR merges.
 
 ### 2026-04-13 - 스킬 변경 영향 노트
 
