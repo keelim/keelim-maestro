@@ -1,6 +1,6 @@
 # all-web-ui
 
-Last reviewed: 2026-05-16 KST
+Last reviewed: 2026-06-29 KST
 
 ## Signals
 
@@ -34,23 +34,21 @@ Why now: A shared component package becomes much safer to evolve when visual and
 First slice: Add snapshot coverage for the exported primitives plus a minimal
 accessibility check in CI for the demo surface.
 
-### 2026-04-12 - Downstream usage matrix
+### 2026-04-12 - 다운스트림 소비자 계약 매트릭스
 
 Status: proposed
 
-Why now: The package already powers multiple web apps, so changes are safer
-when the consumer graph and upgrade surface are visible in one place.
+Why now: 공유 UI는 `keelim-vercel`과 `rich/web` 두 소비자에 붙어 있어서, export 목록과 실제 소비자 import 지점이 어긋나면 시각·타입·빌드 회귀가 늦게 드러난다.
 
-First slice: Generate a matrix of exported primitives vs downstream import
-sites, then attach a short upgrade checklist for each consumer repo.
+First slice: `all-web-ui`의 공개 export와 downstream import 지점을 비교하는 매트릭스를 만들고, 사용 중인 primitive와 경로를 하나의 manifest로 묶어 변경 diff와 소비자별 업그레이드 체크리스트를 표시한다.
 
-### 2026-04-13 - 내보내기 계약 스냅샷
+### 2026-06-29 - 서브모듈 전환 준비 로드맵
 
 Status: proposed
 
-Why now: 공유 UI는 `keelim-vercel`과 `rich/web` 둘 다에 붙어 있어서, 공개 export와 theme 파일이 깨지면 소비자 쪽 회귀가 바로 생긴다.
+Why now: 루트 CODEMAPS가 `all-web-ui` 서브모듈 공식 등록을 `rich` 저장소 상태 정리에 종속된 보류 작업으로 명시하고 있다. `rich`가 준비되는 시점에 바로 행동할 수 있도록 전환 조건과 절차를 미리 정리해 두는 것이 필요하다.
 
-First slice: 배포 전 `all-web-ui`의 공개 export 목록과 실제 downstream import 지점을 비교하는 manifest를 만들고, 시각/접근성 검사와 함께 계약 변경을 표시한다.
+First slice: 전환 전 필수 조건(rich clean 확인, `bun run report:baseline` 통과, `.gitmodules`에 원격 URL 추가)과 전환 후 검증 명령(`git submodule status`, `scripts/verify-all-web-ui-integration.sh --full`)을 한 문서로 정리한다.
 
 ### 2026-04-14 - 토큰 폐기 예고판
 
