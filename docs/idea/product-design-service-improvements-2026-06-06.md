@@ -484,3 +484,30 @@ single "setup done" flag.
 42. Keep Product Design context absence as a health flag, not a repeated finding.
 - Evidence: multiple automation runs still find no saved Product Design `user-context.md`.
 - Small change: service-improvement runs should report the missing context once per run as `productDesignContext=missing`, then spend analysis budget on new session evidence.
+
+## 2026-06-29 Follow-Up Evidence
+
+- Product Design context remains missing: `/Users/keelim/.codex/state/plugins/product-design` does not exist in this run.
+- Since the 2026-06-28T00:01:22Z automation marker, 18 Codex JSONL session files existed under `/Users/keelim/.codex/sessions/2026/06/28` and `/Users/keelim/.codex/sessions/2026/06/29`; several were approval-review or subagent transcripts rather than user-facing product work.
+- Chronicle evidence for YouTube Studio metadata work showed separate states for reference-short selection, draft metadata editing, save uncertainty, and local repo note sync.
+- Chronicle evidence for Google Docs/Medium writing showed the user moving Korean draft material through cleanup and translation while monitoring multiple agent jobs and session-management reflections.
+- Chronicle evidence for Google Drive / Google Vids export showed direct Drive download returning HTML, unavailable Chrome DevTools port `9222`, a hung browser download event, and a failed local `say` TTS fallback.
+- Chronicle evidence showed macOS application-memory pressure pausing Codex around 10 GB and Chrome around 3.84 GB while the user monitored concurrent agent work.
+
+## 2026-06-29 Improvements
+
+43. Classify session records before product analysis.
+- Evidence: recent session files mixed user sessions, automation runs, approval-review transcripts, and subagent outputs; unfiltered parsing surfaced giant embedded transcripts rather than service signals.
+- Small change: session-analysis tools should tag each record as `humanTask`, `automation`, `approvalReview`, or `subagent` before summarizing product learnings.
+
+44. Track browser-edit proof states separately.
+- Evidence: YouTube Studio metadata work required distinguishing high-view reference selection, draft-field edits, actual Studio save, and local note sync.
+- Small change: browser-backed editing handoffs should expose `referenceChosen`, `draftEdited`, `remoteSaved`, and `localSynced` instead of one `done` flag.
+
+45. Add authenticated media export proof fields.
+- Evidence: Google Drive / Vids export attempts failed in different ways: HTML download response, unavailable DevTools, hung download event, and zero-duration local TTS fallback.
+- Small change: media-production workflows should record `sourceApp`, `downloadMethod`, `fileVerified`, `fallbackTried`, and `remainingBlocker`.
+
+46. Surface local resource pressure in multi-agent dashboards.
+- Evidence: Chronicle captured macOS pausing Codex and Chrome under memory pressure while several agent jobs were active.
+- Small change: agent dashboards should show `appMemoryPressure`, `pausedApps`, and `restartSuggested` alongside task status so operator time is not spent debugging stalled agents as product failures.
