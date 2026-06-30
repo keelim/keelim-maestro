@@ -1,6 +1,6 @@
 # keelim-plugin
 
-Last reviewed: 2026-05-16 KST
+Last reviewed: 2026-06-30 KST
 
 ## Signals
 
@@ -10,18 +10,18 @@ Last reviewed: 2026-05-16 KST
 - The repository already has a clear `skills/<name>/SKILL.md` contract.
 - README가 Vercel skills CLI와 수동 symlink 설치 경로를 함께 설명하므로,
   카탈로그와 smoke-test가 설치 방식별 차이를 계속 드러내야 한다.
+- `skills/codebase-codemap/scripts/generate_codemap.py`가 루트 `scripts/refresh-codemaps.py`에서
+  호출된다(2026-06-30 코드맵 확인). 이 플러그인이 워크스페이스 코드맵 생성의 실질 소스다.
 
 ## Open ideas
 
-### 2026-04-12 - Generated skill catalog and install matrix
+### 2026-04-12 - 스킬 카탈로그·설치 매트릭스·재사용 그래프
 
 Status: proposed
 
-Why now: As the skill set grows, a human-maintained README will become less
- useful than a generated catalog with tags, summaries, and installation targets.
+Why now: 스킬 수가 늘수록 수동 README보다 생성형 카탈로그가 유용하며, 스킬 간 공통 키워드·연관 관계·설치 경로를 한 그래프로 묶으면 중복 정리와 신규 조합 판단이 빨라진다.
 
-First slice: Generate a catalog page from `skills/*/SKILL.md` metadata with
- quick filters for purpose, platform, and maintenance state.
+First slice: `skills/*/SKILL.md` 메타데이터에서 태그·요약·설치 대상을 모은 카탈로그 페이지를 생성하고, 공통 키워드와 연관 스킬을 함께 그래프로 표시해 함께 설치해야 할 묶음을 제안한다.
 
 ### 2026-04-12 - Skill smoke-test harness
 
@@ -59,10 +59,10 @@ Why now: 스킬 수가 늘수록 active/experimental/deprecated 상태를 설치
 
 First slice: `skills/*/SKILL.md`와 README 카탈로그에 lifecycle 메타데이터를 붙이고, deprecated 또는 unverified 스킬을 설치 화면에서 따로 표시한다.
 
-### 2026-04-14 - 스킬 재사용 그래프
+### 2026-06-30 - 코드맵 생성기 인터페이스 계약
 
 Status: proposed
 
-Why now: 스킬이 늘수록 같은 절차나 판별 규칙이 여러 `SKILL.md`에 흩어져서, 공통 프리미티브와 재사용 가능한 조합을 한 장의 그래프로 보면 중복 정리와 신규 설치 판단이 빨라진다.
+Why now: `skills/codebase-codemap/scripts/generate_codemap.py`가 루트 `scripts/refresh-codemaps.py`에서 직접 호출된다. 플러그인 서브모듈 pin이 갱신될 때 CLI 인자나 출력 포맷이 바뀌면 루트 코드맵이 조용히 깨지거나 잘못된 스냅샷을 남기게 된다.
 
-First slice: `skills/*/SKILL.md`를 스캔해 공통 키워드·연관 스킬·설치 경로를 묶은 그래프를 만들고, 함께 묶어야 할 스킬 묶음을 표시한다.
+First slice: `generate_codemap.py`의 CLI 인자·출력 포맷·오류 모드를 명세하고, 루트 `refresh-codemaps.py`와의 계약 정합성을 검증하는 자동 검사를 추가한다. 플러그인 pin 갱신 시 이 검사가 통과해야 코드맵 갱신이 완료로 간주된다.
