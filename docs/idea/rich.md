@@ -1,6 +1,6 @@
 # rich
 
-Last reviewed: 2026-05-16 KST
+Last reviewed: 2026-07-01 KST
 
 ## Signals
 
@@ -22,7 +22,7 @@ Status: proposed
 
 Why now: `rich` now mixes cron jobs, manual runs, Slack reminders, Google reconnects, and pykrx ingestion, so recovery work needs one place to live instead of scattered logs.
 
-First slice: Collect failed or partial runs into a single queue with the exact retry or repair action, then link each item back to the affected workflow.
+First slice: Persist every run/retry/failure into a normalized log, collect failed or partial runs into a single queue with the exact retry or repair action, and render a timeline that links each event back to the affected workflow (2026-07-01: merged in the former "Execution ledger and replay timeline" entry as this idea's data layer).
 
 ### 2026-04-12 - Daily review cockpit
 
@@ -46,18 +46,6 @@ First slice: Add a reliability panel that flags stale datasets, failed jobs,
  missing snapshots, and suspicious metric jumps before they affect downstream
  review flows.
 
-### 2026-04-12 - Execution ledger and replay timeline
-
-Status: proposed
-
-Why now: The admin surface already runs manual workflows, cron-triggered
-ingestion, and review flows, but the history of what happened is still
-scattered across endpoints and logs.
-
-First slice: Persist every run/retry/failure into a normalized log and render a
-timeline that links each event back to the affected workflow and recovery
-action.
-
 ### 2026-04-12 - Integration health console
 
 Status: proposed
@@ -80,3 +68,11 @@ one-off dump.
 First slice: Track a small watchlist of high-value dataset pages, diff title /
 field / link changes on each export, and push meaningful updates into the
 weekly review or recovery queue.
+
+### 2026-07-01 - 서브모듈 승격 전 정리(freeze/split) 체크리스트
+
+Status: proposed
+
+Why now: `docs/CODEMAPS/SUBMODULES.md`의 Expansion Blockers는 `rich`의 dirty 작업 트리와 origin 대비 ahead 커밋 상태를 root submodule 승격의 1순위 차단 요인으로 명시한다. `rich`는 root Bun/uv 워크스페이스 멤버이자 `all-web-ui`의 컨슈머이기도 해서, 이 상태가 정리되지 않으면 `all-web-ui`의 submodule 전환까지 함께 막힌다(연쇄 차단).
+
+First slice: `rich` 프로젝트 코드맵의 Pre-Pinning Requirements(dirty 트리 freeze/split → origin 대비 ahead 커밋 push → clean 상태 확인 → `bun run report:baseline` 통과)를 순서대로 실행하는 체크리스트를 만들고, 각 단계 완료 여부를 root에서 재확인할 수 있는 자기 점검 스크립트로 남긴다.
