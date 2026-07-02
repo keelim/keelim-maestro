@@ -511,3 +511,24 @@ single "setup done" flag.
 46. Surface local resource pressure in multi-agent dashboards.
 - Evidence: Chronicle captured macOS pausing Codex and Chrome under memory pressure while several agent jobs were active.
 - Small change: agent dashboards should show `appMemoryPressure`, `pausedApps`, and `restartSuggested` alongside task status so operator time is not spent debugging stalled agents as product failures.
+
+## 2026-07-02 Follow-Up Evidence
+
+- Product Design plugin package is installed (`product-design` 0.1.47), but no saved Product Design user context was found under `/Users/keelim/.codex/state/plugins/product-design`.
+- Since the previous project-management automation marker, the high-signal new session summary is the Rich daily market snapshot run in `/Users/keelim/Desktop/keelim-maestro/rich`.
+- That run collected `2026-06-29`, `2026-06-30`, and `2026-07-01`, skipped `2026-06-27` and `2026-06-28` with `PYKRX_DAILY_SNAPSHOT_UNAVAILABLE` quality reasons, and verified persistence with `DailyMarketSnapshotStore().list_snapshot_dates()`.
+- The first `uv run` attempt failed before Python startup because `/Users/keelim/.cache/uv` was not accessible in the sandbox; rerunning with the allowed cache/escalation path recovered the task.
+
+## 2026-07-02 Improvements
+
+47. Split command success from durable store proof.
+- Evidence: Rich snapshot collection was only accepted after `DailyMarketSnapshotStore().list_snapshot_dates()` returned dates through `2026-07-01`.
+- Small change: data-producing automations should expose `commandSucceeded`, `storeVerified`, and `verifiedRecords` separately.
+
+48. Preserve no-data quality reasons in operator-facing results.
+- Evidence: collector skipped `2026-06-27` and `2026-06-28` as `PYKRX_DAILY_SNAPSHOT_UNAVAILABLE` with `all_zero_market_totals` and `all_zero_top_movers`; user explicitly required no fabricated backfill dates.
+- Small change: market/data workflows should show `skippedDates`, `qualityReasons`, and `fallbackAttempted=false` in the final handoff.
+
+49. Classify runner failures before product failures.
+- Evidence: `uv run` failed on cache initialization before app code ran, then succeeded through the permitted cache/escalation path.
+- Small change: automation reports should label failures as `runnerBlocked`, `providerBlocked`, `appFailed`, or `dataUnavailable` before proposing fixes.
