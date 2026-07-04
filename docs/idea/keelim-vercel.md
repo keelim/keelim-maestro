@@ -1,6 +1,6 @@
 # keelim-vercel
 
-Last reviewed: 2026-05-16 KST
+Last reviewed: 2026-07-04 KST
 
 ## Signals
 
@@ -58,7 +58,7 @@ First slice: `lib/menu-config.ts`의 신규 배지 개수, `app/changelog/page.t
 
 Status: proposed
 
-Why now: `all-web-ui`를 로컬 sibling repo로 쓰는 동안 adapter export와 실제 import 경로가 조금만 어긋나도 `keelim-vercel` 쪽에서 런타임보다 늦게 회귀가 드러난다.
+Why now: `all-web-ui`를 로컬 sibling repo로 쓰는 동안 adapter export와 실제 import 경로가 조금만 어긋나도 `keelim-vercel` 쪽에서 런타임보다 늦게 회귀가 드러난다. 루트 `bun run report:shared-ui`가 `keelim-vercel`의 dependency 버전·registry 매핑·style import 여부는 이미 coarse하게 보여주지만, `components/shared/all-web-ui-adapters.tsx` 내부의 개별 어댑터-프리미티브 매핑까지는 들여다보지 않는다 — 남은 격차는 이 파일 단위의 세밀한 계약이다.
 
 First slice: `components/shared/all-web-ui-adapters.tsx`와 downstream import 지점을 스캔해, 사용 중인 primitive와 경로를 한 장의 manifest로 묶고 변경 diff를 보여준다.
 

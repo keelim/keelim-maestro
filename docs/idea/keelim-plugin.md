@@ -1,6 +1,6 @@
 # keelim-plugin
 
-Last reviewed: 2026-05-16 KST
+Last reviewed: 2026-07-04 KST
 
 ## Signals
 
@@ -10,6 +10,8 @@ Last reviewed: 2026-05-16 KST
 - The repository already has a clear `skills/<name>/SKILL.md` contract.
 - README가 Vercel skills CLI와 수동 symlink 설치 경로를 함께 설명하므로,
   카탈로그와 smoke-test가 설치 방식별 차이를 계속 드러내야 한다.
+- `keelim-skill` → `keelim-plugin` 리네이밍은 `scripts/verify-keelim-plugin-rename.sh`가
+  `.gitmodules`, gitlink, 루트 README, child README까지 검증하도록 이미 완료되어 있다.
 
 ## Open ideas
 
