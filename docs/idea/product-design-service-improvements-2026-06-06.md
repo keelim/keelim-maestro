@@ -532,3 +532,34 @@ single "setup done" flag.
 49. Classify runner failures before product failures.
 - Evidence: `uv run` failed on cache initialization before app code ran, then succeeded through the permitted cache/escalation path.
 - Small change: automation reports should label failures as `runnerBlocked`, `providerBlocked`, `appFailed`, or `dataUnavailable` before proposing fixes.
+
+## 2026-07-05 Follow-Up Evidence
+
+- Process hygiene stayed script-first: sandboxed process-table read failed, then `tools/codex-hygiene/codex-hygiene.sh --dry-run` reported no runaway native-hook scans, `node_repl=0`, and stdio app-server `count=0`.
+- Commit automation found verified child units and made unsigned local commits because each checked repo had `commit.gpgsign=true`, `gpg.format=ssh`, and the SSH signing key passphrase was unavailable in the agent session.
+- Codebase-memory coverage was uneven: current indexed projects included only root, `all`, and `all-web-ui`; `rich` needed a fresh fast index before weekly-review API contract analysis.
+- `rtk read`/`rtk proxy` compressed Kotlin syntax enough to hide operators such as expression-body `=` and matcher calls, so syntax-sensitive review relied on Gradle tests/build rather than compressed file display.
+- `docs/research/product-design-subproject-opportunities-2026-07-04.md` is explicitly a lightweight, non-screenshot-backed Product Design triage; current `rich` Stitch route-map entries for new money screens remain `pending-capture`.
+- Local/generated residue remains common across child repos: `.serena/`, `debug-log.json`, `web/next-env.d.ts`, and `web/tsconfig.tsbuildinfo` were left uncommitted unless they belonged to a verified meaningful unit.
+
+## 2026-07-05 Improvements
+
+50. Add graph coverage preflight before cross-repo analysis.
+- Evidence: root codebase-memory project was too small for child implementation work, and `rich` had to be indexed on demand before inspecting `WeeklyReviewGenerateAIResponse`.
+- Small change: service-analysis runs should report `graphProject`, `rootPath`, `nodes`, `edges`, `childCoverage`, and `fallbackUsed` before relying on graph answers.
+
+51. Add syntax-sensitive read mode to RTK-guided workflows.
+- Evidence: compressed command output obscured Kotlin syntax while `:app-arducon:testDebugUnitTest` and `:app-arducon:assembleDebug` proved the code actually compiled.
+- Small change: when reviewing code syntax, commands should switch to an explicit unfiltered read/build proof lane and label compressed output as summary-only.
+
+52. Make commit-signing status first-class in automation handoffs.
+- Evidence: `all`, `all-web-ui`, and `rich` all required unsigned fallback commits because SSH signing requested a passphrase.
+- Small change: commit automation should record `signingConfigured`, `signed`, `fallbackUnsigned`, and `reason` per repo.
+
+53. Separate Product Design triage from screenshot-backed audit.
+- Evidence: the 2026-07-04 Product Design subproject report names itself lightweight and not screenshot-backed, while new `rich` route-map targets still need captures.
+- Small change: Product Design outputs should carry `triage`, `screenCaptured`, `mockupReviewed`, and `implementationVerified` states.
+
+54. Classify local tooling residue before staging.
+- Evidence: `.serena/`, `debug-log.json`, generated Next files, and broad YouTube render/package changes repeatedly appear beside real source changes.
+- Small change: repo sweep UI should bucket dirty files as `commitReady`, `generated`, `toolResidue`, `broadProductionBatch`, or `needsHumanGrouping` before staging.
