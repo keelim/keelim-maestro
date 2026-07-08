@@ -1,6 +1,6 @@
 # keelim-vercel
 
-Last reviewed: 2026-05-16 KST
+Last reviewed: 2026-07-08 KST
 
 ## Signals
 
@@ -10,7 +10,7 @@ Last reviewed: 2026-05-16 KST
 - The current surface is wide, which makes cross-tool continuity more valuable
   than adding isolated single-purpose pages forever.
 - 최근 도구 사용 추적과 목표 체크인 표면이 붙고 있어서, 단순 페이지 확장보다 후속 행동 루프를 강화하는 쪽이 더 크다.
-- `all-web-ui`가 로컬 sibling repo로 붙어 있어, 어댑터와 실제 import 경로가 어긋나면 소비자 앱에서 늦게 깨질 수 있다.
+- `all-web-ui`가 로컬 sibling repo로 붙어 있어, 어댑터와 실제 import 경로가 어긋나면 소비자 앱에서 늦게 깨질 수 있다. 루트 `scripts/verify-all-web-ui-integration.sh`가 이미 `components/ui` shim-only 여부와 어댑터 import 경계를 매 실행마다 검사한다.
 
 ## Open ideas
 
@@ -54,14 +54,6 @@ Why now: `AGENTS.md`에 `isNew: true`가 정확히 4개만 유지돼야 한다�
 
 First slice: `lib/menu-config.ts`의 신규 배지 개수, `app/changelog/page.tsx`의 최신 추가 항목, 실제 라우트 노출을 비교해서 오래된 배지를 먼저 내리고 새 기능 승격 후보를 표시한다.
 
-### 2026-04-14 - 공용 UI 어댑터 계약 스냅샷
-
-Status: proposed
-
-Why now: `all-web-ui`를 로컬 sibling repo로 쓰는 동안 adapter export와 실제 import 경로가 조금만 어긋나도 `keelim-vercel` 쪽에서 런타임보다 늦게 회귀가 드러난다.
-
-First slice: `components/shared/all-web-ui-adapters.tsx`와 downstream import 지점을 스캔해, 사용 중인 primitive와 경로를 한 장의 manifest로 묶고 변경 diff를 보여준다.
-
 ### 2026-04-18 - 스토리지 키 레지스트리 드리프트 게이트
 
 Status: proposed
@@ -69,3 +61,11 @@ Status: proposed
 Why now: `lib/*storage.ts`와 `storage-version-registry.ts`가 실제로 같은 저장 키 계약을 지켜야 하므로, 레지스트리 누락이나 stale sidecar가 생기면 사용자 설정이 조용히 깨질 수 있다.
 
 First slice: 저장소 키 상수와 registry 등록 목록을 비교하는 보고서를 만들고, 누락/불일치/정체된 마이그레이션 후보를 주간 점검에 띄운다.
+
+## Resolved
+
+- **공용 UI 어댑터 계약 스냅샷** (proposed 2026-04-14) — resolved by
+  `scripts/verify-all-web-ui-integration.sh`'s `keelim_components_ui_is_shim_only`
+  and `keelim_boundary_imports_valid` checks, which already verify
+  `components/ui` stays shim-only and that `all-web-ui` imports stay confined
+  to adapter-safe locations on every run.
