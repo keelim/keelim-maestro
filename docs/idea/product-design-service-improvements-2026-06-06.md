@@ -563,3 +563,20 @@ single "setup done" flag.
 54. Classify local tooling residue before staging.
 - Evidence: `.serena/`, `debug-log.json`, generated Next files, and broad YouTube render/package changes repeatedly appear beside real source changes.
 - Small change: repo sweep UI should bucket dirty files as `commitReady`, `generated`, `toolResidue`, `broadProductionBatch`, or `needsHumanGrouping` before staging.
+
+## 2026-07-08 Follow-Up Evidence
+
+- Product Design context remains absent: `/Users/keelim/.codex/state/plugins/product-design` did not exist during this run.
+- Tool discovery for `$product-design` exposed Creative Production widgets and unrelated session/process tools, but no callable Product Design analysis tool in the current surface.
+- Since the 2026-07-07T14:21:54Z automation marker, session search found current automation/self-review JSONL files under `/Users/keelim/.codex/sessions/2026/07/07` and `/Users/keelim/.codex/sessions/2026/07/08`; one approval-review subagent transcript existed solely to approve `codex-hygiene.sh --dry-run`.
+- Reading those JSONL files naively pulled the current run's prompt, tool calls, approval transcript, and AGENTS text back into the analysis window instead of only user-facing product work.
+
+## 2026-07-08 Improvements
+
+55. Prove Product Design capability before treating `$product-design` as available.
+- Evidence: `$product-design` was requested, but the plugin state path was missing and tool discovery returned no Product Design analysis callable.
+- Small change: service-analysis runs should report `productDesignContext`, `toolSurface`, `toolAvailable`, and `fallbackSource` before spending analysis budget.
+
+56. Exclude self and approval-review sessions from conversation mining.
+- Evidence: the current automation run and its approval-review subagent session appeared in the same `/Users/keelim/.codex/sessions/2026/07/*` search window being analyzed.
+- Small change: session mining should filter `currentThreadId`, `parent_thread_id`, `source.subagent`, and approval-only transcripts before summarizing service improvements.
