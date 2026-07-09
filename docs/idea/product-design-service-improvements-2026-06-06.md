@@ -580,3 +580,24 @@ single "setup done" flag.
 56. Exclude self and approval-review sessions from conversation mining.
 - Evidence: the current automation run and its approval-review subagent session appeared in the same `/Users/keelim/.codex/sessions/2026/07/*` search window being analyzed.
 - Small change: session mining should filter `currentThreadId`, `parent_thread_id`, `source.subagent`, and approval-only transcripts before summarizing service improvements.
+
+## 2026-07-09 Follow-Up Evidence
+
+- Product Design context remains absent: `/Users/keelim/.codex/state/plugins/product-design/user-context.md` was not present.
+- Since the previous project-management marker, six session files were newer than `2026-07-08T00:01:25Z`: the current automation thread, two guardian approval-review subagent threads, the prior project-management automation thread, and one user-facing Rich daily market snapshot automation thread.
+- The Rich daily market snapshot session in `/Users/keelim/Desktop/keelim-maestro/rich` collected and verified `2026-07-07` and `2026-07-08` through `DailyMarketSnapshotStore().list_snapshot_dates()`, but the verified SQLite change still needed this project-management sweep to commit it.
+- `tools/codex-hygiene/codex-hygiene.sh --dry-run` could not read the process table in sandbox, and escalated process inspection was denied by the approval reviewer; `tools/agentgateway/scripts/stop-k8s-gateway.sh --dry-run` still proved no matching Kubernetes port-forward.
+
+## 2026-07-09 Improvements
+
+57. Carry producer automation commit intent forward explicitly.
+- Evidence: the Rich snapshot automation verified persisted dates `2026-07-07` and `2026-07-08`, while the SQLite file remained dirty until the next project-management run.
+- Small change: producer automations that mutate repo state should report `changedFiles`, `verifyCommand`, `commitEligible`, and `suggestedCommitMessage`.
+
+58. Add policy-aware process hygiene status.
+- Evidence: process-table inspection was blocked first by sandbox, then by approval policy, while the safer agentgateway port-forward dry-run succeeded.
+- Small change: process cleanup reports should split `scriptRan`, `sandboxBlocked`, `approvalDenied`, `safeFallbackChecked`, and `cleanupApplied`.
+
+59. Prefer a session whitelist over broad conversation mining.
+- Evidence: among six newer session files, only the Rich snapshot automation was user-facing product work; the rest were current/previous project-management or guardian approval-review transcripts.
+- Small change: session analysis should whitelist `thread_source=automation` with non-self cwd/task evidence, then exclude guardian/subagent approval transcripts by default.
