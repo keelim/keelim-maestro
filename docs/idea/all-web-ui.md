@@ -1,6 +1,6 @@
 # all-web-ui
 
-Last reviewed: 2026-05-16 KST
+Last reviewed: 2026-07-09 KST
 
 ## Signals
 
@@ -10,6 +10,10 @@ Last reviewed: 2026-05-16 KST
   migration between sibling-source imports and package exports.
 - Shared UI releases create coupling, so downstream impact, export contracts,
   and discoverability matter together.
+- `scripts/verify-all-web-ui-integration.sh` and `bun run report:shared-ui` now
+  give a static export/import contract gate (see Resolved), so remaining gaps
+  are about visual/accessibility regression and submodule-conversion readiness,
+  not export-matrix visibility.
 
 ## Open ideas
 
@@ -34,24 +38,6 @@ Why now: A shared component package becomes much safer to evolve when visual and
 First slice: Add snapshot coverage for the exported primitives plus a minimal
 accessibility check in CI for the demo surface.
 
-### 2026-04-12 - Downstream usage matrix
-
-Status: proposed
-
-Why now: The package already powers multiple web apps, so changes are safer
-when the consumer graph and upgrade surface are visible in one place.
-
-First slice: Generate a matrix of exported primitives vs downstream import
-sites, then attach a short upgrade checklist for each consumer repo.
-
-### 2026-04-13 - 내보내기 계약 스냅샷
-
-Status: proposed
-
-Why now: 공유 UI는 `keelim-vercel`과 `rich/web` 둘 다에 붙어 있어서, 공개 export와 theme 파일이 깨지면 소비자 쪽 회귀가 바로 생긴다.
-
-First slice: 배포 전 `all-web-ui`의 공개 export 목록과 실제 downstream import 지점을 비교하는 manifest를 만들고, 시각/접근성 검사와 함께 계약 변경을 표시한다.
-
 ### 2026-04-14 - 토큰 폐기 예고판
 
 Status: proposed
@@ -60,10 +46,21 @@ Why now: `all-web-ui`의 토큰과 프리미티브는 `keelim-vercel`과 `rich/w
 
 First slice: 카탈로그에서 deprecated export를 표시하고, downstream import 지점을 수집해 교체 경로와 함께 보여주는 얇은 마이그레이션 표를 만든다.
 
-### 2026-04-18 - 다운스트림 빌드 카나리
+### 2026-07-09 - 서브모듈 전환 준비 게이트
 
 Status: proposed
 
-Why now: `all-web-ui`는 실제로 두 개의 다운스트림 앱에 붙어 있으니, export나 theme 파일 변경이 배포 전에 빌드 단위에서 먼저 깨지는지 확인해야 회귀 비용이 낮아진다.
+Why now: `docs/CODEMAPS/projects/all-web-ui.md`는 `all-web-ui`가 origin 대비 clean 상태이며 전환을 막는 건 `rich`의 dirty/ahead-of-origin 상태뿐이라고 밝히고 있다. `toto`는 이미 gitlink pinning + `bun run verify:toto` 패턴으로 같은 문제를 풀었으므로, 같은 재현 가능한 클론 게이트 절차를 `all-web-ui`(그리고 뒤이어 `rich`)에도 적용할 준비를 미리 해 둘 가치가 있다.
 
-First slice: `keelim-vercel`과 `rich/web`이 쓰는 import 경로를 그대로 재현하는 작은 fixture 또는 매트릭스 빌드를 만들고, 타입체크/빌드 실패를 소비자 영향 경고로 보여준다.
+First slice: `bun run report:baseline`과 `SUBMODULES.md`의 Expansion Blockers를 주기적으로 확인해 `rich`가 clean해지는 시점을 감지하고, 감지 즉시 `all-web-ui`를 `.gitmodules`에 등록·pin·검증까지 이어갈 체크리스트를 `toto` 사례를 본떠 정리한다.
+
+## Resolved
+
+- 2026-07-09 — Downstream usage matrix (2026-04-12), 내보내기 계약 스냅샷 (2026-04-13),
+  다운스트림 빌드 카나리 (2026-04-18): `scripts/verify-all-web-ui-integration.sh`
+  (export manifest 비교, adapter-safe import 경계, `keelim_components_ui_is_shim_only`
+  등)와 `scripts/report-shared-ui-contract.sh`(`bun run report:shared-ui`), 그리고
+  `bun run typecheck:web` / `bun run build:web`가 export 계약·다운스트림 import·빌드
+  카나리를 이미 정적으로 검증하고 있어 별도 신규 작업 없이 해소됨. 근거:
+  `docs/CODEMAPS/frontend.md`, `package.json`(`report:shared-ui`, `typecheck:web`,
+  `build:web`).

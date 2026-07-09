@@ -1,6 +1,6 @@
 # Keelim-Knowledge-Vault
 
-Last reviewed: 2026-05-16 KST
+Last reviewed: 2026-07-09 KST
 
 ## Signals
 
@@ -67,6 +67,9 @@ First slice: 루트에서 갱신된 운영 문서와 메모리 조각을 모아 
 
 Status: proposed
 
-Why now: 루트 AGENTS/CODEMAPS가 이미 신뢰 가능한 repo 집합, 제외 대상, pinning blocker를 정의하고 있어서, 이를 vault에 복원 가능한 한 장의 기준선 보드로 남기면 다음 작업에서 다시 해석하지 않아도 된다.
+Why now: 루트에는 이미 `scripts/report-trusted-baseline.sh`(`bun run report:baseline`)가
+trusted set·excluded set·pinning blocker를 생성하고 있어서, vault 쪽은 새로 조사할 필요 없이
+이 리포트 출력을 그대로 받아 적기만 하면 된다.
 
-First slice: 현재 trusted set, excluded set, pinning blocker, 마지막 검증 시각을 묶은 노트를 만들고 루트 workspace 문서와 상호 링크한다.
+First slice: `bun run report:baseline` 출력을 그대로 옮긴 기준선 노트를 만들고, 실행 시각과
+`docs/CODEMAPS/SUBMODULES.md` 링크를 함께 남겨 다음 실행 결과와 diff만 비교하면 되게 한다.
