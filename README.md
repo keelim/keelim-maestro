@@ -83,6 +83,37 @@ The report is a live observation assembled from `.gitmodules`, active gitlinks,
 root workspace manifests, root policy, and child Git status. It does not mutate
 child repositories and is not permission to pin or repair child state.
 
+## Cross-repo changeset manifest
+
+Before coordinating an ordered change across autonomous child repositories,
+record the exact repository state and validate it read-only:
+
+```json
+{
+  "version": 1,
+  "changes": [
+    {
+      "repo": "all-web-ui",
+      "commit": "0123456789abcdef0123456789abcdef01234567",
+      "requiredChecks": ["bun run typecheck"],
+      "order": 1,
+      "rollback": "Revert the provider commit before consumer commits."
+    }
+  ]
+}
+```
+
+```bash
+bun run changeset:validate -- path/to/changeset.json
+bun run test:changeset
+```
+
+The validator requires complete fields, unique repositories, contiguous order,
+full Git SHAs matching each clean repository's `HEAD`, and resolvable simple
+check commands. It only inspects the manifest and local repositories: required
+checks and rollback instructions are never executed, and it never checks out,
+pushes, or updates root gitlinks.
+
 ## Shared UI contract report
 
 Use the read-only shared UI contract reporter when touching `all-web-ui` or one

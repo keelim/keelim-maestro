@@ -52,6 +52,8 @@
   "scripts": {
     "test": "sh scripts/test-workspace.sh",
     "test:workspace": "sh scripts/test-workspace.sh",
+    "test:changeset": "bun scripts/test-changeset-manifest.mjs",
+    "changeset:validate": "bun scripts/validate-changeset-manifest.mjs",
     "cg": "sh scripts/codegraph.sh",
     "cg:status": "sh scripts/codegraph.sh status all",
     "cg:root-check": "sh scripts/codegraph.sh root-check",
