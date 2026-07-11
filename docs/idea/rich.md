@@ -1,6 +1,6 @@
 # rich
 
-Last reviewed: 2026-05-16 KST
+Last reviewed: 2026-07-11 KST
 
 ## Signals
 
@@ -13,6 +13,10 @@ Last reviewed: 2026-05-16 KST
   to the existing backend/workflow reliability surface.
 - `docs/words/AGENTS.md` defines a raw-source/wiki/schema split for an investing
   LLM wiki, so durable review insights can be routed back into knowledge pages.
+- `docs/CODEMAPS/SUBMODULES.md`는 `rich`가 dirty/ahead-of-origin 상태를 해소해야
+  서브모듈로 승격될 수 있다고 명시한다(freeze/split → push → `origin/master` 대비
+  clean 확인 → `bun run report:baseline`). `all-web-ui`의 서브모듈 등록도 이 상태 해소를
+  기다리고 있어, `rich`의 워킹트리 위생이 워크스페이스 전체의 pinning 진행을 막는 병목이다.
 
 ## Open ideas
 

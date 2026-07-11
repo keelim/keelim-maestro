@@ -1,6 +1,6 @@
 # keelim-plugin
 
-Last reviewed: 2026-05-16 KST
+Last reviewed: 2026-07-11 KST
 
 ## Signals
 
@@ -10,6 +10,10 @@ Last reviewed: 2026-05-16 KST
 - The repository already has a clear `skills/<name>/SKILL.md` contract.
 - README가 Vercel skills CLI와 수동 symlink 설치 경로를 함께 설명하므로,
   카탈로그와 smoke-test가 설치 방식별 차이를 계속 드러내야 한다.
+- `skills/codebase-codemap/scripts/generate_codemap.py`는 이제 루트
+  `scripts/refresh-codemaps.py`가 직접 호출하는 의존성이다(`docs/CODEMAPS/README.md`,
+  `docs/CODEMAPS/projects/keelim-plugin.md`). 이 스킬이 초기화되지 않았거나 깨지면
+  워크스페이스 전체 코드맵 갱신이 조용히 실패한다.
 
 ## Open ideas
 
@@ -30,10 +34,15 @@ Status: proposed
 Why now: Cross-tool skills are valuable only if install paths, metadata, and
  basic workflow assumptions stay valid for both Codex and Claude, and there is
  no single check that compares install/readme metadata across both toolchains.
+ 루트의 `scripts/refresh-codemaps.py`가 `skills/codebase-codemap/scripts/generate_codemap.py`에
+ 직접 의존하게 되면서, 이 스킬 하나의 회귀가 워크스페이스 전체 코드맵 신선도를 조용히 무너뜨릴 수 있는
+ 최우선 대상이 됐다.
 
 First slice: Add a lightweight verifier that checks required files, install
  commands, and any declared agent metadata for each skill folder, then surface
-Codex/Claude install parity gaps before publishing.
+Codex/Claude install parity gaps before publishing. 첫 대상은 `codebase-codemap`
+스킬로 잡아, `generate_codemap.py`가 픽스처 저장소에서 에러 없이 실행되는지와
+`docs/CODEMAPS/*` 갱신 타임스탬프가 이 스킬의 마지막 변경보다 뒤처지지 않는지를 먼저 검사한다.
 
 ### 2026-04-13 - 스킬 변경 영향 노트
 
