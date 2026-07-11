@@ -76,6 +76,10 @@ shared_ui_contract_report_runs() {
   sh scripts/report-shared-ui-contract.sh >/dev/null
 }
 
+changeset_manifest_tests_run() {
+  bun scripts/test-changeset-manifest.mjs >/dev/null
+}
+
 print_header() {
   printf 'Workspace root: %s\n' "$ROOT"
   printf 'Mode: root contract\n\n'
@@ -89,6 +93,8 @@ check_package_contract() {
 
   run_check "default test script exists" package_script_exists "test"
   run_check "workspace test script exists" package_script_exists "test:workspace"
+  run_check "changeset manifest test script exists" package_script_exists "test:changeset"
+  run_check "changeset manifest validator script exists" package_script_exists "changeset:validate"
   run_check "CodeGraph dispatcher script exists in package scripts" package_script_exists "cg"
   run_check "CodeGraph status script exists in package scripts" package_script_exists "cg:status"
   run_check "CodeGraph root-check script exists in package scripts" package_script_exists "cg:root-check"
@@ -115,6 +121,8 @@ check_root_files() {
   run_check "root keelim-plugin verifier exists" test -f scripts/verify-keelim-plugin-rename.sh
   run_check "root codex app-server helper exists" test -f scripts/codex-app-server.sh
   run_check "root local automation helper exists" test -f scripts/local-automation.sh
+  run_check "root changeset manifest validator exists" test -f scripts/validate-changeset-manifest.mjs
+  run_check "root changeset manifest contract tests pass" changeset_manifest_tests_run
   run_check "root knowledge docs README exists" test -f docs/knowledge/README.md
   run_check "root GBrain contract exists" test -f docs/knowledge/gbrain.md
   run_check "root GBrain source targets exist" test -f docs/knowledge/source-targets.md
