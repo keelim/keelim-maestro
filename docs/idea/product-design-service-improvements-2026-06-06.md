@@ -601,3 +601,54 @@ single "setup done" flag.
 59. Prefer a session whitelist over broad conversation mining.
 - Evidence: among six newer session files, only the Rich snapshot automation was user-facing product work; the rest were current/previous project-management or guardian approval-review transcripts.
 - Small change: session analysis should whitelist `thread_source=automation` with non-self cwd/task evidence, then exclude guardian/subagent approval transcripts by default.
+
+## 2026-07-11 Follow-Up Evidence
+
+- Product Design-specific analysis tooling was still not exposed in this
+  surface; discovery returned site-design picker / Creative Production widgets
+  rather than a callable Product Design service-analysis tool.
+- The thin Codex worktree again lacked `tools/`, while the hydrated checkout
+  `/Users/keelim/Desktop/keelim-maestro` had the real child repo state and
+  process-hygiene scripts.
+- `tools/codex-hygiene/codex-hygiene.sh --dry-run` needed process-table access
+  outside the sandbox and then reported no runaway native-hook scans,
+  `node_repl=0`, and stdio app-server `count=0`; the agentgateway Kubernetes
+  port-forward dry-run also found no matching process.
+- `rich` contained pre-staged admin UI / SQLite / generated TypeScript state,
+  plus a separate untracked infinite-buy calculator route. The calculator route
+  was verified and committed as `d63dd97` using an explicit pathspec while the
+  older staged work was left intact.
+- A bare `bun test` run against `admin-navigation.test.tsx` failed with
+  `ReferenceError: window is not defined`, while the package-local
+  `bun run --cwd web test -- ...` command used `web/vitest.config.ts` and
+  passed the same navigation plus calculator tests.
+- Recent root commit scanning since the previous marker surfaced remote refs
+  `e37e3d7` and `f64dbbc`; both passed `git show --check`. The `e37e3d7`
+  branch touched `docs/idea/toto.md`, but the checked-out root tree still keeps
+  `toto` archived in the idea index.
+
+## 2026-07-11 Improvements
+
+60. Label commit-scan scope before proposing a bug fix.
+- Evidence: recent scanning found remote-only refs (`e37e3d7`, `f64dbbc`) as
+well as the checked-out local branch, and the `toto` archive concern applied to
+the remote branch diff rather than the current working tree.
+- Small change: bug triage output should report `checkedOutBranch`,
+`remoteOnlyRef`, `mergeCandidate`, and `currentTreeState` before asking the
+operator to patch a recent commit.
+
+61. Store package-local frontend test commands as proof surfaces.
+- Evidence: bare `bun test web/src/...admin-navigation.test.tsx` failed because
+`window` was unavailable, but `bun run --cwd web test -- src/...` loaded the
+Vitest/jsdom config and passed 18 tests.
+- Small change: Product Design and automation handoffs for frontend work should
+record `cwd`, `packageScript`, `configFile`, `environment`, and `testedPaths`
+instead of only the test filename.
+
+62. Preserve mixed staging lanes during automated commits.
+- Evidence: `rich` had older staged admin UI / SQLite / `tsconfig.tsbuildinfo`
+state, while the infinite-buy calculator was a separate verified unit committed
+as `d63dd97` with `git commit --only` pathspecs.
+- Small change: commit automation should expose `preStagedFiles`,
+`committedPathspecs`, `leftStagedFiles`, and `verificationCommands` per commit
+so unrelated staged work is not silently swept in.
