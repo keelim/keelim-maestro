@@ -1,0 +1,1679 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="keelim-maestro 활성 하위 프로젝트의 아키텍처 개선 및 신규 기능 기회 보고서">
+  <title>하위 프로젝트 아키텍처·신규 기능 기회 — 2026-07-11</title>
+  <script>
+    (() => {
+      try {
+        const savedTheme = localStorage.getItem("subproject-report-theme");
+        const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        const useDark = savedTheme ? savedTheme === "dark" : prefersDark;
+        document.documentElement.classList.toggle("dark", useDark);
+        document.documentElement.style.colorScheme = useDark ? "dark" : "light";
+      } catch (_) {
+        document.documentElement.style.colorScheme = "light dark";
+      }
+    })();
+  </script>
+  <style>
+    :root {
+      --bg: #f4f5f7;
+      --surface: #ffffff;
+      --surface-soft: #f8f9fb;
+      --surface-strong: #eceff3;
+      --text: #17202b;
+      --muted: #617083;
+      --faint: #8b97a8;
+      --line: #d9dee7;
+      --line-strong: #bdc6d3;
+      --accent: #0c6b58;
+      --accent-strong: #075345;
+      --accent-soft: #dff4ed;
+      --blue: #1d5ea8;
+      --blue-soft: #e5f0fd;
+      --amber: #8a5208;
+      --amber-soft: #fff0d4;
+      --rose: #a33a50;
+      --rose-soft: #fde8ed;
+      --code: #eef1f5;
+      --shadow: 0 18px 44px rgba(29, 42, 57, 0.08);
+      --radius-lg: 22px;
+      --radius-md: 14px;
+      --radius-sm: 9px;
+      --max: 1180px;
+    }
+
+    html.dark {
+      --bg: #0d1117;
+      --surface: #151b23;
+      --surface-soft: #11171f;
+      --surface-strong: #202936;
+      --text: #eef3f8;
+      --muted: #a6b2c1;
+      --faint: #7f8b9a;
+      --line: #2c3643;
+      --line-strong: #425064;
+      --accent: #63d7bd;
+      --accent-strong: #9ce8d6;
+      --accent-soft: #153a33;
+      --blue: #82b9f4;
+      --blue-soft: #182f4a;
+      --amber: #f0bd67;
+      --amber-soft: #3d2c13;
+      --rose: #f094a7;
+      --rose-soft: #45202a;
+      --code: #202833;
+      --shadow: 0 22px 54px rgba(0, 0, 0, 0.26);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at 10% 0%, color-mix(in srgb, var(--accent) 10%, transparent), transparent 34rem),
+        var(--bg);
+      color: var(--text);
+      font-family: Inter, Pretendard, "Apple SD Gothic Neo", "Noto Sans KR", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 16px;
+      line-height: 1.68;
+      text-rendering: optimizeLegibility;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    code {
+      padding: 0.12rem 0.36rem;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: var(--code);
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+      font-size: 0.86em;
+      overflow-wrap: anywhere;
+    }
+
+    .page {
+      width: min(calc(100% - 32px), var(--max));
+      margin: 0 auto;
+      padding: 24px 0 80px;
+    }
+
+    .topbar {
+      position: sticky;
+      z-index: 20;
+      top: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 18px;
+      padding: 10px 12px 10px 16px;
+      border: 1px solid color-mix(in srgb, var(--line) 78%, transparent);
+      border-radius: 999px;
+      background: color-mix(in srgb, var(--surface) 88%, transparent);
+      box-shadow: 0 8px 24px rgba(24, 35, 49, 0.06);
+      backdrop-filter: blur(14px);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 0;
+      font-weight: 750;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-mark {
+      display: grid;
+      width: 28px;
+      height: 28px;
+      place-items: center;
+      border-radius: 8px;
+      background: var(--text);
+      color: var(--surface);
+      font-size: 12px;
+      font-weight: 900;
+    }
+
+    .top-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .top-link,
+    .theme-toggle {
+      min-height: 38px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--surface-soft);
+      color: var(--text);
+      font: inherit;
+      font-size: 0.86rem;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .top-link {
+      display: inline-flex;
+      align-items: center;
+      padding: 0 14px;
+    }
+
+    .theme-toggle {
+      display: inline-grid;
+      width: 38px;
+      padding: 0;
+      place-items: center;
+      cursor: pointer;
+    }
+
+    .top-link:hover,
+    .theme-toggle:hover {
+      border-color: var(--line-strong);
+      background: var(--surface-strong);
+    }
+
+    .theme-icon {
+      width: 17px;
+      height: 17px;
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: clamp(32px, 7vw, 76px);
+      border: 1px solid var(--line);
+      border-radius: 30px;
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+
+    .hero::after {
+      position: absolute;
+      top: -150px;
+      right: -120px;
+      width: 380px;
+      height: 380px;
+      border: 70px solid var(--accent-soft);
+      border-radius: 50%;
+      content: "";
+      opacity: 0.72;
+      pointer-events: none;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin: 0 0 18px;
+      color: var(--accent-strong);
+      font-size: 0.78rem;
+      font-weight: 850;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+      content: "";
+      box-shadow: 0 0 0 5px var(--accent-soft);
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
+
+    h1 {
+      position: relative;
+      z-index: 1;
+      max-width: 850px;
+      margin-bottom: 22px;
+      font-size: clamp(2.35rem, 6vw, 5.15rem);
+      font-weight: 830;
+      line-height: 1.04;
+      letter-spacing: -0.055em;
+    }
+
+    .hero-copy {
+      position: relative;
+      z-index: 1;
+      max-width: 770px;
+      margin-bottom: 0;
+      color: var(--muted);
+      font-size: clamp(1rem, 2vw, 1.22rem);
+      line-height: 1.75;
+    }
+
+    .hero-copy strong {
+      color: var(--text);
+    }
+
+    .kpis {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      margin: 18px 0 0;
+    }
+
+    .kpi {
+      padding: 20px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      background: var(--surface);
+    }
+
+    .kpi strong {
+      display: block;
+      margin-bottom: 3px;
+      font-size: 1.65rem;
+      line-height: 1.2;
+      letter-spacing: -0.04em;
+    }
+
+    .kpi span {
+      color: var(--muted);
+      font-size: 0.83rem;
+    }
+
+    .section {
+      padding-top: 72px;
+      scroll-margin-top: 80px;
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: minmax(0, 0.75fr) minmax(300px, 1fr);
+      gap: 28px;
+      align-items: end;
+      margin-bottom: 24px;
+    }
+
+    .section-kicker {
+      margin-bottom: 8px;
+      color: var(--accent-strong);
+      font-size: 0.76rem;
+      font-weight: 850;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      margin-bottom: 0;
+      font-size: clamp(1.8rem, 4vw, 2.85rem);
+      line-height: 1.16;
+      letter-spacing: -0.04em;
+    }
+
+    .section-intro {
+      margin-bottom: 0;
+      color: var(--muted);
+    }
+
+    .notice {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 14px;
+      padding: 18px 20px;
+      border: 1px solid color-mix(in srgb, var(--accent) 28%, var(--line));
+      border-radius: var(--radius-md);
+      background: var(--accent-soft);
+    }
+
+    .notice-mark {
+      display: grid;
+      width: 30px;
+      height: 30px;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--accent);
+      color: var(--surface);
+      font-size: 0.83rem;
+      font-weight: 900;
+    }
+
+    .notice p {
+      margin: 0;
+      color: var(--text);
+    }
+
+    .priority-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .priority-cell {
+      min-height: 210px;
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      background: var(--surface);
+    }
+
+    .priority-cell[data-tone="accent"] {
+      border-color: color-mix(in srgb, var(--accent) 35%, var(--line));
+      background: linear-gradient(145deg, var(--accent-soft), var(--surface) 64%);
+    }
+
+    .priority-label {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .priority-label strong {
+      font-size: 1.08rem;
+    }
+
+    .axis {
+      color: var(--faint);
+      font-size: 0.74rem;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .priority-list {
+      display: grid;
+      gap: 9px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .priority-list li {
+      display: flex;
+      align-items: baseline;
+      gap: 9px;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .priority-list b {
+      min-width: 1.5rem;
+      color: var(--text);
+      font-size: 0.72rem;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      margin-top: 18px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      background: var(--surface);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 830px;
+    }
+
+    th,
+    td {
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+      font-size: 0.88rem;
+    }
+
+    th {
+      background: var(--surface-soft);
+      color: var(--muted);
+      font-size: 0.74rem;
+      font-weight: 850;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .rank {
+      color: var(--faint);
+      font-variant-numeric: tabular-nums;
+      font-weight: 800;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      min-height: 25px;
+      padding: 2px 9px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--surface-soft);
+      color: var(--muted);
+      font-size: 0.72rem;
+      font-weight: 800;
+      line-height: 1.2;
+      white-space: nowrap;
+    }
+
+    .tag.accent {
+      border-color: transparent;
+      background: var(--accent-soft);
+      color: var(--accent-strong);
+    }
+
+    .tag.blue {
+      border-color: transparent;
+      background: var(--blue-soft);
+      color: var(--blue);
+    }
+
+    .tag.amber {
+      border-color: transparent;
+      background: var(--amber-soft);
+      color: var(--amber);
+    }
+
+    .ideas {
+      display: grid;
+      gap: 18px;
+    }
+
+    .idea {
+      display: grid;
+      grid-template-columns: 74px minmax(0, 1fr);
+      gap: 22px;
+      padding: clamp(22px, 4vw, 36px);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      background: var(--surface);
+      box-shadow: 0 10px 28px rgba(29, 42, 57, 0.04);
+      scroll-margin-top: 80px;
+    }
+
+    .idea-number {
+      display: grid;
+      width: 58px;
+      height: 58px;
+      place-items: center;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: var(--surface-soft);
+      color: var(--faint);
+      font-size: 1.2rem;
+      font-weight: 850;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .idea-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 22px;
+    }
+
+    .idea-project {
+      margin-bottom: 8px;
+      color: var(--accent-strong);
+      font-family: "SFMono-Regular", Consolas, monospace;
+      font-size: 0.76rem;
+      font-weight: 850;
+      letter-spacing: 0.04em;
+    }
+
+    h3 {
+      margin-bottom: 0;
+      font-size: clamp(1.35rem, 3vw, 2rem);
+      line-height: 1.24;
+      letter-spacing: -0.035em;
+    }
+
+    .idea-tags {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 6px;
+    }
+
+    .idea-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .idea-block {
+      padding: 17px 18px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      background: var(--surface-soft);
+    }
+
+    .idea-block.wide {
+      grid-column: 1 / -1;
+    }
+
+    .idea-block h4 {
+      margin: 0 0 7px;
+      color: var(--faint);
+      font-size: 0.72rem;
+      font-weight: 850;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .idea-block p,
+    .idea-block ul {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.91rem;
+    }
+
+    .idea-block strong {
+      color: var(--text);
+    }
+
+    .idea-block ul {
+      padding-left: 1.1rem;
+    }
+
+    .evidence {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-top: 3px;
+    }
+
+    .evidence code {
+      display: inline-block;
+      color: var(--text);
+      font-size: 0.76rem;
+    }
+
+    .sequence {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      counter-reset: phase;
+    }
+
+    .phase {
+      position: relative;
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      background: var(--surface);
+      counter-increment: phase;
+    }
+
+    .phase::before {
+      display: inline-grid;
+      width: 30px;
+      height: 30px;
+      margin-bottom: 16px;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--text);
+      color: var(--surface);
+      content: counter(phase);
+      font-size: 0.77rem;
+      font-weight: 900;
+    }
+
+    .phase h3 {
+      margin-bottom: 9px;
+      font-size: 1.12rem;
+    }
+
+    .phase p {
+      margin-bottom: 12px;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .phase ul {
+      margin: 0;
+      padding-left: 1.1rem;
+      color: var(--muted);
+      font-size: 0.87rem;
+    }
+
+    .root-card {
+      display: grid;
+      grid-template-columns: minmax(0, 0.7fr) minmax(0, 1.3fr);
+      gap: 24px;
+      padding: 28px;
+      border: 1px dashed var(--line-strong);
+      border-radius: var(--radius-lg);
+      background: var(--surface-soft);
+    }
+
+    .root-card h3 {
+      margin-bottom: 12px;
+    }
+
+    .root-card p {
+      margin-bottom: 0;
+      color: var(--muted);
+    }
+
+    .root-list {
+      display: grid;
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .root-list li {
+      padding: 13px 15px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      background: var(--surface);
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .root-list strong {
+      color: var(--text);
+    }
+
+    .method-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .method-card {
+      padding: 20px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      background: var(--surface);
+    }
+
+    .method-card h3 {
+      margin-bottom: 8px;
+      font-size: 1rem;
+    }
+
+    .method-card p,
+    .method-card ul {
+      margin-bottom: 0;
+      color: var(--muted);
+      font-size: 0.86rem;
+    }
+
+    .method-card ul {
+      padding-left: 1.1rem;
+    }
+
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      margin-top: 70px;
+      padding-top: 22px;
+      border-top: 1px solid var(--line);
+      color: var(--faint);
+      font-size: 0.8rem;
+    }
+
+    .skip-link {
+      position: fixed;
+      z-index: 100;
+      top: 8px;
+      left: 8px;
+      padding: 10px 14px;
+      border-radius: 8px;
+      background: var(--text);
+      color: var(--surface);
+      transform: translateY(-160%);
+    }
+
+    .skip-link:focus {
+      transform: translateY(0);
+    }
+
+    :focus-visible {
+      outline: 3px solid color-mix(in srgb, var(--accent) 72%, transparent);
+      outline-offset: 3px;
+    }
+
+    @media (max-width: 900px) {
+      .kpis,
+      .sequence,
+      .method-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .section-head,
+      .root-card {
+        grid-template-columns: 1fr;
+      }
+
+      .idea {
+        grid-template-columns: 1fr;
+      }
+
+      .idea-number {
+        width: 48px;
+        height: 48px;
+        border-radius: 14px;
+      }
+    }
+
+    @media (max-width: 650px) {
+      .page {
+        width: min(calc(100% - 20px), var(--max));
+        padding-top: 10px;
+      }
+
+      .topbar {
+        top: 6px;
+        border-radius: 16px;
+      }
+
+      .top-link {
+        display: none;
+      }
+
+      .hero {
+        padding: 30px 22px;
+        border-radius: 22px;
+      }
+
+      .hero::after {
+        opacity: 0.42;
+      }
+
+      .kpis,
+      .priority-grid,
+      .idea-grid,
+      .sequence,
+      .method-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .idea-header {
+        display: block;
+      }
+
+      .idea-tags {
+        justify-content: flex-start;
+        margin-top: 14px;
+      }
+
+      .footer {
+        display: block;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+      }
+    }
+
+    @media print {
+      :root {
+        --bg: #fff;
+        --surface: #fff;
+        --surface-soft: #f7f7f7;
+        --text: #111;
+        --muted: #444;
+        --faint: #666;
+        --line: #ccc;
+        --line-strong: #aaa;
+        --accent: #075345;
+        --accent-strong: #075345;
+        --accent-soft: #e8f4ef;
+        --code: #f0f0f0;
+      }
+
+      body {
+        background: #fff;
+        font-size: 11pt;
+      }
+
+      .page {
+        width: 100%;
+        padding: 0;
+      }
+
+      .topbar {
+        display: none;
+      }
+
+      .hero,
+      .idea,
+      .kpi,
+      .phase,
+      .method-card {
+        box-shadow: none;
+        break-inside: avoid;
+      }
+
+      .section {
+        padding-top: 34px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">본문으로 건너뛰기</a>
+  <div class="page">
+    <header class="topbar" aria-label="보고서 도구">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true">KM</span>
+        <span>Architecture Opportunity Report</span>
+      </div>
+      <div class="top-actions">
+        <a class="top-link" href="#priorities">우선순위</a>
+        <a class="top-link" href="#ideas">제안 9건</a>
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="다크 모드로 전환" aria-pressed="false">
+          <svg class="theme-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+            <path d="M20.2 15.4A8.5 8.5 0 0 1 8.6 3.8 8.5 8.5 0 1 0 20.2 15.4Z"></path>
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="hero" aria-labelledby="report-title">
+        <p class="eyebrow">Source-led portfolio review · 2026-07-11</p>
+        <h1 id="report-title">하위 프로젝트<br>아키텍처·신규 기능 기회</h1>
+        <p class="hero-copy">
+          활성 하위 저장소의 실제 코드 경계를 읽고, <strong>자잘한 버그·미세 UI 수정·이미 등록된 백로그를 제외</strong>했다.
+          결론은 9건이다. 먼저 계약과 권한의 모호함을 줄이는 작은 구조 개선을 끝내고, 그 위에 재현 가능한 계산,
+          양언어 검증, 전략 이식성, OS 수준 기능 노출을 얹는 순서가 가장 안전하다.
+        </p>
+      </section>
+
+      <div class="kpis" aria-label="보고서 요약 지표">
+        <div class="kpi"><strong>8</strong><span>검토한 활성 하위 저장소</span></div>
+        <div class="kpi"><strong>9</strong><span>채택한 아키텍처·기능 기회</span></div>
+        <div class="kpi"><strong>1</strong><span>루트 조정 계층 보조 제안</span></div>
+        <div class="kpi"><strong>0</strong><span>자잘한 버그 보고</span></div>
+      </div>
+
+      <section class="section" id="summary" aria-labelledby="summary-title">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">Executive read</p>
+            <h2 id="summary-title">무엇부터 할 것인가</h2>
+          </div>
+          <p class="section-intro">
+            가장 높은 레버리지는 새 플랫폼 도입이 아니라 이미 존재하는 실행 경로에 <strong>명시적 계약</strong>을 추가하는 일이다.
+            첫 묶음은 외부 동작을 거의 바꾸지 않으면서 이후 기능 개발의 실패 반경을 줄인다.
+          </p>
+        </div>
+        <div class="notice">
+          <span class="notice-mark" aria-hidden="true">→</span>
+          <p>
+            <strong>권장 첫 묶음:</strong> Rich 마이그레이션 단일 권한 → Android Support 키 없는 인증 →
+            Plugin capability 계약 → All Web UI Field primitive. 네 항목 모두 기존 경계를 보존한 채 검증 가능하다.
+          </p>
+        </div>
+      </section>
+
+      <section class="section" id="priorities" aria-labelledby="priorities-title">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">Priority map</p>
+            <h2 id="priorities-title">효과와 파일럿 비용</h2>
+          </div>
+          <p class="section-intro">
+            비용은 보고서에 적은 <strong>최소 첫 도입 단위</strong> 기준이다. 전체 전환 비용이 아니다.
+            확신도는 코드 근거의 선명도를 뜻하며 실제 사용자 성과를 보장하는 점수는 아니다.
+          </p>
+        </div>
+
+        <div class="priority-grid" aria-label="효과와 파일럿 비용 분류">
+          <article class="priority-cell" data-tone="accent">
+            <div class="priority-label">
+              <strong>즉시 착수</strong><span class="axis">High impact · S–M</span>
+            </div>
+            <ul class="priority-list">
+              <li><b>01</b> Rich 스키마 변경 권한 단일화</li>
+              <li><b>02</b> Android Support 키 없는 Play 인증</li>
+              <li><b>03</b> Plugin capability·risk 계약</li>
+              <li><b>04</b> All Web UI Field primitive</li>
+            </ul>
+          </article>
+          <article class="priority-cell">
+            <div class="priority-label">
+              <strong>제품 가치 파일럿</strong><span class="axis">High impact · M</span>
+            </div>
+            <ul class="priority-list">
+              <li><b>05</b> Vercel 재현 가능한 계산 영수증</li>
+              <li><b>06</b> YouTube 양언어 claim ledger</li>
+              <li><b>08</b> Rich 이식 가능한 StrategySpec</li>
+            </ul>
+          </article>
+          <article class="priority-cell">
+            <div class="priority-label">
+              <strong>지식 기반 강화</strong><span class="axis">Compounding · S–M</span>
+            </div>
+            <ul class="priority-list">
+              <li><b>07</b> Knowledge Vault evidence·supersession 계약</li>
+              <li><b>+1</b> 루트 changeset manifest 검증기</li>
+            </ul>
+          </article>
+          <article class="priority-cell">
+            <div class="priority-label">
+              <strong>플랫폼 탐색</strong><span class="axis">New surface · M</span>
+            </div>
+            <ul class="priority-list">
+              <li><b>09</b> All App Functions 실제 기능 노출</li>
+              <li><b>Gate</b> 플랫폼 발견성·API 안정성 확인 후 확대</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="table-wrap" role="region" aria-label="제안 전체 우선순위 표" tabindex="0">
+          <table>
+            <thead>
+              <tr>
+                <th scope="col">순서</th>
+                <th scope="col">프로젝트</th>
+                <th scope="col">기회</th>
+                <th scope="col">유형</th>
+                <th scope="col">파일럿</th>
+                <th scope="col">확신</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td class="rank">01</td><td><code>rich</code></td><td>단일 스키마 변경 권한</td><td>아키텍처</td><td>S–M</td><td>높음</td></tr>
+              <tr><td class="rank">02</td><td><code>android-support</code></td><td>키 없는 Play 인증 모드</td><td>보안·DX</td><td>S</td><td>높음</td></tr>
+              <tr><td class="rank">03</td><td><code>keelim-plugin</code></td><td>Skill capability·risk 계약</td><td>안전 계약</td><td>S</td><td>높음</td></tr>
+              <tr><td class="rank">04</td><td><code>all-web-ui</code></td><td>Field compound primitive</td><td>공유 UI 아키텍처</td><td>S–M</td><td>높음</td></tr>
+              <tr><td class="rank">05</td><td><code>keelim-vercel</code></td><td>계산 계약과 영수증</td><td>신규 기능</td><td>M</td><td>높음</td></tr>
+              <tr><td class="rank">06</td><td><code>youtube</code></td><td>양언어 claim ledger</td><td>콘텐츠 품질 계약</td><td>M</td><td>높음</td></tr>
+              <tr><td class="rank">07</td><td><code>Keelim-Knowledge-Vault</code></td><td>Evidence·supersession 계약</td><td>지식 아키텍처</td><td>S–M</td><td>중상</td></tr>
+              <tr><td class="rank">08</td><td><code>rich</code></td><td>Versioned StrategySpec</td><td>플랫폼 계약</td><td>M</td><td>중상</td></tr>
+              <tr><td class="rank">09</td><td><code>all</code></td><td>App Functions 기능 표면</td><td>신규 기능</td><td>M</td><td>중상</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="section" id="ideas" aria-labelledby="ideas-title">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">Detailed opportunities</p>
+            <h2 id="ideas-title">근거가 있는 제안 9건</h2>
+          </div>
+          <p class="section-intro">
+            각 제안은 새 프레임워크 도입보다 현재 코드가 이미 암시하는 경계를 정식 계약으로 만드는 데 초점을 맞췄다.
+            “성공 기준”을 통과하기 전에는 다음 저장소나 다음 도구로 확장하지 않는다.
+          </p>
+        </div>
+
+        <div class="ideas">
+          <article class="idea" id="idea-01">
+            <div class="idea-number" aria-hidden="true">01</div>
+            <div>
+              <header class="idea-header">
+                <div>
+                  <p class="idea-project">rich</p>
+                  <h3>Supabase를 단일 스키마 변경 권한으로 지정</h3>
+                </div>
+                <div class="idea-tags">
+                  <span class="tag accent">아키텍처</span>
+                  <span class="tag">S–M</span>
+                  <span class="tag blue">확신 높음</span>
+                </div>
+              </header>
+              <div class="idea-grid">
+                <section class="idea-block">
+                  <h4>현재 경계</h4>
+                  <p>
+                    Codemap이 <code>supabase/migrations</code>와 <code>alembic/versions</code>를 같은
+                    <code>public</code> 스키마의 두 변경 lane으로 정의한다. 실제로
+                    <code>market_fundamental_raw</code> 생성 SQL이 양쪽에 존재한다.
+                  </p>
+                </section>
+                <section class="idea-block">
+                  <h4>제안</h4>
+                  <p>
+                    기존 Alembic SQL은 이력으로 보존하되 <strong>신규 DDL의 유일한 권한을 Supabase migration으로 고정</strong>한다.
+                    Python 서비스는 스키마 소비자이며 변경 소유자가 아니라는 규칙을 명시한다.
+                  </p>
+                </section>
+                <section class="idea-block">
+                  <h4>최소 첫 도입</h4>
+                  <p>
+                    레거시 Alembic 파일 allowlist를 만들고, 이후 <code>alembic/versions</code>에 새 SQL이 추가되면 실패하는
+                    정적 검사 한 개를 CI에 붙인다. 기존 migration을 이동하거나 재작성하지 않는다.
+                  </p>
+                </section>
+                <section class="idea-block">
+                  <h4>성공 기준</h4>
+                  <p>
+                    신규 테이블 변경 한 건이 Supabase lane에만 존재하고 로컬 재적용 검증을 통과한다.
+                    기존 Alembic 이력과 실행 경로에는 diff가 없어야 한다.
+                  </p>
+                </section>
+                <section class="idea-block wide">
+                  <h4>직접 근거</h4>
+                  <div class="evidence">
+                    <code>rich/docs/CODEMAPS/data.md:4–19</code>
+                    <code>rich/alembic/versions/20260302_04_pykrx_market_fundamental.sql:1–31</code>
+                    <code>rich/supabase/migrations/20260302150000_create_pykrx_market_fundamental.sql:1–26</code>
+                  </div>
+                </section>
+              </div>
+            </div>
+          </article>
+
+          <article class="idea" id="idea-02">
+            <div class="idea-number" aria-hidden="true">02</div>
+            <div>
+              <header class="idea-header">
+                <div>
+                  <p class="idea-project">android-support</p>
+                  <h3>장기 JSON 키 없이 Play 업로드</h3>
+                </div>
+                <div class="idea-tags">
+                  <span class="tag accent">보안·DX</span>
+                  <span class="tag">S</span>
+                  <span class="tag blue">확신 높음</span>
+                </div>
+              </header>
+              <div class="idea-grid">
+                <section class="idea-block">
+                  <h4>현재 경계</h4>
+                  <p>
+                    입력 검증은 서비스 계정 JSON 파일 또는 평문을 반드시 요구한다. 반면 실제 업로드는 이미 키 경로를 직접 넘기지 않고
+                    기본 <code>GoogleAuth</code> 자격 증명 탐색을 사용한다.
+                  </p>
+                </section>
+                <section class="idea-block">
+                  <h4>제안</h4>
+                  <p>
+                    <code>useApplicationDefaultCredentials</code> 같은 명시적 opt-in을 추가해 ADC 모드를 지원한다.
+                    GitHub OIDC/WIF 등 자격 증명 준비는 호출 워크플로가 맡고, Action은 기존 기본 탐색 경로를 사용한다.
+                  </p>
+                </section>
+                <section class="idea-block">
+                  <h4>최소 첫 도입</h4>
+                  <p>
+                    opt-in이 참일 때만 JSON 필수 검증을 건너뛴다. 기존 두 JSON 입력은 그대로 유지하고 새 의존성은 추가하지 않는다.
+                    입력 조합별 단위 테스트와 ADC 통합 테스트를 분리한다.
+                  </p>
+                </section>
+                <section class="idea-block">
+                  <h4>성공 기준</h4>
+                  <p>
+                    기존 JSON 모드의 테스트가 그대로 통과하고, ADC 모드에서는 키 파일 생성 없이 인증된다.
+                    자격 증명이 없는 실행은 업로드 전에 이해 가능한 메시지로 종료된다.
+                  </p>
+                </section>
+                <section class="idea-block wide">
+                  <h4>직접 근거</h4>
+                  <div class="evidence">
+                    <code>android-support/src/main.ts:285–314</code>
+                    <code>android-support/src/edits.ts:184–211</code>
+                    <code>android-support/action.yml:7–17</code>
+                  </div>
+                </section>
+              </div>
+            </div>
+          </article>
+
+          <article class="idea" id="idea-03">
+            <div class="idea-number" aria-hidden="true">03</div>
+            <div>
+              <header class="idea-header">
+                <div>
+                  <p class="idea-project">keelim-plugin</p>
+                  <h3>Skill capability·risk를 기계 판독 가능하게</h3>
+                </div>
+                <div class="idea-tags">
+                  <span class="tag accent">안전 계약</span>
+                  <span class="tag">S</span>
+                  <span class="tag blue">확신 높음</span>
+                </div>
+              </header>
+              <div class="idea-grid">
+                <section class="idea-block">
+                  <h4>현재 경계</h4>
+                  <p>
+                    catalog generator는 주로 이름·설명·설치 메타데이터를 다룬다. 그러나 implicit invocation이 허용된 skill 중에는
+                    로컬 파일, Git, GitHub PR, Actions 상태를 변경할 수 있는 작업도 있다.
+                  </p>
+                </section>
+                <section class="idea-block">
+                  <h4>제안</h4>
+                  <p>
+                    기존 <code>SKILL.md</code> frontmatter에 <strong>read, local_write, network_read, external_write,
+                    credentials, hooks</strong> capability를 선언하고 catalog에 노출한다.
+                  </p>
+                </section>
+                <section class="idea-block">
+                  <h4>최소 첫 도입</h4>
+                  <p>
+                    현재 8개 skill만 분류하고 <code>gen-catalog.mjs --check</code>가 누락·모순을 검출하도록 확장한다.
+                    별도 manifest나 권한 실행 엔진은 만들지 않는다.
+                  </p>
+                </section>
+                <section class="idea-block">
+                  <h4>성공 기준</h4>
+                  <p>
+                    모든 catalog 항목에서 capability가 조회되고, 외부 쓰기 skill이 무권한으로 표기되면 검증이 실패한다.
+                    기존 설치 명령과 implicit invocation 설정은 변경하지 않는다.
+                  </p>
+                </section>
+                <section class="idea-block wide">
+                  <h4>직접 근거</h4>
+                  <div class="evidence">
+                    <code>keelim-plugin/scripts/gen-catalog.mjs:2–15, 83, 140–152</code>
+                    <code>keelim-plugin/catalog.json:7–26</code>
+                    <code>keelim-plugin/skills/release-automation/SKILL.md:8–14</code>
+                    <code>keelim-plugin/skills/release-automation/agents/openai.yaml:1–7</code>
+                  </div>
+                </section>
+              </div>
+            </div>
+          </article>
+
+          <article class="idea" id="idea-04">
+            <div class="idea-number" aria-hidden="true">04</div>
+            <div>
+              <header class="idea-header">
+                <div>
+                  <p class="idea-project">all-web-ui</p>
+                  <h3>Label·설명·오류를 묶는 Field primitive</h3>
+                </div>
+                <div class="idea-tags">
+                  <span class="tag accent">공유 UI</span>
+                  <span class="tag">S–M</span>
+                  <span class="tag blue">확신 높음</span>
+                </div>
+              </header>
+              <div class="idea-grid">
+                <section class="idea-block">
+                  <h4>현재 경계</h4>
+                  <p>
+                    <code>Input</code>과 <code>Label</code>은 독립 primitive로 안정화돼 있지만 설명·오류·invalid 상태를
+                    <code>aria-describedby</code>로 연결하는 공통 계약은 manifest에 없다.
+                  </p>
+                </section>
+                <section class="idea-block">
+                  <h4>제안</h4>
+                  <p>
+                    네이티브 HTML과 <code>React.useId()</code>만으로 <strong>Field, FieldLabel, FieldDescription,
+                    FieldError</strong> compound primitive를 추가한다.
+                  </p>
+                </section>
+                <section class="idea-block">
+                  <h4>최소 첫 도입</h4>
+                  <p>
+                    외부 form library 없이 ID 연결과 invalid 시맨틱만 제공한다. 기존 <code>Input</code>/<code>Label</code> API는 보존하고,
+                    소비자 두 곳에서 대표 폼 한 개씩만 전환한다.
+                  </p>
+                </section>
+                <section class="idea-block">
+                  <h4>성공 기준</h4>
+                  <p>
+                    label의 <code>htmlFor</code>, description/error ID, control의 <code>aria-describedby</code>와
+                    <code>aria-invalid</code>가 조합별 테스트에서 결정적으로 연결된다.
+                  </p>
+                </section>
+                <section class="idea-block wide">
+                  <h4>직접 근거</h4>
+                  <div class="evidence">
+                    <code>all-web-ui/src/components/input.tsx:49–125</code>
+                    <code>all-web-ui/src/components/label.tsx:16–49</code>
+                    <code>all-web-ui/src/manifest.ts:66–83</code>
+                  </div>
+                </section>
+              </div>
+            </div>
+          </article>
+
+          <article class="idea" id="idea-05">
+            <div class="idea-number" aria-hidden="true">05</div>
+            <div>
+              <header class="idea-header">
+                <div>
+                  <p class="idea-project">keelim-vercel</p>
+                  <h3>재현 가능한 계산 계약과 계산 영수증</h3>
+                </div>
+                <div class="idea-tags">
+                  <span class="tag accent">신규 기능</span>
+                  <span class="tag">M</span>
+                  <span class="tag blue">확신 높음</span>
+                </div>
+              </header>
+              <div class="idea-grid">
+                <section class="idea-block">
+                  <h4>현재 경계</h4>
+                  <p>
+                    도구 assistant는 route·confidence·prefill까지 반환한다. 계산 로직은 <code>calculateSalary</code>처럼 순수한 경우와
+                    퇴직금처럼 UI 상태 변경에 결합된 경우가 섞여 있어 재실행·비교 계약이 일정하지 않다.
+                  </p>
+                </section>
+                <section class="idea-block">
+                  <h4>제안</h4>
+                  <p>
+                    <code>CalculatorContract&lt;Input, Result&gt;</code>와 <code>CalculationReceipt</code>를 정의한다.
+                    영수증은 tool ID, 정규화된 입력, 결과, <strong>formulaVersion</strong>, 생성 시각을 담아 복사·공유할 수 있게 한다.
+                  </p>
+                </section>
+                <section class="idea-block">
+                  <h4>최소 첫 도입</h4>
+                  <p>
+                    기존 순수 계산기 한 개와 UI 결합 계산기 한 개만 같은 contract로 맞춘다. 자동 서버 업로드 없이 현재 복사 흐름에
+                    텍스트 영수증을 추가해 개인정보 경계를 유지한다.
+                  </p>
+                </section>
+                <section class="idea-block">
+                  <h4>성공 기준</h4>
+                  <p>
+                    같은 입력과 formulaVersion이 같은 정규화 결과를 만들고 회귀 fixture를 통과한다.
+                    사용자는 결과가 어떤 공식 버전으로 계산됐는지 다시 확인할 수 있다.
+                  </p>
+                </section>
+                <section class="idea-block wide">
+                  <h4>직접 근거</h4>
+                  <div class="evidence">
+                    <code>keelim-vercel/lib/tool-assistant.ts:9–42</code>
+                    <code>keelim-vercel/lib/tool-meta-index.ts:20–29, 133–147</code>
+                    <code>keelim-vercel/lib/salary-calculator.ts:27–38</code>
+                    <code>keelim-vercel/components/severance-pay-calculator.tsx:198–225</code>
+                  </div>
+                </section>
+              </div>
+            </div>
+          </article>
+
+          <article class="idea" id="idea-06">
+            <div class="idea-number" aria-hidden="true">06</div>
+            <div>
+              <header class="idea-header">
+                <div>
+                  <p class="idea-project">youtube</p>
+                  <h3>출처 기반 양언어 claim ledger와 parity gate</h3>
+                </div>
+                <div class="idea-tags">
+                  <span class="tag accent">콘텐츠 계약</span>
+                  <span class="tag">M</span>
+                  <span class="tag blue">확신 높음</span>
+                </div>
+              </header>
+              <div class="idea-grid">
+                <section class="idea-block">
+                  <h4>현재 경계</h4>
+                  <p>
+                    production JSON은 공식 source URL, checked/uncertain claim 배열, EN/KO 산출물 경로를 이미 가진다.
+                    그러나 preflight는 양언어 companion의 존재와 서로 다른 props 경로만 검증한다.
+                  </p>
+                </section>
+                <section class="idea-block">
+                  <h4>제안</h4>
+                  <p>
+                    production source of truth에 <code>claims[{id, sourceUrl, status, caveat}]</code>를 두고,
+                    파생된 EN/KO manifest가 같은 claim ID 집합을 선언하도록 한다.
+                  </p>
+                </section>
+                <section class="idea-block">
+                  <h4>최소 첫 도입</h4>
+                  <p>
+                    derive가 claim ID만 전달하고 preflight가 ① source URL 등록 여부, ② EN/KO 집합 동등성,
+                    ③ uncertain claim의 caveat 존재를 정적으로 검사한다. LLM 판정기는 추가하지 않는다.
+                  </p>
+                </section>
+                <section class="idea-block">
+                  <h4>성공 기준</h4>
+                  <p>
+                    한 언어에서 claim이 빠지거나 출처 없는 claim, caveat 없는 uncertain claim을 넣은 fixture가 모두 실패한다.
+                    정상 bilingual production package는 기존 render 경로를 유지한다.
+                  </p>
+                </section>
+                <section class="idea-block wide">
+                  <h4>직접 근거</h4>
+                  <div class="evidence">
+                    <code>youtube/episodes/chatgpt-desktop-codex.production.json:8–23, 187–200</code>
+                    <code>youtube/src/easy_release_note/derive.py:167–205</code>
+                    <code>youtube/src/easy_release_note/preflight.py:128–152</code>
+                  </div>
+                </section>
+              </div>
+            </div>
+          </article>
+
+          <article class="idea" id="idea-07">
+            <div class="idea-number" aria-hidden="true">07</div>
+            <div>
+              <header class="idea-header">
+                <div>
+                  <p class="idea-project">Keelim-Knowledge-Vault</p>
+                  <h3>Vault 전체 evidence·supersession 계약</h3>
+                </div>
+                <div class="idea-tags">
+                  <span class="tag accent">지식 아키텍처</span>
+                  <span class="tag">S–M</span>
+                  <span class="tag amber">확신 중상</span>
+                </div>
+              </header>
+              <div class="idea-grid">
+                <section class="idea-block">
+                  <h4>현재 경계</h4>
+                  <p>
+                    Vault 공통 source-summary에는 출처 유형·확인일·확신도가 있지만 주장 상태나 대체 관계가 없다.
+                    AI 하위 vault의 lint 템플릿만 contradiction과 stale claim을 언급하며, backlink 검사는 링크 해석에 집중한다.
+                  </p>
+                </section>
+                <section class="idea-block">
+                  <h4>제안</h4>
+                  <p>
+                    선택 필드 <code>claim_status</code>, <code>source_refs</code>, <code>supersedes</code>를 공통 schema로 승격한다.
+                    “선언된 충돌·대체 관계”만 검증하고 자동 의미 추론은 하지 않는다.
+                  </p>
+                </section>
+                <section class="idea-block">
+                  <h4>최소 첫 도입</h4>
+                  <p>
+                    새 source-summary 3개에만 opt-in으로 적용하고 stdlib validator가 disputed claim의 출처 누락과
+                    dangling supersedes를 보고하게 한다. 기존 note는 유효한 상태로 유지한다.
+                  </p>
+                </section>
+                <section class="idea-block">
+                  <h4>성공 기준</h4>
+                  <p>
+                    fixture에서 선언된 분쟁의 출처 누락과 존재하지 않는 대체 대상을 검출한다.
+                    기존 backlink 검사와 전체 vault lint는 회귀 없이 통과한다.
+                  </p>
+                </section>
+                <section class="idea-block wide">
+                  <h4>직접 근거</h4>
+                  <div class="evidence">
+                    <code>Keelim-Knowledge-Vault/schema/Vault Note Template.md:84–106</code>
+                    <code>Keelim-Knowledge-Vault/AI/keelim-ai/schema/AI Note Template.md:70–89</code>
+                    <code>Keelim-Knowledge-Vault/scripts/check-backlinks.sh:79–170</code>
+                  </div>
+                </section>
+              </div>
+            </div>
+          </article>
+
+          <article class="idea" id="idea-08">
+            <div class="idea-number" aria-hidden="true">08</div>
+            <div>
+              <header class="idea-header">
+                <div>
+                  <p class="idea-project">rich</p>
+                  <h3>Builder·backtest·execution을 잇는 versioned StrategySpec</h3>
+                </div>
+                <div class="idea-tags">
+                  <span class="tag accent">플랫폼 계약</span>
+                  <span class="tag">M 파일럿</span>
+                  <span class="tag amber">확신 중상</span>
+                </div>
+              </header>
+              <div class="idea-grid">
+                <section class="idea-block">
+                  <h4>현재 경계</h4>
+                  <p>
+                    실행기는 builder state를 DSL로 바꾸고 AST·코드 생성·동적 로드를 거쳐 실행한다.
+                    조건 직렬화는 존재하지만 universe, risk, parameter, provenance까지 묶은 버전 계약은 실행 경계에 없다.
+                  </p>
+                </section>
+                <section class="idea-block">
+                  <h4>제안</h4>
+                  <p>
+                    <code>schemaVersion</code>, universe, entry/exit, risk, params, provenance를 담는
+                    <strong>StrategySpec v1</strong>을 builder와 실행기의 좁은 교환 형식으로 둔다.
+                  </p>
+                </section>
+                <section class="idea-block">
+                  <h4>최소 첫 도입</h4>
+                  <p>
+                    현재 builder state → StrategySpec adapter와 golden fixture를 만들고 backtest 경로 한 곳만 소비하게 한다.
+                    live execution, 공유 UI, 레거시 전략 파일은 파일럿 뒤에 둔다.
+                  </p>
+                </section>
+                <section class="idea-block">
+                  <h4>성공 기준</h4>
+                  <p>
+                    동일 builder state의 round-trip이 의미적으로 같은 진입·청산 조건을 만들고 기존 backtest fixture와 결과가 같다.
+                    알 수 없는 schemaVersion은 실행 전에 거부된다.
+                  </p>
+                </section>
+                <section class="idea-block wide">
+                  <h4>직접 근거</h4>
+                  <div class="evidence">
+                    <code>rich/open-trading-api/strategy_core/executor.py:58–99</code>
+                    <code>rich/open-trading-api/kis_backtest/dsl/builder.py:67–90</code>
+                    <code>rich/web/src/features/open-trading/strategy-builder/pages/strategy-execute-page-content.tsx:29–321</code>
+                  </div>
+                </section>
+              </div>
+            </div>
+          </article>
+
+          <article class="idea" id="idea-09">
+            <div class="idea-number" aria-hidden="true">09</div>
+            <div>
+              <header class="idea-header">
+                <div>
+                  <p class="idea-project">all</p>
+                  <h3>휴면 App Functions를 실제 OS·에이전트 기능 표면으로</h3>
+                </div>
+                <div class="idea-tags">
+                  <span class="tag accent">신규 기능</span>
+                  <span class="tag">M</span>
+                  <span class="tag amber">확신 중상</span>
+                </div>
+              </header>
+              <div class="idea-grid">
+                <section class="idea-block">
+                  <h4>현재 경계</h4>
+                  <p>
+                    <code>feature/app-function</code>은 compiler와 aggregate 설정을 갖췄지만 노출 기능은 중립적인 health status뿐이다.
+                    한편 <code>app-arducon</code>에는 테스트된 JSON format 동작이 이미 존재한다.
+                  </p>
+                </section>
+                <section class="idea-block">
+                  <h4>제안</h4>
+                  <p>
+                    UI 전용 기능을 새로 만들지 않고 기존 <code>JsonParser.formatJson()</code>을 위임하는 읽기 전용 App Function을 공개한다.
+                    시스템·에이전트가 앱 UI를 열지 않고도 기존 도구를 호출하는 첫 기능 표면이다.
+                  </p>
+                </section>
+                <section class="idea-block">
+                  <h4>최소 첫 도입</h4>
+                  <p>
+                    <code>app-arducon</code> 한 앱만 module을 소비하고 입력 길이 제한·오류 계약을 둔다.
+                    health function은 통합 probe로 유지하며 다른 앱 연결은 discovery 검증 뒤로 미룬다.
+                  </p>
+                </section>
+                <section class="idea-block">
+                  <h4>성공 기준</h4>
+                  <p>
+                    지원 환경에서 function discovery가 확인되고, 같은 JSON 입력에 UI와 App Function 출력이 동일하다.
+                    비지원 환경에서도 기존 앱 실행과 JSON formatter는 변하지 않는다.
+                  </p>
+                </section>
+                <section class="idea-block wide">
+                  <h4>직접 근거</h4>
+                  <div class="evidence">
+                    <code>all/feature/app-function/build.gradle.kts:1–19</code>
+                    <code>all/feature/app-function/src/main/java/com/keelim/appfunction/health/HealthAppFunctions.kt:6–15</code>
+                    <code>all/core/data/src/main/java/com/keelim/core/data/json/DefaultJsonParser.kt:33–39</code>
+                    <code>all/app-arducon/src/main/java/com/keelim/arducon/ui/screen/json/JsonFormatterViewModel.kt:23–31</code>
+                  </div>
+                </section>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="sequence" aria-labelledby="sequence-title">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">90-day sequence</p>
+            <h2 id="sequence-title">도입 순서와 중단 기준</h2>
+          </div>
+          <p class="section-intro">
+            각 단계는 이전 단계의 검증 결과를 재사용한다. 성공 기준을 충족하지 못하면 범위를 넓히지 않고 해당 파일럿에서 멈춘다.
+          </p>
+        </div>
+        <div class="sequence">
+          <article class="phase">
+            <h3>1–30일 · 계약 안전성</h3>
+            <p>동작 변화가 작고 실패 반경을 줄이는 제안을 먼저 닫는다.</p>
+            <ul>
+              <li>Rich migration 권한 정적 검사</li>
+              <li>Plugin capability schema</li>
+              <li>Android ADC opt-in</li>
+              <li>Field primitive 파일럿</li>
+            </ul>
+          </article>
+          <article class="phase">
+            <h3>31–60일 · 재현성</h3>
+            <p>사용자 결과와 콘텐츠 근거를 다시 실행·검증할 수 있게 한다.</p>
+            <ul>
+              <li>Vercel 계산 영수증 2개 도구</li>
+              <li>YouTube claim parity fixture</li>
+              <li>Vault evidence pilot 3개 note</li>
+            </ul>
+          </article>
+          <article class="phase">
+            <h3>61–90일 · 플랫폼 탐색</h3>
+            <p>좁은 기능 하나로만 새 실행 표면의 실제 가치를 확인한다.</p>
+            <ul>
+              <li>StrategySpec backtest adapter</li>
+              <li>JSON formatter App Function</li>
+              <li>채택 지표가 없으면 확대 중단</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="root-enabler" aria-labelledby="root-title">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">Coordination layer · +1</p>
+            <h2 id="root-title">루트에는 실행기가 아니라 changeset 계약</h2>
+          </div>
+          <p class="section-intro">
+            이는 하위 프로젝트 제안 9건에 포함하지 않은 보조안이다. 둘 이상의 저장소를 함께 바꿀 때만 사용한다.
+          </p>
+        </div>
+        <div class="root-card">
+          <div>
+            <h3>읽기 전용 cross-repo changeset manifest validator</h3>
+            <p>
+              현재 루트 도구는 각 저장소의 상태와 업데이트 가능성을 잘 관찰하지만 “어떤 commit 묶음을 어떤 순서와 검사로 배포할지”는
+              기록하지 않는다. mutation 없이 의도만 검증하는 작은 manifest가 적합하다.
+            </p>
+          </div>
+          <ul class="root-list">
+            <li><strong>형식:</strong> <code>{repo, commit, requiredChecks, order, rollback}</code></li>
+            <li><strong>검증:</strong> SHA 존재, repo 상태, 필수 필드, 순서 중복, 검사 명령 존재 여부</li>
+            <li><strong>금지:</strong> checkout, pull, push, gitlink pinning 자동화</li>
+            <li><strong>근거:</strong> <code>scripts/report-trusted-baseline.sh:39–51, 169–192, 254–268</code> · <code>scripts/update-subrepos.sh:50–58, 147–191</code></li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section" id="method" aria-labelledby="method-title">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">Method &amp; exclusions</p>
+            <h2 id="method-title">판단 범위</h2>
+          </div>
+          <p class="section-intro">
+            이 문서는 구현 완료 보고가 아니라 현재 checkout을 근거로 한 기회 보고서다. 외부 시장 조사나 런타임 사용자 검증은 포함하지 않았다.
+          </p>
+        </div>
+        <div class="method-grid">
+          <article class="method-card">
+            <h3>검토 범위</h3>
+            <p>
+              <code>all</code>, <code>android-support</code>, <code>Keelim-Knowledge-Vault</code>, <code>keelim-plugin</code>,
+              <code>keelim-vercel</code>, <code>all-web-ui</code>, <code>rich</code>, <code>youtube</code>의 source·schema·script 경계.
+            </p>
+          </article>
+          <article class="method-card">
+            <h3>의도적으로 제외</h3>
+            <ul>
+              <li>자잘한 버그, 미세 UI 조정, 단순 문서 정리</li>
+              <li><code>net-new-ideas-research-2026-07.md</code>와 <code>product-design-subproject-opportunities-2026-07-04.md</code>의 기존 항목</li>
+              <li>archive된 <code>toto</code>와 루트 정책상 제외된 <code>quant</code></li>
+            </ul>
+          </article>
+          <article class="method-card">
+            <h3>선정 기준</h3>
+            <ul>
+              <li>현재 코드에서 확인되는 실제 경계 또는 비대칭</li>
+              <li>작고 되돌릴 수 있는 첫 도입 단위</li>
+              <li>명시적으로 검증 가능한 성공·중단 조건</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span>keelim-maestro · architecture opportunity report</span>
+      <span>Evidence snapshot: 2026-07-11 · Asia/Seoul</span>
+    </footer>
+  </div>
+
+  <script>
+    (() => {
+      const button = document.getElementById("theme-toggle");
+      if (!button) return;
+
+      const syncButton = () => {
+        const isDark = document.documentElement.classList.contains("dark");
+        button.setAttribute("aria-pressed", String(isDark));
+        button.setAttribute("aria-label", isDark ? "라이트 모드로 전환" : "다크 모드로 전환");
+      };
+
+      button.addEventListener("click", () => {
+        const isDark = document.documentElement.classList.toggle("dark");
+        document.documentElement.style.colorScheme = isDark ? "dark" : "light";
+        try {
+          localStorage.setItem("subproject-report-theme", isDark ? "dark" : "light");
+        } catch (_) {
+          // Storage can be unavailable for locally opened reports; the theme still applies.
+        }
+        syncButton();
+      });
+
+      syncButton();
+    })();
+  </script>
+</body>
+</html>
