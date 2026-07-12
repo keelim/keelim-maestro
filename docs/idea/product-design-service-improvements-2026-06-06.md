@@ -652,3 +652,71 @@ as `d63dd97` with `git commit --only` pathspecs.
 - Small change: commit automation should expose `preStagedFiles`,
 `committedPathspecs`, `leftStagedFiles`, and `verificationCommands` per commit
 so unrelated staged work is not silently swept in.
+
+## 2026-07-12 Follow-Up Evidence
+
+- Product Design-specific local context is still absent:
+  `/Users/keelim/.codex/state/plugins/product-design` does not exist in this
+  run.
+- Root commit `c4ba509` added
+  `docs/research/subproject-architecture-opportunities-2026-07-11.html`, a
+  ranked architecture opportunity report with 9 proposals and an explicit root
+  changeset manifest recommendation.
+- Root commit `4668b4e` implemented the first root changeset manifest validator:
+  `scripts/validate-changeset-manifest.mjs` is inspection-only, requires clean
+  autonomous repo roots, full 40-character SHAs, simple required-check commands,
+  unique contiguous order values, and rollback instructions. `bun run test`
+  passed after the commit.
+- Session mining since the previous marker found a high-signal user-facing
+  YouTube audit session at
+  `/Users/keelim/.codex/sessions/2026/07/11/rollout-2026-07-11T10-23-55-019f4ec6-21f4-7fe0-9677-5183072c2c23.jsonl`.
+  It reported 13 public Shorts, last publish on 2026-06-28, a 13-day gap,
+  recent 28-day views 582, engaged views 270, subscribers +1, continue/swipe
+  split 45.6%/54.4%, and latest GPT-5.6 average viewed 24.9%.
+- The same YouTube session concluded that the immediate need is publish-loop
+  recovery, not another production tool: Microsoft Intelligent Terminal has
+  local package/render assets but near-silent audio and unfinished human/critic
+  gates, while the repo also has 172 tracked deletions and 35 untracked files.
+- Recent-commit verification found no concrete new bug: `git show --check`
+  passed for root commits `4668b4e` and `c4ba509`, child commits `aec806edb`,
+  `c4d827a`, `d359046`, `6b4bb3a`, `c2f9d99`, `eb21049`, and new Rich commit
+  `6f51d47`; targeted tests passed for the touched surfaces.
+- The first `all` Gradle test attempt failed only because sandboxed access to
+  `/Users/keelim/.gradle/.../gradle-9.3.1-bin.zip.lck` was not permitted; the
+  exact escalated rerun of
+  `./gradlew :feature:app-function:testDebugUnitTest --tests com.keelim.appfunction.json.JsonFormatterAppFunctionsTest`
+  finished `BUILD SUCCESSFUL`.
+
+## 2026-07-12 Improvements
+
+63. Link opportunity reports to implementation and proof status.
+- Evidence: `c4ba509` produced a 9-item architecture opportunity report, and
+`4668b4e` implemented one of its root recommendations as a tested manifest
+validator.
+- Small change: Product Design/opportunity reports should carry `proposalId`,
+`implementedCommit`, `verificationCommand`, and `status` fields so the next run
+can distinguish new ideas from already-landed work.
+
+64. Make cross-repo change planning preview-only by default.
+- Evidence: `scripts/validate-changeset-manifest.mjs` validates repo roots,
+clean trees, HEAD SHAs, command shapes, ordering, and rollback text, while its
+header explicitly says it never checks out commits, runs checks, pushes, or
+updates root pointers.
+- Small change: service planning for child repos should first show a
+read-only changeset manifest preview with repo, HEAD, required checks, order,
+and rollback before offering any mutation.
+
+65. Turn channel audits into publish-loop recovery cards.
+- Evidence: the YouTube audit found a 13-day publishing gap, near-silent
+Microsoft renders, unfinished human/critic gates, and a large uncommitted repo
+batch, while explicitly saying new production tooling is not the bottleneck.
+- Small change: content-product sessions should surface `lastPublishedAt`,
+`gapDays`, `nextCandidate`, `blockingAsset`, `humanApprovalStatus`, and
+`repoPreservationState` before proposing rendering features.
+
+66. Separate sandbox permission failures from real test failures.
+- Evidence: the `all` Gradle check first failed on a user-home `.gradle` lock
+permission error, then the same test command passed outside the sandbox.
+- Small change: verification ledgers should record `firstRunBlockedBySandbox`,
+`rerunCommand`, and `rerunResult` so a passing rerun does not leave a false
+project bug signal.
