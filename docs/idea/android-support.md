@@ -1,6 +1,6 @@
 # android-support
 
-Last reviewed: 2026-05-16 KST
+Last reviewed: 2026-07-12 KST
 
 ## Signals
 
@@ -8,6 +8,9 @@ Last reviewed: 2026-05-16 KST
 - 실패 비용이 큰 릴리스 작업을 다루며, 문제를 늦게 발견할수록 영향이 커진다.
 - track, staged rollout, release notes, artifact 입력이 이미 노출되어 있다.
 - `action.yml`, README, `src/*`, `lib/index.js`가 함께 맞아야 하는 번들형 Action이다.
+- `all` 저장소의 배포 워크플로우 6개(`app_deploy.yml`, `app_arducon.yml`, `app_comssa.yml`,
+  `app_my_grade.yml`, `app_cnubus.yml`, `app_nanda.yml`)가 모두 이 action을 직접 호출하는
+  실사용 소비자라서, 계약 변경은 이 action 내부보다 소비자 워크플로우 쪽에서 먼저 깨질 수 있다.
 
 ## Open ideas
 
@@ -56,3 +59,11 @@ Status: proposed
 Why now: 이 action은 릴리스 핵심 경로를 직접 건드리는데, 현재 테스트는 입력 검증에 비해 실제 Play API 편집 생명주기 검증이 약해서 사소한 변경도 실배포까지 밀려갈 수 있다.
 
 First slice: sign/upload/internal sharing/staged rollout 응답을 대표 fixture로 기록하고, 이를 CI에서 재생해 Play Console에 닿지 않고도 전체 edit lifecycle을 검증한다.
+
+### 2026-07-12 - 소비자 워크플로우 계약 정합성 검사
+
+Status: proposed
+
+Why now: `all`의 `app_deploy.yml`, `app_arducon.yml`, `app_comssa.yml`, `app_my_grade.yml`, `app_cnubus.yml`, `app_nanda.yml` 6개 워크플로우가 모두 이 action을 `releaseFiles`/`track`/`status` 조합으로 직접 호출하는데, action 쪽 `input-validation.ts` 규칙(예: deprecated `releaseFile` 금지, `userFraction`은 `halted`/`inProgress`에서만 필수, `inAppUpdatePriority`는 0~5)이 바뀌어도 소비자 워크플로우는 실제 배포가 실패하기 전까지 드리프트를 알 수 없다. 이는 액션 내부 계약 검사(액션 계약 드리프트 검사)와 달리 실제 소비 지점을 대상으로 하는 별도의 위험이다.
+
+First slice: `all`의 6개 워크플로우 YAML에서 이 action 호출부의 input 조합을 추출해 현재 `action.yml`/`input-validation.ts` 규칙과 대조하는 읽기 전용 검사를 추가하고, deprecated input 사용이나 status/userFraction 불일치 후보를 앱별로 표시한다.
