@@ -720,3 +720,59 @@ permission error, then the same test command passed outside the sandbox.
 - Small change: verification ledgers should record `firstRunBlockedBySandbox`,
 `rerunCommand`, and `rerunResult` so a passing rerun does not leave a false
 project bug signal.
+
+## 2026-07-13 Follow-Up Evidence
+
+- Product Design saved context remains absent:
+  `/Users/keelim/.codex/state/plugins/product-design/user-context.md` was not
+  present in the plugin preflight output.
+- The local Product Design skill files exist under the installed plugin cache,
+  but tool discovery did not expose a dedicated Product Design analysis MCP
+  surface; this run used the local skill guidance plus repo/session evidence.
+- Conversation mining covered 69 JSONL session files under
+  `/Users/keelim/.codex/sessions/2026/07/12` and `2026/07/13`. A naive pass
+  again over-counted repeated AGENTS/environment text, so the useful signal came
+  from filtered user/assistant messages and existing repo-backed reports.
+- Current dirty child-repo state splits into clear non-commit buckets:
+  `all-web-ui/debug-log.json`, `keelim-plugin/.serena/`, `rich` generated
+  TypeScript/product-audit artifacts, and a broad `youtube` production batch
+  combining 172 tracked deletions with many untracked episode/video files.
+- Process hygiene stayed clean after an escalated dry run:
+  `tools/codex-hygiene/codex-hygiene.sh --dry-run` reported no runaway
+  native-hook scans, `node_repl=0`, and stdio app-server `count=0`.
+- Recent-commit bug scan found no concrete new bug signal. Root docs commits
+  `5e3d59a` and `4a2718d`, recent `all` commits through `3e8d5e1de`, and recent
+  `rich` style/docs commits through `49b8cfc` produced no `git show --check`
+  errors in this run.
+
+## 2026-07-13 Improvements
+
+67. Filter session-mining inputs before product analysis.
+- Evidence: the first session summary pass was dominated by repeated
+  AGENTS/environment prompts rather than user-facing work.
+- Small change: session analyzers should exclude AGENTS, environment, current
+  automation, and approval-only transcript text before keyword counts or topic
+  summaries are computed.
+
+68. Show dirty repo state as action buckets, not one status line.
+- Evidence: the current dirty state contains tool residue, generated files,
+  product-audit artifacts, and a broad YouTube production batch with tracked
+  deletions; treating all of that as "dirty" gives no safe commit action.
+- Small change: repo hygiene UIs should bucket paths as `commitReady`,
+  `toolResidue`, `generated`, `analysisArtifact`, `broadProductionBatch`, or
+  `needsHumanGrouping`.
+
+69. Preserve clean process-hygiene proof even when no cleanup is applied.
+- Evidence: the process table was readable only with escalation, and the
+  hygiene script found nothing to kill.
+- Small change: process cleanup reports should record `inspectionMethod`,
+  `cleanupApplied=false`, and the exact zero-count categories, so a no-op result
+  is still auditable.
+
+70. Treat broad style sweeps as bug-neutral unless a failing proof appears.
+- Evidence: recent `rich` commits were mostly tone/theme/docs changes and recent
+  `all` commits included refactor/test/build work, but this run found no
+  whitespace-check or test-failure evidence tying them to a bug.
+- Small change: recent-commit triage should return `no evidence; skipped` for
+  style/refactor batches unless a failing test, broken route, CI signal, or
+  concrete diff-level defect is present.
