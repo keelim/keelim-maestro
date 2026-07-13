@@ -1,17 +1,36 @@
-# `all` Codemap
+# Agent Codemap
 
-<!-- Generated: 2026-07-12 -->
+- Repository: `all`
+- Root: `/home/user/keelim-maestro/all`
+- Generated: 2026-07-13 00:09 UTC
+- Files scanned: 0
+- Detected shape: Source repository
 
-**Type:** Registered Git submodule
-**Remote:** https://github.com/keelim/all.git
-**Branch:** develop
-**Pinned commit:** `0643bab4281700c08c12492af7fe0d0a0663d12e`
+## Read First
+- No obvious read-first files detected. Start with manifests and top-level directories.
 
-## Shape
+## Repository Shape
 
-Android multi-module Gradle project — the main Keelim "all" Android application.
+## Entrypoints
+- No obvious entrypoint files detected.
 
-## Notes
+## Key Directories
+- No source files detected.
 
-- Not initialized in a fresh root checkout. Run `git submodule update --init all` to hydrate.
-- Full codemap requires child hydration. Re-run `scripts/refresh-codemaps.py` after initializing.
+## Dependencies and Tooling
+- No common manifests detected.
+
+## Useful Commands
+- No package or pyproject scripts detected. Inspect README or project docs for commands.
+
+## Tests and Verification
+- No obvious test files detected.
+
+## Symbol Landmarks
+- No symbols extracted from supported languages.
+
+## Open Questions
+- Verification surface is unclear; inspect README, CI, or manifests before changing behavior.
+- No existing `docs/CODEMAPS/*` files were found.
+- No root `AGENTS.md` was found; check for deeper instruction files before editing.
+- Entrypoints were not obvious from file names; inspect manifests and top-level directories.

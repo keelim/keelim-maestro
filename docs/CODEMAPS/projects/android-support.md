@@ -1,18 +1,36 @@
-# `android-support` Codemap
+# Agent Codemap
 
-<!-- Generated: 2026-07-12 -->
+- Repository: `android-support`
+- Root: `/home/user/keelim-maestro/android-support`
+- Generated: 2026-07-13 00:09 UTC
+- Files scanned: 0
+- Detected shape: Source repository
 
-**Type:** Registered Git submodule (detached)
-**Remote:** https://github.com/keelim/android-support
-**Branch:** main
-**Pinned commit:** `485a2e404248182f48b01266c2d2ab8eb67145aa` (v0.0.8-4)
+## Read First
+- No obvious read-first files detected. Start with manifests and top-level directories.
 
-## Shape
+## Repository Shape
 
-Android shared support library — Gradle-based Android library project.
+## Entrypoints
+- No obvious entrypoint files detected.
 
-## Notes
+## Key Directories
+- No source files detected.
 
-- Pinned at v0.0.8-4; no local upstream tracking branch (detached state is intentional).
-- Not initialized in a fresh root checkout. Run `git submodule update --init android-support` to hydrate.
-- Full codemap requires child hydration. Re-run `scripts/refresh-codemaps.py` after initializing.
+## Dependencies and Tooling
+- No common manifests detected.
+
+## Useful Commands
+- No package or pyproject scripts detected. Inspect README or project docs for commands.
+
+## Tests and Verification
+- No obvious test files detected.
+
+## Symbol Landmarks
+- No symbols extracted from supported languages.
+
+## Open Questions
+- Verification surface is unclear; inspect README, CI, or manifests before changing behavior.
+- No existing `docs/CODEMAPS/*` files were found.
+- No root `AGENTS.md` was found; check for deeper instruction files before editing.
+- Entrypoints were not obvious from file names; inspect manifests and top-level directories.

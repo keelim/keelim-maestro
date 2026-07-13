@@ -1,29 +1,36 @@
-# `Keelim-Knowledge-Vault` Codemap
+# Agent Codemap
 
-<!-- Generated: 2026-07-12 -->
+- Repository: `Keelim-Knowledge-Vault`
+- Root: `/home/user/keelim-maestro/Keelim-Knowledge-Vault`
+- Generated: 2026-07-13 00:09 UTC
+- Files scanned: 0
+- Detected shape: Source repository
 
-**Type:** Registered Git submodule
-**Remote:** https://github.com/keelim/Keelim-Knowledge-Vault.git
-**Branch:** main
-**Pinned commit:** `15b29c11b7199d6f2c97a518781de97bbbea0dfd`
+## Read First
+- No obvious read-first files detected. Start with manifests and top-level directories.
 
-## Shape
+## Repository Shape
 
-Obsidian/Markdown knowledge vault — flat notes + structured frontmatter + PKM content.
+## Entrypoints
+- No obvious entrypoint files detected.
 
-## Key Verification Scripts
+## Key Directories
+- No source files detected.
 
-Root-owned scripts check vault health:
-- `scripts/improvements/verify_knowledge_vault_automation.py` — automation compliance
-- `scripts/improvements/verify_knowledge_vault_frontmatter.py` — frontmatter validity
-- `scripts/improvements/verify_knowledge_vault_links.py` — internal link integrity
+## Dependencies and Tooling
+- No common manifests detected.
 
-## GBrain Integration
+## Useful Commands
+- No package or pyproject scripts detected. Inspect README or project docs for commands.
 
-The Knowledge Vault is a curated import source for the GBrain knowledge system
-(`~/brain` operator repo). See [backend.md](../backend.md) for GBrain details.
+## Tests and Verification
+- No obvious test files detected.
 
-## Notes
+## Symbol Landmarks
+- No symbols extracted from supported languages.
 
-- Not initialized in a fresh root checkout. Run `git submodule update --init Keelim-Knowledge-Vault` to hydrate.
-- Full codemap requires child hydration. Re-run `scripts/refresh-codemaps.py` after initializing.
+## Open Questions
+- Verification surface is unclear; inspect README, CI, or manifests before changing behavior.
+- No existing `docs/CODEMAPS/*` files were found.
+- No root `AGENTS.md` was found; check for deeper instruction files before editing.
+- Entrypoints were not obvious from file names; inspect manifests and top-level directories.

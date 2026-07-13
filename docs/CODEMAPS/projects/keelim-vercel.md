@@ -1,33 +1,36 @@
-# `keelim-vercel` Codemap
+# Agent Codemap
 
-<!-- Generated: 2026-07-12 -->
+- Repository: `keelim-vercel`
+- Root: `/home/user/keelim-maestro/keelim-vercel`
+- Generated: 2026-07-13 00:09 UTC
+- Files scanned: 0
+- Detected shape: Source repository
 
-**Type:** Registered Git submodule
-**Remote:** https://github.com/keelim/keelim-vercel.git
-**Branch:** develop
-**Pinned commit:** `1304f1216351f268636c09e43a3315071ed6c769`
+## Read First
+- No obvious read-first files detected. Start with manifests and top-level directories.
 
-## Shape
+## Repository Shape
 
-Next.js 16 / App Router — main Vercel-deployed web application.
+## Entrypoints
+- No obvious entrypoint files detected.
 
-## Key Facts
+## Key Directories
+- No source files detected.
 
-- Deployed to Vercel; Vercel is pointed at `keelim-vercel/` directory, not repo root
-- Part of root Bun workspace for local multi-repo frontend work
-- Consumes `@keelim/all-web-ui` from GitHub Packages (`https://npm.pkg.github.com`)
-- Has package-local `bun.lock` as standalone consumer fallback
-- Requires `.npmrc` scope mapping for `@keelim` + `NODE_AUTH_TOKEN` in CI/Vercel builds
+## Dependencies and Tooling
+- No common manifests detected.
 
-## Local Dev
+## Useful Commands
+- No package or pyproject scripts detected. Inspect README or project docs for commands.
 
-```bash
-bun run dev:keelim-vercel   # Root convenience wrapper
-# or within submodule:
-cd keelim-vercel && bun dev
-```
+## Tests and Verification
+- No obvious test files detected.
 
-## Notes
+## Symbol Landmarks
+- No symbols extracted from supported languages.
 
-- Not initialized in a fresh root checkout. Run `git submodule update --init keelim-vercel` to hydrate.
-- Full codemap requires child hydration. Re-run `scripts/refresh-codemaps.py` after initializing.
+## Open Questions
+- Verification surface is unclear; inspect README, CI, or manifests before changing behavior.
+- No existing `docs/CODEMAPS/*` files were found.
+- No root `AGENTS.md` was found; check for deeper instruction files before editing.
+- Entrypoints were not obvious from file names; inspect manifests and top-level directories.
