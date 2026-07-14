@@ -1,6 +1,6 @@
 # keelim-vercel
 
-Last reviewed: 2026-05-16 KST
+Last reviewed: 2026-07-14 KST
 
 ## Signals
 
@@ -56,11 +56,11 @@ First slice: `lib/menu-config.ts`의 신규 배지 개수, `app/changelog/page.t
 
 ### 2026-04-14 - 공용 UI 어댑터 계약 스냅샷
 
-Status: proposed
+Status: proposed (2026-07-14 갱신 — 검증 스크립트 존재 확인, CI 게이트만 남음)
 
-Why now: `all-web-ui`를 로컬 sibling repo로 쓰는 동안 adapter export와 실제 import 경로가 조금만 어긋나도 `keelim-vercel` 쪽에서 런타임보다 늦게 회귀가 드러난다.
+Why now: `all-web-ui`를 로컬 sibling repo로 쓰는 동안 adapter export와 실제 import 경로가 조금만 어긋나도 `keelim-vercel` 쪽에서 런타임보다 늦게 회귀가 드러난다. `scripts/verify-all-web-ui-integration.sh`가 이미 `keelim_boundary_imports_valid`, `keelim_components_ui_is_shim_only` 체크로 `keelim-vercel`의 adapter 경계(`components/ui`는 shim-only, `@keelim/all-web-ui` import는 adapter-safe 위치로만)를 pass/fail로 검증하고 있다. 다만 루트에 `.github/workflows`가 없어 이 검증이 자동 게이트가 아니라 로컬 수동 실행에 의존한다.
 
-First slice: `components/shared/all-web-ui-adapters.tsx`와 downstream import 지점을 스캔해, 사용 중인 primitive와 경로를 한 장의 manifest로 묶고 변경 diff를 보여준다.
+First slice: 새 manifest를 만들기보다, 기존 `verify-all-web-ui-integration.sh`를 `keelim-vercel`의 adapter 관련 PR에서 자동으로 도는 게이트로 승격하는 방법(로컬 pre-push hook 또는 하위 repo CI 연동)을 정리하고, 실패 시 어떤 adapter 경로가 깨졌는지 diff로 보여준다.
 
 ### 2026-04-18 - 스토리지 키 레지스트리 드리프트 게이트
 

@@ -1,6 +1,6 @@
 # Keelim-Knowledge-Vault
 
-Last reviewed: 2026-05-16 KST
+Last reviewed: 2026-07-14 KST
 
 ## Signals
 
@@ -41,11 +41,11 @@ high-value notes, open questions, and notes linked to active repos.
 
 ### 2026-04-13 - 코드맵 스냅샷 보관소
 
-Status: proposed
+Status: proposed (2026-07-14 갱신 — 빈 스냅샷 문제 확인)
 
-Why now: 루트에 생성된 CODEMAPS/WORKSPACE 문서가 이미 워크스페이스의 실제 운영 기준이 되었으므로, 최신 스냅샷과 변경 이유를 vault에 함께 남겨야 오래된 노트가 다시 살아난다.
+Why now: 루트에 생성된 CODEMAPS/WORKSPACE 문서가 이미 워크스페이스의 실제 운영 기준이 되었으므로, 최신 스냅샷과 변경 이유를 vault에 함께 남겨야 오래된 노트가 다시 살아난다. `docs/CODEMAPS/projects/README.md`(2026-07-14)로 확인한 결과, 신선한 루트 체크아웃에서는 서브모듈이 하이드레이트되지 않아 `all`, `android-support`, `Keelim-Knowledge-Vault`, `keelim-vercel`, `toto` 5개 프로젝트 코드맵이 "0 files scanned" placeholder 상태이고, `keelim-plugin`만 30개 파일로 실제 채워져 있다. 이 상태로 vault에 그대로 보관하면 빈 스냅샷을 유효한 스냅샷처럼 다시 참조하게 될 위험이 있다.
 
-First slice: 각 코드맵 갱신 시점별로 파일 수, 핵심 결합점, 새로 생긴 운영 규칙을 요약한 노트를 하나씩 만들고 프로젝트 인덱스에서 바로 링크한다.
+First slice: 각 코드맵 갱신 시점별로 파일 수, 핵심 결합점, 새로 생긴 운영 규칙을 요약한 노트를 하나씩 만들고 프로젝트 인덱스에서 바로 링크한다. 보관 전에 각 코드맵의 "Files scanned" 값을 먼저 확인해 0인 스냅샷은 placeholder로 표시하고, 서브모듈이 하이드레이트된 상태에서 재생성된 유효한 스냅샷만 실제 아카이브 노트로 승격한다.
 
 ### 2026-04-14 - 워크스페이스 지시문 미러
 
