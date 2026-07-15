@@ -776,3 +776,53 @@ project bug signal.
 - Small change: recent-commit triage should return `no evidence; skipped` for
   style/refactor batches unless a failing test, broken route, CI signal, or
   concrete diff-level defect is present.
+
+## 2026-07-15 Follow-Up Evidence
+
+- Product Design preflight still has no saved
+  `$CODEX_HOME/state/plugins/product-design/user-context.md`; this run used the
+  installed Product Design skill guidance plus repo/session evidence.
+- Recent session mining after the previous automation marker found a small mixed
+  set: project-management kickoff, Rich daily market snapshot collection/review,
+  an `all` PR CI commit/push/auth flow, and guardian approval-review sessions.
+- The Rich daily snapshot producer verified `2026-07-14` in
+  `DailyMarketSnapshotStore().list_snapshot_dates()`, while the actual SQLite
+  commit was completed by this project-management run as `af26c8c`.
+- Process hygiene was a verified no-op: escalated
+  `tools/codex-hygiene/codex-hygiene.sh --dry-run` reported no runaway
+  `native-hook find`, `node_repl=0`, and stdio app-server `count=0`; the
+  agentgateway Kubernetes port-forward dry-run found no match.
+- The broad `youtube` dirty state remains a mixed production batch across many
+  episode folders, media files, thumbnails, and manifests, so it is not safe to
+  auto-commit without human grouping.
+
+## 2026-07-15 Improvements
+
+71. Show a session-candidate table before Product Design inference.
+    - Evidence: the recent session set mixed user-facing work with current
+      automation and guardian approval-review transcripts.
+    - Small change: session analysis should first expose `sessionId`, `cwd`,
+      `threadSource`, `isSelf`, `isApprovalReview`, `userFacingSignal`, and
+      `included` before producing service-improvement conclusions.
+
+72. Let producer automations hand off commit-ready artifacts explicitly.
+    - Evidence: Rich snapshot collection verified `2026-07-14`, but the SQLite
+      file still needed a later project-management sweep to commit it.
+    - Small change: data producers should emit `commitReadyPathspecs`,
+      `suggestedCommitMessage`, `verifyCommand`, and `doNotCommitPathspecs`.
+
+73. Track GitHub push/auth state as a first-class CI recovery field.
+    - Evidence: the `all` PR CI flow separated local meaning-unit commits,
+      personal-path scanning, push failure, GitHub CLI browser auth, and final
+      remote sync attempts.
+    - Small change: CI recovery handoffs should record `localCommits`,
+      `personalPathScan`, `pushProtocol`, `authState`, `pushed`, and
+      `remainingRemoteAction`.
+
+74. Require episode-level grouping before committing large creator batches.
+    - Evidence: the current `youtube` dirty state spans many old and new episode
+      folders with audio, thumbnails, generated HTML, manifests, and package
+      files.
+    - Small change: creator repo commit tools should group by episode slug and
+      classify each group as `sourcePackage`, `renderArtifact`, `thumbnail`,
+      `audio`, `staleDeletion`, or `needsHumanGrouping` before staging.
