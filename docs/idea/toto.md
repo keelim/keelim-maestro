@@ -1,6 +1,6 @@
 # toto
 
-Last reviewed: 2026-05-16 KST
+Last reviewed: 2026-07-16 KST
 
 ## Signals
 
@@ -37,8 +37,8 @@ First slice: 앱 부팅, 홈 임포트, `verify` 흐름을 묶은 스모크 테�
 
 ### 2026-04-25 - gitlink 커밋 및 재현 가능한 클론 게이트
 
-Status: proposed
+Status: gitlink 커밋 완료 — 부트스트랩 체인 검증 대기 (재확인 2026-07-16)
 
-Why now: `toto`가 `.gitmodules`에 선언돼 있지만 gitlink가 루트 인덱스에 커밋되지 않아서, 신규 클론 시 디렉터리가 없고 `bun run dev:toto`·`bun run verify:toto`를 실행할 수 없다. 재현성을 핵심 가치로 내세운 프로젝트에서 이 비대칭은 가장 먼저 해소해야 할 운영 위험이다.
+Why now: `git ls-files --stage`와 `.gitmodules`를 다시 확인한 결과 `toto` gitlink(160000, `5897ef44...`)는 이미 루트 인덱스에 커밋되어 있어 최초에 우려했던 "신규 클론 시 디렉터리가 없는" 문제는 더 이상 사실이 아니다. 다만 이번 점검 환경은 서브모듈이 hydrate되지 않은 상태라 `git submodule update --init toto` → `bun run bootstrap` → `bun run verify:toto` 체인이 실제로 그린인지는 아직 재확인하지 못했다.
 
-First slice: 안정 커밋을 골라 gitlink를 루트 인덱스에 커밋하고, `git submodule update --init toto` → `bun run bootstrap` → `bun run verify:toto` 순서가 CI에서 그린으로 돌아오면 pinning 완료로 간주한다.
+First slice: 서브모듈을 hydrate한 환경에서 `git submodule update --init toto` → `bun run bootstrap` → `bun run verify:toto` 순서를 실행해 CI 기준으로 그린이 나오는지 확인하고, 통과하면 이 항목을 닫는다.
