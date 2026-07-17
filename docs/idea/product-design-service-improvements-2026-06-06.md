@@ -826,3 +826,48 @@ project bug signal.
     - Small change: creator repo commit tools should group by episode slug and
       classify each group as `sourcePackage`, `renderArtifact`, `thumbnail`,
       `audio`, `staleDeletion`, or `needsHumanGrouping` before staging.
+
+## 2026-07-17 Follow-Up Evidence
+
+- Product Design saved context is still absent:
+  `$CODEX_HOME/state/plugins/product-design/user-context.md` was missing in the
+  plugin preflight output.
+- Session candidates since the previous project-management run split into one
+  human-requested Rich snapshot review, two Rich daily snapshot producer
+  automations, one project-management automation, and guardian approval-review
+  descendants.
+- The Rich snapshot review session checked that stored KRX snapshots reached
+  `2026-07-14`; the later producer automations verified `2026-07-15` and
+  `2026-07-16` with `DailyMarketSnapshotStore().list_snapshot_dates()`.
+- The project-management sweep committed the verified Rich SQLite snapshot as
+  `92448de` while leaving `web/tsconfig.tsbuildinfo`, `.claude/`, and
+  `.serena/` uncommitted as generated/tool residue.
+- Process hygiene remained a verified no-op: escalated
+  `tools/codex-hygiene/codex-hygiene.sh --dry-run` reported no runaway
+  native-hook scans, `node_repl=0`, and stdio app-server `count=0`; the
+  agentgateway Kubernetes port-forward dry-run found no match.
+
+## 2026-07-17 Improvements
+
+75. Include human-requested review sessions in the Product Design candidate table.
+    - Evidence: `rollout-2026-07-15T08-37-11-019f62fd-d9ea-7c03-874b-cd0468ebd5c9.jsonl`
+      was a direct Rich snapshot review request and contained cleaner
+      product-facing evidence than approval-review descendants.
+    - Small change: session mining should mark `requestKind=humanReview`,
+      `automationProducer`, `projectAutomation`, or `approvalReview` before
+      deciding which sessions feed service improvements.
+
+76. Link producer automation proof to the later commit that preserves it.
+    - Evidence: Rich producer sessions verified `2026-07-15` and `2026-07-16`,
+      and the later project-management run committed the SQLite artifact as
+      `92448de`.
+    - Small change: producer handoffs should carry `verifiedDates`,
+      `changedPathspecs`, and `preservedByCommit` so the next sweep can avoid
+      rediscovering the same evidence.
+
+77. Filter approval-review descendants by both source and parent thread.
+    - Evidence: guardian transcripts appeared as child sessions of both the
+      Rich snapshot producer and current project-management run.
+    - Small change: session mining should exclude sessions with
+      `source.subagent=guardian` or a parent thread already classified as
+      approval-only unless a human explicitly asks to audit approvals.
