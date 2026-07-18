@@ -1,6 +1,6 @@
 # android-support
 
-Last reviewed: 2026-05-16 KST
+Last reviewed: 2026-07-18 KST
 
 ## Signals
 
@@ -56,3 +56,11 @@ Status: proposed
 Why now: 이 action은 릴리스 핵심 경로를 직접 건드리는데, 현재 테스트는 입력 검증에 비해 실제 Play API 편집 생명주기 검증이 약해서 사소한 변경도 실배포까지 밀려갈 수 있다.
 
 First slice: sign/upload/internal sharing/staged rollout 응답을 대표 fixture로 기록하고, 이를 CI에서 재생해 Play Console에 닿지 않고도 전체 edit lifecycle을 검증한다.
+
+### 2026-07-18 - 핀 태그 대비 업스트림 릴리스 드리프트 추적
+
+Status: proposed
+
+Why now: `docs/CODEMAPS/SUBMODULES.md`와 `architecture.md`는 `android-support`가 커밋 `485a2e40`, 태그 `v0.0.8-4`에 detached 상태로 핀돼 있다고 명시한다. Play 릴리스를 직접 담당하는 action이므로, 업스트림에 새 태그가 나온 뒤에도 루트가 오래된 핀을 계속 쓰면 보안 패치나 action 입력 계약 변경을 놓칠 수 있다.
+
+First slice: 업스트림 `android-support` 태그 목록과 루트에 핀된 커밋/태그를 비교하는 가벼운 체크를 추가해, 뒤처진 개월 수와 최신 태그의 주요 변경 요약을 `bun run report:baseline` 계열 리포트에 함께 노출한다.
