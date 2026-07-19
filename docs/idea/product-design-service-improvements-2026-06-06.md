@@ -871,3 +871,35 @@ project bug signal.
     - Small change: session mining should exclude sessions with
       `source.subagent=guardian` or a parent thread already classified as
       approval-only unless a human explicitly asks to audit approvals.
+
+## 2026-07-19 Follow-Up Evidence
+
+- Product Design context preflight was available but returned no saved context: `$CODEX_HOME/state/plugins/product-design/user-context.md` `exists=false`.
+- Session mining since the previous automation marker scanned 124 raw session files and found 103 usable non-context user-message sessions; dominant buckets were `all-nanda=38`, `repo-hygiene=17`, `rich-infinite-buy=11`, `keelim-vercel=5`, `youtube=3`, `rich-wiki=2`.
+- Committed verified Rich units: `cd29150` local tool/tsbuildinfo ignore cleanup, `f493438` infinite-buy admin route test coverage, `0453a84` FX hedge wiki ingest. Verification included Rich web focused route tests, typecheck, frozen install, `git diff --check`, and `omx wiki wiki_lint --json` with only stale warnings.
+- Committed verified keelim-vercel unit `2211f27` for the financial tool shell visual refresh. Verification included `bun run typecheck`, `bun run test`, `bun run verify:project-rules`, and `bun run build` exit 0 with DNS fallback warnings under sandboxed network.
+- Process hygiene remained a no-op: escalated `tools/codex-hygiene/codex-hygiene.sh --dry-run` reported no runaway native-hook scans, `node_repl=0`, app-server `count=0`; agentgateway port-forward dry-run found no match.
+- Build verification created a local `.next` artifact that grew to 1.6GB, leaving only 114MB free and causing `git commit` to fail before `.git/index.lock` creation; deleting the generated `.next` restored 1.7GB free and the commit succeeded.
+- Left `all` and `youtube` uncommitted because their dirty states were broad deletion/rewrite batches: `all` showed 83 changed files with app-nanda rewrite/deletions and `youtube` showed 172 tracked deletions plus new episode/source/output batches.
+
+## 2026-07-19 Improvements
+
+78. Surface Product Design saved-context availability before analysis.
+- Evidence: Product Design preflight was callable but returned `exists=false`, so this run had to rely on repo/session evidence instead of saved product references.
+- Small change: Product Design entrypoints should show `savedContextStatus`, `contextPath`, and `fallbackEvidenceSources` before producing service-improvement conclusions.
+
+79. Dedupe session mining by human signal before topic counts.
+- Evidence: 124 raw session files compressed to 103 usable sessions only after excluding injected AGENTS/plugin/environment context; many remaining sessions were subagent or approval-review descendants.
+- Small change: session analysis should emit `rawSessions`, `usableSessions`, `excludedContextOnly`, `threadSource`, and `requestKind` before grouping topics.
+
+80. Attach commit-proof cards to design-system sweeps.
+- Evidence: `keelim-vercel` visual refresh was only safe to commit after typecheck, tests, project-rule gate, build exit code, diff-check, and staged secret/path scan were all recorded.
+- Small change: design-system tasks should produce a compact proof card with `changedPathGroups`, `verificationCommands`, `warnings`, and `artifactCleanup`.
+
+81. Treat generated build-cache pressure as automation hygiene.
+- Evidence: a successful Next build left `.next` at 1.6GB, filled the disk to 114MB free, and blocked commit creation with `No space left on device`.
+- Small change: repo automation should check large ignored build artifacts after build and mark generated cache cleanup as a separate, auditable hygiene event.
+
+82. Require pathspec contracts for broad deletion batches.
+- Evidence: `all` and `youtube` both had plausible work in progress, but the dirty states spanned large deletions and generated/output batches without a narrow commit-ready pathspec.
+- Small change: commit sweep tools should require `commitReadyPathspecs`, `doNotCommitPathspecs`, and a verification command before staging broad deletion-heavy repo states.
