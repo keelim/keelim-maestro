@@ -1,6 +1,6 @@
 # rich
 
-Last reviewed: 2026-05-16 KST
+Last reviewed: 2026-07-19 KST
 
 ## Signals
 
@@ -60,14 +60,23 @@ action.
 
 ### 2026-04-12 - Integration health console
 
-Status: proposed
+Status: proposed (2026-07-19: scope widened to include the shared agent MCP layer)
 
 Why now: `rich` depends on Supabase, Google, GitHub CLI, and pykrx/KRX access,
 so auth or connection drift needs to be visible separately from stale data or
-failed runs.
+failed runs. `docs/CODEMAPS/architecture.md` also documents `agentgateway` as
+the always-on local MCP gateway that both Codex and Claude Code route through,
+and the root now ships `scripts/codex-app-server.sh` (`bun run
+dev:codex-app-server`, `ws://127.0.0.1:7331`) as another local dependency —
+if `agentgateway` or the local Skaffold stack is down, every agent-facing
+workflow in `rich` fails silently the same way a stale Supabase/Google
+connection would.
 
 First slice: Add a compact health panel that shows last-success time, reconnect
-state, and repair action for each upstream integration.
+state, and repair action for each upstream integration, and fold in
+`agentgateway`'s local reachability (`http://localhost:3000/mcp`) plus the
+codex-app-server listener as first-class rows instead of leaving them as
+undiagnosed local infra.
 
 ### 2026-04-13 - 공공데이터 카탈로그 변경 피드
 

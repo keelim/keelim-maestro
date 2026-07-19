@@ -1,6 +1,6 @@
 # all-web-ui
 
-Last reviewed: 2026-05-16 KST
+Last reviewed: 2026-07-19 KST
 
 ## Signals
 
@@ -15,13 +15,19 @@ Last reviewed: 2026-05-16 KST
 
 ### 2026-04-12 - Token playground and theme diff lab
 
-Status: proposed
+Status: proposed (2026-07-19: linked to the root design-system doc as source of truth)
 
 Why now: Shared theme tokens are more valuable when consumers can preview what a
-token change will do before publishing it into downstream apps.
+token change will do before publishing it into downstream apps. The root
+`docs/design/` Keelim Design System spec already defines the token/theme
+contract this package should implement, but nothing currently checks the two
+against each other, so the playground should treat `docs/design/` as the
+reference rather than re-deriving tokens from source alone.
 
 First slice: Build a tiny docs/demo page that renders each primitive under the
-existing themes and highlights token deltas side by side.
+existing themes and highlights token deltas side by side, and diff its token
+set against `docs/design/` so drift between the design spec and the shipped
+package is visible before publishing.
 
 ### 2026-04-12 - Visual regression and accessibility gate pack
 

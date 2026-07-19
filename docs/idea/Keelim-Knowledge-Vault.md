@@ -1,6 +1,6 @@
 # Keelim-Knowledge-Vault
 
-Last reviewed: 2026-05-16 KST
+Last reviewed: 2026-07-19 KST
 
 ## Signals
 
@@ -39,34 +39,18 @@ Why now: A knowledge vault compounds when strong notes re-enter active work, not
 First slice: Add a weekly review note or script that surfaces recently untouched
 high-value notes, open questions, and notes linked to active repos.
 
-### 2026-04-13 - 코드맵 스냅샷 보관소
+### 2026-04-13 - 워크스페이스 기준선 미러 노트 (통합: 코드맵 스냅샷 보관소 · 지시문 미러 · 신뢰 기준선 보드)
 
-Status: proposed
+Status: proposed (2026-07-19에 기존 3개 유사 항목을 하나로 통합)
 
-Why now: 루트에 생성된 CODEMAPS/WORKSPACE 문서가 이미 워크스페이스의 실제 운영 기준이 되었으므로, 최신 스냅샷과 변경 이유를 vault에 함께 남겨야 오래된 노트가 다시 살아난다.
+Why now: `docs/CODEMAPS/*`, 루트 `AGENTS.md`, `.gitmodules`/`SUBMODULES.md`가 이미 워크스페이스의 실제 운영 기준(코드맵 스냅샷, trusted/excluded repo 집합, pinning blocker)을 담고 있는데, 이 정보를 vault에서 다시 찾으려면 매번 루트로 왕복해야 한다. 코드맵 보관·지시문 미러·신뢰 기준선 보드는 결국 "루트의 현재 진실을 vault에 정적으로 미러링한다"는 같은 문제였으므로 하나의 노트로 묶는다.
 
-First slice: 각 코드맵 갱신 시점별로 파일 수, 핵심 결합점, 새로 생긴 운영 규칙을 요약한 노트를 하나씩 만들고 프로젝트 인덱스에서 바로 링크한다.
-
-### 2026-04-14 - 워크스페이스 지시문 미러
-
-Status: proposed
-
-Why now: AGENTS, CODEMAPS, automation memory, 백로그 노트가 흩어져 있어서, 현재 작업 기준을 한 노트에서 다시 찾을 수 있어야 다음 작업의 진입 비용이 줄어든다.
-
-First slice: 루트 AGENTS/CODEMAPS/idea 인덱스와 자주 바뀌는 운영 규칙을 연결한 단일 인덱스 노트를 만들고, 관련 프로젝트 노트에서 바로 왕복할 수 있게 한다.
+First slice: 루트 `AGENTS.md`/`docs/CODEMAPS/*`/`docs/idea/index.md`의 핵심 표(등록 submodule과 pinned commit, autonomous repo와 blocker, idea 프로젝트 목록)를 그대로 옮긴 단일 기준선 노트를 vault에 만들고, 코드맵이 갱신될 때마다(예: `chore: update codemaps` 커밋 시점) 이 노트도 함께 갱신하도록 프로젝트 인덱스에서 상호 링크한다.
 
 ### 2026-04-14 - 워크스페이스 일일 변화 다이제스트
 
 Status: proposed
 
-Why now: AGENTS, CODEMAPS, idea 인덱스, automation memory가 따로 움직여서, 오늘 바뀐 운영 기준을 한 번에 복원할 수 있는 요약 노트가 있으면 재진입 비용이 줄어든다.
+Why now: AGENTS, CODEMAPS, idea 인덱스, automation memory가 따로 움직여서, 오늘 바뀐 운영 기준을 한 번에 복원할 수 있는 요약 노트가 있으면 재진입 비용이 줄어든다. 위 기준선 미러 노트가 "현재 상태의 정적 스냅샷"이라면, 이 항목은 "무엇이 바뀌었는지"에 집중하는 시계열 다이제스트로 구분한다.
 
 First slice: 루트에서 갱신된 운영 문서와 메모리 조각을 모아 일일 다이제스트 노트를 만들고, 관련 프로젝트 노트로 바로 왕복 링크를 건다.
-
-### 2026-04-16 - 워크스페이스 신뢰 기준선 보드
-
-Status: proposed
-
-Why now: 루트 AGENTS/CODEMAPS가 이미 신뢰 가능한 repo 집합, 제외 대상, pinning blocker를 정의하고 있어서, 이를 vault에 복원 가능한 한 장의 기준선 보드로 남기면 다음 작업에서 다시 해석하지 않아도 된다.
-
-First slice: 현재 trusted set, excluded set, pinning blocker, 마지막 검증 시각을 묶은 노트를 만들고 루트 workspace 문서와 상호 링크한다.

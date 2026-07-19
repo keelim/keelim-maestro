@@ -1,6 +1,6 @@
 # keelim-plugin
 
-Last reviewed: 2026-05-16 KST
+Last reviewed: 2026-07-19 KST
 
 ## Signals
 
@@ -25,15 +25,23 @@ First slice: Generate a catalog page from `skills/*/SKILL.md` metadata with
 
 ### 2026-04-12 - Skill smoke-test harness
 
-Status: proposed
+Status: proposed (2026-07-19: extended beyond static metadata to real MCP connectivity)
 
 Why now: Cross-tool skills are valuable only if install paths, metadata, and
  basic workflow assumptions stay valid for both Codex and Claude, and there is
  no single check that compares install/readme metadata across both toolchains.
+ `docs/CODEMAPS/architecture.md` now documents that both agents route through
+ the same `agentgateway` MCP endpoint (`http://localhost:3000/mcp`), and the
+ root added `scripts/codex-app-server.sh` (`bun run dev:codex-app-server`) to
+ run a local Codex app-server — so a real Codex-side smoke test is now
+ possible locally, not just a metadata diff.
 
 First slice: Add a lightweight verifier that checks required files, install
  commands, and any declared agent metadata for each skill folder, then surface
-Codex/Claude install parity gaps before publishing.
+Codex/Claude install parity gaps before publishing. Extend it to optionally
+drive one skill end-to-end against the local `codex-app-server` +
+`agentgateway` path so parity is checked against a live agent session, not
+only declared metadata.
 
 ### 2026-04-13 - 스킬 변경 영향 노트
 
