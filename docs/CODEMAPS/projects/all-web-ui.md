@@ -1,6 +1,6 @@
 # `all-web-ui` Codemap
 
-<!-- Generated: 2026-07-19 -->
+<!-- Generated: 2026-07-20 -->
 
 **Type:** Autonomous child repo (not a submodule)
 **Remote:** https://github.com/keelim/all-web-ui (public)
