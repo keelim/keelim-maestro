@@ -903,3 +903,63 @@ project bug signal.
 82. Require pathspec contracts for broad deletion batches.
 - Evidence: `all` and `youtube` both had plausible work in progress, but the dirty states spanned large deletions and generated/output batches without a narrow commit-ready pathspec.
 - Small change: commit sweep tools should require `commitReadyPathspecs`, `doNotCommitPathspecs`, and a verification command before staging broad deletion-heavy repo states.
+
+## 2026-07-20 Follow-Up Evidence
+
+- Product Design preflight remained available but had no saved context:
+  `$CODEX_HOME/state/plugins/product-design/user-context.md` returned
+  `exists=false`, so this run used repository state plus bounded session
+  summaries.
+- Session mining since `2026-07-19T00:00:18Z` scanned 62 raw session files and
+  found 16 usable non-context sessions. The useful buckets were
+  `project-automation=3`, `approval-review=8`, `keelim-plugin=1`,
+  `all-nanda=1`, `rich=1`, and two uncategorized direct user runs.
+- The `all` Nanda work completed a branch-sync path through
+  `32a533da9 chore: enable non-final resource IDs`, with the session reporting
+  local HEAD and remote `origin/develop` aligned after push.
+- The Rich `docs/words` cleanup was destructive/history-sensitive and preserved
+  recovery evidence: commit `cd5092a chore: remove words documentation` plus
+  `/tmp/rich-before-remove-docs-words-20260719.bundle`; remote force-push was
+  left as an explicit human action.
+- The keelim-plugin weekly SkillOpt session found a validator behavior change:
+  last week's optional `quick_validate` schema drift was a hard failure, while
+  this run's `validate` path skipped that optional validator.
+- Process hygiene stayed a verified no-op: escalated
+  `tools/codex-hygiene/codex-hygiene.sh --dry-run` reported no runaway
+  native-hook scans, `node_repl=0`, and stdio app-server `count=0`;
+  agentgateway port-forward dry-run found no match.
+- Recent commit triage found no concrete bug signal: `git show --check` passed
+  for root, `all`, `rich`, and `keelim-vercel` commits checked in this run;
+  `:app-nanda:testDebugUnitTest`, Rich focused route/admin tests, and
+  `keelim-vercel` `bun run test` passed.
+
+## 2026-07-20 Improvements
+
+83. Record push alignment as a separate commit-proof field.
+- Evidence: the `all` session for `32a533da9` reported both commit completion
+  and `origin/develop` alignment after push, which is stronger evidence than a
+  local SHA alone.
+- Small change: commit automation proof cards should include `localCommit`,
+  `remoteRef`, `pushed`, and `localEqualsRemote` fields.
+
+84. Treat history rewrites as explicit recovery workflows.
+- Evidence: Rich `docs/words` cleanup preserved
+  `/tmp/rich-before-remove-docs-words-20260719.bundle` and stopped before remote
+  force-push.
+- Small change: destructive cleanup handoffs should always include
+  `backupBundle`, `localRewriteDone`, `remoteRewritePending`, and
+  `humanApprovalRequired`.
+
+85. Track optional validator drift as product service health.
+- Evidence: the keelim-plugin SkillOpt weekly review distinguished a previous
+  hard `quick_validate` schema failure from a later skipped optional validator.
+- Small change: recurring validation UIs should expose `requiredGates`,
+  `optionalGates`, `skippedOptionalGates`, and `schemaDrift` so a green run does
+  not hide reduced coverage.
+
+86. Exclude approval-review descendants from session topic counts by default.
+- Evidence: 8 of 16 usable sessions since the previous marker were
+  approval-review transcripts, outnumbering direct product/repo work.
+- Small change: session mining should default approval reviews to an evidence
+  appendix, not the main Product Design topic distribution, unless the user asks
+  to audit approvals.
