@@ -1,6 +1,6 @@
 # rich
 
-Last reviewed: 2026-05-16 KST
+Last reviewed: 2026-07-20 KST
 
 ## Signals
 
@@ -13,6 +13,10 @@ Last reviewed: 2026-05-16 KST
   to the existing backend/workflow reliability surface.
 - `docs/words/AGENTS.md` defines a raw-source/wiki/schema split for an investing
   LLM wiki, so durable review insights can be routed back into knowledge pages.
+- 2026-07-20: 루트 `docs/CODEMAPS/architecture.md`가 로컬 Kubernetes 스택을 명시했다 —
+  `agentgateway`는 항상 켜져 있어야 하는 고정 런타임(`bun run automation:local -- start agentgateway`)이고,
+  `rich`는 Skaffold로 관리되는 온디맨드 런타임(`start rich` / `standby`)이다. 두 런타임의 기동 상태 자체가
+  `rich`가 의존하는 모든 MCP 연동(Supabase, Google, GitHub CLI, pykrx)보다 앞단에 있는 신뢰 전제다.
 
 ## Open ideas
 
@@ -64,10 +68,15 @@ Status: proposed
 
 Why now: `rich` depends on Supabase, Google, GitHub CLI, and pykrx/KRX access,
 so auth or connection drift needs to be visible separately from stale data or
-failed runs.
+failed runs. Those integrations all route through `agentgateway` MCP
+(`http://localhost:3000/mcp`), and `agentgateway` (always-on) plus `rich`'s own
+Skaffold-managed local K8s runtime (on-demand start/standby) are the
+lower-level dependency both integration health and data freshness sit on top of.
 
 First slice: Add a compact health panel that shows last-success time, reconnect
-state, and repair action for each upstream integration.
+state, and repair action for each upstream integration, and surface
+`agentgateway`/`rich` Skaffold runtime state (running / standby / stopped) as a
+precondition banner above the per-integration rows.
 
 ### 2026-04-13 - 공공데이터 카탈로그 변경 피드
 

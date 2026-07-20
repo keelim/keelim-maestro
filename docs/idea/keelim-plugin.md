@@ -1,6 +1,6 @@
 # keelim-plugin
 
-Last reviewed: 2026-05-16 KST
+Last reviewed: 2026-07-20 KST
 
 ## Signals
 
@@ -10,6 +10,7 @@ Last reviewed: 2026-05-16 KST
 - The repository already has a clear `skills/<name>/SKILL.md` contract.
 - README가 Vercel skills CLI와 수동 symlink 설치 경로를 함께 설명하므로,
   카탈로그와 smoke-test가 설치 방식별 차이를 계속 드러내야 한다.
+- 2026-07-20: 루트 `scripts/refresh-codemaps.py`가 `keelim-plugin/skills/codebase-codemap/scripts/generate_codemap.py`를 직접 호출해 `docs/CODEMAPS/projects/*.md` 전체를 생성한다(`docs/CODEMAPS/projects/README.md` 참조). 즉 이 저장소의 한 스킬이 워크스페이스 8개 프로젝트 문서 전체의 단일 생성 지점이 됐고, child repo가 hydrate되지 않으면 스냅샷이 "Files scanned: 0"으로 조용히 정체된다.
 
 ## Open ideas
 
@@ -30,10 +31,17 @@ Status: proposed
 Why now: Cross-tool skills are valuable only if install paths, metadata, and
  basic workflow assumptions stay valid for both Codex and Claude, and there is
  no single check that compares install/readme metadata across both toolchains.
+ The highest-priority case is now concrete: `skills/codebase-codemap` is the sole
+ generator behind root `docs/CODEMAPS/projects/*.md` for every workspace project
+ (invoked via `scripts/refresh-codemaps.py`), so a silent regression there degrades
+ codemap trust workspace-wide, not just this repo.
 
 First slice: Add a lightweight verifier that checks required files, install
  commands, and any declared agent metadata for each skill folder, then surface
-Codex/Claude install parity gaps before publishing.
+Codex/Claude install parity gaps before publishing. Prioritize `codebase-codemap`
+first: run it against a small fixture repo and assert non-empty, well-shaped
+output, so root automation can tell "generator broken" apart from "child repo
+not hydrated" (both currently show up as `Files scanned: 0`).
 
 ### 2026-04-13 - 스킬 변경 영향 노트
 
