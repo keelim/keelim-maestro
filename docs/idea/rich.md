@@ -1,6 +1,6 @@
 # rich
 
-Last reviewed: 2026-05-16 KST
+Last reviewed: 2026-07-21 KST
 
 ## Signals
 
@@ -80,3 +80,11 @@ one-off dump.
 First slice: Track a small watchlist of high-value dataset pages, diff title /
 field / link changes on each export, and push meaningful updates into the
 weekly review or recovery queue.
+
+### 2026-07-21 - Dirty/ahead 상태 해소 체크리스트 (freeze-split-reconcile)
+
+Status: proposed
+
+Why now: `rich`의 dirty working tree·ahead-of-origin 상태가 4월부터 지금(2026-07-21)까지 그대로 남아 있고, `docs/CODEMAPS/SUBMODULES.md`의 Expansion Blockers와 `docs/CODEMAPS/projects/all-web-ui.md`의 Submodule Conversion Blockers가 이 상태를 `rich` 자체뿐 아니라 `all-web-ui`의 submodule 전환까지 함께 막는 원인으로 반복 지목하고 있어서, 방치 비용이 두 프로젝트에 걸쳐 커지고 있다.
+
+First slice: `docs/CODEMAPS/projects/rich.md`의 Pre-Pinning Requirements(① 혼재된 dirty 상태 freeze/split ② ahead 커밋 원격 push ③ `origin/master` 대비 clean 상태 확인 ④ `bun run report:baseline` 실행)를 실행 가능한 체크리스트로 만들어 단계별 완료 여부와 남은 ahead 커밋 목록을 추적하고, 완료 시 `all-web-ui` pinning 재개 조건과 바로 연결한다.
