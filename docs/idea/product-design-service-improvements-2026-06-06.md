@@ -963,3 +963,58 @@ project bug signal.
 - Small change: session mining should default approval reviews to an evidence
   appendix, not the main Product Design topic distribution, unless the user asks
   to audit approvals.
+
+## 2026-07-21 Follow-Up Evidence
+- Product Design preflight remained callable and still had no saved context:
+  `$CODEX_HOME/state/plugins/product-design/user-context.md` returned
+  `exists=false`.
+- Session mining since `2026-07-20T00:01:32Z` found 8 raw session files under
+  `/Users/keelim/.codex/sessions/2026/07/20` and
+  `/Users/keelim/.codex/sessions/2026/07/21`. Direct work signals were the
+  `keelim-plugin` SkillOpt weekly review and Rich daily market snapshot
+  producer runs; approval-review transcripts and the current project-management
+  automation were supporting evidence only.
+- `keelim-plugin` SkillOpt weekly review ended local-only: no live SkillOpt
+  training/model calls, no apply candidates, clean `main...origin/main`,
+  ignored `.skillopt/` artifacts refreshed, and gates passed including
+  `prepare --check`, `doctor-codex`, `validate`,
+  `inspect-all --fail-on-tracebacks`, `bash scripts/check.sh`, and
+  `git diff --check`.
+- Rich snapshot producer sessions reported KRX collection for `2026-07-20` and
+  `2026-07-21`. The `2026-07-20` run separated `2026-07-17`, `2026-07-18`,
+  and `2026-07-19` as `PYKRX_DAILY_SNAPSHOT_UNAVAILABLE`, not collector
+  failures.
+- Current project-management sweep preserved the Rich producer output as commit
+  `cdc5eac data: update daily market snapshots`;
+  `DailyMarketSnapshotStore().list_snapshot_dates()` included `2026-07-21`,
+  and focused snapshot tests passed `7 passed`.
+- Process hygiene stayed verified no-op: escalated
+  `tools/codex-hygiene/codex-hygiene.sh --dry-run` reported no runaway
+  native-hook scans, `node_repl=0`, stdio app-server `count=0`; agentgateway
+  Kubernetes port-forward dry-run found no match.
+
+## 2026-07-21 Improvements
+87. Report local-only maintenance as a product state, not an empty commit
+result.
+- Evidence: `keelim-plugin` SkillOpt weekly review intentionally avoided live
+  model/training calls and apply candidates, kept git clean, but refreshed
+  ignored `.skillopt/` candidate/report artifacts with passing gates.
+- Small change: maintenance dashboards should expose `mode=localOnly`,
+  `gitClean`, `ignoredArtifacts`, `liveCalls=false`, `applyPerformed=false`,
+  and `candidateDiffs` so no-commit runs still show useful work.
+
+88. Separate source-unavailable dates from data-collector failures.
+- Evidence: Rich KRX producer separated `2026-07-17`, `2026-07-18`, and
+  `2026-07-19` as `PYKRX_DAILY_SNAPSHOT_UNAVAILABLE`, then collected and
+  verified `2026-07-20` and `2026-07-21`.
+- Small change: data-product handoffs should report `unavailableDates` with
+  source reason separately from `failedDates`, preserving market-closed or
+  upstream-empty days as expected states.
+
+89. Link producer proof to the later sweeper commit.
+- Evidence: Rich producer sessions verified snapshot availability through
+  `2026-07-21`, and this project-management sweep committed the same SQLite
+  artifact as `cdc5eac` after store/date and pytest proof.
+- Small change: producer automations should emit `artifactPath`,
+  `verifiedThrough`, `commitReadyPathspecs`, and later sweeps should fill
+  `consumedByCommit` to avoid rediscovering the same artifact.
