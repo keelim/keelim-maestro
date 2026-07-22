@@ -1018,3 +1018,68 @@ result.
 - Small change: producer automations should emit `artifactPath`,
   `verifiedThrough`, `commitReadyPathspecs`, and later sweeps should fill
   `consumedByCommit` to avoid rediscovering the same artifact.
+
+## 2026-07-22 Follow-Up Evidence
+
+- Product Design preflight remained callable and still had no saved context:
+  `$CODEX_HOME/state/plugins/product-design/user-context.md` returned
+  `exists=false`.
+- Session mining since `2026-07-21T00:00:34Z` found six JSONL session files.
+  Direct product/repo signals were Rich daily market snapshot production
+  (`rollout-2026-07-21T21-03-12-019f848f-0123-7733-a623-02e76da43197.jsonl`)
+  and project-management sweeps; guardian approval-review sessions were useful
+  only as process-approval evidence.
+- The Rich producer verified `2026-07-21` in
+  `DailyMarketSnapshotStore().list_snapshot_dates()`, and the prior
+  project-management sweep already preserved that artifact as commit `cdc5eac`.
+  The current child-repo sweep found `rich` clean and `youtube` still a broad
+  mixed production batch with 172 tracked deletions plus new episode/source
+  files.
+- Process hygiene remained a verified no-op: sandboxed
+  `tools/codex-hygiene/codex-hygiene.sh --dry-run` could not read the process
+  table, the approved rerun reported no runaway native-hook scans,
+  `node_repl=0`, and stdio app-server `count=0`; the agentgateway Kubernetes
+  port-forward dry-run found no match.
+- Recent-commit triage found one non-attributed failure and one remote-only
+  policy risk. In `all`, `./gradlew :app-nanda:testDebugUnitTest` failed after
+  approval on Android SDK 37 `JdkImageTransform`/`jlink`, while recent commit
+  `392e0d6cd` only changed `versionCode` from `20260308` to `20260722`.
+  Remote-only root commit `0bfc527` refreshed `docs/idea/toto.md` as if `toto`
+  were active, conflicting with the root archive policy if that branch is
+  merged as-is.
+
+## 2026-07-22 Improvements
+
+90. Record approval-review sessions as guardrail evidence, not product signal.
+- Evidence: three of the six recent session files were guardian approval-review
+  descendants for process-table or uv-cache/network escalations, and their
+  final outputs were approval decisions rather than product work.
+- Small change: session mining should emit `requestKind=approvalReview`,
+  `plannedAction`, `outcome`, and `parentThreadId`, then exclude those rows from
+  Product Design topic counts by default.
+
+91. Mark producer artifacts as already consumed when a later sweep committed them.
+- Evidence: the Rich producer verified `2026-07-21`, and the previous
+  project-management run already committed the SQLite artifact as `cdc5eac`;
+  the current sweep correctly found no new Rich commit-ready diff.
+- Small change: commit sweep reports should resolve producer evidence to
+  `consumedByCommit` before recommending a new commit, so no-op preservation is
+  visible and not rediscovered.
+
+92. Add attribution strength to recent-commit bug triage.
+- Evidence: `all` `:app-nanda:testDebugUnitTest` failed in the Android SDK 37
+  `JdkImageTransform`/`jlink` path, but recent commit `392e0d6cd` touched only
+  `gradle/libs.versions.toml` `versionCode`; the repository evidence does not
+  tie the failure to that diff.
+- Small change: bug-scan output should label each finding as
+  `attribution=direct`, `indirect`, `environment`, or `weak`, and only propose
+  repository patches for direct or well-supported indirect cases.
+
+93. Add an archive-policy guard to idea/codemap refreshes.
+- Evidence: remote-only root commit `0bfc527` changed `docs/idea/toto.md` and
+  the index row around gitlink completion even though root guidance says `toto`
+  is archived and should not return to active root handling unless explicitly
+  reactivated.
+- Small change: idea refresh tooling should fail or warn when an archived
+  project is given a fresh `Last reviewed` date, active focus, or resolved
+  submodule status without an explicit reactivation marker.
