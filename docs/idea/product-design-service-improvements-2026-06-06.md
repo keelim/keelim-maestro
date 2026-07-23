@@ -1083,3 +1083,63 @@ result.
 - Small change: idea refresh tooling should fail or warn when an archived
   project is given a fresh `Last reviewed` date, active focus, or resolved
   submodule status without an explicit reactivation marker.
+
+## 2026-07-23 Follow-Up Evidence
+
+- Product Design preflight remained callable and still had no saved context:
+  `$CODEX_HOME/state/plugins/product-design/user-context.md` returned
+  `exists=false`.
+- Session mining since `2026-07-22T00:01:04Z` found 10 JSONL files but only
+  three useful logical work streams: Rich daily market snapshot production,
+  `all/app-nanda` product ideation, and the current project-management sweep.
+  Continuation/subagent files shared session ids with their parent work and
+  should not be counted as independent product sessions.
+- The `all/app-nanda` session converged from broad idea search to men's-health
+  content for `30-40대 직장인, 커플`, then narrowed to a lightly humorous
+  "running timer" framing. The explicit later constraint was that couple
+  confirmation is not needed; the experience should still look like a normal
+  solo running timer.
+- The Rich producer automation ran the existing snapshot collector path and
+  left a single SQLite artifact. This sweep verified
+  `DailyMarketSnapshotStore().list_snapshot_dates()` through `2026-07-22`,
+  passed focused snapshot tests, and preserved the artifact as
+  `be1a4db data: update daily market snapshots`.
+- Process hygiene was a verified no-op: `tools/codex-hygiene/codex-hygiene.sh
+  --dry-run` needed process-inspection permission, then reported no runaway
+  native-hook scans, `node_repl=0`, and stdio app-server `count=0`;
+  `tools/agentgateway/scripts/stop-k8s-gateway.sh --dry-run` found no matching
+  port-forward.
+- Recent-commit triage found no repository-backed bug. `all` dependency update
+  commits from `791165e90` through `83839eceb` passed `git show --check`, and
+  `./gradlew :app-nanda:testDebugUnitTest` passed after the Gradle wrapper lock
+  permission issue was separated from repository behavior.
+
+## 2026-07-23 Improvements
+
+94. Deduplicate session analysis by logical session id before topic counts.
+- Evidence: the new session set had continuation files for the same Rich,
+  `all`, and current automation sessions; raw file counts would overstate work.
+- Small change: Product Design/session mining should group by `session_id`,
+  then attach child/subagent files as evidence rows under the parent session.
+
+95. Convert private wellness ideation into discreet implementation constraints.
+- Evidence: the `all/app-nanda` thread selected `30-40대 직장인, 커플`, light
+  humor, "running timer" language, and no couple confirmation.
+- Small change: Nanda feature briefs should carry `publicFraming`,
+  `privateMeaning`, `sharingRequired=false`, and `avoidPerformanceScoring=true`
+  before any UI or content work starts.
+
+96. Mark producer artifacts as consumed by the exact sweeper commit.
+- Evidence: Rich snapshot production for `2026-07-22` became commit
+  `be1a4db` only after this sweep verified stored dates and focused tests.
+- Small change: producer automations should emit `artifactPath`,
+  `verifiedThrough`, `verifyCommand`, and sweeps should fill
+  `consumedByCommit`.
+
+97. Keep sandbox permission failures out of bug attribution by default.
+- Evidence: `all` initially failed on `~/.gradle` wrapper lock access under the
+  sandbox, while the same `:app-nanda:testDebugUnitTest` command passed with
+  required Gradle cache access.
+- Small change: bug-scan reports should label `sandboxPermission` separately
+  from `testFailure` and only propose code changes after an unsandboxed or
+  approved rerun reproduces the failure.
