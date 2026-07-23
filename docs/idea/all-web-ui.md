@@ -1,6 +1,6 @@
 # all-web-ui
 
-Last reviewed: 2026-05-16 KST
+Last reviewed: 2026-07-23 KST
 
 ## Signals
 
@@ -10,6 +10,7 @@ Last reviewed: 2026-05-16 KST
   migration between sibling-source imports and package exports.
 - Shared UI releases create coupling, so downstream impact, export contracts,
   and discoverability matter together.
+- 루트 `scripts/all-web-ui-rich-allowed-drift.txt`가 `rich/web`에서 아직 로컬 프리미티브를 쓰는 11개 파일을 "follow-up slices에서 마이그레이션 예정"으로 표시하지만, 등록일이나 목표 시점이 없어 임시 허용목록이 그대로 굳어질 위험이 이미 코드에 남아 있다.
 
 ## Open ideas
 
@@ -44,13 +45,13 @@ when the consumer graph and upgrade surface are visible in one place.
 First slice: Generate a matrix of exported primitives vs downstream import
 sites, then attach a short upgrade checklist for each consumer repo.
 
-### 2026-04-13 - 내보내기 계약 스냅샷
+### 2026-04-13 - 내보내기 계약 스냅샷 (+ drift 허용목록 소진 추적)
 
 Status: proposed
 
-Why now: 공유 UI는 `keelim-vercel`과 `rich/web` 둘 다에 붙어 있어서, 공개 export와 theme 파일이 깨지면 소비자 쪽 회귀가 바로 생긴다.
+Why now: 공유 UI는 `keelim-vercel`과 `rich/web` 둘 다에 붙어 있어서, 공개 export와 theme 파일이 깨지면 소비자 쪽 회귀가 바로 생긴다. 여기에 더해 `scripts/all-web-ui-rich-allowed-drift.txt`가 `verify-all-web-ui-integration.sh`의 false positive를 억제하려고 `rich/web` 11개 파일을 정적으로 허용하고 있는데, 등록일·목표 마이그레이션 시점이 없어 계약 스냅샷 없이는 이 허용목록이 소진되고 있는지 그대로 굳어지고 있는지 알 수 없다.
 
-First slice: 배포 전 `all-web-ui`의 공개 export 목록과 실제 downstream import 지점을 비교하는 manifest를 만들고, 시각/접근성 검사와 함께 계약 변경을 표시한다.
+First slice: 배포 전 `all-web-ui`의 공개 export 목록과 실제 downstream import 지점을 비교하는 manifest를 만들고, 시각/접근성 검사와 함께 계약 변경을 표시한다. 같은 리포트에 `all-web-ui-rich-allowed-drift.txt` 각 항목의 등록일과 경과일을 더해, 오래 방치된 허용 항목을 우선 마이그레이션 후보로 표시한다.
 
 ### 2026-04-14 - 토큰 폐기 예고판
 

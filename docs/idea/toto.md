@@ -1,6 +1,6 @@
 # toto
 
-Last reviewed: 2026-05-16 KST
+Last reviewed: 2026-07-23 KST
 
 ## Signals
 
@@ -8,6 +8,7 @@ Last reviewed: 2026-05-16 KST
 - `bun run bootstrap`, `bun run seed`, `bun run dev`, `bun run test`, `bun run compile`, `bun run verify`가 이미 실행 경로를 정해준다.
 - wheel 배포보다 로컬 editable checkout 실행이 현재 계약이라서, 경로와 seed 재현성 검증이 더 중요하다.
 - KBO win1loss 대시보드는 시즌/경기 데이터가 조금만 흔들려도 표가 달라지므로, 시드와 공급자 경계를 분리해 두는 편이 좋다.
+- `git ls-files --stage`로 확인한 결과 `toto` gitlink(`5897ef44`)가 루트 인덱스에 이미 커밋돼 있고 `docs/CODEMAPS/SUBMODULES.md`도 정상 등록 상태로 기록한다 — 이전 라운드의 "gitlink 미커밋" 우려는 해소됐다.
 
 ## Open ideas
 
@@ -35,10 +36,10 @@ Why now: 이 저장소의 핵심 가치는 수정이 아니라 재현이므로, 
 
 First slice: 앱 부팅, 홈 임포트, `verify` 흐름을 묶은 스모크 테스트를 추가하고, 비정상 쓰기 경로나 경로 드리프트가 있으면 실패하게 만든다.
 
-### 2026-04-25 - gitlink 커밋 및 재현 가능한 클론 게이트
+### 2026-04-25 - gitlink 커밋 확인 완료 → 재현 가능한 클론 CI 게이트
 
-Status: proposed
+Status: in-progress (gitlink 커밋 확인 2026-07-23)
 
-Why now: `toto`가 `.gitmodules`에 선언돼 있지만 gitlink가 루트 인덱스에 커밋되지 않아서, 신규 클론 시 디렉터리가 없고 `bun run dev:toto`·`bun run verify:toto`를 실행할 수 없다. 재현성을 핵심 가치로 내세운 프로젝트에서 이 비대칭은 가장 먼저 해소해야 할 운영 위험이다.
+Why now: `git ls-files --stage` 확인 결과 `toto` gitlink(`5897ef44`)가 루트 인덱스에 이미 커밋돼 있어 최초 우려("gitlink 미커밋으로 신규 클론 시 디렉터리 없음")는 해소됐다. 다만 `git submodule update --init toto` → `bun run bootstrap` → `bun run verify:toto` 순서가 신규 클론에서 실제로 CI 그린으로 도는지는 아직 실행 로그로 확인되지 않았다.
 
-First slice: 안정 커밋을 골라 gitlink를 루트 인덱스에 커밋하고, `git submodule update --init toto` → `bun run bootstrap` → `bun run verify:toto` 순서가 CI에서 그린으로 돌아오면 pinning 완료로 간주한다.
+First slice: CI에 신규 클론 시나리오(gitlink 초기화부터 `bun run verify:toto`까지)를 별도 게이트로 추가하고, 통과 로그를 이 항목에 링크해 pinning 완료를 최종 확정한다.

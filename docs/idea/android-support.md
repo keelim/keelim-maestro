@@ -1,6 +1,6 @@
 # android-support
 
-Last reviewed: 2026-05-16 KST
+Last reviewed: 2026-07-23 KST
 
 ## Signals
 
@@ -8,6 +8,7 @@ Last reviewed: 2026-05-16 KST
 - 실패 비용이 큰 릴리스 작업을 다루며, 문제를 늦게 발견할수록 영향이 커진다.
 - track, staged rollout, release notes, artifact 입력이 이미 노출되어 있다.
 - `action.yml`, README, `src/*`, `lib/index.js`가 함께 맞아야 하는 번들형 Action이다.
+- `AGENTS.md` NOTES에 `manual-build.yml`이 버전 갱신에 `awk`/`sed`를 쓰고 캐시 키에 정의되지 않은 `${{ matrix.bun }}` 매트릭스 변수를 참조한다고 이미 기록돼 있어, 릴리스 CI 자체의 취약점이 문서로는 알려져 있지만 아직 고쳐지지 않았다.
 
 ## Open ideas
 
@@ -56,3 +57,11 @@ Status: proposed
 Why now: 이 action은 릴리스 핵심 경로를 직접 건드리는데, 현재 테스트는 입력 검증에 비해 실제 Play API 편집 생명주기 검증이 약해서 사소한 변경도 실배포까지 밀려갈 수 있다.
 
 First slice: sign/upload/internal sharing/staged rollout 응답을 대표 fixture로 기록하고, 이를 CI에서 재생해 Play Console에 닿지 않고도 전체 edit lifecycle을 검증한다.
+
+### 2026-07-23 - 릴리스 CI 스크립트 취약점 정리
+
+Status: proposed
+
+Why now: `AGENTS.md`가 `manual-build.yml`이 버전 갱신에 `awk`/`sed`를 쓰는 취약한 방식이고 캐시 키에 정의되지 않은 `${{ matrix.bun }}` 매트릭스 변수를 참조한다고 이미 기록해 뒀다. 캐시 미스나 조용한 버전 갱신 실패는 실제 배포가 걸리기 전까지 드러나지 않는다.
+
+First slice: `manual-build.yml`의 캐시 키를 실제 존재하는 매트릭스 변수로 고치고, 버전 갱신 스텝을 `awk`/`sed` 대신 검증 가능한 스크립트(최소한 dry-run diff 출력 포함)로 바꿔 실패를 빌드 초기에 드러낸다.
