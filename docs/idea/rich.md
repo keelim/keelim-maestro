@@ -1,6 +1,6 @@
 # rich
 
-Last reviewed: 2026-05-16 KST
+Last reviewed: 2026-07-24 KST
 
 ## Signals
 
@@ -13,6 +13,10 @@ Last reviewed: 2026-05-16 KST
   to the existing backend/workflow reliability surface.
 - `docs/words/AGENTS.md` defines a raw-source/wiki/schema split for an investing
   LLM wiki, so durable review insights can be routed back into knowledge pages.
+- `rich`는 로컬 Kubernetes(Skaffold)에서 구동되고, MCP 호출은 전부 `agentgateway`
+  (`http://localhost:3000/mcp`, 상시 실행 요구)를 거친다(`docs/CODEMAPS/architecture.md`).
+  이 로컬 인프라 의존성은 Supabase/Google/GitHub 같은 외부 연동과는 다른 종류의 단일
+  장애점이라서, 기존 운영 신뢰성 아이디어와 함께 다뤄야 한다.
 
 ## Open ideas
 
@@ -64,10 +68,16 @@ Status: proposed
 
 Why now: `rich` depends on Supabase, Google, GitHub CLI, and pykrx/KRX access,
 so auth or connection drift needs to be visible separately from stale data or
-failed runs.
+failed runs. `rich`'s local Skaffold-managed Kubernetes stack and the
+`agentgateway` MCP endpoint it's routed through (documented as "always keep
+running" in `docs/CODEMAPS/architecture.md`) are a second, distinct class of
+dependency — a local infra outage looks different from an upstream API/auth
+failure and needs its own signal.
 
 First slice: Add a compact health panel that shows last-success time, reconnect
-state, and repair action for each upstream integration.
+state, and repair action for each upstream integration, plus a row for the
+local `agentgateway`/Skaffold stack (running vs. standby vs. down) so infra
+outages aren't mistaken for upstream data problems.
 
 ### 2026-04-13 - 공공데이터 카탈로그 변경 피드
 

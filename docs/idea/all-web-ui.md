@@ -1,6 +1,6 @@
 # all-web-ui
 
-Last reviewed: 2026-05-16 KST
+Last reviewed: 2026-07-24 KST
 
 ## Signals
 
@@ -10,6 +10,9 @@ Last reviewed: 2026-05-16 KST
   migration between sibling-source imports and package exports.
 - Shared UI releases create coupling, so downstream impact, export contracts,
   and discoverability matter together.
+- `scripts/report-shared-ui-contract.sh`와 `scripts/verify-all-web-ui-integration.sh`
+  (`--full` 포함)가 이제 provider/consumer 계약 검증과 소비자 빌드 확인을 커버하지만,
+  둘 다 root에 `.github/workflows`가 없어 로컬 수동 실행에만 의존한다.
 
 ## Open ideas
 
@@ -44,13 +47,23 @@ when the consumer graph and upgrade surface are visible in one place.
 First slice: Generate a matrix of exported primitives vs downstream import
 sites, then attach a short upgrade checklist for each consumer repo.
 
-### 2026-04-13 - 내보내기 계약 스냅샷
+### 2026-04-13 - 내보내기 계약 스냅샷 & 다운스트림 빌드 카나리
 
-Status: proposed
+Status: in-progress — 스크립트로 구현됨, CI 연결 남음
 
-Why now: 공유 UI는 `keelim-vercel`과 `rich/web` 둘 다에 붙어 있어서, 공개 export와 theme 파일이 깨지면 소비자 쪽 회귀가 바로 생긴다.
+Why now: 공유 UI는 `keelim-vercel`과 `rich/web` 둘 다에 붙어 있어서, 공개 export·theme
+파일·빌드가 깨지면 소비자 쪽 회귀가 바로 생긴다.
 
-First slice: 배포 전 `all-web-ui`의 공개 export 목록과 실제 downstream import 지점을 비교하는 manifest를 만들고, 시각/접근성 검사와 함께 계약 변경을 표시한다.
+Evidence: `scripts/report-shared-ui-contract.sh`(provider/consumer 계약 테이블,
+read-only)와 `scripts/verify-all-web-ui-integration.sh --full`(all-web-ui/rich-web/
+keelim-vercel의 typecheck·test·build까지 실행하는 엄격 게이트)이 이미 이 아이디어의
+first slice를 구현했다. 두 스크립트 모두 `all-web-ui`의 export/manifest/style
+entrypoint와 소비자 dependency·lockfile·import 경계를 함께 검사한다.
+
+First slice (남은 것): 두 스크립트를 CI 워크플로로 승격해 PR마다 자동 실행하고, 실패
+시 소비자 영향 요약을 코멘트로 남긴다. 시각 회귀는 여전히 스크립트 자체가 "MANUAL no
+automated visual gate"로 보고하므로 아래 "Visual regression and accessibility gate
+pack" 항목으로 이어진다.
 
 ### 2026-04-14 - 토큰 폐기 예고판
 
@@ -59,11 +72,3 @@ Status: proposed
 Why now: `all-web-ui`의 토큰과 프리미티브는 `keelim-vercel`과 `rich/web` 둘 다에 붙어 있어서, 이름을 바꾸거나 내릴 때 소비자 경로를 먼저 보여주지 않으면 회귀가 늦게 드러난다.
 
 First slice: 카탈로그에서 deprecated export를 표시하고, downstream import 지점을 수집해 교체 경로와 함께 보여주는 얇은 마이그레이션 표를 만든다.
-
-### 2026-04-18 - 다운스트림 빌드 카나리
-
-Status: proposed
-
-Why now: `all-web-ui`는 실제로 두 개의 다운스트림 앱에 붙어 있으니, export나 theme 파일 변경이 배포 전에 빌드 단위에서 먼저 깨지는지 확인해야 회귀 비용이 낮아진다.
-
-First slice: `keelim-vercel`과 `rich/web`이 쓰는 import 경로를 그대로 재현하는 작은 fixture 또는 매트릭스 빌드를 만들고, 타입체크/빌드 실패를 소비자 영향 경고로 보여준다.

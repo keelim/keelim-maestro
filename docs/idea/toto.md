@@ -1,6 +1,6 @@
 # toto
 
-Last reviewed: 2026-05-16 KST
+Last reviewed: 2026-07-24 KST
 
 ## Signals
 
@@ -35,10 +35,14 @@ Why now: 이 저장소의 핵심 가치는 수정이 아니라 재현이므로, 
 
 First slice: 앱 부팅, 홈 임포트, `verify` 흐름을 묶은 스모크 테스트를 추가하고, 비정상 쓰기 경로나 경로 드리프트가 있으면 실패하게 만든다.
 
+## Resolved
+
 ### 2026-04-25 - gitlink 커밋 및 재현 가능한 클론 게이트
 
-Status: proposed
+Status: resolved (2026-07-24)
 
-Why now: `toto`가 `.gitmodules`에 선언돼 있지만 gitlink가 루트 인덱스에 커밋되지 않아서, 신규 클론 시 디렉터리가 없고 `bun run dev:toto`·`bun run verify:toto`를 실행할 수 없다. 재현성을 핵심 가치로 내세운 프로젝트에서 이 비대칭은 가장 먼저 해소해야 할 운영 위험이다.
-
-First slice: 안정 커밋을 골라 gitlink를 루트 인덱스에 커밋하고, `git submodule update --init toto` → `bun run bootstrap` → `bun run verify:toto` 순서가 CI에서 그린으로 돌아오면 pinning 완료로 간주한다.
+Resolution evidence: `git ls-files --stage`가 `160000 5897ef44... toto`를 보여주고,
+`docs/CODEMAPS/SUBMODULES.md`와 `docs/CODEMAPS/keelim-maestro.md`도 `toto`를 pinned
+`5897ef44` 상태의 등록 submodule 겸 active Bun/uv workspace member로 기록한다. gitlink는
+이제 루트 인덱스에 커밋되어 있어 신규 클론에서 `git submodule update --init toto` →
+`bun run bootstrap` → `bun run verify:toto` 경로를 그대로 밟을 수 있다. 이 항목은 닫는다.
