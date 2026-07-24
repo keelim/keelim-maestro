@@ -1143,3 +1143,64 @@ result.
 - Small change: bug-scan reports should label `sandboxPermission` separately
   from `testFailure` and only propose code changes after an unsandboxed or
   approved rerun reproduces the failure.
+
+## 2026-07-24 Follow-Up Evidence
+
+- Product Design preflight remained callable and still had no saved context:
+  `$CODEX_HOME/state/plugins/product-design/user-context.md` returned
+  `exists=false`.
+- Session mining since the previous automation marker found six JSONL files,
+  but only three logical work streams after grouping by `session_id`: the prior
+  project-management sweep, a Rich daily market snapshot producer, and the
+  current project-management sweep. Guardian approval-review child sessions
+  were supporting process evidence only.
+- The Rich producer recorded `2026-07-23` as
+  `PYKRX_DAILY_SNAPSHOT_UNAVAILABLE` / `PYKRX_KRX_TRANSPORT_ERROR`; direct
+  store verification still ended at `2026-07-22`, and the `rich` worktree
+  remained clean.
+- Process hygiene stayed a verified no-op: `tools/codex-hygiene/codex-hygiene.sh
+  --dry-run` needed process-inspection permission, then reported no runaway
+  native-hook scans, `node_repl=0`, and stdio app-server `count=0`; the
+  agentgateway Kubernetes port-forward dry-run found no match.
+- `scripts/local-automation.sh status` returned non-zero because local
+  Kubernetes at `127.0.0.1:26443` was refused, even though its listener checks
+  reported no listeners on the relevant app ports and GBrain docs were present.
+- The recent-commit proof surface contained only the prior sweep commits:
+  root `19cb36d` and Rich `be1a4db`. `rtk git show --check` hit an rtk option
+  wrapper incompatibility, while `rtk proxy git show --check --no-ext-diff`
+  passed for both commits.
+
+## 2026-07-24 Improvements
+
+98. Preserve source-unavailable producer outcomes as explicit no-commit states.
+- Evidence: the Rich producer for `2026-07-23` recorded
+  `PYKRX_DAILY_SNAPSHOT_UNAVAILABLE` / `PYKRX_KRX_TRANSPORT_ERROR`, store dates
+  still ended at `2026-07-22`, and the `rich` worktree was clean.
+- Small change: producer-to-sweeper handoffs should emit
+  `sourceUnavailableNoCommit` with `attemptedDate`, `sourceReason`,
+  `storeVerifiedThrough`, and `repoDirty=false`.
+
+99. Mark the previous automation thread as already consumed in session mining.
+- Evidence: the session window included
+  `rollout-2026-07-23T09-02-25-019f8c47-d62d-7830-a11c-702fc6498c8b.jsonl`,
+  which already produced root commit `19cb36d` and Rich commit `be1a4db`.
+- Small change: recurring session analysis should carry
+  `lastRunThreadId` / `consumedByCommit` and exclude that logical thread from
+  new topic counts unless it is being audited.
+
+100. Split local automation status into per-component outcomes.
+- Evidence: `scripts/local-automation.sh status` exited non-zero on refused
+  local Kubernetes access, while port listener checks still showed no listeners
+  on `8000`, `3001`, `5678`, `3000`, or `15000`, and GBrain reported version
+  plus local docs presence.
+- Small change: local automation dashboards should report `kubernetes`,
+  `listeners`, and `gbrain` independently so one offline control plane does not
+  obscure usable process-hygiene signals.
+
+101. Distinguish tool-wrapper failures from repository verification failures.
+- Evidence: `rtk git show --check --no-ext-diff` failed with incompatible
+  option handling, but `rtk proxy git show --check --no-ext-diff` passed for
+  root `19cb36d` and Rich `be1a4db`.
+- Small change: verification runners should retry known option-sensitive git
+  checks through `rtk proxy` and label the first failure as `toolWrapper`, not
+  `repoCheck`.
