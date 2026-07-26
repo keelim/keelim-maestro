@@ -1204,3 +1204,61 @@ result.
 - Small change: verification runners should retry known option-sensitive git
   checks through `rtk proxy` and label the first failure as `toolWrapper`, not
   `repoCheck`.
+
+## 2026-07-26 Follow-Up Evidence
+
+- Product Design saved context was still absent:
+  `$CODEX_HOME/state/plugins/product-design/user-context.md` did not exist.
+- Session mining since the previous automation marker found the prior project
+  automation, a Threads `@bullstory1` collection/analysis stream, a Rich
+  Product Design planning stream for a PC-only Mandalart page, a Knowledge
+  Vault Claude Cookbook research stream, the current project automation, and
+  guardian approval-review child sessions.
+- The Threads stream moved through two different evidence states: logged-in
+  Chrome collection reported 271 recent posts while still loading older
+  periods, and a later deck-generation plan referenced 2,454 input rows, zero
+  duplicate URLs, 597 metric samples, and an 11-slide final output target.
+- The Rich Product Design stream invoked the Product Design router for a
+  no-login, no-mobile, 1440px PC single-page Mandalart workflow: goal input,
+  eight generated areas, up to three focus picks, action output, and copy.
+- The Knowledge Vault stream analyzed the official Claude Cookbook page as 84
+  cookbook entries and saved one source note plus index/log updates, while
+  explicitly avoiding a new concept note because existing agent-harness and
+  token-budget notes covered the abstraction.
+- Naive session grep over the same window produced massive noise from base
+  instructions and generated-image base64 payloads; structured JSONL extraction
+  was needed to recover usable user/task evidence.
+
+## 2026-07-26 Improvements
+
+102. Preserve Product Design brief constraints before implementation.
+- Evidence: the Rich Product Design session fixed the target as a PC-only,
+  one-screen Mandalart flow inside Rich admin before any code work.
+- Small change: Product Design handoffs should carry `platform=desktop`,
+  `mobileOutOfScope=true`, `integrationTarget=richAdmin`, and
+  `oneScreenGoalToResult=true` so later implementation does not re-open the
+  scope.
+
+103. Split social collection progress from finalized analysis datasets.
+- Evidence: the `@bullstory1` Chrome collection reported 271 recent posts while
+  still loading older periods, while a later analysis/deck plan referenced
+  2,454 input rows, zero duplicate URLs, and 597 metric samples.
+- Small change: social analysis jobs should expose `collectionStatus`,
+  `rowsCollected`, `dedupedUrlCount`, `metricsSampleCount`, and
+  `artifactPath` separately before claiming coverage or producing slides.
+
+104. Mine sessions from structured JSONL fields, not broad text grep.
+- Evidence: broad grep over 2026-07-25 sessions matched base instructions and
+  generated-image base64 payloads, obscuring the actual user tasks.
+- Small change: recurring session analysis should read `session_meta`,
+  `response_item.role=user`, `event_msg`, and final assistant messages
+  directly, excluding base instructions, world state, generated images, and
+  guardian-only child sessions by default.
+
+105. Record research-note reuse decisions in Vault workflows.
+- Evidence: the Claude Cookbook analysis saved a source note and log/index
+  updates, then explicitly skipped a new concept note because existing
+  agent-harness and token-budget concepts were sufficient.
+- Small change: source-analysis workflows should include `reusedConcepts` and
+  `newConceptCreated=false` in their log entry so future research does not
+  duplicate abstractions.
