@@ -1,6 +1,6 @@
 # all-web-ui
 
-Last reviewed: 2026-05-16 KST
+Last reviewed: 2026-07-26 KST
 
 ## Signals
 
@@ -60,10 +60,10 @@ Why now: `all-web-ui`의 토큰과 프리미티브는 `keelim-vercel`과 `rich/w
 
 First slice: 카탈로그에서 deprecated export를 표시하고, downstream import 지점을 수집해 교체 경로와 함께 보여주는 얇은 마이그레이션 표를 만든다.
 
-### 2026-04-18 - 다운스트림 빌드 카나리
+### 2026-04-18 - 다운스트림 빌드 카나리 (개정: CI 게이트 격차로 초점 이동)
 
 Status: proposed
 
-Why now: `all-web-ui`는 실제로 두 개의 다운스트림 앱에 붙어 있으니, export나 theme 파일 변경이 배포 전에 빌드 단위에서 먼저 깨지는지 확인해야 회귀 비용이 낮아진다.
+Why now: `scripts/verify-all-web-ui-integration.sh`, `bun run report:shared-ui`, `bun run typecheck:web`이 이미 존재하고, `scripts/all-web-ui-rich-allowed-drift.txt`가 `rich/web` 파일 11개를 로컬 프리미티브 사용 allowlist로 관리하고 있다. 하지만 이번 점검에서 루트에 `.github/workflows`가 없다는 것을 확인했다 — 즉 이 검증들은 전부 수동 실행에 의존하고, PR 게이트로 자동 실행되지 않는다. 도구는 이미 있는데 강제력이 없는 상태다.
 
-First slice: `keelim-vercel`과 `rich/web`이 쓰는 import 경로를 그대로 재현하는 작은 fixture 또는 매트릭스 빌드를 만들고, 타입체크/빌드 실패를 소비자 영향 경고로 보여준다.
+First slice: `verify-all-web-ui-integration.sh --full`과 `bun run typecheck:web`을 실행하는 CI 워크플로를 추가하고, `all-web-ui-rich-allowed-drift.txt`의 11개 파일을 우선순위별로 나눠 마이그레이션 진행률(allowlist 잔여 개수)을 매 실행마다 표시한다.
