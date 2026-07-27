@@ -1262,3 +1262,63 @@ result.
 - Small change: source-analysis workflows should include `reusedConcepts` and
   `newConceptCreated=false` in their log entry so future research does not
   duplicate abstractions.
+
+## 2026-07-27 Follow-Up Evidence
+
+- Product Design preflight remained callable and still had no saved context:
+  `$CODEX_HOME/state/plugins/product-design/user-context.md` returned
+  `exists=false`.
+- Session mining since the previous automation marker found 16 raw JSONL files
+  and eight logical sessions after grouping by `session_id`. Direct signals were
+  prior project automation, app-Nanda platform work, release/260727 push work,
+  an app-Nanda AdView repair, an agentgateway MCP liveness check, the
+  keelim-plugin SkillOpt weekly review, and the current project automation.
+- The app-Nanda AdView repair session started from the user report
+  "App-nanda adview 가 사라졌다" and ended with the route restored through
+  `MainActivity -> WellnessRoute -> WellnessScreen -> RoutineAdBanner`, with
+  `testDebugUnitTest`, `assembleDebug`, and `git diff --check` reported as
+  passing. The current sweep found the same three files dirty and preserved them
+  as `fc10e72 fix(nanda): restore routine ad banner flow`.
+- The release/260727 session pushed `all` `develop` to `63bb9d082`, while
+  reporting PR `#2110` as closed and still pointing at an earlier SHA. The same
+  handoff separated `compileDebugKotlin` success from an `assembleDebug` D8
+  disk-space failure and noted cleanup of a damaged Gradle cache.
+- The agentgateway MCP check found configuration still pointing at
+  `http://localhost:3000/mcp`, but port `3000` had no listener, the request was
+  refused, and no agentgateway tools were exposed in that session.
+- Process hygiene stayed a verified no-op: `tools/codex-hygiene/codex-hygiene.sh
+  --dry-run` reported no runaway native-hook scans, `node_repl=0`, and stdio
+  app-server `count=0`.
+
+## 2026-07-27 Improvements
+
+106. Carry user bugfix patches into the next sweeper as commit-ready units.
+- Evidence: the app-Nanda AdView repair session restored the banner route and
+  verified it, but the exact three-file patch remained dirty until this sweep
+  committed it as `fc10e72`.
+- Small change: bugfix handoffs should emit `commitReadyPathspecs`,
+  `verificationCommands`, `needsSweeperCommit=true`, and later
+  `consumedByCommit` so follow-up automation can commit without rediscovery.
+
+107. Split release-push state from build/package readiness.
+- Evidence: release/260727 pushed `develop` to `63bb9d082`, but PR `#2110` was
+  closed and stale, and `assembleDebug` failed separately on local disk space
+  after `compileDebugKotlin` passed.
+- Small change: release reports should expose `branchPushed`, `prState`,
+  `prHeadMatches`, `compileGate`, `packageGate`, and `environmentCleanup`
+  instead of a single release-ready flag.
+
+108. Report MCP liveness as configured, listening, and callable.
+- Evidence: the agentgateway MCP check had a configured URL, but no listener on
+  port `3000`, a refused request, and no exposed tools.
+- Small change: MCP status cards should carry `configuredUrl`, `listener`,
+  `initializeOk`, `toolsListed`, and `failureKind=serverNotRunning` so a saved
+  config is not mistaken for a running service.
+
+109. Keep guardian and approval sessions attached to their parent workstream.
+- Evidence: the 16 raw files collapsed to eight logical sessions, and guardian
+  approval transcripts around Gradle/GitHub actions were process evidence, not
+  independent product topics.
+- Small change: session mining should group by parent `session_id`, attach
+  approval rows as `approvalEvidence`, and exclude them from Product Design
+  topic counts by default.
