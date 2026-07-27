@@ -1,6 +1,6 @@
 # all
 
-Last reviewed: 2026-05-16 KST
+Last reviewed: 2026-07-27 KST
 
 ## Signals
 
@@ -10,6 +10,9 @@ Last reviewed: 2026-05-16 KST
 - Release and quality risk scale quickly when several apps move in parallel.
 - Module-level `AGENTS.md` files define concrete contracts for navigation,
   repositories, KMP entities, Compose components, and Gradle convention plugins.
+- 루트 `AGENTS.md`는 디자인 시스템 마이그레이션 범위를 `core:designsystem`을 canonical
+  source로, `core:component`를 호환 래퍼 계층으로 못박아, drift 대시보드가 검사할
+  경계를 이미 정의해 두었다.
 
 ## Open ideas
 
@@ -48,7 +51,7 @@ Status: proposed
 
 Why now: 루트와 모듈별 `AGENTS.md`에 날짜·금액·타이머 포맷, typed navigation, repository 경계, KMP entity, convention plugin 규칙이 흩어져 있어서 릴리스 전에 drift를 한 번에 봐야 한다.
 
-First slice: 실제 소스 트리의 모듈별 `AGENTS.md` 규칙과 알려진 마이그레이션 대상 파일을 함께 인덱싱해 위반 후보와 영향 모듈을 보여주는 리포트를 만든다.
+First slice: 실제 소스 트리의 모듈별 `AGENTS.md` 규칙과 알려진 마이그레이션 대상 파일을 함께 인덱싱해 위반 후보와 영향 모듈을 보여주는 리포트를 만든다. 우선순위 대상은 루트 `AGENTS.md`의 Phase 1 목록과 일치시킨다: 날짜/시간 — `app-arducon`의 `MainScreen.kt`·`StatsScreen.kt`, `core/data`의 `NotificationRepositoryImpl.kt`, `app-comssa`의 `EcocalSection.kt`·`MarketNotificationScreen.kt`; 금액/숫자 — `app-comssa`의 `CalculatorSubScreens.kt`, `core/common`의 `MoneyExt.kt`, `core/component`의 `TipTimeScreen.kt`; 타이머 — `core/component`의 `NumberPickerList.kt`, `app-nanda`의 `MedicationScreen.kt`·`NutrientTimerViewModel.kt`, `app-my-grade`의 `TimerViewModel.kt`.
 
 ### 2026-04-15 - 빌드 병목 열지도와 CI 분할 계획기
 

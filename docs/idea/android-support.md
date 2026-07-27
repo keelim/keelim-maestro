@@ -1,6 +1,6 @@
 # android-support
 
-Last reviewed: 2026-05-16 KST
+Last reviewed: 2026-07-27 KST
 
 ## Signals
 
@@ -8,6 +8,9 @@ Last reviewed: 2026-05-16 KST
 - 실패 비용이 큰 릴리스 작업을 다루며, 문제를 늦게 발견할수록 영향이 커진다.
 - track, staged rollout, release notes, artifact 입력이 이미 노출되어 있다.
 - `action.yml`, README, `src/*`, `lib/index.js`가 함께 맞아야 하는 번들형 Action이다.
+- README에 `DEBUG_ACTION=true`가 sign 모드에서 실제 서명을 건너뛰고 조용히 반환하는
+  로컬 전용 이스케이프 해치로 문서화되어 있고, "프로덕션에서는 설정하지 말 것"이라는
+  경고만 있을 뿐 강제하는 코드 경로는 없다.
 
 ## Open ideas
 
@@ -56,3 +59,11 @@ Status: proposed
 Why now: 이 action은 릴리스 핵심 경로를 직접 건드리는데, 현재 테스트는 입력 검증에 비해 실제 Play API 편집 생명주기 검증이 약해서 사소한 변경도 실배포까지 밀려갈 수 있다.
 
 First slice: sign/upload/internal sharing/staged rollout 응답을 대표 fixture로 기록하고, 이를 CI에서 재생해 Play Console에 닿지 않고도 전체 edit lifecycle을 검증한다.
+
+### 2026-07-27 - 디버그 우회 플래그 가드
+
+Status: proposed
+
+Why now: README에 문서화된 `DEBUG_ACTION=true`는 sign 모드 진입 시 실제 서명 없이 조용히 반환하는 디버그 전용 이스케이프 해치인데, 이를 막는 런타임 가드가 없어 프로덕션 워크플로우 환경 변수에 실수로 남으면 서명되지 않은 아티팩트가 그대로 통과할 수 있다.
+
+First slice: sign 모드 진입부에서 `DEBUG_ACTION`이 설정된 경우 실행 컨텍스트(태그 push, release 워크플로우 등 프로덕션 트리거)를 확인해 프로덕션 트리거에서는 실패하도록 막고, 로컬/수동 디버그 실행에서만 명시적으로 통과시킨다.
