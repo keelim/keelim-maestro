@@ -1,6 +1,6 @@
 # toto
 
-Last reviewed: 2026-05-16 KST
+Last reviewed: 2026-07-28 KST
 
 ## Signals
 
@@ -35,10 +35,10 @@ Why now: 이 저장소의 핵심 가치는 수정이 아니라 재현이므로, 
 
 First slice: 앱 부팅, 홈 임포트, `verify` 흐름을 묶은 스모크 테스트를 추가하고, 비정상 쓰기 경로나 경로 드리프트가 있으면 실패하게 만든다.
 
-### 2026-04-25 - gitlink 커밋 및 재현 가능한 클론 게이트
+### 2026-04-25 - gitlink pinning 검증 파이프라인 (업데이트: 2026-07-28)
 
-Status: proposed
+Status: in-progress — gitlink는 이미 커밋됨, CI 파이프라인 그린 확인만 남음
 
-Why now: `toto`가 `.gitmodules`에 선언돼 있지만 gitlink가 루트 인덱스에 커밋되지 않아서, 신규 클론 시 디렉터리가 없고 `bun run dev:toto`·`bun run verify:toto`를 실행할 수 없다. 재현성을 핵심 가치로 내세운 프로젝트에서 이 비대칭은 가장 먼저 해소해야 할 운영 위험이다.
+Why now: `git ls-files --stage`와 `.reports/codemap-diff.txt`(2026-07-21 스냅샷)로 확인한 결과 `toto` gitlink(`5897ef44...`, `main`)가 루트 인덱스에 이미 커밋되어 있어 원래 우려했던 "신규 클론에 디렉터리가 없는" 위험은 해소됐다. 남은 위험은 `git submodule update --init toto` → `bun run bootstrap` → `bun run verify:toto` 순서가 실제 CI에서 끝까지 그린으로 돌아오는지 아직 검증되지 않았다는 점이다.
 
-First slice: 안정 커밋을 골라 gitlink를 루트 인덱스에 커밋하고, `git submodule update --init toto` → `bun run bootstrap` → `bun run verify:toto` 순서가 CI에서 그린으로 돌아오면 pinning 완료로 간주한다.
+First slice: 신규 클론(또는 클론과 동등한 CI 잡)에서 `git submodule update --init toto` → `bun run bootstrap` → `bun run verify:toto`를 실행하고, 어느 단계에서든 실패하면 그 지점을 로그로 남겨 pinning 완료 여부를 최종 확정한다.

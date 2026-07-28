@@ -1,6 +1,6 @@
 # rich
 
-Last reviewed: 2026-05-16 KST
+Last reviewed: 2026-07-28 KST
 
 ## Signals
 
@@ -58,16 +58,23 @@ First slice: Persist every run/retry/failure into a normalized log and render a
 timeline that links each event back to the affected workflow and recovery
 action.
 
-### 2026-04-12 - Integration health console
+### 2026-04-12 - Integration health console (확장: 2026-07-28)
 
 Status: proposed
 
 Why now: `rich` depends on Supabase, Google, GitHub CLI, and pykrx/KRX access,
 so auth or connection drift needs to be visible separately from stale data or
-failed runs.
+failed runs. `docs/CODEMAPS/backend.md` also documents two more live services
+under Open Trading API — `open-trading-api/strategy_builder/` and
+`open-trading-api/backtester/`, started via `bun run dev:strategy-builder` /
+`bun run dev:backtester` — that currently have no shared health surface with
+the admin integrations above, so algo-trading operational risk stays invisible
+next to data/auth risk.
 
 First slice: Add a compact health panel that shows last-success time, reconnect
-state, and repair action for each upstream integration.
+state, and repair action for each upstream integration, and extend the same
+panel to report process/health status for the strategy builder and backtester
+services.
 
 ### 2026-04-13 - 공공데이터 카탈로그 변경 피드
 
