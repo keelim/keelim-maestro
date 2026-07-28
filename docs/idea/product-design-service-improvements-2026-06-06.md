@@ -1322,3 +1322,56 @@ result.
 - Small change: session mining should group by parent `session_id`, attach
   approval rows as `approvalEvidence`, and exclude them from Product Design
   topic counts by default.
+
+## 2026-07-28 Follow-Up Evidence
+
+- Product Design saved context was still absent:
+  `$CODEX_HOME/state/plugins/product-design/user-context.md` had `exists=false`
+  from the Product Design `user_context_preflight.py` result.
+- Session mining since `2026-07-27T00:00:35Z` found 8 raw JSONL files: one
+  project-management automation, one `keelim-plugin` SkillOpt weekly review,
+  one Rich daily market snapshot automation, one memory-diff review, and three
+  approval-review child sessions.
+- The `keelim-plugin` SkillOpt weekly review completed local gates but did not
+  promote candidates: tracked status stayed clean, while ignored `.skillopt/`
+  report artifacts recorded 8 current `no-diff` checks and old-output diffs for
+  human review.
+- The Rich daily snapshot session skipped KRX-unavailable weekend dates
+  `2026-07-25` and `2026-07-26`, stored `as_of_date=2026-07-27`, and verified it
+  with `DailyMarketSnapshotStore().list_snapshot_dates()`.
+- The current project-management run turned that verified Rich SQLite change
+  into commit `2c50f30` after `DailyMarketSnapshotStore` readback and
+  `tests/test_daily_market_snapshot_store.py` plus
+  `tests/test_collect_daily_market_snapshot.py` passed.
+
+## 2026-07-28 Improvements
+
+110. Make Product Design context absence a first-class state.
+- Evidence: Product Design preflight again returned `status=missing` for
+  `user-context.md`, so the automation had to infer service opportunities from
+  sessions and repo artifacts.
+- Small change: Product Design research handoffs should carry
+  `savedContextStatus=missing` and `fallbackSources=[sessions, repoDocs]` instead
+  of treating missing saved context as an implicit empty brief.
+
+111. Separate SkillOpt candidate staging from promotion.
+- Evidence: the SkillOpt weekly review wrote ignored `.skillopt/` smoke and
+  inspect reports, kept the tracked repo clean, and explicitly did not promote
+  candidates.
+- Small change: optimization review dashboards should expose
+  `candidateArtifacts`, `trackedDiffStatus`, and `promotionDecision` separately
+  so no-diff smoke results do not look like shipped skill changes.
+
+112. Model market-data collection as date-state transitions.
+- Evidence: the Rich snapshot automation reported weekend skips for
+  `2026-07-25` and `2026-07-26`, then stored and verified `2026-07-27`.
+- Small change: KRX data jobs should report `skippedDates`, `storedAsOfDate`,
+  and `verificationReadback` as separate fields before a data commit is marked
+  ready.
+
+113. Exclude approval-review child sessions from product-opportunity counts.
+- Evidence: three new raw JSONL files were guardian/approval reviews whose
+  final messages were only `allow` or risk JSON, not product work.
+- Small change: session mining should label `thread_source=subagent` approval
+  reviews as `governanceEvidence` and exclude them from UX or service backlog
+  frequency counts unless the request is explicitly about approval policy.
