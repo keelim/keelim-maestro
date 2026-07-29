@@ -1375,3 +1375,28 @@ result.
 - Small change: session mining should label `thread_source=subagent` approval
   reviews as `governanceEvidence` and exclude them from UX or service backlog
   frequency counts unless the request is explicitly about approval policy.
+
+## 2026-07-29 Follow-Up Evidence
+
+- Product Design saved context was still absent: `$CODEX_HOME/state/plugins/product-design/user-context.md` did not exist in the current project-management sweep.
+- Session mining since `2026-07-28T00:01:07Z` found six JSONL files: the prior project-management run, two approval-review children, the Rich KRX producer, and the current project-management sweep.
+- The Rich producer session `rollout-2026-07-28T21-01-08-019fa899-a087-7b60-a62b-8f2f0135248d.jsonl` first failed before Python startup on the uv cache path, then stored `as_of_date=2026-07-28`; `DailyMarketSnapshotStore().list_snapshot_dates()` confirmed `2026-07-28`.
+- The current project-management sweep consumed that dirty SQLite artifact and committed `rich` `2c031d3 data: update daily market snapshots` after the same store readback and seven focused snapshot tests.
+
+## 2026-07-29 Improvements
+
+114. Treat producer-owned artifacts as pending commit receipts.
+- Evidence: the Rich KRX producer stored `as_of_date=2026-07-28` in one session, while the next project-management sweep found only `.reports/krx-daily-market-snapshots.sqlite3` dirty and committed it as `2c031d3`.
+- Small change: producer reports should emit `artifactPath`, `asOfDate`, `readbackCommand`, `verificationCommand`, and `readyForSweeperCommit=true` so the project-management automation can consume the artifact without rediscovery.
+
+115. Separate environment access failures from collector failures.
+- Evidence: `uv run python scripts/collect_daily_market_snapshot.py` failed before Python startup on `$HOME/.cache/uv`, then the same collector succeeded with approved cache/network access and stored `2026-07-28`.
+- Small change: automation result cards should report `failurePhase=environmentAccess` separately from `collectorExit`, `storedDate`, and `readbackStatus`.
+
+116. Keep approval-review children out of session opportunity mining.
+- Evidence: two short post-run JSONL sessions only carried approval outcomes for process-table and KRX collector escalation, while the useful product/service signal lived in the Rich producer and project-management sessions.
+- Small change: session miners should classify approval-review children as `permissionEvidence` and exclude them from product opportunity counts by default.
+
+117. Make missing Product Design context actionable without blocking the sweep.
+- Evidence: `$CODEX_HOME/state/plugins/product-design/user-context.md` was still missing, but the sweep could still derive service improvements from session evidence and repository artifacts.
+- Small change: Product Design reports should show `contextState=missing`, `fallbackSources=[sessions,repository]`, and a short setup action instead of treating missing context as either success or hard failure.
