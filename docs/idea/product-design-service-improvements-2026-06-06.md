@@ -1400,3 +1400,25 @@ result.
 117. Make missing Product Design context actionable without blocking the sweep.
 - Evidence: `$CODEX_HOME/state/plugins/product-design/user-context.md` was still missing, but the sweep could still derive service improvements from session evidence and repository artifacts.
 - Small change: Product Design reports should show `contextState=missing`, `fallbackSources=[sessions,repository]`, and a short setup action instead of treating missing context as either success or hard failure.
+
+## 2026-07-30
+
+- Product Design preflight remained callable, but no saved context existed at `$CODEX_HOME/state/plugins/product-design/user-context.md`.
+- Session mining since `2026-07-29T00:02:06.651Z` found six raw JSONL files: project-management, Rich daily market snapshot production, and approval-review child sessions.
+- Rich's producer-owned KRX artifact was consumable by project management: `.reports/krx-daily-market-snapshots.sqlite3` contained `2026-07-29`, focused snapshot tests passed, and the artifact was committed as `ca81337`.
+
+118. Add a workspace-source badge before cross-repo analysis.
+- Evidence: the current project-management automation started in thin worktree `$CODEX_HOME/worktrees/7edd/keelim-maestro`, where `git status --short` showed only `?? .serena/`, then pivoted to hydrated checkout `$HOME/Desktop/keelim-maestro` where child repo state and `tools/` existed.
+- Small change: service-analysis reports should show `workspaceSource`, `reason`, `commitRoot`, and `ignoredThinState` before listing commit candidates.
+
+119. Report raw session files and logical streams separately.
+- Evidence: the session scan found six raw files, but only three useful logical streams after grouping parents and children: project-management automation, Rich KRX production, and approval-review evidence.
+- Small change: Product Design/session mining should emit `rawSessionFiles`, `logicalStreams`, `approvalOnlyStreams`, and `currentRunIncluded` so counts cannot be mistaken for product-opportunity volume.
+
+120. Make producer artifacts directly handoff-ready.
+- Evidence: Rich KRX production left a single changed artifact, `.reports/krx-daily-market-snapshots.sqlite3`; project management consumed it through `DailyMarketSnapshotStore().list_snapshot_dates()` plus `tests/test_daily_market_snapshot_store.py` and `tests/test_collect_daily_market_snapshot.py`, then committed `ca81337`.
+- Small change: producer final reports should include a structured `commitCandidate` with repo, paths, artifact date, and exact verification commands.
+
+121. Split process-hygiene access state from cleanup state.
+- Evidence: `tools/codex-hygiene/codex-hygiene.sh --dry-run` could not read the process table in sandbox, but the approved dry-run reported no runaway native-hook scans, `node_repl=0`, and stdio app-server `count=0`; `tools/agentgateway/scripts/stop-k8s-gateway.sh --dry-run` found no matching port-forward.
+- Small change: project-management summaries should report `processInspection=needsApproval|checked`, `cleanupNeeded`, and `cleanupApplied` separately.
