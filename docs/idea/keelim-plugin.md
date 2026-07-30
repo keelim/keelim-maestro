@@ -1,6 +1,6 @@
 # keelim-plugin
 
-Last reviewed: 2026-05-16 KST
+Last reviewed: 2026-07-30 KST
 
 ## Signals
 
@@ -23,18 +23,6 @@ Why now: As the skill set grows, a human-maintained README will become less
 First slice: Generate a catalog page from `skills/*/SKILL.md` metadata with
  quick filters for purpose, platform, and maintenance state.
 
-### 2026-04-12 - Skill smoke-test harness
-
-Status: proposed
-
-Why now: Cross-tool skills are valuable only if install paths, metadata, and
- basic workflow assumptions stay valid for both Codex and Claude, and there is
- no single check that compares install/readme metadata across both toolchains.
-
-First slice: Add a lightweight verifier that checks required files, install
- commands, and any declared agent metadata for each skill folder, then surface
-Codex/Claude install parity gaps before publishing.
-
 ### 2026-04-13 - 스킬 변경 영향 노트
 
 Status: proposed
@@ -43,13 +31,30 @@ Why now: Codex와 Claude가 같은 skill 폴더를 공유하므로, 작은 문�
 
 First slice: 변경된 `SKILL.md`와 에이전트 메타데이터를 묶어 변경 유형별 영향 요약을 만드는 changelog를 생성하고, 배포 전에 어떤 스킬을 다시 확인해야 하는지 표시한다.
 
-### 2026-04-14 - 스킬 프롬프트 회귀 코퍼스
+### 2026-07-30 - 설치·실행 검증 하네스 (2026-04-12, 2026-04-14 아이디어 통합)
 
 Status: proposed
 
-Why now: 설치 경로와 메타데이터가 맞아도 실제 실행 예시나 프롬프트 품질이 깨지면 스킬은 곧바로 재사용성을 잃기 때문에, 문서 정합성만으로는 충분하지 않다.
+Why now: "설치 경로/메타데이터 정합성 검사"와 "프롬프트·실행 회귀 코퍼스"를 별도로 다뤘지만, 둘 다 "이 스킬이
+Codex/Claude 양쪽에서 여전히 동작하는가"라는 같은 질문을 문서 층과 실행 층에서 나눠 물은 것이었다. 두 계층을
+하나의 검증 하네스로 합치면 설치 파일 정합성과 실행 품질을 같은 리포트에서 함께 볼 수 있다.
 
-First slice: 핵심 스킬별 대표 질의와 기대 출력 요약을 모은 코퍼스를 만들고, Codex/Claude 양쪽에서 샘플 응답 형태를 비교하는 스모크 테스트를 붙인다.
+First slice: 각 스킬 폴더의 필수 파일·설치 명령·에이전트 메타데이터를 검사하는 가벼운 검증기와, 핵심 스킬별
+대표 질의·기대 출력 요약 코퍼스를 같은 하네스에 묶어, Codex/Claude 설치 패리티 격차와 실행 회귀를 함께
+publish 전에 표시한다.
+
+### 2026-07-30 - CodeGraph 디스패처 격차 해소
+
+Status: proposed
+
+Why now: `docs/CODEMAPS/CODEGRAPH.md`는 루트가 `scripts/codegraph.sh` 디스패처로 각 child repo의 `.codegraph/`
+그래프를 라우팅한다고 계약을 정의하지만, 같은 문서가 "`scripts/codegraph.sh` is not present in this checkout"라고
+명시하고 있어 문서와 실제 스크립트 인벤토리(`docs/CODEMAPS/SCRIPTS.md`) 사이에 격차가 있다. `keelim-plugin`은
+codemap 생성기(`skills/codebase-codemap/scripts/generate_codemap.py`)를 호스팅하는 저장소라서, 이 디스패처 계약을
+실제로 채우거나 문서를 실제 상태에 맞게 좁히는 결정을 내리기 가장 적합한 위치다.
+
+First slice: `scripts/codegraph.sh`를 실제로 만들지, 아니면 CODEGRAPH.md의 디스패처 설명을 "수동으로 각 child repo에서
+직접 실행" 계약으로 정정할지 결정하고, 결정에 맞춰 문서와 (필요하다면) 최소 스크립트를 함께 정리한다.
 
 ### 2026-04-14 - 스킬 수명주기 태그
 
