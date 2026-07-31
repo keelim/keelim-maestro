@@ -1,6 +1,6 @@
 # keelim-plugin
 
-Last reviewed: 2026-05-16 KST
+Last reviewed: 2026-07-31 KST
 
 ## Signals
 
@@ -21,7 +21,10 @@ Why now: As the skill set grows, a human-maintained README will become less
  useful than a generated catalog with tags, summaries, and installation targets.
 
 First slice: Generate a catalog page from `skills/*/SKILL.md` metadata with
- quick filters for purpose, platform, and maintenance state.
+ quick filters for purpose, platform, and maintenance state. (2026-07-31 정리:
+ 2026-04-14 "스킬 재사용 그래프" 아이디어를 이 항목에 통합 — 카탈로그에 공통
+ 키워드·연관 스킬 그래프 뷰를 함께 붙여 중복 정리와 신규 설치 판단을 같이
+ 지원한다.)
 
 ### 2026-04-12 - Skill smoke-test harness
 
@@ -59,10 +62,18 @@ Why now: 스킬 수가 늘수록 active/experimental/deprecated 상태를 설치
 
 First slice: `skills/*/SKILL.md`와 README 카탈로그에 lifecycle 메타데이터를 붙이고, deprecated 또는 unverified 스킬을 설치 화면에서 따로 표시한다.
 
-### 2026-04-14 - 스킬 재사용 그래프
+### 2026-07-31 - 코드맵 하이드레이션 상태 가드
 
 Status: proposed
 
-Why now: 스킬이 늘수록 같은 절차나 판별 규칙이 여러 `SKILL.md`에 흩어져서, 공통 프리미티브와 재사용 가능한 조합을 한 장의 그래프로 보면 중복 정리와 신규 설치 판단이 빨라진다.
+Why now: 오늘 갱신된 `docs/CODEMAPS/projects/*.md` 중 `all`, `android-support`,
+`Keelim-Knowledge-Vault`, `keelim-vercel`, `toto` 5개가 서브모듈이 초기화되지
+않은 상태에서 생성돼 "Files scanned: 0 / No obvious entrypoint files
+detected"로 그대로 커밋되어 있다. 실제로는 소스가 있는 저장소인데도 스냅샷만
+보면 빈 저장소처럼 보여, 다음에 이 스냅샷을 기준선으로 참고하는 작업이 잘못된
+결론을 낼 위험이 있다.
 
-First slice: `skills/*/SKILL.md`를 스캔해 공통 키워드·연관 스킬·설치 경로를 묶은 그래프를 만들고, 함께 묶어야 할 스킬 묶음을 표시한다.
+First slice: `skills/codebase-codemap/scripts/generate_codemap.py`가 스캔한
+파일 수가 0이거나 placeholder 판정일 때 스냅샷 상단에 "hydration 필요" 배지를
+강제로 남기게 하고, 루트 `scripts/refresh-codemaps.py`가 이런 placeholder로
+기존의 실측 스냅샷을 덮어쓰지 않도록 가드를 추가한다.

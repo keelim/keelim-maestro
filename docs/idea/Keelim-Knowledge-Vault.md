@@ -1,6 +1,6 @@
 # Keelim-Knowledge-Vault
 
-Last reviewed: 2026-05-16 KST
+Last reviewed: 2026-07-31 KST
 
 ## Signals
 
@@ -67,6 +67,6 @@ First slice: 루트에서 갱신된 운영 문서와 메모리 조각을 모아 
 
 Status: proposed
 
-Why now: 루트 AGENTS/CODEMAPS가 이미 신뢰 가능한 repo 집합, 제외 대상, pinning blocker를 정의하고 있어서, 이를 vault에 복원 가능한 한 장의 기준선 보드로 남기면 다음 작업에서 다시 해석하지 않아도 된다.
+Why now: 루트 AGENTS/CODEMAPS가 이미 신뢰 가능한 repo 집합, 제외 대상, pinning blocker를 정의하고 있어서, 이를 vault에 복원 가능한 한 장의 기준선 보드로 남기면 다음 작업에서 다시 해석하지 않아도 된다. pinning blocker는 실제로 움직인다는 증거도 나왔다: 2026-07-31 확인 결과 `toto`의 gitlink 미등록 blocker는 이미 해소됐고(`git ls-files --stage`에 커밋된 gitlink 확인), `all-web-ui`·`rich`는 `docs/CODEMAPS/SUBMODULES.md`의 "Expansion Blockers"에 여전히 남아 있어 — 시점을 못 박지 않으면 이 상태 변화 자체가 다시 묻힌다.
 
-First slice: 현재 trusted set, excluded set, pinning blocker, 마지막 검증 시각을 묶은 노트를 만들고 루트 workspace 문서와 상호 링크한다.
+First slice: 현재 trusted set, excluded set, pinning blocker, 마지막 검증 시각을 묶은 노트를 만들고 루트 workspace 문서와 상호 링크한다. blocker 항목마다 해소일을 기록해, 어떤 blocker가 언제 풀렸는지도 보드에서 바로 보이게 한다.
