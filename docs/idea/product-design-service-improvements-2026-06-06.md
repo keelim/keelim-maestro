@@ -1422,3 +1422,51 @@ result.
 121. Split process-hygiene access state from cleanup state.
 - Evidence: `tools/codex-hygiene/codex-hygiene.sh --dry-run` could not read the process table in sandbox, but the approved dry-run reported no runaway native-hook scans, `node_repl=0`, and stdio app-server `count=0`; `tools/agentgateway/scripts/stop-k8s-gateway.sh --dry-run` found no matching port-forward.
 - Small change: project-management summaries should report `processInspection=needsApproval|checked`, `cleanupNeeded`, and `cleanupApplied` separately.
+
+## 2026-08-01
+
+- Product Design preflight remained callable, but no saved context existed at
+  `$CODEX_HOME/state/plugins/product-design/user-context.md`.
+- Session mining since the previous automation marker found nine raw JSONL
+  files: the prior project-management sweep, three Chrome sidepanel current-page
+  explanation chats, one Rich KRX snapshot producer, the current sweep, and
+  three approval-review child sessions.
+- Some recent session payloads stored user or assistant text as `<<ccr:...>>`,
+  so the usable service evidence came from `session_meta`, tool-call metadata,
+  visible event messages, and final task-complete text instead of broad grep.
+- The Rich producer stored new SQLite snapshot dates `2026-07-30` and
+  `2026-07-31`; this sweep verified readback through `2026-07-31` and consumed
+  the artifact as `rich` commit `39fdcd6`.
+
+122. Mark partial session visibility before service-opportunity mining.
+- Evidence: recent JSONL files included `<<ccr:...>>` placeholders for some
+  user/final payloads, while `session_meta`, tool calls, visible event messages,
+  and task-complete text still exposed enough metadata to classify the streams.
+- Small change: session miners should emit `contentVisibility=full|partial`,
+  `visibleSignals`, and `redactedSignalsSkipped` before counting a session as
+  product or service evidence.
+
+123. Preserve current-tab source metadata for browser sidepanel explanations.
+- Evidence: three Chrome sidepanel sessions explained GitHub repository pages:
+  Unicity Network whitepapers, a reversing/security skill router, and a
+  last-30-days social research skill; each depended on the current tab context
+  rather than repo-local files.
+- Small change: current-page explain flows should store `tabUrl`, `repoName`,
+  `readmeSectionsUsed`, `observedAt`, and `claimKind=source|inference` so later
+  summaries can be audited without reopening the same page.
+
+124. Attach usage and license boundaries to security-tool summaries.
+- Evidence: the reversing/security repository explanation included both a
+  permitted-use caveat and a license split note while summarizing APK, iOS,
+  binary, malware, CTF, API, and authorized testing workflows.
+- Small change: Product Design and research summaries should include
+  `usageBoundary` and `licenseBoundary` fields whenever a source is security,
+  reverse-engineering, compliance, or dual-license related.
+
+125. Represent multi-day producer artifacts as date ranges.
+- Evidence: one Rich KRX producer run stored both `2026-07-30` and
+  `2026-07-31`, while the sweeper consumed the single SQLite artifact as commit
+  `39fdcd6` after readback and focused snapshot tests.
+- Small change: producer handoffs should support `newDates`, `storedDateRange`,
+  `artifactPath`, `verifyCommand`, and `consumedByCommit` instead of assuming a
+  single `asOfDate`.
