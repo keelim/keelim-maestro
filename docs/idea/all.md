@@ -1,6 +1,6 @@
 # all
 
-Last reviewed: 2026-05-16 KST
+Last reviewed: 2026-08-01 KST
 
 ## Signals
 
@@ -46,7 +46,7 @@ release notes, test/build status, and any known rollout blockers.
 
 Status: proposed
 
-Why now: 루트와 모듈별 `AGENTS.md`에 날짜·금액·타이머 포맷, typed navigation, repository 경계, KMP entity, convention plugin 규칙이 흩어져 있어서 릴리스 전에 drift를 한 번에 봐야 한다.
+Why now: 루트와 모듈별 `AGENTS.md`에 날짜·금액·타이머 포맷, typed navigation, repository 경계, KMP entity, convention plugin 규칙이 흩어져 있어서 릴리스 전에 drift를 한 번에 봐야 한다. 루트 `AGENTS.md`는 이제 `core:designsystem`을 canonical, `core:component`를 호환 wrapper로 두는 마이그레이션 경계와, 날짜/통화/타이머 포맷의 Phase 1 마이그레이션 대상 파일 목록(`app-arducon`, `app-comssa`, `app-nanda`, `app-my-grade` 등)까지 구체적으로 명시하고 있어서, 지금이 실제 위반 후보를 스캔할 좋은 시점이다.
 
 First slice: 실제 소스 트리의 모듈별 `AGENTS.md` 규칙과 알려진 마이그레이션 대상 파일을 함께 인덱싱해 위반 후보와 영향 모듈을 보여주는 리포트를 만든다.
 

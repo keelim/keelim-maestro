@@ -1,6 +1,6 @@
 # toto
 
-Last reviewed: 2026-05-16 KST
+Last reviewed: 2026-08-01 KST
 
 ## Signals
 
@@ -8,6 +8,13 @@ Last reviewed: 2026-05-16 KST
 - `bun run bootstrap`, `bun run seed`, `bun run dev`, `bun run test`, `bun run compile`, `bun run verify`가 이미 실행 경로를 정해준다.
 - wheel 배포보다 로컬 editable checkout 실행이 현재 계약이라서, 경로와 seed 재현성 검증이 더 중요하다.
 - KBO win1loss 대시보드는 시즌/경기 데이터가 조금만 흔들려도 표가 달라지므로, 시드와 공급자 경계를 분리해 두는 편이 좋다.
+- 2026-08-01 확인: `git ls-files --stage | grep 160000`에서 `toto`의 gitlink가 `5897ef44` 커밋으로 루트 인덱스에 실제로 커밋돼 있음을 확인했다. 아래 gitlink 아이디어는 해소된 것으로 보고 백로그에서 내린다.
+
+## Resolved
+
+### 2026-04-25 - gitlink 커밋 및 재현 가능한 클론 게이트 (해소됨, 2026-08-01)
+
+루트 인덱스에 `toto` gitlink(`5897ef44...`)가 커밋되어 있어 신규 클론에서 `git submodule update --init toto`가 정상적으로 디렉터리를 채운다. `docs/CODEMAPS/SUBMODULES.md`도 동일 커밋을 pinned commit으로 기록하고 있어 재현 가능한 클론 경로가 확보된 것으로 판단한다. 다만 `bun run verify:toto`가 CI에서 그린으로 도는지는 이번 검토 범위 밖이라 별도 확인이 필요하다.
 
 ## Open ideas
 
@@ -34,11 +41,3 @@ Status: proposed
 Why now: 이 저장소의 핵심 가치는 수정이 아니라 재현이므로, 실수로 쓰기 경로나 외부 변조가 들어와도 바로 잡아내는 게 먼저다.
 
 First slice: 앱 부팅, 홈 임포트, `verify` 흐름을 묶은 스모크 테스트를 추가하고, 비정상 쓰기 경로나 경로 드리프트가 있으면 실패하게 만든다.
-
-### 2026-04-25 - gitlink 커밋 및 재현 가능한 클론 게이트
-
-Status: proposed
-
-Why now: `toto`가 `.gitmodules`에 선언돼 있지만 gitlink가 루트 인덱스에 커밋되지 않아서, 신규 클론 시 디렉터리가 없고 `bun run dev:toto`·`bun run verify:toto`를 실행할 수 없다. 재현성을 핵심 가치로 내세운 프로젝트에서 이 비대칭은 가장 먼저 해소해야 할 운영 위험이다.
-
-First slice: 안정 커밋을 골라 gitlink를 루트 인덱스에 커밋하고, `git submodule update --init toto` → `bun run bootstrap` → `bun run verify:toto` 순서가 CI에서 그린으로 돌아오면 pinning 완료로 간주한다.

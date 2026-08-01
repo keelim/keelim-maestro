@@ -1,6 +1,6 @@
 # keelim-plugin
 
-Last reviewed: 2026-05-16 KST
+Last reviewed: 2026-08-01 KST
 
 ## Signals
 
@@ -10,18 +10,17 @@ Last reviewed: 2026-05-16 KST
 - The repository already has a clear `skills/<name>/SKILL.md` contract.
 - README가 Vercel skills CLI와 수동 symlink 설치 경로를 함께 설명하므로,
   카탈로그와 smoke-test가 설치 방식별 차이를 계속 드러내야 한다.
+- `CATALOG.md` + `catalog.json` + `scripts/gen-catalog.mjs --check`로 생성 카탈로그가 이미 배포돼 있고, 모든 스킬이 `read_only`/`local_write`/`network_read`/`external_write`/`credentials`/`hooks` 6개 boolean capability를 frontmatter에 선언하며 `scripts/verify_skills.py`가 스키마를 강제한다. 새로 생긴 `session-usage-dashboard`, `agent-instructions-improver` 스킬도 이 계약을 따른다.
 
 ## Open ideas
 
-### 2026-04-12 - Generated skill catalog and install matrix
+### 2026-04-12 - 카탈로그 신뢰도 확장: capability 배지 및 drift 게이트
 
-Status: proposed
+Status: proposed (2026-08-01: 카탈로그·capability 스키마 자체는 배포 완료, 초점을 신뢰도 표시로 이동)
 
-Why now: As the skill set grows, a human-maintained README will become less
- useful than a generated catalog with tags, summaries, and installation targets.
+Why now: `CATALOG.md`/`catalog.json` 생성과 6개 capability boolean 선언, `scripts/verify_skills.py` 검증까지는 이미 `scripts/check.sh`에 묶여 배포됐다. 남은 leverage는 이 계약을 사람이 설치 전에 한눈에 읽을 수 있게 만드는 것이다.
 
-First slice: Generate a catalog page from `skills/*/SKILL.md` metadata with
- quick filters for purpose, platform, and maintenance state.
+First slice: 카탈로그 페이지에 각 스킬의 6개 capability 값을 배지로 렌더링하고, `node scripts/gen-catalog.mjs --check`가 이미 잡는 drift를 install matrix 화면에서도 같은 표로 보여준다.
 
 ### 2026-04-12 - Skill smoke-test harness
 
