@@ -1470,3 +1470,108 @@ result.
 - Small change: producer handoffs should support `newDates`, `storedDateRange`,
   `artifactPath`, `verifyCommand`, and `consumedByCommit` instead of assuming a
   single `asOfDate`.
+## 2026-08-01 Follow-Up Evidence
+
+- Product Design preflight remained callable, but no saved context existed at
+  `$CODEX_HOME/state/plugins/product-design/user-context.md`.
+- New high-signal session evidence after the previous automation was the
+  `남성 성 건강 기능` continuation for `app-nanda`. CodeGraph confirmed
+  `WellnessViewModel.saveCheckIn` updates ViewModel-held check-in state, while
+  `WellnessDatabase.WellnessDao` exposes measurement/routine/goal methods but
+  no check-in DAO method in the matched results.
+- Chronicle memory and the current root worktree both show
+  `weekly_tech_report.html` as an Antigravity `/last30days` Korean HTML report
+  generated at the workspace root, while root guidance says derived research
+  artifacts should live under `docs/research/`.
+- Current automation verification hit host disk pressure: `df -h` reported only
+  `116Mi` available on `/` and `/System/Volumes/Data`, which caused a heredoc
+  parser attempt to fail before repository logic ran.
+
+126. Gate sensitive health insights on persisted data paths.
+- Evidence: the `app-nanda` review found check-in behavior around
+  `WellnessViewModel.saveCheckIn`, and CodeGraph matched Room-backed
+  `WellnessDatabase.WellnessDao` methods for measurements/routines/goals but
+  not check-in persistence.
+- Small change: before Product Design or service reports claim 7-day/28-day
+  check-in insights are product-ready, require `checkInPersisted=true`,
+  `daoPath`, `migrationPath`, and a restart-survives-data proof.
+
+127. Keep sensitive-health product reviews separate from commit triage.
+- Evidence: the `남성 성 건강 기능` session produced concrete file-level
+  concerns for `app-nanda`, but the recent-commit scan found no new `all`
+  commit in the current window.
+- Small change: session miners should emit `repoEvidenceFound=true` and
+  `recentCommitAttribution=none` separately so valid product risks do not become
+  unsupported recent-commit bug claims.
+
+128. Normalize generated research artifacts before sweeper commits.
+- Evidence: `weekly_tech_report.html` exists at the root after the Antigravity
+  `/last30days` workflow, but root policy routes durable research/export
+  artifacts to `docs/research/`.
+- Small change: report producers should emit `artifactPath`,
+  `durableTargetPath`, `sourceTool`, and `publishState`; sweepers should commit
+  only after the artifact is already in the durable target location.
+
+129. Surface host-capacity as a verification preflight.
+- Evidence: the current sweep had only `116Mi` free, and a small heredoc-based
+  parser failed with `no space left on device` before any project test or code
+  check could run.
+- Small change: automation summaries should include `diskFree`, `tmpUsable`,
+  and `verificationLimitedByHostCapacity` before marking tests as skipped,
+  failed, or repo-caused.
+
+## 2026-08-02
+
+- Product Design preflight remained callable, but no saved context existed at
+  `$CODEX_HOME/state/plugins/product-design/user-context.md`.
+- Session mining since the previous automation marker found 69 raw JSONL files
+  by the second scan. The useful logical streams were app-nanda care-weather
+  product work, keelim-plugin codex-insights migration/security review,
+  multilingual prototype work, one repository explanation, one gbrain readiness
+  check, and approval-review child sessions.
+- This sweep consumed two commit-ready child repo batches: `all` commit
+  `1c354cd` for app-nanda care-weather check-ins and `keelim-plugin` commit
+  `dfd0f7f` for the codex-insights rename/migration.
+
+130. Promote Product Design app ideas only with a proof chain.
+- Evidence: the app-nanda sessions moved from male wellness ideation to
+  `CareCheckIn` separation, privacy-mode/race-condition review, migration
+  safety review, and targeted Gradle verification before the sweep committed
+  `1c354cd`.
+- Small change: Product Design implementation handoffs should emit
+  `ideaSource`, `modelPath`, `persistencePath`, `privacyProof`,
+  `migrationProof`, `visualQaState`, and `commitCandidate` together.
+
+131. Track security-review threads as finding state machines.
+- Evidence: codex-insights sessions repeatedly reviewed PATH/Git execution,
+  symlink containment, file modes, Homebrew Git ancestry, `GIT_TRACE`, and
+  `os.defpath`; many raw files were approval or retest children rather than new
+  product opportunities.
+- Small change: session analysis should group security work by
+  `findingId`, `status=reported|patched|retested|approved`, `evidencePath`,
+  and `remainingRisk` before counting it as a service improvement.
+
+132. Separate repo presence from runtime/plugin availability.
+- Evidence: one keelim-plugin session found `skills/codex-insights/SKILL.md`
+  in the repo but not connected to runtime; later sessions installed skill links.
+  A separate gbrain check reported MCP enabled and binary callable, while
+  `mcp__gbrain__*` tools were not exposed in the active Codex surface.
+- Small change: plugin readiness summaries should split `repoArtifactExists`,
+  `runtimeLinked`, `mcpEnabled`, `toolSurfaceExposed`, and `restartRequired`.
+
+133. Make localization prototype handoffs measurable.
+- Evidence: the kankokuryokuzen/prototype sessions added Japanese default plus
+  English/Korean selection, `localStorage` persistence, modal/filter/toast
+  translations, and 59 translated strings.
+- Small change: prototype handoffs should include `defaultLocale`,
+  `supportedLocales`, `persistedPreference`, `translatedSurfaces`,
+  `stringCount`, and `untranslatedFallbacks`.
+
+134. Run secret-fixture lint before committing security tooling tests.
+- Evidence: the keelim-plugin commit was initially blocked by ECC pre-commit
+  because `skills/codex-insights/scripts/test_insight_observer.py` used a
+  password-shaped fixture string; replacing it with neutral sample text let
+  `./scripts/check.sh` and the commit pass.
+- Small change: sweeper pre-commit diagnostics should classify
+  `fixtureLooksSecret` separately from real secret leakage and suggest a
+  neutral test fixture rename before retrying the same commit.
