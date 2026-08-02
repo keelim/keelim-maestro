@@ -1,6 +1,6 @@
 # Keelim-Knowledge-Vault
 
-Last reviewed: 2026-05-16 KST
+Last reviewed: 2026-08-02 KST
 
 ## Signals
 
@@ -39,21 +39,13 @@ Why now: A knowledge vault compounds when strong notes re-enter active work, not
 First slice: Add a weekly review note or script that surfaces recently untouched
 high-value notes, open questions, and notes linked to active repos.
 
-### 2026-04-13 - 코드맵 스냅샷 보관소
+### 2026-04-13 - 워크스페이스 기준선 미러 노트
 
 Status: proposed
 
-Why now: 루트에 생성된 CODEMAPS/WORKSPACE 문서가 이미 워크스페이스의 실제 운영 기준이 되었으므로, 최신 스냅샷과 변경 이유를 vault에 함께 남겨야 오래된 노트가 다시 살아난다.
+Why now: 루트에 생성된 AGENTS/CODEMAPS/WORKSPACE 문서가 이미 워크스페이스의 실제 운영 기준이 되었는데, 그 기준과 최신 스냅샷을 찾을 수 있는 단일 진입점이 vault에 없다. (2026-08-02에 기존 "코드맵 스냅샷 보관소"와 "워크스페이스 지시문 미러" 두 항목을 하나로 합침 — 둘 다 "루트 운영 문서를 vault에 미러링하는 인덱스 노트"라는 같은 결과물을 가리키고 있었다.)
 
-First slice: 각 코드맵 갱신 시점별로 파일 수, 핵심 결합점, 새로 생긴 운영 규칙을 요약한 노트를 하나씩 만들고 프로젝트 인덱스에서 바로 링크한다.
-
-### 2026-04-14 - 워크스페이스 지시문 미러
-
-Status: proposed
-
-Why now: AGENTS, CODEMAPS, automation memory, 백로그 노트가 흩어져 있어서, 현재 작업 기준을 한 노트에서 다시 찾을 수 있어야 다음 작업의 진입 비용이 줄어든다.
-
-First slice: 루트 AGENTS/CODEMAPS/idea 인덱스와 자주 바뀌는 운영 규칙을 연결한 단일 인덱스 노트를 만들고, 관련 프로젝트 노트에서 바로 왕복할 수 있게 한다.
+First slice: 루트 AGENTS/CODEMAPS/idea 인덱스를 연결한 단일 인덱스 노트를 만들고, 코드맵 갱신 시점마다 파일 수·핵심 결합점·새로 생긴 운영 규칙을 한 줄씩 그 노트에 추가한 뒤 관련 프로젝트 노트에서 바로 왕복 링크한다.
 
 ### 2026-04-14 - 워크스페이스 일일 변화 다이제스트
 
