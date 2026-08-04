@@ -1582,3 +1582,41 @@ result.
 136. public-event gating. Evidence: Naver Clip session `019fc0b8-6a87-7d61-a86d-dbafd10abdc3` verified event requirements and intentionally kept the Korean ChatGPT draft private because it lacked matching information tags and public/event conditions. Improvement: when a platform/event workflow asks to change content to meet incentives, Product Design should expose an explicit `eventEligibility` checklist with `contentMatchesTag`, `requiredHashtags`, `publicVisibility`, `programExclusionRisk`, and `userAuthorizedPublicRegistration`.
 137. secondary-feature planning boundary. Evidence: app-nanda morning-signal planning session `019fc11d-86a7-76f2-9dac-9b5c64938044` used CodeGraph to confirm `NotificationScheduler`, `WorkManagerNotificationScheduler`, and the app-nanda provider route before proposing a sub-feature. Improvement: mobile Product Design plans should carry `primaryFeatureImpact=none|touches`, `entryPoint`, `schedulerPermission`, and `testSurface` so a supporting feature stays out of the main wellness loop until explicitly promoted.
 138. bulk-content artifact QA. Evidence: docs/blog session `019fc0c9-9a66-7140-87e9-e134663fd847` produced and audited 100 articles with `articleCount=100`, unique numbering/body hashes, zero broken local links, and later zip listing showed mojibake in Korean filenames. Improvement: large generated content handoffs should include `artifactIndex`, `qualityAudit`, `encodingCheck`, `sourceDomainRefresh`, and `chunkRange` so the user sees both content completeness and packaging risks before upload.
+
+## 2026-08-04
+
+- Product Design preflight remained callable, but saved context was still absent.
+- Session mining since the previous run found 13 raw JSONL files. Useful logical
+  streams were the Korea Welcome prototype, media motion-engine guidance,
+  automation renaming, Rich snapshot collection, and the current sweep; mirrored
+  approval-review sessions were not counted as separate user opportunities.
+
+139. Record Product Design selection-to-preview checkpoints.
+- Evidence: Korea Welcome session `019fc11a-2aad-7ff0-a569-36368df17e25`
+  selected visual direction 1, persisted the no-vehicle-choice/calendar rules,
+  built the prototype, and exercised build/preview checks as separate steps.
+- Small change: handoffs should emit `selectedDirection`, `constraintsPersisted`,
+  `buildState`, `visualQaState`, and `previewState` so choosing a mock is not
+  mistaken for a verified implementation.
+
+140. Deduplicate approval mirrors from conversation analytics.
+- Evidence: the session directory contained both user-owned runs and approval
+  reviews whose prompt embeds a full `TRANSCRIPT START` copy of another run,
+  including the current project-management and Gradle approval checks.
+- Small change: group by `Reviewed Codex session id` and mark mirrors as
+  `sessionKind=approval-review`; count the referenced user session only once.
+
+141. Preview bulk automation renames as an inventory.
+- Evidence: session `019fc7b1-ed38-7823-a50f-1978bbd3fa6b` requested changing
+  every Codex automation to Luna, a cross-automation mutation with many targets.
+- Small change: show `automationId`, current name, proposed name, enabled state,
+  and rollback value before applying a bulk rename, then return changed/skipped
+  counts.
+
+142. Preserve media timing provenance in production receipts.
+- Evidence: session `019fc7d5-75ed-79d3-84dd-91a93b04ce1e` compared narration-
+  timed motion with BGM beat-timed transitions and updated the existing Shorts
+  workflow rather than creating a second pipeline.
+- Small change: media handoffs should include `timingSource=narration|beat|hybrid`,
+  `fallbackTimingSource`, `analysisArtifact`, and `affectedScenes` so later
+  renders remain reproducible.
