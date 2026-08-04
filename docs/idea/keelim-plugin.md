@@ -1,6 +1,6 @@
 # keelim-plugin
 
-Last reviewed: 2026-05-16 KST
+Last reviewed: 2026-08-04 KST
 
 ## Signals
 
@@ -10,30 +10,14 @@ Last reviewed: 2026-05-16 KST
 - The repository already has a clear `skills/<name>/SKILL.md` contract.
 - README가 Vercel skills CLI와 수동 symlink 설치 경로를 함께 설명하므로,
   카탈로그와 smoke-test가 설치 방식별 차이를 계속 드러내야 한다.
+- `scripts/gen-catalog.mjs`(+ `--check`)가 `CATALOG.md`/`catalog.json`을 생성하고,
+  `scripts/verify_skills.py`(`--require-codex-meta`)가 필수 파일과 Codex/Claude
+  parity(`codex+claude` vs `claude-only`)까지 검사한다(2026-08-04 소스 확인). 카탈로그
+  생성과 설치 메타데이터 parity 검사는 이미 구현되어 있으므로 신규 아이디어는 이
+  기반 위에서 실제 실행/프롬프트 회귀나 수명주기 표시처럼 아직 비어 있는 영역을
+  겨냥해야 한다.
 
 ## Open ideas
-
-### 2026-04-12 - Generated skill catalog and install matrix
-
-Status: proposed
-
-Why now: As the skill set grows, a human-maintained README will become less
- useful than a generated catalog with tags, summaries, and installation targets.
-
-First slice: Generate a catalog page from `skills/*/SKILL.md` metadata with
- quick filters for purpose, platform, and maintenance state.
-
-### 2026-04-12 - Skill smoke-test harness
-
-Status: proposed
-
-Why now: Cross-tool skills are valuable only if install paths, metadata, and
- basic workflow assumptions stay valid for both Codex and Claude, and there is
- no single check that compares install/readme metadata across both toolchains.
-
-First slice: Add a lightweight verifier that checks required files, install
- commands, and any declared agent metadata for each skill folder, then surface
-Codex/Claude install parity gaps before publishing.
 
 ### 2026-04-13 - 스킬 변경 영향 노트
 
