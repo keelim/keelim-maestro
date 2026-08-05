@@ -1,6 +1,6 @@
 # rich
 
-Last reviewed: 2026-05-16 KST
+Last reviewed: 2026-08-05 KST
 
 ## Signals
 
@@ -13,16 +13,19 @@ Last reviewed: 2026-05-16 KST
   to the existing backend/workflow reliability surface.
 - `docs/words/AGENTS.md` defines a raw-source/wiki/schema split for an investing
   LLM wiki, so durable review insights can be routed back into knowledge pages.
+- `docs/CODEMAPS/SUBMODULES.md` / `projects/rich.md` still flag `rich` as a dirty,
+  ahead-of-origin autonomous repo that must be frozen/split before it (and, per the
+  same blocker list, `all-web-ui`) can become a pinned root submodule.
 
 ## Open ideas
 
-### 2026-04-12 - Recovery cockpit for failed runs
+### 2026-08-05 - Recovery cockpit and execution ledger (merged)
 
 Status: proposed
 
-Why now: `rich` now mixes cron jobs, manual runs, Slack reminders, Google reconnects, and pykrx ingestion, so recovery work needs one place to live instead of scattered logs.
+Why now: `rich` mixes cron jobs, manual runs, Slack reminders, Google reconnects, and pykrx ingestion, so recovery work needs one place to live instead of scattered logs. This entry merges the earlier separate "Recovery cockpit for failed runs" and "Execution ledger and replay timeline" ideas, since both ultimately need the same normalized run history plus a recovery action per event.
 
-First slice: Collect failed or partial runs into a single queue with the exact retry or repair action, then link each item back to the affected workflow.
+First slice: Persist every run/retry/failure into a normalized log, surface the failed or partial ones as a queue with the exact retry or repair action, and render the full history as a timeline that links each event back to the affected workflow.
 
 ### 2026-04-12 - Daily review cockpit
 
@@ -46,18 +49,6 @@ First slice: Add a reliability panel that flags stale datasets, failed jobs,
  missing snapshots, and suspicious metric jumps before they affect downstream
  review flows.
 
-### 2026-04-12 - Execution ledger and replay timeline
-
-Status: proposed
-
-Why now: The admin surface already runs manual workflows, cron-triggered
-ingestion, and review flows, but the history of what happened is still
-scattered across endpoints and logs.
-
-First slice: Persist every run/retry/failure into a normalized log and render a
-timeline that links each event back to the affected workflow and recovery
-action.
-
 ### 2026-04-12 - Integration health console
 
 Status: proposed
@@ -80,3 +71,11 @@ one-off dump.
 First slice: Track a small watchlist of high-value dataset pages, diff title /
 field / link changes on each export, and push meaningful updates into the
 weekly review or recovery queue.
+
+### 2026-08-05 - Freeze/split 전환 준비 체크리스트
+
+Status: proposed
+
+Why now: `docs/CODEMAPS/SUBMODULES.md`와 `docs/CODEMAPS/projects/rich.md`가 `rich`를 "dirty working tree; commits ahead of origin — freeze/split before pinning"으로 명시하고 있고, 이 상태가 `rich` 자신의 submodule 전환뿐 아니라 같은 블로커 목록에 묶인 `all-web-ui`의 submodule 전환까지 함께 막고 있다.
+
+First slice: dirty 변경분을 정리해 origin에 반영하고 ahead 커밋을 `origin/master`로 push한 뒤 `bun run report:baseline`으로 clean 상태를 확인하는 체크리스트를 만들어, `rich`와 `all-web-ui` 두 전환 모두의 선행 조건으로 추적한다.

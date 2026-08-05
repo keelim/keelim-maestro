@@ -1,6 +1,6 @@
 # android-support
 
-Last reviewed: 2026-05-16 KST
+Last reviewed: 2026-08-05 KST
 
 ## Signals
 
@@ -39,7 +39,7 @@ Status: proposed
 
 Why now: `action.yml`, README, 소스, 번들 산출물이 쉽게 서로 어긋날 수 있고, 입력 변경 시 인터페이스와 문서를 함께 맞춰야 하는 부담이 이미 드러나 있다.
 
-First slice: `action.yml`, `README.md`, `src/main.ts`, `lib/index.js`의 입력·출력 선언을 비교하는 가벼운 검사를 추가해 릴리스 전에 계약 불일치를 잡는다.
+First slice: `action.yml`, `README.md`, `src/main.ts`, `lib/index.js`의 입력·출력 선언을 비교하는 가벼운 검사를 추가해 릴리스 전에 계약 불일치를 잡는다. `lib/index.js`는 `ncc build src/index.ts -m -o lib/`의 산출물이므로, 커밋된 `lib/index.js`가 최신 `src/*.ts` 빌드 결과와 다른 "리빌드 누락" 상태도 같은 검사에서 함께 잡는다.
 
 ### 2026-04-13 - 릴리스 증적 번들
 
