@@ -1,6 +1,6 @@
 # keelim-plugin
 
-Last reviewed: 2026-05-16 KST
+Last reviewed: 2026-08-06 KST
 
 ## Signals
 
@@ -10,30 +10,24 @@ Last reviewed: 2026-05-16 KST
 - The repository already has a clear `skills/<name>/SKILL.md` contract.
 - README가 Vercel skills CLI와 수동 symlink 설치 경로를 함께 설명하므로,
   카탈로그와 smoke-test가 설치 방식별 차이를 계속 드러내야 한다.
+- `CATALOG.md`/`catalog.json`은 이미 `scripts/gen-catalog.mjs`로 생성되고
+  `--check` + `git diff --check`로 drift가 막혀 있으며, `scripts/verify-skills.sh
+  --require-codex-meta`가 매 스킬의 frontmatter·capability 스키마(`read_only`,
+  `local_write`, `network_read`, `external_write`, `credentials`, `hooks`)와
+  `agents/openai.yaml` 존재를 이미 검증한다.
 
 ## Open ideas
 
-### 2026-04-12 - Generated skill catalog and install matrix
+### 2026-04-12 - 카탈로그 capability 필터 뷰
 
 Status: proposed
 
-Why now: As the skill set grows, a human-maintained README will become less
- useful than a generated catalog with tags, summaries, and installation targets.
+Why now: 카탈로그 생성과 drift 방지는 이미 자동화돼 있지만, `CATALOG.md`/`catalog.json` 둘 다
+평면 목록이라 목적·설치 대상(Codex/Claude)·capability(`network_read`, `credentials` 등)
+조합으로 걸러보려면 사람이 직접 스캔해야 한다.
 
-First slice: Generate a catalog page from `skills/*/SKILL.md` metadata with
- quick filters for purpose, platform, and maintenance state.
-
-### 2026-04-12 - Skill smoke-test harness
-
-Status: proposed
-
-Why now: Cross-tool skills are valuable only if install paths, metadata, and
- basic workflow assumptions stay valid for both Codex and Claude, and there is
- no single check that compares install/readme metadata across both toolchains.
-
-First slice: Add a lightweight verifier that checks required files, install
- commands, and any declared agent metadata for each skill folder, then surface
-Codex/Claude install parity gaps before publishing.
+First slice: `catalog.json`의 capability 필드를 이용해 목적·설치 대상·capability로 필터링할
+수 있는 얇은 정적 조회 뷰(HTML 또는 CLI)를 만든다.
 
 ### 2026-04-13 - 스킬 변경 영향 노트
 
@@ -43,13 +37,13 @@ Why now: Codex와 Claude가 같은 skill 폴더를 공유하므로, 작은 문�
 
 First slice: 변경된 `SKILL.md`와 에이전트 메타데이터를 묶어 변경 유형별 영향 요약을 만드는 changelog를 생성하고, 배포 전에 어떤 스킬을 다시 확인해야 하는지 표시한다.
 
-### 2026-04-14 - 스킬 프롬프트 회귀 코퍼스
+### 2026-04-14 - 스킬 프롬프트 회귀 코퍼스 & Codex/Claude 설치 동등성
 
 Status: proposed
 
-Why now: 설치 경로와 메타데이터가 맞아도 실제 실행 예시나 프롬프트 품질이 깨지면 스킬은 곧바로 재사용성을 잃기 때문에, 문서 정합성만으로는 충분하지 않다.
+Why now: 설치 경로와 메타데이터가 맞아도 실제 실행 예시나 프롬프트 품질이 깨지면 스킬은 곧바로 재사용성을 잃기 때문에, 문서 정합성만으로는 충분하지 않다. `scripts/check.sh`/`verify-skills.sh`는 이미 frontmatter·capability 스키마와 `agents/openai.yaml` 존재를 검증하지만, 같은 스킬을 Codex와 Claude 양쪽에서 실제로 실행했을 때 동작이 동일한지는 여전히 검증하지 않는다.
 
-First slice: 핵심 스킬별 대표 질의와 기대 출력 요약을 모은 코퍼스를 만들고, Codex/Claude 양쪽에서 샘플 응답 형태를 비교하는 스모크 테스트를 붙인다.
+First slice: 핵심 스킬별 대표 질의와 기대 출력 요약을 모은 코퍼스를 만들고, Codex/Claude 양쪽에서 같은 프롬프트를 실행해 응답 형태(성공/실패, 산출물 유무)를 비교하는 최소 스모크 러너를 붙인다.
 
 ### 2026-04-14 - 스킬 수명주기 태그
 

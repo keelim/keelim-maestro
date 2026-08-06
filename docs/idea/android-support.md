@@ -1,6 +1,6 @@
 # android-support
 
-Last reviewed: 2026-05-16 KST
+Last reviewed: 2026-08-06 KST
 
 ## Signals
 
@@ -8,6 +8,10 @@ Last reviewed: 2026-05-16 KST
 - 실패 비용이 큰 릴리스 작업을 다루며, 문제를 늦게 발견할수록 영향이 커진다.
 - track, staged rollout, release notes, artifact 입력이 이미 노출되어 있다.
 - `action.yml`, README, `src/*`, `lib/index.js`가 함께 맞아야 하는 번들형 Action이다.
+- `action.yml`/README/소스 간 입력 계약 드리프트와 커밋된 번들(`lib/index.js`) 최신성은
+  `scripts/check-contract-drift.mjs`, `scripts/check-ci-release-workflows.mjs`,
+  `git diff --exit-code -- lib/index.js`로 CI(`test.yml`)에서 이미 자동 검증된다.
+  `userFraction`/`status` 호환성도 `validateStatus`가 검증한다.
 
 ## Open ideas
 
@@ -22,24 +26,18 @@ First slice: Add a dry-run validation mode that checks artifact paths, package
  metadata, auth material, track/status combinations, and a release diff against
  the last successful upload before performing any mutating Play API call.
 
-### 2026-04-12 - Localized rollout guardrails
+### 2026-04-12 - 로케일 커버리지 가드레일
 
 Status: proposed
 
-Why now: The action already accepts staged rollout and localized "What's New"
- data, which makes it a good place to prevent partial or risky release setups.
+Why now: `userFraction`/`status` 조합 검증은 이미 `validateStatus`로 처리되지만,
+`whatsNewDirectory`의 로케일 커버리지 자체는 검증 대상이 아니다. `readLocalizedReleaseNotes`는
+패턴에 맞는 파일을 그대로 읽어 올릴 뿐이라, 특정 로케일 노트가 빠지거나 이전 릴리스에서
+그대로 남아 있어도 조용히 통과한다.
 
-First slice: Validate locale coverage in `whatsNewDirectory` and warn or fail on
-suspicious staged-rollout inputs such as missing `userFraction` or conflicting
-release status.
-
-### 2026-04-13 - 액션 계약 드리프트 검사
-
-Status: proposed
-
-Why now: `action.yml`, README, 소스, 번들 산출물이 쉽게 서로 어긋날 수 있고, 입력 변경 시 인터페이스와 문서를 함께 맞춰야 하는 부담이 이미 드러나 있다.
-
-First slice: `action.yml`, `README.md`, `src/main.ts`, `lib/index.js`의 입력·출력 선언을 비교하는 가벼운 검사를 추가해 릴리스 전에 계약 불일치를 잡는다.
+First slice: 최소 로케일 집합(예: `en-US`, `ko-KR`)을 기준으로 `whatsNewDirectory`를 점검해
+누락된 로케일이나 직전 성공 업로드와 내용이 동일한(즉, 갱신되지 않은) 로케일을 경고하는
+단계를 `dryRun` 검증 경로에 추가한다.
 
 ### 2026-04-13 - 릴리스 증적 번들
 
