@@ -1,6 +1,6 @@
 # keelim-plugin
 
-Last reviewed: 2026-05-16 KST
+Last reviewed: 2026-08-07 KST
 
 ## Signals
 
@@ -30,10 +30,17 @@ Status: proposed
 Why now: Cross-tool skills are valuable only if install paths, metadata, and
  basic workflow assumptions stay valid for both Codex and Claude, and there is
  no single check that compares install/readme metadata across both toolchains.
+ The generated per-repo codemap confirms `skills/session-learning/scripts/install_hooks.py`
+ writes directly into local Codex/Claude hook configs
+ (`docs/CODEMAPS/projects/keelim-plugin.md`), so side-effecting installers need
+ the same parity coverage as read-only skills.
 
 First slice: Add a lightweight verifier that checks required files, install
  commands, and any declared agent metadata for each skill folder, then surface
-Codex/Claude install parity gaps before publishing.
+Codex/Claude install parity gaps before publishing. For side-effecting
+installers such as `session-learning`'s hook installer, include a dry-run
+check so the harness confirms idempotent, reversible installs without
+requiring a real hook config on the CI runner.
 
 ### 2026-04-13 - 스킬 변경 영향 노트
 
