@@ -1620,3 +1620,31 @@ result.
 - Small change: media handoffs should include `timingSource=narration|beat|hybrid`,
   `fallbackTimingSource`, `analysisArtifact`, and `affectedScenes` so later
   renders remain reproducible.
+
+## 2026-08-07
+
+- Product Design preflight remained callable, but saved context was still absent.
+- Six Codex JSONL files changed after the previous run. They represented three
+  useful logical streams (the prior/current project-management sweep and Rich
+  KRX collection) plus approval-review mirrors, so no duplicate opportunity was
+  counted from the raw file total.
+- Chronicle summaries showed an external cloud-resource application flow with
+  multiple pending submissions for the same visible project, and a required
+  training player whose browser console reported a `postMessage` target-origin
+  mismatch. These are service-design signals, not repository bug attribution.
+
+143. Add duplicate-submit protection and a durable receipt to external applications.
+- Evidence: the AI testbed application history showed three submitted cloud
+  requests, zero approvals, and multiple visible pending rows for the same
+  project after the user moved between the application form and MY-STUDIO.
+- Small change: before accepting another submission, show matching pending
+  requests and require an explicit `submitAnyway` choice; return an immutable
+  receipt with `requestId`, `submittedAt`, `status`, and `cancelAction`.
+
+144. Make required embedded training failures recoverable without DevTools.
+- Evidence: while a mandatory multi-step training modal was active, Chrome
+  DevTools showed an embedded-video `postMessage` target-origin mismatch warning;
+  course progression depended on watching each video to completion.
+- Small change: expose `playerReady`, `completionEventReceived`, `originCheck`,
+  and a retry/help action in the training UI so an embed integration problem
+  does not look like incomplete viewing by the user.
