@@ -1,6 +1,6 @@
 # rich
 
-Last reviewed: 2026-05-16 KST
+Last reviewed: 2026-08-08 KST
 
 ## Signals
 
@@ -58,16 +58,23 @@ First slice: Persist every run/retry/failure into a normalized log and render a
 timeline that links each event back to the affected workflow and recovery
 action.
 
-### 2026-04-12 - Integration health console
+### 2026-04-12 - Integration health console (2026-08-08 갱신: 워크스페이스 승격 신호 포함)
 
 Status: proposed
 
 Why now: `rich` depends on Supabase, Google, GitHub CLI, and pykrx/KRX access,
 so auth or connection drift needs to be visible separately from stale data or
-failed runs.
+failed runs. `docs/CODEMAPS/SUBMODULES.md`의 Expansion Blockers는 `rich`의 dirty/ahead
+작업 트리 자체를 워크스페이스 submodule 승격을 막는 원인으로 명시하고, 같은 문서는
+`all-web-ui`의 정식 submodule 전환도 `rich` reconciliation이 끝나야 풀린다고 적어둔다 —
+즉 이 저장소의 git 위생이 다른 프로젝트(`all-web-ui`)의 로드맵까지 막는 cross-project
+leverage 지점이다.
 
 First slice: Add a compact health panel that shows last-success time, reconnect
-state, and repair action for each upstream integration.
+state, and repair action for each upstream integration, and extend the same panel
+with a freeze/split readiness signal (origin 대비 ahead 커밋 수, dirty 파일 수) so
+submodule pinning readiness is visible next to integration health instead of only
+living in a root codemap note.
 
 ### 2026-04-13 - 공공데이터 카탈로그 변경 피드
 

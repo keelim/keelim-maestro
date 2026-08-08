@@ -1,6 +1,6 @@
 # all-web-ui
 
-Last reviewed: 2026-05-16 KST
+Last reviewed: 2026-08-08 KST
 
 ## Signals
 
@@ -10,6 +10,10 @@ Last reviewed: 2026-05-16 KST
   migration between sibling-source imports and package exports.
 - Shared UI releases create coupling, so downstream impact, export contracts,
   and discoverability matter together.
+- `docs/CODEMAPS/SUBMODULES.md` (2026-08-08)에 따르면 `all-web-ui`의 정식 submodule
+  전환은 아직 pending이며, blocker는 `all-web-ui` 자체가 아니라 `rich`의 dirty/ahead
+  상태 reconciliation이다 — 관련 게이팅 아이디어는 `rich.md`의 Integration health
+  console 항목에서 함께 추적한다.
 
 ## Open ideas
 
