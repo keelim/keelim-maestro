@@ -1,6 +1,6 @@
 # all
 
-Last reviewed: 2026-05-16 KST
+Last reviewed: 2026-08-09 KST
 
 ## Signals
 
@@ -62,6 +62,6 @@ First slice: CI에서 앱·모듈별 Gradle task 시간을 수집해 병목 열�
 
 Status: proposed
 
-Why now: `all`은 Android Gradle 빌드 외에 `composeApp/`(Compose Multiplatform), `allIos/`(iOS Xcode 프로젝트), `all-rust-lib/`(Cargo 프로젝트)를 함께 갖고 있어서, 각 플랫폼 빌드가 독립적으로 깨져도 Android CI만 봐서는 감지하기 어렵다.
+Why now: `all`은 Android Gradle 빌드 외에 `composeApp/`(Compose Multiplatform), `allIos/`(iOS Xcode 프로젝트, `all.xcodeproj`), `all-rust-lib/`(Cargo 프로젝트)를 함께 갖고 있다. 최신 코드맵 기준 `.github/workflows/`에는 `app_arducon.yml`, `app_cnubus.yml`, `app_comssa.yml`, `app_my_grade.yml`, `app_nanda.yml`, `app_deploy.yml`, `ci.yml`, `release.yml` 등 앱별 Android 워크플로만 있고 iOS·Rust·Compose Multiplatform 전용 워크플로는 하나도 없어서, 세 플랫폼 중 하나가 독립적으로 깨져도 지금 CI 구성만으로는 감지되지 않는다.
 
-First slice: iOS Xcode 빌드, Cargo 빌드, Compose Multiplatform 빌드를 각각 최소 실행해 성공/실패를 확인하고, Android CI와 동일한 PR 게이트에서 플랫폼별 빌드 상태를 한 번에 보이는 요약 표를 만든다.
+First slice: `all-rust-lib/scripts/build.sh`(Cargo), `allIos/all.xcodeproj`(Xcode), `composeApp/build.gradle.kts`(Compose Multiplatform)를 각각 최소 실행해 성공/실패를 확인하고, 기존 Android PR 게이트 옆에 플랫폼별 빌드 상태를 한 번에 보이는 요약 표를 추가한다.

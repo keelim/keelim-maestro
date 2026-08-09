@@ -1,6 +1,6 @@
 # keelim-plugin
 
-Last reviewed: 2026-05-16 KST
+Last reviewed: 2026-08-09 KST
 
 ## Signals
 
@@ -21,7 +21,10 @@ Why now: As the skill set grows, a human-maintained README will become less
  useful than a generated catalog with tags, summaries, and installation targets.
 
 First slice: Generate a catalog page from `skills/*/SKILL.md` metadata with
- quick filters for purpose, platform, and maintenance state.
+ quick filters for purpose, platform, and maintenance state. Start with the
+ skills already present — `skills/codebase-codemap`, `skills/jira-ticket-desk`,
+ `skills/session-learning`, `skills/session-usage-dashboard` — since their
+ `SKILL.md` files are the concrete metadata source.
 
 ### 2026-04-12 - Skill smoke-test harness
 
@@ -30,6 +33,12 @@ Status: proposed
 Why now: Cross-tool skills are valuable only if install paths, metadata, and
  basic workflow assumptions stay valid for both Codex and Claude, and there is
  no single check that compares install/readme metadata across both toolchains.
+ Per-skill tests already exist and pass their own bar independently —
+ `skills/session-learning/scripts/test_install_hooks.py`,
+ `test_learning_observer.py`, `test_review_candidates.py`, and
+ `skills/session-usage-dashboard/scripts/test_build_session_usage_dashboard.py`
+ — but there is no root-level command that runs them together or reports
+ Codex/Claude install parity across all skills at once.
 
 First slice: Add a lightweight verifier that checks required files, install
  commands, and any declared agent metadata for each skill folder, then surface
