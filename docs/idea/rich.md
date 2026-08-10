@@ -1,6 +1,6 @@
 # rich
 
-Last reviewed: 2026-05-16 KST
+Last reviewed: 2026-08-10 KST
 
 ## Signals
 
@@ -64,10 +64,14 @@ Status: proposed
 
 Why now: `rich` depends on Supabase, Google, GitHub CLI, and pykrx/KRX access,
 so auth or connection drift needs to be visible separately from stale data or
-failed runs.
+failed runs. 루트 `docs/CODEMAPS/architecture.md`는 이제 `agentgateway`를 "always keep
+running"이 필요한 고정 네임스페이스로, `rich`를 Skaffold 기반 on-demand 워크로드로 명시하므로,
+로컬 K8s 스택 자체의 기동 상태도 같은 헬스 표면에서 함께 봐야 한다.
 
 First slice: Add a compact health panel that shows last-success time, reconnect
-state, and repair action for each upstream integration.
+state, and repair action for each upstream integration, along with
+`bun run automation:local -- start agentgateway`/`start rich`/`standby` 상태와
+마지막 확인 시각을 함께 노출한다.
 
 ### 2026-04-13 - 공공데이터 카탈로그 변경 피드
 

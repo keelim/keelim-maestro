@@ -1,6 +1,6 @@
 # keelim-vercel
 
-Last reviewed: 2026-05-16 KST
+Last reviewed: 2026-08-10 KST
 
 ## Signals
 
@@ -58,9 +58,9 @@ First slice: `lib/menu-config.ts`의 신규 배지 개수, `app/changelog/page.t
 
 Status: proposed
 
-Why now: `all-web-ui`를 로컬 sibling repo로 쓰는 동안 adapter export와 실제 import 경로가 조금만 어긋나도 `keelim-vercel` 쪽에서 런타임보다 늦게 회귀가 드러난다.
+Why now: `all-web-ui`는 로컬 sibling repo이면서 동시에 GitHub Packages에 `@keelim/all-web-ui@0.1.4`로도 배포되므로(`docs/CODEMAPS/frontend.md`), adapter export·import 경로뿐 아니라 로컬 워크스페이스 버전과 퍼블리시된 패키지 버전이 어긋나는 경우도 `keelim-vercel` 쪽에서 런타임보다 늦게 회귀로 드러난다.
 
-First slice: `components/shared/all-web-ui-adapters.tsx`와 downstream import 지점을 스캔해, 사용 중인 primitive와 경로를 한 장의 manifest로 묶고 변경 diff를 보여준다.
+First slice: `components/shared/all-web-ui-adapters.tsx`와 downstream import 지점을 스캔해 사용 중인 primitive·경로를 manifest로 묶고, 로컬 워크스페이스 버전과 `npm.pkg.github.com`에 퍼블리시된 `@keelim/all-web-ui` 버전 차이도 함께 표시한다.
 
 ### 2026-04-18 - 스토리지 키 레지스트리 드리프트 게이트
 
