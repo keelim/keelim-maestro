@@ -1648,3 +1648,28 @@ result.
 - Small change: expose `playerReady`, `completionEventReceived`, `originCheck`,
   and a retry/help action in the training UI so an embed integration problem
   does not look like incomplete viewing by the user.
+
+## 2026-08-10
+
+- Product Design saved context was still absent. Session mining after the
+  previous automation marker found 33 raw JSONL files, dominated by one housing-
+  notice initiative split across planning, implementation, focused audits, and
+  adversarial re-reviews, plus app-nanda release guidance, KORIP work, SkillOpt,
+  and the current project-management sweep.
+
+145. Group delegated session trees into one service initiative.
+- Evidence: the housing-notice work appeared as many separate implementation,
+  read-only audit, spec-correction, and re-review sessions, even though they all
+  converged on the same Rich feature and commit `deddc68`.
+- Small change: conversation analytics should emit `initiativeId`,
+  `parentSessionId`, `sessionRole=plan|build|audit|retest`, and `finalArtifact`
+  before counting opportunities, so delegated reviews improve confidence rather
+  than inflate demand.
+
+146. Include the configuration root in verification receipts.
+- Evidence: invoking the housing Deno tests from the Rich root did not apply the
+  function-local `deno.json`, while the same tests from
+  `supabase/functions/crawl-housing-notices` passed 56/56 with type checking.
+- Small change: test receipts should include `workingDirectory`, `configPath`,
+  `command`, and `result`; generated runbooks should place commands at the
+  directory where their local configuration is discovered.
