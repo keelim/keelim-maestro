@@ -1,6 +1,6 @@
 # android-support
 
-Last reviewed: 2026-05-16 KST
+Last reviewed: 2026-08-11 KST
 
 ## Signals
 
@@ -56,3 +56,11 @@ Status: proposed
 Why now: 이 action은 릴리스 핵심 경로를 직접 건드리는데, 현재 테스트는 입력 검증에 비해 실제 Play API 편집 생명주기 검증이 약해서 사소한 변경도 실배포까지 밀려갈 수 있다.
 
 First slice: sign/upload/internal sharing/staged rollout 응답을 대표 fixture로 기록하고, 이를 CI에서 재생해 Play Console에 닿지 않고도 전체 edit lifecycle을 검증한다.
+
+### 2026-08-11 - 서브모듈 핀 신선도 감시
+
+Status: proposed
+
+Why now: 루트는 `android-support`를 detached 상태로 `v0.0.8-4` 태그에 고정해 두고 있어서(`docs/CODEMAPS/SUBMODULES.md`), 원격에 새 릴리스가 나와도 root 쪽에서 자동으로 드러나지 않으면 오래된 서명/업로드 로직을 계속 쓰게 될 위험이 있다.
+
+First slice: 정기적으로 root gitlink에 핀된 커밋/태그와 `android-support` 원격의 최신 태그를 비교해, 뒤처진 릴리스 수와 변경 로그 요약을 보여주는 체크를 추가한다.
