@@ -1,6 +1,6 @@
 # all-web-ui
 
-Last reviewed: 2026-05-16 KST
+Last reviewed: 2026-08-12 KST
 
 ## Signals
 
@@ -10,6 +10,13 @@ Last reviewed: 2026-05-16 KST
   migration between sibling-source imports and package exports.
 - Shared UI releases create coupling, so downstream impact, export contracts,
   and discoverability matter together.
+- `docs/design/design-system.md` (§11 Cross-Platform Canary)는 `all`(Android
+  Compose) 토큰 동기화를 이미 "소비자(선택)" 의무로 문서화했지만, 실제
+  `scripts/verify-all-web-ui-integration.sh`는 `keelim-vercel`/`rich/web` 웹
+  소비자만 검사한다 — 문서화된 정책과 자동화 사이에 실제 gap이 있다.
+- `scripts/all-web-ui-rich-allowed-drift.txt`에 `rich/web`의 레거시
+  프리미티브/클래스 소유 파일이 11개 남아 있어(2026-08-12 기준), 다운스트림
+  마이그레이션이 아직 끝나지 않았음을 구체적으로 보여준다.
 
 ## Open ideas
 
@@ -64,6 +71,6 @@ First slice: 카탈로그에서 deprecated export를 표시하고, downstream im
 
 Status: proposed
 
-Why now: `all-web-ui`는 실제로 두 개의 다운스트림 앱에 붙어 있으니, export나 theme 파일 변경이 배포 전에 빌드 단위에서 먼저 깨지는지 확인해야 회귀 비용이 낮아진다.
+Why now: `all-web-ui`는 실제로 두 개의 다운스트림 웹 앱과 한 개의 Android 앱에 붙어 있으니, export나 theme 파일 변경이 배포 전에 빌드 단위에서 먼저 깨지는지 확인해야 회귀 비용이 낮아진다. `docs/design/design-system.md`가 이미 Cross-Platform Canary를 정책으로 못 박아 놨는데도 실제 검사 스크립트는 웹 두 개만 커버해서, 정의된 의무와 자동화 사이의 gap이 grounded 리스크다.
 
-First slice: `keelim-vercel`과 `rich/web`이 쓰는 import 경로를 그대로 재현하는 작은 fixture 또는 매트릭스 빌드를 만들고, 타입체크/빌드 실패를 소비자 영향 경고로 보여준다.
+First slice: `keelim-vercel`과 `rich/web`이 쓰는 import 경로를 그대로 재현하는 작은 fixture 또는 매트릭스 빌드를 만들고, 타입체크/빌드 실패를 소비자 영향 경고로 보여준다. 이어서 `scripts/verify-all-web-ui-integration.sh`에 `all`(Android Compose) 토큰 동기화 smoke 빌드 단계를 추가해, 문서화된 §11 Cross-Platform Canary 의무를 실제 게이트 하나로 묶는다.
