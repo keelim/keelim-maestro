@@ -1,6 +1,6 @@
 # Architecture Codemap
 
-<!-- Generated: 2026-08-12 -->
+<!-- Generated: 2026-08-13 -->
 
 ## Workspace Topology
 
