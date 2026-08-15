@@ -1,9 +1,8 @@
 # Claude Code Project Guidelines - keelim-maestro
 
-## Headroom & RTK (Rust Token Killer)
-This project is configured to run with **Headroom** (a context optimization layer) and **RTK (Rust Token Killer)**.
-- **Proxy Server**: All API calls route through the Headroom proxy at `http://127.0.0.1:8787` (configured in `.claude/settings.local.json`). Ensure the proxy is running (`headroom proxy`).
-- **MCP Server**: The Headroom MCP server is registered globally in `~/.claude.json`. It exposes `headroom_retrieve` (which appears as `mcp__headroom__headroom_retrieve` in Claude Code) for Content-Compressed Retrieval (CCR).
+## RTK (Rust Token Killer)
+Headroom proxy routing is disabled for this workspace; do not route API calls through `http://127.0.0.1:8787`.
+- **MCP Server**: Headroom MCP may still be registered globally in `~/.claude.json` for Content-Compressed Retrieval (CCR), but it is not the API proxy.
 - **RTK Command Wrapper**: When executing shell commands, **always prefix with `rtk`** (e.g. `rtk git status`, `rtk pytest`). This compresses terminal output by 60-90% before it reaches the model context.
 
 ### Common RTK commands:
@@ -20,6 +19,30 @@ This project is configured to run with **Headroom** (a context optimization laye
 - **Web Build & Test**: `bun run build:web` / `bun run test:web`
 - **Start Web Dev Servers**: `bun run dev:keelim-vercel` / `bun run dev:rich-web`
 - **Local Automation Stack**: `bun run automation:local -- <args>`
+
+---
+
+## Codex Headless Harness
+- Treat `claude -p --model fable` calls from Codex as bounded headless runs. Codex remains the orchestrator unless the prompt explicitly delegates writes.
+- Keep project auto-discovery enabled; do not use `--bare` for this harness because it skips `CLAUDE.md`, hooks, plugins, and MCP config.
+- Return JSON-compatible content with `status`, `summary`, `next_actions`, and `artifacts`. For errors, include a root-cause hint, safe retry, and stop condition.
+- Default to advice-only. Edit files only when the prompt says `delegated-write`, names the target paths, and stays inside the root or named child-repo boundary.
+- If asked to coordinate with Codex, use the existing `bun run dev:codex-app-server` bridge only on explicit request. Otherwise answer the headless prompt and exit.
+- Preserve local rules: no Headroom API proxy, use `rtk` for shell commands, route MCP through `agentgateway`, and keep child repos autonomous.
+
+---
+
+## 하네스: keelim-maestro 크로스 프로젝트 개발
+
+**목표:** 도메인 리드 팀(android-lead, python-lead, web-lead, qa)으로 하위 프로젝트를 넘나드는 구현·검증을 조율한다.
+
+**트리거:** 하위 프로젝트(all, all-web-ui, android-support, keelim-plugin, keelim-vercel, rich, toto, youtube)를 대상으로 한 구현/수정/리팩터링/리뷰 요청 시 `maestro-orchestrator` 스킬을 사용하라. 단순 질문은 직접 응답 가능.
+
+**변경 이력:**
+| 날짜 | 변경 내용 | 대상 | 사유 |
+|------|----------|------|------|
+| 2026-07-04 | 리드 에이전트 4종 정의 | agents/ | 초기 팀 구성 |
+| 2026-07-04 | 오케스트레이터·경계 검증 스킬 추가, 포인터 등록 | skills/, CLAUDE.md | 에이전트만 있고 조율 체계 부재(drift) 해소 |
 
 ---
 

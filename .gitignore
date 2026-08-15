@@ -38,3 +38,8 @@
 /.tmp
 /docs/
 /.agents/
+/.claude/agents
+/.claude/skills
+/.claude/workflows
+/.serena
+/reports
