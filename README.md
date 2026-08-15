@@ -83,6 +83,51 @@ The report is a live observation assembled from `.gitmodules`, active gitlinks,
 root workspace manifests, root policy, and child Git status. It does not mutate
 child repositories and is not permission to pin or repair child state.
 
+## mise toolchain
+
+The root `mise.toml` pins Bun `1.3.12`, Python `3.13.15`, and uv `0.12.5` for
+root workspace operations. Child repositories keep their own `mise.toml` so a
+standalone clone does not depend on the root checkout. A child configuration
+inherits the parent tools when it is nested here and can override them where
+its manifest requires a different runtime.
+
+Current runtime owners are:
+
+- `keelim-plugin`: Python `3.12.14` and uv `0.12.5`
+- `all-web-ui`, `keelim-vercel`, and `rich`: Bun `1.3.12`
+- `rich`: Bun `1.3.12`, Python `3.13.15`, and uv `0.12.5`
+- `rich/symphony`: existing Erlang 28 and Elixir `1.19.5-otp-28`, with the
+  parent tools inherited
+- `youtube`: Bun `1.3.12`, Node `24.19.0`, Python `3.13.15`, and uv `0.12.5`
+- `all`: Temurin Java `17.0.20+8` and Rust `1.97.1`
+
+Trust and install the configuration in a fresh checkout, then regenerate the
+platform lockfile only when changing a tool version:
+
+```bash
+mise trust
+mise install
+mise lock --platform macos-arm64,linux-x64
+mise current
+```
+
+The same commands work from a child repository, for example
+`mise -C youtube install` or `mise -C all current`. The generated `mise.lock`
+files pin tool downloads and checksums; they do not replace Bun, uv, Gradle, or
+Cargo lockfiles.
+
+Root convenience tasks delegate to the existing workspace commands:
+
+```bash
+mise run bootstrap:js
+mise run bootstrap:python
+mise run status:subrepos
+mise run verify:root
+```
+
+`mise run verify:root` is subject to the same existing root contract checks as
+`bun run test`; it does not normalize or commit dirty child repositories.
+
 ## Cross-repo changeset manifest
 
 Before coordinating an ordered change across autonomous child repositories,
