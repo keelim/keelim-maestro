@@ -1,0 +1,24 @@
+[tools]
+bun = "1.3.12"
+python = "3.13.15"
+uv = "0.12.5"
+
+[tasks."bootstrap:js"]
+description = "Install the locked root Bun workspace dependencies"
+run = "bun install --frozen-lockfile"
+
+[tasks."bootstrap:python"]
+description = "Synchronize the locked root uv workspace"
+run = "uv sync --locked"
+
+[tasks."status:subrepos"]
+description = "Show the root and autonomous child repository status"
+run = "./scripts/update-subrepos.sh status"
+
+[tasks."verify:root"]
+description = "Run the root workspace contract and Python constraint checks"
+run = [
+  "bun run test",
+  "uv run python scripts/verify-python-dependency-constraints.py",
+  "uv lock --check",
+]
