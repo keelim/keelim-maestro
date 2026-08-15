@@ -116,6 +116,15 @@
 - `./scripts/update-subrepos.sh` is the root-owned status/update helper for registered submodules plus autonomous local repos surfaced in the report; prefer it over ad-hoc multi-repo pull loops when the task is root-level repo hygiene.
 - `bun run dev:strategy-builder` and `bun run dev:backtester` are root convenience wrappers into `rich/open-trading-api/*`, but they do **not** make those nested apps root workspace members or change `rich`'s child-repo ownership rules.
 
+## Claude headless Fable harness
+- Use Claude Code headless as a Codex subprocess only when the user asks for Claude/Fable, a second-model review, or a bounded delegated task.
+- Run advice-only calls from the intended repo root with `rtk proxy claude -p --model fable --permission-mode plan --output-format json --max-turns 3 "<task>"`.
+- Keep auto-discovery enabled so `CLAUDE.md`, hooks, plugins, and MCP config load. Do not add `--bare` or permission-bypass flags to this harness.
+- The prompt must state `mode=advice-only` or `mode=delegated-write`, target paths, repo boundary, and required output keys: `status`, `summary`, `next_actions`, `artifacts`.
+- Error output must include a root-cause hint, safe retry instruction, and explicit stop condition. Stop after one clean retry if auth, model access, MCP connectivity, or JSON output is still broken.
+- Treat Claude output as evidence, not authority: Codex owns final edits, verification, and user-facing status unless the prompt explicitly delegated write execution to Claude.
+- Keep the Codex app-server bridge separate: use `bun run dev:codex-app-server` and `codex --remote ws://127.0.0.1:7331` only when the task needs a live Codex remote surface.
+
 ## GBrain knowledge layer
 - Root-owned GBrain operating docs live under `docs/knowledge/`; the operator brain repo remains separate from this checkout, and importing child docs into GBrain does not grant permission to edit child source from the root.
 - For local PGLite GBrain imports, use the curated source manifest/log under the operator brain repo and import only allowlisted documentation paths. Do not broad-import child source trees, caches, generated output, secrets, archived `toto`, or no-remote `quant`.
@@ -128,3 +137,47 @@
 - Prefer documentation over automation until the child-repo state is clean enough for safe submodule conversion.
 - If a requested root change requires editing a child repo, call out the boundary explicitly and switch to that child repo's rules before changing it.
 - For Bun workspace changes, prefer root bootstrap and metadata alignment before deeper package-boundary rewrites.
+
+
+<!-- headroom:rtk-instructions -->
+# RTK (Rust Token Killer) - Token-Optimized Commands
+
+When running shell commands, **always prefix with `rtk`**. This reduces context
+usage by 60-90% with zero behavior change. If rtk has no filter for a command,
+it passes through unchanged — so it is always safe to use.
+
+## Key Commands
+```bash
+# Git (59-80% savings)
+rtk git status          rtk git diff            rtk git log
+
+# Files & Search (60-75% savings)
+rtk ls <path>           rtk read <file>         rtk grep <pattern>
+rtk find <pattern>      rtk diff <file>
+
+# Test (90-99% savings) — shows failures only
+rtk pytest tests/       rtk cargo test          rtk test <cmd>
+
+# Build & Lint (80-90% savings) — shows errors only
+rtk tsc                 rtk lint                rtk cargo build
+rtk prettier --check    rtk mypy                rtk ruff check
+
+# Analysis (70-90% savings)
+rtk err <cmd>           rtk log <file>          rtk json <file>
+rtk summary <cmd>       rtk deps                rtk env
+
+# GitHub (26-87% savings)
+rtk gh pr view <n>      rtk gh run list         rtk gh issue list
+
+# Infrastructure (85% savings)
+rtk docker ps           rtk kubectl get         rtk docker logs <c>
+
+# Package managers (70-90% savings)
+rtk pip list            rtk pnpm install        rtk npm run <script>
+```
+
+## Rules
+- In command chains, prefix each segment: `rtk git add . && rtk git commit -m "msg"`
+- For debugging, use raw command without rtk prefix
+- `rtk proxy <cmd>` runs command without filtering but tracks usage
+<!-- /headroom:rtk-instructions -->
