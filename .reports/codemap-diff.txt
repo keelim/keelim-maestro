@@ -1,58 +1,68 @@
 Codemap Diff Report
 ===================
-Generated: 2026-05-22
-Previous generation: 2026-05-21
+Generated: 2026-07-21
+Previous generation: 2026-07-20
 
 SUMMARY OF CHANGES
 ==================
 - Change scope: ~1% (timestamp refresh only)
-- Action: update all timestamps to 2026-05-22; no structural content changes
+- Action: update all timestamps to 2026-07-21; no structural content changes
 
 FILES MODIFIED
 ===============
 ✓ docs/CODEMAPS/README.md
-  - Updated: Last updated 2026-05-21 → 2026-05-22
+  - Updated: Last updated 2026-07-20 → 2026-07-21
   - Content: no structural changes (still accurate)
 
 ✓ docs/CODEMAPS/keelim-maestro.md
-  - Updated: Generated timestamp 2026-05-21 → 2026-05-22
+  - Updated: Generated timestamp 2026-07-20 → 2026-07-21
   - Content: no structural changes (still accurate)
 
 ✓ docs/CODEMAPS/WORKSPACE.md
-  - Updated: Last updated 2026-05-21 → 2026-05-22
-  - Content: no structural changes; submodule snapshot still accurate
+  - Updated: Last updated 2026-07-20 → 2026-07-21
+  - Content: no changes; Bun workspace and uv workspace unchanged
+
+✓ docs/CODEMAPS/SUBMODULES.md
+  - Updated: Last updated 2026-07-20 → 2026-07-21
+  - Content: no changes (submodule pinned commits unchanged)
 
 ✓ docs/CODEMAPS/architecture.md
-  - Updated: Generated timestamp 2026-05-21 → 2026-05-22
+  - Updated: Generated timestamp 2026-07-20 → 2026-07-21
   - Content: no changes (still accurate)
 
 ✓ docs/CODEMAPS/backend.md
-  - Updated: Generated timestamp 2026-05-21 → 2026-05-22
+  - Updated: Generated timestamp 2026-07-20 → 2026-07-21
   - Content: no changes (still accurate)
 
 ✓ docs/CODEMAPS/data.md
-  - Updated: Generated timestamp 2026-05-21 → 2026-05-22
+  - Updated: Generated timestamp 2026-07-20 → 2026-07-21
   - Content: no changes (still accurate)
 
 ✓ docs/CODEMAPS/frontend.md
-  - Updated: Generated timestamp 2026-05-21 → 2026-05-22
+  - Updated: Generated timestamp 2026-07-20 → 2026-07-21
   - Content: no changes (still accurate)
 
 ✓ docs/CODEMAPS/dependencies.md
-  - Updated: Generated timestamp 2026-05-21 → 2026-05-22
+  - Updated: Generated timestamp 2026-07-20 → 2026-07-21
+  - Content: no changes; Bun catalog and uv constraints unchanged
+
+✓ docs/CODEMAPS/SCRIPTS.md
+  - Updated: Last updated 2026-07-20 → 2026-07-21
+  - Content: no new scripts since last generation
+
+✓ docs/CODEMAPS/CODEGRAPH.md
+  - Updated: Generated timestamp 2026-07-20 → 2026-07-21
   - Content: no changes (still accurate)
 
 ✓ docs/CODEMAPS/projects/README.md
-  - Updated: Last updated 2026-05-21 → 2026-05-22
+  - Updated: Last updated 2026-07-20 → 2026-07-21
   - Content: project snapshot table still accurate; no new child repos
 
-FILES CHECKED — NO CHANGES NEEDED
-===================================
-✓ docs/CODEMAPS/SUBMODULES.md  — submodule pointers unchanged (same pinned commits as 2026-05-21)
-✓ docs/CODEMAPS/SCRIPTS.md     — no new scripts; all 7 root scripts already documented
-✓ docs/CODEMAPS/projects/*.md  — child repo snapshots unchanged (child repos not initialized in this checkout)
+✓ docs/CODEMAPS/projects/*.md (8 files)
+  - Updated: Generated timestamps 2026-07-20 → 2026-07-21
+  - Content: child repo snapshots unchanged
 
-CONTEXT: CHANGES SINCE 2026-05-21
+CONTEXT: CHANGES SINCE 2026-07-20
 ====================================
 - No new submodules registered
 - No new scripts added under scripts/
@@ -66,23 +76,17 @@ CONTEXT: CHANGES SINCE 2026-05-21
 - Root package.json workspaces unchanged: all-web-ui, keelim-vercel, rich/web, toto
 - Root package.json catalog (bun workspace catalog) unchanged
 - Root pyproject.toml uv workspace members unchanged: toto, rich
-- docs/idea/ directory: no changes committed since 2026-05-21
-- docs/videos/: no changes committed since 2026-05-21
-- docs/design/: no changes committed since 2026-05-21
-- Autonomous repos (all-web-ui, rich, quant) status unchanged
 
 OPEN ITEMS CARRIED FORWARD
 ============================
-- docs/knowledge/ referenced in root README.md but still absent from repository tree.
-  Documented in keelim-maestro.md Open Questions section.
-- all-web-ui pending formal submodule registration (after rich reconciliation).
+- all-web-ui pending formal submodule registration (blocked until rich is reconciled).
 - rich local commits ahead of origin pending reconciliation before pinning.
 
-SUBMODULE SNAPSHOT (2026-05-22)
+SUBMODULE SNAPSHOT (2026-07-21)
 ================================
 Registered gitlinks (git ls-files --stage | grep 160000):
 ✓ all                    0643bab4281700c08c12492af7fe0d0a0663d12e   develop
-✓ android-support        485a2e404248182f48b01266c2d2ab8eb67145aa   main
+✓ android-support        485a2e404248182f48b01266c2d2ab8eb67145aa   main (v0.0.8-4)
 ✓ Keelim-Knowledge-Vault 15b29c11b7199d6f2c97a518781de97bbbea0dfd   main
 ✓ keelim-plugin          a3463396c95dcd4749727bf1f32495db45bba220   main
 ✓ keelim-vercel          1304f1216351f268636c09e43a3315071ed6c769   develop
@@ -99,18 +103,22 @@ STALENESS CHECK
 ✓ No new directories with .git found under workspace root beyond known set
 ✓ No new .gitmodules entries since last generation
 ✓ Root package.json workspaces match keelim-maestro.md documentation
+✓ Bun catalog in dependencies.md matches root package.json catalog field
+✓ uv constraints in dependencies.md match root pyproject.toml constraint-dependencies
 
 CHECKLIST
 ==========
 ✓ README.md updated (timestamp)
 ✓ keelim-maestro.md updated (timestamp)
 ✓ WORKSPACE.md updated (timestamp)
-✓ SUBMODULES.md checked (no changes needed)
-✓ SCRIPTS.md checked (no changes needed)
+✓ SUBMODULES.md updated (timestamp)
+✓ SCRIPTS.md updated (timestamp)
+✓ CODEGRAPH.md updated (timestamp)
 ✓ architecture.md updated (timestamp)
 ✓ backend.md updated (timestamp)
 ✓ dependencies.md updated (timestamp)
 ✓ frontend.md updated (timestamp)
 ✓ data.md updated (timestamp)
 ✓ projects/README.md updated (timestamp)
+✓ projects/*.md updated (8 files, timestamp only)
 ✓ This report generated
