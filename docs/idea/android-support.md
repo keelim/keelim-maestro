@@ -1,6 +1,6 @@
 # android-support
 
-Last reviewed: 2026-05-16 KST
+Last reviewed: 2026-08-16 KST
 
 ## Signals
 
@@ -56,3 +56,11 @@ Status: proposed
 Why now: 이 action은 릴리스 핵심 경로를 직접 건드리는데, 현재 테스트는 입력 검증에 비해 실제 Play API 편집 생명주기 검증이 약해서 사소한 변경도 실배포까지 밀려갈 수 있다.
 
 First slice: sign/upload/internal sharing/staged rollout 응답을 대표 fixture로 기록하고, 이를 CI에서 재생해 Play Console에 닿지 않고도 전체 edit lifecycle을 검증한다.
+
+### 2026-08-16 - 루트 인벤토리 등재 감시
+
+Status: proposed
+
+Why now: `android-support`는 실제로 35개 파일을 가진 활성 GitHub Action(서명·업로드·릴리스 노트 처리)이지만, 루트 `docs/CODEMAPS/architecture.md`의 하위 프로젝트 표, `SUBMODULES.md`의 Autonomous Local Repos 표, `keelim-maestro.md`의 Child Repositories 표 어디에도 등재돼 있지 않다. CodeGraph 디스패처나 trusted-baseline 리포트 같은 루트 자동화가 이 저장소를 계속 놓칠 위험이 있다.
+
+First slice: `docs/idea/index.md`가 추적하는 프로젝트 목록과 루트 코드맵(`architecture.md`, `SUBMODULES.md`, `keelim-maestro.md`)이 실제로 등재한 프로젝트 목록을 비교하는 가벼운 감시(스크립트 또는 체크리스트)를 만들어, drift가 생기면 코드맵 갱신 시점에 바로 드러나게 한다.
