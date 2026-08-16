@@ -1673,3 +1673,17 @@ result.
 - Small change: test receipts should include `workingDirectory`, `configPath`,
   `command`, and `result`; generated runbooks should place commands at the
   directory where their local configuration is discovered.
+
+### 147. 저장소별 작업 임대와 충돌 표시
+
+- Evidence: 2026-08-16 세션 스윕에서 프로젝트 관리 자동화와 별도의 `all`,
+  `rich` 작업이 같은 hydrated checkout을 동시에 사용했다. 프로젝트 관리 실행 중
+  `all`의 FCM 변경과 `rich`의 KRX 수집 작업이 계속 갱신되어, 의미 단위 커밋 후보가
+  다른 실행의 진행 중 변경인지 구분해야 했다.
+- Product move: 자동화 시작 시 저장소별 `owner`, `automationId`, `startedAt`,
+  `scope`를 기록하는 짧은 lease를 만들고, 상태 화면과 커밋 후보 목록에 현재
+  소유자를 표시한다. 다른 실행이 소유한 저장소는 읽기 전용으로 분석하고 자동
+  커밋 대상에서 제외한다.
+- Small change: 중앙 스케줄러나 큐를 새로 만들지 않고 기존 자동화 상태에
+  `repoLeases`만 추가한다. 만료된 lease는 다음 실행이 회수하고, 활성 lease가 있는
+  저장소는 `skipped-active-owner` 영수증을 남긴다.
