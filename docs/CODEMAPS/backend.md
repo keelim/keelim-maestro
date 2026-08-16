@@ -1,6 +1,6 @@
 # Backend Codemap
 
-<!-- Generated: 2026-08-15 -->
+<!-- Generated: 2026-08-16 -->
 
 ## Python Workspace Members
 
@@ -8,11 +8,11 @@ Root uv workspace provides shared dependency constraints for:
 
 | Member | Package | Path | Runtime | Notes |
 | --- | --- | --- | --- | --- |
-| `kbo-dashboard` | `toto` package | `toto/` | Python | KBO Streamlit dashboard; pinned submodule |
 | `keelim-rich` | `rich` package | `rich/` | Python >=3.13 | Admin API + open trading backend; dirty working tree |
+| `youtube` | — | `youtube/` | Python >=3.13 | YouTube automation stack |
 
 **Excluded from root uv workspace:**
-- `youtube` — removed from root workspaces
+- `quant` — no remote; intentionally excluded
 
 ## Rich Backend
 
@@ -24,14 +24,13 @@ Root uv workspace provides shared dependency constraints for:
   - `rich/open-trading-api/backtester/` — backtesting engine (root helper: `bun run dev:backtester`)
 - **Local Kubernetes** — managed via Skaffold; start/stop via local automation helper
 
-## Toto (KBO Dashboard)
+## YouTube Automation
 
-`toto/` is a registered submodule and active workspace member:
+`youtube/` is an autonomous child repo and active workspace member:
 
-- **Streamlit app** (`toto/streamlit_app/`) — KBO baseball prediction dashboard
-- **Python library** (`toto/src/kbo_dashboard/`) — data contracts, repository, UI support
-- **Tests** (`toto/tests/`) — DTO, repository, state, and filter tests
-- Run locally: `bun run dev:toto` (via `bun --filter toto-kbo-streamlit-dashboard dev`)
+- **Remotion renderer** (`youtube/remotion/`) — TypeScript/React-based video renderer
+- **Services** (`youtube/services/`) — backend automation services
+- **Video projects** (`youtube/videos/`) — per-video project packages
 
 ## Local Automation Stack
 
@@ -56,5 +55,4 @@ uv lock --check
 
 # Tests
 uv run --package keelim-rich --group dev pytest rich/tests
-uv run --package kbo-dashboard --group dev pytest toto/tests
 ```

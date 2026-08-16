@@ -1,7 +1,7 @@
 # Root Scripts Codemap
 
-<!-- Generated: 2026-08-15 -->
-Last updated: 2026-08-15
+<!-- Generated: 2026-08-16 -->
+Last updated: 2026-08-16
 
 All scripts live under `scripts/`. Run them from the repo root.
 
@@ -43,13 +43,10 @@ bun run report:baseline       # Read-only trusted-baseline report
 bun run report:shared-ui      # Shared UI contract report
 bun run dev:keelim-vercel     # Vercel Next.js dev server
 bun run dev:rich-web          # Rich admin web dev server
-bun run dev:toto              # Toto KBO dashboard dev server
 bun run dev:codex-app-server  # Local Codex WebSocket server
 bun run dev:strategy-builder  # Rich open-trading-api strategy builder UI
 bun run dev:backtester        # Rich open-trading-api backtester UI
 bun run build:web             # Build keelim-vercel + rich-admin-web
 bun run typecheck:web         # Typecheck all-web-ui + keelim-vercel + rich-admin-web
 bun run test:web              # Run rich-admin-web tests
-bun run test:toto             # Run toto tests
-bun run verify:toto           # Verify toto (test + compile)
 ```

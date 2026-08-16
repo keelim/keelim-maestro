@@ -1,7 +1,7 @@
 # Workspace Bootstrap Codemap
 
-<!-- Generated: 2026-08-15 -->
-Last updated: 2026-08-15
+<!-- Generated: 2026-08-16 -->
+Last updated: 2026-08-16
 
 ## Bun Workspace
 
@@ -14,7 +14,9 @@ Runtime: **Bun 1.3.12** (`packageManager` field in package.json)
   "all-web-ui",
   "keelim-vercel",
   "rich/web",
-  "toto"
+  "youtube/remotion",
+  "youtube/services/*",
+  "youtube/videos/*"
 ]
 ```
 
@@ -23,10 +25,14 @@ Runtime: **Bun 1.3.12** (`packageManager` field in package.json)
 | `all-web-ui` | Shared UI library; publishes `@keelim/all-web-ui` to GitHub Packages |
 | `keelim-vercel` | Vercel-linked Next.js app; also a registered submodule |
 | `rich/web` | Rich admin dashboard; uses root Bun workspace for `catalog:` resolution |
-| `toto` | KBO Streamlit dashboard; registered submodule (`toto-kbo-streamlit-dashboard`) |
+| `youtube/remotion` | YouTube Remotion video renderer |
+| `youtube/services/*` | YouTube automation services (glob) |
+| `youtube/videos/*` | YouTube video projects (glob) |
 
 **Prerequisites:** `all-web-ui` and `rich` must be hydrated locally before
 `bun install` since they are autonomous repos (not submodules).
+`youtube` is a Bun workspace member but its directory is not present in the root
+checkout by default; hydrate it locally before running `bun install` if needed.
 
 ### Key scripts
 
@@ -46,18 +52,18 @@ Runtime: **Python >=3.13** (required by `rich`)
 
 ```toml
 [tool.uv.workspace]
-members = ["toto", "rich"]
+members = ["rich", "youtube"]
 ```
 
 | Member | Package | Notes |
 | --- | --- | --- |
-| `toto` | `kbo-dashboard` | KBO Streamlit dashboard; pinned submodule |
-| `rich` | `keelim-rich` | Requires Python >=3.13 |
+| `rich` | `keelim-rich` | Admin API + open trading backend; requires Python >=3.13 |
+| `youtube` | — | YouTube automation; requires Python >=3.13 |
 
 ### Constraint dependencies
 
 The root `tool.uv.constraint-dependencies` pins shared packages (anyio, certifi, numpy,
-pandas, pytest, etc.) to aligned ranges across workspace members.
+pandas, playwright, pytest, ruff, etc.) to aligned ranges across workspace members.
 
 ### Key commands
 
@@ -66,7 +72,6 @@ uv run python scripts/verify-python-dependency-constraints.py
 uv lock --check
 uv workspace metadata
 uv run --package keelim-rich --group dev pytest rich/tests
-uv run --package kbo-dashboard --group dev pytest toto/tests
 ```
 
 ## Bun Catalog

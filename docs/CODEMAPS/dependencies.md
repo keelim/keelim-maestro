@@ -1,6 +1,6 @@
 # Dependencies Codemap
 
-<!-- Generated: 2026-08-15 -->
+<!-- Generated: 2026-08-16 -->
 
 ## Bun Workspace Catalog
 
@@ -49,7 +49,7 @@ Pinned in root `package.json` `catalog:` field. Used by `rich/web` for `catalog:
 ## Python uv Constraint Dependencies
 
 Pinned in root `pyproject.toml` `tool.uv.constraint-dependencies`. Enforced across
-`toto` and `rich` workspace members.
+`rich` and `youtube` workspace members.
 
 | Package | Constraint range |
 | --- | --- |
@@ -63,14 +63,17 @@ Pinned in root `pyproject.toml` `tool.uv.constraint-dependencies`. Enforced acro
 | `narwhals` | >=2.21.0,<3.0.0 |
 | `numpy` | >=2.4.4,<3.0.0 |
 | `packaging` | >=26.2,<27.0.0 |
-| `pandas` | >=3.0.3,<4.0.0 |
+| `pandas` | >=2.3.3,<3.0.0 |
 | `pillow` | >=12.2.0,<13.0.0 |
+| `playwright` | >=1.56.0,<2.0.0 |
 | `pluggy` | >=1.6.0,<2.0.0 |
 | `pygments` | >=2.20.0,<3.0.0 |
 | `pytest` | >=9.0.3,<10.0 |
 | `python-dateutil` | >=2.9.0.post0,<3.0.0 |
 | `python-multipart` | >=0.0.28,<0.1.0 |
+| `pyyaml` | >=6.0.2,<7.0.0 |
 | `requests` | >=2.34.0,<3.0.0 |
+| `ruff` | >=0.14.8,<0.15.0 |
 | `six` | >=1.17.0,<2.0.0 |
 | `starlette` | >=1.0.0,<2.0.0 |
 | `typing-extensions` | >=4.15.0,<5.0.0 |

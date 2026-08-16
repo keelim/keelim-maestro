@@ -1,6 +1,6 @@
 # keelim-maestro Root Superproject Codemap
 
-<!-- Generated: 2026-08-15 -->
+<!-- Generated: 2026-08-16 -->
 
 ## Overview
 
@@ -20,8 +20,9 @@ Child repositories remain independently cloneable, deployable, and git-owned.
 ```
 keelim-maestro/
 ├── AGENTS.md                  # Agent/AI guidance for this repo
-├── CLAUDE.md                  # Claude Code guidance (empty — not yet populated)
+├── CLAUDE.md                  # Claude Code guidance
 ├── README.md                  # Human-facing workspace overview
+├── PROJECT.md                 # Project-level goals and status
 ├── .gitignore                 # Excludes child working trees, env, generated
 ├── .gitmodules                # Registered submodule pointers
 ├── .npmrc                     # npm/bun registry config (GitHub Packages)
@@ -29,28 +30,27 @@ keelim-maestro/
 ├── bun.lock                   # Bun lockfile (root workspace)
 ├── pyproject.toml             # uv workspace bootstrap (coordination-only)
 ├── uv.lock                    # uv lockfile (root workspace)
+├── mise.toml                  # mise tool version pinning
+├── mise.lock                  # mise lockfile
 ├── scripts/                   # Root helper scripts (see SCRIPTS.md)
 ├── docs/
 │   ├── CODEMAPS/              # This directory — workspace codemap snapshots
 │   ├── design/                # Keelim Design System documentation
 │   ├── idea/                  # Per-project idea/backlog files
 │   └── videos/                # Video documentation assets (subproject-intros)
-└── .reports/
-    └── codemap-diff.txt       # Last codemap diff report
 ```
 
 ## Child Repositories
 
 | Path | Type | Remote | Default branch | Status |
 | --- | --- | --- | --- | --- |
-| `all` | submodule | github.com/keelim/all | develop | pinned `0643bab4` |
-| `android-support` | submodule | github.com/keelim/android-support | main | pinned `485a2e40` (v0.0.8-4) |
-| `Keelim-Knowledge-Vault` | submodule | github.com/keelim/Keelim-Knowledge-Vault | main | pinned `15b29c11` |
-| `keelim-plugin` | submodule | github.com/keelim/keelim-plugin | main | pinned `a3463396` |
-| `keelim-vercel` | submodule | github.com/keelim/keelim-vercel | develop | pinned `1304f121` |
-| `toto` | submodule | github.com/keelim/toto | main | pinned `5897ef44`; KBO dashboard; active Bun + uv workspace member |
-| `all-web-ui` | autonomous | github.com/keelim/all-web-ui | main | clean vs origin/main; pending submodule conversion |
+| `all` | submodule | github.com/keelim/all | develop | pinned `dbd6ce9e` |
+| `Keelim-Knowledge-Vault` | submodule | github.com/keelim/Keelim-Knowledge-Vault | main | pinned `2cfffa10` |
+| `keelim-plugin` | submodule | github.com/keelim/keelim-plugin | main | pinned `0e05ea44` |
+| `keelim-vercel` | submodule | github.com/keelim/keelim-vercel | develop | pinned `c0e87692` |
+| `all-web-ui` | autonomous | github.com/keelim/all-web-ui | main | pending submodule conversion |
 | `rich` | autonomous | github.com/keelim/rich | master | dirty working tree; ahead of origin |
+| `youtube` | autonomous | github.com/keelim/youtube | — | active Bun + uv workspace member |
 | `quant` | autonomous | none | — | intentionally excluded |
 
 ## Key Policies
@@ -58,7 +58,7 @@ keelim-maestro/
 - Root-level changes must prefer the smallest reversible diff.
 - Child repos may not be modified from root unless explicitly requested.
 - `quant` has no remote — do not create one or add it to .gitmodules.
-- `toto` is a registered submodule and active Bun/uv workspace member (KBO dashboard).
+- `youtube` is an active Bun and uv workspace member.
 
 ## Open Questions
 
@@ -66,4 +66,4 @@ keelim-maestro/
 - `docs/videos/subproject-intros/` contains per-project video documentation assets.
 - `all-web-ui` pending formal submodule registration (blocked until rich is reconciled and workspace is safe to pin).
 - `rich` local commits ahead of origin pending reconciliation before pinning.
-- `youtube` autonomous repo removed from root Bun/uv workspaces; no longer tracked by root scripts.
+- `youtube` not physically present in this checkout; hydrate locally before running `bun install` or uv commands.

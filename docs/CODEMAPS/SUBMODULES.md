@@ -1,7 +1,7 @@
 # Submodules Codemap
 
-<!-- Generated: 2026-08-15 -->
-Last updated: 2026-08-15
+<!-- Generated: 2026-08-16 -->
+Last updated: 2026-08-16
 
 ## Registered Submodules
 
@@ -9,19 +9,18 @@ Sourced from `.gitmodules` and `git ls-files --stage | grep 160000`.
 
 | Submodule path | Remote URL | Default branch | Pinned commit |
 | --- | --- | --- | --- |
-| `all` | https://github.com/keelim/all.git | `develop` | `0643bab4281700c08c12492af7fe0d0a0663d12e` |
-| `android-support` | https://github.com/keelim/android-support | `main` | `485a2e404248182f48b01266c2d2ab8eb67145aa` (v0.0.8-4) |
-| `Keelim-Knowledge-Vault` | https://github.com/keelim/Keelim-Knowledge-Vault.git | `main` | `15b29c11b7199d6f2c97a518781de97bbbea0dfd` |
-| `keelim-plugin` | https://github.com/keelim/keelim-plugin.git | `main` | `a3463396c95dcd4749727bf1f32495db45bba220` |
-| `keelim-vercel` | https://github.com/keelim/keelim-vercel.git | `develop` | `1304f1216351f268636c09e43a3315071ed6c769` |
-| `toto` | https://github.com/keelim/toto.git | `main` | `5897ef441cb13c550c83a5392097bc46423b3391` |
+| `all` | https://github.com/keelim/all.git | `develop` | `dbd6ce9e06fb914e6f0e1170b27efb10bb05da68` |
+| `Keelim-Knowledge-Vault` | https://github.com/keelim/Keelim-Knowledge-Vault.git | `main` | `2cfffa10aaa7e5568bfeb7305e26c6cea48cbcba` |
+| `keelim-plugin` | https://github.com/keelim/keelim-plugin.git | `main` | `0e05ea44da5cca600f731802fbd879b31a7367d7` |
+| `keelim-vercel` | https://github.com/keelim/keelim-vercel.git | `develop` | `c0e876927156ec66deb8d9b7d6d19e3d8db48d4a` |
 
 ## Autonomous Local Repos (not in .gitmodules)
 
 | Path | Remote | Branch | Notes |
 | --- | --- | --- | --- |
-| `all-web-ui` | github.com/keelim/all-web-ui | main | Public remote; clean vs origin/main; pending submodule conversion |
+| `all-web-ui` | github.com/keelim/all-web-ui | main | Public remote; pending submodule conversion |
 | `rich` | github.com/keelim/rich | master | Dirty working tree; commits ahead of origin; freeze/split before pinning |
+| `youtube` | github.com/keelim/youtube | — | YouTube automation; active Bun + uv workspace member |
 | `quant` | none | — | Intentionally excluded; no remote |
 
 ## Bootstrap Commands
