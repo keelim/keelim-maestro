@@ -1,6 +1,6 @@
 # keelim-maestro Root Superproject Codemap
 
-<!-- Generated: 2026-08-16 -->
+<!-- Generated: 2026-08-17 -->
 
 ## Overview
 
@@ -19,8 +19,8 @@ Child repositories remain independently cloneable, deployable, and git-owned.
 
 ```
 keelim-maestro/
-├── AGENTS.md                  # Agent/AI guidance for this repo
-├── CLAUDE.md                  # Claude Code guidance
+├── AGENTS.md                  # Agent/AI guidance for this repo (authoritative)
+├── CLAUDE.md -> AGENTS.md     # Symlink; CLAUDE.md and AGENTS.md are identical
 ├── README.md                  # Human-facing workspace overview
 ├── PROJECT.md                 # Project-level goals and status
 ├── .gitignore                 # Excludes child working trees, env, generated
@@ -37,6 +37,7 @@ keelim-maestro/
 │   ├── CODEMAPS/              # This directory — workspace codemap snapshots
 │   ├── design/                # Keelim Design System documentation
 │   ├── idea/                  # Per-project idea/backlog files
+│   ├── research/              # Derived research artifacts (read-only analysis)
 │   └── videos/                # Video documentation assets (subproject-intros)
 ```
 
@@ -64,6 +65,7 @@ keelim-maestro/
 
 - `docs/design/` contains the Keelim Design System spec (CSS tokens, themes, components) in Korean.
 - `docs/videos/subproject-intros/` contains per-project video documentation assets.
+- `docs/research/` contains derived analysis artifacts (HTML/Markdown); child source files are read-only during root research runs.
 - `all-web-ui` pending formal submodule registration (blocked until rich is reconciled and workspace is safe to pin).
 - `rich` local commits ahead of origin pending reconciliation before pinning.
 - `youtube` not physically present in this checkout; hydrate locally before running `bun install` or uv commands.

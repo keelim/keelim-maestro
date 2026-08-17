@@ -1,7 +1,7 @@
 # Root Scripts Codemap
 
-<!-- Generated: 2026-08-16 -->
-Last updated: 2026-08-16
+<!-- Generated: 2026-08-17 -->
+Last updated: 2026-08-17
 
 All scripts live under `scripts/`. Run them from the repo root.
 
@@ -34,6 +34,28 @@ All scripts live under `scripts/`. Run them from the repo root.
 | Script | Invocation | Purpose |
 | --- | --- | --- |
 | `refresh-codemaps.py` | `python3 scripts/refresh-codemaps.py` | Generates per-child codemap docs; updates timestamps |
+
+## Utility / Audit Scripts (not in package.json)
+
+| Script | Invocation | Purpose |
+| --- | --- | --- |
+| `dep-audit.mjs` | `bun scripts/dep-audit.mjs` | Dependency audit helper |
+| `dep-freshness.mjs` | `bun scripts/dep-freshness.mjs` | Checks dependency freshness/staleness |
+| `security-scan.mjs` | `bun scripts/security-scan.mjs` | Security scanning utility |
+
+## Knowledge Vault / Improvement Scripts (`scripts/improvements/`)
+
+| Script | Purpose |
+| --- | --- |
+| `aggregate_improvements.py` | Aggregates improvement entries across projects |
+| `build_detailed_report_input.py` | Builds detailed report input data |
+| `build_report_input.py` | Builds summary report input data |
+| `build_viewer_report.py` | Builds HTML viewer report from improvement data |
+| `check_counts.py` | Checks item counts in improvement inventories |
+| `init_progress_ledger.py` | Initializes a progress ledger for tracking |
+| `verify_knowledge_vault_automation.py` | Verifies Knowledge Vault automation compliance |
+| `verify_knowledge_vault_frontmatter.py` | Validates frontmatter in Knowledge Vault notes |
+| `verify_knowledge_vault_links.py` | Checks internal links in Knowledge Vault |
 
 ## Key Package.json Scripts
 

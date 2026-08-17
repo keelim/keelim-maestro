@@ -1,6 +1,6 @@
 # Data Codemap
 
-<!-- Generated: 2026-08-16 -->
+<!-- Generated: 2026-08-17 -->
 
 ## Knowledge and Storage Patterns
 
@@ -10,7 +10,7 @@ The root owns contracts; child repos own implementation and migrations.
 ## Knowledge Vault (`Keelim-Knowledge-Vault`)
 
 - **Type:** Obsidian/Markdown knowledge base
-- **Submodule:** `Keelim-Knowledge-Vault/` — pinned at `15b29c11` on `main`
+- **Submodule:** `Keelim-Knowledge-Vault/` — pinned at `2cfffa10` on `main`
 - **GBrain integration:** Knowledge Vault content is a curated import source for the
   GBrain knowledge system (separate `~/brain` repo)
 - **Verification:** `scripts/improvements/verify_knowledge_vault_*.py` scripts check
