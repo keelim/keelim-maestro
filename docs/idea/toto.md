@@ -1,6 +1,11 @@
 # toto
 
-Last reviewed: 2026-05-16 KST
+Last reviewed: 2026-08-17 KST (archived — confirmed no active changes)
+
+> **Archived 2026-06-04**: `toto`는 루트 조정 레이어에서 제외된 프로젝트다. 루트
+> `README.md`(트러스티드 베이스라인 표)와 `AGENTS.md` 아카이브 정책에 따라 이 파일은
+> 과거 참고용으로만 남기며, 활성 idea 백로그 추적 대상이 아니다. 사용자가 명시적으로
+> 재활성화를 요청하기 전까지 새 아이디어를 추가하지 않는다.
 
 ## Signals
 
