@@ -1,6 +1,13 @@
 # toto
 
-Last reviewed: 2026-05-16 KST
+Last reviewed: 2026-08-18 KST
+
+> **Archived 2026-06-04.** Root `AGENTS.md` archives `/toto` from the root
+> coordination layer: it is no longer an active submodule, workspace member,
+> CodeGraph target, or idea-gardener backlog target unless a future request
+> explicitly reactivates it. This file is retained only as a historical
+> record and is excluded from `docs/idea/index.md` active counts. Do not add
+> new ideas here until reactivation is explicitly requested.
 
 ## Signals
 
