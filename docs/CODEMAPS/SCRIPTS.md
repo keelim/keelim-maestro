@@ -1,7 +1,7 @@
 # Root Scripts Codemap
 
-<!-- Generated: 2026-08-17 -->
-Last updated: 2026-08-17
+<!-- Generated: 2026-08-18 -->
+Last updated: 2026-08-18
 
 All scripts live under `scripts/`. Run them from the repo root.
 
@@ -12,6 +12,8 @@ All scripts live under `scripts/`. Run them from the repo root.
 | `test-workspace.sh` | `bun run test` | Lightweight root contract verifier (metadata, scripts, boundaries) |
 | `update-subrepos.sh` | `./scripts/update-subrepos.sh` (direct) | Status/update helper for submodules + autonomous repos |
 | `codex-app-server.sh` | `bun run dev:codex-app-server` | Local Codex app-server (WebSocket at ws://127.0.0.1:7331) |
+| `codegraph.sh` | `bun run cg` / `bun run cg:status` / `bun run cg:root-check` | CodeGraph dispatch; delegates to child `.codegraph/` indexes |
+| `local-automation.sh` | `bun run automation:local -- ...` | Local automation index/delegator for `rich`, `youtube` n8n, and `tools/agentgateway` |
 
 ## Reporting / Verification Scripts
 
@@ -34,6 +36,13 @@ All scripts live under `scripts/`. Run them from the repo root.
 | Script | Invocation | Purpose |
 | --- | --- | --- |
 | `refresh-codemaps.py` | `python3 scripts/refresh-codemaps.py` | Generates per-child codemap docs; updates timestamps |
+
+## Changeset Scripts
+
+| Script | Invocation | Purpose |
+| --- | --- | --- |
+| `test-changeset-manifest.mjs` | `bun run test:changeset` | Tests changeset manifest logic |
+| `validate-changeset-manifest.mjs` | `bun run changeset:validate` | Validates a read-only, ordered cross-repository changeset manifest |
 
 ## Utility / Audit Scripts (not in package.json)
 
@@ -61,8 +70,14 @@ All scripts live under `scripts/`. Run them from the repo root.
 
 ```bash
 bun run test                  # Root contract verifier (test-workspace.sh)
+bun run test:changeset        # Changeset manifest test suite
+bun run changeset:validate    # Validate cross-repo changeset manifest
 bun run report:baseline       # Read-only trusted-baseline report
 bun run report:shared-ui      # Shared UI contract report
+bun run cg                    # CodeGraph dispatch (default)
+bun run cg:status             # CodeGraph status for all child repos
+bun run cg:root-check         # CodeGraph root-only check
+bun run automation:local      # Local automation delegator (rich / youtube / agentgateway)
 bun run dev:keelim-vercel     # Vercel Next.js dev server
 bun run dev:rich-web          # Rich admin web dev server
 bun run dev:codex-app-server  # Local Codex WebSocket server
