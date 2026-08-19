@@ -1,6 +1,12 @@
 # toto
 
 Last reviewed: 2026-05-16 KST
+Archived: 2026-06-04 KST (see root `AGENTS.md` `/toto` archive policy)
+
+> 이 프로젝트는 루트 `AGENTS.md`에 따라 2026-06-04부로 root-level 활성 관리에서
+> 제외되었다. 아래 항목은 재활성화 전까지 진행 대상이 아니며, 참고용으로만
+> 보존한다. 사용자가 명시적으로 재활성화를 요청하기 전까지 새 아이디어를
+> 추가하지 않는다.
 
 ## Signals
 
