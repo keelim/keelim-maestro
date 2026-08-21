@@ -1,6 +1,6 @@
 # all-web-ui
 
-Last reviewed: 2026-05-16 KST
+Last reviewed: 2026-08-21 KST
 
 ## Signals
 
@@ -10,6 +10,10 @@ Last reviewed: 2026-05-16 KST
   migration between sibling-source imports and package exports.
 - Shared UI releases create coupling, so downstream impact, export contracts,
   and discoverability matter together.
+- `bun run report:shared-ui`와 `scripts/verify-all-web-ui-integration.sh`가 이미
+  패키지 버전·의존성 스펙·스크립트 번들 정합성 같은 패키지 단위 계약을 검증하고
+  있으므로, 아래 아이디어들은 그 위에 없는 컴포넌트/프리미티브 단위 export-사용
+  매트릭스와 시각/접근성 회귀에 집중한다.
 
 ## Open ideas
 
