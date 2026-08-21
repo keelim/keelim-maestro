@@ -1,6 +1,6 @@
 # CodeGraph Setup and Dispatch Contract
 
-<!-- Generated: 2026-08-20 -->
+<!-- Generated: 2026-08-21 -->
 
 ## Overview
 
