@@ -2,6 +2,10 @@
 
 Last reviewed: 2026-05-16 KST
 
+> Archived 2026-06-04 per root `/toto` archive policy (`AGENTS.md`, `README.md`
+> "Archived child checkouts"). No longer an active idea-gardener target; kept
+> here as historical context only. See [index.md](./index.md).
+
 ## Signals
 
 - 로컬 read-only Streamlit 스켈레톤이라서, UI 확장보다 재현성과 입력 계약이 먼저다.

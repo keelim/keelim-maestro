@@ -1,6 +1,6 @@
 # android-support
 
-Last reviewed: 2026-05-16 KST
+Last reviewed: 2026-08-22 KST
 
 ## Signals
 
@@ -56,3 +56,11 @@ Status: proposed
 Why now: 이 action은 릴리스 핵심 경로를 직접 건드리는데, 현재 테스트는 입력 검증에 비해 실제 Play API 편집 생명주기 검증이 약해서 사소한 변경도 실배포까지 밀려갈 수 있다.
 
 First slice: sign/upload/internal sharing/staged rollout 응답을 대표 fixture로 기록하고, 이를 CI에서 재생해 Play Console에 닿지 않고도 전체 edit lifecycle을 검증한다.
+
+### 2026-08-22 - 서브모듈 등록 드리프트 감시
+
+Status: proposed
+
+Why now: 루트 `README.md`는 `android-support`를 pinned commit `485a2e40`으로 등록된 서브모듈이라고 문서화하지만, 실제 루트 `.gitmodules`와 `git ls-files --stage`(gitlink) 어디에도 `android-support` 항목이 없어 신규 클론에서는 디렉터리 자체가 생기지 않는다. 같은 유형의 문서-대-gitlink 불일치가 `toto`에서도 이미 운영 위험으로 드러난 적이 있다.
+
+First slice: `.gitmodules`, 루트 git 인덱스의 `160000` gitlink 목록, `README.md` 서브모듈 표를 비교하는 점검을 추가해, 문서상 registered submodule로 표기됐지만 실제 gitlink가 커밋되지 않은 저장소를 CI에서 바로 잡아낸다.
