@@ -1,6 +1,6 @@
 # Data Codemap
 
-<!-- Generated: 2026-08-21 -->
+<!-- Generated: 2026-08-24 -->
 
 ## Knowledge and Storage Patterns
 
