@@ -1,6 +1,11 @@
-# toto
+# toto (archived)
 
-Last reviewed: 2026-05-16 KST
+Archived: 2026-08-24 KST — `toto` is archived from root coordination per `AGENTS.md`
+(`/toto` archive policy, 2026-06-04). This file is kept only as historical
+context and is excluded from active idea-gardener runs; do not add new open
+ideas here unless the user explicitly reactivates `toto`.
+
+Last reviewed (pre-archive): 2026-05-16 KST
 
 ## Signals
 
