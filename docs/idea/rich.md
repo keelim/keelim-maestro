@@ -1,6 +1,6 @@
 # rich
 
-Last reviewed: 2026-05-16 KST
+Last reviewed: 2026-08-25 KST
 
 ## Signals
 
@@ -13,6 +13,10 @@ Last reviewed: 2026-05-16 KST
   to the existing backend/workflow reliability surface.
 - `docs/words/AGENTS.md` defines a raw-source/wiki/schema split for an investing
   LLM wiki, so durable review insights can be routed back into knowledge pages.
+- 2026-08-25 `docs/CODEMAPS/SUBMODULES.md` 기준 `rich`는 여전히 dirty working tree +
+  origin 대비 ahead 상태라서 루트 서브모듈 승격이 막혀 있다. 새 아이디어보다 기존
+  "Recovery cockpit"/"Execution ledger" 계열이 이 freeze/split 작업의 기반이 될 수
+  있음을 다음 리뷰에서 염두에 둔다.
 
 ## Open ideas
 
