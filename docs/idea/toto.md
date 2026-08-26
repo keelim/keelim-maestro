@@ -1,6 +1,12 @@
 # toto
 
-Last reviewed: 2026-05-16 KST
+Last reviewed: 2026-08-26 KST
+
+Archived: 2026-06-04 (root `AGENTS.md` `/toto` archive policy) — this project is
+no longer part of the active root idea backlog. The entries below are kept as
+historical context only; do not act on them or re-add `toto` to `.gitmodules`,
+workspace membership, or CodeGraph dispatch unless the user explicitly asks to
+reactivate it.
 
 ## Signals
 
@@ -37,8 +43,10 @@ First slice: 앱 부팅, 홈 임포트, `verify` 흐름을 묶은 스모크 테�
 
 ### 2026-04-25 - gitlink 커밋 및 재현 가능한 클론 게이트
 
-Status: proposed
+Status: on hold (archived — 2026-06-04 root `/toto` 정책과 충돌)
 
 Why now: `toto`가 `.gitmodules`에 선언돼 있지만 gitlink가 루트 인덱스에 커밋되지 않아서, 신규 클론 시 디렉터리가 없고 `bun run dev:toto`·`bun run verify:toto`를 실행할 수 없다. 재현성을 핵심 가치로 내세운 프로젝트에서 이 비대칭은 가장 먼저 해소해야 할 운영 위험이다.
 
 First slice: 안정 커밋을 골라 gitlink를 루트 인덱스에 커밋하고, `git submodule update --init toto` → `bun run bootstrap` → `bun run verify:toto` 순서가 CI에서 그린으로 돌아오면 pinning 완료로 간주한다.
+
+Note (2026-08-26): 이 슬라이스는 gitlink를 다시 커밋하고 `toto`를 root submodule로 pinning하는 안이라서, 현재의 `/toto` 아카이브 정책(재활성화는 사용자 명시 요청 시에만)과 직접 충돌한다. 사용자가 재활성화를 요청하기 전까지는 착수하지 않는다.
