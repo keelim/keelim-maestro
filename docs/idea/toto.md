@@ -1,6 +1,12 @@
 # toto
 
-Last reviewed: 2026-05-16 KST
+Last reviewed: 2026-08-27 KST
+Status: archived (2026-06-04부로 루트 `AGENTS.md`/`CLAUDE.md` 정책에 따라 활성 idea gardener 대상에서 제외)
+
+이 파일은 과거 기록 용도로만 유지한다. `toto`는 더 이상 `.gitmodules`에
+등록돼 있지 않으므로, 아래 gitlink 관련 항목을 포함한 기존 아이디어는
+현재 워크스페이스 상태와 맞지 않는 이력으로 취급한다. 사용자가 명시적으로
+재활성화를 요청하기 전까지는 내용을 갱신하거나 새 아이디어를 추가하지 않는다.
 
 ## Signals
 
