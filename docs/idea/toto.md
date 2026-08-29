@@ -1,6 +1,11 @@
 # toto
 
-Last reviewed: 2026-05-16 KST
+Status: Archived (2026-06-04) — per root `AGENTS.md` `/toto` archive policy, `toto` no
+longer receives root-level active handling and should not appear in the idea-gardener
+active project table unless the user explicitly asks to reactivate it. This file is
+kept as historical reference only; the entries below are frozen, not maintained.
+
+Last reviewed: 2026-08-29 KST (archival confirmation only, no content changes)
 
 ## Signals
 
