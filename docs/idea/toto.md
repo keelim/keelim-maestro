@@ -1,6 +1,12 @@
 # toto
 
 Last reviewed: 2026-05-16 KST
+Archived: 2026-06-04 (see root `AGENTS.md` — `/toto` archive policy)
+
+> 이 프로젝트는 루트 AGENTS.md 정책에 따라 루트 조정 레이어에서 보관 처리되었다.
+> 사용자가 명시적으로 재활성화를 요청하기 전까지 이 파일은 idea gardener의
+> 활성 프로젝트 표(`docs/idea/index.md`)에서 제외되며, 아래 아이디어는 삭제하지
+> 않고 이력 참고용으로만 보존한다.
 
 ## Signals
 
