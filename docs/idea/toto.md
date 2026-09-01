@@ -1,6 +1,10 @@
 # toto
 
 Last reviewed: 2026-05-16 KST
+Archived: 2026-06-04 KST (root `AGENTS.md`의 `/toto` archive policy) — 사용자가 명시적으로
+재활성화를 요청하기 전까지 이 파일의 아이디어 정원 작업(신규 항목 추가, 상태 갱신)을
+중단하고 과거 기록으로만 보존한다. gitlink 관련 아이디어는 `toto`가 `.gitmodules`에서
+빠지면서 이미 목표가 바뀌었으므로 재활성화 시 다시 검토해야 한다.
 
 ## Signals
 

@@ -1,6 +1,6 @@
 # android-support
 
-Last reviewed: 2026-05-16 KST
+Last reviewed: 2026-09-01 KST
 
 ## Signals
 
@@ -8,6 +8,10 @@ Last reviewed: 2026-05-16 KST
 - 실패 비용이 큰 릴리스 작업을 다루며, 문제를 늦게 발견할수록 영향이 커진다.
 - track, staged rollout, release notes, artifact 입력이 이미 노출되어 있다.
 - `action.yml`, README, `src/*`, `lib/index.js`가 함께 맞아야 하는 번들형 Action이다.
+- CI 워크플로가 `.github/workflows/manual-build.yml`, `.github/workflows/test.yml`,
+  `dependabot.yml`로 이미 존재해, "액션 계약 드리프트 검사"와 "Play API 재생
+  harness" 아이디어를 실제 워크플로 파일에 바로 연결할 수 있다(코드맵 근거:
+  `docs/CODEMAPS/projects/android-support.md`).
 
 ## Open ideas
 
