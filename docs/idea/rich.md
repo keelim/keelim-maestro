@@ -1,6 +1,6 @@
 # rich
 
-Last reviewed: 2026-05-16 KST
+Last reviewed: 2026-09-02 KST
 
 ## Signals
 
@@ -13,6 +13,10 @@ Last reviewed: 2026-05-16 KST
   to the existing backend/workflow reliability surface.
 - `docs/words/AGENTS.md` defines a raw-source/wiki/schema split for an investing
   LLM wiki, so durable review insights can be routed back into knowledge pages.
+- `rich`도 로컬 Skaffold 관리형 Kubernetes 스택으로 실행되며, 모든 MCP 호출이
+  거치는 공유 `agentgateway`(root architecture.md 기준 상시 실행)와 함께 뜨고
+  내려간다. 앱 코드 장애뿐 아니라 클러스터/게이트웨이 기동 상태도 recovery·health
+  아이디어의 대상이다.
 
 ## Open ideas
 
