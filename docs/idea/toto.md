@@ -2,6 +2,10 @@
 
 Last reviewed: 2026-05-16 KST
 
+Status: 보관됨 (archived 2026-06-04) — 루트 `AGENTS.md`의 `/toto` 보관 정책에 따라
+사용자가 명시적으로 재활성화를 요청하기 전까지 idea gardener 활성 검토·신규 항목
+대상에서 제외된다. 아래 신호와 항목은 갱신하지 않고 참고 기록으로만 보존한다.
+
 ## Signals
 
 - 로컬 read-only Streamlit 스켈레톤이라서, UI 확장보다 재현성과 입력 계약이 먼저다.

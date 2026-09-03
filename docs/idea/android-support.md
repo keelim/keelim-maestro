@@ -1,6 +1,6 @@
 # android-support
 
-Last reviewed: 2026-05-16 KST
+Last reviewed: 2026-09-03 KST
 
 ## Signals
 
@@ -8,6 +8,11 @@ Last reviewed: 2026-05-16 KST
 - 실패 비용이 큰 릴리스 작업을 다루며, 문제를 늦게 발견할수록 영향이 커진다.
 - track, staged rollout, release notes, artifact 입력이 이미 노출되어 있다.
 - `action.yml`, README, `src/*`, `lib/index.js`가 함께 맞아야 하는 번들형 Action이다.
+- `package.json`의 `build` 스크립트가 `ncc build src/index.ts -m -o lib/`로 `src/*`
+  전체를 `lib/index.js` 단일 파일로 번들링해 커밋하는 구조라, 번들 신선도를 CI가
+  보장하지 않으면 소스 변경이 실제 Action 실행에는 반영되지 않을 수 있다.
+- `__tests__/`에 edits, index, input-validation, io-utils, logger, main, signing,
+  whatsnew 등 8개 테스트 파일이 있어 로직 검증 자체는 이미 두텁다.
 
 ## Open ideas
 
@@ -56,3 +61,16 @@ Status: proposed
 Why now: 이 action은 릴리스 핵심 경로를 직접 건드리는데, 현재 테스트는 입력 검증에 비해 실제 Play API 편집 생명주기 검증이 약해서 사소한 변경도 실배포까지 밀려갈 수 있다.
 
 First slice: sign/upload/internal sharing/staged rollout 응답을 대표 fixture로 기록하고, 이를 CI에서 재생해 Play Console에 닿지 않고도 전체 edit lifecycle을 검증한다.
+
+### 2026-09-03 - 번들 산출물 신선도 게이트
+
+Status: proposed
+
+Why now: `src/*`는 `ncc build src/index.ts -m -o lib/`로 `lib/index.js` 하나에
+번들링되어 커밋되는데, PR에서 `src/`만 고치고 재빌드를 잊으면 `__tests__/*`는
+소스 기준으로 통과해도 실제 GitHub Action 소비자는 여전히 오래된 `lib/index.js`
+를 실행하게 되어 회귀가 배포 이후에야 드러난다.
+
+First slice: CI에 `npm run build` 실행 후 `lib/index.js`에 `git diff --exit-code`
+가 없는지 확인하는 단계를 추가해, 번들 산출물이 최신 `src/`와 어긋난 PR을 머지
+전에 차단한다.
