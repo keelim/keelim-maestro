@@ -1,6 +1,6 @@
 # Keelim-Knowledge-Vault
 
-Last reviewed: 2026-05-16 KST
+Last reviewed: 2026-09-05 KST
 
 ## Signals
 
@@ -70,3 +70,17 @@ Status: proposed
 Why now: 루트 AGENTS/CODEMAPS가 이미 신뢰 가능한 repo 집합, 제외 대상, pinning blocker를 정의하고 있어서, 이를 vault에 복원 가능한 한 장의 기준선 보드로 남기면 다음 작업에서 다시 해석하지 않아도 된다.
 
 First slice: 현재 trusted set, excluded set, pinning blocker, 마지막 검증 시각을 묶은 노트를 만들고 루트 workspace 문서와 상호 링크한다.
+
+### 2026-09-05 - GBrain 계약 스냅샷 노트
+
+Status: proposed
+
+Why now: 루트 codemap(`backend.md`, `data.md`)은 GBrain 루트 계약 문서가 원래
+`docs/knowledge/`에 있었다고 기록하지만, 실제로는 저장소 히스토리 전체에서
+그 경로가 한 번도 커밋된 적이 없어 PGLite 단일 writer 제약이나 허용 소스
+목록 같은 운영 규칙을 vault 밖에서 다시 찾을 방법이 없다.
+
+First slice: `AGENTS.md`와 codemap에 흩어진 GBrain 운영 규칙(허용 소스,
+금지 대상, PGLite 동시성 제약, Supabase 승격 전 확인 절차)을 vault 노트
+한 장으로 옮겨 담아, 루트 `docs/knowledge/`가 아직 없는 동안 참조 가능한
+임시 계약 스냅샷을 만든다.

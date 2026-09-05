@@ -1,6 +1,6 @@
 # rich
 
-Last reviewed: 2026-05-16 KST
+Last reviewed: 2026-09-05 KST
 
 ## Signals
 
@@ -13,6 +13,10 @@ Last reviewed: 2026-05-16 KST
   to the existing backend/workflow reliability surface.
 - `docs/words/AGENTS.md` defines a raw-source/wiki/schema split for an investing
   LLM wiki, so durable review insights can be routed back into knowledge pages.
+- 루트 codemap(`SUBMODULES.md`, per-project `rich.md`)이 dirty working tree와
+  origin 대비 ahead 커밋을 root submodule 전환의 명시적 차단 사유로 지목하고
+  있어, 이 정리 여부가 `rich`뿐 아니라 `all-web-ui`의 submodule 전환 일정까지
+  같이 묶어 둔다.
 
 ## Open ideas
 
@@ -80,3 +84,17 @@ one-off dump.
 First slice: Track a small watchlist of high-value dataset pages, diff title /
 field / link changes on each export, and push meaningful updates into the
 weekly review or recovery queue.
+
+### 2026-09-05 - 커밋 프리즈·리모트 동기화 게이트
+
+Status: proposed
+
+Why now: `rich`는 dirty working tree에 origin 대비 ahead 커밋이 남아 있어 root
+submodule 전환이 막혀 있고, 같은 이유로 `all-web-ui`의 submodule 전환도 `rich`
+정리를 선행 조건으로 두고 있어 워크스페이스 전체의 pinning 로드맵이 여기서
+정체된다.
+
+First slice: 로컬 dirty 변경을 freeze/split해 커밋으로 정리하고, ahead 커밋을
+origin/master로 push한 뒤 `bun run report:baseline`으로 clean 상태를
+확인하는 4단계 체크리스트를 실행해, `rich`와 `all-web-ui` 두 저장소의
+submodule 전환 차단을 함께 해소한다.

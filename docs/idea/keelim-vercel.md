@@ -1,6 +1,6 @@
 # keelim-vercel
 
-Last reviewed: 2026-05-16 KST
+Last reviewed: 2026-09-05 KST
 
 ## Signals
 
@@ -10,7 +10,7 @@ Last reviewed: 2026-05-16 KST
 - The current surface is wide, which makes cross-tool continuity more valuable
   than adding isolated single-purpose pages forever.
 - 최근 도구 사용 추적과 목표 체크인 표면이 붙고 있어서, 단순 페이지 확장보다 후속 행동 루프를 강화하는 쪽이 더 크다.
-- `all-web-ui`가 로컬 sibling repo로 붙어 있어, 어댑터와 실제 import 경로가 어긋나면 소비자 앱에서 늦게 깨질 수 있다.
+- `all-web-ui`는 로컬 Bun 워크스페이스 경로와 `@keelim/all-web-ui` GitHub Packages 레지스트리 배포(0.1.4) 두 경로로 함께 소비되므로, 어댑터·import 경로가 어긋나면 두 경로 중 어느 쪽에서든 소비자 앱이 늦게 깨질 수 있다.
 
 ## Open ideas
 
@@ -58,9 +58,9 @@ First slice: `lib/menu-config.ts`의 신규 배지 개수, `app/changelog/page.t
 
 Status: proposed
 
-Why now: `all-web-ui`를 로컬 sibling repo로 쓰는 동안 adapter export와 실제 import 경로가 조금만 어긋나도 `keelim-vercel` 쪽에서 런타임보다 늦게 회귀가 드러난다.
+Why now: `all-web-ui`가 로컬 워크스페이스 경로와 `@keelim/all-web-ui@0.1.4` 레지스트리 배포 두 경로로 함께 소비되는 동안 adapter export와 실제 import 경로가 조금만 어긋나도 `keelim-vercel` 쪽에서 런타임보다 늦게 회귀가 드러난다.
 
-First slice: `components/shared/all-web-ui-adapters.tsx`와 downstream import 지점을 스캔해, 사용 중인 primitive와 경로를 한 장의 manifest로 묶고 변경 diff를 보여준다.
+First slice: `components/shared/all-web-ui-adapters.tsx`와 downstream import 지점을 스캔해 사용 중인 primitive와 경로를 한 장의 manifest로 묶고, 루트 `bun run report:shared-ui` 출력과 대조해 변경 diff를 보여준다.
 
 ### 2026-04-18 - 스토리지 키 레지스트리 드리프트 게이트
 

@@ -1,5 +1,9 @@
 # toto
 
+Archived: 2026-09-05 KST — `/toto`는 루트 정책(2026-06-04부로 archived)에 따라
+더 이상 active 프로젝트 표나 idea gardener 순회 대상이 아니다. 재활성화가
+명시적으로 요청되기 전까지 아래 내용은 참고용 이력으로만 보존한다.
+
 Last reviewed: 2026-05-16 KST
 
 ## Signals
