@@ -1,6 +1,11 @@
 # toto
 
-Last reviewed: 2026-05-16 KST
+Last reviewed: 2026-09-06 KST
+
+> **Archived (2026-06-04):** 루트 AGENTS.md 정책에 따라 `toto`는 root coordination에서
+> 아카이브되었다. `.gitmodules`, Bun/uv 워크스페이스, CodeGraph 디스패치, 코드맵 갱신,
+> 아이디어 백로그 활성 프로젝트 표에서 모두 제외한다. 아래 항목은 재활성화 요청 전까지
+> 실행되지 않는 과거 기록이며, `docs/idea/index.md`의 활성 표에서도 제거되었다.
 
 ## Signals
 
