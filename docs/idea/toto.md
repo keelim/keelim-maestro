@@ -1,5 +1,10 @@
 # toto
 
+> Archived 2026-06-04 per root `AGENTS.md` `/toto` archive policy. No longer an
+> active idea-gardener target; entries below are preserved for historical
+> reference only. Do not add new ideas here or resurface this project in
+> `index.md`'s active table unless the user explicitly asks to reactivate it.
+
 Last reviewed: 2026-05-16 KST
 
 ## Signals
