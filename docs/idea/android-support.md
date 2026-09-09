@@ -1,6 +1,6 @@
 # android-support
 
-Last reviewed: 2026-05-16 KST
+Last reviewed: 2026-09-09 KST
 
 ## Signals
 
@@ -37,9 +37,9 @@ release status.
 
 Status: proposed
 
-Why now: `action.yml`, README, 소스, 번들 산출물이 쉽게 서로 어긋날 수 있고, 입력 변경 시 인터페이스와 문서를 함께 맞춰야 하는 부담이 이미 드러나 있다.
+Why now: `action.yml`, README, 소스, 번들 산출물이 쉽게 서로 어긋날 수 있고, 입력 변경 시 인터페이스와 문서를 함께 맞춰야 하는 부담이 이미 드러나 있다. (2026-09-09 갱신) 루트 `README.md`는 이 저장소를 pinned commit에서 detached·clean 상태로 upstream 없이 소비한다고 기록하고 있어서, 소스와 번들뿐 아니라 "루트가 참조하는 pinned commit ↔ 실제 `lib/index.js` 빌드 산출물" 사이의 드리프트도 같은 검사에서 함께 봐야 한다.
 
-First slice: `action.yml`, `README.md`, `src/main.ts`, `lib/index.js`의 입력·출력 선언을 비교하는 가벼운 검사를 추가해 릴리스 전에 계약 불일치를 잡는다.
+First slice: `action.yml`, `README.md`, `src/main.ts`, `lib/index.js`의 입력·출력 선언을 비교하는 가벼운 검사를 추가해 릴리스 전에 계약 불일치를 잡는다. 같은 검사에서 루트가 고정한 커밋 해시가 `lib/index.js`의 실제 빌드 소스와 일치하는지도 함께 확인한다.
 
 ### 2026-04-13 - 릴리스 증적 번들
 
