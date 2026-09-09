@@ -1,7 +1,7 @@
 # Root Scripts Codemap
 
-<!-- Generated: 2026-09-08 -->
-Last updated: 2026-09-08
+<!-- Generated: 2026-09-09 -->
+Last updated: 2026-09-09
 
 All scripts live under `scripts/`. Run them from the repo root.
 
