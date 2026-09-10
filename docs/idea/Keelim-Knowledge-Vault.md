@@ -1,6 +1,6 @@
 # Keelim-Knowledge-Vault
 
-Last reviewed: 2026-05-16 KST
+Last reviewed: 2026-09-10 KST
 
 ## Signals
 
@@ -67,6 +67,6 @@ First slice: 루트에서 갱신된 운영 문서와 메모리 조각을 모아 
 
 Status: proposed
 
-Why now: 루트 AGENTS/CODEMAPS가 이미 신뢰 가능한 repo 집합, 제외 대상, pinning blocker를 정의하고 있어서, 이를 vault에 복원 가능한 한 장의 기준선 보드로 남기면 다음 작업에서 다시 해석하지 않아도 된다.
+Why now: 루트 AGENTS/CODEMAPS가 이미 신뢰 가능한 repo 집합, 제외 대상, pinning blocker를 정의하고 있어서, 이를 vault에 복원 가능한 한 장의 기준선 보드로 남기면 다음 작업에서 다시 해석하지 않아도 된다. 2026-09-10 `docs/CODEMAPS/backend.md` 갱신에서는 `AGENTS.md`가 GBrain 계약 위치로 지목하는 `docs/knowledge/`가 실제 루트 체크아웃에는 아직 없다는 drift도 함께 드러났다.
 
-First slice: 현재 trusted set, excluded set, pinning blocker, 마지막 검증 시각을 묶은 노트를 만들고 루트 workspace 문서와 상호 링크한다.
+First slice: 현재 trusted set, excluded set, pinning blocker, 마지막 검증 시각을 묶은 노트를 만들고 루트 workspace 문서와 상호 링크한다. 같은 노트에 `docs/knowledge/`처럼 문서에서 지목되지만 체크아웃에는 없는 계약 경로를 체크리스트 항목으로 추가해, 다음 리뷰에서 생겼는지/여전히 비어 있는지 바로 보이게 한다.

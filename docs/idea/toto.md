@@ -1,6 +1,12 @@
 # toto
 
-Last reviewed: 2026-05-16 KST
+Last reviewed: 2026-05-16 KST (frozen)
+
+> Archived: 루트 `AGENTS.md`의 `/toto` archive policy(2026-06-04)에 따라 이 파일은
+> 더 이상 root idea gardener의 활성 정리 대상이 아니다. 아래 2026-04-25 항목(gitlink
+> pinning)은 현재 archive 정책(재활성화 전까지 `.gitmodules`/워크스페이스 재등록 금지)과
+> 상충하므로, 사용자가 명시적으로 재활성화를 요청하기 전까지 실행 대상에서 제외한다.
+> 내용은 이력 보존을 위해 그대로 남긴다.
 
 ## Signals
 
