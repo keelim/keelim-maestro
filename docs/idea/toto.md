@@ -1,6 +1,12 @@
 # toto
 
-Last reviewed: 2026-05-16 KST
+Last reviewed: 2026-09-11 KST
+
+> **Archived (2026-06-04):** 루트 `AGENTS.md`의 `/toto` archive policy에 따라
+> `toto`는 root 코디네이션 레이어의 활성 대상에서 제외되었다. 이 파일은
+> idea gardener의 활성 프로젝트 표·신규 아이디어 생성 대상이 아니며, 과거
+> 아이디어를 참고용으로 보존하기 위해서만 유지한다. 사용자가 명시적으로
+> 재활성화를 요청하기 전까지 이 파일에 새 아이디어를 추가하지 않는다.
 
 ## Signals
 
