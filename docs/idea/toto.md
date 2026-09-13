@@ -1,6 +1,12 @@
 # toto
 
 Last reviewed: 2026-05-16 KST
+Archived: 2026-06-04 KST (root `AGENTS.md` `/toto` 아카이브 정책)
+
+> 이 프로젝트는 루트 `AGENTS.md`의 `/toto` 아카이브 정책에 따라 root submodule·workspace·
+> CodeGraph·codemap 갱신·idea gardener 활성 대상에서 제외되었다. 아래 내용은 과거 이력
+> 참고용으로만 보존하며, 사용자가 명시적으로 재활성화를 요청하기 전까지 새 아이디어를
+> 추가하거나 리뷰 날짜를 갱신하지 않는다.
 
 ## Signals
 
