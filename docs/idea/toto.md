@@ -1,6 +1,11 @@
 # toto
 
-Last reviewed: 2026-05-16 KST
+Last reviewed: 2026-09-15 KST
+
+> **Archived (2026-06-04):** `AGENTS.md`의 `/toto` archive policy에 따라 루트 코디네이션 레이어에서
+> 더 이상 능동적으로 다루지 않는다. 아래 아이디어는 이력 보존용으로 남기며, 사용자가 명시적으로
+> 재활성화를 요청하기 전까지 `docs/idea/index.md`의 활성 프로젝트 표와 신규 아이디어 편성 대상에서
+> 제외한다.
 
 ## Signals
 
