@@ -1,6 +1,10 @@
 # toto
 
-Last reviewed: 2026-05-16 KST
+Last reviewed: 2026-09-16 KST
+
+Status: Archived (2026-06-04, per root `AGENTS.md` `/toto` archive policy). No
+longer an active idea gardener target; kept here as historical context only.
+Do not add new open ideas or reactivate without an explicit user request.
 
 ## Signals
 
