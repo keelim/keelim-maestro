@@ -1,6 +1,11 @@
 # toto
 
-Last reviewed: 2026-05-16 KST
+Last reviewed: 2026-09-17 KST
+
+> **아카이브됨 (2026-06-04, 루트 `AGENTS.md` `/toto` 아카이브 정책).** 사용자가 명시적으로
+> 재활성화를 요청하기 전까지 idea gardener 활성 프로젝트 표·`.gitmodules`·CodeGraph 디스패치
+> 대상에서 제외된다. 아래 아이디어는 새로 작업을 만들기 위한 것이 아니라 이력 참고용으로만
+> 보존한다.
 
 ## Signals
 

@@ -1,6 +1,6 @@
 # all-web-ui
 
-Last reviewed: 2026-05-16 KST
+Last reviewed: 2026-09-17 KST
 
 ## Signals
 
@@ -10,6 +10,10 @@ Last reviewed: 2026-05-16 KST
   migration between sibling-source imports and package exports.
 - Shared UI releases create coupling, so downstream impact, export contracts,
   and discoverability matter together.
+- Published as `@keelim/all-web-ui@0.1.4` to GitHub Packages
+  (`https://npm.pkg.github.com`); standalone consumers each need their own
+  `.npmrc` `@keelim` scope mapping and `NODE_AUTH_TOKEN`, on top of the root
+  Bun workspace resolution path (`docs/CODEMAPS/frontend.md`).
 
 ## Open ideas
 
@@ -60,10 +64,10 @@ Why now: `all-web-ui`의 토큰과 프리미티브는 `keelim-vercel`과 `rich/w
 
 First slice: 카탈로그에서 deprecated export를 표시하고, downstream import 지점을 수집해 교체 경로와 함께 보여주는 얇은 마이그레이션 표를 만든다.
 
-### 2026-04-18 - 다운스트림 빌드 카나리
+### 2026-04-18 - 다운스트림 빌드·레지스트리 카나리 (2026-09-17 확장)
 
 Status: proposed
 
-Why now: `all-web-ui`는 실제로 두 개의 다운스트림 앱에 붙어 있으니, export나 theme 파일 변경이 배포 전에 빌드 단위에서 먼저 깨지는지 확인해야 회귀 비용이 낮아진다.
+Why now: `all-web-ui`는 실제로 두 개의 다운스트림 앱에 붙어 있으니, export나 theme 파일 변경이 배포 전에 빌드 단위에서 먼저 깨지는지 확인해야 회귀 비용이 낮아진다. 여기에 더해 패키지가 GitHub Packages private registry로 배포되므로, `.npmrc` scope 매핑이나 `NODE_AUTH_TOKEN`이 소비자별로 조용히 만료·누락되면 빌드가 registry 인증 단계에서부터 깨지고 원인 파악이 늦어진다.
 
-First slice: `keelim-vercel`과 `rich/web`이 쓰는 import 경로를 그대로 재현하는 작은 fixture 또는 매트릭스 빌드를 만들고, 타입체크/빌드 실패를 소비자 영향 경고로 보여준다.
+First slice: `keelim-vercel`과 `rich/web`이 쓰는 import 경로를 그대로 재현하는 작은 fixture 또는 매트릭스 빌드를 만들고, 타입체크/빌드 실패를 소비자 영향 경고로 보여준다. 같은 매트릭스에서 각 소비자의 `.npmrc` scope 설정과 `NODE_AUTH_TOKEN` 유효성(설치 전 dry-run `npm whoami --registry`류 점검)도 함께 확인해, 코드 회귀와 레지스트리 인증 드리프트를 한 리포트에서 구분해 보여준다.

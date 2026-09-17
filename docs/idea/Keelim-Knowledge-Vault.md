@@ -1,8 +1,12 @@
 # Keelim-Knowledge-Vault
 
-Last reviewed: 2026-05-16 KST
+Last reviewed: 2026-09-17 KST
 
 ## Signals
+
+- 루트 `AGENTS.md`의 GBrain 절과 `docs/CODEMAPS/backend.md`/`data.md`는 GBrain 운영 계약이
+  `docs/knowledge/`에, 운영 문서가 `docs/ops/`에 있다고 전제하지만, 두 디렉터리는 루트
+  git 이력 전체에 한 번도 존재한 적이 없다 — vault와 연결할 기준 문서 자체가 아직 없다.
 
 - The vault is already organized by technical domains and acts as a workspace
   knowledge base.
@@ -47,13 +51,13 @@ Why now: 루트에 생성된 CODEMAPS/WORKSPACE 문서가 이미 워크스페이
 
 First slice: 각 코드맵 갱신 시점별로 파일 수, 핵심 결합점, 새로 생긴 운영 규칙을 요약한 노트를 하나씩 만들고 프로젝트 인덱스에서 바로 링크한다.
 
-### 2026-04-14 - 워크스페이스 지시문 미러
+### 2026-04-14 - 워크스페이스 지시문 미러 (2026-09-17 확장)
 
 Status: proposed
 
-Why now: AGENTS, CODEMAPS, automation memory, 백로그 노트가 흩어져 있어서, 현재 작업 기준을 한 노트에서 다시 찾을 수 있어야 다음 작업의 진입 비용이 줄어든다.
+Why now: AGENTS, CODEMAPS, automation memory, 백로그 노트가 흩어져 있어서, 현재 작업 기준을 한 노트에서 다시 찾을 수 있어야 다음 작업의 진입 비용이 줄어든다. 게다가 `AGENTS.md`가 root-owned로 지정한 `docs/knowledge/`(GBrain 운영 계약)와 `docs/ops/`가 실제로는 아직 생성된 적이 없어서, 미러링할 기준 문서 자체가 비어 있다는 사실이 먼저 드러나야 한다.
 
-First slice: 루트 AGENTS/CODEMAPS/idea 인덱스와 자주 바뀌는 운영 규칙을 연결한 단일 인덱스 노트를 만들고, 관련 프로젝트 노트에서 바로 왕복할 수 있게 한다.
+First slice: 루트 AGENTS/CODEMAPS/idea 인덱스와 자주 바뀌는 운영 규칙을 연결한 단일 인덱스 노트를 만들고, 관련 프로젝트 노트에서 바로 왕복할 수 있게 한다. 동시에 `docs/knowledge/`·`docs/ops/`가 아직 없다는 격차를 노트에 명시해, 두 디렉터리를 언제·누가 부트스트랩할지 결정되기 전까지 vault가 존재하지 않는 문서를 참조하지 않도록 한다.
 
 ### 2026-04-14 - 워크스페이스 일일 변화 다이제스트
 
