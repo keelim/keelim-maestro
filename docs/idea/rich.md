@@ -1,6 +1,6 @@
 # rich
 
-Last reviewed: 2026-05-16 KST
+Last reviewed: 2026-09-18 KST
 
 ## Signals
 
@@ -13,6 +13,10 @@ Last reviewed: 2026-05-16 KST
   to the existing backend/workflow reliability surface.
 - `docs/words/AGENTS.md` defines a raw-source/wiki/schema split for an investing
   LLM wiki, so durable review insights can be routed back into knowledge pages.
+- `rich/open-trading-api/`에 `strategy_builder`와 `backtester` 두 서브앱이 있고, 루트에
+  `bun run dev:strategy-builder` / `bun run dev:backtester` 헬퍼와 Skaffold 기반 로컬
+  K8s 스택까지 있어서, 알고 트레이딩 실행 경로도 기존 운영 리커버리/헬스 표면과 같은 수준의
+  가시성이 필요하다.
 
 ## Open ideas
 
@@ -20,9 +24,9 @@ Last reviewed: 2026-05-16 KST
 
 Status: proposed
 
-Why now: `rich` now mixes cron jobs, manual runs, Slack reminders, Google reconnects, and pykrx ingestion, so recovery work needs one place to live instead of scattered logs.
+Why now: `rich` now mixes cron jobs, manual runs, Slack reminders, Google reconnects, pykrx ingestion, and Open Trading API strategy/backtest runs (`rich/open-trading-api/strategy_builder`, `rich/open-trading-api/backtester`), so recovery work needs one place to live instead of scattered logs.
 
-First slice: Collect failed or partial runs into a single queue with the exact retry or repair action, then link each item back to the affected workflow.
+First slice: Collect failed or partial runs into a single queue with the exact retry or repair action, then link each item back to the affected workflow, including failed or aborted strategy-builder/backtester runs on the local Skaffold-managed stack.
 
 ### 2026-04-12 - Daily review cockpit
 

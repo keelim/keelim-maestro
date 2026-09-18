@@ -1,6 +1,6 @@
 # android-support
 
-Last reviewed: 2026-05-16 KST
+Last reviewed: 2026-09-18 KST
 
 ## Signals
 
@@ -56,3 +56,11 @@ Status: proposed
 Why now: 이 action은 릴리스 핵심 경로를 직접 건드리는데, 현재 테스트는 입력 검증에 비해 실제 Play API 편집 생명주기 검증이 약해서 사소한 변경도 실배포까지 밀려갈 수 있다.
 
 First slice: sign/upload/internal sharing/staged rollout 응답을 대표 fixture로 기록하고, 이를 CI에서 재생해 Play Console에 닿지 않고도 전체 edit lifecycle을 검증한다.
+
+### 2026-09-18 - Android 릴리스 계약 매니페스트 & 롤아웃 정책 레지스트리
+
+Status: proposed
+
+Why now: `all`은 `app-arducon`, `app-cnubus`, `app-comssa`, `app-my-grade`, `app-nanda`, `app-mysenior` 6개 앱마다 개별 GitHub Actions 워크플로(`app_arducon.yml`, `app_cnubus.yml`, `app_comssa.yml`, `app_my_grade.yml`, `app_nanda.yml`, `app_deploy.yml`, `release.yml`, `release_tag.yml`)를 따로 갖고 있고, `android-support`는 `track`/`status`/`userFraction`/`whatsNewDirectory` 같은 typed Play 정책 입력 경계를 이미 갖고 있다. 앱별 워크플로가 android-support의 정책 입력과 어긋나면(예: 특정 앱만 staged rollout 비율이 오래된 채로 남거나, track이 워크플로와 실제 Play Console 설정 사이에서 어긋나는 경우) 릴리스 시점까지 늦게 발견된다.
+
+First slice: `all`의 앱별 워크플로 파일에서 android-support 호출 시 넘기는 `track`/`status`/`userFraction`/`whatsNewDirectory` 입력을 앱 이름으로 인덱싱한 매니페스트를 만들고, 앱 간 롤아웃 정책이 의도치 않게 벌어지거나(예: 한 앱만 rollout 비율이 갱신되지 않음) 필수 입력이 누락된 경우를 비교해 표시한다.

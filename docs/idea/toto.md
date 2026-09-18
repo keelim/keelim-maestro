@@ -1,6 +1,7 @@
 # toto
 
-Last reviewed: 2026-05-16 KST
+Last reviewed: 2026-09-18 KST
+Status: Archived 2026-06-04 per root `AGENTS.md` `/toto` archive policy — excluded from active idea gardener runs and the `docs/idea/index.md` project table unless the user explicitly asks to reactivate it. Kept here only as historical reference; do not add new ideas or route active work here.
 
 ## Signals
 
