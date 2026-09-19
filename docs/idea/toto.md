@@ -1,6 +1,18 @@
 # toto
 
-Last reviewed: 2026-05-16 KST
+Status: Archived — 2026-06-04부로 root 조정 레이어에서 제외됨 (루트 `AGENTS.md` `/toto` 아카이브 정책 참고)
+Last reviewed: 2026-09-19 KST
+
+## Archived 메모
+
+- 루트 `AGENTS.md`는 `/toto`를 2026-06-04부로 archived로 지정하고, 사용자가 명시적으로
+  재활성화를 요청하기 전까지 `.gitmodules`, root Bun/uv workspace, CodeGraph dispatch,
+  코드맵 리프레시, idea gardener 활성 프로젝트 표에서 제외하도록 명시한다.
+- 이에 따라 이 파일은 `docs/idea/index.md`의 `Projects` 표가 아닌 `Archived` 표에서만
+  추적하며, 아래 항목은 재활성화 전까지 신규 실행 계획이 아닌 과거 기록으로 보존한다.
+- 특히 아래 '2026-04-25 - gitlink 커밋 및 재현 가능한 클론 게이트' 항목은 `/toto`를
+  `.gitmodules`에 다시 등록하는 것을 전제로 했으나, 현재 archive 정책상 더 이상 유효한
+  실행 계획이 아니다.
 
 ## Signals
 
