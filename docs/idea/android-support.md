@@ -1,6 +1,6 @@
 # android-support
 
-Last reviewed: 2026-05-16 KST
+Last reviewed: 2026-09-20 KST
 
 ## Signals
 
@@ -56,3 +56,11 @@ Status: proposed
 Why now: 이 action은 릴리스 핵심 경로를 직접 건드리는데, 현재 테스트는 입력 검증에 비해 실제 Play API 편집 생명주기 검증이 약해서 사소한 변경도 실배포까지 밀려갈 수 있다.
 
 First slice: sign/upload/internal sharing/staged rollout 응답을 대표 fixture로 기록하고, 이를 CI에서 재생해 Play Console에 닿지 않고도 전체 edit lifecycle을 검증한다.
+
+### 2026-09-20 - 루트 코드맵 등록 격차 해소
+
+Status: proposed
+
+Why now: `android-support`는 루트 `AGENTS.md`가 명시하는 최상위 자율 child repo이고 `docs/CODEMAPS/projects/android-support.md`까지 생성돼 있지만, 정작 워크스페이스 지형도인 `docs/CODEMAPS/architecture.md`의 topology 다이어그램과 `docs/CODEMAPS/SUBMODULES.md`의 등록 표(submodule/autonomous repo) 어디에도 등장하지 않는다. 릴리스 핵심 경로를 다루는 Action인데도 워크스페이스 지형도에서 보이지 않으면, 다음 코드맵 리프레시나 신규 기여자가 이 저장소의 존재와 관리 상태(원격, 브랜치, pin 여부)를 놓치기 쉽다.
+
+First slice: 다음 `python3 scripts/refresh-codemaps.py` 실행 시 `architecture.md`의 topology 목록과 `SUBMODULES.md`의 autonomous-repo 표에 `android-support`(원격, 브랜치, pin 여부)를 함께 채우도록 생성 스크립트 입력 목록을 확인한다. 이 파일은 `docs/idea/` 바깥이라 이번 실행에서는 반영하지 않고 격차만 기록한다.

@@ -1,6 +1,12 @@
 # toto
 
-Last reviewed: 2026-05-16 KST
+Status: ARCHIVED (2026-06-04) — per root `AGENTS.md` `/toto` archive policy, this
+project no longer receives active idea-gardener handling and is excluded from
+`docs/idea/index.md`'s active project table. Kept here only as historical
+context; do not add new entries or reactivate without an explicit request.
+
+Last reviewed (while active): 2026-05-16 KST
+Archive noted: 2026-09-20 KST
 
 ## Signals
 
