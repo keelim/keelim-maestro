@@ -1,6 +1,6 @@
 # all-web-ui
 
-Last reviewed: 2026-05-16 KST
+Last reviewed: 2026-09-21 KST
 
 ## Signals
 
@@ -10,6 +10,11 @@ Last reviewed: 2026-05-16 KST
   migration between sibling-source imports and package exports.
 - Shared UI releases create coupling, so downstream impact, export contracts,
   and discoverability matter together.
+- 루트 워크스페이스가 이제 `@keelim/all-web-ui@0.1.4`를 GitHub Packages로 배포하는
+  것을 공식 계약으로 문서화했고, `bun run report:shared-ui`(read-only 계약 리포트)와
+  `scripts/verify-all-web-ui-integration.sh --full`(strict 게이트, 레지스트리 체크
+  포함)이 이미 존재한다 — 새 아이디어를 만들기보다 이 두 명령을 실제 downstream
+  매트릭스/카나리 작업의 검증 기반으로 재사용하는 편이 낫다.
 
 ## Open ideas
 
@@ -66,4 +71,4 @@ Status: proposed
 
 Why now: `all-web-ui`는 실제로 두 개의 다운스트림 앱에 붙어 있으니, export나 theme 파일 변경이 배포 전에 빌드 단위에서 먼저 깨지는지 확인해야 회귀 비용이 낮아진다.
 
-First slice: `keelim-vercel`과 `rich/web`이 쓰는 import 경로를 그대로 재현하는 작은 fixture 또는 매트릭스 빌드를 만들고, 타입체크/빌드 실패를 소비자 영향 경고로 보여준다.
+First slice: `keelim-vercel`과 `rich/web`이 쓰는 import 경로를 그대로 재현하는 작은 fixture 또는 매트릭스 빌드를 만들고, 타입체크/빌드 실패를 소비자 영향 경고로 보여준다. 이미 있는 `bun run typecheck:web` / `bun run build:web`과 `scripts/verify-all-web-ui-integration.sh --full`을 카나리의 실행 축으로 재사용해 새 파이프라인을 중복 구축하지 않는다.

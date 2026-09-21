@@ -1,6 +1,6 @@
 # rich
 
-Last reviewed: 2026-05-16 KST
+Last reviewed: 2026-09-21 KST
 
 ## Signals
 
@@ -13,6 +13,12 @@ Last reviewed: 2026-05-16 KST
   to the existing backend/workflow reliability surface.
 - `docs/words/AGENTS.md` defines a raw-source/wiki/schema split for an investing
   LLM wiki, so durable review insights can be routed back into knowledge pages.
+- 루트 backend 코드맵 기준으로 Open Trading API가 `strategy_builder`와 `backtester`
+  두 개의 독립 서브앱으로 나뉘어 있고, 각각 루트 헬퍼(`bun run dev:strategy-builder`,
+  `bun run dev:backtester`)로 기동된다 — 실행/실패 이력을 한곳에 모으는 작업이 이 둘을
+  같은 리듬으로 다뤄야 회귀가 늦게 드러나지 않는다.
+- 여전히 dirty working tree + origin 대비 ahead 상태이며(pinning 보류 사유), `rich`는
+  root checkout에 기본 포함되지 않으므로 로컬 hydration이 코드맵 갱신의 전제 조건이다.
 
 ## Open ideas
 
@@ -52,11 +58,13 @@ Status: proposed
 
 Why now: The admin surface already runs manual workflows, cron-triggered
 ingestion, and review flows, but the history of what happened is still
-scattered across endpoints and logs.
+scattered across endpoints and logs — now including two separately-started
+Open Trading API sub-apps (`strategy_builder`, `backtester`).
 
 First slice: Persist every run/retry/failure into a normalized log and render a
 timeline that links each event back to the affected workflow and recovery
-action.
+action, including `dev:strategy-builder` / `dev:backtester` runs so trading-tool
+failures show up next to ingestion and review runs instead of in separate logs.
 
 ### 2026-04-12 - Integration health console
 
