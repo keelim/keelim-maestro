@@ -1,6 +1,6 @@
 # rich
 
-Last reviewed: 2026-05-16 KST
+Last reviewed: 2026-09-22 KST
 
 ## Signals
 
@@ -16,13 +16,13 @@ Last reviewed: 2026-05-16 KST
 
 ## Open ideas
 
-### 2026-04-12 - Recovery cockpit for failed runs
+### 2026-04-12 - Recovery cockpit and execution ledger
 
 Status: proposed
 
-Why now: `rich` now mixes cron jobs, manual runs, Slack reminders, Google reconnects, and pykrx ingestion, so recovery work needs one place to live instead of scattered logs.
+Why now: `rich` mixes cron jobs, manual runs, Slack reminders, Google reconnects, and pykrx ingestion, so recovery work and run history both need one place to live instead of scattered logs and endpoints — treating them as two separate cockpits would just duplicate the same underlying run/failure data (merged from the former "Recovery cockpit" and "Execution ledger and replay timeline" entries).
 
-First slice: Collect failed or partial runs into a single queue with the exact retry or repair action, then link each item back to the affected workflow.
+First slice: Persist every run/retry/failure into a normalized log, then render both a recovery queue (exact retry/repair action per item) and a timeline view from that same log, linking each entry back to the affected workflow.
 
 ### 2026-04-12 - Daily review cockpit
 
@@ -46,18 +46,6 @@ First slice: Add a reliability panel that flags stale datasets, failed jobs,
  missing snapshots, and suspicious metric jumps before they affect downstream
  review flows.
 
-### 2026-04-12 - Execution ledger and replay timeline
-
-Status: proposed
-
-Why now: The admin surface already runs manual workflows, cron-triggered
-ingestion, and review flows, but the history of what happened is still
-scattered across endpoints and logs.
-
-First slice: Persist every run/retry/failure into a normalized log and render a
-timeline that links each event back to the affected workflow and recovery
-action.
-
 ### 2026-04-12 - Integration health console
 
 Status: proposed
@@ -80,3 +68,11 @@ one-off dump.
 First slice: Track a small watchlist of high-value dataset pages, diff title /
 field / link changes on each export, and push meaningful updates into the
 weekly review or recovery queue.
+
+### 2026-09-22 - 커밋 프리즈·스플릿 체크리스트
+
+Status: proposed
+
+Why now: `docs/CODEMAPS/SUBMODULES.md`가 `rich`를 "dirty working tree; commits ahead of origin; freeze/split before pinning"로 명시된 확장 차단 요인으로 이미 지목하고 있어서, 서브모듈 전환 전에 정확히 무엇을 freeze/split해야 하는지 보이는 목록이 없으면 같은 차단이 계속 반복된다.
+
+First slice: ahead-of-origin 커밋과 dirty 변경분을 브랜치별로 분류해 즉시 병합 가능/보류/스플릿 필요로 나눈 체크리스트를 만들고, 각 항목에 필요한 후속 작업(리뷰, 스플릿 PR, 폐기)을 표시한다.

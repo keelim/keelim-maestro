@@ -1,6 +1,8 @@
 # toto
 
-Last reviewed: 2026-05-16 KST
+Last reviewed: 2026-09-22 KST
+
+> 보관 상태: 루트 `AGENTS.md`/`CLAUDE.md`의 `/toto` archive policy에 따라 2026-06-04부터 루트 조정 레이어에서 archived 처리됨. 사용자가 명시적으로 재활성화를 요청하기 전까지 새 백로그를 추가하지 않고, `docs/idea/index.md`의 활성 프로젝트 표에서도 제외한다.
 
 ## Signals
 
@@ -37,8 +39,8 @@ First slice: 앱 부팅, 홈 임포트, `verify` 흐름을 묶은 스모크 테�
 
 ### 2026-04-25 - gitlink 커밋 및 재현 가능한 클론 게이트
 
-Status: proposed
+Status: on hold (archived project — `/toto` archive policy 참고)
 
-Why now: `toto`가 `.gitmodules`에 선언돼 있지만 gitlink가 루트 인덱스에 커밋되지 않아서, 신규 클론 시 디렉터리가 없고 `bun run dev:toto`·`bun run verify:toto`를 실행할 수 없다. 재현성을 핵심 가치로 내세운 프로젝트에서 이 비대칭은 가장 먼저 해소해야 할 운영 위험이다.
+Why now: `toto`가 `.gitmodules`에 선언돼 있지만 gitlink가 루트 인덱스에 커밋되지 않아서, 신규 클론 시 디렉터리가 없고 `bun run dev:toto`·`bun run verify:toto`를 실행할 수 없다. 다만 2026-06-04 archive policy가 "사용자가 명시적으로 재활성화를 요청하기 전까지 `/toto`를 `.gitmodules`에 다시 추가하지 말 것"을 명시하므로, 이 gitlink pinning 작업은 재활성화 요청 전까지 보류한다.
 
-First slice: 안정 커밋을 골라 gitlink를 루트 인덱스에 커밋하고, `git submodule update --init toto` → `bun run bootstrap` → `bun run verify:toto` 순서가 CI에서 그린으로 돌아오면 pinning 완료로 간주한다.
+First slice: 재활성화가 요청되면, 안정 커밋을 골라 gitlink를 루트 인덱스에 커밋하고 `git submodule update --init toto` → `bun run bootstrap` → `bun run verify:toto` 순서가 CI에서 그린으로 돌아오는지 확인한다.
