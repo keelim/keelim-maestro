@@ -1,6 +1,6 @@
 # Workspace Idea Index
 
-Last updated: 2026-05-16 KST
+Last updated: 2026-09-23 KST
 
 This folder tracks feature, product, and workflow ideas for the top-level
 projects inside `/Users/keelim/Desktop/keelim-maestro`.
@@ -22,17 +22,23 @@ projects inside `/Users/keelim/Desktop/keelim-maestro`.
 
 | Project | File | Last reviewed | Open ideas | Current focus |
 | --- | --- | --- | --- | --- |
-| `all` | [all.md](./all.md) | 2026-05-16 KST | 6 | 공통 모듈 채택·크로스 플랫폼(KMP/iOS/Rust) 빌드 게이트·릴리스 리스크를 함께 낮추는 허브 |
-| `all-web-ui` | [all-web-ui.md](./all-web-ui.md) | 2026-05-16 KST | 6 | 공용 토큰·프리미티브 계약과 다운스트림 영향 가시화 허브 |
-| `android-support` | [android-support.md](./android-support.md) | 2026-05-16 KST | 5 | Play Console 입력 검증과 릴리스 증적을 묶는 자동화 |
-| `Keelim-Knowledge-Vault` | [Keelim-Knowledge-Vault.md](./Keelim-Knowledge-Vault.md) | 2026-05-16 KST | 6 | 워크스페이스 기준선과 문서 스냅샷을 다시 찾게 만드는 허브 |
-| `keelim-plugin` | [keelim-plugin.md](./keelim-plugin.md) | 2026-05-16 KST | 6 | 스킬 카탈로그와 설치·회귀 검증을 함께 다루는 개인 플러그인 저장소 |
-| `keelim-vercel` | [keelim-vercel.md](./keelim-vercel.md) | 2026-05-16 KST | 6 | 후속 행동 루프와 저장소 계약을 함께 다루는 금융 허브 |
-| `rich` | [rich.md](./rich.md) | 2026-05-16 KST | 6 | 운영 복구와 외부 연동 상태를 한곳에서 다루는 관리자 허브 |
-| `toto` | [toto.md](./toto.md) | 2026-05-16 KST | 4 | gitlink 등록부터 시즌 재현성까지 다루는 KBO 대시보드 허브 |
+| `all` | [all.md](./all.md) | 2026-09-23 KST | 6 | 공통 모듈 채택·크로스 플랫폼(KMP/iOS/Rust) 빌드 게이트·릴리스 리스크를 함께 낮추는 허브 |
+| `all-web-ui` | [all-web-ui.md](./all-web-ui.md) | 2026-09-23 KST | 6 | 공용 토큰·프리미티브 계약과 다운스트림 영향 가시화 허브 |
+| `android-support` | [android-support.md](./android-support.md) | 2026-09-23 KST | 5 | Play Console 입력 검증과 릴리스 증적을 묶는 자동화 |
+| `Keelim-Knowledge-Vault` | [Keelim-Knowledge-Vault.md](./Keelim-Knowledge-Vault.md) | 2026-09-23 KST | 6 | 워크스페이스 기준선과 문서 스냅샷을 다시 찾게 만드는 허브 |
+| `keelim-plugin` | [keelim-plugin.md](./keelim-plugin.md) | 2026-09-23 KST | 6 | 스킬 카탈로그와 설치·회귀 검증을 함께 다루는 개인 플러그인 저장소 |
+| `keelim-vercel` | [keelim-vercel.md](./keelim-vercel.md) | 2026-09-23 KST | 6 | 후속 행동 루프와 저장소 계약을 함께 다루는 금융 허브 |
+| `rich` | [rich.md](./rich.md) | 2026-09-23 KST | 6 | 운영 복구와 외부 연동 상태를 한곳에서 다루는 관리자 허브 |
+
+## Archived projects
+
+| Project | File | Archived | Why |
+| --- | --- | --- | --- |
+| `toto` | [toto.md](./toto.md) | 2026-06-04 (root `AGENTS.md`) | root 조정 레이어에서 더 이상 능동적으로 다루지 않음. 기존 open ideas는 이력으로 보관, 재활성화 요청 전까지 실행 대상 아님 |
 
 ## Observed local-only utility repos
 
 | Path | Why observed-only |
 | --- | --- |
 | `tools` | machine-local helper repo ignored by the root; useful as operator context, but not promoted into the project backlog unless it gains a workspace-facing product or policy surface |
+| `youtube` | root `AGENTS.md`/`docs/CODEMAPS/architecture.md`·`WORKSPACE.md`에는 Bun/uv 워크스페이스 멤버로 등록돼 있지만, 로컬 체크아웃이 없으면 README/AGENTS를 읽을 수 없어 아직 idea 파일을 만들 근거가 부족하다. 다음 리뷰에서 `youtube/` 로컬 체크아웃이 있을 때 README/AGENTS를 읽고 `docs/idea/youtube.md` 신설 여부를 판단한다 |

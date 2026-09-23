@@ -1,6 +1,15 @@
 # toto
 
-Last reviewed: 2026-05-16 KST
+Last reviewed: 2026-09-23 KST
+
+Status: **archived** (root `AGENTS.md`, 2026-06-04부터 `/toto`는 root 조정 레이어에서
+더 이상 능동적으로 다루지 않음). 로컬 `toto/` 체크아웃이 남아 있어도 운영자 로컬 이력으로만
+취급하고, 사용자가 명시적으로 재활성화를 요청하기 전까지 `.gitmodules`, Bun/uv 워크스페이스,
+CodeGraph 디스패치, 코드맵 갱신, idea gardener 활성 프로젝트 표에 다시 넣지 않는다.
+
+아래 open ideas는 toto가 활성 submodule 후보였던 시점(2026-04)의 기록이다. 특히 gitlink
+pinning 항목은 현재 archive 정책과 정면으로 어긋나므로 실행 대상이 아니라 이력으로만 보관한다.
+재활성화 요청이 오면 이 파일의 신호와 아이디어를 그대로 재검토 출발점으로 쓸 수 있다.
 
 ## Signals
 
@@ -9,11 +18,11 @@ Last reviewed: 2026-05-16 KST
 - wheel 배포보다 로컬 editable checkout 실행이 현재 계약이라서, 경로와 seed 재현성 검증이 더 중요하다.
 - KBO win1loss 대시보드는 시즌/경기 데이터가 조금만 흔들려도 표가 달라지므로, 시드와 공급자 경계를 분리해 두는 편이 좋다.
 
-## Open ideas
+## Open ideas (archived - 재활성화 전까지 실행 대상 아님)
 
 ### 2026-04-18 - 시즌 스냅샷 매니페스트
 
-Status: proposed
+Status: proposed (archived)
 
 Why now: 대시보드가 읽기전용 스켈레톤인 만큼, 같은 시즌을 다시 시드했을 때 같은 행 수와 같은 결과가 나오는지 확인할 수 있어야 한다.
 
@@ -21,7 +30,7 @@ First slice: 시드 대상 시즌의 원본 파일, 행 수, 체크섬, 예상 �
 
 ### 2026-04-18 - 데이터 공급자 어댑터 분리
 
-Status: proposed
+Status: proposed (archived)
 
 Why now: 지금은 로컬 스켈레톤이지만, 나중에 CSV/fixture/API 중 무엇을 쓰든 UI는 같은 계약만 보면 되게 만들어야 유지보수가 쉽다.
 
@@ -29,7 +38,7 @@ First slice: 경기 결과와 순위 조회를 담당하는 얇은 provider 인�
 
 ### 2026-04-18 - 읽기전용 스모크 게이트
 
-Status: proposed
+Status: proposed (archived)
 
 Why now: 이 저장소의 핵심 가치는 수정이 아니라 재현이므로, 실수로 쓰기 경로나 외부 변조가 들어와도 바로 잡아내는 게 먼저다.
 
@@ -37,8 +46,11 @@ First slice: 앱 부팅, 홈 임포트, `verify` 흐름을 묶은 스모크 테�
 
 ### 2026-04-25 - gitlink 커밋 및 재현 가능한 클론 게이트
 
-Status: proposed
+Status: superseded (2026-09-23) — root `AGENTS.md`가 `/toto`를 archived로 지정하면서
+"`.gitmodules`에 다시 추가하지 말 것"을 명시했다. 이 아이디어는 toto를 submodule로
+pinning하는 것을 전제로 하므로 현재 정책과 직접 충돌한다. 재활성화 요청이 오기 전까지는
+실행하지 않는다.
 
-Why now: `toto`가 `.gitmodules`에 선언돼 있지만 gitlink가 루트 인덱스에 커밋되지 않아서, 신규 클론 시 디렉터리가 없고 `bun run dev:toto`·`bun run verify:toto`를 실행할 수 없다. 재현성을 핵심 가치로 내세운 프로젝트에서 이 비대칭은 가장 먼저 해소해야 할 운영 위험이다.
+Why now (2026-04 기준 기록): `toto`가 `.gitmodules`에 선언돼 있지만 gitlink가 루트 인덱스에 커밋되지 않아서, 신규 클론 시 디렉터리가 없고 `bun run dev:toto`·`bun run verify:toto`를 실행할 수 없다. 재현성을 핵심 가치로 내세운 프로젝트에서 이 비대칭은 가장 먼저 해소해야 할 운영 위험이다.
 
-First slice: 안정 커밋을 골라 gitlink를 루트 인덱스에 커밋하고, `git submodule update --init toto` → `bun run bootstrap` → `bun run verify:toto` 순서가 CI에서 그린으로 돌아오면 pinning 완료로 간주한다.
+First slice (재활성화 시 참고): 안정 커밋을 골라 gitlink를 루트 인덱스에 커밋하고, `git submodule update --init toto` → `bun run bootstrap` → `bun run verify:toto` 순서가 CI에서 그린으로 돌아오면 pinning 완료로 간주한다.
