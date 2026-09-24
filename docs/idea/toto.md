@@ -1,6 +1,12 @@
 # toto
 
-Last reviewed: 2026-05-16 KST
+Last reviewed: 2026-09-24 KST (archived — status check only, no content changes)
+
+> **Archived 2026-06-04.** Root `AGENTS.md` treats `/toto` as an archived,
+> operator-local historical checkout: it is not an active submodule, workspace
+> member, CodeGraph target, or backlog target. The ideas below are preserved
+> for reference only. Do not add new ideas, change statuses, or resume active
+> curation here unless the user explicitly asks to reactivate `/toto`.
 
 ## Signals
 
