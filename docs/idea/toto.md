@@ -1,6 +1,10 @@
 # toto
 
 Last reviewed: 2026-05-16 KST
+Archived: 2026-09-25 KST — `AGENTS.md`의 `/toto` 아카이브 정책(2026-06-04부)에
+따라 루트 활성 프로젝트 테이블과 idea gardener 대상에서 제외됨. 사용자가
+명시적으로 재활성화를 요청하기 전까지 아래 항목은 이력 참고용으로만
+유지한다.
 
 ## Signals
 
