@@ -1,6 +1,11 @@
 # toto
 
-Last reviewed: 2026-05-16 KST
+Last reviewed: 2026-09-26 KST
+
+> **Archived (2026-06-04):** 루트 `CLAUDE.md`의 `/toto` archive policy에 따라
+> `/toto`는 root 코디네이션 레이어와 idea gardener 활성 프로젝트 목록에서
+> 제외되었다. 이 파일은 과거 기록 참고용으로만 유지하며, 사용자가 명시적으로
+> 재활성화를 요청하기 전까지 새 항목을 추가하지 않는다.
 
 ## Signals
 
