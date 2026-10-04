@@ -2,6 +2,8 @@
 
 Last reviewed: 2026-05-16 KST
 
+Status: archived (2026-06-04) — 루트 활성 백로그에서 제외된 동결 기록이다. 재활성화 요청이 있을 때만 갱신한다.
+
 ## Signals
 
 - 로컬 read-only Streamlit 스켈레톤이라서, UI 확장보다 재현성과 입력 계약이 먼저다.
