@@ -1,6 +1,8 @@
 # keelim-maestro
 
-This root repository is a **workspace superproject / coordination layer** for the child repositories in this folder.
+This repository coordinates child ownership, shared development setup, delivery order, and verification. Each child repository is developed and deployed independently.
+
+Start with [AGENTS.md](AGENTS.md), use the [project catalog](docs/PROJECT.md) to choose an owner, and follow [operations](docs/operations.md) for setup and execution.
 
 ## Workspace structure
 
@@ -14,13 +16,11 @@ flowchart TB
     root --> archivedRepos["archived local checkouts"]
 
     submodules --> all["all"]
-    submodules --> android["android-support"]
     submodules --> vault["Keelim-Knowledge-Vault"]
     submodules --> skill["keelim-plugin"]
     submodules --> vercel["keelim-vercel"]
 
     localRepos --> allWebUi["all-web-ui"]
-    localRepos --> quant["quant"]
     localRepos --> rich["rich"]
     localRepos --> youtube["youtube"]
     archivedRepos --> toto["toto"]
@@ -46,7 +46,7 @@ Codex and Claude Code should use the shared `agentgateway` MCP endpoint at
 
 ## Current safe scope
 
-This repository currently owns only root-level coordination files:
+This repository owns coordination files, helper scripts, and workspace documentation:
 
 - `AGENTS.md`
 - `README.md`
@@ -56,7 +56,8 @@ This repository currently owns only root-level coordination files:
 - `.gitmodules`
 - `docs/ops/`
 - `docs/idea/`
-- future root-only helper scripts/docs
+- `docs/PROJECT.md`, the root project guides, and `docs/tracking/`
+- `scripts/` and the two shared workspace skills
 
 The root may also carry a **Bun workspace bootstrap** for selected web repos. This is an orchestration layer for installs/scripts only; it does **not** collapse the child repositories into one Git monorepo.
 
@@ -277,14 +278,14 @@ coordination but still keep the `youtube` repo independently runnable.
 `rich/web` intentionally uses the root Bun workspace as its install/verification
 surface so its `catalog:` dependencies resolve from the root catalog.
 Standalone consumers outside that root workspace install the exact GitHub
-Packages dependency `@keelim/all-web-ui@0.1.4` through
+Packages version declared in their own manifest through
 `https://npm.pkg.github.com`.
 
 Root `bun.lock` may therefore contain legitimate workspace package registrations
 for `@keelim/all-web-ui` when the local package version matches the exact
 consumer version. The invalid state is drift inside consumer dependency specs,
 unscoped `all-web-ui` imports, or missing GitHub Packages registry mapping.
-The full integration verifier also checks that `@keelim/all-web-ui@0.1.4` is
+The full integration verifier also checks that the declared `@keelim/all-web-ui` version is
 visible from `https://npm.pkg.github.com`; a passing build-only run is not enough
 to prove the package was published. That registry check uses `NODE_AUTH_TOKEN`
 or the local GitHub CLI token when GitHub Packages requires authenticated reads.
@@ -396,17 +397,21 @@ only owns the contract, helper discovery, and verification expectations.
 
 ## Child repositories in this workspace
 
-| Path | Remote? | Current status | Notes |
-| --- | --- | --- | --- |
-| `all` | yes | clean vs `origin/develop` | registered submodule |
-| `all-web-ui` | yes | clean vs `origin/main` | autonomous shared UI repo with public remote and GitHub Packages npm publishing; included in root subrepo helper + integration verification |
-| `android-support` | yes | detached clean at pinned commit `485a2e40`; no local upstream | registered submodule |
-| `Keelim-Knowledge-Vault` | yes | clean vs `origin/main` | registered submodule |
-| `keelim-plugin` | yes | clean vs `origin/main` | registered submodule |
-| `keelim-vercel` | yes | clean vs `origin/develop` | registered submodule and Vercel-linked app |
-| `quant` | no | absent in this checkout | intentionally excluded for now |
-| `rich` | yes | dirty working tree, no ahead/behind drift vs `origin/master` | autonomous local repo; freeze/split before future pinning or data modernization |
-| `youtube` | no | local private checkout under `keelim-maestro/youtube`; no origin/upstream yet | autonomous YouTube Shorts production repo; included in root subrepo helper, Bun workspace package globs, and root uv workspace; not a submodule |
+| Path | Ownership | Root relationship |
+| --- | --- | --- |
+| `all` | autonomous Android/platform repository | registered submodule |
+| `Keelim-Knowledge-Vault` | autonomous knowledge vault | registered submodule |
+| `keelim-plugin` | autonomous skills/plugin repository | registered submodule |
+| `keelim-vercel` | autonomous web application | registered submodule |
+| `all-web-ui` | autonomous shared UI package | Bun workspace member; not a submodule |
+| `rich` | autonomous finance applications | `rich/web` in Bun and `rich` in uv; not a submodule |
+| `youtube` | autonomous video tooling | selected packages in Bun and root package in uv; not a submodule |
+| `tools` | autonomous local utility repository | runtime delegation; outside root package workspaces |
+| `android-support` | optional checkout | not currently registered; check presence before use |
+| `quant` | excluded local experiments | no implicit remote or workspace registration |
+
+Branch, dirty state, upstream, and remote availability are live observations.
+Use `bun run report:baseline` instead of treating this table as a Git-status cache.
 
 ## Archived child checkouts
 
@@ -485,7 +490,6 @@ transports such as `unix:///tmp/codex-app.sock`, and pass additional
 Tracked submodule default branches are declared in `.gitmodules`:
 
 - `all` -> `develop`
-- `android-support` -> `main`
 - `Keelim-Knowledge-Vault` -> `main`
 - `keelim-plugin` -> `main`
 - `keelim-vercel` -> `develop`
@@ -536,3 +540,55 @@ that contain package workspace paths (`all-web-ui`, `rich`, `youtube`) before ru
 `bun install`; see **Bun workspace prerequisites** above. The nested
 `rich/open-trading-api/*` paths are helper/dev paths inside the hydrated `rich`
 checkout, not root Bun workspace members.
+
+## Agent instructions and shared skills
+
+`AGENTS.md` holds durable workspace rules and points to `docs/PROJECT.md` for
+ownership. Child repositories keep self-contained instructions. Keep current
+feature inventories, detailed procedures, and one-off observations in their
+owner documentation; do not append a dated lesson for every code edit.
+
+The two root skills are authored under `.agents/skills/maestro-orchestrator` and
+`.agents/skills/boundary-check`. Relative links in `.claude/skills` expose the
+same sources to Claude; its four existing lead/QA roles keep their own model
+settings and use the shared handoff contract. Codex uses its native collaboration
+capabilities and current model configuration. Without delegation tools, the
+current agent performs the bounded work sequentially. These are repository
+skills, not global installations.
+
+Coordinated implementations can save handoffs in a newly created
+`_workspace/<unique-run-id>/`. Never move the workspace directory or overwrite
+another run. A resumed task reads only the supplied artifact directory; the
+coordinator saves returned reports, including reports from read-only QA.
+Standalone boundary review returns evidence in the response without creating
+artifacts. Archived or missing repositories are not implicit work targets.
+
+After changing guidance, verify relative links, skill metadata, symlink targets,
+and effective AGENTS chains against the default 32 KiB budget. Confirm discovery
+and a read-only invocation in fresh Codex and Claude sessions; filesystem
+inspection alone does not prove that an already-running session has reloaded.
+Run `bun run test` and `git diff --check` for root integration changes.
+
+Official references: [AGENTS.md](https://learn.chatgpt.com/docs/agent-configuration/agents-md)
+and [Build skills](https://learn.chatgpt.com/docs/build-skills).
+
+## Claude headless harness
+
+Use headless Claude only for an explicit Claude/Fable request, a second-model
+review, or a bounded delegated task. Run from the intended owner repository:
+
+```bash
+claude -p --model fable --permission-mode plan --output-format json --max-turns 3 "<task>"
+```
+
+The prompt must state `mode=advice-only` or `mode=delegated-write`, target paths,
+repository boundary, and output keys `status`, `summary`, `next_actions`, and
+`artifacts`. Preserve auto-discovery of CLAUDE.md, hooks, plugins, and MCP; do not
+add `--bare` or permission-bypass flags. Error output needs a root-cause hint,
+a safe retry instruction, and a stop condition. Stop after one clean retry if
+authentication, model access, MCP connectivity, or JSON output is still broken.
+Codex owns final edits, verification, and status unless write execution was
+explicitly delegated.
+
+The Codex app-server bridge is separate: use `bun run dev:codex-app-server` and
+`codex --remote ws://127.0.0.1:7331` only for tasks requiring that live surface.

@@ -1,58 +1,12 @@
-# HyperFrames Composition Project
+# Workspace introduction video
 
-## Skills
+Own local scenes, assets, and timing, not current child capabilities or registration. This video reflects an earlier workspace; reconcile optional and archived projects before using it as a current introduction.
 
-This project uses AI agent skills for framework-specific patterns. Install them if not already present:
+- Scene edits do not authorize child-repository changes or reactivation.
+- Timed elements need `data-start`, `data-duration`, and `data-track-index`. Keep visible `clip` elements and timeline registration aligned.
+- Create paused GSAP timelines and register them in `window.__timelines`. Frames must not depend on wall-clock time, randomness, or live data.
+- Existing GSAP scripts load from a CDN; do not claim fully offline rendering or add live requests.
+- Distinguish muted video from separate audio tracks. When duration changes, verify the next scene's start and total length.
+- Renders and thumbnails are generated output. Do not automatically add large outputs in place of source HTML/assets.
 
-```bash
-npx skills add heygen-com/hyperframes
-```
-
-Skills encode patterns like `window.__timelines` registration, `data-*` attribute semantics, and shader-compatible CSS rules that are not in generic web docs. Using them produces correct compositions from the start.
-
-## Commands
-
-```bash
-npx hyperframes preview      # preview in browser (studio editor)
-npx hyperframes render       # render to MP4
-npx hyperframes lint         # validate compositions (errors + warnings)
-npx hyperframes lint --json  # machine-readable output for CI
-npx hyperframes docs <topic> # reference docs in terminal
-```
-
-## Project Structure
-
-- `index.html` — main composition (root timeline)
-- `compositions/` — sub-compositions referenced via `data-composition-src`
-- `assets/` — media files (video, audio, images)
-- `meta.json` — project metadata (id, name)
-- `transcript.json` — whisper word-level transcript (if generated)
-
-## Linting — Always Run After Changes
-
-After creating or editing any `.html` composition, run the linter before considering the task complete:
-
-```bash
-npx hyperframes lint
-```
-
-Fix all errors before presenting the result.
-
-## Key Rules
-
-1. Every timed element needs `data-start`, `data-duration`, and `data-track-index`
-2. Visible timed elements **must** have `class="clip"` — the framework uses this for visibility control
-3. GSAP timelines must be paused and registered on `window.__timelines`:
-   ```js
-   window.__timelines = window.__timelines || {};
-   window.__timelines["composition-id"] = gsap.timeline({ paused: true });
-   ```
-4. Videos use `muted` with a separate `<audio>` element for the audio track
-5. Sub-compositions use `data-composition-src="compositions/file.html"`
-6. Only deterministic logic — no `Date.now()`, no `Math.random()`, no network fetches
-
-## Documentation
-
-Full docs: https://hyperframes.heygen.com/introduction
-
-Machine-readable index for AI tools: https://hyperframes.heygen.com/llms.txt
+With HyperFrames installed, use `npx hyperframes preview`, `npx hyperframes lint`, and `npx hyperframes render` from this directory. After HTML changes, run lint, resolve its errors, and inspect scene boundaries and the final frame in a preview or render. If tooling is absent, report the prerequisite instead of installing a skill/package merely because this guide names it. Keep `CLAUDE.md` linked to this file.
