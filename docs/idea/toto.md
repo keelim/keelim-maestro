@@ -1,6 +1,8 @@
 # toto
 
-Last reviewed: 2026-05-16 KST
+Last reviewed: 2026-10-09 KST
+
+> Archived: 2026-06-04부터 루트 활성 처리 대상이 아니다. 아래 내용은 historical 기록이며 재활성화 요청이 있기 전까지 갱신하지 않는다.
 
 ## Signals
 
