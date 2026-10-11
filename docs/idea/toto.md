@@ -1,6 +1,8 @@
 # toto
 
-Last reviewed: 2026-05-16 KST
+Last reviewed: 2026-10-11 KST
+
+Status note: 2026-06-04부로 루트에서 아카이브됨. 아래 아이디어는 재활성화 요청 전까지 동결된 기록이며 활성 백로그에 포함하지 않는다.
 
 ## Signals
 
