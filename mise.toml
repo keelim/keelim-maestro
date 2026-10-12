@@ -16,9 +16,11 @@ description = "Show the root and autonomous child repository status"
 run = "./scripts/update-subrepos.sh status"
 
 [tasks."verify:root"]
-description = "Run the root workspace contract and Python constraint checks"
+description = "Run the root workspace contract, Python constraint checks, and Ruff lint/format"
 run = [
   "bun run test",
   "uv run python scripts/verify-python-dependency-constraints.py",
   "uv lock --check",
+  "uv run ruff check rich youtube",
+  "uv run ruff format --check rich youtube",
 ]
