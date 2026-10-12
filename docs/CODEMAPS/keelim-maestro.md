@@ -22,7 +22,6 @@ keelim-maestro/
 ├── AGENTS.md                  # Agent/AI guidance for this repo
 ├── CLAUDE.md                  # Claude Code guidance
 ├── README.md                  # Human-facing workspace overview
-├── PROJECT.md                 # Project-level goals and status
 ├── .gitignore                 # Excludes child working trees, env, generated
 ├── .gitmodules                # Registered submodule pointers
 ├── .npmrc                     # npm/bun registry config (GitHub Packages)
@@ -34,6 +33,7 @@ keelim-maestro/
 ├── mise.lock                  # mise lockfile
 ├── scripts/                   # Root helper scripts (see SCRIPTS.md)
 ├── docs/
+│   ├── PROJECT.md             # Workspace project catalog and task router
 │   ├── CODEMAPS/              # This directory — workspace codemap snapshots
 │   ├── design/                # Keelim Design System documentation
 │   ├── idea/                  # Per-project idea/backlog files
