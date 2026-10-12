@@ -1348,10 +1348,11 @@ source = { virtual = "." }
 [[package]]
 name = "keelim-rich"
 version = "0.1.0"
-source = { virtual = "rich" }
+source = { editable = "rich" }
 dependencies = [
     { name = "fastapi" },
     { name = "httpx" },
+    { name = "nhplug", extra = ["instruments"] },
     { name = "numpy" },
     { name = "pandas" },
     { name = "plotly" },
@@ -1382,6 +1383,7 @@ dev = [
 requires-dist = [
     { name = "fastapi", specifier = ">=0.116.0" },
     { name = "httpx", specifier = ">=0.27.0" },
+    { name = "nhplug", extras = ["instruments"], specifier = ">=0.3.1" },
     { name = "numpy", specifier = ">=2.4.4,<3.0.0" },
     { name = "pandas", specifier = ">=2.3.3,<3.0.0" },
     { name = "plotly", specifier = ">=5.18.0" },
@@ -1735,6 +1737,25 @@ source = { registry = "https://pypi.org/simple" }
 sdist = { url = "https://files.pythonhosted.org/packages/6a/51/63fe664f3908c97be9d2e4f1158eb633317598cfa6e1fc14af5383f17512/networkx-3.6.1.tar.gz", hash = "sha256:26b7c357accc0c8cde558ad486283728b65b6a95d85ee1cd66bafab4c8168509", size = 2517025, upload-time = "2025-12-08T17:02:39.908Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/9e/c9/b2622292ea83fbb4ec318f5b9ab867d0a28ab43c5717bb85b0a5f6b3b0a4/networkx-3.6.1-py3-none-any.whl", hash = "sha256:d47fbf302e7d9cbbb9e2555a0d267983d2aa476bac30e90dfbe5669bd57f3762", size = 2068504, upload-time = "2025-12-08T17:02:38.159Z" },
+]
+
+[[package]]
+name = "nhplug"
+version = "0.3.1"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "python-dotenv" },
+    { name = "requests" },
+    { name = "websocket-client" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/b7/7b/8b46b7793b4f64c54f62e5f2a69d7bb7954e554623f84a2b98226afb41b8/nhplug-0.3.1.tar.gz", hash = "sha256:3e1c23c49693d9653455b1266f8603fb7aa39d54b85ecf9c08a7b5cf10459e7f", size = 62429, upload-time = "2026-08-28T01:35:29.694Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/a8/a1/856425eb6907ed3a934d60ed46fb7dfce97f9c1001b969c9c9531b5867ee/nhplug-0.3.1-py3-none-any.whl", hash = "sha256:88e4890b4395f3e898758feea90d533b10e792b6de1b07822d013cbe6697e8ca", size = 76151, upload-time = "2026-08-28T01:35:28.347Z" },
+]
+
+[package.optional-dependencies]
+instruments = [
+    { name = "pandas" },
 ]
 
 [[package]]
@@ -3201,6 +3222,15 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/1f/93/041fca8274050e40e6791f267d82e0e2e27dd165627bd640d3e0e378d877/uvicorn-0.46.0.tar.gz", hash = "sha256:fb9da0926999cc6cb22dc7cd71a94a632f078e6ae47ff683c5c420750fb7413d", size = 88758, upload-time = "2026-04-23T07:16:00.151Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/31/a3/5b1562db76a5a488274b2332a97199b32d0442aca0ed193697fd47786316/uvicorn-0.46.0-py3-none-any.whl", hash = "sha256:bbebbcbed972d162afca128605223022bedd345b7bc7855ce66deb31487a9048", size = 70926, upload-time = "2026-04-23T07:15:58.355Z" },
+]
+
+[[package]]
+name = "websocket-client"
+version = "1.9.2"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/d8/cb/a5abcc2891249f393827c650c6296660ce40374ac22d99ab9aea41f9d2a2/websocket_client-1.9.2.tar.gz", hash = "sha256:0fcb57545848be86992e128218fd96dd87a6769ffdb1a968dff79632b85604d0", size = 84110, upload-time = "2026-08-31T14:08:40.964Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/d5/d2/cc4dc1271e464942db7ee278baae2daa99ee77cb2af744025c04da585a3e/websocket_client-1.9.2-py3-none-any.whl", hash = "sha256:e1a673830a9c7bfa47b1cd3d5e4178f4c9651d80a4eab02c9c23a1c3ec6250ce", size = 95786, upload-time = "2026-08-31T14:08:39.899Z" },
 ]
 
 [[package]]
