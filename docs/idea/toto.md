@@ -1,6 +1,8 @@
 # toto
 
-Last reviewed: 2026-05-16 KST
+Last reviewed: 2026-10-13 KST
+
+> **Archived (2026-06-04)**: 루트 활성 처리에서 제외된 저장소다. 아래 아이디어는 역사적 기록이며 재활성화 요청이 있을 때만 다시 평가한다.
 
 ## Signals
 
