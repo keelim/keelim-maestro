@@ -1,6 +1,6 @@
 # Workspace Idea Index
 
-Last updated: 2026-05-16 KST
+Last updated: 2026-10-14 KST
 
 This folder tracks feature, product, and workflow ideas for the top-level
 projects inside `/Users/keelim/Desktop/keelim-maestro`.
@@ -29,7 +29,19 @@ projects inside `/Users/keelim/Desktop/keelim-maestro`.
 | `keelim-plugin` | [keelim-plugin.md](./keelim-plugin.md) | 2026-05-16 KST | 6 | 스킬 카탈로그와 설치·회귀 검증을 함께 다루는 개인 플러그인 저장소 |
 | `keelim-vercel` | [keelim-vercel.md](./keelim-vercel.md) | 2026-05-16 KST | 6 | 후속 행동 루프와 저장소 계약을 함께 다루는 금융 허브 |
 | `rich` | [rich.md](./rich.md) | 2026-05-16 KST | 6 | 운영 복구와 외부 연동 상태를 한곳에서 다루는 관리자 허브 |
-| `toto` | [toto.md](./toto.md) | 2026-05-16 KST | 4 | gitlink 등록부터 시즌 재현성까지 다루는 KBO 대시보드 허브 |
+
+## Archived / not maintained
+
+| Path | Why not maintained |
+| --- | --- |
+| `toto` | 2026-06-04 아카이브됨 (root `CLAUDE.md` 정책). [toto.md](./toto.md)는 과거 기록으로만 보존하며 활성 backlog·리뷰 대상에서 제외한다. 마지막 리뷰 2026-05-16 KST, 아이디어 4개 |
+
+## Active but not hydrated (backlog 미작성)
+
+| Path | Why pending |
+| --- | --- |
+| `youtube` | Bun/uv 워크스페이스 멤버(`docs/CODEMAPS/WORKSPACE.md`)이지만 이번 실행 환경에 체크아웃이 없어 README/AGENTS 근거를 읽지 못함. 로컬에 hydrate된 실행에서 `docs/idea/youtube.md`를 추가한다 |
+| `quant` | 원격 없는 로컬 전용 저장소(`SUBMODULES.md`); 체크아웃이 없어 검토하지 못함 |
 
 ## Observed local-only utility repos
 
