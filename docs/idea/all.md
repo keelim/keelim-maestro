@@ -1,6 +1,6 @@
 # all
 
-Last reviewed: 2026-05-16 KST
+Last reviewed: 2026-10-17 KST
 
 ## Signals
 
