@@ -1,6 +1,6 @@
 # Workspace Idea Index
 
-Last updated: 2026-05-16 KST
+Last updated: 2026-10-18 KST
 
 This folder tracks feature, product, and workflow ideas for the top-level
 projects inside `/Users/keelim/Desktop/keelim-maestro`.
@@ -29,10 +29,20 @@ projects inside `/Users/keelim/Desktop/keelim-maestro`.
 | `keelim-plugin` | [keelim-plugin.md](./keelim-plugin.md) | 2026-05-16 KST | 6 | 스킬 카탈로그와 설치·회귀 검증을 함께 다루는 개인 플러그인 저장소 |
 | `keelim-vercel` | [keelim-vercel.md](./keelim-vercel.md) | 2026-05-16 KST | 6 | 후속 행동 루프와 저장소 계약을 함께 다루는 금융 허브 |
 | `rich` | [rich.md](./rich.md) | 2026-05-16 KST | 6 | 운영 복구와 외부 연동 상태를 한곳에서 다루는 관리자 허브 |
-| `toto` | [toto.md](./toto.md) | 2026-05-16 KST | 4 | gitlink 등록부터 시즌 재현성까지 다루는 KBO 대시보드 허브 |
+| `youtube` | (아직 없음) | - | 0 | 비공개 자율 저장소, 루트 Bun/uv 워크스페이스 멤버. 자식 저장소 문서를 읽을 수 있는 환경에서 검토 후 승격 |
 
 ## Observed local-only utility repos
 
 | Path | Why observed-only |
 | --- | --- |
 | `tools` | machine-local helper repo ignored by the root; useful as operator context, but not promoted into the project backlog unless it gains a workspace-facing product or policy surface |
+
+## Archived projects
+
+| Project | File | Archived | Note |
+| --- | --- | --- | --- |
+| `toto` | [toto.md](./toto.md) | 2026-06-04 | 루트 활성 처리에서 제외됨. 기존 4개 아이디어는 이력 참고용이며 open 카운트에 포함하지 않음 |
+
+## Review notes (2026-10-18)
+
+- 이번 실행 환경에서는 자식 저장소가 hydrate되지 않아(서브모듈 디렉터리 비어 있음) 각 프로젝트의 README/AGENTS를 읽지 못했다. 코드맵(`docs/CODEMAPS/*`, 2026-10-18 갱신) 기준으로 프로젝트 목록만 동기화했고, 기존 프로젝트의 아이디어 항목과 검토일은 그대로 둔다.

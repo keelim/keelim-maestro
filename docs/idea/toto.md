@@ -2,6 +2,8 @@
 
 Last reviewed: 2026-05-16 KST
 
+> Archived: 2026-06-04부터 루트 활성 처리에서 제외됨. 아래 아이디어는 이력 참고용이다.
+
 ## Signals
 
 - 로컬 read-only Streamlit 스켈레톤이라서, UI 확장보다 재현성과 입력 계약이 먼저다.
