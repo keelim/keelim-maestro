@@ -1,6 +1,8 @@
 # toto
 
-Last reviewed: 2026-05-16 KST
+Last reviewed: 2026-10-23 KST
+
+Status: archived (2026-06-04) - 루트 활성 백로그에서 제외, 아래 아이디어는 역사적 기록으로만 유지.
 
 ## Signals
 
