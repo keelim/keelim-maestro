@@ -37,13 +37,6 @@ Root uv workspace provides shared dependency constraints for:
 `agentgateway` and `rich` run in local Kubernetes (Skaffold-managed).
 Architecture details are in [architecture.md](architecture.md).
 
-## GBrain Knowledge System
-
-GBrain uses a separate operator brain repository (`~/brain`). Contracts were
-previously tracked under `docs/knowledge/` (not present in this checkout).
-The `Keelim-Knowledge-Vault` submodule is a curated import source for the GBrain system.
-MCP exposure is via `agentgateway` at `http://localhost:3000/mcp`.
-
 ## Python Commands
 
 ```bash
