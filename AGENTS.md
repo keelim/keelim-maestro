@@ -125,13 +125,6 @@
 - Treat Claude output as evidence, not authority: Codex owns final edits, verification, and user-facing status unless the prompt explicitly delegated write execution to Claude.
 - Keep the Codex app-server bridge separate: use `bun run dev:codex-app-server` and `codex --remote ws://127.0.0.1:7331` only when the task needs a live Codex remote surface.
 
-## GBrain knowledge layer
-- Root-owned GBrain operating docs live under `docs/knowledge/`; the operator brain repo remains separate from this checkout, and importing child docs into GBrain does not grant permission to edit child source from the root.
-- For local PGLite GBrain imports, use the curated source manifest/log under the operator brain repo and import only allowlisted documentation paths. Do not broad-import child source trees, caches, generated output, secrets, archived `toto`, or no-remote `quant`.
-- When verifying imported GBrain knowledge, use a real phrase from an allowlisted local markdown source and show the search result; do not treat manifest membership alone as proof that the knowledge is queryable.
-- PGLite is single-writer sensitive: do not run bulk `gbrain import`, `gbrain sync`, `gbrain stats`, or ad-hoc search commands concurrently with a running `gbrain serve` MCP process. Stop the local serve process for bulk CLI work, run GBrain commands sequentially, then let Codex restart MCP from the registered `gbrain serve` config when needed.
-- Treat Supabase/Postgres GBrain promotion as an external data migration. Require explicit confirmation that the configured destination is trusted, keep DB URLs/API keys/tokens out of repo files, and stop rather than work around approval or connection failures.
-
 ## Change boundaries
 - Prefer the smallest reversible root diff.
 - Prefer documentation over automation until the child-repo state is clean enough for safe submodule conversion.
