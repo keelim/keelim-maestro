@@ -1,7 +1,7 @@
 # Root Scripts Codemap
 
-<!-- Generated: 2026-10-25 -->
-Last updated: 2026-10-25
+<!-- Generated: 2026-10-26 -->
+Last updated: 2026-10-26
 
 All scripts live under `scripts/`. Run them from the repo root.
 
@@ -43,6 +43,12 @@ All scripts live under `scripts/`. Run them from the repo root.
 | --- | --- | --- |
 | `test-changeset-manifest.mjs` | `bun run test:changeset` | Tests changeset manifest logic |
 | `validate-changeset-manifest.mjs` | `bun run changeset:validate` | Validates a read-only, ordered cross-repository changeset manifest |
+
+## Automation Contract Tests
+
+| Script | Invocation | Purpose |
+| --- | --- | --- |
+| `test-local-automation.mjs` | `bun scripts/test-local-automation.mjs` | Verifies local automation retirement contract (GBrain removed; `rich`, `youtube` n8n, `agentgateway` remain) |
 
 ## Utility / Audit Scripts (not in package.json)
 
