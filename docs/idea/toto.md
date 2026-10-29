@@ -1,6 +1,8 @@
 # toto
 
-Last reviewed: 2026-05-16 KST
+Last reviewed: 2026-10-29 KST
+
+> 아카이브됨 (2026-06-04): 루트 활성 backlog 대상이 아니며 아래 항목은 역사적 참고용이다.
 
 ## Signals
 
