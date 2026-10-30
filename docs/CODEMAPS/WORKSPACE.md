@@ -2,7 +2,6 @@
 
 <!-- Generated: 2026-10-30 -->
 Last updated: 2026-10-30
-
 ## Bun Workspace
 
 Runtime: **Bun 1.3.12** (`packageManager` field in package.json)

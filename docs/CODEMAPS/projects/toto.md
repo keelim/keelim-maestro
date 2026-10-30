@@ -2,8 +2,7 @@
 
 - Repository: `toto`
 - Root: `/home/user/keelim-maestro/toto`
-- Generated: 2026-10-30 00:00 UTC
-- Files scanned: 0
+- Generated: 2026-10-30 00:00 UTC- Files scanned: 0
 - Detected shape: Source repository
 
 ## Read First

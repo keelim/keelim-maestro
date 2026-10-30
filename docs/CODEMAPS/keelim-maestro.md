@@ -1,7 +1,6 @@
 # keelim-maestro Root Superproject Codemap
 
 <!-- Generated: 2026-10-30 -->
-
 ## Overview
 
 `keelim-maestro` is a **workspace superproject / coordination layer** for a family of
