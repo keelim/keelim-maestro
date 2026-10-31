@@ -1,6 +1,6 @@
 # CodeGraph Setup and Dispatch Contract
 
-<!-- Generated: 2026-10-30 -->
+<!-- Generated: 2026-10-31 -->
 ## Overview
 
 Each child repository may have its own `.codegraph/` index. The root exposes a
