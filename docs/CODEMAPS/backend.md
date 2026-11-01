@@ -1,6 +1,6 @@
 # Backend Codemap
 
-<!-- Generated: 2026-10-31 -->
+<!-- Generated: 2026-11-01 -->
 ## Python Workspace Members
 
 Root uv workspace provides shared dependency constraints for:
