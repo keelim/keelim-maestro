@@ -149,11 +149,11 @@ list_rich() {
 
 list_n8n() {
   section "youtube n8n Kubernetes"
-  info "Owner repo: /Users/keelim/Desktop/keelim-maestro/youtube"
-  info "Start:  cd /Users/keelim/Desktop/keelim-maestro/youtube/ops/n8n-k8s && kubectl apply -k ."
+  info "Owner repo: youtube"
+  info "Start:  cd youtube/ops/n8n-k8s && kubectl apply -k ."
   info "Verify: scripts/local-automation.sh verify n8n"
   info "Stop:   kubectl -n automation scale deployment/n8n --replicas=0"
-  info "Files:  /Users/keelim/Desktop/keelim-maestro/youtube/ops/n8n-k8s/"
+  info "Files:  youtube/ops/n8n-k8s/"
 }
 
 list_agentgateway() {
@@ -365,7 +365,7 @@ start_runtime() {
       exec sh run-k8s-dev.sh
       ;;
     n8n)
-      cd /Users/keelim/Desktop/keelim-maestro/youtube/ops/n8n-k8s
+      cd youtube/ops/n8n-k8s
       KUBECTL="$(kubectl_bin)"
       if [ -z "$KUBECTL" ]; then
         printf 'kubectl not found in PATH or /usr/local/bin/kubectl\n'

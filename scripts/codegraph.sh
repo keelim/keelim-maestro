@@ -1,7 +1,7 @@
 #!/bin/sh
 set -eu
 
-DEFAULT_CODEGRAPH_BIN="/Users/keelim/.bun/install/global/node_modules/@colbymchenry/codegraph-darwin-arm64/bin/codegraph"
+DEFAULT_CODEGRAPH_BIN="${HOME:-}/.bun/install/global/node_modules/@colbymchenry/codegraph-darwin-arm64/bin/codegraph"
 
 print_usage() {
   cat <<'EOF'
