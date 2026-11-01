@@ -18,7 +18,7 @@
 1. Add a Product Design context setup nudge after any design run with missing
    saved context.
    - Evidence: Product Design preflight reported
-     `/Users/keelim/.codex/state/plugins/product-design/user-context.md` as
+     `~/.codex/state/plugins/product-design/user-context.md` as
      missing.
    - Small change: after a successful or partial design run, offer to save the
      target app path, selected visual direction, design-system references, and
@@ -32,7 +32,7 @@
 
 3. Detect unhydrated superproject worktrees before repo-management automation.
    - Evidence: automation memory shows repeated pivots from Codex worktrees to
-     `/Users/keelim/Desktop/keelim-maestro`; the 2026-06-06 run repeated this.
+     `keelim-maestro`; the 2026-06-06 run repeated this.
    - Small change: make the project-management automation start with a
      hydration probe for `tools/`, `rich/`, and real child `.git` directories,
      then pivot once without re-discovering the same failure.
@@ -62,7 +62,7 @@
 ## 2026-06-07 Follow-Up Evidence
 
 - Product Design preflight still reports no saved
-  `/Users/keelim/.codex/state/plugins/product-design/user-context.md`.
+  `~/.codex/state/plugins/product-design/user-context.md`.
 - Recent Codex session files since the previous automation marker numbered 183.
   Raw keyword scans over those JSONL logs were noisy because session files repeat
   base instructions, tool schemas, and plugin descriptions.
@@ -107,7 +107,7 @@
 ## 2026-06-08 Follow-Up Evidence
 
 - Product Design preflight still reports no saved
-  `/Users/keelim/.codex/state/plugins/product-design/user-context.md`.
+  `~/.codex/state/plugins/product-design/user-context.md`.
 - Raw cross-session search remains noisy: direct keyword scans over session JSONL
   match repeated system prompts, tool schemas, and old embedded session summaries.
   Chronicle 10-minute summaries are currently the higher-signal session layer.
@@ -161,7 +161,7 @@
 ## 2026-06-09 Follow-Up Evidence
 
 - Product Design preflight still reports no saved
-  `/Users/keelim/.codex/state/plugins/product-design/user-context.md`.
+  `~/.codex/state/plugins/product-design/user-context.md`.
 - Chronicle summaries after the previous automation run show Work Relay moving
   from a broad "reduce work time by 50%" idea into a Product Design brief for a
   Korean-first Rich admin surface around `/admin/work-triage` and proposed
@@ -231,7 +231,7 @@
 ## 2026-06-12 Follow-Up Evidence
 
 - Product Design preflight still reports no saved
-  `/Users/keelim/.codex/state/plugins/product-design/user-context.md`.
+  `~/.codex/state/plugins/product-design/user-context.md`.
 - Chronicle summaries after the previous automation run show a
   `subproject-improvements-html-report` task aimed at an 800-item improvement
   backlog across 8 subprojects, using the existing
@@ -294,7 +294,7 @@
 ## 2026-06-12 GBrain Follow-Up Evidence
 
 - Product Design preflight still reports no saved
-  `/Users/keelim/.codex/state/plugins/product-design/user-context.md`.
+  `~/.codex/state/plugins/product-design/user-context.md`.
 - Recent Chronicle/memory evidence after the previous automation marker shows a
   GBrain knowledge-layer rollout that converged on a root-owned contract,
   separate operator brain repository, local PGLite smoke first, and later
@@ -336,7 +336,7 @@
 ## 2026-06-15 Follow-Up Evidence
 
 - Product Design context preflight still has no saved
-  `/Users/keelim/.codex/state/plugins/product-design/user-context.md`, and this
+  `~/.codex/state/plugins/product-design/user-context.md`, and this
   run did not expose a callable Product Design MCP tool through tool discovery.
 - The June 14 Easy Release Note session added a repo-local concept-selection
   gate after the user said the generated videos felt too similar. The durable
@@ -399,7 +399,7 @@
 ## 2026-06-27 Follow-Up Evidence
 
 - Product Design preflight still found no saved
-`/Users/keelim/.codex/state/plugins/product-design/user-context.md`, and
+`~/.codex/state/plugins/product-design/user-context.md`, and
 tool discovery exposed Lazyweb tools rather than a Product Design-specific
 MCP surface.
 - The 2026-06-25 Codex App usage session separated Desktop UI visibility
@@ -460,7 +460,7 @@ single "setup done" flag.
 
 ## 2026-06-28 Follow-Up Evidence
 
-- Product Design preflight still reports missing `/Users/keelim/.codex/state/plugins/product-design/user-context.md`.
+- Product Design preflight still reports missing `~/.codex/state/plugins/product-design/user-context.md`.
 - Since the 2026-06-27T00:01:50Z automation marker, root commit `91369fa` only changed this service-improvement document; no child repo had a newer commit in `git log --since`.
 - `tools/codex-hygiene/codex-hygiene.sh --dry-run` found no runaway native-hook scans; it reported one Codex stdio app-server process and no `node_repl` residue.
 - `rich` and `youtube` currently have broad dirty trees, while `all-web-ui` only has untracked `debug-log.json`; these are not safe automatic commit units.
@@ -487,8 +487,8 @@ single "setup done" flag.
 
 ## 2026-06-29 Follow-Up Evidence
 
-- Product Design context remains missing: `/Users/keelim/.codex/state/plugins/product-design` does not exist in this run.
-- Since the 2026-06-28T00:01:22Z automation marker, 18 Codex JSONL session files existed under `/Users/keelim/.codex/sessions/2026/06/28` and `/Users/keelim/.codex/sessions/2026/06/29`; several were approval-review or subagent transcripts rather than user-facing product work.
+- Product Design context remains missing: `~/.codex/state/plugins/product-design` does not exist in this run.
+- Since the 2026-06-28T00:01:22Z automation marker, 18 Codex JSONL session files existed under `~/.codex/sessions/2026/06/28` and `~/.codex/sessions/2026/06/29`; several were approval-review or subagent transcripts rather than user-facing product work.
 - Chronicle evidence for YouTube Studio metadata work showed separate states for reference-short selection, draft metadata editing, save uncertainty, and local repo note sync.
 - Chronicle evidence for Google Docs/Medium writing showed the user moving Korean draft material through cleanup and translation while monitoring multiple agent jobs and session-management reflections.
 - Chronicle evidence for Google Drive / Google Vids export showed direct Drive download returning HTML, unavailable Chrome DevTools port `9222`, a hung browser download event, and a failed local `say` TTS fallback.
@@ -514,10 +514,10 @@ single "setup done" flag.
 
 ## 2026-07-02 Follow-Up Evidence
 
-- Product Design plugin package is installed (`product-design` 0.1.47), but no saved Product Design user context was found under `/Users/keelim/.codex/state/plugins/product-design`.
-- Since the previous project-management automation marker, the high-signal new session summary is the Rich daily market snapshot run in `/Users/keelim/Desktop/keelim-maestro/rich`.
+- Product Design plugin package is installed (`product-design` 0.1.47), but no saved Product Design user context was found under `~/.codex/state/plugins/product-design`.
+- Since the previous project-management automation marker, the high-signal new session summary is the Rich daily market snapshot run in `rich`.
 - That run collected `2026-06-29`, `2026-06-30`, and `2026-07-01`, skipped `2026-06-27` and `2026-06-28` with `PYKRX_DAILY_SNAPSHOT_UNAVAILABLE` quality reasons, and verified persistence with `DailyMarketSnapshotStore().list_snapshot_dates()`.
-- The first `uv run` attempt failed before Python startup because `/Users/keelim/.cache/uv` was not accessible in the sandbox; rerunning with the allowed cache/escalation path recovered the task.
+- The first `uv run` attempt failed before Python startup because `~/.cache/uv` was not accessible in the sandbox; rerunning with the allowed cache/escalation path recovered the task.
 
 ## 2026-07-02 Improvements
 
@@ -566,9 +566,9 @@ single "setup done" flag.
 
 ## 2026-07-08 Follow-Up Evidence
 
-- Product Design context remains absent: `/Users/keelim/.codex/state/plugins/product-design` did not exist during this run.
+- Product Design context remains absent: `~/.codex/state/plugins/product-design` did not exist during this run.
 - Tool discovery for `$product-design` exposed Creative Production widgets and unrelated session/process tools, but no callable Product Design analysis tool in the current surface.
-- Since the 2026-07-07T14:21:54Z automation marker, session search found current automation/self-review JSONL files under `/Users/keelim/.codex/sessions/2026/07/07` and `/Users/keelim/.codex/sessions/2026/07/08`; one approval-review subagent transcript existed solely to approve `codex-hygiene.sh --dry-run`.
+- Since the 2026-07-07T14:21:54Z automation marker, session search found current automation/self-review JSONL files under `~/.codex/sessions/2026/07/07` and `~/.codex/sessions/2026/07/08`; one approval-review subagent transcript existed solely to approve `codex-hygiene.sh --dry-run`.
 - Reading those JSONL files naively pulled the current run's prompt, tool calls, approval transcript, and AGENTS text back into the analysis window instead of only user-facing product work.
 
 ## 2026-07-08 Improvements
@@ -578,14 +578,14 @@ single "setup done" flag.
 - Small change: service-analysis runs should report `productDesignContext`, `toolSurface`, `toolAvailable`, and `fallbackSource` before spending analysis budget.
 
 56. Exclude self and approval-review sessions from conversation mining.
-- Evidence: the current automation run and its approval-review subagent session appeared in the same `/Users/keelim/.codex/sessions/2026/07/*` search window being analyzed.
+- Evidence: the current automation run and its approval-review subagent session appeared in the same `~/.codex/sessions/2026/07/*` search window being analyzed.
 - Small change: session mining should filter `currentThreadId`, `parent_thread_id`, `source.subagent`, and approval-only transcripts before summarizing service improvements.
 
 ## 2026-07-09 Follow-Up Evidence
 
-- Product Design context remains absent: `/Users/keelim/.codex/state/plugins/product-design/user-context.md` was not present.
+- Product Design context remains absent: `~/.codex/state/plugins/product-design/user-context.md` was not present.
 - Since the previous project-management marker, six session files were newer than `2026-07-08T00:01:25Z`: the current automation thread, two guardian approval-review subagent threads, the prior project-management automation thread, and one user-facing Rich daily market snapshot automation thread.
-- The Rich daily market snapshot session in `/Users/keelim/Desktop/keelim-maestro/rich` collected and verified `2026-07-07` and `2026-07-08` through `DailyMarketSnapshotStore().list_snapshot_dates()`, but the verified SQLite change still needed this project-management sweep to commit it.
+- The Rich daily market snapshot session in `rich` collected and verified `2026-07-07` and `2026-07-08` through `DailyMarketSnapshotStore().list_snapshot_dates()`, but the verified SQLite change still needed this project-management sweep to commit it.
 - `tools/codex-hygiene/codex-hygiene.sh --dry-run` could not read the process table in sandbox, and escalated process inspection was denied by the approval reviewer; `tools/agentgateway/scripts/stop-k8s-gateway.sh --dry-run` still proved no matching Kubernetes port-forward.
 
 ## 2026-07-09 Improvements
@@ -608,7 +608,7 @@ single "setup done" flag.
   surface; discovery returned site-design picker / Creative Production widgets
   rather than a callable Product Design service-analysis tool.
 - The thin Codex worktree again lacked `tools/`, while the hydrated checkout
-  `/Users/keelim/Desktop/keelim-maestro` had the real child repo state and
+  `keelim-maestro` had the real child repo state and
   process-hygiene scripts.
 - `tools/codex-hygiene/codex-hygiene.sh --dry-run` needed process-table access
   outside the sandbox and then reported no runaway native-hook scans,
@@ -656,7 +656,7 @@ so unrelated staged work is not silently swept in.
 ## 2026-07-12 Follow-Up Evidence
 
 - Product Design-specific local context is still absent:
-  `/Users/keelim/.codex/state/plugins/product-design` does not exist in this
+  `~/.codex/state/plugins/product-design` does not exist in this
   run.
 - Root commit `c4ba509` added
   `docs/research/subproject-architecture-opportunities-2026-07-11.html`, a
@@ -669,7 +669,7 @@ so unrelated staged work is not silently swept in.
   passed after the commit.
 - Session mining since the previous marker found a high-signal user-facing
   YouTube audit session at
-  `/Users/keelim/.codex/sessions/2026/07/11/rollout-2026-07-11T10-23-55-019f4ec6-21f4-7fe0-9677-5183072c2c23.jsonl`.
+  `~/.codex/sessions/2026/07/11/rollout-2026-07-11T10-23-55-019f4ec6-21f4-7fe0-9677-5183072c2c23.jsonl`.
   It reported 13 public Shorts, last publish on 2026-06-28, a 13-day gap,
   recent 28-day views 582, engaged views 270, subscribers +1, continue/swipe
   split 45.6%/54.4%, and latest GPT-5.6 average viewed 24.9%.
@@ -682,7 +682,7 @@ so unrelated staged work is not silently swept in.
   `c4d827a`, `d359046`, `6b4bb3a`, `c2f9d99`, `eb21049`, and new Rich commit
   `6f51d47`; targeted tests passed for the touched surfaces.
 - The first `all` Gradle test attempt failed only because sandboxed access to
-  `/Users/keelim/.gradle/.../gradle-9.3.1-bin.zip.lck` was not permitted; the
+  `~/.gradle/.../gradle-9.3.1-bin.zip.lck` was not permitted; the
   exact escalated rerun of
   `./gradlew :feature:app-function:testDebugUnitTest --tests com.keelim.appfunction.json.JsonFormatterAppFunctionsTest`
   finished `BUILD SUCCESSFUL`.
@@ -724,13 +724,13 @@ project bug signal.
 ## 2026-07-13 Follow-Up Evidence
 
 - Product Design saved context remains absent:
-  `/Users/keelim/.codex/state/plugins/product-design/user-context.md` was not
+  `~/.codex/state/plugins/product-design/user-context.md` was not
   present in the plugin preflight output.
 - The local Product Design skill files exist under the installed plugin cache,
   but tool discovery did not expose a dedicated Product Design analysis MCP
   surface; this run used the local skill guidance plus repo/session evidence.
 - Conversation mining covered 69 JSONL session files under
-  `/Users/keelim/.codex/sessions/2026/07/12` and `2026/07/13`. A naive pass
+  `~/.codex/sessions/2026/07/12` and `2026/07/13`. A naive pass
   again over-counted repeated AGENTS/environment text, so the useful signal came
   from filtered user/assistant messages and existing repo-backed reports.
 - Current dirty child-repo state splits into clear non-commit buckets:
@@ -969,8 +969,8 @@ project bug signal.
   `$CODEX_HOME/state/plugins/product-design/user-context.md` returned
   `exists=false`.
 - Session mining since `2026-07-20T00:01:32Z` found 8 raw session files under
-  `/Users/keelim/.codex/sessions/2026/07/20` and
-  `/Users/keelim/.codex/sessions/2026/07/21`. Direct work signals were the
+  `~/.codex/sessions/2026/07/20` and
+  `~/.codex/sessions/2026/07/21`. Direct work signals were the
   `keelim-plugin` SkillOpt weekly review and Rich daily market snapshot
   producer runs; approval-review transcripts and the current project-management
   automation were supporting evidence only.

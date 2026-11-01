@@ -3,7 +3,7 @@
 Last updated: 2026-05-16 KST
 
 This folder tracks feature, product, and workflow ideas for the top-level
-projects inside `/Users/keelim/Desktop/keelim-maestro`.
+projects inside the `keelim-maestro` workspace.
 
 ## Update rules
 

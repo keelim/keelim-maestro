@@ -21,7 +21,7 @@ Last updated: 2026-04-16 09:56 KST
 
 ### Exploration note
 
-현재 라운드는 **원본 워크스페이스**(`/Users/keelim/Desktop/keelim-maestro`)를 read-only로 계속 훑으면서 `docs/idea/future.md`를 직접 보강하는 timed exploration이다. 1시간 조건은 `2026-04-16 09:19:45 KST` 시작 / `2026-04-16 10:19:45 KST` 종료 기준으로 강제하고, 그 전에는 완료로 간주하지 않는다.
+현재 라운드는 **원본 워크스페이스**(`keelim-maestro`)를 read-only로 계속 훑으면서 `docs/idea/future.md`를 직접 보강하는 timed exploration이다. 1시간 조건은 `2026-04-16 09:19:45 KST` 시작 / `2026-04-16 10:19:45 KST` 종료 기준으로 강제하고, 그 전에는 완료로 간주하지 않는다.
 
 ### 2026-04-16 - 계약 드리프트 관제 레이어
 
@@ -31,7 +31,7 @@ Why now: `all`, `all-web-ui`, `android-support`, `keelim-vercel` 전부에서 ex
 
 Likely homes: `all`, `all-web-ui`, `android-support`, `keelim-vercel`
 
-Refs: `/Users/keelim/Desktop/keelim-maestro/android-support/action.yml`, `/Users/keelim/Desktop/keelim-maestro/android-support/src/input-validation.ts`, `/Users/keelim/Desktop/keelim-maestro/keelim-vercel/scripts/verify-project-rules.ts`, `/Users/keelim/Desktop/keelim-maestro/keelim-vercel/AGENTS.md`
+Refs: `android-support/action.yml`, `android-support/src/input-validation.ts`, `keelim-vercel/scripts/verify-project-rules.ts`, `keelim-vercel/AGENTS.md`
 
 
 ### 2026-04-16 - Android 릴리스 계약 매니페스트 & 롤아웃 정책 레지스트리
@@ -42,7 +42,7 @@ Why now: `android-support`가 `track`, `status`, `userFraction`, `whatsNewDirect
 
 Likely homes: `all`, `android-support`
 
-Refs: `/Users/keelim/Desktop/keelim-maestro/android-support/action.yml`, `/Users/keelim/Desktop/keelim-maestro/android-support/src/main.ts`, `/Users/keelim/Desktop/keelim-maestro/android-support/src/input-validation.ts`, `/Users/keelim/Desktop/keelim-maestro/all/.github`, `/Users/keelim/Desktop/keelim-maestro/all/build-logic`
+Refs: `android-support/action.yml`, `android-support/src/main.ts`, `android-support/src/input-validation.ts`, `all/.github`, `all/build-logic`
 
 ### 2026-04-16 - 실행 증적·재생·복구를 하나로 묶는 운영 ledger
 
@@ -52,7 +52,7 @@ Why now: Play 업로드, cron/수동 실행, 데이터 수집, 리뷰 플로우�
 
 Likely homes: `android-support`, `rich`
 
-Refs: `/Users/keelim/Desktop/keelim-maestro/android-support/README.md`, `/Users/keelim/Desktop/keelim-maestro/android-support/src/edits.ts`, `/Users/keelim/Desktop/keelim-maestro/rich/README.md`, `/Users/keelim/Desktop/keelim-maestro/rich/app/api/admin.py`
+Refs: `android-support/README.md`, `android-support/src/edits.ts`, `rich/README.md`, `rich/app/api/admin.py`
 
 ### 2026-04-16 - 워크스페이스 지식 미러와 변화 다이제스트
 
@@ -62,7 +62,7 @@ Why now: Vault, AGENTS, CODEMAPS, idea 인덱스, automation memory가 모두 �
 
 Likely homes: `Keelim-Knowledge-Vault`, `rich`
 
-Refs: `/Users/keelim/Desktop/keelim-maestro/Keelim-Knowledge-Vault/AI/ai-harness/Building My AI Harness, Part 3 - Turning a Multi-Repo Workspace Into a Reproducible Superproject.md`, `/Users/keelim/Desktop/keelim-maestro/docs/CODEMAPS/WORKSPACE.md`, `/Users/keelim/Desktop/keelim-maestro/docs/CODEMAPS/SUBMODULES.md`
+Refs: `Keelim-Knowledge-Vault/AI/ai-harness/Building My AI Harness, Part 3 - Turning a Multi-Repo Workspace Into a Reproducible Superproject.md`, `docs/CODEMAPS/WORKSPACE.md`, `docs/CODEMAPS/SUBMODULES.md`
 
 ### 2026-04-16 - 공용 토큰·프리미티브 소비 영향 가시화
 
@@ -72,7 +72,7 @@ Why now: `all-web-ui`의 토큰/프리미티브 변화가 `keelim-vercel`과 다
 
 Likely homes: `all-web-ui`, `keelim-vercel`
 
-Refs: `/Users/keelim/Desktop/keelim-maestro/keelim-vercel/components/shared/all-web-ui-adapters.tsx`, `/Users/keelim/Desktop/keelim-maestro/keelim-vercel/AGENTS.md`, `/Users/keelim/Desktop/keelim-maestro/all-web-ui/src`
+Refs: `keelim-vercel/components/shared/all-web-ui-adapters.tsx`, `keelim-vercel/AGENTS.md`, `all-web-ui/src`
 
 ### 2026-04-16 - 앱/도구 전반의 다음 행동 추천 루프
 
@@ -82,7 +82,7 @@ Why now: `keelim-vercel`과 `rich` 모두 계산기·리뷰·운영 표면이 �
 
 Likely homes: `keelim-vercel`, `rich`
 
-Refs: `/Users/keelim/Desktop/keelim-maestro/keelim-vercel/lib/ranking-actions.ts`, `/Users/keelim/Desktop/keelim-maestro/keelim-vercel/lib/bookmark-storage.ts`, `/Users/keelim/Desktop/keelim-maestro/rich/app/api/admin.py`, `/Users/keelim/Desktop/keelim-maestro/rich/README.md`
+Refs: `keelim-vercel/lib/ranking-actions.ts`, `keelim-vercel/lib/bookmark-storage.ts`, `rich/app/api/admin.py`, `rich/README.md`
 
 ### 2026-04-16 - 재사용 가능한 프로필·시나리오 작업공간
 
@@ -92,7 +92,7 @@ Why now: 금융 계산, 체크인, 운영 리뷰 표면이 같은 전제값을 �
 
 Likely homes: `keelim-vercel`, `rich`
 
-Refs: `/Users/keelim/Desktop/keelim-maestro/keelim-vercel/lib/tax-benefit-storage.ts`, `/Users/keelim/Desktop/keelim-maestro/keelim-vercel/lib/social-freshman-guide-storage.ts`, `/Users/keelim/Desktop/keelim-maestro/keelim-vercel/lib/gift-tax-storage.ts`, `/Users/keelim/Desktop/keelim-maestro/keelim-vercel/NEW_FEATURES_PLAN.md`
+Refs: `keelim-vercel/lib/tax-benefit-storage.ts`, `keelim-vercel/lib/social-freshman-guide-storage.ts`, `keelim-vercel/lib/gift-tax-storage.ts`, `keelim-vercel/NEW_FEATURES_PLAN.md`
 
 
 ### 2026-04-16 - 네비게이션·라우트 인벤토리 동기화 가드
@@ -103,7 +103,7 @@ Why now: `rich`는 `admin-route-inventory.ts`로 admin/public/legacy 경로를 �
 
 Likely homes: `rich`, `keelim-vercel`
 
-Refs: `/Users/keelim/Desktop/keelim-maestro/rich/web/src/features/admin/admin-route-inventory.ts`, `/Users/keelim/Desktop/keelim-maestro/keelim-vercel/lib/menu-config.ts`, `/Users/keelim/Desktop/keelim-maestro/keelim-vercel/lib/changelog-data.ts`, `/Users/keelim/Desktop/keelim-maestro/keelim-vercel/scripts/verify-project-rules.ts`
+Refs: `rich/web/src/features/admin/admin-route-inventory.ts`, `keelim-vercel/lib/menu-config.ts`, `keelim-vercel/lib/changelog-data.ts`, `keelim-vercel/scripts/verify-project-rules.ts`
 
 
 
@@ -115,7 +115,7 @@ Why now: `rich`의 `FlowPanel`은 run result, streak snapshot, loading 상태를
 
 Likely homes: `rich`, `keelim-vercel`, `all-web-ui`
 
-Refs: `/Users/keelim/Desktop/keelim-maestro/rich/web/src/features/admin/components/flow-panel.tsx`, `/Users/keelim/Desktop/keelim-maestro/rich/web/src/features/admin/components/google-agenda-auth-panel.tsx`, `/Users/keelim/Desktop/keelim-maestro/keelim-vercel/components/deployment-notification.tsx`, `/Users/keelim/Desktop/keelim-maestro/all-web-ui/src/components/loading-status.tsx`
+Refs: `rich/web/src/features/admin/components/flow-panel.tsx`, `rich/web/src/features/admin/components/google-agenda-auth-panel.tsx`, `keelim-vercel/components/deployment-notification.tsx`, `all-web-ui/src/components/loading-status.tsx`
 
 ### 2026-04-16 - 운영 변화 공지와 quick-open 탐색을 연결하는 discoverability loop
 
@@ -125,7 +125,7 @@ Why now: `keelim-vercel`은 `DeploymentNotification`이 `CHANGELOG_DATA`를 읽�
 
 Likely homes: `keelim-vercel`, `rich`
 
-Refs: `/Users/keelim/Desktop/keelim-maestro/keelim-vercel/components/deployment-notification.tsx`, `/Users/keelim/Desktop/keelim-maestro/keelim-vercel/lib/changelog-data.ts`, `/Users/keelim/Desktop/keelim-maestro/rich/web/src/features/admin/components/admin-quick-sitemap.tsx`, `/Users/keelim/Desktop/keelim-maestro/rich/web/src/features/admin/admin-route-inventory.ts`, `/Users/keelim/Desktop/keelim-maestro/rich/web/src/app/admin/layout.tsx`
+Refs: `keelim-vercel/components/deployment-notification.tsx`, `keelim-vercel/lib/changelog-data.ts`, `rich/web/src/features/admin/components/admin-quick-sitemap.tsx`, `rich/web/src/features/admin/admin-route-inventory.ts`, `rich/web/src/app/admin/layout.tsx`
 
 ### 2026-04-16 - 통합 신선도·헬스·이상징후 watchdog
 
@@ -135,7 +135,7 @@ Why now: 데이터 신선도, 외부 연동 상태, 업스트림 auth drift, 갑
 
 Likely homes: `rich`, `keelim-vercel`
 
-Refs: `/Users/keelim/Desktop/keelim-maestro/rich/app/main.py`, `/Users/keelim/Desktop/keelim-maestro/rich/app/core/settings.py`, `/Users/keelim/Desktop/keelim-maestro/rich/README.md`, `/Users/keelim/Desktop/keelim-maestro/keelim-vercel/lib/queries/market.ts`
+Refs: `rich/app/main.py`, `rich/app/core/settings.py`, `rich/README.md`, `keelim-vercel/lib/queries/market.ts`
 
 
 ### 2026-04-16 - 개인 운영 상태 버전 레지스트리와 triage funnel
@@ -146,7 +146,7 @@ Why now: `rich`는 personal inbox → loop → weekly review로 이어지는 운
 
 Likely homes: `rich`, `keelim-vercel`
 
-Refs: `/Users/keelim/Desktop/keelim-maestro/rich/web/src/features/inbox/inbox-hooks.ts`, `/Users/keelim/Desktop/keelim-maestro/rich/web/src/features/loop/loop-hooks.ts`, `/Users/keelim/Desktop/keelim-maestro/rich/web/src/features/weekly-review/weekly-review-page-content.tsx`, `/Users/keelim/Desktop/keelim-maestro/keelim-vercel/lib/storage-version-registry.ts`, `/Users/keelim/Desktop/keelim-maestro/keelim-vercel/lib/bookmark-storage.ts`, `/Users/keelim/Desktop/keelim-maestro/keelim-vercel/lib/ranking-actions.ts`
+Refs: `rich/web/src/features/inbox/inbox-hooks.ts`, `rich/web/src/features/loop/loop-hooks.ts`, `rich/web/src/features/weekly-review/weekly-review-page-content.tsx`, `keelim-vercel/lib/storage-version-registry.ts`, `keelim-vercel/lib/bookmark-storage.ts`, `keelim-vercel/lib/ranking-actions.ts`
 
 
 
@@ -159,7 +159,7 @@ Why now: `rich`의 profit note는 이미지 첨부와 review flag를 함께 다�
 
 Likely homes: `rich`, `keelim-vercel`
 
-Refs: `/Users/keelim/Desktop/keelim-maestro/rich/web/src/features/admin/profit-note-panel.tsx`, `/Users/keelim/Desktop/keelim-maestro/rich/web/src/features/admin/profit-note-attachment-hooks.ts`, `/Users/keelim/Desktop/keelim-maestro/rich/web/src/features/admin/profit-note-types.ts`, `/Users/keelim/Desktop/keelim-maestro/keelim-vercel/components/smart-bookmark-manager.tsx`, `/Users/keelim/Desktop/keelim-maestro/keelim-vercel/lib/bookmark-storage.ts`, `/Users/keelim/Desktop/keelim-maestro/keelim-vercel/lib/insight-clipper-storage.ts`
+Refs: `rich/web/src/features/admin/profit-note-panel.tsx`, `rich/web/src/features/admin/profit-note-attachment-hooks.ts`, `rich/web/src/features/admin/profit-note-types.ts`, `keelim-vercel/components/smart-bookmark-manager.tsx`, `keelim-vercel/lib/bookmark-storage.ts`, `keelim-vercel/lib/insight-clipper-storage.ts`
 
 ### 2026-04-16 - 개인 캡처 표면을 재사용 가능한 operator collection kit로 묶기
 
@@ -169,7 +169,7 @@ Why now: `rich`는 profit note, bucket list, todo, loop 같은 개인 운영 입
 
 Likely homes: `rich`, `keelim-vercel`, `all-web-ui`
 
-Refs: `/Users/keelim/Desktop/keelim-maestro/rich/web/src/features/admin/components/profit-note-panel.tsx`, `/Users/keelim/Desktop/keelim-maestro/rich/web/src/features/admin/components/bucket-list-panel.tsx`, `/Users/keelim/Desktop/keelim-maestro/rich/web/src/features/admin/components/todo-panel.tsx`, `/Users/keelim/Desktop/keelim-maestro/keelim-vercel/components/smart-bookmark-manager.tsx`, `/Users/keelim/Desktop/keelim-maestro/all-web-ui/src/components/loading-status.tsx`, `/Users/keelim/Desktop/keelim-maestro/all-web-ui/src/components/input.tsx`
+Refs: `rich/web/src/features/admin/components/profit-note-panel.tsx`, `rich/web/src/features/admin/components/bucket-list-panel.tsx`, `rich/web/src/features/admin/components/todo-panel.tsx`, `keelim-vercel/components/smart-bookmark-manager.tsx`, `all-web-ui/src/components/loading-status.tsx`, `all-web-ui/src/components/input.tsx`
 
 ### 2026-04-16 - 운영 UI 프리미티브 계약면과 admin surface kit
 
@@ -179,7 +179,7 @@ Why now: `all-web-ui`는 `Panel`, `EmptyState`, `LoadingStatus` 같은 얇은 �
 
 Likely homes: `all-web-ui`, `rich`
 
-Refs: `/Users/keelim/Desktop/keelim-maestro/all-web-ui/src/index.ts`, `/Users/keelim/Desktop/keelim-maestro/all-web-ui/src/components/panel.tsx`, `/Users/keelim/Desktop/keelim-maestro/all-web-ui/src/components/empty-state.tsx`, `/Users/keelim/Desktop/keelim-maestro/rich/web/src/features/admin/components/todo-panel.tsx`, `/Users/keelim/Desktop/keelim-maestro/rich/web/src/features/admin/components/admin-quick-sitemap.tsx`, `/Users/keelim/Desktop/keelim-maestro/rich/web/src/features/admin/components/admin-shell.test.tsx`
+Refs: `all-web-ui/src/index.ts`, `all-web-ui/src/components/panel.tsx`, `all-web-ui/src/components/empty-state.tsx`, `rich/web/src/features/admin/components/todo-panel.tsx`, `rich/web/src/features/admin/components/admin-quick-sitemap.tsx`, `rich/web/src/features/admin/components/admin-shell.test.tsx`
 
 ### 2026-04-16 - 워크플로우를 skill·문서·설치 경로로 동시 출판하는 publishing loop
 
@@ -189,7 +189,7 @@ Why now: Vault의 AI harness 시리즈가 반복 워크플로우를 skill과 sup
 
 Likely homes: `Keelim-Knowledge-Vault`, `keelim-plugin`
 
-Refs: `/Users/keelim/Desktop/keelim-maestro/Keelim-Knowledge-Vault/AI/ai-harness/Building My AI Harness, Part 1 - Turning a Repetitive Release Process Into a Skill.md`, `/Users/keelim/Desktop/keelim-maestro/Keelim-Knowledge-Vault/AI/ai-harness/Building My AI Harness, Part 2 - Turning Planning and Parallel Execution Into a Reusable Workflow.md`, `/Users/keelim/Desktop/keelim-maestro/keelim-plugin/README.md`, `/Users/keelim/Desktop/keelim-maestro/keelim-plugin/skills/release-automation/SKILL.md`, `/Users/keelim/Desktop/keelim-maestro/keelim-plugin/skills/ralplan-team/agents/openai.yaml`
+Refs: `Keelim-Knowledge-Vault/AI/ai-harness/Building My AI Harness, Part 1 - Turning a Repetitive Release Process Into a Skill.md`, `Keelim-Knowledge-Vault/AI/ai-harness/Building My AI Harness, Part 2 - Turning Planning and Parallel Execution Into a Reusable Workflow.md`, `keelim-plugin/README.md`, `keelim-plugin/skills/release-automation/SKILL.md`, `keelim-plugin/skills/ralplan-team/agents/openai.yaml`
 
 ### 2026-04-16 - 공유 스킬 생태계 catalog + 회귀 검증면
 
@@ -199,7 +199,7 @@ Why now: `keelim-plugin`의 가치는 스킬 수 자체보다 설치 가능성, 
 
 Likely homes: `keelim-plugin`, `Keelim-Knowledge-Vault`
 
-Refs: `/Users/keelim/Desktop/keelim-maestro/keelim-plugin/README.md`, `/Users/keelim/Desktop/keelim-maestro/keelim-plugin/skills/ralplan-team/SKILL.md`, `/Users/keelim/Desktop/keelim-maestro/keelim-plugin/skills/release-automation/SKILL.md`
+Refs: `keelim-plugin/README.md`, `keelim-plugin/skills/ralplan-team/SKILL.md`, `keelim-plugin/skills/release-automation/SKILL.md`
 
 ### 2026-04-16 - 릴리스 준비도와 빌드 병목을 함께 보는 control tower
 
@@ -209,7 +209,7 @@ Why now: 다중 앱/모듈 빌드 병목과 실제 릴리스 위험은 따로 �
 
 Likely homes: `all`, `android-support`
 
-Refs: `/Users/keelim/Desktop/keelim-maestro/all/build-logic`, `/Users/keelim/Desktop/keelim-maestro/all/benchmarks`, `/Users/keelim/Desktop/keelim-maestro/android-support/src/main.ts`, `/Users/keelim/Desktop/keelim-maestro/android-support/README.md`
+Refs: `all/build-logic`, `all/benchmarks`, `android-support/src/main.ts`, `android-support/README.md`
 
 ### 2026-04-16 - review cadence를 Slack·agenda·changelog로 묶는 operator rhythm registry
 
@@ -219,7 +219,7 @@ Why now: `rich`는 agenda 요약·today warning·weekly review·Slack review rem
 
 Likely homes: `rich`, `keelim-vercel`, `keelim-plugin`
 
-Refs: `/Users/keelim/Desktop/keelim-maestro/rich/supabase/functions/slack-review-reminder/index.ts`, `/Users/keelim/Desktop/keelim-maestro/rich/web/src/features/agenda/components/agenda-client.tsx`, `/Users/keelim/Desktop/keelim-maestro/rich/web/src/features/today/components/today-loop-warnings-panel.tsx`, `/Users/keelim/Desktop/keelim-maestro/rich/web/src/features/weekly-review/weekly-review-page-content.tsx`, `/Users/keelim/Desktop/keelim-maestro/keelim-vercel/components/deployment-notification.tsx`, `/Users/keelim/Desktop/keelim-maestro/keelim-vercel/lib/changelog-data.ts`, `/Users/keelim/Desktop/keelim-maestro/keelim-plugin/skills/release-automation/SKILL.md`
+Refs: `rich/supabase/functions/slack-review-reminder/index.ts`, `rich/web/src/features/agenda/components/agenda-client.tsx`, `rich/web/src/features/today/components/today-loop-warnings-panel.tsx`, `rich/web/src/features/weekly-review/weekly-review-page-content.tsx`, `keelim-vercel/components/deployment-notification.tsx`, `keelim-vercel/lib/changelog-data.ts`, `keelim-plugin/skills/release-automation/SKILL.md`
 
 ### 2026-04-16 - dry-run·cache·force를 함께 다루는 execution mode contract registry
 
@@ -229,7 +229,7 @@ Why now: `keelim-plugin`의 release automation은 dry-run / confirm / execute �
 
 Likely homes: `keelim-plugin`, `rich`, `android-support`
 
-Refs: `/Users/keelim/Desktop/keelim-maestro/keelim-plugin/skills/release-automation/SKILL.md`, `/Users/keelim/Desktop/keelim-maestro/rich/AGENTS.md`, `/Users/keelim/Desktop/keelim-maestro/rich/app/api/admin.py`, `/Users/keelim/Desktop/keelim-maestro/android-support/src/main.ts`, `/Users/keelim/Desktop/keelim-maestro/android-support/src/edits.ts`
+Refs: `keelim-plugin/skills/release-automation/SKILL.md`, `rich/AGENTS.md`, `rich/app/api/admin.py`, `android-support/src/main.ts`, `android-support/src/edits.ts`
 
 ### 2026-04-16 - workspace trusted-baseline scoreboard와 safe-set pinning gate
 
@@ -239,7 +239,7 @@ Why now: 루트 AGENTS와 CODEMAPS는 이미 어떤 child repo가 등록 submodu
 
 Likely homes: `docs/CODEMAPS`, `Keelim-Knowledge-Vault`, root workspace helpers
 
-Refs: `/Users/keelim/Desktop/keelim-maestro/AGENTS.md`, `/Users/keelim/Desktop/keelim-maestro/docs/CODEMAPS/WORKSPACE.md`, `/Users/keelim/Desktop/keelim-maestro/docs/CODEMAPS/SCRIPTS.md`, `/Users/keelim/Desktop/keelim-maestro/docs/CODEMAPS/README.md`, `/Users/keelim/Desktop/keelim-maestro/Keelim-Knowledge-Vault/AI/ai-harness/Building My AI Harness, Part 3 - Turning a Multi-Repo Workspace Into a Reproducible Superproject.md`
+Refs: `AGENTS.md`, `docs/CODEMAPS/WORKSPACE.md`, `docs/CODEMAPS/SCRIPTS.md`, `docs/CODEMAPS/README.md`, `Keelim-Knowledge-Vault/AI/ai-harness/Building My AI Harness, Part 3 - Turning a Multi-Repo Workspace Into a Reproducible Superproject.md`
 
 ### 2026-04-16 - human summary와 machine artifact를 함께 남기는 proof bundle contract
 
@@ -249,7 +249,7 @@ Why now: `all`은 coverage manifest와 trusted participant summary를 JSON 파�
 
 Likely homes: `all`, `rich`, `android-support`
 
-Refs: `/Users/keelim/Desktop/keelim-maestro/all/build.gradle.kts`, `/Users/keelim/Desktop/keelim-maestro/rich/scripts/export_data_go_kr_api_catalog.py`, `/Users/keelim/Desktop/keelim-maestro/rich/app/services/weekly_review.py`, `/Users/keelim/Desktop/keelim-maestro/android-support/src/edits.ts`, `/Users/keelim/Desktop/keelim-maestro/android-support/src/main.ts`
+Refs: `all/build.gradle.kts`, `rich/scripts/export_data_go_kr_api_catalog.py`, `rich/app/services/weekly_review.py`, `android-support/src/edits.ts`, `android-support/src/main.ts`
 
 ### 2026-04-16 - public capture bridge에서 authenticated admin triage로 이어지는 handoff rail
 
@@ -259,7 +259,7 @@ Why now: `rich`는 `/capture/inbox`를 브라우저 확장과 외부 진입용 �
 
 Likely homes: `rich`, `all-web-ui`
 
-Refs: `/Users/keelim/Desktop/keelim-maestro/rich/AGENTS.md`, `/Users/keelim/Desktop/keelim-maestro/rich/web/extension/src/popup-utils.ts`, `/Users/keelim/Desktop/keelim-maestro/rich/web/src/features/inbox/components/inbox-capture-page-content.tsx`, `/Users/keelim/Desktop/keelim-maestro/rich/web/src/features/today/components/today-loop-warnings-panel.tsx`, `/Users/keelim/Desktop/keelim-maestro/rich/web/src/features/admin/components/google-agenda-auth-panel.tsx`, `/Users/keelim/Desktop/keelim-maestro/all-web-ui/src/components/input.tsx`, `/Users/keelim/Desktop/keelim-maestro/all-web-ui/src/components/button.tsx`
+Refs: `rich/AGENTS.md`, `rich/web/extension/src/popup-utils.ts`, `rich/web/src/features/inbox/components/inbox-capture-page-content.tsx`, `rich/web/src/features/today/components/today-loop-warnings-panel.tsx`, `rich/web/src/features/admin/components/google-agenda-auth-panel.tsx`, `all-web-ui/src/components/input.tsx`, `all-web-ui/src/components/button.tsx`
 
 ### 2026-04-16 - workspace backlink + stale-note resurfacer hub
 
@@ -269,4 +269,4 @@ Why now: `Keelim-Knowledge-Vault`는 이미 프로젝트 인덱스와 고가치 
 
 Likely homes: `Keelim-Knowledge-Vault`, `docs/CODEMAPS`, `docs/idea`
 
-Refs: `/Users/keelim/Desktop/keelim-maestro/Keelim-Knowledge-Vault/Index.md`, `/Users/keelim/Desktop/keelim-maestro/docs/CODEMAPS/README.md`, `/Users/keelim/Desktop/keelim-maestro/docs/CODEMAPS/WORKSPACE.md`, `/Users/keelim/Desktop/keelim-maestro/docs/idea/index.md`, `/Users/keelim/Desktop/keelim-maestro/docs/idea/Keelim-Knowledge-Vault.md`
+Refs: `Keelim-Knowledge-Vault/Index.md`, `docs/CODEMAPS/README.md`, `docs/CODEMAPS/WORKSPACE.md`, `docs/idea/index.md`, `docs/idea/Keelim-Knowledge-Vault.md`
