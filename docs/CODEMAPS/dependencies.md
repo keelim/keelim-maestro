@@ -1,6 +1,6 @@
 # Dependencies Codemap
 
-<!-- Generated: 2026-11-03 -->
+<!-- Generated: 2026-11-04 -->
 ## Bun Workspace Catalog
 
 Pinned in root `package.json` `catalog:` field. Used by `rich/web` for `catalog:` dependency references.
