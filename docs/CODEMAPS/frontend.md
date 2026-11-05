@@ -1,6 +1,6 @@
 # Frontend Codemap
 
-<!-- Generated: 2026-11-04 -->
+<!-- Generated: 2026-11-05 -->
 ## Frontend Workspace Members
 
 All frontend packages are part of the root Bun workspace.
