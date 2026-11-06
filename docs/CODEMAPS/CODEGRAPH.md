@@ -1,6 +1,6 @@
 # CodeGraph Setup and Dispatch Contract
 
-<!-- Generated: 2026-10-31 -->
+<!-- Generated: 2026-11-06 -->
 ## Overview
 
 Each child repository may have its own `.codegraph/` index. The root exposes a
@@ -16,8 +16,9 @@ cd keelim-plugin && codegraph context . "skill inventory"
 cd all && codegraph query . "MainActivity"
 ```
 
-Note: `scripts/codegraph.sh` is not present in this checkout; CodeGraph commands must be
-run directly within each initialized child repo.
+Note: Run `bun run cg -- <subcommand>` from the repo root; `scripts/codegraph.sh` dispatches
+to the target child repo. CodeGraph commands can also be run directly within each initialized
+child repo.
 
 ## When to Use Root vs Child Graph
 

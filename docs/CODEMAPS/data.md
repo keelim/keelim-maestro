@@ -1,6 +1,6 @@
 # Data Codemap
 
-<!-- Generated: 2026-10-31 -->
+<!-- Generated: 2026-11-06 -->
 ## Knowledge and Storage Patterns
 
 This workspace coordinates multiple data stores across child repositories.
