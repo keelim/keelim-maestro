@@ -1,6 +1,8 @@
 # toto
 
-Last reviewed: 2026-05-16 KST
+Last reviewed: 2026-11-07 KST
+
+> Archived: 2026-06-04 루트 정책(`CLAUDE.md`)으로 아카이브됨. 아래 항목은 역사적 참고용이며 활성 백로그에서 제외한다.
 
 ## Signals
 
