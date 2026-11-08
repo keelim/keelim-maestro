@@ -43,6 +43,7 @@ This repository coordinates child ownership, shared development setup, and verif
 3. Stay within the request for publication, deployment, credential changes, and destructive actions. Never put secrets in source or reports.
 4. Check optional repository existence. Reactivating archived `toto` or changing `quant` remotes/registration requires a separate request.
 5. Separate implementation, static checks, runtime checks, and external-service verification. Root checks and connection indicators do not certify child products.
+6. `rich` is local-only under `scripts/repository-policy.sh`: no remote or upstream is normal. Preserve its Bun/Python membership, local work, and runtimes; exclude it from GitHub PR collection/creation and fetch/pull/push automation, including explicit GitHub URLs. Reconnecting it requires a separate request.
 
 ## Before work
 

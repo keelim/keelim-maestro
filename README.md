@@ -335,7 +335,7 @@ git submodule update --init --recursive
 
 # hydrate autonomous repos expected by the Bun workspace
 git clone https://github.com/keelim/all-web-ui.git all-web-ui
-git clone https://github.com/keelim/rich.git rich
+# restore rich from an operator-provided local checkout or verified backup
 # hydrate the private youtube checkout through the operator-approved path
 git clone <private-youtube-remote-or-local-path> youtube
 
@@ -507,6 +507,8 @@ Behavior:
 
 - reads tracked submodule paths from `.gitmodules`
 - includes autonomous local repos `all-web-ui`, `rich`, `quant`, and `youtube` when present in status output
+- marks `rich` local-only via `scripts/repository-policy.sh`; no remote/upstream is normal, and update/dry-run always skip it
+- excludes `rich` from GitHub PR collection/creation and explicit URL-based remote synchronization; its local Bun/Python workspaces and execution/build/test commands remain active
 - updates only clean repos on `main` / `master` / `develop`
 - supports dry-run preview before any fetch / pull
 - skips repos with local commits ahead of upstream

@@ -157,6 +157,11 @@ not separate projects. Use `bun run verify:maintenance`; add
 
 ### `rich`: six active execution units
 
+`rich` is an autonomous local-only Git repository. No remote/upstream is normal;
+`scripts/repository-policy.sh` excludes it from remote synchronization and GitHub
+PR collection/creation, even when a URL is supplied. Its path, Bun/Python workspace
+membership, local task management, and execution/check commands remain active.
+
 | Unit | Boundary | Read or verify |
 | --- | --- | --- |
 | Rich Python backend | `rich/pyproject.toml`, FastAPI entry at `app/main.py` | `rich/AGENTS.md`; `bun run python:check` |

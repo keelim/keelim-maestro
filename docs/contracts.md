@@ -38,6 +38,13 @@ Unknown fields, escaping paths, dirty repositories, HEAD mismatch, and nonexiste
 
 `./scripts/update-subrepos.sh update` fetches eligible clean repositories and uses `pull --ff-only`. Dirty repositories, unsupported branches, or repositories with local commits may be skipped. Consumers must handle both skip output and Git failures.
 
+`scripts/repository-policy.sh` marks `rich` local-only. Status still lists it;
+baseline reports `registration=local-only` and `eligibility=local-only` without
+missing-remote/upstream blockers. Update and dry-run always skip it, even if a
+remote is later configured. GitHub PR collection/creation and explicit URL-based
+fetch/pull/push must also exclude it. Local runtime/workspace membership is
+independent of this policy.
+
 `bun run automation:local -- <action> [target]` supports inspection through `list`/`status` and validation through `verify`. Targets are `all`, `rich`, `n8n`, and `agentgateway`. `start`/`stop` require one of Rich/n8n/agentgateway. `standby` accepts those runtimes or `all`, preserving agentgateway. Results are target output and failure status; missing owner commands, cluster, or access leave the affected check failed or unverified.
 
 `sh scripts/codex-app-server.sh [server-options]` replaces the helper with a long-running server. A missing Codex executable exits 127; an external `ws://` address without the required authentication option exits 2. Subsequent option and runtime errors belong to Codex.

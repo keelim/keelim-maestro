@@ -12,12 +12,18 @@ mise install
 mise current
 ```
 
-Prepare autonomous `all-web-ui`, `rich`, and `youtube` checkouts before package installation. Do not clone over an existing path. For a new workspace missing the public repositories:
+Prepare autonomous `all-web-ui`, `rich`, and `youtube` checkouts before package installation. Do not clone over an existing path. For a new workspace missing the shared UI repository:
 
 ```sh
 git clone https://github.com/keelim/all-web-ui.git all-web-ui
-git clone https://github.com/keelim/rich.git rich
 ```
+
+Restore `rich` from an operator-provided local checkout or verified backup. It is
+local-only under `scripts/repository-policy.sh`; do not bootstrap it from GitHub
+or add a remote/upstream. Its existing Bun/Python workspace paths and local
+execution, build, test, and task-management commands remain active. Exclude it
+from GitHub PR collection/creation and remote synchronization, including explicit
+URL commands. A separate request is required to reconnect it.
 
 Obtain `youtube` from the operator's private remote or local source; do not guess a URL when no origin is configured. Missing selected renderer, service, video, or Python member paths can prevent workspace resolution.
 
