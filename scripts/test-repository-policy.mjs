@@ -20,7 +20,7 @@ try {
     copyFileSync(join(source, name), join(fixture, 'scripts', name));
   }
   writeFileSync(join(fixture, '.gitmodules'), '');
-  writeFileSync(join(fixture, 'package.json'), '{"workspaces":[\n"rich/web",\n"all-web-ui"\n]}\n');
+  writeFileSync(join(fixture, 'package.json'), '{"workspaces":[\n"all-web-ui"\n]}\n');
   writeFileSync(join(fixture, 'pyproject.toml'), '[tool.uv.workspace]\nmembers = [\n"rich",\n]\n');
   for (const repo of ['rich', 'all-web-ui']) {
     mkdirSync(join(fixture, repo));
@@ -33,7 +33,7 @@ try {
   const row = richRow();
   assert.match(row, /local-only/);
   assert.match(row, /dirty/);
-  assert.match(row, /rich\/web/);
+  assert.match(row, /\| no \| rich \|/);
   assert.match(row, /\| local-only \| none \|$/);
   assert.doesNotMatch(row, /no-origin-remote|no-upstream|dirty-working-tree/);
   assert.match(sh('update-subrepos.sh', 'status'), /^rich\s+.*remote=none policy=local-only$/m);

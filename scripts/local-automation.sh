@@ -169,7 +169,6 @@ status_rich() {
   section "rich status"
   run_kubectl -n rich-local get deploy,svc,pod
   run_lsof_port 8000
-  run_lsof_port 3001
 }
 
 status_n8n() {
@@ -190,7 +189,6 @@ verify_rich() {
   section "rich verify"
   run_kubectl -n rich-local get deploy,svc,pod
   run_cmd "curl -fsS http://127.0.0.1:8000/healthz" curl -fsS http://127.0.0.1:8000/healthz
-  info "Admin UI: http://127.0.0.1:3001/admin"
 }
 
 verify_n8n() {
@@ -257,7 +255,6 @@ standby_rich() {
   section "rich standby"
   stop_rich_skaffold_loops
   scale_deployment_to_zero rich-local rich-backend
-  scale_deployment_to_zero rich-local rich-frontend
 }
 
 standby_n8n() {

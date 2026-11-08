@@ -9,7 +9,6 @@ GITHUB_PACKAGES_REGISTRY="@keelim:registry=https://npm.pkg.github.com"
 
 ALL_WEB_UI_DIR="$ROOT/all-web-ui"
 KEELIM_VERCEL_DIR="$ROOT/keelim-vercel"
-RICH_WEB_DIR="$ROOT/rich/web"
 ALL_WEB_UI_VERSION="$(
   jq -r '.version // empty' "$ALL_WEB_UI_DIR/package.json" 2>/dev/null || true
 )"
@@ -309,7 +308,6 @@ print_consumers_table() {
   printf '| consumer | dependency | contract evidence |\n'
   printf '| --- | --- | --- |\n'
   print_consumer_row "keelim-vercel" "$KEELIM_VERCEL_DIR" "styles.css" "themes/finance.css"
-  print_consumer_row "rich/web" "$RICH_WEB_DIR" "styles.css" "themes/admin-bw.css"
   printf '\n'
 }
 
@@ -328,7 +326,6 @@ print_canary_table() {
   print_row "root static contract" "$VERIFIER_STATUS" "\`sh scripts/verify-all-web-ui-integration.sh\`"
   print_row "root full contract" "MANUAL" "\`sh scripts/verify-all-web-ui-integration.sh --full\`"
   print_row "all-web-ui package" "$(script_bundle_status "$ALL_WEB_UI_DIR/package.json" typecheck test build)" "\`cd all-web-ui && bun run typecheck && bun test && bun run build\`"
-  print_row "rich/web consumer" "$(script_bundle_status "$RICH_WEB_DIR/package.json" typecheck test build)" "\`cd rich/web && bun run typecheck && bun run test\`; env-bound build is covered by \`sh scripts/verify-all-web-ui-integration.sh --full\`"
   print_row "keelim-vercel consumer" "$(script_bundle_status "$KEELIM_VERCEL_DIR/package.json" typecheck lint verify:maintenance build)" "\`cd keelim-vercel && bun run typecheck && bun run lint && bun run verify:maintenance && bun run build\`"
   printf '\n'
 }
@@ -339,7 +336,6 @@ print_visual_table() {
   printf '| --- | --- | --- |\n'
   print_row "all-web-ui" "$(visual_readiness_status "$ALL_WEB_UI_DIR")" "Provider has design/token assets; automated visual regression is a follow-up unless READY"
   print_row "keelim-vercel" "$(visual_readiness_status "$KEELIM_VERCEL_DIR")" "Finance theme consumer"
-  print_row "rich/web" "$(visual_readiness_status "$RICH_WEB_DIR")" "Admin-bw theme consumer"
   printf '\n'
 }
 

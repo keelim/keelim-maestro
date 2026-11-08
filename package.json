@@ -5,7 +5,6 @@
   "workspaces": [
     "all-web-ui",
     "keelim-vercel",
-    "rich/web",
     "youtube/remotion",
     "youtube/services/*",
     "youtube/videos/*"
@@ -59,11 +58,10 @@
     "cg:root-check": "sh scripts/codegraph.sh root-check",
     "report:baseline": "sh scripts/report-trusted-baseline.sh",
     "report:shared-ui": "sh scripts/report-shared-ui-contract.sh",
-    "typecheck:web": "bun run --filter @keelim/all-web-ui typecheck && bun run --filter keelim-vercel typecheck && bun run --filter rich-admin-web typecheck",
-    "build:web": "bun run --filter keelim-vercel build && bun run --filter rich-admin-web build",
-    "test:web": "bun run --filter rich-admin-web test -- --no-file-parallelism --maxWorkers=1",
+    "typecheck:web": "bun run --filter @keelim/all-web-ui typecheck && bun run --filter keelim-vercel typecheck",
+    "build:web": "bun run --filter keelim-vercel build",
+    "test:web": "bun run --filter @keelim/all-web-ui test",
     "dev:keelim-vercel": "bun run --filter keelim-vercel dev",
-    "dev:rich-web": "bun run --filter rich-admin-web dev",
     "dev:codex-app-server": "sh scripts/codex-app-server.sh",
     "automation:local": "sh scripts/local-automation.sh",
     "lint:python": "uv run ruff check rich youtube",

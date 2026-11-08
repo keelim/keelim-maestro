@@ -141,7 +141,6 @@ check_autonomous_repo_contract() {
   run_check "root ignores archived toto" file_contains .gitignore "/toto/"
   run_check "root workspaces exclude quant" workspace_excludes "quant"
   run_check "root workspaces exclude rich" workspace_excludes "rich"
-  run_check "root workspaces retain rich web" workspace_includes "rich/web"
   run_check "root workspaces exclude top-level youtube" workspace_excludes "youtube"
   run_check "root workspaces include youtube remotion" workspace_includes "youtube/remotion"
   run_check "root workspaces include youtube services" workspace_includes "youtube/services/*"

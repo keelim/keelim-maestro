@@ -13,7 +13,7 @@ Default mode:
 
 --full:
   - static contract checks
-  - runtime verification commands for all-web-ui, rich/web, keelim-vercel
+  - runtime verification commands for all-web-ui, keelim-vercel
   - GitHub Packages registry publish check for @keelim/all-web-ui
 EOF
 }
@@ -54,7 +54,6 @@ resolve_workspace_root() {
 
 WORKSPACE_ROOT="$(resolve_workspace_root)"
 ALL_WEB_UI_DIR="$WORKSPACE_ROOT/all-web-ui"
-RICH_WEB_DIR="$WORKSPACE_ROOT/rich/web"
 KEELIM_VERCEL_DIR="$WORKSPACE_ROOT/keelim-vercel"
 ALL_WEB_UI_PACKAGE="@keelim/all-web-ui"
 ALL_WEB_UI_VERSION="$(
@@ -158,24 +157,17 @@ consumer_lock_section_lacks_dependency() {
 all_web_ui_dependency_protocol_is_lockfile_coherent() {
   [ -f "$WORKSPACE_ROOT/package.json" ] || return 1
   [ -f "$WORKSPACE_ROOT/bun.lock" ] || return 1
-  [ -f "$RICH_WEB_DIR/package.json" ] || return 1
   [ -f "$KEELIM_VERCEL_DIR/package.json" ] || return 1
 
   root_workspace_includes "all-web-ui" || return 1
-  root_workspace_includes "rich/web" || return 1
   root_workspace_includes "keelim-vercel" || return 1
 
-  rich_spec="$(package_dependency_spec "$RICH_WEB_DIR/package.json" "$ALL_WEB_UI_PACKAGE")"
   keelim_spec="$(package_dependency_spec "$KEELIM_VERCEL_DIR/package.json" "$ALL_WEB_UI_PACKAGE")"
 
-  [ "$rich_spec" = "$ALL_WEB_UI_VERSION" ] || return 1
   [ "$keelim_spec" = "$ALL_WEB_UI_VERSION" ] || return 1
-  ! package_has_dependency "$RICH_WEB_DIR/package.json" "all-web-ui" || return 1
   ! package_has_dependency "$KEELIM_VERCEL_DIR/package.json" "all-web-ui" || return 1
 
-  consumer_lock_entry_matches_dependency "rich/web" "$ALL_WEB_UI_PACKAGE" "$ALL_WEB_UI_VERSION" &&
-    consumer_lock_entry_matches_dependency "keelim-vercel" "$ALL_WEB_UI_PACKAGE" "$ALL_WEB_UI_VERSION" &&
-    consumer_lock_section_lacks_dependency "rich/web" "all-web-ui" &&
+  consumer_lock_entry_matches_dependency "keelim-vercel" "$ALL_WEB_UI_PACKAGE" "$ALL_WEB_UI_VERSION" &&
     consumer_lock_section_lacks_dependency "keelim-vercel" "all-web-ui"
 }
 
@@ -434,29 +426,6 @@ github_packages_auth_token() {
   fi
 }
 
-rich_web_has_no_legacy_color_tokens() {
-  ! rg -q -g '!**/app/globals.css' -- '--color-' "$RICH_WEB_DIR/src"
-}
-
-rich_web_generic_drift_is_allowlisted() {
-  allowlist="$WORKSPACE_ROOT/scripts/all-web-ui-rich-allowed-drift.txt"
-  [ -f "$allowlist" ] || return 1
-
-  drift_files="$(
-    cd "$WORKSPACE_ROOT" &&
-      rg -l "from ['\"]@radix-ui/react-|cva\\(|const .*(_BUTTON_CLASS|_INPUT_CLASS|_PANEL_CLASS|_CARD_CLASS|_TABLE_|TEXTAREA_CLASS|CONTROL_BUTTON_CLASS|SUMMARY_CARD_CLASS|SECTION_CARD_CLASS)" rich/web/src \
-        -g '*.tsx' \
-        -g '*.ts' | sort || true
-  )"
-
-  allowlisted_files="$(
-    cd "$WORKSPACE_ROOT" &&
-      rg -v '^[[:space:]]*(#|$)' "$allowlist" | sort || true
-  )"
-
-  [ "$drift_files" = "$allowlisted_files" ]
-}
-
 print_header() {
   printf 'Workspace root: %s\n' "$WORKSPACE_ROOT"
   printf 'Mode: %s\n\n' "$( [ "$FULL_MODE" = "1" ] && printf 'full' || printf 'static' )"
@@ -464,7 +433,6 @@ print_header() {
 
 run_static_checks() {
   run_check "all-web-ui repo exists" path_is_git_repo "$ALL_WEB_UI_DIR"
-  run_check "rich/web repo exists" path_is_git_repo "$WORKSPACE_ROOT/rich"
   run_check "keelim-vercel repo exists" path_is_git_repo "$KEELIM_VERCEL_DIR"
   run_check "all-web-ui has origin remote" git_has_remote "$ALL_WEB_UI_DIR" "origin"
   run_check "root .gitignore excludes all-web-ui" file_contains "$WORKSPACE_ROOT/.gitignore" "/all-web-ui/"
@@ -491,25 +459,6 @@ run_static_checks() {
       all_web_ui_manifest_lists_exports
   fi
 
-  if [ -f "$RICH_WEB_DIR/package.json" ]; then
-    run_check "rich/web depends on @keelim/all-web-ui" package_has_dependency "$RICH_WEB_DIR/package.json" "$ALL_WEB_UI_PACKAGE"
-    run_check "rich/web npm scope maps to GitHub Packages" package_registry_mapping_exists "$RICH_WEB_DIR"
-    run_check "rich/web imports @keelim/all-web-ui somewhere under src" imports_all_web_ui_anywhere "$RICH_WEB_DIR/src"
-  else
-    fail "rich/web package.json exists"
-  fi
-
-  run_check \
-    "rich admin layout still applies admin-bw-theme" \
-    file_contains \
-    "$RICH_WEB_DIR/src/app/admin/layout.tsx" \
-    "admin-bw-theme"
-  run_check \
-    "rich root layout still renders AgentationToolbar" \
-    file_contains \
-    "$RICH_WEB_DIR/src/app/layout.tsx" \
-    "AgentationToolbar"
-
   if [ -f "$KEELIM_VERCEL_DIR/package.json" ]; then
     run_check "keelim-vercel depends on @keelim/all-web-ui" package_has_dependency "$KEELIM_VERCEL_DIR/package.json" "$ALL_WEB_UI_PACKAGE"
     run_check "keelim-vercel npm scope maps to GitHub Packages" package_registry_mapping_exists "$KEELIM_VERCEL_DIR"
@@ -521,8 +470,6 @@ run_static_checks() {
   run_check "all-web-ui dependency protocol is explicit and lockfile-coherent" all_web_ui_dependency_protocol_is_lockfile_coherent
   run_check "keelim-vercel components/ui is shim-only for generic primitives" keelim_components_ui_is_shim_only
   run_check "keelim-vercel all-web-ui imports stay in adapter-safe locations" keelim_boundary_imports_valid
-  run_check "rich/web uses --kui-* token contract instead of legacy --color-* tokens" rich_web_has_no_legacy_color_tokens
-  run_check "rich/web generic primitive drift is explicitly allowlisted" rich_web_generic_drift_is_allowlisted
 }
 
 run_command_check() {
@@ -588,9 +535,6 @@ run_full_checks() {
   run_command_check "all-web-ui test" sh -c "cd \"$ALL_WEB_UI_DIR\" && bun test"
   run_command_check "all-web-ui build" sh -c "cd \"$ALL_WEB_UI_DIR\" && bun run build"
   run_command_check "all-web-ui GitHub Packages version is published" all_web_ui_published_version_matches
-  run_command_check "rich/web typecheck" sh -c "cd \"$RICH_WEB_DIR\" && bun run typecheck"
-  run_command_check "rich/web test" sh -c "cd \"$RICH_WEB_DIR\" && bun run test -- --no-file-parallelism --maxWorkers=1"
-  run_command_check "rich/web build" sh -c "cd \"$RICH_WEB_DIR\" && NEXT_PUBLIC_SUPABASE_URL=https://example.supabase.co NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=sb_publishable_test SUPABASE_SERVICE_ROLE_KEY=service-role-test GOOGLE_OAUTH_CLIENT_ID=client-id GOOGLE_OAUTH_CLIENT_SECRET=client-secret GOOGLE_TOKEN_ENCRYPTION_KEY=0123456789abcdef0123456789abcdef GOOGLE_SHEETS_SPREADSHEET_ID=sheet-id bun run build"
   run_command_check "keelim-vercel typecheck" sh -c "cd \"$KEELIM_VERCEL_DIR\" && bun run typecheck"
   run_command_check "keelim-vercel lint" sh -c "cd \"$KEELIM_VERCEL_DIR\" && bun run lint"
   run_command_check "keelim-vercel verify:maintenance" sh -c "cd \"$KEELIM_VERCEL_DIR\" && bun run verify:maintenance"
