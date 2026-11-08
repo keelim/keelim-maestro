@@ -202,24 +202,6 @@ Secrets, or manifests. `status` and `list` are read-only. `start` and `stop`
 require an explicit runtime target and delegate to the owning runtime's
 documented command.
 
-## CodeGraph dispatcher
-
-Use the root CodeGraph dispatcher when you want root-level orchestration over
-child repo graphs without creating an aggregate root `.codegraph/`:
-
-```bash
-bun run cg -- list
-bun run cg:status
-bun run cg -- files rich --max-depth 2
-bun run cg -- context keelim-plugin "skill inventory"
-bun run cg:root-check
-```
-
-The dispatcher routes CodeGraph commands to the child repo selected with
-`--path`. It never initializes `.codegraph/` and does not use root as a child
-target. If a child graph is missing, initialize that child explicitly with the
-CodeGraph CLI after confirming the repo boundary and ignore coverage.
-
 ## Bun workspace bootstrap
 
 The current Bun workspace bootstrap is intentionally narrow. Its workspace
@@ -398,7 +380,7 @@ Use `bun run report:baseline` instead of treating this table as a Git-status cac
 
 | Path | Status | Root treatment |
 | --- | --- | --- |
-| `toto` | archived as of 2026-06-04 | ignored local historical checkout; not a registered submodule, Bun workspace member, uv workspace member, CodeGraph target, codemap refresh target, or active idea backlog target |
+| `toto` | archived as of 2026-06-04 | ignored local historical checkout; not a registered submodule, Bun workspace member, uv workspace member, codemap refresh target, or active idea backlog target |
 
 ## Why `/quant` is excluded
 
