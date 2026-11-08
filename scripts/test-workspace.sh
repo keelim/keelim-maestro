@@ -113,6 +113,7 @@ check_root_files() {
   run_check "root .gitmodules exists" test -f .gitmodules
   run_check "root CodeGraph dispatcher exists" test -f scripts/codegraph.sh
   run_check "root update-subrepos helper exists" test -f scripts/update-subrepos.sh
+  run_check "local-only repository policy tests pass" bun scripts/test-repository-policy.mjs
   run_check "root trusted-baseline reporter exists" test -f scripts/report-trusted-baseline.sh
   run_check "root trusted-baseline reporter runs" trusted_baseline_report_runs
   run_check "root shared UI contract reporter exists" test -f scripts/report-shared-ui-contract.sh
@@ -147,6 +148,7 @@ check_autonomous_repo_contract() {
   run_check "root ignores archived toto" file_contains .gitignore "/toto/"
   run_check "root workspaces exclude quant" workspace_excludes "quant"
   run_check "root workspaces exclude rich" workspace_excludes "rich"
+  run_check "root workspaces retain rich web" workspace_includes "rich/web"
   run_check "root workspaces exclude top-level youtube" workspace_excludes "youtube"
   run_check "root workspaces include youtube remotion" workspace_includes "youtube/remotion"
   run_check "root workspaces include youtube services" workspace_includes "youtube/services/*"

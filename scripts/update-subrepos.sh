@@ -46,6 +46,7 @@ fi
 
 ROOT_DIR="$(git rev-parse --show-toplevel)"
 cd "$ROOT_DIR"
+. "$ROOT_DIR/scripts/repository-policy.sh"
 
 list_repo_paths() {
   {
@@ -140,12 +141,22 @@ print_repo_status() {
     remote_url="none"
   fi
 
-  printf '%-24s branch=%-10s target=%-10s state=%-5s ahead=%-4s behind=%-4s remote=%s\n' \
-    "$repo_path" "$current_branch" "$target_branch" "$dirty" "$ahead" "$behind" "$remote_url"
+  policy="remote-managed"
+  if repository_is_local_only "$repo_path"; then
+    policy="local-only"
+  fi
+
+  printf '%-24s branch=%-10s target=%-10s state=%-5s ahead=%-4s behind=%-4s remote=%s policy=%s\n' \
+    "$repo_path" "$current_branch" "$target_branch" "$dirty" "$ahead" "$behind" "$remote_url" "$policy"
 }
 
 update_repo() {
   repo_path="$1"
+  # Check policy before inspecting any remote, even if one is added later.
+  if repository_is_local_only "$repo_path"; then
+    printf '[skip] %-24s local-only policy (no remote synchronization)\n' "$repo_path"
+    return 0
+  fi
   current_branch="$(git -C "$repo_path" symbolic-ref --quiet --short HEAD 2>/dev/null || echo "DETACHED")"
   target_branch="$(resolve_branch "$repo_path")"
   remote_url="$(git -C "$repo_path" remote get-url origin 2>/dev/null || true)"

@@ -3,6 +3,7 @@ set -eu
 
 ROOT="$(git rev-parse --show-toplevel)"
 cd "$ROOT"
+. "$ROOT/scripts/repository-policy.sh"
 
 sanitize_cell() {
   printf '%s' "$1" | tr '|' '/'
@@ -142,7 +143,9 @@ ahead_behind_for_path() {
 
 registration_for_path() {
   path="$1"
-  if is_registered_path "$path"; then
+  if repository_is_local_only "$path"; then
+    printf 'local-only\n'
+  elif is_registered_path "$path"; then
     printf 'registered-submodule\n'
   else
     case "$path" in
@@ -196,6 +199,13 @@ print_row() {
 
     blocker="none"
     case "$registration" in
+      local-only)
+        eligibility="local-only"
+        # Dirty state and absent upstream are normal for local work.
+        if [ "$remote" != "none" ]; then
+          blocker="unexpected-remote-on-local-only"
+        fi
+        ;;
       excluded-local)
         eligibility="excluded"
         blocker="excluded-by-policy"
