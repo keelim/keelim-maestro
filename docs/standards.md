@@ -31,7 +31,7 @@ Separate static, runtime, external-service, and visual verification. Environment
 
 ## Exploration and durable guidance
 
-Prefer the owning codebase-memory index for structural questions; use text search for configuration, prose, literals, and missing coverage. Do not create one root index containing child sources. The CodeGraph dispatcher selects existing child indexes and must not silently initialize missing ones.
+Prefer the owning codebase-memory index for structural questions; use text search for configuration, prose, literals, and missing coverage. Do not create one root index containing child sources.
 
 Keep ideas in `docs/idea/`, cross-project research in `docs/research/`, and operator knowledge material in `docs/knowledge/`. Preserve existing records. Validate research paths, line ranges, unique IDs, required fields, and output constraints such as no URLs. Do not put session IDs, debug logs, or temporary paths in permanent guidance.
 

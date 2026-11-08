@@ -83,7 +83,6 @@ For a task requiring a Codex connection, run `bun run dev:codex-app-server`, the
 | Setting | Purpose and scope |
 | --- | --- |
 | `NODE_AUTH_TOKEN` | Operator-supplied GitHub Packages read credential; never record its value |
-| `CODEGRAPH_BIN` | Executable CodeGraph override; otherwise discover the installed command |
 | `CODEX_BIN` | Codex command or path used by the server helper |
 | `CODEX_APP_SERVER_LISTEN` | Server transport address; default `ws://127.0.0.1:7331` |
 
