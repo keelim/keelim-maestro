@@ -28,7 +28,7 @@ A process or health response can work while tool invocation fails. Check initial
 
 ## Knowledge store locks and concurrent access
 
-PGLite assumes a single active writer. Do not run `gbrain serve` alongside batch import, sync, stats, or arbitrary query CLI work. Stop the matching server, finish sequential work, and restart through its registered MCP configuration. Validate retrieval with a phrase from the original source; an input-list entry is insufficient.
+PGLite assumes a single active writer. Keep a store's server and batch operations from accessing the same data directory concurrently. A source-input list does not establish retrieval readiness.
 
 ## Entry guides appear to have two independent copies
 

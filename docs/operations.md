@@ -68,9 +68,7 @@ If the default cache is unavailable, pass `--cache-dir .omx/uv-cache` to uv. Exp
 
 Use `bun run cg -- list` and `bun run cg:status` to locate owner indexes, then target a checkout, for example `bun run cg -- context rich "task description"`. Initialize a missing index only after confirming its installation and owner scope; never create an aggregate root source index.
 
-`bun run automation:local -- list` and `status` inspect state. Mutation commands such as `start rich` or `stop n8n` name a runtime. `standby` stops Rich watchers and places Rich/n8n in standby while preserving agentgateway. GBrain supports only `list`, `status`, and `verify` here; import, sync, and transfer are separate operator work.
-
-`verify gbrain` and `verify all` call `gbrain stats`. With PGLite, stop the matching `gbrain serve` and confirm no other batch job holds the store before verification. The helper does not enforce exclusive access. Restart through registered MCP configuration afterward.
+`bun run automation:local -- list` and `status` inspect state. Mutation commands such as `start rich` or `stop n8n` name a runtime. `standby` stops Rich watchers and places Rich/n8n in standby while preserving agentgateway.
 
 For a task requiring a Codex connection, run `bun run dev:codex-app-server`, then `codex --remote ws://127.0.0.1:7331` in another terminal. This starts a persistent server; do not include it in routine checks.
 

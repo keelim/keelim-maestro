@@ -41,7 +41,7 @@ working-tree-only scopes are stated explicitly.
 | Python workspace membership and shared constraints | Root `pyproject.toml` and `uv.lock` |
 | Gradle modules | `all/settings.gradle.kts` |
 | A package's identity and commands | Its nearest `package.json`, `pyproject.toml`, `Cargo.toml`, `mix.exs`, `deno.json`, or build project |
-| Root setup, automation, GBrain, and operator workflows | The matching tracked section in root `README.md` |
+| Root setup, automation, and operator workflows | The matching tracked section in root `README.md` |
 | Repository shape when live discovery needs a map | `docs/CODEMAPS/README.md` and only the matching dated map, when present |
 
 Treat codemaps, route counts, migration counts, and prose status tables as

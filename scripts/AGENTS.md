@@ -5,8 +5,7 @@ Own workspace inspection, installation/check delegation, updates, and runtime co
 - Resolve the Git root and name each child command target. Do not edit child source through a helper as a side effect.
 - Keep `status`, `dry-run`, baseline, and contract reporting free of source/gitlink mutations. Report production is not check success.
 - Update only clean supported branches by fast-forward. Skip local changes/commits; do not recover with resets.
-- Delegate runtime actions to owner commands. `start`/`stop` require one target; `standby` preserves agentgateway. GBrain supports inspection/verification only.
-- GBrain verification calls `stats`. With PGLite, stop the matching server and exclude other batch access before `verify gbrain` or default `verify all`; the helper does not enforce this condition.
+- Delegate runtime actions to owner commands. `start`/`stop` require one target; `standby` preserves agentgateway.
 - Handle spaces, symlinks, and path escape in user input. Validating a changeset command must not execute its string as shell code.
 - Do not silently initialize indexes or restore archived `toto`. Report absent optional checkouts.
 

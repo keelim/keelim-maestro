@@ -29,4 +29,4 @@ A status request goes through a root command to registrations, manifests, and lo
 
 Git remotes supply repository history. Public registries and GitHub Packages have different access requirements. Local workspace links and independent consumer installation both matter for the shared UI contract.
 
-Managed local MCP connections use agentgateway as their ingress. Rich and n8n own their runtime lifecycles; GBrain belongs to the operator's knowledge environment. A root development command or Codex app-server helper does not create a public product API. A missing local gateway checkout does not establish the state of a separately running gateway.
+Managed local MCP connections use agentgateway as their ingress. Rich and n8n own their runtime lifecycles. A root development command or Codex app-server helper does not create a public product API. A missing local gateway checkout does not establish the state of a separately running gateway.
