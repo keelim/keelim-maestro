@@ -52,7 +52,8 @@ def main():
             str(generator_script),
             str(repo_path),
             "--output-dir",
-            str(output_dir)
+            str(output_dir),
+            "--allow-outside-output"
         ], cwd=str(root_dir))
 
         if not success:

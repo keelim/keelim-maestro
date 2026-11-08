@@ -1,7 +1,6 @@
 # Architecture Codemap
 
-<!-- Generated: 2026-08-16 -->
-
+<!-- Generated: 2026-11-08 -->
 ## Workspace Topology
 
 ```
@@ -49,7 +48,6 @@ a lower-level detail explicitly needs to be called out.
 - **uv workspace** — root Python constraint surface for `rich` and `youtube`
 - **Submodule pointers** — root gitlinks for `all`, `Keelim-Knowledge-Vault`, `keelim-plugin`, `keelim-vercel`
 - **agentgateway** — shared local Kubernetes resource exposing MCP tools
-- **GBrain** — knowledge system using a separate operator brain repo (`~/brain`); contract at `docs/knowledge/`
 
 ## Local Kubernetes Stack
 

@@ -1,8 +1,7 @@
 # Workspace Bootstrap Codemap
 
-<!-- Generated: 2026-08-16 -->
-Last updated: 2026-08-16
-
+<!-- Generated: 2026-11-08 -->
+Last updated: 2026-11-08
 ## Bun Workspace
 
 Runtime: **Bun 1.3.12** (`packageManager` field in package.json)

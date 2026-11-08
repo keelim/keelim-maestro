@@ -1,7 +1,6 @@
 # Data Codemap
 
-<!-- Generated: 2026-08-16 -->
-
+<!-- Generated: 2026-11-08 -->
 ## Knowledge and Storage Patterns
 
 This workspace coordinates multiple data stores across child repositories.
@@ -10,18 +9,9 @@ The root owns contracts; child repos own implementation and migrations.
 ## Knowledge Vault (`Keelim-Knowledge-Vault`)
 
 - **Type:** Obsidian/Markdown knowledge base
-- **Submodule:** `Keelim-Knowledge-Vault/` — pinned at `15b29c11` on `main`
-- **GBrain integration:** Knowledge Vault content is a curated import source for the
-  GBrain knowledge system (separate `~/brain` repo)
+- **Submodule:** `Keelim-Knowledge-Vault/` — pinned at `2cfffa10` on `main`
 - **Verification:** `scripts/improvements/verify_knowledge_vault_*.py` scripts check
   frontmatter, internal links, and automation compliance
-
-## GBrain (`~/brain`)
-
-- **Type:** Separate operator brain repo (not under keelim-maestro)
-- **Integration:** Synced from curated sources including Keelim-Knowledge-Vault
-- **Root contract:** Previously in `docs/knowledge/` (not present in this checkout)
-- **MCP exposure:** via `agentgateway` at `http://localhost:3000/mcp`
 
 ## Rich Data Layer
 

@@ -11,19 +11,17 @@ FAILURES=0
 print_usage() {
   cat <<'EOF'
 Usage:
-  scripts/local-automation.sh list [all|rich|n8n|agentgateway|gbrain]
-  scripts/local-automation.sh status [all|rich|n8n|agentgateway|gbrain]
-  scripts/local-automation.sh verify [all|rich|n8n|agentgateway|gbrain]
+  scripts/local-automation.sh list [all|rich|n8n|agentgateway]
+  scripts/local-automation.sh status [all|rich|n8n|agentgateway]
+  scripts/local-automation.sh verify [all|rich|n8n|agentgateway]
   scripts/local-automation.sh standby [all|rich|n8n|agentgateway]
   scripts/local-automation.sh start <rich|n8n|agentgateway>
   scripts/local-automation.sh stop <rich|n8n|agentgateway>
 
 Purpose:
   Keep root-level local automation commands discoverable while delegating
-  runtime ownership to rich, youtube, tools/agentgateway, and the separate
-  GBrain operator plane.
+  runtime ownership to rich, youtube, and tools/agentgateway.
   agentgateway is the fixed Kubernetes resource; rich and n8n are on-demand.
-  gbrain is read-only from this helper: list, status, and verify only.
 EOF
 }
 
@@ -119,9 +117,9 @@ run_lsof_port() {
 targets_for_action() {
   case "$TARGET" in
     all)
-      printf '%s\n' rich n8n agentgateway gbrain
+      printf '%s\n' rich n8n agentgateway
       ;;
-    rich|n8n|agentgateway|gbrain)
+    rich|n8n|agentgateway)
       printf '%s\n' "$TARGET"
       ;;
     *)
@@ -167,17 +165,6 @@ list_agentgateway() {
   info "Files:  tools/agentgateway/scripts/, tools/agentgateway/k8s/"
 }
 
-list_gbrain() {
-  section "gbrain knowledge layer"
-  info "Owner:  root docs + separate operator brain repo"
-  info "Role:   full-brain memory for curated workspace knowledge"
-  info "Docs:   docs/knowledge/README.md, docs/knowledge/gbrain.md"
-  info "Runbook: docs/knowledge/operator-runbook.md"
-  info "Sources: docs/knowledge/source-targets.md"
-  info "Verify: scripts/local-automation.sh verify gbrain"
-  info "Note:   start, stop, sync, install, and cron registration require explicit operator action outside this helper."
-}
-
 status_rich() {
   section "rich status"
   run_kubectl -n rich-local get deploy,svc,pod
@@ -197,27 +184,6 @@ status_agentgateway() {
   run_kubectl -n agentgateway-local get pod -l app.kubernetes.io/name=agentgateway-local
   run_lsof_port 3000
   run_lsof_port 15000
-}
-
-status_gbrain() {
-  section "gbrain status"
-  if command -v gbrain >/dev/null 2>&1; then
-    run_cmd "gbrain --version" gbrain --version
-  else
-    info "[info] gbrain is not installed or not on PATH"
-  fi
-
-  if [ -d docs/knowledge ]; then
-    info "[ok] docs/knowledge exists"
-  else
-    info "[warn] docs/knowledge is missing"
-  fi
-
-  if [ -n "${GBRAIN_REPO:-}" ]; then
-    info "GBRAIN_REPO=$GBRAIN_REPO"
-  else
-    info "[info] GBRAIN_REPO is not set"
-  fi
 }
 
 verify_rich() {
@@ -247,34 +213,6 @@ verify_agentgateway() {
     cd tools/agentgateway
     AGENTGATEWAY_URL=http://127.0.0.1:3000 bash scripts/verify-k8s-gateway.sh
   ) || mark_failure
-}
-
-verify_gbrain() {
-  section "gbrain verify"
-
-  for file in \
-    docs/knowledge/README.md \
-    docs/knowledge/gbrain.md \
-    docs/knowledge/source-targets.md \
-    docs/knowledge/operator-runbook.md \
-    docs/knowledge/verification-contract.md
-  do
-    if [ -f "$file" ]; then
-      printf '[ok] %s\n' "$file"
-    else
-      printf '[fail] %s missing\n' "$file"
-      mark_failure
-    fi
-  done
-
-  if command -v gbrain >/dev/null 2>&1; then
-    run_cmd "gbrain --version" gbrain --version
-    run_cmd "gbrain doctor --json" gbrain doctor --json
-    run_cmd "gbrain stats" gbrain stats
-  else
-    printf '[fail] gbrain is not installed or not on PATH\n'
-    mark_failure
-  fi
 }
 
 rich_skaffold_pids() {
@@ -414,15 +352,12 @@ run_for_targets() {
       list:rich) list_rich ;;
       list:n8n) list_n8n ;;
       list:agentgateway) list_agentgateway ;;
-      list:gbrain) list_gbrain ;;
       status:rich) status_rich ;;
       status:n8n) status_n8n ;;
       status:agentgateway) status_agentgateway ;;
-      status:gbrain) status_gbrain ;;
       verify:rich) verify_rich ;;
       verify:n8n) verify_n8n ;;
       verify:agentgateway) verify_agentgateway ;;
-      verify:gbrain) verify_gbrain ;;
       *)
         print_usage
         exit 1
