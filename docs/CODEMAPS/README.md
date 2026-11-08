@@ -19,7 +19,6 @@ in each child's own codebase.
 | [backend.md](backend.md) | Backend/Python workspace and local automation |
 | [data.md](data.md) | Data, knowledge, and storage patterns |
 | [dependencies.md](dependencies.md) | Bun catalog and uv constraint dependencies |
-| [CODEGRAPH.md](CODEGRAPH.md) | CodeGraph setup and dispatch contract |
 | [projects/README.md](projects/README.md) | Per-project codemap snapshots index |
 
 ## Refresh

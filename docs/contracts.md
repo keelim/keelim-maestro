@@ -12,11 +12,6 @@ Consumers are local operators and agents. Run from the root Git checkout and quo
 | `bun run report:shared-ui` | Provider/consumer contract and verification-readiness report | May print failed internal checks and still produce a report |
 | `sh scripts/verify-all-web-ui-integration.sh [--full]` | Pass/fail for each check | Static violations fail; full mode also needs install, authentication, and build prerequisites |
 | `bun run test` | Root contract checks and final result | Missing files, commands, or contract failures cause nonzero exit; does not replace child tests |
-| `bun run cg -- <action> <target> [args]` | Owner-index listing, context, queries, or affected scope | Missing executable or invalid target fails; no automatic initialization |
-
-CodeGraph supports `list`, `status [all|repo]`, `files`, `context`, `query`, `affected`, `sync [all|repo]`, and `root-check`. `sync` changes indexes. Targets are `all`, `all-web-ui`, optional `android-support`, `Keelim-Knowledge-Vault`, `keelim-plugin`, `keelim-vercel`, and `rich`; `youtube` is not registered. For `status` and `sync`, omitted target or `all` means every target. For `files`, `context`, `query`, and `affected`, repository argument `all` means the Android repository.
-
-`list` reports absent repositories and missing indexes as state. `status` may return absent JSON and exit successfully. `files`, `context`, `query`, `affected`, and single-target `sync` fail when a required repository/index is missing. Whole-workspace `sync` visits targets, aggregates failures, and fails if any target failed.
 
 ## Changeset input
 
