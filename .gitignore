@@ -85,10 +85,6 @@
 !/docs/knowledge/
 /docs/knowledge/*
 !/docs/knowledge/README.md
-!/docs/knowledge/gbrain.md
-!/docs/knowledge/source-targets.md
-!/docs/knowledge/operator-runbook.md
-!/docs/knowledge/verification-contract.md
 !/docs/ops/
 /docs/ops/*
 !/docs/ops/local-automation-stack.md
