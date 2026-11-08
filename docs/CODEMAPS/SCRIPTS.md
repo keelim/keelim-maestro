@@ -11,7 +11,6 @@ All scripts live under `scripts/`. Run them from the repo root.
 | `test-workspace.sh` | `bun run test` | Lightweight root contract verifier (metadata, scripts, boundaries) |
 | `update-subrepos.sh` | `./scripts/update-subrepos.sh` (direct) | Status/update helper for submodules + autonomous repos |
 | `codex-app-server.sh` | `bun run dev:codex-app-server` | Local Codex app-server (WebSocket at ws://127.0.0.1:7331) |
-| `codegraph.sh` | `bun run cg` / `bun run cg:status` / `bun run cg:root-check` | CodeGraph dispatch; delegates to child `.codegraph/` indexes |
 | `local-automation.sh` | `bun run automation:local -- ...` | Local automation index/delegator for `rich`, `youtube` n8n, and `tools/agentgateway` |
 
 ## Reporting / Verification Scripts
@@ -79,9 +78,6 @@ bun run test:changeset        # Changeset manifest test suite
 bun run changeset:validate    # Validate cross-repo changeset manifest
 bun run report:baseline       # Read-only trusted-baseline report
 bun run report:shared-ui      # Shared UI contract report
-bun run cg                    # CodeGraph dispatch (default)
-bun run cg:status             # CodeGraph status for all child repos
-bun run cg:root-check         # CodeGraph root-only check
 bun run automation:local      # Local automation delegator (rich / youtube / agentgateway)
 bun run dev:keelim-vercel     # Vercel Next.js dev server
 bun run dev:rich-web          # Rich admin web dev server
