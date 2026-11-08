@@ -1,7 +1,7 @@
 # Root Scripts Codemap
 
-<!-- Generated: 2026-11-07 -->
-Last updated: 2026-11-07
+<!-- Generated: 2026-11-08 -->
+Last updated: 2026-11-08
 All scripts live under `scripts/`. Run them from the repo root.
 
 ## Core Workspace Scripts
