@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Aggregate raw improvement findings into exactly N items per project.
 
-Reads docs/research/improvements-2026-06/raw/*.json, validates, dedupes,
+Reads research/improvements-2026-06/raw/*.json, validates, dedupes,
 selects up to TARGET_PER_PROJECT per project, renumbers IDs, and writes
 improvements.json (+ gaps.json / rejects.json when applicable).
 
@@ -15,9 +15,12 @@ import re
 import sys
 from pathlib import Path
 
+from docs_root import archive_path, archive_root, missing_archive_input
+
 REPO_ROOT = Path(__file__).resolve().parents[2]
-BASE_DIR = REPO_ROOT / "docs" / "research" / "improvements-2026-06"
-RAW_DIR = BASE_DIR / "raw"
+DOCS_ROOT = archive_root(REPO_ROOT)
+BASE_DIR = archive_path(DOCS_ROOT, "research", "improvements-2026-06")
+RAW_DIR = archive_path(DOCS_ROOT, "research", "improvements-2026-06", "raw")
 
 TARGET_PER_PROJECT = 100
 JACCARD_THRESHOLD = 0.6
@@ -185,8 +188,7 @@ def renumber(project: str, items: list[dict]) -> list[dict]:
 
 def main() -> int:
     if not RAW_DIR.is_dir():
-        print(f"raw directory not found: {RAW_DIR}", file=sys.stderr)
-        return 1
+        return missing_archive_input(RAW_DIR)
 
     items, rejects = load_raw_items()
     deduped = dedupe(items)
@@ -224,11 +226,11 @@ def main() -> int:
         "projects": project_stats,
         "items": final_items,
     }
-    (BASE_DIR / "improvements.json").write_text(
+    (archive_path(DOCS_ROOT, "research", "improvements-2026-06", "improvements.json")).write_text(
         json.dumps(result, ensure_ascii=False, indent=2), encoding="utf-8"
     )
 
-    gaps_path = BASE_DIR / "gaps.json"
+    gaps_path = archive_path(DOCS_ROOT, "research", "improvements-2026-06", "gaps.json")
     if gaps:
         gaps_path.write_text(
             json.dumps(gaps, ensure_ascii=False, indent=2), encoding="utf-8"
@@ -237,7 +239,7 @@ def main() -> int:
         gaps_path.unlink()
 
     if rejects:
-        (BASE_DIR / "rejects.json").write_text(
+        (archive_path(DOCS_ROOT, "research", "improvements-2026-06", "rejects.json")).write_text(
             json.dumps(rejects, ensure_ascii=False, indent=2), encoding="utf-8"
         )
 

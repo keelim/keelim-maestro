@@ -14,8 +14,11 @@ import json
 import sys
 from pathlib import Path
 
+from docs_root import archive_path, archive_root, missing_archive_input
+
 REPO_ROOT = Path(__file__).resolve().parents[2]
-BASE_DIR = REPO_ROOT / "docs" / "research" / "improvements-2026-06"
+DOCS_ROOT = archive_root(REPO_ROOT)
+BASE_DIR = archive_path(DOCS_ROOT, "research", "improvements-2026-06")
 
 PROJECT_LABELS = {
     "all": "all — Kotlin 멀티 Android 앱 모노레포",
@@ -134,10 +137,9 @@ def build_findings(by_project: dict[str, list[dict]]) -> list[dict]:
 
 
 def main() -> int:
-    source = BASE_DIR / "improvements.json"
-    if not source.exists():
-        print(f"not found: {source}", file=sys.stderr)
-        return 1
+    source = archive_path(DOCS_ROOT, "research", "improvements-2026-06", "improvements.json")
+    if not source.is_file():
+        return missing_archive_input(source)
     data = json.loads(source.read_text(encoding="utf-8"))
     items = data["items"]
 
@@ -155,7 +157,7 @@ def main() -> int:
             f"갖고 있으며 P1(즉시)/P2(중요)/P3(개선) 우선순위와 예상 작업량(S/M/L)이 부여되어 있다.\n\n"
             f"P1 항목은 총 {p1_total}건으로, 아래 Findings 섹션에 프로젝트별 대표 P1 항목을 "
             f"하이라이트했다. 전체 목록은 프로젝트별 테이블과 "
-            f"docs/research/improvements-2026-06/improvements.json 에서 확인할 수 있다."
+            f"research/improvements-2026-06/improvements.json 에서 확인할 수 있다."
         ),
         "metadata": {
             "Generated": data.get("generated", "2026-06"),
@@ -190,15 +192,15 @@ def main() -> int:
             {
                 "heading": "데이터 소스",
                 "items": [
-                    "전체 데이터: docs/research/improvements-2026-06/improvements.json",
-                    "차원별 원본: docs/research/improvements-2026-06/raw/",
-                    "동반 요약: docs/research/improvement-items-2026-06.md",
+                    "전체 데이터: research/improvements-2026-06/improvements.json",
+                    "차원별 원본: research/improvements-2026-06/raw/",
+                    "동반 요약: research/improvement-items-2026-06.md",
                 ],
             },
         ],
     }
 
-    output = BASE_DIR / "report-input.json"
+    output = archive_path(DOCS_ROOT, "research", "improvements-2026-06", "report-input.json")
     output.write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding="utf-8")
     print(f"wrote {output} ({len(items)} items, {len(report['findings'])} highlights)")
     return 0

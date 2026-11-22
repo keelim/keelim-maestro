@@ -8,26 +8,6 @@ This repository coordinates child ownership, shared development setup, and verif
 ./
 ├── AGENTS.md                              → Shared entry point
 ├── CLAUDE.md                              → Link to the same guide
-├── docs/
-│   ├── PROJECT.md                         → Owner routing and project inventory
-│   ├── architecture.md                    → Components and dependency direction
-│   ├── business-rules.md                  → Ownership, updates, and completion
-│   ├── security.md                        → Access and protected assets
-│   ├── standards.md                       → Complete change and verification rules
-│   ├── engineering-notes.md                → Operational traps and diagnosis
-│   ├── operations.md                       → Setup, execution, and checks
-│   ├── contracts.md                        → Command inputs, outputs, and failures
-│   ├── tracking/
-│   │   ├── status.md                       → Capabilities, evidence, and remaining conditions
-│   │   ├── findings.md                     → Unresolved problems
-│   │   └── decisions/
-│   │       ├── index.md                    → Decision index
-│   │       ├── 0001-independent-repositories.md → Independent child ownership
-│   │       ├── 0002-scoped-workspaces.md        → Selected installation membership
-│   │       ├── 0003-observe-before-mutate.md    → Separate inspection and updates
-│   │       ├── 0004-separate-knowledge-store.md → Separate operator knowledge store
-│   │       └── 0005-remove-root-chart.md       → Remove the root video generator
-│   └── videos/subproject-intros/AGENTS.md   → Intro-video editing boundary
 ├── scripts/
 │   ├── AGENTS.md                           → Shared helper command rules
 │   └── improvements/AGENTS.md              → Research input and output boundaries
@@ -47,12 +27,12 @@ This repository coordinates child ownership, shared development setup, and verif
 
 ## Before work
 
-- Read `docs/standards.md`, `docs/engineering-notes.md`, and the guide closest to the changed area. For root or cross-repository work, assign owners with `docs/PROJECT.md` first.
+- For root or cross-repository work, use the ownership inventory in README.md and read the guide closest to the changed area. When the local documentation archive is available, consult its project catalog, change standards, and engineering notes.
 - Before membership, gitlink, or pin changes, inspect live declarations and run `bun run report:baseline`. Afterward compare `git submodule status` and gitlinks.
 - For shared UI, read the provider and consumer contracts in `all-web-ui`, `keelim-vercel`, and `rich/web`; use `bun run report:shared-ui` to scope verification.
-- Before runtime, authentication, or knowledge-input work, read `docs/security.md` and `docs/operations.md`, then confirm the owner and destination. Python and Bun changes must not expand one another's membership implicitly.
-- Use the owning codebase-memory index for structure, text search for configuration/prose/literals or coverage gaps. For ideas, begin at `docs/CODEMAPS/README.md` and read only relevant maps.
+- Before runtime, authentication, or knowledge-input work, read the owner’s security and operating instructions and confirm the destination. Python and Bun changes must not expand one another’s membership implicitly.
+- Use the owning codebase-memory index and scoped text search for structure. Optional codemaps and dated research live in the local documentation archive described in README.md; do not recreate a repository documentation directory.
 
 ## Problem routing
 
-Stop the affected action and immediately report lost work, unauthorized child changes, exposed secrets, writes to an unconfirmed database, or concurrent PGLite access that could corrupt the store. Record other unresolved issues, reproduction conditions, impact, and the reason they remain unresolved in `docs/tracking/findings.md`. Fix in-scope defects that can be resolved now and report the actual check results.
+Stop the affected action and immediately report lost work, unauthorized child changes, exposed secrets, writes to an unconfirmed database, or concurrent PGLite access that could corrupt the store. Record other unresolved issues, reproduction conditions, impact, and the reason they remain unresolved in the owner’s issue log or the local documentation archive. Fix in-scope defects that can be resolved now and report the actual check results.

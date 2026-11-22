@@ -2,7 +2,7 @@
 
 This repository coordinates child ownership, shared development setup, delivery order, and verification. Each child repository is developed and deployed independently.
 
-Start with [AGENTS.md](AGENTS.md), use the [project catalog](docs/PROJECT.md) to choose an owner, and follow [operations](docs/operations.md) for setup and execution.
+Start with [AGENTS.md](AGENTS.md), use the workspace inventory below to choose an owner, and follow the owning checkout’s instructions for execution.
 
 ## Workspace structure
 
@@ -54,9 +54,6 @@ This repository owns coordination files, helper scripts, and workspace documenta
 - `package.json`
 - `bun.lock`
 - `.gitmodules`
-- `docs/ops/`
-- `docs/idea/`
-- `docs/PROJECT.md`, the root project guides, and `docs/tracking/`
 - `scripts/` and the two shared workspace skills
 
 The root may also carry a **Bun workspace bootstrap** for selected web repos. This is an orchestration layer for installs/scripts only; it does **not** collapse the child repositories into one Git monorepo.
@@ -69,7 +66,17 @@ checkout may remain for historical context, but it is ignored by the root and is
 not an active submodule, workspace member, helper-script target, or idea backlog
 target.
 
-Root idea/backlog maintenance now lives under `docs/idea/`, with `docs/idea/index.md` as the workspace index and `docs/idea/<project>.md` as each project's idea file. A root-level `idea/` directory should not be recreated.
+## Local documentation archive
+
+Workspace documentation is maintained outside this repository. The optional
+operator archive defaults to `~/Desktop/docs`; set `KEELIM_DOCS_DIR` to a different
+external directory if needed. The project catalog is `PROJECT.md` relative to
+that archive; operations, ideas, and codemaps are kept there as well. Do not
+copy archive files into this repository or publish their contents by default.
+
+Ordinary workspace checks do not require the archive. Codemap generation requires
+an existing archive directory; dated improvement helpers skip absent optional
+inputs by default, but report missing inputs when an archive is explicitly set.
 
 ## Trusted baseline report
 
@@ -178,10 +185,10 @@ readiness. It observes the `all-web-ui` provider plus the `keelim-vercel` and
 
 ## Local automation stack
 
-Use `docs/ops/local-automation-stack.md` for the root-owned audit of local
-automation runtimes: `rich` local Kubernetes, `youtube` n8n Kubernetes, and
-`tools/agentgateway`. The root owns the cross-runtime contract, while each
-runtime keeps its own manifests, scripts, secrets, and verification commands.
+The root delegates to three local runtimes: `rich` local Kubernetes, `youtube`
+n8n Kubernetes, and `tools/agentgateway`. Each runtime owns its manifests,
+scripts, secrets, and verification commands. The `standby` action keeps
+`agentgateway` fixed and unchanged.
 
 Use the root helper only as a script index / delegator:
 
@@ -508,8 +515,8 @@ checkout, not root Bun workspace members.
 
 ## Agent instructions and shared skills
 
-`AGENTS.md` holds durable workspace rules and points to `docs/PROJECT.md` for
-ownership. Child repositories keep self-contained instructions. Keep current
+`AGENTS.md` holds durable workspace rules. The inventory above describes
+ownership, and child repositories keep self-contained instructions. Keep current
 feature inventories, detailed procedures, and one-off observations in their
 owner documentation; do not append a dated lesson for every code edit.
 

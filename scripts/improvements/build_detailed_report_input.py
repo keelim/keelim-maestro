@@ -13,8 +13,11 @@ import json
 import sys
 from pathlib import Path
 
+from docs_root import archive_path, archive_root, missing_archive_input
+
 REPO_ROOT = Path(__file__).resolve().parents[2]
-BASE_DIR = REPO_ROOT / "docs" / "research" / "improvements-2026-06"
+DOCS_ROOT = archive_root(REPO_ROOT)
+BASE_DIR = archive_path(DOCS_ROOT, "research", "improvements-2026-06")
 
 PROJECT_LABELS = {
     "all": "all — Kotlin 멀티 Android 앱 모노레포",
@@ -155,10 +158,9 @@ def build_metrics(by_project: dict[str, dict[str, list[dict]]], total: int) -> l
 
 
 def main() -> int:
-    source = BASE_DIR / "improvements.json"
-    if not source.exists():
-        print(f"not found: {source}", file=sys.stderr)
-        return 1
+    source = archive_path(DOCS_ROOT, "research", "improvements-2026-06", "improvements.json")
+    if not source.is_file():
+        return missing_archive_input(source)
     data = json.loads(source.read_text(encoding="utf-8"))
     items = data["items"]
     by_project = group(items)
@@ -177,8 +179,8 @@ def main() -> int:
         "metadata": {
             "Generated": data.get("generated", "2026-06"),
             "Repository": "keelim-maestro",
-            "Source data": "docs/research/improvements-2026-06/improvements.json",
-            "Overview report": "docs/research/improvement-items-2026-06.html",
+            "Source data": "research/improvements-2026-06/improvements.json",
+            "Overview report": "research/improvement-items-2026-06.html",
             "Total items": str(len(items)),
         },
         "metrics": build_metrics(by_project, len(items)),
@@ -206,7 +208,7 @@ def main() -> int:
     }
 
     report = sanitize_deep(report)
-    output = BASE_DIR / "report-input-detailed.json"
+    output = archive_path(DOCS_ROOT, "research", "improvements-2026-06", "report-input-detailed.json")
     output.write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding="utf-8")
     print(f"wrote {output} ({len(items)} items, {len(report['tables'])} tables)")
     return 0

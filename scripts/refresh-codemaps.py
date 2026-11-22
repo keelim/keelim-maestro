@@ -8,6 +8,8 @@ import subprocess
 from datetime import date
 from pathlib import Path
 
+from improvements.docs_root import archive_path, archive_root
+
 # Child repositories to process
 CHILD_REPOS = [
     "all",
@@ -32,7 +34,11 @@ def main():
     today = date.today().isoformat()
     root_dir = Path(__file__).resolve().parent.parent
     generator_script = root_dir / "keelim-plugin/skills/codebase-codemap/scripts/generate_codemap.py"
-    output_dir = root_dir / "docs/CODEMAPS/projects"
+    docs_root = archive_root(root_dir)
+    output_dir = archive_path(docs_root, "CODEMAPS", "projects")
+    if not docs_root.is_dir():
+        print(f"Local archive not found: {docs_root}; set KEELIM_DOCS_DIR.", file=sys.stderr)
+        return 1
 
     if not generator_script.exists():
         print(f"Generator script not found at {generator_script}", file=sys.stderr)
@@ -40,12 +46,14 @@ def main():
 
     # Step 1: Generate codemaps
     stats = {}
+    failures = 0
     for repo in CHILD_REPOS:
         repo_path = root_dir / repo
-        if not repo_path.exists():
+        if not repo_path.is_dir() or not any(repo_path.iterdir()):
             print(f"Child repository directory {repo_path} does not exist, skipping.")
             continue
 
+        codemap_file = archive_path(docs_root, "CODEMAPS", "projects", f"{repo}.md")
         print(f"--- Generating codemap for: {repo} ---")
         success = run_cmd([
             "python3",
@@ -58,10 +66,10 @@ def main():
 
         if not success:
             print(f"Failed to generate codemap for {repo}", file=sys.stderr)
+            failures += 1
             continue
 
         # Parse generated codemap file to extract scanned files and shape
-        codemap_file = output_dir / f"{repo}.md"
         if codemap_file.exists():
             content = codemap_file.read_text(encoding="utf-8")
             
@@ -82,8 +90,11 @@ def main():
             }
             print(f"Successfully processed {repo}: {files_scanned} files, shape: {shape}")
 
-    # Step 2: Update docs/CODEMAPS/projects/README.md table
-    projects_readme = root_dir / "docs/CODEMAPS/projects/README.md"
+    if failures:
+        return 1
+
+    # Step 2: Update the local codemap index table
+    projects_readme = archive_path(docs_root, "CODEMAPS", "projects", "README.md")
     if projects_readme.exists():
         content = projects_readme.read_text(encoding="utf-8")
         
@@ -123,12 +134,12 @@ def main():
 
     # Step 3: Update other workspace codemap dates
     doc_files = [
-        "docs/CODEMAPS/README.md",
-        "docs/CODEMAPS/WORKSPACE.md",
-        "docs/CODEMAPS/keelim-maestro.md"
+        "CODEMAPS/README.md",
+        "CODEMAPS/WORKSPACE.md",
+        "CODEMAPS/keelim-maestro.md"
     ]
     for doc in doc_files:
-        doc_path = root_dir / doc
+        doc_path = archive_path(docs_root, doc)
         if doc_path.exists():
             content = doc_path.read_text(encoding="utf-8")
             

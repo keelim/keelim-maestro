@@ -3,7 +3,7 @@
 
 The ledger is root-owned coordination state for the 2026-06 improvement
 backlog. It mirrors the stable 800-item inventory generated under
-docs/research/improvements-2026-06 and preserves per-item progress fields when
+research/improvements-2026-06 and preserves per-item progress fields when
 re-run during long goal execution.
 """
 
@@ -18,12 +18,15 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
+from docs_root import archive_path, archive_root, missing_archive_input
+
 REPO_ROOT = Path(__file__).resolve().parents[2]
-SOURCE_DIR = REPO_ROOT / "docs" / "research" / "improvements-2026-06"
-SOURCE_JSON = SOURCE_DIR / "improvements.json"
-VIEWER_HTML = REPO_ROOT / "docs" / "research" / "improvement-items-viewer-2026-06.html"
-OUTPUT_JSON = REPO_ROOT / "docs" / "ops" / "improvement-items-progress-2026-06.json"
-OUTPUT_MD = REPO_ROOT / "docs" / "ops" / "improvement-items-progress-2026-06.md"
+DOCS_ROOT = archive_root(REPO_ROOT)
+SOURCE_DIR = archive_path(DOCS_ROOT, "research", "improvements-2026-06")
+SOURCE_JSON = archive_path(DOCS_ROOT, "research", "improvements-2026-06", "improvements.json")
+VIEWER_HTML = archive_path(DOCS_ROOT, "research", "improvement-items-viewer-2026-06.html")
+OUTPUT_JSON = archive_path(DOCS_ROOT, "ops", "improvement-items-progress-2026-06.json")
+OUTPUT_MD = archive_path(DOCS_ROOT, "ops", "improvement-items-progress-2026-06.md")
 
 PROJECT_WAVES = {
     "android-support": 1,
@@ -188,9 +191,9 @@ def build_ledger(items: list[dict[str, Any]], existing: dict[str, dict[str, Any]
     ledger = {
         "version": 1,
         "source": {
-            "viewer": str(VIEWER_HTML.relative_to(REPO_ROOT)),
-            "inventory": str(SOURCE_JSON.relative_to(REPO_ROOT)),
-            "rawDir": str((SOURCE_DIR / "raw").relative_to(REPO_ROOT)),
+            "viewer": str(VIEWER_HTML.relative_to(DOCS_ROOT)),
+            "inventory": str(SOURCE_JSON.relative_to(DOCS_ROOT)),
+            "rawDir": str((SOURCE_DIR / "raw").relative_to(DOCS_ROOT)),
         },
         "generatedAt": datetime.now(timezone.utc).isoformat(),
         "statusValues": list(STATUS_VALUES),
@@ -404,12 +407,13 @@ def print_task_prompt(ledger: dict[str, Any], task_id: str) -> int:
         return 1
     items = [item for item in ledger["items"] if item["task_id"] == task_id]
     ids = ", ".join(item["id"] for item in items)
-    source_hint = f"docs/research/improvements-2026-06/improvements.json filtered by task_id {task_id}"
-    raw_hint = f"docs/research/improvements-2026-06/raw/{task['project']}-{slug(task['dimension'])}.json"
+    source_hint = f"research/improvements-2026-06/improvements.json filtered by task_id {task_id}"
+    raw_hint = f"research/improvements-2026-06/raw/{task['project']}-{slug(task['dimension'])}.json"
     print(
         f"""You are a subagent for the active Ultragoal run in {REPO_ROOT}.
 Task: handle {task_id} for project `{task['project']}`, dimension `{task['dimension']}`.
 
+Paths below are relative to the local documentation archive: {DOCS_ROOT}.
 Source inventory: {source_hint}
 Potential raw analysis file: {raw_hint} when present; if raw IDs differ, map by title/file_path and report final ledger IDs.
 Final selected ledger IDs ({len(items)}): {ids}
@@ -430,11 +434,13 @@ Required output:
 
 def main() -> int:
     args = parse_args()
-    source_items = load_source_items()
     if args.check and (args.set_task_status or args.set_item_status or args.print_task_prompt):
         raise SystemExit("--check cannot be combined with other actions")
     if args.set_task_status and args.set_item_status:
         raise SystemExit("--set-task-status and --set-item-status are mutually exclusive")
+    if not SOURCE_JSON.is_file():
+        return missing_archive_input(SOURCE_JSON)
+    source_items = load_source_items()
     if args.check:
         if not OUTPUT_JSON.exists() or not OUTPUT_MD.exists():
             print("FAIL: progress ledger files are missing")
@@ -483,8 +489,8 @@ def main() -> int:
         )
     OUTPUT_JSON.write_text(json.dumps(ledger, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     OUTPUT_MD.write_text(render_markdown(ledger), encoding="utf-8")
-    print(f"wrote {OUTPUT_JSON.relative_to(REPO_ROOT)}")
-    print(f"wrote {OUTPUT_MD.relative_to(REPO_ROOT)}")
+    print(f"wrote {OUTPUT_JSON.relative_to(DOCS_ROOT)}")
+    print(f"wrote {OUTPUT_MD.relative_to(DOCS_ROOT)}")
     print(f"{ledger['counts']['total']} items across {len(ledger['taskUnits'])} task units")
     return 0
 

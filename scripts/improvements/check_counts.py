@@ -15,8 +15,11 @@ import re
 import sys
 from pathlib import Path
 
+from docs_root import archive_path, archive_root, missing_archive_input
+
 REPO_ROOT = Path(__file__).resolve().parents[2]
-BASE_DIR = REPO_ROOT / "docs" / "research" / "improvements-2026-06"
+DOCS_ROOT = archive_root(REPO_ROOT)
+BASE_DIR = archive_path(DOCS_ROOT, "research", "improvements-2026-06")
 
 EXPECTED_PROJECTS = (
     "all",
@@ -33,6 +36,10 @@ _LINE_SUFFIX = re.compile(r"(:\d+)+$")
 
 
 def main() -> int:
+    for name in ("improvements.json", "report-input.json"):
+        path = BASE_DIR / name
+        if not path.is_file():
+            return missing_archive_input(path)
     errors: list[str] = []
 
     improvements = json.loads((BASE_DIR / "improvements.json").read_text(encoding="utf-8"))

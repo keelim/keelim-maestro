@@ -15,9 +15,12 @@ import sys
 from html import escape
 from pathlib import Path
 
+from docs_root import archive_path, archive_root, missing_archive_input
+
 REPO_ROOT = Path(__file__).resolve().parents[2]
-BASE_DIR = REPO_ROOT / "docs" / "research" / "improvements-2026-06"
-OUTPUT = REPO_ROOT / "docs" / "research" / "improvement-items-viewer-2026-06.html"
+DOCS_ROOT = archive_root(REPO_ROOT)
+BASE_DIR = archive_path(DOCS_ROOT, "research", "improvements-2026-06")
+OUTPUT = archive_path(DOCS_ROOT, "research", "improvement-items-viewer-2026-06.html")
 
 FORBIDDEN_TOKENS = ("fetch(", "XMLHttpRequest", "WebSocket", "EventSource", "sendBeacon", "@import")
 ZWSP = "​"
@@ -207,9 +210,8 @@ def build_card(item: dict) -> str:
 
 def main() -> int:
     source = BASE_DIR / "improvements.json"
-    if not source.exists():
-        print(f"not found: {source}", file=sys.stderr)
-        return 1
+    if not source.is_file():
+        return missing_archive_input(source)
     data = json.loads(source.read_text(encoding="utf-8"))
     items = data["items"]
 
@@ -285,7 +287,7 @@ def main() -> int:
 <div class="empty" id="empty">조건에 맞는 항목이 없습니다.</div>
 </main>
 <footer>
-데이터: docs/research/improvements-2026-06/improvements.json · 방법론: (프로젝트 × 차원) 전담 분석 → 검증·중복 제거 → 프로젝트별 100건 우선순위 컷 · 오프라인 단일 파일(외부 통신 없음)
+데이터: research/improvements-2026-06/improvements.json · 방법론: (프로젝트 × 차원) 전담 분석 → 검증·중복 제거 → 프로젝트별 100건 우선순위 컷 · 오프라인 단일 파일(외부 통신 없음)
 </footer>
 <script>{JS}</script>
 </body>

@@ -126,7 +126,7 @@ check_root_files() {
 check_local_automation_contract() {
   run_check "local automation standby usage is documented in helper" file_contains scripts/local-automation.sh "scripts/local-automation.sh standby [all|rich|n8n|agentgateway]"
   run_check "local automation keeps agentgateway fixed during standby" file_contains scripts/local-automation.sh "agentgateway is the fixed Kubernetes resource; standby leaves it unchanged."
-  run_check "local automation standby contract is documented" file_contains docs/ops/local-automation-stack.md 'standby` keeps `agentgateway` fixed and unchanged'
+  run_check "local automation standby contract is documented" file_contains README.md '`agentgateway` fixed and unchanged.'
 }
 
 check_autonomous_repo_contract() {
